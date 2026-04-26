@@ -731,11 +731,12 @@ function App() {
     setTotalMatches(candidatePack.candidatePool.length)
 
     try {
-      const response = await fetch("http://localhost:8787/api/miller", {
+      const response = await fetch("/api/miller", {
         method: "POST",
         credentials: "include",
         headers: {
           "Content-Type": "application/json",
+          "x-site-password": localStorage.getItem("miller_site_password") || "",
         },
         body: JSON.stringify({
           query: trimmedQuery,
