@@ -1,0 +1,46 @@
+:root {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #2d5fa9;
+  background: #f5f6f8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f5f6f8;
+}
+
+#root {
+  min-height: 100vh;
+  display: block;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}

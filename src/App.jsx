@@ -1,0 +1,1148 @@
+import { useEffect, useMemo, useRef, useState } from "react"
+import "./App.css"
+import rawResources from "./vancouver_resources_merged_updated.json"
+import millerImage from "./assets/miller.png"
+import millerSearchImage from "./assets/miller_search.png"
+import { supabase } from "./supabaseClient"
+import titleImg from "./assets/title.png"
+
+const CATEGORY_ALIASES = {
+  "Detox / Withdrawal": [
+    "detox",
+    "withdrawal",
+    "withdraw",
+    "come off",
+    "get off",
+    "stop using",
+    "stop drinking",
+    "medical detox",
+    "withdrawal management",
+  ],
+  "Counselling": [
+    "counselling",
+    "counseling",
+    "therapy",
+    "therapist",
+    "talk to someone",
+    "mental health",
+    "anxiety",
+    "depression",
+    "supportive counselling",
+  ],
+  "Crisis Support": [
+    "crisis",
+    "suicidal",
+    "suicide",
+    "overdose",
+    "emergency",
+    "unsafe",
+    "panic",
+    "help now",
+    "urgent",
+  ],
+  "OAT / Med Support": [
+    "oat",
+    "methadone",
+    "suboxone",
+    "suboclade",
+    "buprenorphine",
+    "medication",
+    "med support",
+    "opioid treatment",
+  ],
+  "Harm Reduction": [
+    "harm reduction",
+    "safe use",
+    "safer use",
+    "naloxone",
+    "supplies",
+    "needle",
+    "needles",
+    "safer smoking",
+  ],
+  "Treatment Programs": [
+    "treatment",
+    "treatment center",
+    "treatment centre",
+    "residential",
+    "residential treatment",
+    "inpatient",
+    "recovery home",
+    "recovery house",
+    "supportive recovery",
+    "private pay",
+    "program",
+    "rehab",
+  ],
+  "Peer Support / Recovery": [
+    "peer support",
+    "recovery",
+    "aa",
+    "na",
+    "smart recovery",
+    "meeting",
+    "support group",
+  ],
+  "Housing / Outreach": [
+    "housing",
+    "homeless",
+    "outreach",
+    "shelter",
+    "street",
+    "homelessness",
+  ],
+  "Youth Support": ["youth", "teen", "teenager", "young person", "young adult"],
+  "Indigenous Support": ["indigenous", "first nations", "metis", "inuit", "aboriginal"],
+}
+
+const STOP_WORDS = new Set([
+  "a",
+  "an",
+  "and",
+  "are",
+  "as",
+  "at",
+  "be",
+  "but",
+  "for",
+  "from",
+  "help",
+  "i",
+  "im",
+  "i'm",
+  "in",
+  "is",
+  "it",
+  "me",
+  "my",
+  "need",
+  "of",
+  "on",
+  "or",
+  "please",
+  "some",
+  "support",
+  "that",
+  "the",
+  "to",
+  "with",
+])
+
+function normalizeText(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^\w\s/&-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+}
+
+function uniqueStrings(items) {
+  return Array.from(new Set(items.filter(Boolean)))
+}
+
+function looksLikePersonalEmail(value) {
+  const email = String(value || "").trim().toLowerCase()
+  if (!email || !email.includes("@")) return false
+
+  const personalDomains = [
+    "gmail.com",
+    "hotmail.com",
+    "outlook.com",
+    "live.com",
+    "icloud.com",
+    "shaw.ca",
+    "telus.net",
+    "yahoo.com",
+    "me.com",
+  ]
+
+  return personalDomains.some((domain) => email.endsWith(`@${domain}`))
+}
+
+function looksLikePersonName(value) {
+  const text = String(value || "").trim()
+  if (!text) return false
+
+  const cleaned = text.replace(/[^a-zA-Z\s'-]/g, " ").replace(/\s+/g, " ").trim()
+  const parts = cleaned.split(" ").filter(Boolean)
+
+  if (parts.length < 2 || parts.length > 3) return false
+
+  return parts.every((part) => /^[A-Z][a-z'-]+$/.test(part))
+}
+
+function safeOrganization(resource) {
+  const org = String(resource.organization || "").trim()
+  if (!org) return ""
+
+  if (looksLikePersonName(org)) return ""
+  return org
+}
+
+function safeEmail(resource) {
+  const email = String(resource.email || "").trim()
+  if (!email) return ""
+
+  if (looksLikePersonalEmail(email)) return ""
+  return email
+}
+
+function safeNotes() {
+  return ""
+}
+
+function getField(resource, keys) {
+  for (const key of keys) {
+    const value = resource[key]
+    if (value !== undefined && value !== null && String(value).trim() !== "") {
+      return String(value).trim()
+    }
+  }
+  return ""
+}
+
+function cleanResources(rows) {
+  return rows.map((row) => {
+    const cleaned = {}
+
+    for (const [key, value] of Object.entries(row)) {
+      const cleanKey = String(key).replace(/^\uFEFF/, "").trim()
+      cleaned[cleanKey] = value
+    }
+
+    return {
+      name: getField(cleaned, ["Resource Name", "Name", "name"]) || "Unnamed Resource",
+      organization: getField(cleaned, ["Organization", "organization"]),
+      serviceType: getField(cleaned, ["Service Type", "serviceType"]),
+      category: getField(cleaned, ["Program Category", "category"]),
+      population: getField(cleaned, ["Population", "population"]),
+      eligibility: getField(cleaned, ["Age / Eligibility", "eligibility"]),
+      description: getField(cleaned, ["Description", "description"]),
+      accessType: getField(cleaned, ["Access Type", "accessType"]),
+      hours: getField(cleaned, ["Hours", "hours"]),
+      phone: getField(cleaned, ["Phone", "phone"]),
+      altPhone: getField(cleaned, ["Alt Phone", "altPhone"]),
+      email: getField(cleaned, ["Email", "email"]),
+      website: getField(cleaned, ["Website", "website"]),
+      address: getField(cleaned, ["Address", "address"]),
+      city: getField(cleaned, ["City", "city"]),
+      region: getField(cleaned, ["Region", "region"]),
+      notes: getField(cleaned, ["Notes", "notes"]),
+    }
+  })
+}
+
+function buildSearchText(resource) {
+  return `
+    ${resource.name}
+    ${resource.organization}
+    ${resource.serviceType}
+    ${resource.category}
+    ${resource.population}
+    ${resource.eligibility}
+    ${resource.description}
+    ${resource.accessType}
+    ${resource.hours}
+    ${resource.phone}
+    ${resource.altPhone}
+    ${resource.email}
+    ${resource.website}
+    ${resource.address}
+    ${resource.city}
+    ${resource.region}
+    ${resource.notes}
+  `
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+}
+
+function dedupeResources(resources) {
+  const seen = new Set()
+
+  return resources.filter((resource) => {
+    const key = `${resource.name}|${resource.city}|${resource.organization}`.toLowerCase()
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
+
+function inferCategoriesFromQuery(query) {
+  const search = normalizeText(query)
+  if (!search) return []
+
+  const matches = []
+
+  for (const [category, aliases] of Object.entries(CATEGORY_ALIASES)) {
+    if (aliases.some((alias) => search.includes(normalizeText(alias)))) {
+      matches.push(category)
+    }
+  }
+
+  return uniqueStrings(matches)
+}
+
+function isDetoxSearch(query, inferredCategories = []) {
+  const search = normalizeText(query)
+
+  return (
+    inferredCategories.includes("Detox / Withdrawal") ||
+    search.includes("detox") ||
+    search.includes("withdrawal") ||
+    search.includes("medical detox")
+  )
+}
+
+function isTreatmentSearch(query, inferredCategories = []) {
+  const search = normalizeText(query)
+
+  return (
+    inferredCategories.includes("Treatment Programs") ||
+    search.includes("treatment") ||
+    search.includes("treatment center") ||
+    search.includes("treatment centre") ||
+    search.includes("residential") ||
+    search.includes("recovery home") ||
+    search.includes("recovery house") ||
+    search.includes("rehab")
+  )
+}
+
+function shouldHideFromDetoxResults(resource, query, inferredCategories = []) {
+  if (!isDetoxSearch(query, inferredCategories)) return false
+
+  const name = normalizeText(resource.name)
+  const category = normalizeText(resource.category)
+  const serviceType = normalizeText(resource.serviceType)
+  const description = normalizeText(resource.description)
+
+  const isSusat =
+    name.includes("susat") ||
+    name.includes("substance use services access team")
+
+  const isTreatmentOnly =
+    category.includes("treatment") ||
+    category.includes("recovery home") ||
+    category.includes("fnha treatment centre") ||
+    serviceType.includes("residential treatment") ||
+    serviceType.includes("recovery home") ||
+    serviceType.includes("supportive recovery")
+
+  const onlyMentionsDetoxSupport =
+    description.includes("detox support") &&
+    !category.includes("detox") &&
+    !serviceType.includes("withdrawal")
+
+  return isSusat || isTreatmentOnly || onlyMentionsDetoxSupport
+}
+
+function applySearchSafetyFilters(resources, query, inferredCategories = []) {
+  return resources.filter(
+    (resource) => !shouldHideFromDetoxResults(resource, query, inferredCategories)
+  )
+}
+
+function getResultLimit(query, inferredCategories = []) {
+  if (isTreatmentSearch(query, inferredCategories)) return 40
+  if (isDetoxSearch(query, inferredCategories)) return 16
+  return 12
+}
+
+function extractKeywordTokens(query) {
+  return uniqueStrings(
+    normalizeText(query)
+      .split(/\s+/)
+      .filter((token) => token && token.length > 2 && !STOP_WORDS.has(token))
+  )
+}
+
+function expandTerms(query, categories = [], aiHints = null) {
+  const terms = [...extractKeywordTokens(query)]
+
+  for (const category of categories) {
+    const aliases = CATEGORY_ALIASES[category] || []
+    terms.push(...aliases.map((item) => normalizeText(item)))
+    terms.push(normalizeText(category))
+  }
+
+  if (aiHints?.keywords?.length) {
+    terms.push(...aiHints.keywords.map((item) => normalizeText(item)))
+  }
+
+  return uniqueStrings(terms).filter(Boolean)
+}
+
+function cityMatches(resource, selectedCity) {
+  if (selectedCity === "All Cities") return true
+  return normalizeText(resource.city) === normalizeText(selectedCity)
+}
+
+function scoreResource(resource, query, selectedCity, options = {}) {
+  const search = normalizeText(query)
+  const text = buildSearchText(resource)
+  const name = normalizeText(resource.name)
+  const organization = normalizeText(resource.organization)
+  const serviceType = normalizeText(resource.serviceType)
+  const category = normalizeText(resource.category)
+  const city = normalizeText(resource.city)
+
+  const inferredCategories = options.inferredCategories || []
+  const aiHints = options.aiHints || null
+  const terms = expandTerms(query, inferredCategories, aiHints)
+
+  let score = 0
+
+  if (selectedCity !== "All Cities" && city === normalizeText(selectedCity)) {
+    score += 40
+  }
+
+  if (!search) {
+    if (selectedCity === "All Cities") return 1
+    return city === normalizeText(selectedCity) ? 50 : 0
+  }
+
+  if (text.includes(search)) score += 100
+  if (name.includes(search)) score += 150
+  if (organization.includes(search)) score += 50
+  if (serviceType.includes(search)) score += 45
+  if (category.includes(search)) score += 60
+  if (city.includes(search)) score += 30
+
+  for (const term of terms) {
+    if (!term) continue
+    if (text.includes(term)) score += 12
+    if (name.includes(term)) score += 26
+    if (organization.includes(term)) score += 12
+    if (serviceType.includes(term)) score += 18
+    if (category.includes(term)) score += 20
+  }
+
+  if (inferredCategories.length > 0) {
+    for (const inferred of inferredCategories) {
+      const normalizedCategory = normalizeText(inferred)
+      if (category === normalizedCategory) score += 110
+      else if (category.includes(normalizedCategory)) score += 70
+      else if (serviceType.includes(normalizedCategory)) score += 40
+    }
+  }
+
+  if (aiHints) {
+    const suggestedCategories = (aiHints.categories || []).map((item) => normalizeText(item))
+    const suggestedNames = (aiHints.recommendedResourceNames || []).map((item) =>
+      normalizeText(item)
+    )
+    const suggestedKeywords = (aiHints.keywords || []).map((item) => normalizeText(item))
+
+    if (suggestedNames.includes(name)) score += 250
+
+    for (const suggestedCategory of suggestedCategories) {
+      if (category === suggestedCategory) score += 130
+      else if (category.includes(suggestedCategory)) score += 75
+    }
+
+    for (const keyword of suggestedKeywords) {
+      if (!keyword) continue
+      if (text.includes(keyword)) score += 18
+      if (name.includes(keyword)) score += 22
+    }
+  }
+
+  return score
+}
+
+function sortResources(resources, query, selectedCity, options = {}) {
+  return [...resources].sort((a, b) => {
+    const scoreA = scoreResource(a, query, selectedCity, options)
+    const scoreB = scoreResource(b, query, selectedCity, options)
+
+    if (scoreB !== scoreA) return scoreB - scoreA
+
+    const cityCompare = (a.city || "").localeCompare(b.city || "")
+    if (cityCompare !== 0) return cityCompare
+
+    return (a.name || "").localeCompare(b.name || "")
+  })
+}
+
+function uniqueResourceObjects(resources) {
+  const seen = new Set()
+  return resources.filter((resource) => {
+    const key = `${normalizeText(resource.name)}|${normalizeText(resource.city)}|${normalizeText(resource.organization)}`
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
+
+function buildCandidatePack(resources, query, selectedCity) {
+  const inferredCategories = inferCategoriesFromQuery(query)
+
+  const cityPool = resources.filter((resource) => cityMatches(resource, selectedCity))
+
+  let scored = sortResources(cityPool, query, selectedCity, {
+    inferredCategories,
+  }).filter((resource) => scoreResource(resource, query, selectedCity, { inferredCategories }) > 0)
+
+  scored = applySearchSafetyFilters(scored, query, inferredCategories)
+
+  if (scored.length < 12 && inferredCategories.length > 0) {
+    const categoryFallback = cityPool.filter((resource) =>
+      inferredCategories.some(
+        (category) =>
+          normalizeText(resource.category) === normalizeText(category) ||
+          normalizeText(resource.category).includes(normalizeText(category))
+      )
+    )
+
+    scored = uniqueResourceObjects([...scored, ...categoryFallback])
+    scored = applySearchSafetyFilters(scored, query, inferredCategories)
+    scored = sortResources(scored, query, selectedCity, { inferredCategories })
+  }
+
+  if (scored.length === 0 && !query.trim()) {
+    scored = sortResources(cityPool, query, selectedCity, { inferredCategories })
+  }
+
+  const candidates = scored.slice(0, 24)
+
+  return {
+    inferredCategories,
+    candidates,
+    candidatePool: scored,
+  }
+}
+
+function App() {
+  const normalizedResources = useMemo(() => {
+    return dedupeResources(cleanResources(rawResources))
+  }, [])
+
+  const defaultReply =
+    "Tell me what kind of help you’re looking for. I’ll follow the trail, answer in plain language, and bring the closest resources forward."
+
+  const [query, setQuery] = useState("")
+  const [selectedCity, setSelectedCity] = useState("All Cities")
+  const [hasSearched, setHasSearched] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [isTyping, setIsTyping] = useState(false)
+  const [aiReply, setAiReply] = useState(defaultReply)
+  const [displayedReply, setDisplayedReply] = useState("")
+  const [results, setResults] = useState([])
+  const [totalMatches, setTotalMatches] = useState(0)
+
+  const chestRef = useRef(null)
+  const searchPanelRef = useRef(null)
+  const resultsPanelRef = useRef(null)
+  const controlsRowRef = useRef(null)
+  const bubbleRef = useRef(null)
+  const appShellRef = useRef(null)
+
+  const [isChestOpen, setIsChestOpen] = useState(false)
+  const [isChestWiggling, setIsChestWiggling] = useState(false)
+  const [millerMood, setMillerMood] = useState("idle")
+  const [isSearchBarHovered, setIsSearchBarHovered] = useState(false)
+  const [cursorOffset, setCursorOffset] = useState({ x: 0, y: 0 })
+  const [showSearchReveal, setShowSearchReveal] = useState(false)
+
+  const [submission, setSubmission] = useState({
+    resource_name: "",
+    city: "",
+    note: "",
+  })
+  const [submissionStatus, setSubmissionStatus] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  useEffect(() => {
+    let cancelled = false
+    let timer = null
+
+    async function runTyping() {
+      let index = 0
+      const fullText = isLoading ? "Miller is checking the clues..." : aiReply || ""
+
+      setDisplayedReply("")
+
+      await new Promise((resolve) =>
+        setTimeout(resolve, isLoading ? 120 : 140 + Math.random() * 70)
+      )
+
+      if (cancelled) return
+
+      timer = setInterval(() => {
+        index += 2
+        setDisplayedReply(fullText.slice(0, index))
+
+        if (index >= fullText.length) {
+          clearInterval(timer)
+          timer = null
+        }
+      }, 10)
+    }
+
+    runTyping()
+
+    return () => {
+      cancelled = true
+      if (timer) clearInterval(timer)
+    }
+  }, [aiReply, isLoading])
+
+  const isBubbleTyping =
+    isLoading || displayedReply.length < String(aiReply || "").length
+
+  const cities = useMemo(() => {
+    const uniqueCities = Array.from(
+      new Set(
+        normalizedResources
+          .map((resource) => resource.city)
+          .filter(Boolean)
+          .map((city) => city.trim())
+      )
+    ).sort((a, b) => a.localeCompare(b))
+
+    return ["All Cities", ...uniqueCities]
+  }, [normalizedResources])
+
+  function distanceToRef(event, ref) {
+    if (!ref.current) return Infinity
+
+    const rect = ref.current.getBoundingClientRect()
+    const centerX = rect.left + rect.width / 2
+    const centerY = rect.top + rect.height / 2
+    const dx = event.clientX - centerX
+    const dy = event.clientY - centerY
+
+    return Math.sqrt(dx * dx + dy * dy)
+  }
+
+  useEffect(() => {
+    if (isTyping) {
+      setShowSearchReveal(true)
+      return
+    }
+
+    const timer = setTimeout(() => {
+      setShowSearchReveal(false)
+    }, 180)
+
+    return () => clearTimeout(timer)
+  }, [isTyping])
+
+  useEffect(() => {
+    function handleGlobalMouseMove(event) {
+      const chestDistance = distanceToRef(event, chestRef)
+      const controlsDistance = distanceToRef(event, controlsRowRef)
+      const resultsDistance = distanceToRef(event, resultsPanelRef)
+      const bubbleDistance = distanceToRef(event, bubbleRef)
+
+      setIsChestWiggling(chestDistance < 150)
+
+      if (appShellRef.current) {
+        const rect = appShellRef.current.getBoundingClientRect()
+        const centerX = rect.left + rect.width / 2
+        const centerY = rect.top + rect.height / 2
+        const dx = (event.clientX - centerX) / rect.width
+        const dy = (event.clientY - centerY) / rect.height
+
+        setCursorOffset({
+          x: Math.max(-1, Math.min(1, dx)) * 10,
+          y: Math.max(-1, Math.min(1, dy)) * 8,
+        })
+      }
+
+      if (isTyping || isSearchBarHovered) {
+        setMillerMood("search")
+        return
+      }
+
+      if (isChestOpen) {
+        setMillerMood("satchel")
+        return
+      }
+
+      if (hasSearched && results.length === 0) {
+        setMillerMood("confused")
+        return
+      }
+
+      const candidates = [
+        { mood: "satchel", distance: chestDistance, threshold: 170 },
+        { mood: "controls", distance: controlsDistance, threshold: 260 },
+        { mood: "results", distance: resultsDistance, threshold: 320 },
+        { mood: "bubble", distance: bubbleDistance, threshold: 180 },
+      ].filter((item) => item.distance < item.threshold)
+
+      if (candidates.length === 0) {
+        setMillerMood("idle")
+        return
+      }
+
+      candidates.sort((a, b) => a.distance - b.distance)
+      setMillerMood(candidates[0].mood)
+    }
+
+    function handleGlobalMouseOut(event) {
+      if (!event.relatedTarget && !event.toElement) {
+        setIsChestWiggling(false)
+        setIsSearchBarHovered(false)
+        setCursorOffset({ x: 0, y: 0 })
+
+        if (hasSearched && results.length === 0) {
+          setMillerMood("confused")
+        } else {
+          setMillerMood("idle")
+        }
+      }
+    }
+
+    window.addEventListener("mousemove", handleGlobalMouseMove)
+    window.addEventListener("mouseout", handleGlobalMouseOut)
+
+    return () => {
+      window.removeEventListener("mousemove", handleGlobalMouseMove)
+      window.removeEventListener("mouseout", handleGlobalMouseOut)
+    }
+  }, [hasSearched, isSearchBarHovered, isTyping, isChestOpen, results.length])
+
+  async function handleSearch(event) {
+    event.preventDefault()
+
+    const trimmedQuery = query.trim()
+
+    if (!trimmedQuery) {
+      const cityPool = normalizedResources.filter((resource) =>
+        cityMatches(resource, selectedCity)
+      )
+      const firstResults = sortResources(cityPool, "", selectedCity).slice(0, 12)
+
+      setHasSearched(true)
+      setResults(firstResults)
+      setTotalMatches(cityPool.length)
+      setAiReply("You can ask for something like detox, counselling, crisis help, OAT, treatment, peer support, or harm reduction.")
+      return
+    }
+
+    const candidatePack = buildCandidatePack(normalizedResources, trimmedQuery, selectedCity)
+    const resultLimit = getResultLimit(trimmedQuery, candidatePack.inferredCategories)
+
+    setHasSearched(true)
+    setIsLoading(true)
+    setResults(candidatePack.candidates.slice(0, Math.min(resultLimit, 12)))
+    setTotalMatches(candidatePack.candidatePool.length)
+
+    try {
+      const response = await fetch("http://localhost:8787/api/miller", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          query: trimmedQuery,
+          city: selectedCity,
+          inferredCategories: candidatePack.inferredCategories,
+          matches: candidatePack.candidates.slice(0, 20),
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error("Could not get Miller response.")
+      }
+
+      const data = await response.json()
+      const aiHints = data.searchHints || {}
+
+      let rankedPool = sortResources(
+        candidatePack.candidatePool.length ? candidatePack.candidatePool : candidatePack.candidates,
+        trimmedQuery,
+        selectedCity,
+        {
+          inferredCategories: candidatePack.inferredCategories,
+          aiHints,
+        }
+      )
+
+      rankedPool = applySearchSafetyFilters(
+        rankedPool,
+        trimmedQuery,
+        candidatePack.inferredCategories
+      )
+
+      const finalResults = rankedPool.slice(0, resultLimit)
+
+      setResults(finalResults)
+      setTotalMatches(rankedPool.length)
+      setAiReply(
+        data.answer ||
+          "Here’s what stands out. I pulled the closest matches below so you can scan the best leads first."
+      )
+    } catch (error) {
+      console.error(error)
+
+      let fallbackPool = sortResources(candidatePack.candidatePool, trimmedQuery, selectedCity, {
+        inferredCategories: candidatePack.inferredCategories,
+      })
+
+      fallbackPool = applySearchSafetyFilters(
+        fallbackPool,
+        trimmedQuery,
+        candidatePack.inferredCategories
+      )
+
+      const fallbackResults = fallbackPool.slice(0, resultLimit)
+
+      setResults(fallbackResults)
+      setTotalMatches(fallbackPool.length)
+      setAiReply("I couldn’t reach the AI just now, but I still pulled the closest matches below.")
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  function clearSearch() {
+    setQuery("")
+    setSelectedCity("All Cities")
+    setHasSearched(false)
+    setResults([])
+    setTotalMatches(0)
+    setIsTyping(false)
+    setMillerMood("idle")
+    setAiReply(defaultReply)
+  }
+
+  function updateSubmissionField(field, value) {
+    setSubmission((prev) => ({
+      ...prev,
+      [field]: value,
+    }))
+  }
+
+  async function handleSubmission(event) {
+    event.preventDefault()
+    setSubmissionStatus("")
+
+    if (!submission.note.trim()) {
+      setSubmissionStatus("Please add a note before submitting.")
+      return
+    }
+
+    setIsSubmitting(true)
+
+    try {
+      const payload = {
+        name: submission.resource_name.trim() || null,
+        city: submission.city.trim() || null,
+        category: submission.note.trim(),
+      }
+
+      const { error } = await supabase.from("resource_submissions").insert([payload])
+
+      if (error) {
+        throw error
+      }
+
+      setSubmission({
+        resource_name: "",
+        city: "",
+        note: "",
+      })
+      setSubmissionStatus("Thanks — your submission was sent.")
+    } catch (error) {
+      console.error("Submission failed:", error)
+      setSubmissionStatus(
+        `Something went wrong sending the submission.${error?.message ? ` ${error.message}` : ""}`
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  const shouldShowSearchMiller = isTyping || showSearchReveal || isLoading
+  const millerImageSrc = shouldShowSearchMiller ? millerSearchImage : millerImage
+
+  const millerClasses = [
+    "miller-image",
+    `miller-${millerMood}`,
+    shouldShowSearchMiller ? "is-searching" : "",
+    showSearchReveal ? "search-reveal" : "",
+  ]
+    .filter(Boolean)
+    .join(" ")
+
+  const millerStyle = {}
+
+const millerImageStyle = {}
+
+  return (
+    <div className="app-shell" ref={appShellRef}>
+      <div className="hero-header">
+       <p className="eyebrow">Gentle help finding support in BC’s Lower Mainland</p>
+
+          <div className="title-stage">
+            <div className="title-frame">
+              <img src={titleImg} alt="Addiction Resource Finder" className="title-image" />
+            </div>
+          </div>
+
+          <p className="page-subtitle">
+            Ask Miller what kind of support you need. He’ll answer clearly, then show matching resources below.
+          </p>
+          </div>
+      <main className="hero-layout">
+        <section className="hero-copy">
+         
+
+          <form className="search-panel" onSubmit={handleSearch} ref={searchPanelRef}>
+            <div
+              className="search-bar-wrap"
+              onMouseEnter={() => setIsSearchBarHovered(true)}
+              onMouseLeave={() => setIsSearchBarHovered(false)}
+            >
+              <input
+                className="main-search-input"
+                placeholder="Try detox, treatment centre, counselling, OAT, crisis, or harm reduction..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onFocus={() => setIsTyping(true)}
+                onBlur={() => setIsTyping(false)}
+              />
+            </div>
+
+            <div className="controls-row" ref={controlsRowRef}>
+              <select
+                className="city-select"
+                value={selectedCity}
+                onChange={(event) => setSelectedCity(event.target.value)}
+              >
+                {cities.map((city) => (
+                  <option key={city} value={city}>
+                    {city}
+                  </option>
+                ))}
+              </select>
+
+              <button type="submit" className="primary-button">
+                Ask Miller
+              </button>
+
+              <button type="button" className="ghost-button" onClick={clearSearch}>
+                Clear
+              </button>
+            </div>
+
+            <div className="micro-options">
+              <span className="ai-note">
+                Miller gives a short guide first, then the list stays searchable by city.
+              </span>
+            </div>
+          </form>
+
+          {hasSearched && (
+            <div className="results-panel" ref={resultsPanelRef}>
+              <div className="results-head">
+                <h2>
+                  Matching resources
+                  <span className="results-count">
+                    {" "}
+                    {results.length} of {totalMatches}
+                  </span>
+                </h2>
+              </div>
+
+              {results.length === 0 ? (
+                <div className="empty-card">
+                  <h3>No matches found</h3>
+                  <p>Try a broader keyword, or switch the city filter back to All Cities.</p>
+                </div>
+              ) : (
+                <div className="resource-list">
+                  {results.map((resource, index) => (
+                    <article
+                      key={`${resource.name}-${resource.city}-${resource.organization}-${index}`}
+                      className="resource-card"
+                    >
+                      <div className="resource-top">
+                        <div>
+                          <h3>{resource.name}</h3>
+                          {safeOrganization(resource) && (
+                            <p className="resource-org">{safeOrganization(resource)}</p>
+                          )}
+                        </div>
+                        {resource.city && <span className="resource-city">{resource.city}</span>}
+                      </div>
+
+                      <div className="resource-meta">
+                        {resource.serviceType && <span>{resource.serviceType}</span>}
+                        {resource.category && <span>{resource.category}</span>}
+                      </div>
+
+                      {resource.description && (
+                        <p className="resource-description">{resource.description}</p>
+                      )}
+
+                      <div className="resource-details">
+                        {resource.accessType && (
+                          <p>
+                            <strong>Access:</strong> {resource.accessType}
+                          </p>
+                        )}
+                        {resource.phone && (
+                          <p>
+                            <strong>Phone:</strong> {resource.phone}
+                            {resource.altPhone ? ` / ${resource.altPhone}` : ""}
+                          </p>
+                        )}
+                        {resource.hours && (
+                          <p>
+                            <strong>Hours:</strong> {resource.hours}
+                          </p>
+                        )}
+                        {resource.address && (
+                          <p>
+                            <strong>Address:</strong> {resource.address}
+                          </p>
+                        )}
+                        {resource.population && (
+                          <p>
+                            <strong>Population:</strong> {resource.population}
+                          </p>
+                        )}
+                        {resource.eligibility && (
+                          <p>
+                            <strong>Eligibility:</strong> {resource.eligibility}
+                          </p>
+                        )}
+                        {safeNotes(resource) && (
+                          <p>
+                            <strong>Notes:</strong> {safeNotes(resource)}
+                          </p>
+                        )}
+                      </div>
+
+                      <div className="resource-links">
+                        {resource.website ? (
+                          <a href={resource.website} target="_blank" rel="noreferrer">
+                            Open website
+                          </a>
+                        ) : (
+                          <span className="muted">No website listed</span>
+                        )}
+
+                        {safeEmail(resource) ? (
+                          <a href={`mailto:${safeEmail(resource)}`}>Email</a>
+                        ) : null}
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </section>
+
+        <aside className="hero-art">
+          <div className="miller-stage">
+            <div className="miller-figure" style={millerStyle}>
+              <img
+                src={millerImageSrc}
+                alt="Miller"
+                className={millerClasses}
+                style={millerImageStyle}
+              />
+            </div>
+
+            <div
+              ref={bubbleRef}
+              className={`miller-bubble ${isBubbleTyping ? "is-typing" : ""}`}
+              aria-live="polite"
+            >
+              {displayedReply}
+              {isBubbleTyping ? <span className="typing-cursor" /> : null}
+            </div>
+
+            <div className="miller-satchel-zone">
+              <button
+                ref={chestRef}
+                className={`treasure-chest-button ${isChestOpen ? "open" : ""} ${isChestWiggling ? "wiggle" : ""}`}
+                type="button"
+                onClick={() => setIsChestOpen((prev) => !prev)}
+                aria-label="Open submission satchel"
+              >
+                <span className="chest-lid" />
+                <span className="chest-lock" />
+                <span className="chest-spark chest-spark-1">✦</span>
+                <span className="chest-spark chest-spark-2">✦</span>
+                <span className="chest-label">Notes</span>
+              </button>
+
+              {isChestOpen && (
+                <div className="submission-panel">
+                  <div className="submission-panel-glow" />
+
+                  <div className="submission-panel-head">
+                    <div>
+                      <p className="submission-kicker">Miller’s satchel</p>
+                      <h3>Share a resource update</h3>
+                    </div>
+
+                    <button
+                      type="button"
+                      className="submission-close-button"
+                      onClick={() => setIsChestOpen(false)}
+                      aria-label="Close submission panel"
+                    >
+                      ×
+                    </button>
+                  </div>
+
+                  <p className="submission-panel-text">
+                    Found a missing service, correction, or helpful note? Leave it here and I’ll tuck it into the collection.
+                  </p>
+
+                  <form className="submission-form" onSubmit={handleSubmission}>
+                    <input
+                      type="text"
+                      placeholder="Resource name (optional)"
+                      value={submission.resource_name}
+                      onChange={(event) =>
+                        updateSubmissionField("resource_name", event.target.value)
+                      }
+                    />
+
+                    <input
+                      type="text"
+                      placeholder="City (optional)"
+                      value={submission.city}
+                      onChange={(event) => updateSubmissionField("city", event.target.value)}
+                    />
+
+                    <textarea
+                      placeholder="Write your note, correction, or resource suggestion..."
+                      rows="5"
+                      value={submission.note}
+                      onChange={(event) => updateSubmissionField("note", event.target.value)}
+                    />
+
+                    <button
+                      className="submission-submit-button"
+                      type="submit"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? "Sending..." : "Tuck into satchel"}
+                    </button>
+
+                    {submissionStatus ? (
+                      <p className="submission-status">{submissionStatus}</p>
+                    ) : null}
+                  </form>
+                </div>
+              )}
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+  )
+}
+
+export default App

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miller Access</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #f6f8fb;
+    }
+    .box {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      width: min(90vw, 380px);
+    }
+    input, button {
+      width: 100%;
+      padding: 0.9rem;
+      margin-top: 0.8rem;
+      border-radius: 10px;
+      border: 1px solid #cfd8e3;
+      box-sizing: border-box;
+    }
+    button {
+      background: #1f4fa3;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .error {
+      color: #b00020;
+      margin-top: 0.8rem;
+      min-height: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Miller Preview</h2>
+    <p>Enter the site password.</p>
+    <input id="password" type="password" placeholder="Password" />
+    <button id="go">Enter</button>
+    <div class="error" id="error"></div>
+  </div>
+
+ <script>
+  document.getElementById("go").addEventListener("click", async () => {
+    const password = document.getElementById("password").value
+    const errorEl = document.getElementById("error")
+    errorEl.textContent = ""
+
+    try {
+      const res = await fetch("/api/unlock", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password })
+      })
+
+      if (!res.ok) {
+        errorEl.textContent = "Wrong password."
+        return
+      }
+
+      window.location.href = "/"
+    } catch (err) {
+      errorEl.textContent = "Could not connect to the server."
+    }
+  })
+</script>
+</body>
+</html>
