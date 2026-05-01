@@ -251,6 +251,7 @@ function buildSearchText(resource) {
     ${resource.city}
     ${resource.region}
     ${resource.notes}
+    ${(resource.tags || []).join(" ")}
   `
     .toLowerCase()
     .replace(/\s+/g, " ")
@@ -381,6 +382,7 @@ function scoreResource(resource, query, selectedCity, options = {}) {
   const search = normalizeText(query)
   const text = buildSearchText(resource)
   const name = normalizeText(resource.name)
+  const tags = (resource.tags || []).join(" ").toLowerCase()
   const organization = normalizeText(resource.organization)
   const serviceType = normalizeText(resource.serviceType)
   const category = normalizeText(resource.category)
