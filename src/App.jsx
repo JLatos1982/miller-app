@@ -526,9 +526,19 @@ function App() {
   const [selectedCity, setSelectedCity] = useState("All Cities")
   const [hasSearched, setHasSearched] = useState(false)
   useEffect(() => {
-  supabase.from("site_events").insert([
-    { event_type: "page_view" }
-  ])
+  async function trackVisit() {
+    const { error } = await supabase.from("site_events").insert([
+      { event_type: "page_view" }
+    ])
+
+    if (error) {
+      console.error("Tracking error:", error)
+    } else {
+      console.log("Page view tracked")
+    }
+  }
+
+  trackVisit()
 }, [])
   const [isLoading, setIsLoading] = useState(false)
   const [isTyping, setIsTyping] = useState(false)
