@@ -525,6 +525,11 @@ function App() {
   const [query, setQuery] = useState("")
   const [selectedCity, setSelectedCity] = useState("All Cities")
   const [hasSearched, setHasSearched] = useState(false)
+  useEffect(() => {
+  supabase.from("site_events").insert([
+    { event_type: "page_view" }
+  ])
+}, [])
   const [isLoading, setIsLoading] = useState(false)
   const [isTyping, setIsTyping] = useState(false)
   const [aiReply, setAiReply] = useState(defaultReply)
