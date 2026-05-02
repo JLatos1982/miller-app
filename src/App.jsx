@@ -1045,18 +1045,32 @@ const millerImageStyle = {}
                       </div>
 
                       <div className="resource-links">
-                        {resource.website ? (
-                          <a href={resource.website} target="_blank" rel="noreferrer">
-                            Open website
-                          </a>
-                        ) : (
-                          <span className="muted">No website listed</span>
-                        )}
+  {resource.website ? (
+    <a
+      href={resource.website}
+      target="_blank"
+      rel="noreferrer"
+      onClick={() => {
+        supabase.from("site_events").insert([
+          {
+            event_type: "resource_click",
+            resource_name: resource.name,
+            city: resource.city,
+            query
+          }
+        ])
+      }}
+    >
+      Open website
+    </a>
+  ) : (
+    <span className="muted">No website listed</span>
+  )}
 
-                        {safeEmail(resource) ? (
-                          <a href={`mailto:${safeEmail(resource)}`}>Email</a>
-                        ) : null}
-                      </div>
+  {safeEmail(resource) ? (
+    <a href={`mailto:${safeEmail(resource)}`}>Email</a>
+  ) : null}
+</div>
                     </article>
                   ))}
                 </div>
