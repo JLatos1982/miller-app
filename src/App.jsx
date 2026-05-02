@@ -725,6 +725,13 @@ function App() {
     event.preventDefault()
 
     const trimmedQuery = query.trim()
+    await supabase.from("site_events").insert([
+  {
+    event_type: "search",
+    query: trimmedQuery,
+    city: selectedCity
+  }
+])
 
     if (!trimmedQuery) {
       const cityPool = normalizedResources.filter((resource) =>
