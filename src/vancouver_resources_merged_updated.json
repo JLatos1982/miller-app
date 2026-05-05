@@ -58,7 +58,7 @@
     "Cultural / Elder Support": "No",
     "Funding Type": null,
     "Program Type": null,
-    "Notes": "Higher-confidence entry from treatment-centre PDF. Non-smoking; no replacement therapy permitted.",
+    "Notes": "Non-smoking",
     "Primary Source": null
   },
   {
@@ -120,7 +120,7 @@
     "Cultural / Elder Support": "No",
     "Funding Type": null,
     "Program Type": null,
-    "Notes": "Higher-confidence entry from treatment-centre PDF. Non-smoking; replacement therapy permitted.",
+    "Notes": "Non-smoking; replacement therapy permitted.",
     "Primary Source": null
   },
   {
@@ -151,7 +151,7 @@
     "Cultural / Elder Support": "Yes",
     "Funding Type": null,
     "Program Type": "recovery_home",
-    "Notes": "Higher-confidence entry from treatment-centre PDF. Not a standalone detox/withdrawal-management service.",
+    "Notes": "Second stage program",
     "Primary Source": null
   },
   {
@@ -213,7 +213,7 @@
     "Cultural / Elder Support": "No",
     "Funding Type": null,
     "Program Type": null,
-    "Notes": "Higher-confidence entry from treatment-centre PDF.",
+    "Notes": "",
     "Primary Source": null
   },
   {
@@ -244,7 +244,7 @@
     "Cultural / Elder Support": "No",
     "Funding Type": null,
     "Program Type": null,
-    "Notes": "Higher-confidence entry from treatment-centre PDF.",
+    "Notes": "",
     "Primary Source": null
   },
   {
@@ -275,7 +275,7 @@
     "Cultural / Elder Support": "No",
     "Funding Type": null,
     "Program Type": null,
-    "Notes": "Higher-confidence entry from treatment-centre PDF.",
+    "Notes": "",
     "Primary Source": null
   },
   {
@@ -306,7 +306,7 @@
     "Cultural / Elder Support": "No",
     "Funding Type": null,
     "Program Type": null,
-    "Notes": "Higher-confidence entry from treatment-centre PDF. File notes to contact directly regarding programming for women with school-aged children.",
+    "Notes": "File notes to contact directly regarding programming for women with school-aged children.",
     "Primary Source": null
   },
   {
@@ -337,7 +337,7 @@
     "Cultural / Elder Support": "No",
     "Funding Type": null,
     "Program Type": null,
-    "Notes": "Higher-confidence entry from treatment-centre PDF. Low-barrier service; duration 3-6 months.",
+    "Notes": "Low-barrier service; duration 3-6 months.",
     "Primary Source": null
   },
   {
@@ -368,7 +368,7 @@
     "Cultural / Elder Support": "No",
     "Funding Type": null,
     "Program Type": null,
-    "Notes": "Higher-confidence entry from treatment-centre PDF. Non-smoking; replacement therapy permitted.",
+    "Notes": "Non-smoking; replacement therapy permitted.",
     "Primary Source": null
   },
   {
@@ -399,7 +399,7 @@
     "Cultural / Elder Support": "Yes",
     "Funding Type": null,
     "Program Type": "recovery_home",
-    "Notes": "Higher-confidence entry from treatment-centre PDF. Not a standalone detox/withdrawal-management service.",
+    "Notes": "",
     "Primary Source": null
   },
   {
@@ -430,7 +430,7 @@
     "Cultural / Elder Support": "No",
     "Funding Type": null,
     "Program Type": null,
-    "Notes": "Higher-confidence entry from treatment-centre PDF.",
+    "Notes": "",
     "Primary Source": null
   },
   {
@@ -461,7 +461,7 @@
     "Cultural / Elder Support": "No",
     "Funding Type": null,
     "Program Type": null,
-    "Notes": "Higher-confidence entry from treatment-centre PDF. File notes to contact directly regarding programming for women with school-aged children.",
+    "Notes": "File notes to contact directly regarding programming for women with school-aged children.",
     "Primary Source": null
   },
   {
@@ -554,7 +554,7 @@
     "Cultural / Elder Support": "No",
     "Funding Type": "private",
     "Program Type": "treatment_centre",
-    "Notes": "Private Pay Treatment Centres | Non-Funded by Fraser Health",
+    "Notes": "Access through Vancouver Coastal Health",
     "Primary Source": "Pacifica Program Summary / Non-FH-funded treatment centres"
   },
   {
@@ -570,7 +570,7 @@
     "Phone": "604-708-1562",
     "Alt Phone": null,
     "Email": null,
-    "Website": null,
+    "Website": "https://www.chrysalissociety.com/",
     "Address": "Vancouver",
     "City": "Vancouver",
     "Region": "BC",
@@ -647,7 +647,7 @@
     "Cultural / Elder Support": "No",
     "Funding Type": "private",
     "Program Type": "treatment_centre",
-    "Notes": "Private Pay Treatment Centres | Non-Funded by Fraser Health",
+    "Notes": "Private Pay Treatment Centres | Some spots funded by Fraser Health",
     "Primary Source": "Non-FH funded treatment centres"
   },
   {
@@ -833,7 +833,7 @@
     "Cultural / Elder Support": null,
     "Funding Type": null,
     "Program Type": "central_intake",
-    "Notes": "Supports treatment-centre referrals across Fraser South. Detox is coordinated separately when needed around a treatment start date.",
+    "Notes": "Supports treatment-centre and outpatient referrals across Fraser South. Detox is coordinated separately when needed around a treatment start date.",
     "Primary Source": null
   },
   {
@@ -864,7 +864,7 @@
     "Cultural / Elder Support": null,
     "Funding Type": null,
     "Program Type": "central_intake",
-    "Notes": "Supports treatment-centre referrals across Fraser East including Abbotsford, Mission, and Chilliwack. Detox is coordinated separately when needed around a treatment start date.",
+    "Notes": "Supports treatment-centre and outpatient referrals across Fraser East including Abbotsford, Mission, and Chilliwack. Detox is coordinated separately when needed around a treatment start date.",
     "Primary Source": null
   },
   {
@@ -8653,5 +8653,375 @@
         "addiction"
       ],
       "Priority": 2
-    }
-  ]
+    },
+    {
+  "Resource Name": "Change Pain Clinic",
+  "Organization": "Change Pain Clinic",
+  "Service Type": "Medical / Pain Management",
+  "Program Category": "Chronic Pain Clinic",
+  "Population": "Adults",
+  "Age / Eligibility": "19+",
+  "Description": "Interdisciplinary chronic pain management clinic offering medical, psychological, and physical therapy approaches",
+  "Access Type": "Referral required",
+  "Hours": "Varies",
+  "Phone": "604-540-7246",
+  "Email": null,
+  "Website": "https://www.changepain.ca",
+  "Address": "301 East Columbia Street",
+  "City": "New Westminster",
+  "Region": "Fraser",
+  "Indigenous-Specific": "No",
+  "Mental Health Support": "Yes",
+  "Notes": "Specialized chronic pain treatment; requires physician referral"
+},
+{
+  "Resource Name": "Complex Pain Service (BC Women's Hospital)",
+  "Organization": "Provincial Health Services Authority",
+  "Service Type": "Medical / Specialized Care",
+  "Program Category": "Chronic Pain",
+  "Population": "Women and gender diverse",
+  "Age / Eligibility": "Adults",
+  "Description": "Specialized care for complex chronic pain conditions including pelvic pain",
+  "Access Type": "Referral required",
+  "Phone": "604-875-2000",
+  "Website": "http://www.bcwomens.ca",
+  "City": "Vancouver",
+  "Region": "Vancouver Coastal",
+  "Mental Health Support": "Yes",
+  "Notes": "Focused on complex and persistent pain conditions"
+},
+{
+  "Resource Name": "Pain BC",
+  "Organization": "Pain BC",
+  "Service Type": "Education / Peer Support",
+  "Program Category": "Chronic Pain Support",
+  "Population": "All",
+  "Age / Eligibility": "All",
+  "Description": "Peer-led pain support groups, education, and self-management tools for people living with chronic pain",
+  "Access Type": "Self-referral",
+  "Phone": "604-873-7246",
+  "Website": "https://painbc.ca",
+  "City": "Vancouver",
+  "Region": "BC",
+  "Mental Health Support": "Yes",
+  "Notes": "Offers free virtual support groups across BC"
+},
+{
+  "Resource Name": "MyPain.ca",
+  "Organization": "Pain BC",
+  "Service Type": "Online Support",
+  "Program Category": "Self-Management",
+  "Population": "All",
+  "Age / Eligibility": "All",
+  "Description": "Free online self-management program for chronic pain",
+  "Access Type": "Self-referral",
+  "Website": "https://mypain.ca",
+  "City": "Online",
+  "Region": "BC",
+  "Mental Health Support": "Yes",
+  "Notes": "Good for Miller suggestions (CBT-style coping tools)"
+},
+{
+  "Resource Name": "Vancouver Aboriginal Friendship Centre - Healing Circles",
+  "Organization": "Vancouver Aboriginal Friendship Centre",
+  "Service Type": "Cultural Support",
+  "Program Category": "Healing Circles",
+  "Population": "Indigenous",
+  "Age / Eligibility": "All",
+  "Description": "Culturally grounded healing circles, Elders support, and community gatherings",
+  "Access Type": "Self-referral",
+  "Phone": "604-251-4844",
+  "Website": "https://www.vafcs.org",
+  "City": "Vancouver",
+  "Region": "Vancouver Coastal",
+  "Indigenous-Specific": "Yes",
+  "Cultural / Elder Support": "Yes",
+  "Mental Health Support": "Yes",
+  "Notes": "Includes sharing circles and cultural healing programs"
+},
+{
+  "Resource Name": "Surrey Urban Indigenous Leadership Committee Circles",
+  "Organization": "SUILC",
+  "Service Type": "Cultural Support",
+  "Program Category": "Healing Circles",
+  "Population": "Indigenous",
+  "Age / Eligibility": "All",
+  "Description": "Community-led sharing circles and cultural connection events",
+  "Access Type": "Self-referral",
+  "City": "Surrey",
+  "Region": "Fraser",
+  "Indigenous-Specific": "Yes",
+  "Mental Health Support": "Yes",
+  "Notes": "Often drop-in, community-based healing"
+},
+{
+  "Resource Name": "Surrey Urban Indigenous Leadership Committee",
+  "Organization": "SUILC",
+  "Service Type": "Community Support",
+  "Program Category": "Indigenous Services",
+  "Population": "Indigenous",
+  "Age / Eligibility": "All",
+  "Description": "Cultural programs, wellness supports, and community navigation",
+  "Access Type": "Self-referral",
+  "Website": "https://www.surreyindigenous.ca",
+  "City": "Surrey",
+  "Region": "Fraser",
+  "Indigenous-Specific": "Yes",
+  "Mental Health Support": "Yes"
+},
+{
+  "Resource Name": "Aboriginal Front Door Society",
+  "Organization": "Aboriginal Front Door Society",
+  "Service Type": "Navigation / Cultural Support",
+  "Program Category": "Indigenous Services",
+  "Population": "Indigenous",
+  "Age / Eligibility": "All",
+  "Description": "Navigation hub connecting Indigenous clients to health and social services",
+  "Access Type": "Self-referral",
+  "Phone": "604-251-4844",
+  "City": "Vancouver",
+  "Region": "Vancouver Coastal",
+  "Indigenous-Specific": "Yes",
+  "Mental Health Support": "Yes",
+  "Notes": "Great for Miller as a 'starting point' resource"
+},
+{
+  "Resource Name": "Family Services of Greater Vancouver",
+  "Organization": "FSGV",
+  "Service Type": "Counselling",
+  "Program Category": "Low-Cost Counselling",
+  "Population": "All",
+  "Age / Eligibility": "All",
+  "Description": "Sliding scale counselling for individuals, couples, and families",
+  "Access Type": "Self-referral",
+  "Phone": "604-874-2938",
+  "Website": "https://fsgv.ca",
+  "City": "Vancouver",
+  "Region": "Vancouver Coastal",
+  "Mental Health Support": "Yes"
+},
+{
+  "Resource Name": "Pathways Serious Mental Illness Society Counselling",
+  "Organization": "Pathways Clubhouse",
+  "Service Type": "Counselling / Peer Support",
+  "Program Category": "Low-Cost Counselling",
+  "Population": "Adults",
+  "Age / Eligibility": "19+",
+  "Description": "Recovery-oriented mental health support and peer-based services",
+  "Access Type": "Self-referral",
+  "Phone": "604-926-0856",
+  "Website": "https://pathwayssmi.org",
+  "City": "North Vancouver",
+  "Region": "Vancouver Coastal",
+  "Mental Health Support": "Yes"
+},
+[
+{
+  "Resource Name": "UBC Psychological Services and Counselling Training Centre",
+  "Organization": "University of British Columbia",
+  "Service Type": "Counselling",
+  "Program Category": "Low-Cost Counselling",
+  "Population": "Adults",
+  "Age / Eligibility": "19+",
+  "Description": "Low-cost counselling provided by supervised graduate students",
+  "Access Type": "Self-referral / Waitlist",
+  "Phone": "604-822-1364",
+  "Website": null,
+  "City": "Vancouver",
+  "Region": "Vancouver Coastal",
+  "Mental Health Support": "Yes"
+},
+{
+  "Resource Name": "Oak Counselling",
+  "Organization": "Oak Counselling Society",
+  "Service Type": "Counselling",
+  "Program Category": "Low-Cost Counselling",
+  "Population": "Adults, Couples",
+  "Age / Eligibility": "Adults",
+  "Description": "Sliding scale counselling ($20–$100) for individuals and couples",
+  "Access Type": "Self-referral",
+  "Email": "intakes@oakcounselling.org",
+  "Website": "https://oakcounselling.janeapp.com",
+  "City": "Vancouver",
+  "Region": "Vancouver Coastal",
+  "Mental Health Support": "Yes"
+},
+{
+  "Resource Name": "Adler Centre Counselling Clinic",
+  "Organization": "Adler University",
+  "Service Type": "Counselling",
+  "Program Category": "Low-Cost Counselling",
+  "Population": "Adults, Couples",
+  "Age / Eligibility": "Adults",
+  "Description": "Subsidized counselling with interns and registered counsellors",
+  "Access Type": "Self-referral",
+  "Phone": "604-742-1818",
+  "Website": "https://adlercentre.ca",
+  "City": "Vancouver",
+  "Region": "Vancouver Coastal",
+  "Mental Health Support": "Yes"
+},
+{
+  "Resource Name": "Moving Forward Family Services",
+  "Organization": "Moving Forward Family Services",
+  "Service Type": "Counselling",
+  "Program Category": "Low-Cost Counselling",
+  "Population": "Individuals, Families",
+  "Age / Eligibility": "All",
+  "Description": "Subsidized counselling with interns and graduate-level counsellors",
+  "Access Type": "Self-referral",
+  "Phone": "877-485-5025",
+  "Website": "https://movingforwardfamilyservices.com",
+  "City": "Surrey",
+  "Region": "Fraser",
+  "Mental Health Support": "Yes"
+},
+{
+  "Resource Name": "Fraser River Counselling",
+  "Organization": "Fraser River Counselling",
+  "Service Type": "Counselling",
+  "Program Category": "Low-Cost Counselling",
+  "Population": "All",
+  "Age / Eligibility": "All",
+  "Description": "Low-cost counselling ($20–$40) with practicum students",
+  "Access Type": "Self-referral",
+  "Phone": "604-513-2113",
+  "City": "Langley",
+  "Region": "Fraser",
+  "Mental Health Support": "Yes"
+},
+{
+  "Resource Name": "Kelty’s Key Online Therapy",
+  "Organization": "Vancouver Coastal Health",
+  "Service Type": "Online Therapy",
+  "Program Category": "Free Counselling",
+  "Population": "All",
+  "Age / Eligibility": "All",
+  "Description": "Free self-directed cognitive behavioural therapy program",
+  "Access Type": "Self-referral",
+  "Phone": "604-675-3700",
+  "Website": "https://www.keltyskey.com",
+  "City": "Online",
+  "Region": "BC",
+  "Mental Health Support": "Yes"
+},
+{
+  "Resource Name": "Bounce Back Program",
+  "Organization": "Canadian Mental Health Association",
+  "Service Type": "Coaching / Counselling",
+  "Program Category": "Free Counselling",
+  "Population": "Adults, Youth",
+  "Age / Eligibility": "15+",
+  "Description": "Free coaching program for anxiety and depression (doctor referral required)",
+  "Access Type": "Referral",
+  "Phone": "1-866-639-0522",
+  "Website": "http://www.cmha.bc.ca",
+  "City": "BC",
+  "Region": "BC",
+  "Mental Health Support": "Yes"
+},
+{
+  "Resource Name": "Mood Disorders Association of BC Counselling Centre",
+  "Organization": "MDABC",
+  "Service Type": "Counselling",
+  "Program Category": "Low-Cost Counselling",
+  "Population": "Adults",
+  "Age / Eligibility": "Adults",
+  "Description": "Individual and group counselling with sliding scale options",
+  "Access Type": "Self-referral",
+  "Phone": "604-873-0103",
+  "Website": "http://www.mdabc.net",
+  "City": "Vancouver",
+  "Region": "Vancouver Coastal",
+  "Mental Health Support": "Yes"
+},
+{
+  "Resource Name": "SFU Surrey Counselling Centre",
+  "Organization": "Simon Fraser University",
+  "Service Type": "Counselling",
+  "Program Category": "Free Counselling",
+  "Population": "Adults",
+  "Age / Eligibility": "Adults",
+  "Description": "Free counselling by supervised graduate students",
+  "Access Type": "Self-referral",
+  "Phone": "604-587-7320",
+  "City": "Surrey",
+  "Region": "Fraser",
+  "Mental Health Support": "Yes"
+},
+{
+  "Resource Name": "Burnaby Clinical Psychology Centre",
+  "Organization": "Simon Fraser University",
+  "Service Type": "Counselling",
+  "Program Category": "Low-Cost Counselling",
+  "Population": "All",
+  "Age / Eligibility": "All",
+  "Description": "Sliding scale counselling and assessments by graduate students",
+  "Access Type": "Self-referral",
+  "Phone": "778-782-4720",
+  "Website": "https://www.sfu.ca/psychology/clinical-psychology-centre.html",
+  "City": "Burnaby",
+  "Region": "Fraser",
+  "Mental Health Support": "Yes"
+},
+{
+  "Resource Name": "Sources Counselling Services",
+  "Organization": "Sources Community Resource Centre",
+  "Service Type": "Counselling",
+  "Program Category": "Low-Cost Counselling",
+  "Population": "Individuals, Families",
+  "Age / Eligibility": "All",
+  "Description": "Fee-based counselling with subsidies available",
+  "Access Type": "Self-referral",
+  "Phone": "604-538-2522",
+  "City": "White Rock",
+  "Region": "Fraser",
+  "Mental Health Support": "Yes"
+},
+{
+  "Resource Name": "Deltassist Counselling Services",
+  "Organization": "Deltassist",
+  "Service Type": "Counselling",
+  "Program Category": "Free Counselling",
+  "Population": "Individuals, Families",
+  "Age / Eligibility": "All",
+  "Description": "Up to 6 free counselling sessions for Delta residents",
+  "Access Type": "Self-referral",
+  "Phone": "604-594-3455",
+  "City": "Delta",
+  "Region": "Fraser",
+  "Mental Health Support": "Yes"
+},
+{
+  "Resource Name": "Jewish Family Services Counselling",
+  "Organization": "Jewish Family Services",
+  "Service Type": "Counselling",
+  "Program Category": "Low-Cost Counselling",
+  "Population": "All",
+  "Age / Eligibility": "All",
+  "Description": "Sliding scale counselling ($30–$100) for individuals and families",
+  "Access Type": "Self-referral",
+  "Phone": "604-558-5719",
+  "Website": "https://www.jfsvancouver.ca",
+  "City": "Vancouver",
+  "Region": "Vancouver Coastal",
+  "Mental Health Support": "Yes"
+},
+{
+  "Resource Name": "Vancouver Aboriginal Friendship Centre Counselling",
+  "Organization": "Vancouver Aboriginal Friendship Centre",
+  "Service Type": "Counselling",
+  "Program Category": "Indigenous Counselling",
+  "Population": "Indigenous",
+  "Age / Eligibility": "14+",
+  "Description": "Pay-what-you-can counselling and free emotional support",
+  "Access Type": "Self-referral",
+  "Phone": "604-251-4844",
+  "Website": "https://www.vafcs.org",
+  "City": "Vancouver",
+  "Region": "Vancouver Coastal",
+  "Indigenous-Specific": "Yes",
+  "Mental Health Support": "Yes"
+}
+]
+]
