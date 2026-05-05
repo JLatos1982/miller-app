@@ -345,8 +345,9 @@ function applySearchSafetyFilters(resources, query, inferredCategories = []) {
 
 function getResultLimit(query, inferredCategories = []) {
   if (isTreatmentSearch(query, inferredCategories)) return 40
-  if (isDetoxSearch(query, inferredCategories)) return 16
-  return 12
+  if (isDetoxSearch(query, inferredCategories)) return 24
+  if (inferredCategories.length > 0) return 20
+  return 16
 }
 
 function extractKeywordTokens(query) {
@@ -737,7 +738,7 @@ function App() {
       const cityPool = normalizedResources.filter((resource) =>
         cityMatches(resource, selectedCity)
       )
-      const firstResults = sortResources(cityPool, "", selectedCity).slice(0, 12)
+      const firstResults = sortResources(cityPool, "", selectedCity).slice(0, 24)
 
       setHasSearched(true)
       setResults(firstResults)
@@ -751,7 +752,7 @@ function App() {
 
     setHasSearched(true)
     setIsLoading(true)
-    setResults(candidatePack.candidates.slice(0, Math.min(resultLimit, 12)))
+    setResults(candidatePack.candidates.slice(0, resultLimit))
     setTotalMatches(candidatePack.candidatePool.length)
 
     try {
