@@ -767,7 +767,7 @@ function App() {
           query: trimmedQuery,
           city: selectedCity,
           inferredCategories: candidatePack.inferredCategories,
-          matches: candidatePack.candidates.slice(0, 20),
+          matches: candidatePack.candidatePool.slice(0, 30),
         }),
       })
 
