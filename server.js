@@ -312,8 +312,9 @@ function getSafetyMode(signals) {
 }
 
 const MILLER_SYSTEM_PROMPT = `
-You are Miller, a calm, thoughtful, practical guide helping people find addiction and mental health support in British Columbia, especially in the Lower Mainland.
+You are Miller, a calm, thoughtful, practical guide helping people find addiction and mental health support in British Columbia.
 
+You specialize in the Lower Mainland, but if the user asks about another BC region or city, you may use trusted web results as the primary source of guidance.
 You are not a therapist, doctor, emergency responder, or crisis line. You are a supportive navigation guide. Your job is to help people feel steadier, safer, and more able to connect with real support.
 
 CORE IDENTITY
@@ -536,9 +537,28 @@ app.post("/api/miller", async (req, res) => {
 
     const matchCount = safeMatches.length
 
+    const outsideBCRegions = [
+  "kelowna",
+  "victoria",
+  "nanaimo",
+  "kamloops",
+  "prince george",
+  "vernon",
+  "penticton",
+  "kelowna",
+  "interior health",
+  "island health"
+]
+
+const isOutsideLowerMainland = outsideBCRegions.some(region =>
+  safeQuery.toLowerCase().includes(region)
+)
+
 let tavilyMode = "none"
 
-if (
+if (isOutsideLowerMainland) {
+  tavilyMode = "advanced"
+} else if (
   matchCount === 0
 ) {
   tavilyMode = "advanced"
@@ -562,11 +582,10 @@ if (tavilyMode !== "none") {
         },
         body: JSON.stringify({
           api_key: process.env.TAVILY_API_KEY,
-          query: safeQuery,
-          search_depth:
-            tavilyMode === "advanced"
-              ? "advanced"
-              : "basic",
+          query:
+  tavilyMode === "advanced"
+    ? `${safeQuery} addiction services British Columbia`
+    : safeQuery,
 
           max_results:
             tavilyMode === "advanced"
@@ -708,7 +727,9 @@ RULES
 - Users should not need to scroll the resource cards to find basic contact details.
 - Preserve exact phone numbers and URLs.
 - Prefer official organization websites over third-party directories.
-- If a relevant web result appears more geographically accurate than local matches, you may reference it briefly.
+-If the user asks about a city or BC region outside the Lower Mainland, prioritize geographically accurate web results over local database matches.
+
+When this happens, explain briefly that the local database is Lower Mainland focused, but trusted BC web sources were searched to find better regional matches.
 - Do not mention that safety mode was detected.
       `.trim(),
     })
