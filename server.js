@@ -604,8 +604,12 @@ ${tavilyResults
   .map(
     (result, index) => `
 ${index + 1}. ${result.title}
-URL: ${result.url}
-Summary: ${result.content}
+
+Website:
+${result.url}
+
+Summary:
+${result.content}
 `
   )
   .join("\n")}
@@ -634,6 +638,9 @@ RULES
 - Prefer 1 to 3 options, not long lists.
 - Only include recommendedResourceNames that exactly match supplied resource names.
 - Do not invent facts.
+- When useful, include a website or phone number from either local resources or web search results.
+- Prefer direct service contact information over generic descriptions.
+- If a relevant web result appears more geographically accurate than local matches, you may reference it briefly.
 - Do not mention that safety mode was detected.
       `.trim(),
     })
