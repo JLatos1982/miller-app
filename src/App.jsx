@@ -1251,7 +1251,12 @@ const millerImageStyle = {}
             </div>
 
             <div className="miller-satchel-zone">
-              <button
+
+  <div className="community-label">
+    Suggest a Resource
+  </div>
+
+  <button
                 ref={chestRef}
                 className={`treasure-chest-button ${isChestOpen ? "open" : ""} ${isChestWiggling ? "wiggle" : ""}`}
                 type="button"
