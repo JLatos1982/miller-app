@@ -531,6 +531,23 @@ app.post("/api/miller", async (req, res) => {
 
     const safeMatches = Array.isArray(matches) ? matches.slice(0, 20) : []
 
+    let tavilyResults = []
+
+if (safeMatches.length < 3) {
+  try {
+    const tavilyResponse = await TAVILY_CLIENT.search(safeQuery, {
+      searchDepth: "basic",
+      maxResults: 5,
+    })
+
+    tavilyResults = tavilyResponse.results || []
+
+    console.log("Tavily results:", tavilyResults)
+  } catch (error) {
+    console.error("Tavily search failed:", error)
+  }
+}
+
     const mergedCategories = uniqueStrings([
       ...(Array.isArray(inferredCategories) ? inferredCategories : []),
       ...inferCategoriesFromQuery(safeQuery),
@@ -574,6 +591,17 @@ Query keywords: ${queryKeywords.join(", ") || "None"}
 
 RESOURCE MATCHES
 ${formattedMatches}
+
+WEB SEARCH RESULTS
+${tavilyResults
+  .map(
+    (result, index) => `
+${index + 1}. ${result.title}
+URL: ${result.url}
+Summary: ${result.content}
+`
+  )
+  .join("\n")}
 
 TASK
 Return valid JSON only, with no markdown and no extra text.
