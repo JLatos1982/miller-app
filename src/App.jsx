@@ -567,6 +567,28 @@ function buildCandidatePack(resources, query, selectedCity) {
   }
 }
 
+function renderMessageWithLinks(text) {
+  const urlRegex = /(https?:\/\/[^\s]+)/g
+
+  return text.split(urlRegex).map((part, index) => {
+    if (part.match(urlRegex)) {
+      return (
+        <a
+          key={index}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="miller-inline-link"
+        >
+          🌐 {part}
+        </a>
+      )
+    }
+
+    return part
+  })
+}
+
 function App() {
   const normalizedResources = useMemo(() => {
     return dedupeResources(cleanResources(rawResources))
@@ -1139,29 +1161,35 @@ const millerImageStyle = {}
                       <div className="resource-links">
   {resource.website ? (
     <a
+      className="resource-link-button"
       href={resource.website}
       target="_blank"
       rel="noreferrer"
       onClick={() => {
         supabase.from("site_events").insert([
-  {
-    event_type: "resource_click",
-    resource_name: resource.name,
-    city: resource.city,
-    query,
-    miller_theme: currentTheme.name,
-  }
-])
+          {
+            event_type: "resource_click",
+            resource_name: resource.name,
+            city: resource.city,
+            query,
+            miller_theme: currentTheme.name,
+          }
+        ])
       }}
     >
-      Open website
+      🌐 Open Website
     </a>
   ) : (
     <span className="muted">No website listed</span>
   )}
 
   {safeEmail(resource) ? (
-    <a href={`mailto:${safeEmail(resource)}`}>Email</a>
+    <a
+      className="resource-link-button secondary"
+      href={`mailto:${safeEmail(resource)}`}
+    >
+      ✉ Email
+    </a>
   ) : null}
 </div>
                     </article>
@@ -1246,7 +1274,7 @@ const millerImageStyle = {}
               className={`miller-bubble ${isBubbleTyping ? "is-typing" : ""}`}
               aria-live="polite"
             >
-              {displayedReply}
+              {renderMessageWithLinks(displayedReply)}
               {isBubbleTyping ? <span className="typing-cursor" /> : null}
             </div>
 
