@@ -533,7 +533,14 @@ app.post("/api/miller", async (req, res) => {
 
     let tavilyResults = []
 
-if (safeMatches.length < 3) {
+const queryLooksOutsideLowerMainland =
+  safeQuery.toLowerCase().includes("kelowna") ||
+  safeQuery.toLowerCase().includes("victoria") ||
+  safeQuery.toLowerCase().includes("nanaimo") ||
+  safeQuery.toLowerCase().includes("kamloops") ||
+  safeQuery.toLowerCase().includes("prince george")
+
+if (safeMatches.length < 3 || queryLooksOutsideLowerMainland) {
   try {
     const tavilyResponse = await TAVILY_CLIENT.search(safeQuery, {
       searchDepth: "basic",
