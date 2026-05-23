@@ -5,6 +5,7 @@ import OpenAI from "openai"
 import path from "path"
 import { fileURLToPath } from "url"
 import { tavily } from "@tavily/core"
+import fetch from "node-fetch"
 
 dotenv.config()
 
@@ -533,23 +534,71 @@ app.post("/api/miller", async (req, res) => {
 
     let tavilyResults = []
 
-const queryLooksOutsideLowerMainland =
-  safeQuery.toLowerCase().includes("kelowna") ||
-  safeQuery.toLowerCase().includes("victoria") ||
-  safeQuery.toLowerCase().includes("nanaimo") ||
-  safeQuery.toLowerCase().includes("kamloops") ||
-  safeQuery.toLowerCase().includes("prince george")
+    const matchCount = safeMatches.length
 
-if (safeMatches.length < 3 || queryLooksOutsideLowerMainland) {
+let tavilyMode = "none"
+
+if (
+  matchCount === 0
+) {
+  tavilyMode = "advanced"
+} else if (
+  matchCount < 3 ||
+  safeQuery.length > 40 ||
+  safeQuery.includes("?") ||
+  inferredCategories.length === 0
+) {
+  tavilyMode = "basic"
+}
+
+if (tavilyMode !== "none") {
   try {
-    const tavilyResponse = await TAVILY_CLIENT.search(safeQuery, {
-      searchDepth: "basic",
-      maxResults: 5,
-    })
+    const tavilyResponse = await fetch(
+      "https://api.tavily.com/search",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          api_key: process.env.TAVILY_API_KEY,
+          query: safeQuery,
+          search_depth:
+            tavilyMode === "advanced"
+              ? "advanced"
+              : "basic",
 
-    tavilyResults = tavilyResponse.results || []
+          max_results:
+            tavilyMode === "advanced"
+              ? 8
+              : 5,
 
+          topic: "general",
+
+          include_answer: false,
+
+         include_domains:
+  tavilyMode === "advanced"
+    ? []
+    : [
+        "fraserhealth.ca",
+        "vch.ca",
+        "bc211.ca",
+        "foundrybc.ca",
+        "towardtheheart.com",
+        "gov.bc.ca"
+      ]
+        })
+      }
+    )
+
+    const tavilyData = await tavilyResponse.json()
+
+    tavilyResults = tavilyData.results || []
+
+    console.log("Tavily mode:", tavilyMode)
     console.log("Tavily results:", tavilyResults)
+
   } catch (error) {
     console.error("Tavily search failed:", error)
   }
@@ -628,7 +677,16 @@ Use exactly this shape:
 }
 
 RULES
-- Keep answer under 90 words unless safety mode requires up to 130 words.
+- Keep answer around 120–220 words when useful.
+- Shorter is okay for simple questions.
+- If useful contact info exists, prioritize including phone numbers and websites.
+- When recommending a service, try to include:
+  - service name
+  - city
+  - phone number
+  - website
+  - health region if it helps clarify
+-include these whenever available.
 - Keep answer practical, warm, plain, and easy to scan.
 - In crisis or safety mode, prioritize contacting a real person now.
 - In suicide/self-harm risk, mention 988 and emergency services if immediate danger.
@@ -638,8 +696,18 @@ RULES
 - Prefer 1 to 3 options, not long lists.
 - Only include recommendedResourceNames that exactly match supplied resource names.
 - Do not invent facts.
-- When useful, include a website or phone number from either local resources or web search results.
-- Prefer direct service contact information over generic descriptions.
+- VERY IMPORTANT:
+  If a recommended service includes a phone number or website,
+  include them directly in the answer whenever possible.
+- Prefer this format naturally inside the response:
+  "You can call ____ at ___"
+  "Website: ____"
+- If a resource has both a phone number and website,
+  include both whenever practical.
+- Contact information is high priority.
+- Users should not need to scroll the resource cards to find basic contact details.
+- Preserve exact phone numbers and URLs.
+- Prefer official organization websites over third-party directories.
 - If a relevant web result appears more geographically accurate than local matches, you may reference it briefly.
 - Do not mention that safety mode was detected.
       `.trim(),
