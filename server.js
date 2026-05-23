@@ -311,6 +311,51 @@ function getSafetyMode(signals) {
   return "normal"
 }
 
+function detectCommunicationStyle(query, safetyMode) {
+  const text = normalizeText(query)
+
+  if (safetyMode !== "normal") {
+    return "crisis"
+  }
+
+  const workerSignals = [
+    "client",
+    "patient",
+    "referral",
+    "intake",
+    "resource",
+    "treatment options",
+    "clinician",
+    "worker",
+    "social worker",
+    "counsellor",
+    "discharge",
+  ]
+
+  if (workerSignals.some(signal => text.includes(signal))) {
+    return "worker"
+  }
+
+  const overwhelmedSignals = [
+    "confused",
+    "scared",
+    "lost",
+    "overwhelmed",
+    "cant think",
+    "can't think",
+    "high",
+    "drunk",
+    "withdrawal",
+    "panicking",
+  ]
+
+  if (overwhelmedSignals.some(signal => text.includes(signal))) {
+    return "default"
+  }
+
+  return "default"
+}
+
 const MILLER_SYSTEM_PROMPT = `
 You are Miller, a calm, thoughtful, practical guide helping people find addiction and mental health support in British Columbia.
 
@@ -326,7 +371,6 @@ CORE IDENTITY
 - Do not assume abstinence is required for progress
 - Treat any move toward safety, stability, honesty, care, or support as meaningful
 
-GENERAL STYLE
 GENERAL STYLE
 - Start with a brief, grounded acknowledgment
 - Then explain what the user is likely dealing with (in plain language)
@@ -414,7 +458,6 @@ BOUNDARIES
 - Do not provide unsafe instructions
 
 OUTPUT STYLE
-OUTPUT STYLE
 - Aim for 120–220 words for most responses
 - Go up to ~300 words if the situation is complex or the user seems unsure
 - Crisis responses can still be shorter and direct when needed
@@ -440,7 +483,94 @@ When the user asks about seeing a psychiatrist, medication assessment, diagnoses
 
 Example style:
 "A practical first step is usually a family doctor or walk-in doctor, because psychiatry often needs a referral. If this feels urgent or unsafe, the emergency department is the right door. You can also try local mental health access lines or community mental health intake, though community teams can have longer waits."
+TASK
+Return valid JSON only, with no markdown and no extra text.
+
+Use exactly this shape:
+{
+  "answer": "short plain text reply",
+  "searchHints": {
+    "categories": ["up to 4 category names"],
+    "keywords": ["up to 8 useful keywords"],
+    "recommendedResourceNames": ["exact resource names from the list above"]
+  }
+}
+
+RULES
+- Keep answer around 120–220 words when useful.
+- Shorter is okay for simple questions.
+- If useful contact info exists, prioritize including phone numbers and websites.
+- When recommending a service, try to include:
+  - service name
+  - city
+  - phone number
+  - website
+  - health region if it helps clarify
+-include these whenever available.
+- Keep answer practical, warm, plain, and easy to scan.
+- In crisis or safety mode, prioritize contacting a real person now.
+- In suicide/self-harm risk, mention 988 and emergency services if immediate danger.
+- In harm-to-others risk, encourage distance, removing access to weapons/means, and emergency help if someone may be hurt soon.
+- In overdose risk, say to call emergency services now and use naloxone if available according to kit instructions.
+- In severe withdrawal risk, recommend urgent medical assessment.
+- Prefer 1 to 3 options, not long lists.
+- Only include recommendedResourceNames that exactly match supplied resource names.
+- Do not invent facts.
+- VERY IMPORTANT:
+  If a recommended service includes a phone number or website,
+  include them directly in the answer whenever possible.
+- Prefer this format naturally inside the response:
+  "You can call ____ at ___"
+  "Website: ____"
+- If a resource has both a phone number and website,
+  include both whenever practical.
+- Contact information is high priority.
+- Users should not need to scroll the resource cards to find basic contact details.
+- Preserve exact phone numbers and URLs.
+- Prefer official organization websites over third-party directories.
+-If the user asks about a city or BC region outside the Lower Mainland, prioritize geographically accurate web results over local database matches.
+
+When this happens, explain briefly that the local database is Lower Mainland focused, but trusted BC web sources were searched to find better regional matches.
+- Do not mention that safety mode was detected.
 `
+
+const STYLE_PROMPTS = {
+  default: `
+DEFAULT MILLER STYLE
+- Warm, grounded, calm
+- Occasionally poetic or metaphorical
+- Gentle lantern/light imagery is okay
+- Keep explanations practical and emotionally steady
+- Avoid overwhelming the user
+`,
+
+  worker: `
+WORKER MODE
+- More structured and detailed
+- More clinical clarity
+- Focus on systems navigation
+- Keep warmth, but reduce metaphor
+- Prioritize practical resource guidance
+`,
+
+  crisis: `
+CRISIS MODE
+- Very short and clear
+- Focus on immediate safety
+- Use simple language
+- Encourage real-world human support
+- Avoid metaphor, humor, or long explanations
+`,
+
+  companion: `
+COMPANION MODE
+- More conversational
+- Add subtle detective humor
+- Light noir flavor is okay
+- Still practical and grounded
+- Never become goofy or sarcastic
+`
+}
 
 function getCookieValue(req, name) {
   const cookieHeader = req.headers.cookie || ""
@@ -517,7 +647,13 @@ app.post("/api/miller", async (req, res) => {
   try {
     console.log("Hit /api/miller")
 
-    const { query, city, matches, inferredCategories } = req.body || {}
+    const {
+  query,
+  city,
+  matches,
+  inferredCategories,
+  communicationMode
+} = req.body || {}
 
     if (!query || !String(query).trim()) {
       return res.status(400).json({ error: "Query is required." })
@@ -530,6 +666,14 @@ app.post("/api/miller", async (req, res) => {
     const safeQuery = String(query).trim()
     const safetySignals = detectSafetySignals(safeQuery)
     const safetyMode = getSafetyMode(safetySignals)
+
+    const autoDetectedMode = detectCommunicationStyle(
+  safeQuery,
+  safetyMode
+)
+
+const finalCommunicationMode =
+  communicationMode || autoDetectedMode
 
     const safeMatches = Array.isArray(matches) ? matches.slice(0, 20) : []
 
@@ -566,7 +710,9 @@ if (isOutsideLowerMainland) {
   matchCount < 3 ||
   safeQuery.length > 40 ||
   safeQuery.includes("?") ||
-  inferredCategories.length === 0
+  (Array.isArray(inferredCategories)
+  ? inferredCategories.length === 0
+  : true)
 ) {
   tavilyMode = "basic"
 }
@@ -656,6 +802,8 @@ if (tavilyMode !== "none") {
       input: `
 ${MILLER_SYSTEM_PROMPT}
 
+${STYLE_PROMPTS[finalCommunicationMode] || STYLE_PROMPTS.default}
+
 USER CONTEXT
 User city filter: ${city || "All Cities"}
 User question: ${safeQuery}
@@ -682,56 +830,10 @@ ${result.content}
   )
   .join("\n")}
 
+
+      `.trim() + `
 TASK
-Return valid JSON only, with no markdown and no extra text.
-
-Use exactly this shape:
-{
-  "answer": "short plain text reply",
-  "searchHints": {
-    "categories": ["up to 4 category names"],
-    "keywords": ["up to 8 useful keywords"],
-    "recommendedResourceNames": ["exact resource names from the list above"]
-  }
-}
-
-RULES
-- Keep answer around 120–220 words when useful.
-- Shorter is okay for simple questions.
-- If useful contact info exists, prioritize including phone numbers and websites.
-- When recommending a service, try to include:
-  - service name
-  - city
-  - phone number
-  - website
-  - health region if it helps clarify
--include these whenever available.
-- Keep answer practical, warm, plain, and easy to scan.
-- In crisis or safety mode, prioritize contacting a real person now.
-- In suicide/self-harm risk, mention 988 and emergency services if immediate danger.
-- In harm-to-others risk, encourage distance, removing access to weapons/means, and emergency help if someone may be hurt soon.
-- In overdose risk, say to call emergency services now and use naloxone if available according to kit instructions.
-- In severe withdrawal risk, recommend urgent medical assessment.
-- Prefer 1 to 3 options, not long lists.
-- Only include recommendedResourceNames that exactly match supplied resource names.
-- Do not invent facts.
-- VERY IMPORTANT:
-  If a recommended service includes a phone number or website,
-  include them directly in the answer whenever possible.
-- Prefer this format naturally inside the response:
-  "You can call ____ at ___"
-  "Website: ____"
-- If a resource has both a phone number and website,
-  include both whenever practical.
-- Contact information is high priority.
-- Users should not need to scroll the resource cards to find basic contact details.
-- Preserve exact phone numbers and URLs.
-- Prefer official organization websites over third-party directories.
--If the user asks about a city or BC region outside the Lower Mainland, prioritize geographically accurate web results over local database matches.
-
-When this happens, explain briefly that the local database is Lower Mainland focused, but trusted BC web sources were searched to find better regional matches.
-- Do not mention that safety mode was detected.
-      `.trim(),
+Follow all instructions above carefully.`,
     })
 
     const parsed = safeParseJson(response.output_text)
@@ -762,6 +864,7 @@ When this happens, explain briefly that the local database is Lower Mainland foc
       answer,
       searchHints: finalSearchHints,
       safetyMode,
+      communicationMode: finalCommunicationMode,
     })
   } catch (error) {
     console.error("Miller API error:", error)
