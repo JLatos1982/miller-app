@@ -1,10 +1,23 @@
 import { useEffect, useMemo, useRef, useState } from "react"
 import "./App.css"
 import rawResources from "./vancouver_resources_merged_updated.json"
-import millerImage from "./assets/miller.png"
-import millerSearchImage from "./assets/miller_search.png"
 import { supabase } from "./supabaseClient"
-import titleImg from "./assets/title.png"
+import millerClassic from "./assets/miller_classic.png"
+import millerJade from "./assets/miller_jade.png"
+import millerGold from "./assets/miller_gold.png"
+import millerViolet from "./assets/miller_violet.png"
+import millerRose from "./assets/miller_rose.png"
+import millerNorth from "./assets/miller_north.png"
+
+import titleClassic from "./assets/title.png"
+import titleJade from "./assets/title_jade.png"
+import titleGold from "./assets/title_gold.png"
+import titleViolet from "./assets/title_violet.png"
+import titleRose from "./assets/title_rose.png"
+import titleNorth from "./assets/title_north.png"
+
+import arrowLeft from "./assets/arrow_left.png";
+import arrowRight from "./assets/arrow_right.png";
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -127,6 +140,45 @@ const STOP_WORDS = new Set([
   "to",
   "with",
 ])
+
+const MILLER_THEMES = [
+  {
+    name: "Classic",
+    avatar: millerClassic,
+    title: titleClassic,
+    accent: "#6bbcff",
+  },
+  {
+    name: "Jade",
+    avatar: millerJade,
+    title: titleJade,
+    accent: "#71c99a",
+  },
+  {
+    name: "Gold",
+    avatar: millerGold,
+    title: titleGold,
+    accent: "#d8ac55",
+  },
+  {
+    name: "Violet",
+    avatar: millerViolet,
+    title: titleViolet,
+    accent: "#ae8cff",
+  },
+  {
+    name: "Rose",
+    avatar: millerRose,
+    title: titleRose,
+    accent: "#ef91a8",
+  },
+  {
+    name: "North",
+    avatar: millerNorth,
+    title: titleNorth,
+    accent: "#6fd4d7",
+  },
+]
 
 function normalizeText(value) {
   return String(value || "")
@@ -526,10 +578,28 @@ function App() {
   const [query, setQuery] = useState("")
   const [selectedCity, setSelectedCity] = useState("All Cities")
   const [hasSearched, setHasSearched] = useState(false)
+
+  const [millerIndex, setMillerIndex] = useState(() => {
+  const saved = localStorage.getItem("miller-theme-index")
+
+  if (saved !== null) {
+    return Number(saved)
+  }
+
+  return Math.floor(Math.random() * MILLER_THEMES.length)
+})
+
+const [switchDirection, setSwitchDirection] = useState("right")
+
+const currentTheme = MILLER_THEMES[millerIndex]
+
   useEffect(() => {
   async function trackVisit() {
     const { error } = await supabase.from("site_events").insert([
-      { event_type: "page_view" }
+      {
+  event_type: "page_view",
+  miller_theme: currentTheme.name,
+}
     ])
 
     if (error) {
@@ -604,6 +674,10 @@ function App() {
       if (timer) clearInterval(timer)
     }
   }, [aiReply, isLoading])
+
+  useEffect(() => {
+  localStorage.setItem("miller-theme-index", millerIndex)
+}, [millerIndex])
 
   const isBubbleTyping =
     isLoading || displayedReply.length < String(aiReply || "").length
@@ -730,7 +804,8 @@ function App() {
   {
     event_type: "search",
     query: trimmedQuery,
-    city: selectedCity
+    city: selectedCity,
+    miller_theme: currentTheme.name,
   }
 ])
 
@@ -836,6 +911,20 @@ function App() {
     setAiReply(defaultReply)
   }
 
+ function nextMiller() {
+  setSwitchDirection("right")
+
+  setMillerIndex((prev) => (prev + 1) % MILLER_THEMES.length)
+}
+
+function previousMiller() {
+  setSwitchDirection("left")
+
+  setMillerIndex((prev) =>
+    prev === 0 ? MILLER_THEMES.length - 1 : prev - 1
+  )
+}
+
   function updateSubmissionField(field, value) {
     setSubmission((prev) => ({
       ...prev,
@@ -884,16 +973,18 @@ function App() {
   }
 
   const shouldShowSearchMiller = isTyping || showSearchReveal || isLoading
-  const millerImageSrc = shouldShowSearchMiller ? millerSearchImage : millerImage
+ const millerImageSrc = currentTheme.avatar
 
   const millerClasses = [
-    "miller-image",
-    `miller-${millerMood}`,
-    shouldShowSearchMiller ? "is-searching" : "",
-    showSearchReveal ? "search-reveal" : "",
-  ]
-    .filter(Boolean)
-    .join(" ")
+  "miller-image",
+  "theme-fade",
+  `switch-${switchDirection}`,
+  `miller-${millerMood}`,
+  shouldShowSearchMiller ? "is-searching" : "",
+  showSearchReveal ? "search-reveal" : "",
+]
+  .filter(Boolean)
+  .join(" ")
 
   const millerStyle = {}
 
@@ -906,13 +997,13 @@ const millerImageStyle = {}
 
           <div className="title-stage">
             <div className="title-frame">
-              <img src={titleImg} alt="Addiction Resource Finder" className="title-image" />
+              <img
+  src={currentTheme.title}
+  alt="Addiction Resource Finder"
+  className="title-image theme-fade"
+/>
             </div>
           </div>
-
-          <p className="page-subtitle">
-            Ask Miller what kind of support you need. He’ll answer clearly, then show matching resources below.
-          </p>
           </div>
       <main className="hero-layout">
         <section className="hero-copy">
@@ -1053,13 +1144,14 @@ const millerImageStyle = {}
       rel="noreferrer"
       onClick={() => {
         supabase.from("site_events").insert([
-          {
-            event_type: "resource_click",
-            resource_name: resource.name,
-            city: resource.city,
-            query
-          }
-        ])
+  {
+    event_type: "resource_click",
+    resource_name: resource.name,
+    city: resource.city,
+    query,
+    miller_theme: currentTheme.name,
+  }
+])
       }}
     >
       Open website
@@ -1083,13 +1175,71 @@ const millerImageStyle = {}
         <aside className="hero-art">
           <div className="miller-stage">
             <div className="miller-figure" style={millerStyle}>
-              <img
-                src={millerImageSrc}
-                alt="Miller"
-                className={millerClasses}
-                style={millerImageStyle}
-              />
-            </div>
+
+  <div className="miller-image-frame">
+    <img
+      src={millerImageSrc}
+      alt="Miller"
+      className={millerClasses}
+      style={millerImageStyle}
+    />
+  </div>
+
+  <div className="miller-switcher-wrap">
+
+    <div className="miller-switcher">
+      <button
+  className="miller-arrow"
+  type="button"
+  onClick={previousMiller}
+  aria-label="Previous Miller"
+>
+  <img
+    src={arrowLeft}
+    alt="Previous"
+    className="miller-arrow-image"
+  />
+</button>
+
+<div className="miller-dots">
+  {MILLER_THEMES.map((theme, index) => (
+    <button
+      key={theme.name}
+      type="button"
+      className={`miller-dot ${index === millerIndex ? "active" : ""}`}
+      style={{
+        background:
+          index === millerIndex
+            ? theme.accent
+            : "rgba(255,255,255,0.45)",
+        borderColor: theme.accent,
+      }}
+      onClick={() => setMillerIndex(index)}
+    />
+  ))}
+</div>
+
+<button
+  className="miller-arrow"
+  type="button"
+  onClick={nextMiller}
+  aria-label="Next Miller"
+>
+  <img
+    src={arrowRight}
+    alt="Next"
+    className="miller-arrow-image"
+  />
+</button>
+    </div>
+
+    <div className="miller-theme-name">
+      {currentTheme.name}
+    </div>
+
+  </div>
+
+</div>
 
             <div
               ref={bubbleRef}

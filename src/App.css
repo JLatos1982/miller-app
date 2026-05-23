@@ -89,25 +89,13 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto 2px;
+  margin: 0 auto -6px;
+
+  background: transparent !important;
 }
 
-.title-frame {
-  width: min(100%, 560px);
-  height: 172px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.title-image {
-  width: 120%;
-  max-width: none;
-  height: auto;
-  display: block;
-  transform: translateY(12px);
-  filter: drop-shadow(0 6px 14px rgba(79, 140, 255, 0.08));
+.hero-header {
+  background: transparent !important;
 }
 
 .page-subtitle {
@@ -123,17 +111,24 @@ textarea {
 
 .hero-layout {
   display: grid;
-  grid-template-columns: minmax(560px, 650px) minmax(350px, 430px);
-  gap: 44px;
+
+ grid-template-columns:
+  minmax(760px, 920px)
+  minmax(340px, 480px);
+
+gap: 10px;
+
   justify-content: center;
   align-items: start;
 }
 
 .hero-copy {
-  padding-top: 50px;
+  padding-top: 10px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
 }
 
 /* Shared cards */
@@ -152,9 +147,19 @@ textarea {
 /* Search */
 
 .search-panel {
-  width: min(100%, 640px);
-  padding: 18px;
-  margin-top: 2px;
+  width: min(100%, 720px);
+
+  padding: 26px;
+
+  margin-top: -12px;
+
+  position: relative;
+
+  z-index: 5;
+
+  background: rgba(255,255,255,0.96);
+
+  backdrop-filter: blur(8px);
 }
 
 .search-bar-wrap {
@@ -377,13 +382,18 @@ textarea {
 
 .miller-stage {
   position: sticky;
-  top: 18px;
+  top: 10px;
+
   width: 100%;
-  max-width: 440px;
-  min-height: 650px;
+  max-width: 650px;
+
+  min-height: 950px;
+
   background: #ffffff;
+
   overflow: visible;
-  padding-bottom: 140px;
+
+  padding-bottom: 120px;
 }
 
 /* Speech bubble high on the right */
@@ -434,26 +444,17 @@ textarea {
 
 .miller-figure {
   position: absolute;
-  top: 215px;
-  right: 8px;
-  z-index: 2;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  transform: rotate(-2deg);
-  will-change: auto;
-}
 
-.miller-image {
-  width: 230px;
-  max-width: 230px;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  background: #ffffff;
-  filter: none;
-  transform: none !important;
-  transition: opacity 160ms ease;
+  top: 170px;
+  right: 70px;
+
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: rotate(-1deg);
 }
 
 .miller-image.is-searching,
@@ -469,18 +470,6 @@ textarea {
 
 .miller-image.miller-confused {
   filter: saturate(0.98);
-}
-
-.miller-image.miller-bubble {
-  width: 230px !important;
-  max-width: 230px !important;
-  min-height: auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  background: transparent !important;
 }
 
 /* Typing cursor */
@@ -901,11 +890,6 @@ textarea {
     transform: rotate(-2deg);
   }
 
-  .miller-image {
-    width: 190px;
-    max-width: 190px;
-  }
-
   .miller-satchel-zone {
     position: static;
     grid-column: 1 / -1;
@@ -992,11 +976,6 @@ textarea {
     transform: rotate(-2deg);
   }
 
-  .miller-image {
-    width: 185px;
-    max-width: 185px;
-  }
-
   .treasure-chest-button {
     width: 78px;
     height: 70px;
@@ -1005,5 +984,369 @@ textarea {
   .eyebrow,
   .results-head h2 {
     text-align: left;
+  }
+
+.title-image {
+  transition: all 0.4s ease;
+}
+
+.miller-image {
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+}
+/* =========================================
+   MILLER SIZE + POSITION
+========================================= */
+
+.miller-image-frame {
+  width: 420px;
+  height: 620px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  position: relative;
+
+  overflow: visible;
+}
+
+.miller-image {
+  max-width: 100%;
+  max-height: 100%;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  display: block;
+
+  background: transparent;
+
+  filter:
+    drop-shadow(0 8px 18px rgba(79,140,255,0.10));
+
+  animation:
+    hologramFloat 5.5s ease-in-out infinite;
+}
+
+/* =========================================
+   FLOATING HOLOGRAM
+========================================= */
+
+@keyframes hologramFloat {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* =========================================
+   SWITCHING ANIMATION
+========================================= */
+
+.theme-fade {
+  animation: millerSwitch 0.42s ease;
+}
+
+@keyframes millerSwitch {
+  0% {
+    opacity: 0;
+
+    transform:
+      translateY(10px)
+      scale(0.98);
+
+    filter: blur(4px);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+    filter: blur(0);
+  }
+}
+
+/* =========================================
+   DIRECTIONAL SLIDE FEEL
+========================================= */
+
+.switch-left {
+  animation:
+    switchLeft 0.42s ease,
+    hologramFloat 5.5s ease-in-out infinite;
+}
+
+.switch-right {
+  animation:
+    switchRight 0.42s ease,
+    hologramFloat 5.5s ease-in-out infinite;
+}
+
+@keyframes switchLeft {
+  0% {
+    opacity: 0;
+    transform:
+      translateX(-20px)
+      scale(0.96);
+    filter: blur(4px);
+  }
+
+  100% {
+    opacity: 1;
+    transform:
+      translateX(0)
+      scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes switchRight {
+  0% {
+    opacity: 0;
+    transform:
+      translateX(20px)
+      scale(0.96);
+    filter: blur(4px);
+  }
+
+  100% {
+    opacity: 1;
+    transform:
+      translateX(0)
+      scale(1);
+    filter: blur(0);
+  }
+}
+
+/* =========================================
+   TITLE NORMALIZATION
+========================================= */
+
+.title-frame {
+  width: min(100%, 700px);
+
+  height: 215px;
+
+  overflow: visible;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  margin-top: 18px;
+  margin-bottom: 14px;
+}
+
+.title-image {
+  width: 112%;
+  max-width: none;
+
+  height: auto;
+
+  object-fit: contain;
+
+  display: block;
+
+  transform: translateY(16px);
+
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease,
+    filter 0.45s ease;
+
+  filter:
+    drop-shadow(0 8px 16px rgba(79, 140, 255, 0.12));
+}
+
+/* =========================================
+   MILLER SWITCHER
+========================================= */
+
+.miller-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.82);
+
+  backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(160,200,255,0.22);
+
+  box-shadow:
+    0 4px 14px rgba(79,140,255,0.08);
+
+  width: auto;
+}
+
+.miller-switcher-wrap {
+  position: absolute;
+
+  bottom: 24px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 8px;
+
+  z-index: 12;
+
+  width: auto;
+
+  background: transparent;
+}
+
+/* =========================================
+   MILLER SWITCH ARROWS
+========================================= */
+
+.miller-arrow {
+  width: 18px;
+  height: 18px;
+
+  padding: 0;
+  margin: 0;
+
+  border: none;
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+
+  transition:
+    transform 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.miller-arrow:hover {
+  transform: scale(1.08);
+}
+
+.miller-arrow-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   DOTS
+========================================= */
+
+.miller-dots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.miller-dot {
+  width: 13px;
+  height: 13px;
+
+  border-radius: 999px;
+
+  border: 2px solid transparent;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.miller-dot:hover {
+  transform: scale(1.18);
+}
+
+.miller-dot.active {
+  transform: scale(1.25);
+
+  box-shadow:
+    0 0 12px rgba(120,180,255,0.35);
+}
+
+/* =========================================
+   THEME LABEL
+========================================= */
+
+.miller-theme-name {
+  text-align: center;
+
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: #7c95c8;
+
+  padding-top: 2px;
+
+  opacity: 0.92;
+
+  background: rgba(255,255,255,0.72);
+
+  border-radius: 999px;
+
+  padding:
+    6px 14px;
+
+  backdrop-filter: blur(8px);
+
+  border:
+    1px solid rgba(160,200,255,0.22);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .miller-image-frame {
+    width: 210px;
+    height: 340px;
+      overflow: visible;
+  background: transparent;
+  }
+
+  .title-frame {
+    height: 150px;
   }
 }
