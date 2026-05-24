@@ -773,7 +773,7 @@ if (tavilyMode !== "none") {
           api_key: process.env.TAVILY_API_KEY,
           query:
   tavilyMode === "advanced"
-    ? `${safeQuery} addiction services British Columbia`
+    ? `${safeQuery} addiction mental health services British Columbia`
     : safeQuery,
 
           max_results:
@@ -794,7 +794,13 @@ if (tavilyMode !== "none") {
         "bc211.ca",
         "foundrybc.ca",
         "towardtheheart.com",
-        "gov.bc.ca"
+        "gov.bc.ca",
+        "interiorhealth.ca",
+        "islandhealth.ca",
+        "northernhealth.ca",
+        "phsa.ca",
+        "cmha.bc.ca",
+        "heretohelp.bc.ca"
       ]
         })
       }
@@ -803,9 +809,21 @@ if (tavilyMode !== "none") {
     const tavilyData = await tavilyResponse.json()
 
     tavilyResults = tavilyData.results || []
+    tavilyResults = tavilyResults.filter(result => {
+  const url = result.url || ""
+
+  return !(
+    url.includes("rehabcenter") ||
+    url.includes("addictionrehab") ||
+    url.includes("luxury") ||
+    url.includes("private")
+  )
+})
 
     console.log("Tavily mode:", tavilyMode)
-    console.log("Tavily results:", tavilyResults)
+    console.log(
+  `Tavily returned ${tavilyResults.length} results`
+)
 
   } catch (error) {
     console.error("Tavily search failed:", error)
