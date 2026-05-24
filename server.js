@@ -921,7 +921,6 @@ if (tavilyMode !== "none") {
 }
 
 const shouldSuppressLocalCards =
-  noCategoryMatch &&
   tavilyResults.length > 0
 
     const mergedCategories = uniqueStrings([
