@@ -714,14 +714,14 @@ useEffect(() => {
       if (cancelled) return
 
       timer = setInterval(() => {
-        index += 2
+        index += 1
         setDisplayedReply(fullText.slice(0, index))
 
         if (index >= fullText.length) {
           clearInterval(timer)
           timer = null
         }
-      }, 10)
+      }, 18)
     }
 
     runTyping()
@@ -738,6 +738,9 @@ useEffect(() => {
 
   const isBubbleTyping =
     isLoading || displayedReply.length < String(aiReply || "").length
+
+    const shouldShowResults =
+  hasSearched && !isBubbleTyping
 
   const cities = useMemo(() => {
     const uniqueCities = Array.from(
@@ -1163,8 +1166,8 @@ const millerImageStyle = {}
             </div>
           </form>
 
-          {hasSearched && (
-            <div className="results-panel" ref={resultsPanelRef}>
+          {shouldShowResults && (
+  <div className="results-panel" ref={resultsPanelRef}>
               <div className="results-head">
                 <h2>
                   Matching resources
