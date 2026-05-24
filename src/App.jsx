@@ -674,6 +674,7 @@ useEffect(() => {
   const [showSearchReveal, setShowSearchReveal] = useState(false)
 
   const [conversationMemory, setConversationMemory] = useState([])
+  const [conversationSummary, setConversationSummary] = useState("")
 
   const [submission, setSubmission] = useState({
     resource_name: "",
@@ -844,13 +845,25 @@ useEffect(() => {
 
     const trimmedQuery = query.trim()
 
-const updatedMemory = [
+let updatedMemory = [
   ...conversationMemory,
   {
     role: "user",
     content: trimmedQuery,
   },
-].slice(-24)
+]
+
+if (updatedMemory.length > 12) {
+  const olderMessages = updatedMemory.slice(0, 8)
+
+  const summaryText = olderMessages
+    .map((msg) => `${msg.role}: ${msg.content}`)
+    .join(" ")
+
+  setConversationSummary(summaryText)
+
+  updatedMemory = updatedMemory.slice(-8)
+}
 
 setConversationMemory(updatedMemory)
 
@@ -896,6 +909,7 @@ setConversationMemory(updatedMemory)
         body: JSON.stringify({
           query: trimmedQuery,
           conversationMemory: updatedMemory,
+          conversationSummary,
           city: selectedCity,
           inferredCategories: candidatePack.inferredCategories,
           matches: candidatePack.candidatePool.slice(0, 30),

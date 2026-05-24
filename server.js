@@ -690,6 +690,7 @@ app.post("/api/miller", async (req, res) => {
   city,
   matches,
   conversationMemory = [],
+  conversationSummary = "",
   inferredCategories,
   communicationMode
 } = req.body || {}
@@ -875,6 +876,9 @@ Safety mode detected by server: ${safetyMode}
 Safety signals: ${JSON.stringify(safetySignals)}
 Inferred categories: ${mergedCategories.join(", ") || "None"}
 Query keywords: ${queryKeywords.join(", ") || "None"}
+
+Conversation summary:
+${conversationSummary || "None yet"}
 
 RECENT CONVERSATION
 ${formattedMemory}
