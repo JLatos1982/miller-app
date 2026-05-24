@@ -1043,6 +1043,11 @@ Follow all instructions above carefully.`,
 
 if (formattedTavilyResults.length > 0) {
   try {
+    console.log(
+  "Formatted Tavily Results:",
+  formattedTavilyResults
+)
+
     await supabase
       .from("tavily_resources")
       .insert(
