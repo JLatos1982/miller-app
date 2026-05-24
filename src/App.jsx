@@ -654,6 +654,8 @@ const currentTheme = MILLER_THEMES[millerIndex]
   const [cursorOffset, setCursorOffset] = useState({ x: 0, y: 0 })
   const [showSearchReveal, setShowSearchReveal] = useState(false)
 
+  const [conversationMemory, setConversationMemory] = useState([])
+
   const [submission, setSubmission] = useState({
     resource_name: "",
     city: "",
@@ -822,6 +824,17 @@ const currentTheme = MILLER_THEMES[millerIndex]
     event.preventDefault()
 
     const trimmedQuery = query.trim()
+
+const updatedMemory = [
+  ...conversationMemory,
+  {
+    role: "user",
+    content: trimmedQuery,
+  },
+].slice(-24)
+
+setConversationMemory(updatedMemory)
+
     await supabase.from("site_events").insert([
   {
     event_type: "search",
@@ -862,6 +875,7 @@ const currentTheme = MILLER_THEMES[millerIndex]
         },
         body: JSON.stringify({
           query: trimmedQuery,
+          conversationMemory: updatedMemory,
           city: selectedCity,
           inferredCategories: candidatePack.inferredCategories,
           matches: candidatePack.candidatePool.slice(0, 30),
@@ -897,8 +911,19 @@ const currentTheme = MILLER_THEMES[millerIndex]
       setTotalMatches(rankedPool.length)
       setAiReply(
         data.answer ||
-          "Here’s what stands out. I pulled the closest matches below so you can scan the best leads first."
+          "The trail went a little foggy for a moment, but I still pulled together the closest matches below."
       )
+
+setConversationMemory((prev) =>
+  [
+    ...prev,
+    {
+      role: "assistant",
+      content: data.answer,
+    },
+  ].slice(-24)
+)
+
     } catch (error) {
       console.error(error)
 

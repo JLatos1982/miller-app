@@ -689,6 +689,7 @@ app.post("/api/miller", async (req, res) => {
   query,
   city,
   matches,
+  conversationMemory = [],
   inferredCategories,
   communicationMode
 } = req.body || {}
@@ -853,7 +854,14 @@ if (tavilyMode !== "none") {
           .join("\n\n")
       : "No local matches were found."
 
-    const response = await client.responses.create({
+    const formattedMemory = conversationMemory
+  .map(
+    (item) =>
+      `${item.role === "user" ? "User" : "Miller"}: ${item.content}`
+  )
+  .join("\n\n")
+
+      const response = await client.responses.create({
       model: OPENAI_MODEL,
       input: `
 ${MILLER_SYSTEM_PROMPT}
@@ -867,6 +875,9 @@ Safety mode detected by server: ${safetyMode}
 Safety signals: ${JSON.stringify(safetySignals)}
 Inferred categories: ${mergedCategories.join(", ") || "None"}
 Query keywords: ${queryKeywords.join(", ") || "None"}
+
+RECENT CONVERSATION
+${formattedMemory}
 
 RESOURCE MATCHES
 ${formattedMatches}
@@ -914,7 +925,7 @@ Follow all instructions above carefully.`,
 
     const answer =
       parsed?.answer ||
-      "Here’s what stands out. I pulled the closest matches below so you can scan the best leads first."
+      "The trail went a little foggy for a moment, but I still pulled together the closest matches below."
 
     res.json({
       answer,
