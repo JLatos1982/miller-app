@@ -936,6 +936,8 @@ setConversationMemory(updatedMemory)
       const data = await response.json()
       const aiHints = data.searchHints || {}
 
+      const tavilyResults = data.tavilyResults || []
+
       let rankedPool = sortResources(
         candidatePack.candidatePool.length ? candidatePack.candidatePool : candidatePack.candidates,
         trimmedQuery,
@@ -952,9 +954,14 @@ setConversationMemory(updatedMemory)
         candidatePack.inferredCategories
       )
 
-      const finalResults = rankedPool.slice(0, resultLimit)
+      const mergedResults = uniqueResourceObjects([
+      ...rankedPool,
+      ...tavilyResults,
+    ])
 
-      setResults(finalResults)
+const finalResults = mergedResults.slice(0, resultLimit)
+
+setResults(finalResults)
       setTotalMatches(rankedPool.length)
       setAiReply(
         data.answer ||

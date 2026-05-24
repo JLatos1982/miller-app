@@ -721,39 +721,50 @@ const finalCommunicationMode =
 
     const matchCount = safeMatches.length
 
-    const outsideBCRegions = [
-  "kelowna",
-  "victoria",
-  "nanaimo",
-  "kamloops",
-  "prince george",
-  "vernon",
-  "penticton",
-  "kelowna",
-  "interior health",
-  "island health"
+const knownLocalCities = [
+  "vancouver",
+  "burnaby",
+  "surrey",
+  "new westminster",
+  "richmond",
+  "delta",
+  "langley",
+  "abbotsford",
+  "coquitlam",
+  "port coquitlam",
+  "port moody",
+  "maple ridge",
+  "mission",
+  "north vancouver",
+  "west vancouver",
 ]
 
-const isOutsideLowerMainland = outsideBCRegions.some(region =>
-  safeQuery.toLowerCase().includes(region)
-)
+const queryLooksOutsideLocalDatabase =
+  !knownLocalCities.some(city =>
+    safeQuery.toLowerCase().includes(city)
+  ) &&
+  (
+    safeQuery.toLowerCase().includes("in ") ||
+    safeQuery.length > 25
+  )
 
-let tavilyMode = "none"
-
-if (isOutsideLowerMainland) {
-  tavilyMode = "advanced"
-} else if (
+const shouldUseAdvancedTavily =
+  queryLooksOutsideLocalDatabase ||
   matchCount === 0
-) {
+
+const shouldUseBasicTavily =
+  !shouldUseAdvancedTavily &&
+  (
+    matchCount < 5 ||
+    safeQuery.length > 40 ||
+    safeQuery.includes("?")
+  )
+
+  let tavilyMode = "none"
+
+if (shouldUseAdvancedTavily) {
   tavilyMode = "advanced"
-} else if (
-  matchCount < 3 ||
-  safeQuery.length > 40 ||
-  safeQuery.includes("?") ||
-  (Array.isArray(inferredCategories)
-  ? inferredCategories.length === 0
-  : true)
-) {
+} else if (shouldUseBasicTavily) {
   tavilyMode = "basic"
 }
 
@@ -770,7 +781,7 @@ if (tavilyMode !== "none") {
           api_key: process.env.TAVILY_API_KEY,
           query:
   tavilyMode === "advanced"
-    ? `${safeQuery} addiction mental health services British Columbia`
+    ? `${safeQuery} official health services community support`
     : safeQuery,
 
           max_results:
@@ -931,12 +942,23 @@ Follow all instructions above carefully.`,
       parsed?.answer ||
       "The trail went a little foggy for a moment, but I still pulled together the closest matches below."
 
-    res.json({
-      answer,
-      searchHints: finalSearchHints,
-      safetyMode,
-      communicationMode: finalCommunicationMode,
-    })
+    const formattedTavilyResults = tavilyResults.map((result) => ({
+  name: result.title || "Web Result",
+  organization: "Web Search",
+  description: result.content || "",
+  website: result.url || "",
+  city: city || "",
+  category: "Web Result",
+  serviceType: "External Resource",
+}))
+
+res.json({
+  answer,
+  searchHints: finalSearchHints,
+  safetyMode,
+  communicationMode: finalCommunicationMode,
+  tavilyResults: formattedTavilyResults,
+})
   } catch (error) {
     console.error("Miller API error:", error)
     res.status(500).json({
