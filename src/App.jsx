@@ -615,6 +615,17 @@ const [switchDirection, setSwitchDirection] = useState("right")
 
 const currentTheme = MILLER_THEMES[millerIndex]
 
+const sessionId = useMemo(() => {
+  let existing = localStorage.getItem("miller_session_id")
+
+  if (!existing) {
+    existing = crypto.randomUUID()
+    localStorage.setItem("miller_session_id", existing)
+  }
+
+  return existing
+}, [])
+
 useEffect(() => {
   async function trackVisit() {
     console.log("Attempting page_view insert...")
@@ -843,12 +854,13 @@ const updatedMemory = [
 
 setConversationMemory(updatedMemory)
 
-    await supabase.from("site_events").insert([
+   await supabase.from("site_events").insert([
   {
     event_type: "search",
     query: trimmedQuery,
     city: selectedCity,
     miller_theme: currentTheme.name,
+    session_id: sessionId,
   }
 ])
 
@@ -1206,6 +1218,7 @@ const millerImageStyle = {}
             city: resource.city,
             query,
             miller_theme: currentTheme.name,
+            session_id: sessionId,
           }
         ])
       }}
