@@ -615,24 +615,32 @@ const [switchDirection, setSwitchDirection] = useState("right")
 
 const currentTheme = MILLER_THEMES[millerIndex]
 
-  useEffect(() => {
+useEffect(() => {
   async function trackVisit() {
-    const { error } = await supabase.from("site_events").insert([
-      {
-  event_type: "page_view",
-  miller_theme: currentTheme.name,
-}
-    ])
+    console.log("Attempting page_view insert...")
+
+    const { data, error } = await supabase
+      .from("site_events")
+      .insert([
+        {
+          event_type: "page_view",
+          miller_theme: currentTheme.name,
+          query: null,
+          city: null,
+        },
+      ])
+      .select()
 
     if (error) {
-      console.error("Tracking error:", error)
+      console.error("SUPABASE INSERT ERROR:", error)
     } else {
-      console.log("Page view tracked")
+      console.log("Page view tracked:", data)
     }
   }
 
   trackVisit()
-}, [])
+}, [currentTheme.name])
+
   const [isLoading, setIsLoading] = useState(false)
   const [isTyping, setIsTyping] = useState(false)
   const [aiReply, setAiReply] = useState(defaultReply)
