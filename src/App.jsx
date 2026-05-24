@@ -970,6 +970,13 @@ if (data.suppressLocalCards) {
   setResults(finalResults)
 }
 
+setTotalMatches(finalResults.length)
+
+setAiReply(
+  data.answer ||
+    "Heres what stands out. I pulled the closest matches below so you can scan the best leads first."
+)
+
 setConversationMemory((prev) =>
   [
     ...prev,
@@ -997,7 +1004,7 @@ setConversationMemory((prev) =>
 
       setResults(fallbackResults)
       setTotalMatches(fallbackPool.length)
-      setAiReply("I couldn’t reach the AI just now, but I still pulled the closest matches below.")
+      setAiReply("I couldnt reach the AI just now, but I still pulled the closest matches below.")
     } finally {
       setIsLoading(false)
     }
