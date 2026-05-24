@@ -1027,6 +1027,9 @@ Follow all instructions above carefully.`,
   city: city || "",
   category: "Web Result",
   serviceType: "External Resource",
+
+  source: "tavily",
+  approved: false,
 }))
 
 res.json({

@@ -1200,6 +1200,12 @@ const millerImageStyle = {}
                       <div className="resource-meta">
                         {resource.serviceType && <span>{resource.serviceType}</span>}
                         {resource.category && <span>{resource.category}</span>}
+
+                        {resource.source === "tavily" && (
+  <span className="web-result-badge">
+    🌐 Found Online
+  </span>
+)}
                       </div>
 
                       {resource.description && (
