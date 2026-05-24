@@ -1032,6 +1032,34 @@ Follow all instructions above carefully.`,
   approved: false,
 }))
 
+if (formattedTavilyResults.length > 0) {
+  try {
+    await supabase
+      .from("tavily_resources")
+      .insert(
+        formattedTavilyResults.map((resource) => ({
+          name: resource.name,
+          organization: resource.organization,
+          description: resource.description,
+          website: resource.website,
+
+          city: resource.city,
+          category: resource.category,
+          service_type: resource.serviceType,
+
+          source: resource.source,
+          approved: false,
+
+          original_query: safeQuery,
+        }))
+      )
+
+    console.log("Saved Tavily resources to Supabase")
+  } catch (error) {
+    console.error("Could not save Tavily resources:", error)
+  }
+}
+
 res.json({
   answer,
   searchHints: finalSearchHints,
