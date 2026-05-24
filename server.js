@@ -128,6 +128,12 @@ const CATEGORY_ALIASES = {
     "safer smoking",
     "drug checking",
     "supervised consumption",
+    "safe injection",
+"safe consumption",
+"consumption site",
+"supervised consumption",
+"overdose prevention site",
+"ops",
     "overdose prevention",
   ],
   "Treatment Programs": [
@@ -222,6 +228,78 @@ function extractKeywordTokens(query) {
       .split(/\s+/)
       .filter((token) => token && token.length > 2 && !STOP_WORDS.has(token))
   )
+}
+
+function scoreResource(resource, query) {
+  const search = normalizeText(query)
+
+  const text = `
+    ${resource.name || ""}
+    ${resource.organization || ""}
+    ${resource.description || ""}
+    ${resource.category || ""}
+    ${resource.serviceType || ""}
+    ${resource.city || ""}
+  `.toLowerCase()
+
+  let score = 0
+
+  if (text.includes(search)) score += 100
+
+  const words = search.split(" ")
+
+  for (const word of words) {
+    if (word.length < 3) continue
+
+    if (text.includes(word)) {
+      score += 20
+    }
+  }
+
+  const category = normalizeText(resource.category)
+
+const inferredCategories =
+  inferCategoriesFromQuery(query)
+
+if (
+  inferredCategories.includes("Harm Reduction") &&
+  category.includes("harm reduction")
+) {
+  score += 120
+}
+
+if (
+  inferredCategories.includes("Detox / Withdrawal") &&
+  (
+    category.includes("detox") ||
+    category.includes("withdrawal")
+  )
+) {
+  score += 120
+}
+
+if (
+  inferredCategories.includes("Treatment Programs") &&
+  category.includes("treatment")
+) {
+  score += 100
+}
+
+if (
+  inferredCategories.includes("Counselling") &&
+  category.includes("counselling")
+) {
+  score += 90
+}
+
+if (
+  inferredCategories.includes("Housing / Outreach") &&
+  category.includes("housing")
+) {
+  score += 90
+}
+
+  return score
 }
 
 function stripCodeFences(text) {
@@ -721,43 +799,38 @@ const finalCommunicationMode =
 
     const matchCount = safeMatches.length
 
-const knownLocalCities = [
-  "vancouver",
-  "burnaby",
-  "surrey",
-  "new westminster",
-  "richmond",
-  "delta",
-  "langley",
-  "abbotsford",
-  "coquitlam",
-  "port coquitlam",
-  "port moody",
-  "maple ridge",
-  "mission",
-  "north vancouver",
-  "west vancouver",
-]
+const inferredQueryCategories =
+  inferCategoriesFromQuery(safeQuery)
 
-const queryLooksOutsideLocalDatabase =
-  !knownLocalCities.some(city =>
-    safeQuery.toLowerCase().includes(city)
-  ) &&
-  (
-    safeQuery.toLowerCase().includes("in ") ||
-    safeQuery.length > 25
+const topLocalScore =
+  safeMatches.length > 0
+    ? scoreResource(
+        safeMatches[0],
+        safeQuery
+      )
+    : 0
+
+const noCategoryMatch =
+  inferredQueryCategories.length > 0 &&
+  !safeMatches.some((resource) =>
+    inferredQueryCategories.some(
+      (cat) =>
+        normalizeText(resource.category).includes(
+          normalizeText(cat)
+        )
+    )
   )
 
 const shouldUseAdvancedTavily =
-  queryLooksOutsideLocalDatabase ||
-  matchCount === 0
+  safeMatches.length < 3 ||
+  topLocalScore < 120 ||
+  noCategoryMatch
 
 const shouldUseBasicTavily =
   !shouldUseAdvancedTavily &&
   (
-    matchCount < 5 ||
-    safeQuery.length > 40 ||
-    safeQuery.includes("?")
+    safeMatches.length < 8 ||
+    topLocalScore < 220
   )
 
   let tavilyMode = "none"
@@ -781,15 +854,19 @@ if (tavilyMode !== "none") {
           api_key: process.env.TAVILY_API_KEY,
           query:
   tavilyMode === "advanced"
-    ? `${safeQuery} official health services community support`
+    ? `${safeQuery} BC harm reduction detox counselling treatment mental health official services site:.ca`
     : safeQuery,
 
           max_results:
             tavilyMode === "advanced"
-              ? 8
+              ? 12
               : 5,
 
           topic: "general",
+          search_depth:
+  tavilyMode === "advanced"
+    ? "advanced"
+    : "basic",
 
           include_answer: false,
 
