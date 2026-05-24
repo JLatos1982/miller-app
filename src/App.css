@@ -156,10 +156,10 @@ textarea {
   display: grid;
 
  grid-template-columns:
-  minmax(760px, 920px)
-  minmax(340px, 480px);
+  minmax(820px, 980px)
+  minmax(320px, 420px);
 
-gap: 10px;
+gap: 80px;
 
   justify-content: center;
   align-items: start;
@@ -295,7 +295,7 @@ gap: 10px;
 .results-panel {
   position: relative;
   z-index: 3;
-  width: min(100%, 640px);
+  width: min(100%, 600px);
   margin-top: 18px;
   padding: 18px;
 }
@@ -500,8 +500,8 @@ gap: 10px;
   top: 0;
   right: 120px;
   z-index: 5;
-  width: 320px;
-  max-width: 320px;
+  width: 380px;
+  max-width: 380px;
   min-height: 180px;
   background: rgba(255,255,255,0.90);
   backdrop-filter: blur(10px);
