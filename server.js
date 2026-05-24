@@ -915,15 +915,14 @@ if (tavilyMode !== "none") {
     console.log(
   `Tavily returned ${tavilyResults.length} results`
 )
-
-  const shouldSuppressLocalCards =
-  noCategoryMatch &&
-  tavilyResults.length > 0
-
   } catch (error) {
     console.error("Tavily search failed:", error)
   }
 }
+
+const shouldSuppressLocalCards =
+  noCategoryMatch &&
+  tavilyResults.length > 0
 
     const mergedCategories = uniqueStrings([
       ...(Array.isArray(inferredCategories) ? inferredCategories : []),
