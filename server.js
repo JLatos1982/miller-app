@@ -916,6 +916,10 @@ if (tavilyMode !== "none") {
   `Tavily returned ${tavilyResults.length} results`
 )
 
+  const shouldSuppressLocalCards =
+  noCategoryMatch &&
+  tavilyResults.length > 0
+
   } catch (error) {
     console.error("Tavily search failed:", error)
   }
@@ -1072,6 +1076,7 @@ res.json({
   safetyMode,
   communicationMode: finalCommunicationMode,
   tavilyResults: formattedTavilyResults,
+  suppressLocalCards: shouldSuppressLocalCards,
 })
   } catch (error) {
     console.error("Miller API error:", error)

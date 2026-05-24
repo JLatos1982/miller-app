@@ -964,12 +964,11 @@ setConversationMemory(updatedMemory)
 
 const finalResults = mergedResults.slice(0, resultLimit)
 
-setResults(finalResults)
-      setTotalMatches(rankedPool.length)
-      setAiReply(
-        data.answer ||
-          "The trail went a little foggy for a moment, but I still pulled together the closest matches below."
-      )
+if (data.suppressLocalCards) {
+  setResults(data.tavilyResults || [])
+} else {
+  setResults(finalResults)
+}
 
 setConversationMemory((prev) =>
   [
