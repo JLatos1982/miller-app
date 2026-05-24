@@ -6,6 +6,7 @@ import path from "path"
 import { fileURLToPath } from "url"
 import { tavily } from "@tavily/core"
 import fetch from "node-fetch"
+import { createClient } from "@supabase/supabase-js"
 
 dotenv.config()
 
@@ -27,6 +28,11 @@ const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-5.4-mini"
 const TAVILY_CLIENT = tavily({
   apiKey: process.env.TAVILY_API_KEY,
 })
+
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY
+)
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
