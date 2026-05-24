@@ -33,12 +33,23 @@ body,
   margin: 0;
   min-height: 100%;
   font-family: "Trebuchet MS", Arial, sans-serif;
-  background: var(--bg);
   color: var(--text);
 }
 
 body {
   min-height: 100vh;
+
+  background-color: #f7fbff;
+
+  background-size: contain;
+
+  background-position: center bottom;
+
+  background-repeat: no-repeat;
+
+  transition:
+    background-image 0.6s ease,
+    background-color 0.6s ease;
 }
 
 a {
@@ -59,14 +70,22 @@ textarea {
 }
 
 .app-shell {
+  position: relative;
+  overflow: hidden;
   width: min(1360px, calc(100% - 36px));
   margin: 0 auto;
   padding: 18px 0 72px;
+
+  transition:
+    background-image 0.6s ease,
+    background-color 0.6s ease;
 }
 
 /* Header */
 
 .hero-header {
+  position: relative;
+  z-index: 2;
   width: 100%;
   max-width: 900px;
   margin: 0 auto 10px;
@@ -94,6 +113,27 @@ textarea {
   background: transparent !important;
 }
 
+.scene-background {
+  position: absolute;
+
+  left: 50%;
+  top: 180px;
+
+  transform: translateX(-50%);
+
+  width: min(1600px, 100vw);
+
+  height: auto;
+
+  object-fit: contain;
+
+  z-index: 0;
+
+  opacity: 0.95;
+
+  pointer-events: none;
+}
+
 .hero-header {
   background: transparent !important;
 }
@@ -110,6 +150,9 @@ textarea {
 /* Main layout — variation C */
 
 .hero-layout {
+  position: relative;
+  z-index: 2;
+
   display: grid;
 
  grid-template-columns:
@@ -157,7 +200,7 @@ gap: 10px;
 
   z-index: 5;
 
-  background: rgba(255,255,255,0.96);
+  background: rgba(255,255,255,0.88);
 
   backdrop-filter: blur(8px);
 }
@@ -250,6 +293,8 @@ gap: 10px;
 /* Results */
 
 .results-panel {
+  position: relative;
+  z-index: 3;
   width: min(100%, 640px);
   margin-top: 18px;
   padding: 18px;
@@ -429,7 +474,6 @@ gap: 10px;
   justify-content: flex-start;
   align-items: flex-start;
   padding-top: 0;
-  background: #ffffff;
   overflow: visible;
 }
 
@@ -441,8 +485,6 @@ gap: 10px;
   max-width: 650px;
 
   min-height: 1020px;
-
-  background: #ffffff;
 
   overflow: visible;
 
@@ -459,7 +501,8 @@ gap: 10px;
   width: 320px;
   max-width: 320px;
   min-height: 180px;
-  background: #ffffff;
+  background: rgba(255,255,255,0.90);
+  backdrop-filter: blur(10px);
   border: 2.5px solid var(--line);
   border-radius: 24px;
   padding: 22px;

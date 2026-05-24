@@ -19,6 +19,13 @@ import titleNorth from "./assets/title_north.png"
 import arrowLeft from "./assets/arrow_left.png";
 import arrowRight from "./assets/arrow_right.png";
 
+import backgroundClassic from "./assets/background_classic.png"
+import backgroundViolet from "./assets/background_violet.png"
+import backgroundJade from "./assets/background_jade.png"
+import backgroundGold from "./assets/background_gold.png"
+import backgroundNorth from "./assets/background_north.png"
+import backgroundRose from "./assets/background_rose.png"
+
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
     "detox",
@@ -146,36 +153,42 @@ const MILLER_THEMES = [
     name: "Classic",
     avatar: millerClassic,
     title: titleClassic,
+    background: backgroundClassic,
     accent: "#6bbcff",
   },
   {
     name: "Jade",
     avatar: millerJade,
     title: titleJade,
+    background: backgroundJade,
     accent: "#71c99a",
   },
   {
     name: "Gold",
     avatar: millerGold,
     title: titleGold,
+    background: backgroundGold,
     accent: "#d8ac55",
   },
   {
     name: "Violet",
     avatar: millerViolet,
     title: titleViolet,
+    background: backgroundViolet,
     accent: "#ae8cff",
   },
   {
     name: "Rose",
     avatar: millerRose,
     title: titleRose,
+    background: backgroundRose,
     accent: "#ef91a8",
   },
   {
     name: "North",
     avatar: millerNorth,
     title: titleNorth,
+    background: backgroundNorth,
     accent: "#6fd4d7",
   },
 ]
@@ -1072,7 +1085,15 @@ function previousMiller() {
 const millerImageStyle = {}
 
   return (
-    <div className="app-shell" ref={appShellRef}>
+    <div
+  className="app-shell"
+  ref={appShellRef}
+>
+  <img
+  src={currentTheme.background}
+  alt=""
+  className="scene-background"
+/>
       <div className="hero-header">
        <p className="eyebrow">Gentle help finding support in BC’s Lower Mainland</p>
 
