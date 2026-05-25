@@ -1043,11 +1043,14 @@ Follow all instructions above carefully.`,
 if (formattedTavilyResults.length > 0) {
   try {
     console.log(
-  "Formatted Tavily Results:",
-  formattedTavilyResults
-)
+      "Formatted Tavily Results:",
+      formattedTavilyResults
+    )
 
-    await supabase
+    const {
+      data: insertedData,
+      error: insertError,
+    } = await supabase
       .from("tavily_resources")
       .insert(
         formattedTavilyResults.map((resource) => ({
@@ -1067,9 +1070,22 @@ if (formattedTavilyResults.length > 0) {
         }))
       )
 
-    console.log("Saved Tavily resources to Supabase")
+    if (insertError) {
+  console.error(
+    "Supabase insert error:",
+    insertError
+  )
+} else {
+  console.log(
+    "Inserted Tavily resources:",
+    insertedData
+  )
+}
   } catch (error) {
-    console.error("Could not save Tavily resources:", error)
+    console.error(
+      "Could not save Tavily resources:",
+      error
+    )
   }
 }
 
@@ -1078,16 +1094,20 @@ res.json({
   searchHints: finalSearchHints,
   safetyMode,
   communicationMode: finalCommunicationMode,
+
   tavilyResults: formattedTavilyResults,
   suppressLocalCards: shouldSuppressLocalCards,
 })
-  } catch (error) {
-    console.error("Miller API error:", error)
-    res.status(500).json({
-      error: "Failed to generate Miller response.",
-      details: error?.message || "Unknown error",
-    })
-  }
+
+} catch (error) {
+  console.error("Miller API error:", error)
+
+  res.status(500).json({
+    error: "Failed to generate Miller response.",
+    details: error?.message || "Unknown error",
+  })
+}
+
 })
 
 app.use(express.static(path.join(__dirname, "dist")))
