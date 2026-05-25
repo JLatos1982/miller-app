@@ -717,7 +717,11 @@ app.get("/unlock", (req, res) => {
 })
 
 app.use((req, res, next) => {
-  const publicPaths = ["/unlock", "/api/unlock"]
+  const publicPaths = [
+  "/unlock",
+  "/api/unlock",
+  "/api/miller"
+]
 
   if (publicPaths.includes(req.path)) {
     return next()
@@ -1029,7 +1033,7 @@ Follow all instructions above carefully.`,
   organization: "Web Search",
   description: result.content || "",
   website: result.url || "",
-  city: city || "",
+  city: city || "All Cities",
   category: "Web Result",
   serviceType: "External Resource",
 

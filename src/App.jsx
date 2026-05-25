@@ -970,7 +970,7 @@ const finalResults = mergedResults.slice(0, resultLimit)
 
 setResults(finalResults)
 
-setTotalMatches(finalResults.length)
+setTotalMatches(rankedPool.length)
 
 setAiReply(
   data.answer ||
