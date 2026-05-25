@@ -515,6 +515,10 @@ function scoreResource(resource, query, selectedCity, options = {}) {
     }
   }
 
+if (resource.source === "tavily") {
+  score -= 40
+}
+
   return score
 }
 
@@ -964,11 +968,7 @@ setConversationMemory(updatedMemory)
 
 const finalResults = mergedResults.slice(0, resultLimit)
 
-if (data.suppressLocalCards) {
-  setResults(data.tavilyResults || [])
-} else {
-  setResults(finalResults)
-}
+setResults(finalResults)
 
 setTotalMatches(finalResults.length)
 

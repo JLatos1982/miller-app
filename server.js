@@ -920,9 +920,6 @@ if (tavilyMode !== "none") {
   }
 }
 
-const shouldSuppressLocalCards =
-  tavilyResults.length > 0
-
     const mergedCategories = uniqueStrings([
       ...(Array.isArray(inferredCategories) ? inferredCategories : []),
       ...inferCategoriesFromQuery(safeQuery),
