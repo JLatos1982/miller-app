@@ -1093,9 +1093,7 @@ res.json({
   searchHints: finalSearchHints,
   safetyMode,
   communicationMode: finalCommunicationMode,
-
   tavilyResults: formattedTavilyResults,
-  suppressLocalCards: shouldSuppressLocalCards,
 })
 
 } catch (error) {
