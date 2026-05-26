@@ -429,6 +429,25 @@ function cleanTavilyContent(text) {
     .slice(0, 260)
 }
 
+function getSourceQualityScore(url = "") {
+  const site = String(url).toLowerCase()
+
+  if (site.includes("fraserhealth.ca")) return 100
+  if (site.includes("vch.ca")) return 95
+  if (site.includes("gov.bc.ca")) return 95
+  if (site.includes("interiorhealth.ca")) return 92
+  if (site.includes("islandhealth.ca")) return 92
+  if (site.includes("northernhealth.ca")) return 92
+  if (site.includes("phsa.ca")) return 90
+  if (site.includes("foundrybc.ca")) return 88
+  if (site.includes("bc211.ca")) return 85
+  if (site.includes("towardtheheart.com")) return 85
+  if (site.includes("cmha.bc.ca")) return 82
+  if (site.includes("heretohelp.bc.ca")) return 80
+
+  return 40
+}
+
 function scoreResource(resource, query) {
   const search = normalizeText(query)
 
@@ -1264,6 +1283,7 @@ serviceType:
   "External Resource",
 
   source: "tavily",
+  qualityScore: getSourceQualityScore(result.url),
   approved: false,
 }))
 
@@ -1273,19 +1293,47 @@ if (formattedTavilyResults.length > 0) {
       "Formatted Tavily Results:",
       formattedTavilyResults
     )
-const existingWebsites = new Set()
 
-const uniqueTavilyResults =
-  formattedTavilyResults.filter((resource) => {
-    const site = resource.website
+ const existingWebsites = new Set()
 
-    if (!site || existingWebsites.has(site)) {
-      return false
-    }
+const uniqueTavilyResults = []
 
-    existingWebsites.add(site)
-    return true
-  })
+for (const resource of formattedTavilyResults) {
+  const site = String(resource.website || "").trim()
+
+  if (!site) {
+    continue
+  }
+
+  if (existingWebsites.has(site)) {
+    continue
+  }
+
+  const descriptionLength =
+    String(resource.description || "").length
+
+  if (descriptionLength < 70) {
+    continue
+  }
+
+  if ((resource.qualityScore || 0) < 70) {
+  continue
+}
+
+  const { data: existingMatch } = await supabase
+    .from("tavily_resources")
+    .select("id")
+    .eq("website", site)
+    .limit(1)
+
+  if (existingMatch && existingMatch.length > 0) {
+    continue
+  }
+
+  existingWebsites.add(site)
+
+  uniqueTavilyResults.push(resource)
+}   
 
 const {
   data: insertedData,
@@ -1302,6 +1350,9 @@ const {
       category: resource.category,
       service_type: resource.serviceType,
       source: resource.source,
+      
+      quality_score: resource.qualityScore || 40,
+      
       approved: false,
       original_query: safeQuery,
     }))

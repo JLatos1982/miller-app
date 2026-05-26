@@ -1038,9 +1038,26 @@ setConversationMemory(updatedMemory)
         candidatePack.inferredCategories
       )
 
-      const mergedResults = uniqueResourceObjects([
+      const localNames = new Set(
+  rankedPool.map((resource) =>
+    normalizeText(resource.name)
+  )
+)
+
+const preferredTavilyResults =
+  filteredTavilyResults.filter((resource) => {
+    const tavilyName =
+      normalizeText(resource.name)
+
+    return !Array.from(localNames).some((localName) =>
+      localName.includes(tavilyName) ||
+      tavilyName.includes(localName)
+    )
+  })
+
+const mergedResults = uniqueResourceObjects([
   ...rankedPool,
-  ...filteredTavilyResults,
+  ...preferredTavilyResults,
 ])
 
 const rerankedResults = sortResources(
