@@ -1285,14 +1285,14 @@ const millerImageStyle = {}
                           </p>
                         )}
                         {resource.population && (
-                          <p>
-                            <strong>Population:</strong> {resource.population}
-                          </p>
+                          <p className="secondary-detail">
+  <strong>Population:</strong> {resource.population}
+</p>
                         )}
                         {resource.eligibility && (
-                          <p>
-                            <strong>Eligibility:</strong> {resource.eligibility}
-                          </p>
+                         <p className="secondary-detail">
+  <strong>Eligibility:</strong> {resource.eligibility}
+</p>
                         )}
                         {safeNotes(resource) && (
                           <p>
@@ -1302,6 +1302,15 @@ const millerImageStyle = {}
                       </div>
 
                       <div className="resource-links">
+  {resource.phone ? (
+  <a
+    className="resource-link-button"
+    href={`tel:${resource.phone}`}
+  >
+    📞 Call
+  </a>
+) : null}
+  
   {resource.website ? (
     <a
       className="resource-link-button"

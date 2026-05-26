@@ -391,15 +391,40 @@ gap: 80px;
 
 .resource-details {
   margin-top: 12px;
+
   display: grid;
-  gap: 6px;
+
+  gap: 8px;
+
+  padding-top: 10px;
+
+  border-top: 1px solid rgba(79,140,255,0.08);
 }
 
 .resource-details p {
   margin: 0;
-  line-height: 1.5;
+
+  line-height: 1.45;
+
   color: var(--text-soft);
+
   text-align: left;
+
+  font-size: 0.92rem;
+
+  opacity: 0.88;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 6px;
+}
+
+.secondary-detail {
+  opacity: 0.72;
+
+  font-size: 0.88rem;
 }
 
 .resource-links {
