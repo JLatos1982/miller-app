@@ -1114,6 +1114,44 @@ setConversationMemory((prev) =>
     }
   }
 
+async function approveTavilyResource(resource) {
+  if (!resource.website) return
+
+  await supabase
+    .from("tavily_resources")
+    .update({
+      approved: true,
+      hidden: false,
+    })
+    .eq("website", resource.website)
+
+  setResults((prev) =>
+    prev.map((item) =>
+      item.website === resource.website
+        ? { ...item, approved: true }
+        : item
+    )
+  )
+}
+
+async function hideTavilyResource(resource) {
+  if (!resource.website) return
+
+  await supabase
+    .from("tavily_resources")
+    .update({
+      hidden: true,
+    })
+    .eq("website", resource.website)
+
+  setResults((prev) =>
+    prev.filter(
+      (item) =>
+        item.website !== resource.website
+    )
+  )
+}
+
   function clearSearch() {
     setQuery("")
     setSelectedCity("All Cities")
@@ -1322,6 +1360,31 @@ const millerImageStyle = {}
   <span className="web-result-badge">
     🌐 Found Online
   </span>
+)}
+
+{resource.source === "tavily" &&
+  !resource.approved && (
+    <div className="resource-review-actions">
+
+      <button
+        className="approve-button"
+        onClick={() =>
+          approveTavilyResource(resource)
+        }
+      >
+        ✅ Approve
+      </button>
+
+      <button
+        className="hide-button"
+        onClick={() =>
+          hideTavilyResource(resource)
+        }
+      >
+        🚫 Hide
+      </button>
+
+    </div>
 )}
                       </div>
 

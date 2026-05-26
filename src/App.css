@@ -370,6 +370,37 @@ gap: 80px;
   margin-top: 10px;
 }
 
+.resource-review-actions {
+  display: flex;
+
+  gap: 8px;
+
+  margin-top: 10px;
+}
+
+.approve-button,
+.hide-button {
+  border: none;
+
+  border-radius: 10px;
+
+  padding: 6px 10px;
+
+  cursor: pointer;
+
+  font-size: 0.82rem;
+
+  font-weight: 600;
+}
+
+.approve-button {
+  background: rgba(90, 180, 120, 0.14);
+}
+
+.hide-button {
+  background: rgba(220, 120, 120, 0.14);
+}
+
 .resource-meta span {
   display: inline-flex;
   align-items: center;
