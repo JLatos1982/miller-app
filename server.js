@@ -236,6 +236,188 @@ function extractKeywordTokens(query) {
   )
 }
 
+function detectCityFromQuery(query) {
+  const CITY_ALIASES = {
+    vancouver: [
+      "vancouver",
+      "van",
+      "downtown vancouver",
+    ],
+
+    surrey: [
+      "surrey",
+    ],
+
+    burnaby: [
+      "burnaby",
+    ],
+
+    richmond: [
+      "richmond",
+    ],
+
+    newwestminster: [
+      "new west",
+      "newwest",
+      "new westminster",
+    ],
+
+    northvancouver: [
+      "north van",
+      "north vancouver",
+      "nvan",
+    ],
+
+    westvancouver: [
+      "west van",
+      "west vancouver",
+    ],
+
+    coquitlam: [
+      "coquitlam",
+      "tri cities",
+      "tri-cities",
+      "tricities",
+    ],
+
+    portmoody: [
+      "port moody",
+    ],
+
+    portcoquitlam: [
+      "port coquitlam",
+      "poco",
+    ],
+
+    abbotsford: [
+      "abbotsford",
+      "abby",
+    ],
+
+    chilliwack: [
+      "chilliwack",
+    ],
+
+    kelowna: [
+      "kelowna",
+    ],
+
+    victoria: [
+      "victoria",
+      "vic",
+    ],
+
+    nanaimo: [
+      "nanaimo",
+    ],
+
+    kamloops: [
+      "kamloops",
+    ],
+
+    princegeorge: [
+      "prince george",
+      "pg",
+    ],
+
+    penticton: [
+      "penticton",
+    ],
+
+    nelson: [
+      "nelson",
+    ],
+
+    whistler: [
+      "whistler",
+    ],
+  }
+
+  const HEALTH_REGION_ALIASES = {
+    "Fraser Health": [
+      "fraser",
+      "fraser health",
+    ],
+
+    "Vancouver Coastal": [
+      "vch",
+      "vancouver coastal",
+    ],
+
+    "Interior Health": [
+      "interior",
+      "interior health",
+    ],
+
+    "Island Health": [
+      "island health",
+      "vancouver island",
+      "island",
+    ],
+
+    "Northern Health": [
+      "northern health",
+      "north bc",
+      "northern bc",
+    ],
+  }
+
+  const text = normalizeText(query)
+
+  for (const [canonicalCity, aliases] of Object.entries(CITY_ALIASES)) {
+    for (const alias of aliases) {
+      if (text.includes(normalizeText(alias))) {
+        return canonicalCity
+      }
+    }
+  }
+
+  for (const [region, aliases] of Object.entries(HEALTH_REGION_ALIASES)) {
+    for (const alias of aliases) {
+      if (text.includes(normalizeText(alias))) {
+        return region
+      }
+    }
+  }
+
+  return ""
+}
+
+function fuzzyIncludes(text, target) {
+  return (
+    text.includes(target) ||
+    levenshteinDistance(text, target) <= 2
+  )
+}
+
+function levenshteinDistance(a, b) {
+  const matrix = []
+
+  for (let i = 0; i <= b.length; i++) {
+    matrix[i] = [i]
+  }
+
+  for (let j = 0; j <= a.length; j++) {
+    matrix[0][j] = j
+  }
+
+  for (let i = 1; i <= b.length; i++) {
+    for (let j = 1; j <= a.length; j++) {
+      if (b.charAt(i - 1) === a.charAt(j - 1)) {
+        matrix[i][j] = matrix[i - 1][j - 1]
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1,
+          matrix[i][j - 1] + 1,
+          matrix[i - 1][j] + 1
+        )
+      }
+    }
+  }
+
+  return matrix[b.length][a.length]
+}
+
 function scoreResource(resource, query) {
   const search = normalizeText(query)
 
@@ -1056,9 +1238,17 @@ Follow all instructions above carefully.`,
   organization: "Web Search",
   description: result.content || "",
   website: result.url || "",
-  city: city || "All Cities",
-  category: "Web Result",
-  serviceType: "External Resource",
+  city:
+  detectCityFromQuery(safeQuery) ||
+  city ||
+  "All Cities",
+ category:
+  inferCategoriesFromQuery(safeQuery)[0] ||
+  "Web Result",
+
+serviceType:
+  inferCategoriesFromQuery(safeQuery)[0] ||
+  "External Resource",
 
   source: "tavily",
   approved: false,
@@ -1070,14 +1260,27 @@ if (formattedTavilyResults.length > 0) {
       "Formatted Tavily Results:",
       formattedTavilyResults
     )
+const existingWebsites = new Set()
 
-    const {
+const uniqueTavilyResults =
+  formattedTavilyResults.filter((resource) => {
+    const site = resource.website
+
+    if (!site || existingWebsites.has(site)) {
+      return false
+    }
+
+    existingWebsites.add(site)
+    return true
+  })
+
+const {
   data: insertedData,
   error: insertError,
 } = await supabase
   .from("tavily_resources")
   .insert(
-    formattedTavilyResults.map((resource) => ({
+    uniqueTavilyResults.map((resource) => ({
       name: resource.name,
       organization: resource.organization,
       description: resource.description,

@@ -979,11 +979,21 @@ setConversationMemory(updatedMemory)
       )
 
       const mergedResults = uniqueResourceObjects([
-      ...rankedPool,
-      ...tavilyResults,
-    ])
+  ...rankedPool,
+  ...tavilyResults,
+])
 
-const finalResults = mergedResults.slice(0, resultLimit)
+const rerankedResults = sortResources(
+  mergedResults,
+  trimmedQuery,
+  selectedCity,
+  {
+    inferredCategories: candidatePack.inferredCategories,
+    aiHints,
+  }
+)
+
+const finalResults = rerankedResults.slice(0, resultLimit)
 
 setResults(finalResults)
 
