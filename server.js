@@ -832,28 +832,34 @@ const noCategoryMatch =
   )
 
 const shouldUseAdvancedTavily =
-  safeMatches.length < 3 ||
-  topLocalScore < 120 ||
-  noCategoryMatch
+  safeMatches.length < 5 ||
+  topLocalScore < 160 ||
+  noCategoryMatch ||
+  safeQuery.length > 10
 
 const shouldUseBasicTavily =
   !shouldUseAdvancedTavily &&
   (
-    safeMatches.length < 8 ||
-    topLocalScore < 220
+    safeMatches.length < 12 ||
+    topLocalScore < 260
   )
 
-  let tavilyMode = "none"
+  console.log("Top local score:", topLocalScore)
+console.log("Safe matches:", safeMatches.length)
+console.log("No category match:", noCategoryMatch)
+console.log("Advanced Tavily:", shouldUseAdvancedTavily)
+console.log("Basic Tavily:", shouldUseBasicTavily)
+
+  let tavilyMode = "basic"
 
 if (shouldUseAdvancedTavily) {
   tavilyMode = "advanced"
-} else if (shouldUseBasicTavily) {
-  tavilyMode = "basic"
 }
 
 if (tavilyMode !== "none") {
   try {
-    const tavilyResponse = await fetch(
+    const tavilyResponse = await retry(() =>
+  fetch(
       "https://api.tavily.com/search",
       {
         method: "POST",
@@ -864,8 +870,8 @@ if (tavilyMode !== "none") {
           api_key: process.env.TAVILY_API_KEY,
           query:
   tavilyMode === "advanced"
-    ? `${safeQuery} BC harm reduction detox counselling treatment mental health official services site:.ca`
-    : safeQuery,
+    ? `${safeQuery} British Columbia addiction detox counselling treatment harm reduction mental health official services`
+    : `${safeQuery} BC addiction mental health services`,
 
           max_results:
             tavilyMode === "advanced"
@@ -899,7 +905,7 @@ if (tavilyMode !== "none") {
       ]
         })
       }
-    )
+    ))
 
     const tavilyData = await tavilyResponse.json()
 
@@ -959,7 +965,8 @@ if (tavilyMode !== "none") {
   )
   .join("\n\n")
 
-      const response = await client.responses.create({
+      const response = await retry(() =>
+  client.responses.create({
       model: OPENAI_MODEL,
       input: `
 ${MILLER_SYSTEM_PROMPT}
@@ -1002,7 +1009,7 @@ ${result.content}
       `.trim() + `
 TASK
 Follow all instructions above carefully.`,
-    })
+    }))
 
     const parsed = safeParseJson(response.output_text)
 

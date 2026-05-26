@@ -516,7 +516,7 @@ function scoreResource(resource, query, selectedCity, options = {}) {
   }
 
 if (resource.source === "tavily") {
-  score -= 40
+  score += 25
 }
 
   return score
@@ -581,6 +581,22 @@ function buildCandidatePack(resources, query, selectedCity) {
     inferredCategories,
     candidates,
     candidatePool: scored,
+  }
+}
+
+async function retry(fn, retries = 2, delay = 1200) {
+  try {
+    return await fn()
+  } catch (error) {
+    if (retries <= 0) throw error
+
+    console.log("Retrying request...")
+
+    await new Promise((resolve) =>
+      setTimeout(resolve, delay)
+    )
+
+    return retry(fn, retries - 1, delay)
   }
 }
 
@@ -707,7 +723,7 @@ useEffect(() => {
 
     async function runTyping() {
       let index = 0
-      const fullText = isLoading ? "Miller is checking the clues..." : aiReply || ""
+      const fullText = isLoading ? "I am checking the clues, please wait..." : aiReply || ""
 
       setDisplayedReply("")
 
@@ -919,7 +935,8 @@ setConversationMemory(updatedMemory)
     setTotalMatches(candidatePack.candidatePool.length)
 
     try {
-      const response = await fetch("/api/miller", {
+      const response = await retry(() =>
+  fetch("/api/miller", {
         method: "POST",
         credentials: "include",
         headers: {
@@ -934,7 +951,7 @@ setConversationMemory(updatedMemory)
           inferredCategories: candidatePack.inferredCategories,
           matches: candidatePack.candidatePool.slice(0, 30),
         }),
-      })
+      }))
 
       if (!response.ok) {
         throw new Error("Could not get Miller response.")
