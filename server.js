@@ -418,6 +418,17 @@ function levenshteinDistance(a, b) {
   return matrix[b.length][a.length]
 }
 
+function cleanTavilyContent(text) {
+  return String(text || "")
+    .replace(/#{1,6}/g, "")
+    .replace(/\[.*?\]/g, "")
+    .replace(/\s+/g, " ")
+    .replace(/Website:.*/gi, "")
+    .replace(/http\S+/g, "")
+    .trim()
+    .slice(0, 260)
+}
+
 function scoreResource(resource, query) {
   const search = normalizeText(query)
 
@@ -1235,8 +1246,10 @@ Follow all instructions above carefully.`,
 
     const formattedTavilyResults = tavilyResults.map((result) => ({
   name: result.title || "Web Result",
-  organization: "Web Search",
-  description: result.content || "",
+  organization: "",
+  description: cleanTavilyContent(
+  result.content || ""
+),
   website: result.url || "",
   city:
   detectCityFromQuery(safeQuery) ||

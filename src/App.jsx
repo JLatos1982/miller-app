@@ -600,6 +600,16 @@ async function retry(fn, retries = 2, delay = 1200) {
   }
 }
 
+function shortenTitle(text, max = 60) {
+  const clean = String(text || "").trim()
+
+  if (clean.length <= max) {
+    return clean
+  }
+
+  return clean.slice(0, max).trim() + "..."
+}
+
 function renderMessageWithLinks(text) {
   const urlRegex = /(https?:\/\/[^\s]+)/g
 
@@ -1225,7 +1235,11 @@ const millerImageStyle = {}
                     >
                       <div className="resource-top">
                         <div>
-                          <h3>{resource.name}</h3>
+                          <h3>
+  {resource.source === "tavily"
+    ? shortenTitle(resource.name)
+    : resource.name}
+</h3>
                           {safeOrganization(resource) && (
                             <p className="resource-org">{safeOrganization(resource)}</p>
                           )}
