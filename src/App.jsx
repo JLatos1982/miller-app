@@ -538,9 +538,39 @@ function sortResources(resources, query, selectedCity, options = {}) {
 
 function uniqueResourceObjects(resources) {
   const seen = new Set()
+
   return resources.filter((resource) => {
-    const key = `${normalizeText(resource.name)}|${normalizeText(resource.city)}|${normalizeText(resource.organization)}`
-    if (seen.has(key)) return false
+    const normalizedName = normalizeText(resource.name)
+      .replace(/community mental health and substance use centre/g, "mental health substance use")
+      .replace(/substance use services clinic/g, "substance use clinic")
+      .replace(/fraser health/g, "")
+      .trim()
+
+    let websiteHost = ""
+
+    try {
+      if (resource.website) {
+        websiteHost = new URL(resource.website).hostname
+          .replace("www.", "")
+      }
+    } catch {
+      websiteHost = ""
+    }
+
+    const key = `
+      ${normalizedName}
+      |
+      ${normalizeText(resource.city)}
+      |
+      ${websiteHost}
+    `
+      .replace(/\s+/g, " ")
+      .trim()
+
+    if (seen.has(key)) {
+      return false
+    }
+
     seen.add(key)
     return true
   })
@@ -972,6 +1002,26 @@ setConversationMemory(updatedMemory)
 
       const tavilyResults = data.tavilyResults || []
 
+      const filteredTavilyResults = tavilyResults.filter((resource) => {
+  const description = String(resource.description || "").trim()
+
+  const hasGoodDescription =
+    description.length >= 60
+
+  const hasPhone =
+    Boolean(resource.phone)
+
+  const hasWebsite =
+    Boolean(resource.website)
+
+  const looksUseful =
+    hasGoodDescription ||
+    hasPhone ||
+    hasWebsite
+
+  return looksUseful
+})
+
       let rankedPool = sortResources(
         candidatePack.candidatePool.length ? candidatePack.candidatePool : candidatePack.candidates,
         trimmedQuery,
@@ -990,7 +1040,7 @@ setConversationMemory(updatedMemory)
 
       const mergedResults = uniqueResourceObjects([
   ...rankedPool,
-  ...tavilyResults,
+  ...filteredTavilyResults,
 ])
 
 const rerankedResults = sortResources(
