@@ -755,6 +755,8 @@ useEffect(() => {
     note: "",
   })
   const [submissionStatus, setSubmissionStatus] = useState("")
+  const isAdminMode =
+  localStorage.getItem("miller_admin") === "true"
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
@@ -1362,7 +1364,8 @@ const millerImageStyle = {}
   </span>
 )}
 
-{resource.source === "tavily" &&
+{isAdminMode &&
+  resource.source === "tavily" &&
   !resource.approved && (
     <div className="resource-review-actions">
 
