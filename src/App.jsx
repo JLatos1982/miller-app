@@ -1163,7 +1163,7 @@ async function approveTavilyResource(resource) {
       approved: true,
       hidden: false,
     })
-    .eq("website", resource.website)
+    .eq("id", resource.id)
 
   setAdminReviewItems((prev) =>
   prev.filter(
@@ -1181,7 +1181,7 @@ async function hideTavilyResource(resource) {
     .update({
       hidden: true,
     })
-    .eq("website", resource.website)
+    .eq("id", resource.id)
 
   setAdminReviewItems((prev) =>
     prev.filter(
