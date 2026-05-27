@@ -719,8 +719,6 @@ useEffect(() => {
       console.error("SUPABASE INSERT ERROR:", error)
     } else {
       console.log("Page view tracked:", data)
-      console.log("Admin mode:", isAdminMode)
-console.log("Admin review items:", adminReviewItems)
     }
   }
 
@@ -733,8 +731,6 @@ console.log("Admin review items:", adminReviewItems)
   const [displayedReply, setDisplayedReply] = useState("")
   const [results, setResults] = useState([])
   const [adminReviewItems, setAdminReviewItems] = useState([])
-  console.log("Admin mode:", isAdminMode)
-console.log("Admin review items:", adminReviewItems)
   const [totalMatches, setTotalMatches] = useState(0)
 
   const chestRef = useRef(null)
@@ -762,6 +758,10 @@ console.log("Admin review items:", adminReviewItems)
   const [submissionStatus, setSubmissionStatus] = useState("")
   const isAdminMode =
   localStorage.getItem("miller_admin") === "true"
+  
+console.log("Admin mode:", isAdminMode)
+console.log("Admin review items:", adminReviewItems)
+
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
