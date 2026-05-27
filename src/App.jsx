@@ -719,6 +719,8 @@ useEffect(() => {
       console.error("SUPABASE INSERT ERROR:", error)
     } else {
       console.log("Page view tracked:", data)
+      console.log("Admin mode:", isAdminMode)
+console.log("Admin review items:", adminReviewItems)
     }
   }
 
@@ -730,6 +732,7 @@ useEffect(() => {
   const [aiReply, setAiReply] = useState(defaultReply)
   const [displayedReply, setDisplayedReply] = useState("")
   const [results, setResults] = useState([])
+  const [adminReviewItems, setAdminReviewItems] = useState([])
   const [totalMatches, setTotalMatches] = useState(0)
 
   const chestRef = useRef(null)
@@ -797,6 +800,29 @@ useEffect(() => {
   useEffect(() => {
   localStorage.setItem("miller-theme-index", millerIndex)
 }, [millerIndex])
+
+useEffect(() => {
+  async function loadAdminReviewQueue() {
+    if (!isAdminMode) return
+
+    const { data, error } = await supabase
+      .from("tavily_resources")
+      .select("*")
+      .eq("approved", false)
+      .eq("hidden", false)
+      .order("created_at", { ascending: false })
+      .limit(40)
+
+    if (error) {
+      console.error("Admin review load failed:", error)
+      return
+    }
+
+    setAdminReviewItems(data || [])
+  }
+
+  loadAdminReviewQueue()
+}, [isAdminMode])
 
   const isBubbleTyping =
     isLoading || displayedReply.length < String(aiReply || "").length
