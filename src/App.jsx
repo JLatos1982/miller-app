@@ -1157,13 +1157,17 @@ setConversationMemory((prev) =>
 async function approveTavilyResource(resource) {
   if (!resource.website) return
 
-  await supabase
-    .from("tavily_resources")
-    .update({
-      approved: true,
-      hidden: false,
-    })
-    .eq("id", resource.id)
+  const { data, error } = await supabase
+  .from("tavily_resources")
+  .update({
+    approved: true,
+    hidden: false,
+  })
+  .eq("id", resource.id)
+  .select()
+
+console.log("APPROVE RESULT:", data)
+console.log("APPROVE ERROR:", error)
 
   setAdminReviewItems((prev) =>
   prev.filter(
@@ -1176,12 +1180,17 @@ async function approveTavilyResource(resource) {
 async function hideTavilyResource(resource) {
   if (!resource.website) return
 
-  await supabase
+  const { data, error } = await supabase
     .from("tavily_resources")
     .update({
       hidden: true,
     })
     .eq("id", resource.id)
+
+    .select()
+
+console.log("HIDE RESULT:", data)
+console.log("HIDE ERROR:", error)
 
   setAdminReviewItems((prev) =>
     prev.filter(
