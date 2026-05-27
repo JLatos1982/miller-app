@@ -733,6 +733,8 @@ console.log("Admin review items:", adminReviewItems)
   const [displayedReply, setDisplayedReply] = useState("")
   const [results, setResults] = useState([])
   const [adminReviewItems, setAdminReviewItems] = useState([])
+  console.log("Admin mode:", isAdminMode)
+console.log("Admin review items:", adminReviewItems)
   const [totalMatches, setTotalMatches] = useState(0)
 
   const chestRef = useRef(null)
