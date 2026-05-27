@@ -519,6 +519,10 @@ if (resource.source === "tavily") {
   score += 25
 }
 
+if (resource.approved) {
+  score += 140
+}
+
   return score
 }
 
@@ -1030,6 +1034,14 @@ setConversationMemory(updatedMemory)
       const data = await response.json()
       const aiHints = data.searchHints || {}
 
+      const { data: approvedMemory = [] } =
+  await supabase
+    .from("tavily_resources")
+    .select("*")
+    .eq("approved", true)
+    .eq("hidden", false)
+    .limit(200)
+
       const tavilyResults = data.tavilyResults || []
 
       const filteredTavilyResults = tavilyResults.filter((resource) => {
@@ -1087,6 +1099,7 @@ const preferredTavilyResults =
 
 const mergedResults = uniqueResourceObjects([
   ...rankedPool,
+  ...approvedMemory,
   ...preferredTavilyResults,
 ])
 
@@ -1156,12 +1169,11 @@ async function approveTavilyResource(resource) {
     .eq("website", resource.website)
 
   setAdminReviewItems((prev) =>
-    prev.map((item) =>
-      item.website === resource.website
-        ? { ...item, approved: true }
-        : item
-    )
+  prev.filter(
+    (item) =>
+      item.website !== resource.website
   )
+)
 }
 
 async function hideTavilyResource(resource) {
