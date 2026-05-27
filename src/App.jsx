@@ -763,9 +763,6 @@ useEffect(() => {
   const isAdminMode =
   localStorage.getItem("miller_admin") === "true"
 
-console.log("Admin mode:", isAdminMode)
-console.log("Admin review items:", adminReviewItems)
-
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
