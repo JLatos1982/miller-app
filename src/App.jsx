@@ -758,7 +758,7 @@ useEffect(() => {
   const [submissionStatus, setSubmissionStatus] = useState("")
   const isAdminMode =
   localStorage.getItem("miller_admin") === "true"
-  
+
 console.log("Admin mode:", isAdminMode)
 console.log("Admin review items:", adminReviewItems)
 
@@ -1155,7 +1155,7 @@ async function approveTavilyResource(resource) {
     })
     .eq("website", resource.website)
 
-  setResults((prev) =>
+  setAdminReviewItems((prev) =>
     prev.map((item) =>
       item.website === resource.website
         ? { ...item, approved: true }
@@ -1174,7 +1174,7 @@ async function hideTavilyResource(resource) {
     })
     .eq("website", resource.website)
 
-  setResults((prev) =>
+  setAdminReviewItems((prev) =>
     prev.filter(
       (item) =>
         item.website !== resource.website
@@ -1513,6 +1513,87 @@ const millerImageStyle = {}
             </div>
           )}
         </section>
+
+{isAdminMode && adminReviewItems.length > 0 && (
+  <div className="admin-review-panel">
+
+    <div className="results-head">
+      <h2>
+        Admin Review Queue
+        <span className="results-count">
+          {" "}
+          {adminReviewItems.length} pending
+        </span>
+      </h2>
+    </div>
+
+    <div className="resource-list">
+      {adminReviewItems.map((resource, index) => (
+        <article
+          key={`admin-${resource.website}-${index}`}
+          className="resource-card"
+        >
+
+          <div className="resource-top">
+            <div>
+              <h3>{shortenTitle(resource.name)}</h3>
+
+              {resource.city && (
+                <p className="resource-org">
+                  {resource.city}
+                </p>
+              )}
+            </div>
+          </div>
+
+          {resource.description && (
+            <p className="resource-description">
+              {resource.description}
+            </p>
+          )}
+
+          <div className="resource-links">
+
+            {resource.website && (
+              <a
+                className="resource-link-button"
+                href={resource.website}
+                target="_blank"
+                rel="noreferrer"
+              >
+                🌐 Open Website
+              </a>
+            )}
+
+          </div>
+
+          <div className="resource-review-actions">
+
+            <button
+              className="approve-button"
+              onClick={() =>
+                approveTavilyResource(resource)
+              }
+            >
+              ✅ Approve
+            </button>
+
+            <button
+              className="hide-button"
+              onClick={() =>
+                hideTavilyResource(resource)
+              }
+            >
+              🚫 Hide
+            </button>
+
+          </div>
+
+        </article>
+      ))}
+    </div>
+  </div>
+)}
 
         <aside className="hero-art">
           <div className="miller-stage">
