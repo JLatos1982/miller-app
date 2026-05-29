@@ -708,20 +708,20 @@ useEffect(() => {
     console.log("Attempting page_view insert...")
 
     const { error } = await supabase
-  .from("site_events")
-  .insert([
-    {
-      event_type: "page_view",
-      miller_theme: currentTheme.name,
-      query: null,
-      city: null,
-    },
-  ])
+      .from("site_events")
+      .insert([
+        {
+          event_type: "page_view",
+          miller_theme: currentTheme.name,
+          query: null,
+          city: null,
+        },
+      ])
 
     if (error) {
       console.error("SUPABASE INSERT ERROR:", error)
     } else {
-      console.log("Page view tracked:", data)
+      console.log("Page view tracked successfully")
     }
   }
 
