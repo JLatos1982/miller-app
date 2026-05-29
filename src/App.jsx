@@ -1169,6 +1169,8 @@ async function approveTavilyResource(resource) {
 
 console.log("APPROVE RESULT:", data)
 console.log("UPDATED DATA:", data)
+console.log("APPROVED:", data?.[0]?.approved)
+console.log("HIDDEN:", data?.[0]?.hidden)
 console.log("APPROVE ERROR:", error)
 
   setAdminReviewItems((prev) =>
@@ -1196,6 +1198,8 @@ async function hideTavilyResource(resource) {
 
 console.log("HIDE RESULT:", data)
 console.log("UPDATED DATA:", data)
+console.log("APPROVED:", data?.[0]?.approved)
+console.log("HIDDEN:", data?.[0]?.hidden)
 console.log("HIDE ERROR:", error)
 
   setAdminReviewItems((prev) =>
