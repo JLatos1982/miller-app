@@ -1164,7 +1164,7 @@ async function approveTavilyResource(resource) {
     hidden: false,
   })
   .eq("id", resource.id)
-  .select()
+  
 
 console.log("APPROVE RESULT:", data)
 console.log("APPROVE ERROR:", error)
@@ -1187,7 +1187,7 @@ async function hideTavilyResource(resource) {
     })
     .eq("id", resource.id)
 
-    .select()
+    
 
 console.log("HIDE RESULT:", data)
 console.log("HIDE ERROR:", error)
