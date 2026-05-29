@@ -1185,9 +1185,9 @@ async function hideTavilyResource(resource) {
   const { data, error } = await supabase
   .from("tavily_resources")
   .update({
-    approved: true,
-    hidden: false,
-  })
+  approved: false,
+  hidden: true,
+})
   .eq("id", resource.id)
   .select()
 
