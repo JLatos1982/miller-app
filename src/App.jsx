@@ -734,6 +734,7 @@ useEffect(() => {
   const [displayedReply, setDisplayedReply] = useState("")
   const [results, setResults] = useState([])
   const [adminReviewItems, setAdminReviewItems] = useState([])
+  const [pendingCount, setPendingCount] = useState(0)
   const [totalMatches, setTotalMatches] = useState(0)
 
   const chestRef = useRef(null)
@@ -806,6 +807,19 @@ useEffect(() => {
 useEffect(() => {
   async function loadAdminReviewQueue() {
     if (!isAdminMode) return
+
+    const { count } = await supabase
+  .from("tavily_resources")
+  .select("*", {
+    count: "exact",
+    head: true,
+  })
+  .eq("approved", false)
+  .eq("hidden", false)
+
+setPendingCount(count || 0)
+
+console.log("TOTAL PENDING:", count)
 
     const { data, error } = await supabase
       .from("tavily_resources")
@@ -1550,7 +1564,7 @@ const millerImageStyle = {}
         Admin Review Queue
         <span className="results-count">
           {" "}
-          {adminReviewItems.length} pending
+          {pendingCount} pending
         </span>
       </h2>
     </div>
