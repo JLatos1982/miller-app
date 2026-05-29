@@ -1154,6 +1154,7 @@ setConversationMemory((prev) =>
   }
 
 async function approveTavilyResource(resource) {
+  console.log("RESOURCE ID:", resource.id)
   if (!resource.website) return
 
   const { data, error } = await supabase
@@ -1178,6 +1179,7 @@ console.log("APPROVE ERROR:", error)
 }
 
 async function hideTavilyResource(resource) {
+  console.log("RESOURCE ID:", resource.id)
   if (!resource.website) return
 
   const { data, error } = await supabase
