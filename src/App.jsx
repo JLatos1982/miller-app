@@ -1163,6 +1163,7 @@ async function approveTavilyResource(resource) {
     hidden: false,
   })
   .eq("id", resource.id)
+  .select()
   
 
 console.log("APPROVE RESULT:", data)
@@ -1180,11 +1181,13 @@ async function hideTavilyResource(resource) {
   if (!resource.website) return
 
   const { data, error } = await supabase
-    .from("tavily_resources")
-    .update({
-      hidden: true,
-    })
-    .eq("id", resource.id)
+  .from("tavily_resources")
+  .update({
+    approved: true,
+    hidden: false,
+  })
+  .eq("id", resource.id)
+  .select()
 
     
 
