@@ -1239,7 +1239,12 @@ TASK
 Follow all instructions above carefully.`,
     }))
 
-    const parsed = safeParseJson(response.output_text)
+    console.log("OPENAI RAW OUTPUT:", response.output_text)
+console.log("OPENAI RESPONSE STATUS:", response.status)
+
+const parsed = safeParseJson(response.output_text)
+
+console.log("PARSED OPENAI OUTPUT:", parsed)
 
     const validRecommendedNames = uniqueStrings(
       (parsed?.searchHints?.recommendedResourceNames || []).filter((name) =>
