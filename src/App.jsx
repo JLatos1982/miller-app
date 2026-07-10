@@ -1187,12 +1187,14 @@ console.log("APPROVED:", data?.[0]?.approved)
 console.log("HIDDEN:", data?.[0]?.hidden)
 console.log("APPROVE ERROR:", error)
 
+  if (error || !data?.length) {
+    return
+  }
+
   setAdminReviewItems((prev) =>
-  prev.filter(
-    (item) =>
-      item.website !== resource.website
+    prev.filter((item) => item.id !== resource.id)
   )
-)
+  setPendingCount((prev) => Math.max(0, prev - 1))
 }
 
 async function hideTavilyResource(resource) {
@@ -1216,12 +1218,14 @@ console.log("APPROVED:", data?.[0]?.approved)
 console.log("HIDDEN:", data?.[0]?.hidden)
 console.log("HIDE ERROR:", error)
 
+  if (error || !data?.length) {
+    return
+  }
+
   setAdminReviewItems((prev) =>
-    prev.filter(
-      (item) =>
-        item.website !== resource.website
-    )
+    prev.filter((item) => item.id !== resource.id)
   )
+  setPendingCount((prev) => Math.max(0, prev - 1))
 }
 
   function clearSearch() {
