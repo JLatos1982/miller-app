@@ -808,33 +808,15 @@ useEffect(() => {
   async function loadAdminReviewQueue() {
     if (!isAdminMode) return
 
-    const { count } = await supabase
-  .from("tavily_resources")
-  .select("*", {
-    count: "exact",
-    head: true,
-  })
-  .eq("approved", false)
-  .eq("hidden", false)
-
-setPendingCount(count || 0)
-
-console.log("TOTAL PENDING:", count)
-
-    const { data, error } = await supabase
-      .from("tavily_resources")
-      .select("*")
-      .eq("approved", false)
-      .eq("hidden", false)
-      .order("created_at", { ascending: false })
-      .limit(40)
-
-    if (error) {
-      console.error("Admin review load failed:", error)
+    const response = await fetch("/api/admin/tavily-resources", { credentials: "include" })
+    if (!response.ok) {
+      console.error("Admin review load failed:", response.status)
       return
     }
 
-    setAdminReviewItems(data || [])
+    const data = await response.json()
+    setPendingCount(data.count || 0)
+    setAdminReviewItems(data.items || [])
   }
 
   loadAdminReviewQueue()
@@ -1168,28 +1150,13 @@ setConversationMemory((prev) =>
   }
 
 async function approveTavilyResource(resource) {
-  console.log("RESOURCE ID:", resource.id)
-  if (!resource.website) return
-
-  const { data, error } = await supabase
-  .from("tavily_resources")
-  .update({
-    approved: true,
-    hidden: false,
+  const response = await fetch(`/api/admin/tavily-resources/${encodeURIComponent(resource.id)}`, {
+    method: "PATCH",
+    credentials: "include",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ action: "approve" }),
   })
-  .eq("id", resource.id)
-  .select()
-  
-
-console.log("APPROVE RESULT:", data)
-console.log("UPDATED DATA:", data)
-console.log("APPROVED:", data?.[0]?.approved)
-console.log("HIDDEN:", data?.[0]?.hidden)
-console.log("APPROVE ERROR:", error)
-
-  if (error || !data?.length) {
-    return
-  }
+  if (!response.ok) return
 
   setAdminReviewItems((prev) =>
     prev.filter((item) => item.id !== resource.id)
@@ -1198,29 +1165,13 @@ console.log("APPROVE ERROR:", error)
 }
 
 async function hideTavilyResource(resource) {
-  console.log("RESOURCE ID:", resource.id)
-  if (!resource.website) return
-
-  const { data, error } = await supabase
-  .from("tavily_resources")
-  .update({
-  approved: false,
-  hidden: true,
-})
-  .eq("id", resource.id)
-  .select()
-
-    
-
-console.log("HIDE RESULT:", data)
-console.log("UPDATED DATA:", data)
-console.log("APPROVED:", data?.[0]?.approved)
-console.log("HIDDEN:", data?.[0]?.hidden)
-console.log("HIDE ERROR:", error)
-
-  if (error || !data?.length) {
-    return
-  }
+  const response = await fetch(`/api/admin/tavily-resources/${encodeURIComponent(resource.id)}`, {
+    method: "PATCH",
+    credentials: "include",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ action: "hide" }),
+  })
+  if (!response.ok) return
 
   setAdminReviewItems((prev) =>
     prev.filter((item) => item.id !== resource.id)

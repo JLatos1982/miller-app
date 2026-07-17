@@ -7,6 +7,7 @@ import { fileURLToPath } from "url"
 import { tavily } from "@tavily/core"
 import fetch from "node-fetch"
 import { createClient } from "@supabase/supabase-js"
+import crypto from "crypto"
 
 dotenv.config()
 
@@ -18,6 +19,56 @@ const port = process.env.PORT || 8787
 
 app.use(cors())
 app.use(express.json({ limit: "1mb" }))
+
+const SESSION_TTL_MS = 12 * 60 * 60 * 1000
+const sessions = new Map()
+const rateLimits = new Map()
+
+function safeSecretEqual(left, right) {
+  const leftBuffer = Buffer.from(String(left || ""))
+  const rightBuffer = Buffer.from(String(right || ""))
+  return leftBuffer.length === rightBuffer.length && crypto.timingSafeEqual(leftBuffer, rightBuffer)
+}
+
+function createSession() {
+  const token = crypto.randomBytes(32).toString("base64url")
+  sessions.set(token, Date.now() + SESSION_TTL_MS)
+  return token
+}
+
+function hasValidSession(req) {
+  // Administrative operations fail closed when access control is not configured.
+  if (!process.env.SITE_PASSWORD) return false
+
+  const token = getCookieValue(req, "miller_access")
+  const expiresAt = sessions.get(token)
+  if (!expiresAt || expiresAt <= Date.now()) {
+    if (token) sessions.delete(token)
+    return false
+  }
+  return true
+}
+
+function rateLimit({ windowMs, max }) {
+  return (req, res, next) => {
+    const key = `${req.ip}:${req.path}`
+    const now = Date.now()
+    const current = rateLimits.get(key)
+
+    if (!current || current.resetAt <= now) {
+      rateLimits.set(key, { count: 1, resetAt: now + windowMs })
+      return next()
+    }
+
+    if (current.count >= max) {
+      res.setHeader("Retry-After", Math.ceil((current.resetAt - now) / 1000))
+      return res.status(429).json({ error: "Too many requests. Please try again shortly." })
+    }
+
+    current.count += 1
+    next()
+  }
+}
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -960,10 +1011,7 @@ app.use((req, res, next) => {
     return next()
   }
 
-  const unlocked = getCookieValue(req, "miller_access")
-  console.log("Cookie miller_access:", unlocked ? "[present]" : "[missing]")
-
-  if (unlocked === password) {
+  if (hasValidSession(req)) {
     return next()
   }
 
@@ -976,7 +1024,7 @@ app.use((req, res, next) => {
   return res.sendFile(path.join(__dirname, "public", "unlock.html"))
 })
 
-app.post("/api/unlock", (req, res) => {
+app.post("/api/unlock", rateLimit({ windowMs: 15 * 60 * 1000, max: 10 }), (req, res) => {
   const { password } = req.body || {}
 
   console.log("Hit /api/unlock")
@@ -986,10 +1034,12 @@ app.post("/api/unlock", (req, res) => {
     return res.json({ ok: true })
   }
 
-  if (password === process.env.SITE_PASSWORD) {
+  if (safeSecretEqual(password, process.env.SITE_PASSWORD)) {
+    const token = createSession()
+    const secure = process.env.NODE_ENV === "production" ? "; Secure" : ""
     res.setHeader(
       "Set-Cookie",
-      `miller_access=${encodeURIComponent(password)}; Path=/; SameSite=Lax`
+      `miller_access=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${Math.floor(SESSION_TTL_MS / 1000)}${secure}`
     )
     return res.json({ ok: true })
   }
@@ -997,7 +1047,7 @@ app.post("/api/unlock", (req, res) => {
   return res.status(401).json({ ok: false, error: "Wrong password" })
 })
 
-app.post("/api/miller", async (req, res) => {
+app.post("/api/miller", rateLimit({ windowMs: 60 * 1000, max: 12 }), async (req, res) => {
   try {
     console.log("Hit /api/miller")
 
@@ -1013,6 +1063,18 @@ app.post("/api/miller", async (req, res) => {
 
     if (!query || !String(query).trim()) {
       return res.status(400).json({ error: "Query is required." })
+    }
+
+    if (String(query).length > 500) {
+      return res.status(400).json({ error: "Query is too long." })
+    }
+
+    if (!Array.isArray(conversationMemory) || conversationMemory.length > 24) {
+      return res.status(400).json({ error: "Invalid conversation history." })
+    }
+
+    if (String(conversationSummary).length > 4000) {
+      return res.status(400).json({ error: "Conversation summary is too long." })
     }
 
     if (!process.env.OPENAI_API_KEY) {
@@ -1400,6 +1462,50 @@ res.json({
   })
 }
 
+})
+
+app.get("/api/admin/tavily-resources", async (req, res) => {
+  if (!hasValidSession(req)) return res.status(401).json({ error: "Unauthorized" })
+
+  const { count, error: countError } = await supabase
+    .from("tavily_resources")
+    .select("id", { count: "exact", head: true })
+    .eq("approved", false)
+    .eq("hidden", false)
+
+  const { data, error } = await supabase
+    .from("tavily_resources")
+    .select("*")
+    .eq("approved", false)
+    .eq("hidden", false)
+    .order("created_at", { ascending: false })
+    .limit(40)
+
+  if (error || countError) return res.status(500).json({ error: "Could not load review queue." })
+  return res.json({ items: data || [], count: count || 0 })
+})
+
+app.patch("/api/admin/tavily-resources/:id", async (req, res) => {
+  if (!hasValidSession(req)) return res.status(401).json({ error: "Unauthorized" })
+
+  const action = req.body?.action
+  if (!['approve', 'hide'].includes(action)) {
+    return res.status(400).json({ error: "Invalid review action." })
+  }
+
+  const changes = action === "approve"
+    ? { approved: true, hidden: false }
+    : { approved: false, hidden: true }
+
+  const { data, error } = await supabase
+    .from("tavily_resources")
+    .update(changes)
+    .eq("id", req.params.id)
+    .select()
+    .single()
+
+  if (error) return res.status(500).json({ error: "Could not update review item." })
+  return res.json({ item: data })
 })
 
 app.use(express.static(path.join(__dirname, "dist")))
