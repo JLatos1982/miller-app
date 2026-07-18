@@ -2455,6 +2455,42 @@ body,
   text-align: left;
 }
 
+.handout-identity-section {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #d9dfcf;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.handout-identity-section h2,
+.handout-identity-section p { margin: 0; }
+.handout-identity-organization { margin: 0 0 6px; color: #344d50; font-size: 1.2rem; font-weight: 900; }
+.handout-identity-output { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 12px; margin-top: 12px; }
+.handout-identity-output span { overflow-wrap: anywhere; }
+.handout-identity-note { white-space: pre-wrap; }
+.handout-miller-attribution { font-size: .86rem; color: #5e7070; }
+.handout-output-warning { margin: 0 0 20px; padding: 11px 14px; border-left: 4px solid #936417; border-radius: 8px; background: #fff8e7; }
+.handout-logo { display: flex; margin-bottom: 12px; }
+.handout-logo.align-left { justify-content: flex-start; }
+.handout-logo.align-center { justify-content: center; }
+.handout-logo.align-right { justify-content: flex-end; }
+.handout-logo img { display: block; max-width: 100%; height: auto; object-fit: contain; }
+.handout-logo.logo-small img { max-height: 48px; }
+.handout-logo.logo-medium img { max-height: 80px; }
+.handout-logo.logo-large img { max-height: 120px; }
+.handout-logo-controls { display: grid; gap: 10px; }
+.handout-logo-upload { display: grid; gap: 7px; font-weight: 800; }
+.handout-logo-upload input { min-height: 46px; padding: 8px; border: 1px solid #bdcbbd; border-radius: 12px; background: white; }
+.handout-logo-error { color: #8a2348; font-weight: 800; }
+.handout-logo-options { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; }
+.handout-logo-options label { display: grid; gap: 5px; font-weight: 800; }
+.handout-logo-options select { min-height: 44px; border: 1px solid #bdcbbd; border-radius: 10px; padding: 6px 10px; }
+.handout-attribution-option { display: flex; align-items: center; gap: 9px; min-height: 44px; font-weight: 800; }
+.handout-attribution-option input, .handout-logo-options input { width: 22px; height: 22px; }
+
 .handout-fields {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2638,6 +2674,10 @@ body,
     grid-template-columns: 1fr;
     padding: 13px;
   }
+
+  .handout-identity-section { padding: 13px; }
+  .handout-logo-options { align-items: stretch; flex-direction: column; }
+  .handout-logo-options button, .handout-logo-options label { width: 100%; }
 
   .handout-field.is-wide {
     grid-column: auto;

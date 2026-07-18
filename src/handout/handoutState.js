@@ -11,10 +11,12 @@ export const HANDOUT_FIELD_NAMES = [
   "footerNote",
 ]
 
+export const HANDOUT_IDENTITY_FIELDS = ["preparedBy", "organizationName", "roleOrProgram", "contactPhone", "contactEmail", "address", "website", "note"]
+
 export function createInitialHandoutState() {
   return {
     fields: {
-      title: "My Resource Handout",
+      title: "Personalized Community Resources",
       subtitle: "",
       personName: "",
       date: new Date().toISOString().slice(0, 10),
@@ -24,6 +26,11 @@ export function createInitialHandoutState() {
       followUp: "",
       staffContact: "",
       footerNote: "",
+    },
+    identity: {
+      preparedBy: "", organizationName: "", roleOrProgram: "", contactPhone: "", contactEmail: "",
+      address: "", website: "", note: "", includeMillerAttribution: false,
+      logo: { dataUrl: "", name: "", visible: true, size: "medium", alignment: "left" },
     },
     resources: [],
   }
@@ -94,6 +101,20 @@ export function handoutReducer(state, action) {
     case "update_field":
       if (!HANDOUT_FIELD_NAMES.includes(action.field)) return state
       return { ...state, fields: { ...state.fields, [action.field]: String(action.value ?? "") } }
+    case "update_identity":
+      if (!HANDOUT_IDENTITY_FIELDS.includes(action.field)) return state
+      return { ...state, identity: { ...state.identity, [action.field]: String(action.value ?? "") } }
+    case "toggle_miller_attribution":
+      return { ...state, identity: { ...state.identity, includeMillerAttribution: Boolean(action.value) } }
+    case "set_logo":
+      return { ...state, identity: { ...state.identity, logo: { dataUrl: String(action.dataUrl || ""), name: String(action.name || ""), visible: true, size: "medium", alignment: "left" } } }
+    case "remove_logo":
+      return { ...state, identity: { ...state.identity, logo: { dataUrl: "", name: "", visible: true, size: "medium", alignment: "left" } } }
+    case "update_logo_option":
+      if (!['visible', 'size', 'alignment'].includes(action.field)) return state
+      if (action.field === "size" && !['small', 'medium', 'large'].includes(action.value)) return state
+      if (action.field === "alignment" && !['left', 'center', 'right'].includes(action.value)) return state
+      return { ...state, identity: { ...state.identity, logo: { ...state.identity.logo, [action.field]: action.field === "visible" ? Boolean(action.value) : action.value } } }
     case "update_resource":
       if (!["handoutDescription", "handoutNote", "name", "organization", "category", "city", "serviceArea", "address", "phone", "email", "website", "hours", "eligibility", "referralProcess", "cost", "accessibility", "languages", "limitations", "callBeforeNote", "verificationStatus", "showVerificationNote"].includes(action.field)) return state
       return {
@@ -119,5 +140,6 @@ export function handoutReducer(state, action) {
 export function hasHandoutContent(state) {
   if (state.resources.length) return true
   const defaults = createInitialHandoutState().fields
-  return HANDOUT_FIELD_NAMES.some((field) => state.fields[field] !== defaults[field])
+  if (HANDOUT_FIELD_NAMES.some((field) => state.fields[field] !== defaults[field])) return true
+  return HANDOUT_IDENTITY_FIELDS.some((field) => state.identity[field]) || state.identity.includeMillerAttribution || Boolean(state.identity.logo.dataUrl)
 }

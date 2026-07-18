@@ -5,6 +5,7 @@ import {
   createManualTemporaryDraft,
   createTemporaryResource,
   isEligibleExternalResult,
+  sanitizeTemporaryDraft,
 } from "../src/handout/temporaryCard.js"
 import { createInitialHandoutState, handoutReducer } from "../src/handout/handoutState.js"
 
@@ -20,8 +21,26 @@ test("only useful unapproved external results are eligible", () => {
 
 test("AI request payload allow-lists public result fields and excludes personalized data", () => {
   const payload = buildTemporaryCardPayload({ ...external, personName: "Private Person", handoutNote: "Private note", generalNotes: "Private" })
-  assert.deepEqual(Object.keys(payload), ["sourceTitle", "sourceUrl", "name", "organization", "description", "website", "city", "category", "serviceType"])
+  assert.deepEqual(Object.keys(payload), ["sourceTitle", "sourceUrl", "sourceDomain", "name", "organization", "description", "website", "city", "category", "serviceType", "searchCity"])
   assert.doesNotMatch(JSON.stringify(payload), /Private Person|Private note|generalNotes/)
+})
+
+test("title-and-URL-only results still receive a useful non-invented fallback", () => {
+  const sparse = { source: "tavily", name: "Sparse Service", website: "https://sparse.example/path", searchCity: "Burnaby" }
+  assert.equal(isEligibleExternalResult(sparse), true)
+  const draft = createManualTemporaryDraft(sparse)
+  assert.equal(draft.name, "Sparse Service")
+  assert.equal(draft.website, "https://sparse.example/path")
+  assert.equal(draft.city, "Burnaby")
+  assert.equal(draft.description, "")
+  assert.equal(draft.phone, "")
+})
+
+test("partial AI output keeps valid AI fields and source fallback fields", () => {
+  const draft = sanitizeTemporaryDraft({ name: "Structured Name", description: "" }, external)
+  assert.equal(draft.name, "Structured Name")
+  assert.equal(draft.description, external.description)
+  assert.equal(draft.website, "https://example.org/help")
 })
 
 test("manual fallback creates an editable source-based draft", () => {

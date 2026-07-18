@@ -1,8 +1,8 @@
 import test from "node:test"
 import assert from "node:assert/strict"
-import { generateHandoutCardDraft, validateHandoutDraftRequest } from "../server/handoutCardDraft.js"
+import { generateHandoutCardDraft, sanitizeGeneratedHandoutDraft, validateHandoutDraftRequest } from "../server/handoutCardDraft.js"
 
-const request = { sourceTitle: "Clinic", sourceUrl: "https://example.org", name: "Clinic", organization: "", description: "Public details", website: "https://example.org", city: "Vernon", category: "", serviceType: "Counselling" }
+const request = { sourceTitle: "Clinic", sourceUrl: "https://example.org", sourceDomain: "example.org", name: "Clinic", organization: "", description: "Public details", website: "https://example.org", city: "Vernon", category: "", serviceType: "Counselling", searchCity: "Vernon" }
 
 test("server rejects personalized or unsupported draft fields", () => {
   assert.throws(() => validateHandoutDraftRequest({ ...request, personName: "Private" }), /unsupported fields/)
@@ -17,4 +17,14 @@ test("server sends only validated public resource data for structured generation
   assert.equal(result.name, "Clinic")
   assert.deepEqual(JSON.parse(captured.input), request)
   assert.equal(captured.text.format.strict, true)
+})
+
+test("server validates partial model output and preserves known source fields", () => {
+  const result = sanitizeGeneratedHandoutDraft({ name: "AI Name", website: "javascript:bad" }, validateHandoutDraftRequest(request))
+  assert.equal(result.name, "AI Name")
+  assert.equal(result.website, "https://example.org")
+  assert.equal(result.description, "Public details")
+  assert.equal(result.city, "Vernon")
+  assert.equal(result.phone, "")
+  assert.throws(() => sanitizeGeneratedHandoutDraft("not an object", request), /malformed structured output/)
 })

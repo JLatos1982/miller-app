@@ -30,6 +30,7 @@ import HandoutBuilder from "./handout/HandoutBuilder.jsx"
 import { createInitialHandoutState, getResourceKey, handoutReducer, hasHandoutContent } from "./handout/handoutState.js"
 import TemporaryCardEditor from "./handout/TemporaryCardEditor.jsx"
 import { isEligibleExternalResult } from "./handout/temporaryCard.js"
+import { MILLER_COPY } from "./interfaceCopy.js"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -675,8 +676,7 @@ function App() {
     return dedupeResources(cleanResources(rawResources))
   }, [])
 
-  const defaultReply =
-    "Tell me what kind of help you’re looking for. I’ll follow the trail, answer in plain language, and bring the closest resources forward."
+  const defaultReply = MILLER_COPY.searchIntro
 
   const [query, setQuery] = useState("")
   const [selectedCity, setSelectedCity] = useState("All Cities")
@@ -684,6 +684,12 @@ function App() {
   const [handout, dispatchHandout] = useReducer(handoutReducer, undefined, createInitialHandoutState)
   const [isHandoutOpen, setIsHandoutOpen] = useState(false)
   const [temporaryCardSource, setTemporaryCardSource] = useState(null)
+  const temporaryCardTriggerRef = useRef(null)
+
+  function closeTemporaryCard() {
+    setTemporaryCardSource(null)
+    window.requestAnimationFrame(() => temporaryCardTriggerRef.current?.focus())
+  }
 
   const [millerIndex, setMillerIndex] = useState(() => {
   const saved = localStorage.getItem("miller-theme-index")
@@ -793,7 +799,7 @@ useEffect(() => {
 
     async function runTyping() {
       let index = 0
-      const fullText = isLoading ? "I am checking the clues, please wait..." : aiReply || ""
+      const fullText = isLoading ? MILLER_COPY.searchLoading : aiReply || ""
 
       setDisplayedReply("")
 
@@ -1011,7 +1017,7 @@ setConversationMemory(updatedMemory)
       setHasSearched(true)
       setResults(firstResults)
       setTotalMatches(cityPool.length)
-      setAiReply("You can ask for something like detox, counselling, crisis help, OAT, treatment, peer support, or harm reduction.")
+      setAiReply(MILLER_COPY.searchHint)
       return
     }
 
@@ -1166,7 +1172,7 @@ setConversationMemory((prev) =>
 
       setResults(fallbackResults)
       setTotalMatches(fallbackPool.length)
-      setAiReply("I couldnt reach the AI just now, but I still pulled the closest matches below.")
+      setAiReply(MILLER_COPY.searchUnavailable)
     } finally {
       setIsLoading(false)
     }
@@ -1407,10 +1413,10 @@ const millerImageStyle = {}
       {temporaryCardSource ? (
         <TemporaryCardEditor
           source={temporaryCardSource}
-          onCancel={() => setTemporaryCardSource(null)}
+          onCancel={closeTemporaryCard}
           onAdd={(resource) => {
             dispatchHandout({ type: "add_temporary_resource", resource })
-            setTemporaryCardSource(null)
+            closeTemporaryCard()
           }}
         />
       ) : null}
@@ -1485,7 +1491,7 @@ const millerImageStyle = {}
 
             <div className="micro-options">
               <span className="ai-note">
-                Miller gives a short guide first, then the list stays searchable by city.
+                Miller offers a short guide first, and the list stays searchable by city.
               </span>
             </div>
           </form>
@@ -1504,8 +1510,8 @@ const millerImageStyle = {}
 
               {results.length === 0 ? (
                 <div className="empty-card">
-                  <h3>No matches found</h3>
-                  <p>Try a broader keyword, or switch the city filter back to All Cities.</p>
+                  <h3>{MILLER_COPY.noResultsTitle}</h3>
+                  <p>{MILLER_COPY.noResultsBody}</p>
                 </div>
               ) : (
                 <div className="resource-list">
@@ -1534,7 +1540,7 @@ const millerImageStyle = {}
 
                         {resource.source === "tavily" && (
   <span className="web-result-badge">
-    🌐 Found Online
+    🌐 {MILLER_COPY.externalResult}
   </span>
 )}
 
@@ -1653,7 +1659,7 @@ const millerImageStyle = {}
   ) : null}
 
   {isEligibleExternalResult(resource, handout.resources) ? (
-    <button type="button" className="create-temporary-card-button" onClick={() => setTemporaryCardSource(resource)}>
+    <button type="button" className="create-temporary-card-button" onClick={(event) => { temporaryCardTriggerRef.current = event.currentTarget; setTemporaryCardSource({ ...resource, searchCity: selectedCity === "All Cities" ? "" : selectedCity }) }}>
       Create handout card
     </button>
   ) : resource.source === "tavily" && !resource.approved ? null : (

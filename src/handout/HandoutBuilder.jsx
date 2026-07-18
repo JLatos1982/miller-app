@@ -1,9 +1,11 @@
 import { downloadHandoutHtml } from "./handoutExport.js"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { TEMPORARY_CARD_NOTICE } from "./temporaryCard.js"
+import { readLogoFile } from "./logoUpload.js"
+import { MILLER_COPY } from "../interfaceCopy.js"
 
 const FIELD_CONFIG = [
-  ["title", "Handout title", "text"],
+  ["title", "Handout heading", "text"],
   ["subtitle", "Subtitle (optional)", "text"],
   ["personName", "Person or client name (optional)", "text"],
   ["date", "Date", "date"],
@@ -13,6 +15,13 @@ const FIELD_CONFIG = [
   ["followUp", "Follow-up information", "textarea"],
   ["staffContact", "Staff or program contact", "textarea"],
   ["footerNote", "Custom footer note", "textarea"],
+]
+
+const IDENTITY_FIELDS = [
+  ["preparedBy", "Prepared by", "text"], ["organizationName", "Organization or team name", "text"],
+  ["roleOrProgram", "Role or program", "text"], ["contactPhone", "Contact phone", "tel"],
+  ["contactEmail", "Contact email", "email"], ["address", "Address (optional)", "text"],
+  ["website", "Website (optional)", "url"], ["note", "Short identity or footer note", "textarea"],
 ]
 
 function EditableField({ field, label, type, value, onChange }) {
@@ -114,16 +123,34 @@ function HandoutResourceCard({ resource, index, total, dispatch }) {
 
 export default function HandoutBuilder({ handout, dispatch, onBack }) {
   const headingRef = useRef(null)
+  const logoInputRef = useRef(null)
+  const [logoError, setLogoError] = useState("")
 
   useEffect(() => {
     headingRef.current?.focus()
   }, [])
 
   function clearHandout() {
-    if (window.confirm("Clear all handout fields and selected resources? This cannot be undone.")) {
+    if (window.confirm(MILLER_COPY.clearHandoutConfirm)) {
       dispatch({ type: "clear" })
     }
   }
+
+  async function chooseLogo(event) {
+    const file = event.target.files?.[0]
+    if (!file) return
+    try {
+      const dataUrl = await readLogoFile(file)
+      dispatch({ type: "set_logo", dataUrl, name: file.name })
+      setLogoError("")
+    } catch (error) {
+      setLogoError(error.message)
+    } finally {
+      event.target.value = ""
+    }
+  }
+
+  const logo = handout.identity.logo
 
   return (
     <main className="handout-builder">
@@ -137,11 +164,39 @@ export default function HandoutBuilder({ handout, dispatch, onBack }) {
       </div>
 
       <header className="handout-builder-header">
-        <p className="handout-kicker">Miller’s personalized resource handout</p>
+        {logo.dataUrl && logo.visible ? <div className={`handout-logo logo-${logo.size} align-${logo.alignment}`}><img src={logo.dataUrl} alt={handout.identity.organizationName ? `${handout.identity.organizationName} logo` : "Handout logo"} /></div> : null}
+        {handout.identity.organizationName ? <p className="handout-identity-organization">{handout.identity.organizationName}</p> : null}
+        <p className="handout-kicker">Personalized resource handout</p>
         <h1 ref={headingRef} tabIndex="-1">{handout.fields.title || "Resource Handout"}</h1>
         {handout.fields.subtitle ? <p className="handout-builder-subtitle">{handout.fields.subtitle}</p> : null}
-        <p className="handout-privacy-note">Personalized information stays in this browser session and is not saved to Miller.</p>
+        <div className="handout-identity-output">
+          {handout.identity.preparedBy ? <span>Prepared by {handout.identity.preparedBy}</span> : null}
+          {handout.identity.roleOrProgram ? <span>{handout.identity.roleOrProgram}</span> : null}
+          {handout.identity.contactPhone ? <span>{handout.identity.contactPhone}</span> : null}
+          {handout.identity.contactEmail ? <span>{handout.identity.contactEmail}</span> : null}
+          {handout.identity.address ? <span>{handout.identity.address}</span> : null}
+          {handout.identity.website ? <span>{handout.identity.website}</span> : null}
+        </div>
+        {handout.identity.note ? <p className="handout-identity-note">{handout.identity.note}</p> : null}
+        {handout.identity.includeMillerAttribution ? <p className="handout-miller-attribution">Prepared using Miller.</p> : null}
+        <p className="handout-privacy-note">{MILLER_COPY.handoutIntro} Identity details and logos stay in this browser session and are not saved to Miller.</p>
       </header>
+
+      <section className="handout-identity-section handout-screen-only" aria-labelledby="handout-identity-heading">
+        <div><p className="handout-kicker">Optional identity</p><h2 id="handout-identity-heading">Handout identity</h2><p>Use your own name, team, clinic, or organization—or leave every field blank.</p></div>
+        <div className="handout-fields">
+          {IDENTITY_FIELDS.map(([field, label, type]) => <EditableField key={field} field={`identity-${field}`} label={label} type={type} value={handout.identity[field]} onChange={(value) => dispatch({ type: "update_identity", field, value })} />)}
+        </div>
+        <div className="handout-logo-controls">
+          <label className="handout-logo-upload"><span>Local logo (PNG, JPEG, or WebP; maximum 2 MB)</span><input ref={logoInputRef} type="file" accept="image/png,image/jpeg,image/webp" onChange={chooseLogo} /></label>
+          {logoError ? <p className="handout-logo-error" role="alert">{logoError}</p> : null}
+          {logo.dataUrl ? <div className="handout-logo-options"><button type="button" onClick={() => dispatch({ type: "remove_logo" })}>Remove logo</button><label><input type="checkbox" checked={logo.visible} onChange={(event) => dispatch({ type: "update_logo_option", field: "visible", value: event.target.checked })} /> Show logo</label><label>Size<select value={logo.size} onChange={(event) => dispatch({ type: "update_logo_option", field: "size", value: event.target.value })}><option value="small">Small</option><option value="medium">Medium</option><option value="large">Large</option></select></label><label>Alignment<select value={logo.alignment} onChange={(event) => dispatch({ type: "update_logo_option", field: "alignment", value: event.target.value })}><option value="left">Left</option><option value="center">Centre</option><option value="right">Right</option></select></label></div> : null}
+        </div>
+        <label className="handout-attribution-option"><input type="checkbox" checked={handout.identity.includeMillerAttribution} onChange={(event) => dispatch({ type: "toggle_miller_attribution", value: event.target.checked })} /> Include Miller attribution</label>
+        <p className="handout-privacy-note">Identity details and logos stay in this browser session and are not saved to Miller.</p>
+      </section>
+
+      <p className="handout-output-warning handout-screen-only">Printed or downloaded handouts may contain personal information. Handle them according to your workplace privacy practices.</p>
 
       <section className="handout-fields" aria-label="Personalize handout">
         {FIELD_CONFIG.map(([field, label, type]) => (
@@ -162,9 +217,9 @@ export default function HandoutBuilder({ handout, dispatch, onBack }) {
           <HandoutResourceCard key={resource.key} resource={resource} index={index} total={handout.resources.length} dispatch={dispatch} />
         )) : (
           <div className="handout-empty">
-            <h3>No resources selected yet</h3>
-            <p>Return to Miller’s search results and choose “Add to handout” on the services you want to include.</p>
-            <button type="button" onClick={onBack}>Find resources</button>
+            <h3>{MILLER_COPY.emptyHandoutTitle}</h3>
+            <p>{MILLER_COPY.emptyHandoutBody}</p>
+            <button type="button" onClick={onBack}>Return to search</button>
           </div>
         )}
       </section>

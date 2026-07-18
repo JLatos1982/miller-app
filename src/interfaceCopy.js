@@ -1,0 +1,16 @@
+export const MILLER_COPY = Object.freeze({
+  searchIntro: "Tell me what kind of support would help. We can take it one clear step at a time.",
+  searchLoading: "I’m looking carefully. This may take a moment.",
+  searchHint: "You can ask about detox, counselling, crisis help, medication support, treatment, peer support, or harm reduction.",
+  searchUnavailable: "I couldn’t reach the guide just now, but I still gathered the closest matches below.",
+  noResultsTitle: "I couldn’t find the right path yet",
+  noResultsBody: "Try another word, a nearby city, or tell me a little more about what is needed.",
+  externalResult: "Found beyond Miller’s usual cards — please review carefully.",
+  temporaryLoading: "I’m gathering the public details already available.",
+  temporaryFallback: "I found part of the information, but some details still need your review.",
+  temporaryPartial: "I found the doorway, but not every detail behind it. I’ve added what I know so you can complete the rest.",
+  emptyHandoutTitle: "Your handout is ready for its first resource",
+  emptyHandoutBody: "Return to the search and add the services that feel useful.",
+  clearHandoutConfirm: "Clear the handout and all selected resources? This cannot be undone.",
+  handoutIntro: "Shape a clear, practical handout for the person or community you are supporting.",
+})

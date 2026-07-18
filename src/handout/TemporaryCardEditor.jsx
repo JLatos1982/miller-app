@@ -7,6 +7,7 @@ import {
   TEMPORARY_CARD_FIELDS,
   TEMPORARY_CARD_NOTICE,
 } from "./temporaryCard.js"
+import { MILLER_COPY } from "../interfaceCopy.js"
 
 const LABELS = {
   name: "Resource name", organization: "Organization", category: "Category / service type", city: "City",
@@ -21,6 +22,7 @@ const TEXTAREAS = new Set(["description", "eligibility", "referralProcess", "acc
 export default function TemporaryCardEditor({ source, onCancel, onAdd }) {
   const titleId = useId()
   const closeRef = useRef(null)
+  const dialogRef = useRef(null)
   const [draft, setDraft] = useState(() => createManualTemporaryDraft(source))
   const [status, setStatus] = useState("loading")
   const [error, setError] = useState("")
@@ -33,6 +35,14 @@ export default function TemporaryCardEditor({ source, onCancel, onAdd }) {
     closeRef.current?.focus()
     function closeOnEscape(event) {
       if (event.key === "Escape") onCancel()
+      if (event.key === "Tab") {
+        const focusable = [...(dialogRef.current?.querySelectorAll('button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href]') || [])]
+        if (!focusable.length) return
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus() }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus() }
+      }
     }
     document.addEventListener("keydown", closeOnEscape)
     return () => document.removeEventListener("keydown", closeOnEscape)
@@ -50,13 +60,18 @@ export default function TemporaryCardEditor({ source, onCancel, onAdd }) {
           signal: controller.signal,
         })
         const data = await response.json().catch(() => ({}))
-        if (!response.ok) throw new Error(data.error || "Miller could not structure this result.")
-        setDraft(sanitizeTemporaryDraft(data.draft, source))
-        setAiAssisted(true)
-        setStatus("ready")
+        if (!response.ok) throw new Error("request_failed")
+        if (data.draft) {
+          setDraft(sanitizeTemporaryDraft(data.draft, source))
+          setAiAssisted(true)
+          setStatus("ready")
+        } else {
+          setError(data.fallbackReason === "generator_unavailable" ? "The card generator is temporarily unavailable. " + MILLER_COPY.temporaryFallback : MILLER_COPY.temporaryPartial)
+          setStatus("fallback")
+        }
       } catch (requestError) {
         if (requestError.name === "AbortError") return
-        setError(`${requestError.message} A source-based draft is available for you to edit.`)
+        setError(MILLER_COPY.temporaryFallback)
         setStatus("fallback")
       }
     }
@@ -75,7 +90,7 @@ export default function TemporaryCardEditor({ source, onCancel, onAdd }) {
 
   return (
     <div className="temporary-card-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onCancel()}>
-      <section className="temporary-card-dialog" role="dialog" aria-modal="true" aria-labelledby={titleId}>
+      <section ref={dialogRef} className="temporary-card-dialog" role="dialog" aria-modal="true" aria-labelledby={titleId}>
         <div className="temporary-card-dialog-header">
           <div><p className="handout-kicker">Temporary handout resource</p><h2 id={titleId}>Create handout card</h2></div>
           <button ref={closeRef} type="button" className="temporary-card-close" onClick={onCancel} aria-label="Close temporary card editor">×</button>
@@ -84,10 +99,11 @@ export default function TemporaryCardEditor({ source, onCancel, onAdd }) {
         <div className="temporary-source-box">
           <strong>Source:</strong> <a href={source.website} target="_blank" rel="noreferrer">{source.name}</a>
           <span>Retrieved {new Date().toLocaleDateString()}</span>
+          <span>{buildTemporaryCardPayload(source).sourceDomain}</span>
           <span>{aiAssisted ? "AI helped structure this draft." : "Draft copied from the public result."}</span>
         </div>
 
-        {status === "loading" ? <p className="temporary-card-status" role="status">Miller is structuring the public resource details…</p> : null}
+        {status === "loading" ? <p className="temporary-card-status" role="status">{MILLER_COPY.temporaryLoading}</p> : null}
         {error ? <p className="temporary-card-error" role="alert">{error}</p> : null}
 
         <form onSubmit={submit}>

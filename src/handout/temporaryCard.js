@@ -34,8 +34,7 @@ export function isEligibleExternalResult(resource, selectedResources = []) {
   if (!resource || resource.source !== "tavily" || resource.approved || resource.hidden) return false
   const sourceKey = externalSourceKey(resource)
   const hasUsefulIdentity = Boolean(clean(resource.name) && normalizePublicUrl(resource.website))
-  const hasUsefulDetail = clean(resource.description).length >= 20 || Boolean(clean(resource.city) || clean(resource.category))
-  if (!hasUsefulIdentity || !hasUsefulDetail) return false
+  if (!hasUsefulIdentity) return false
   return !selectedResources.some((item) => {
     if (item.sourceKey === sourceKey) return true
     const selectedUrl = normalizePublicUrl(item.website || item.sourceUrl)
@@ -46,9 +45,11 @@ export function isEligibleExternalResult(resource, selectedResources = []) {
 // This is the complete allow-list sent for AI structuring. Handout fields and notes
 // cannot enter the request because this function accepts and copies one result only.
 export function buildTemporaryCardPayload(resource) {
+  const sourceUrl = normalizePublicUrl(resource?.website)
   return {
     sourceTitle: clean(resource?.name),
-    sourceUrl: normalizePublicUrl(resource?.website),
+    sourceUrl,
+    sourceDomain: sourceUrl ? new URL(sourceUrl).hostname : "",
     name: clean(resource?.name),
     organization: clean(resource?.organization),
     description: clean(resource?.description, 1600),
@@ -56,6 +57,7 @@ export function buildTemporaryCardPayload(resource) {
     city: clean(resource?.city),
     category: clean(resource?.category),
     serviceType: clean(resource?.serviceType || resource?.service_type),
+    searchCity: clean(resource?.searchCity),
   }
 }
 
@@ -65,8 +67,8 @@ export function createManualTemporaryDraft(resource) {
     name: payload.name,
     organization: payload.organization,
     category: payload.category || payload.serviceType,
-    city: payload.city,
-    serviceArea: payload.city,
+    city: payload.city || payload.searchCity,
+    serviceArea: payload.city || payload.searchCity,
     description: payload.description,
     address: clean(resource?.address),
     phone: clean(resource?.phone),
@@ -103,6 +105,7 @@ export function createTemporaryResource(draft, source, options = {}) {
     sourceKey: externalSourceKey(source),
     sourceTitle: clean(source?.name),
     sourceUrl: normalizePublicUrl(source?.website),
+    sourceDomain: normalizePublicUrl(source?.website) ? new URL(normalizePublicUrl(source.website)).hostname : "",
     sourceRetrievedAt: options.retrievedAt || new Date().toISOString(),
     aiAssisted: Boolean(options.aiAssisted),
     verificationStatus: options.verificationStatus === "confirmed" ? "confirmed" : "unconfirmed",

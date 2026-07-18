@@ -9,7 +9,7 @@ import fetch from "node-fetch"
 import { createClient } from "@supabase/supabase-js"
 import crypto from "crypto"
 import { runResourceReviewPipeline } from "./server/review/orchestrator.js"
-import { generateHandoutCardDraft } from "./server/handoutCardDraft.js"
+import { generateHandoutCardDraft, getHandoutDraftFailureReason, validateHandoutDraftRequest } from "./server/handoutCardDraft.js"
 
 dotenv.config()
 
@@ -1030,12 +1030,16 @@ app.post("/api/unlock", rateLimit({ windowMs: 15 * 60 * 1000, max: 10 }), (req, 
 app.post("/api/handout-card-draft", rateLimit({ windowMs: 10 * 60 * 1000, max: 10 }), async (req, res) => {
   if (!process.env.OPENAI_API_KEY) return res.status(503).json({ error: "AI draft generation is not configured." })
   try {
+    validateHandoutDraftRequest(req.body)
+  } catch (error) {
+    return res.status(400).json({ error: error.message })
+  }
+  try {
     const draft = await generateHandoutCardDraft(req.body, { openai: client })
     return res.json({ draft })
   } catch (error) {
-    const validationError = /required|valid|unsupported|too long/i.test(String(error.message || ""))
-    if (!validationError) console.error("Temporary handout draft failed:", error.message)
-    return res.status(validationError ? 400 : 502).json({ error: validationError ? error.message : "Miller could not structure this public result right now." })
+    console.error("Temporary handout draft failed:", String(error.message || "Unknown generator error").slice(0, 300))
+    return res.json({ draft: null, fallbackReason: getHandoutDraftFailureReason(error) })
   }
 })
 

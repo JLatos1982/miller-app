@@ -23,7 +23,7 @@ test("removes and clears handout resources", () => {
   state = handoutReducer(state, { type: "update_field", field: "title", value: "Changed" })
   state = handoutReducer(state, { type: "clear" })
   assert.equal(state.resources.length, 0)
-  assert.equal(state.fields.title, "My Resource Handout")
+  assert.equal(state.fields.title, "Personalized Community Resources")
 })
 
 test("reorders selected resources", () => {
@@ -56,4 +56,3 @@ test("selected-resource count follows reducer state", () => {
   state = handoutReducer(state, { type: "add_resource", resource: secondResource })
   assert.equal(state.resources.length, 2)
 })
-
