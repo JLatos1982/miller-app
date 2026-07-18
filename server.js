@@ -8,6 +8,7 @@ import { tavily } from "@tavily/core"
 import fetch from "node-fetch"
 import { createClient } from "@supabase/supabase-js"
 import crypto from "crypto"
+import { runResourceReviewPipeline } from "./server/review/orchestrator.js"
 
 dotenv.config()
 
@@ -49,6 +50,15 @@ function hasValidSession(req) {
   return true
 }
 
+function requireAdmin(req, res, next) {
+  if (!hasValidSession(req)) return res.status(401).json({ error: "Unauthorized" })
+  return next()
+}
+
+function isValidResourceId(value) {
+  return /^\d+$/.test(String(value || ""))
+}
+
 function rateLimit({ windowMs, max }) {
   return (req, res, next) => {
     const key = `${req.ip}:${req.path}`
@@ -80,8 +90,12 @@ const TAVILY_CLIENT = tavily({
   apiKey: process.env.TAVILY_API_KEY,
 })
 
+const supabaseUrl = process.env.SUPABASE_URL
+  ? new URL(process.env.SUPABASE_URL).origin
+  : ""
+
 const supabase = createClient(
-  process.env.SUPABASE_URL,
+  supabaseUrl,
   process.env.SUPABASE_SERVICE_ROLE_KEY
 )
 
@@ -432,41 +446,6 @@ function detectCityFromQuery(query) {
   }
 
   return ""
-}
-
-function fuzzyIncludes(text, target) {
-  return (
-    text.includes(target) ||
-    levenshteinDistance(text, target) <= 2
-  )
-}
-
-function levenshteinDistance(a, b) {
-  const matrix = []
-
-  for (let i = 0; i <= b.length; i++) {
-    matrix[i] = [i]
-  }
-
-  for (let j = 0; j <= a.length; j++) {
-    matrix[0][j] = j
-  }
-
-  for (let i = 1; i <= b.length; i++) {
-    for (let j = 1; j <= a.length; j++) {
-      if (b.charAt(i - 1) === a.charAt(j - 1)) {
-        matrix[i][j] = matrix[i - 1][j - 1]
-      } else {
-        matrix[i][j] = Math.min(
-          matrix[i - 1][j - 1] + 1,
-          matrix[i][j - 1] + 1,
-          matrix[i - 1][j] + 1
-        )
-      }
-    }
-  }
-
-  return matrix[b.length][a.length]
 }
 
 function cleanTavilyContent(text) {
@@ -1097,8 +1076,6 @@ const finalCommunicationMode =
 
     let tavilyResults = []
 
-    const matchCount = safeMatches.length
-
 const inferredQueryCategories =
   inferCategoriesFromQuery(safeQuery)
 
@@ -1482,7 +1459,23 @@ app.get("/api/admin/tavily-resources", async (req, res) => {
     .limit(40)
 
   if (error || countError) return res.status(500).json({ error: "Could not load review queue." })
-  return res.json({ items: data || [], count: count || 0 })
+
+  const resourceIds = (data || []).map((item) => item.id)
+  let latestReviews = {}
+  if (resourceIds.length) {
+    const { data: reviews } = await supabase
+      .from("ai_resource_reviews")
+      .select("*")
+      .in("resource_id", resourceIds)
+      .order("created_at", { ascending: false })
+      .limit(200)
+
+    latestReviews = Object.fromEntries((reviews || [])
+      .filter((review, index, all) => all.findIndex((item) => String(item.resource_id) === String(review.resource_id)) === index)
+      .map((review) => [review.resource_id, review]))
+  }
+
+  return res.json({ items: data || [], count: count || 0, latestReviews })
 })
 
 app.patch("/api/admin/tavily-resources/:id", async (req, res) => {
@@ -1505,7 +1498,51 @@ app.patch("/api/admin/tavily-resources/:id", async (req, res) => {
     .single()
 
   if (error) return res.status(500).json({ error: "Could not update review item." })
+
+  await supabase
+    .from("ai_resource_reviews")
+    .update({ reviewed_by_human_at: new Date().toISOString(), human_decision: action === "approve" ? "approved" : "hidden" })
+    .eq("resource_id", req.params.id)
+    .is("reviewed_by_human_at", null)
+
   return res.json({ item: data })
+})
+
+const reviewRateLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 10 })
+
+app.get("/api/admin/tavily-resources/:id/ai-review", requireAdmin, async (req, res) => {
+  if (!isValidResourceId(req.params.id)) return res.status(400).json({ error: "Invalid resource ID." })
+
+  const { data, error } = await supabase
+    .from("ai_resource_reviews")
+    .select("*")
+    .eq("resource_id", req.params.id)
+    .order("created_at", { ascending: false })
+    .limit(1)
+    .maybeSingle()
+
+  if (error) return res.status(500).json({ error: "Could not load AI review. Has the migration been applied?" })
+  return res.json({ review: data || null })
+})
+
+app.post("/api/admin/tavily-resources/:id/ai-review", reviewRateLimit, requireAdmin, async (req, res) => {
+  if (process.env.AI_REVIEW_ENABLED === "false") return res.status(503).json({ error: "AI review is disabled." })
+  if (!isValidResourceId(req.params.id)) return res.status(400).json({ error: "Invalid resource ID." })
+  if (!process.env.OPENAI_API_KEY) return res.status(503).json({ error: "AI review is not configured." })
+
+  try {
+    const review = await runResourceReviewPipeline(Number(req.params.id), {
+      supabase,
+      openai: client,
+      fetchImpl: fetch,
+    })
+    return res.status(201).json({ review })
+  } catch (error) {
+    if (error.code === "RESOURCE_NOT_FOUND") return res.status(404).json({ error: error.message })
+    if (error.code === "REVIEW_ALREADY_RUNNING") return res.status(409).json({ error: error.message })
+    console.error("AI resource review failed:", error.message)
+    return res.status(500).json({ error: error.message || "AI review failed." })
+  }
 })
 
 app.use(express.static(path.join(__dirname, "dist")))
@@ -1514,6 +1551,10 @@ app.get("/{*splat}", (req, res) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"))
 })
 
-app.listen(port, () => {
-  console.log(`Miller server running on http://localhost:${port}`)
-})
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
+  app.listen(port, () => {
+    console.log(`Miller server running on http://localhost:${port}`)
+  })
+}
+
+export { app, isValidResourceId, requireAdmin }

@@ -448,7 +448,6 @@ function scoreResource(resource, query, selectedCity, options = {}) {
   const search = normalizeText(query)
   const text = buildSearchText(resource)
   const name = normalizeText(resource.name)
-  const tags = (resource.tags || []).join(" ").toLowerCase()
   const organization = normalizeText(resource.organization)
   const serviceType = normalizeText(resource.serviceType)
   const category = normalizeText(resource.category)
@@ -734,6 +733,9 @@ useEffect(() => {
   const [displayedReply, setDisplayedReply] = useState("")
   const [results, setResults] = useState([])
   const [adminReviewItems, setAdminReviewItems] = useState([])
+  const [aiReviews, setAiReviews] = useState({})
+  const [aiReviewLoading, setAiReviewLoading] = useState({})
+  const [aiReviewErrors, setAiReviewErrors] = useState({})
   const [pendingCount, setPendingCount] = useState(0)
   const [totalMatches, setTotalMatches] = useState(0)
 
@@ -748,7 +750,7 @@ useEffect(() => {
   const [isChestWiggling, setIsChestWiggling] = useState(false)
   const [millerMood, setMillerMood] = useState("idle")
   const [isSearchBarHovered, setIsSearchBarHovered] = useState(false)
-  const [cursorOffset, setCursorOffset] = useState({ x: 0, y: 0 })
+  const [, setCursorOffset] = useState({ x: 0, y: 0 })
   const [showSearchReveal, setShowSearchReveal] = useState(false)
 
   const [conversationMemory, setConversationMemory] = useState([])
@@ -817,6 +819,7 @@ useEffect(() => {
     const data = await response.json()
     setPendingCount(data.count || 0)
     setAdminReviewItems(data.items || [])
+    setAiReviews(data.latestReviews || {})
   }
 
   loadAdminReviewQueue()
@@ -1177,6 +1180,81 @@ async function hideTavilyResource(resource) {
     prev.filter((item) => item.id !== resource.id)
   )
   setPendingCount((prev) => Math.max(0, prev - 1))
+}
+
+async function analyzeTavilyResource(resource) {
+  setAiReviewLoading((prev) => ({ ...prev, [resource.id]: true }))
+  setAiReviewErrors((prev) => ({ ...prev, [resource.id]: "" }))
+
+  try {
+    const response = await fetch(`/api/admin/tavily-resources/${encodeURIComponent(resource.id)}/ai-review`, {
+      method: "POST",
+      credentials: "include",
+    })
+    const data = await response.json().catch(() => ({}))
+    if (!response.ok) throw new Error(data.error || "AI review failed.")
+    setAiReviews((prev) => ({ ...prev, [resource.id]: data.review }))
+  } catch (error) {
+    setAiReviewErrors((prev) => ({ ...prev, [resource.id]: error.message }))
+  } finally {
+    setAiReviewLoading((prev) => ({ ...prev, [resource.id]: false }))
+  }
+}
+
+function renderAiReview(resource) {
+  const review = aiReviews[resource.id]
+  const loading = Boolean(aiReviewLoading[resource.id])
+  const error = aiReviewErrors[resource.id]
+  const recommendation = review?.review_confidence < 0.6
+    ? "manual_review"
+    : review?.review_recommendation
+  const tags = review?.suggested_tags?.suggested_tags || []
+  const duplicates = review?.duplicate_candidates?.matches || []
+  const quality = review?.quality_results
+  const agentErrors = Object.entries(review?.agent_errors || {})
+
+  return (
+    <section className="ai-review-box" aria-label="AI-assisted review">
+      <div className="ai-review-heading">
+        <div>
+          <span className="ai-review-label">AI suggestion only</span>
+          <h4>{review ? "Review assistance" : "No AI analysis yet"}</h4>
+        </div>
+        <button
+          type="button"
+          className="ai-review-button"
+          disabled={loading}
+          onClick={() => analyzeTavilyResource(resource)}
+        >
+          {loading ? "Analyzing…" : review ? "Rerun analysis" : "Run AI review"}
+        </button>
+      </div>
+
+      {error ? <p className="ai-review-error">{error}</p> : null}
+      {review ? (
+        <div className="ai-review-content">
+          <p className={`ai-recommendation recommendation-${recommendation || "manual_review"}`}>
+            {recommendation === "manual_review" ? "Manual review recommended" : `Suggested: ${recommendation}`}
+            {review.review_confidence != null ? ` · ${Math.round(review.review_confidence * 100)}% confidence` : ""}
+          </p>
+          <p>{review.review_reason}</p>
+
+          {tags.length ? <p><strong>Suggested tags:</strong> {tags.join(", ")}</p> : null}
+          {duplicates.length ? (
+            <div>
+              <strong>Possible duplicates:</strong>
+              <ul>{duplicates.map((match) => <li key={match.candidate_resource_id}>#{match.candidate_resource_id}: {match.match_type.replaceAll("_", " ")} ({Math.round(match.confidence * 100)}%) — {match.explanation}</li>)}</ul>
+            </div>
+          ) : <p><strong>Possible duplicates:</strong> None identified in the candidate set.</p>}
+
+          {quality ? <p><strong>Link:</strong> {quality.url_status}{quality.http_status ? ` (HTTP ${quality.http_status})` : ""}. {quality.explanation}</p> : null}
+          {agentErrors.length ? <div className="ai-review-warning"><strong>Checks needing attention:</strong><ul>{agentErrors.map(([name, message]) => <li key={name}>{name.replaceAll("_", " ")}: {message}</li>)}</ul></div> : null}
+          <p className="ai-review-timestamp">Last analyzed {new Date(review.completed_at || review.created_at).toLocaleString()}</p>
+          <p className="ai-human-control">Miller has not changed this resource. Approve or Hide remains your decision.</p>
+        </div>
+      ) : null}
+    </section>
+  )
 }
 
   function clearSearch() {
@@ -1548,6 +1626,8 @@ const millerImageStyle = {}
               {resource.description}
             </p>
           )}
+
+          {renderAiReview(resource)}
 
           <div className="resource-links">
 
