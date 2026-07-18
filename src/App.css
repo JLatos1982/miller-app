@@ -1917,8 +1917,10 @@ body,
   }
 
   .title-image {
-    width: 100%;
+    width: auto;
+    height: 100%;
     max-width: 100%;
+    max-height: 100%;
     transform: translateY(3px);
   }
 
@@ -1980,39 +1982,67 @@ body,
   }
 
   .miller-stage {
-    min-height: 214px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    gap: 8px;
   }
 
   .miller-bubble {
-    width: calc(100% - 94px);
-    min-height: 124px;
-    max-height: 174px;
+    position: relative;
+    width: 100%;
+    min-height: 0;
+    max-height: none;
+    margin: 0;
     padding: 14px;
     border-radius: 18px;
-    font-size: 0.9rem;
-    line-height: 1.45;
+    overflow: visible;
+    font-size: 0.94rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .miller-bubble::before {
+    display: none;
   }
 
   .miller-figure {
-    top: 38px;
-    width: 100px;
+    display: none;
   }
 
   .miller-image-frame {
-    width: 100px;
-    height: 148px;
+    display: none;
   }
 
   .miller-switcher-wrap {
-    bottom: -42px;
+    display: none;
   }
 
   .miller-switcher {
-    max-width: 132px;
+    display: none;
   }
 
   .miller-dots {
     display: none;
+  }
+
+  .miller-satchel-zone {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+    width: auto;
+    margin: 0;
+    gap: 6px;
+  }
+
+  .community-label {
+    font-size: 0.62rem;
+  }
+
+  .treasure-chest-button {
+    width: 52px;
+    height: 48px;
   }
 
   .results-panel {
@@ -2145,18 +2175,9 @@ body,
   }
 
   .miller-bubble {
-    width: calc(100% - 86px);
+    width: 100%;
     padding: 12px;
-    font-size: 0.86rem;
-  }
-
-  .miller-figure {
-    width: 92px;
-  }
-
-  .miller-image-frame {
-    width: 92px;
-    height: 140px;
+    font-size: 0.9rem;
   }
 
   .community-label {
