@@ -1529,12 +1529,16 @@ app.post("/api/admin/tavily-resources/:id/ai-review", reviewRateLimit, requireAd
   if (process.env.AI_REVIEW_ENABLED === "false") return res.status(503).json({ error: "AI review is disabled." })
   if (!isValidResourceId(req.params.id)) return res.status(400).json({ error: "Invalid resource ID." })
   if (!process.env.OPENAI_API_KEY) return res.status(503).json({ error: "AI review is not configured." })
+  if (req.body?.force !== undefined && typeof req.body.force !== "boolean") {
+    return res.status(400).json({ error: "force must be a boolean." })
+  }
 
   try {
     const review = await runResourceReviewPipeline(Number(req.params.id), {
       supabase,
       openai: client,
       fetchImpl: fetch,
+      force: req.body?.force === true,
     })
     return res.status(201).json({ review })
   } catch (error) {

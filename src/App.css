@@ -1589,6 +1589,23 @@ gap: 80px;
   opacity: 0.65;
 }
 
+.ai-review-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.ai-review-button.secondary {
+  border-color: #9aa2b8;
+  color: #586078;
+}
+
+.ai-review-reused {
+  color: #17663a;
+  font-weight: 800;
+}
+
 .ai-review-content {
   margin-top: 14px;
   font-size: 0.9rem;
@@ -1631,5 +1648,9 @@ gap: 80px;
   .ai-review-heading {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .ai-review-actions {
+    justify-content: flex-start;
   }
 }

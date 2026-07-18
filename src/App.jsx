@@ -1182,7 +1182,7 @@ async function hideTavilyResource(resource) {
   setPendingCount((prev) => Math.max(0, prev - 1))
 }
 
-async function analyzeTavilyResource(resource) {
+async function analyzeTavilyResource(resource, { force = false } = {}) {
   setAiReviewLoading((prev) => ({ ...prev, [resource.id]: true }))
   setAiReviewErrors((prev) => ({ ...prev, [resource.id]: "" }))
 
@@ -1190,6 +1190,8 @@ async function analyzeTavilyResource(resource) {
     const response = await fetch(`/api/admin/tavily-resources/${encodeURIComponent(resource.id)}/ai-review`, {
       method: "POST",
       credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ force }),
     })
     const data = await response.json().catch(() => ({}))
     if (!response.ok) throw new Error(data.error || "AI review failed.")
@@ -1220,14 +1222,26 @@ function renderAiReview(resource) {
           <span className="ai-review-label">AI suggestion only</span>
           <h4>{review ? "Review assistance" : "No AI analysis yet"}</h4>
         </div>
-        <button
-          type="button"
-          className="ai-review-button"
-          disabled={loading}
-          onClick={() => analyzeTavilyResource(resource)}
-        >
-          {loading ? "Analyzing…" : review ? "Rerun analysis" : "Run AI review"}
-        </button>
+        <div className="ai-review-actions">
+          <button
+            type="button"
+            className="ai-review-button"
+            disabled={loading}
+            onClick={() => analyzeTavilyResource(resource)}
+          >
+            {loading ? "Analyzing…" : review ? "Rerun analysis" : "Run AI review"}
+          </button>
+          {review ? (
+            <button
+              type="button"
+              className="ai-review-button secondary"
+              disabled={loading}
+              onClick={() => analyzeTavilyResource(resource, { force: true })}
+            >
+              Force rerun
+            </button>
+          ) : null}
+        </div>
       </div>
 
       {error ? <p className="ai-review-error">{error}</p> : null}
@@ -1250,6 +1264,7 @@ function renderAiReview(resource) {
           {quality ? <p><strong>Link:</strong> {quality.url_status}{quality.http_status ? ` (HTTP ${quality.http_status})` : ""}. {quality.explanation}</p> : null}
           {agentErrors.length ? <div className="ai-review-warning"><strong>Checks needing attention:</strong><ul>{agentErrors.map(([name, message]) => <li key={name}>{name.replaceAll("_", " ")}: {message}</li>)}</ul></div> : null}
           <p className="ai-review-timestamp">Last analyzed {new Date(review.completed_at || review.created_at).toLocaleString()}</p>
+          {review.reused ? <p className="ai-review-reused">Reused because the resource, review model, and review version are unchanged.</p> : null}
           <p className="ai-human-control">Miller has not changed this resource. Approve or Hide remains your decision.</p>
         </div>
       ) : null}

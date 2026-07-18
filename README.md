@@ -26,7 +26,7 @@ The admin review card can run four server-side checks for one `tavily_resources`
 
 The orchestrator stores results in `ai_resource_reviews`. Each check is isolated, so successful checks are retained when another fails. Resource and webpage content is treated as untrusted prompt data. No service can approve, hide, delete, merge, or overwrite the resource. A human must still use the existing Approve or Hide controls.
 
-Analysis runs only after an administrator presses **Run AI review**. Reruns create new audit records. The model used for these calls is controlled by `OPENAI_REVIEW_MODEL`; each full run normally makes two model calls plus a third only when deterministic duplicate evidence is ambiguous. The link request does not use OpenAI.
+Analysis runs only after an administrator presses **Run AI review**. Each completed review stores a deterministic fingerprint of review-relevant resource content plus its model and schema/prompt version. **Rerun analysis** reuses the latest completed review when all three still match; **Force rerun** deliberately creates a new audit record. The model used for fresh calls is controlled by `OPENAI_REVIEW_MODEL`; each full run normally makes two model calls plus a third only when deterministic duplicate evidence is ambiguous. The link request does not use OpenAI.
 
 Disable the feature without removing the interface by setting:
 
@@ -36,10 +36,11 @@ AI_REVIEW_ENABLED=false
 
 ## Supabase migration
 
-Apply `supabase/migrations/202607170001_create_ai_resource_reviews.sql` in the Supabase SQL editor or through your normal migration workflow. It:
+Apply the SQL files in `supabase/migrations` in timestamp order through the Supabase SQL editor or your normal migration workflow. They:
 
 - creates the audit table and foreign key to `tavily_resources`;
 - prevents simultaneous queued/running reviews for one resource;
+- adds the fingerprint lookup used for safe review reuse;
 - enables RLS and grants no access to `anon` or `authenticated`;
 - leaves server-side service-role access available.
 

@@ -1,6 +1,7 @@
 import { checkResourceQuality } from "./linkQuality.js"
 import { findPossibleDuplicates, reviewResource, suggestResourceTags } from "./agents.js"
 import { REVIEW_MODEL, REVIEW_SCHEMA_VERSION } from "./constants.js"
+import { createReviewFingerprint } from "./fingerprint.js"
 
 const activeRuns = new Set()
 
@@ -12,7 +13,7 @@ function settledValue(result) {
   return result.status === "fulfilled" ? result.value : null
 }
 
-export async function runResourceReviewPipeline(resourceId, { supabase, openai, fetchImpl, lookup }) {
+export async function runResourceReviewPipeline(resourceId, { supabase, openai, fetchImpl, lookup, force = false }) {
   const lockKey = String(resourceId)
   if (activeRuns.has(lockKey)) {
     const error = new Error("A review is already running for this resource.")
@@ -34,9 +35,28 @@ export async function runResourceReviewPipeline(resourceId, { supabase, openai, 
       throw error
     }
 
+    const reviewFingerprint = createReviewFingerprint(resource)
+
+    if (!force) {
+      const { data: cachedReview, error: cachedReviewError } = await supabase
+        .from("ai_resource_reviews")
+        .select("*")
+        .eq("resource_id", resourceId)
+        .eq("status", "completed")
+        .eq("review_fingerprint", reviewFingerprint)
+        .eq("model_identifier", REVIEW_MODEL)
+        .eq("schema_version", REVIEW_SCHEMA_VERSION)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle()
+
+      if (cachedReviewError) throw new Error("Could not check for a reusable AI review.")
+      if (cachedReview) return { ...cachedReview, reused: true }
+    }
+
     const { data: inserted, error: insertError } = await supabase
       .from("ai_resource_reviews")
-      .insert({ resource_id: resourceId, status: "running", model_identifier: REVIEW_MODEL, schema_version: REVIEW_SCHEMA_VERSION })
+      .insert({ resource_id: resourceId, status: "running", review_fingerprint: reviewFingerprint, model_identifier: REVIEW_MODEL, schema_version: REVIEW_SCHEMA_VERSION })
       .select("*")
       .single()
     if (insertError) {
@@ -91,7 +111,7 @@ export async function runResourceReviewPipeline(resourceId, { supabase, openai, 
       .select("*")
       .single()
     if (updateError) throw new Error("Could not save the AI review results.")
-    return completed
+    return { ...completed, reused: false }
   } catch (error) {
     if (reviewRun?.id) {
       await supabase.from("ai_resource_reviews").update({ status: "failed", error_message: errorMessage(error), completed_at: new Date().toISOString() }).eq("id", reviewRun.id)
@@ -105,4 +125,3 @@ export async function runResourceReviewPipeline(resourceId, { supabase, openai, 
 export function clearActiveReviewRunsForTests() {
   activeRuns.clear()
 }
-
