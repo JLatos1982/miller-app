@@ -55,6 +55,12 @@ localStorage.setItem("miller_admin", "true");
 location.reload();
 ```
 
+## Personalized handouts
+
+Users can add ordinary search-result cards to a temporary handout, reorder them, edit handout-only descriptions and notes, and personalize the finished document. Handouts can be printed, saved as PDF through the browser print dialog, or downloaded as a standalone HTML file.
+
+Handout state exists only in active React memory. It is not written to Supabase, Express, analytics, OpenAI, Tavily, browser storage, cookies, URLs, or console logs. Refreshing or closing the page clears it; the browser shows a standard unsaved-changes warning while the handout contains work.
+
 ## Verification
 
 ```bash

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useMemo, useReducer, useRef, useState } from "react"
 import "./App.css"
 import rawResources from "./vancouver_resources_merged_updated.json"
 import { supabase } from "./supabaseClient"
@@ -25,6 +25,9 @@ import backgroundJade from "./assets/background_jade.png"
 import backgroundGold from "./assets/background_gold.png"
 import backgroundNorth from "./assets/background_north.png"
 import backgroundRose from "./assets/background_rose.png"
+import AddToHandoutButton from "./handout/AddToHandoutButton.jsx"
+import HandoutBuilder from "./handout/HandoutBuilder.jsx"
+import { createInitialHandoutState, getResourceKey, handoutReducer, hasHandoutContent } from "./handout/handoutState.js"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -676,6 +679,8 @@ function App() {
   const [query, setQuery] = useState("")
   const [selectedCity, setSelectedCity] = useState("All Cities")
   const [hasSearched, setHasSearched] = useState(false)
+  const [handout, dispatchHandout] = useReducer(handoutReducer, undefined, createInitialHandoutState)
+  const [isHandoutOpen, setIsHandoutOpen] = useState(false)
 
   const [millerIndex, setMillerIndex] = useState(() => {
   const saved = localStorage.getItem("miller-theme-index")
@@ -726,6 +731,18 @@ useEffect(() => {
 
   trackVisit()
 }, [currentTheme.name])
+
+  useEffect(() => {
+    if (!hasHandoutContent(handout)) return undefined
+
+    function warnBeforeLeaving(event) {
+      event.preventDefault()
+      event.returnValue = ""
+    }
+
+    window.addEventListener("beforeunload", warnBeforeLeaving)
+    return () => window.removeEventListener("beforeunload", warnBeforeLeaving)
+  }, [handout])
 
   const [isLoading, setIsLoading] = useState(false)
   const [isTyping, setIsTyping] = useState(false)
@@ -1362,6 +1379,18 @@ function previousMiller() {
 
 const millerImageStyle = {}
 
+  if (isHandoutOpen) {
+    return (
+      <div className="app-shell handout-app-shell">
+        <HandoutBuilder
+          handout={handout}
+          dispatch={dispatchHandout}
+          onBack={() => setIsHandoutOpen(false)}
+        />
+      </div>
+    )
+  }
+
   return (
     <div
   className="app-shell"
@@ -1372,6 +1401,18 @@ const millerImageStyle = {}
   alt=""
   className="scene-background"
 />
+      <div className="handout-toolbar">
+        <button
+          type="button"
+          className="handout-indicator"
+          onClick={() => setIsHandoutOpen(true)}
+          aria-label={`Open handout with ${handout.resources.length} selected resources`}
+        >
+          <span aria-hidden="true">▤</span>
+          Handout
+          <span className="handout-count" aria-live="polite">{handout.resources.length}</span>
+        </button>
+      </div>
       <div className="hero-header">
        <p className="eyebrow">Gentle help finding support in BC’s Lower Mainland</p>
 
@@ -1597,6 +1638,13 @@ const millerImageStyle = {}
       ✉ Email
     </a>
   ) : null}
+
+  <AddToHandoutButton
+    resource={resource}
+    selected={handout.resources.some((item) => item.key === getResourceKey(resource))}
+    onAdd={(item) => dispatchHandout({ type: "add_resource", resource: item })}
+    onRemove={() => dispatchHandout({ type: "remove_resource", key: getResourceKey(resource) })}
+  />
 </div>
                     </article>
                   ))}
