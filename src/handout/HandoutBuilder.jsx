@@ -1,5 +1,6 @@
 import { downloadHandoutHtml } from "./handoutExport.js"
 import { useEffect, useRef } from "react"
+import { TEMPORARY_CARD_NOTICE } from "./temporaryCard.js"
 
 const FIELD_CONFIG = [
   ["title", "Handout title", "text"],
@@ -30,6 +31,7 @@ function EditableField({ field, label, type, value, onChange }) {
 }
 
 function HandoutResourceCard({ resource, index, total, dispatch }) {
+  const isTemporary = resource.type === "temporary-resource"
   const details = [
     ["Category", resource.category],
     ["Service type", resource.serviceType],
@@ -40,6 +42,14 @@ function HandoutResourceCard({ resource, index, total, dispatch }) {
     ["Hours", resource.hours],
     ["Access", resource.accessType],
     ["Eligibility", resource.eligibility],
+    ["Service area", resource.serviceArea],
+    ["Email", resource.email],
+    ["Referral / intake", resource.referralProcess],
+    ["Cost", resource.cost],
+    ["Accessibility", resource.accessibility],
+    ["Languages", resource.languages],
+    ["Limitations", resource.limitations],
+    ["Call before you go", resource.callBeforeNote],
     ["Population", resource.population],
   ].filter(([, value]) => value)
 
@@ -49,6 +59,7 @@ function HandoutResourceCard({ resource, index, total, dispatch }) {
         <div>
           <p className="handout-resource-number">Resource {index + 1}</p>
           <h3>{resource.name}</h3>
+          {isTemporary ? <span className="temporary-resource-badge">Temporary · {resource.verificationStatus === "confirmed" ? "preparer confirmed" : "unverified"}</span> : null}
           {resource.organization ? <p>{resource.organization}</p> : null}
         </div>
         <div className="handout-resource-controls" aria-label={`Manage ${resource.name}`}>
@@ -57,6 +68,26 @@ function HandoutResourceCard({ resource, index, total, dispatch }) {
           <button type="button" className="remove" onClick={() => dispatch({ type: "remove_resource", key: resource.key })}>Remove</button>
         </div>
       </div>
+
+      {isTemporary ? (
+        <details className="temporary-resource-editor handout-screen-only">
+          <summary>Edit temporary resource details</summary>
+          <div className="temporary-resource-edit-grid">
+            {[
+              ["name", "Resource name"], ["organization", "Organization"], ["category", "Category"], ["city", "City"],
+              ["serviceArea", "Service area"], ["address", "Address"], ["phone", "Phone"], ["email", "Email"],
+              ["website", "Website"], ["hours", "Hours"], ["eligibility", "Eligibility"], ["referralProcess", "Referral / intake"],
+              ["cost", "Cost"], ["accessibility", "Accessibility"], ["languages", "Languages"], ["limitations", "Limitations"],
+              ["callBeforeNote", "Call-before note"],
+            ].map(([field, label]) => <label key={field}><span>{label}</span><textarea rows="2" value={resource[field] || ""} onChange={(event) => dispatch({ type: "update_resource", key: resource.key, field, value: event.target.value })} /></label>)}
+          </div>
+          <div className="temporary-resource-options">
+            <label><span>Verification status</span><select value={resource.verificationStatus} onChange={(event) => dispatch({ type: "update_resource", key: resource.key, field: "verificationStatus", value: event.target.value })}><option value="unconfirmed">Temporary / unverified</option><option value="confirmed">Confirmed by handout preparer</option></select></label>
+            <label><input type="checkbox" checked={resource.showVerificationNote} onChange={(event) => dispatch({ type: "update_resource", key: resource.key, field: "showVerificationNote", value: event.target.checked })} /> Include general verification reminder</label>
+          </div>
+          <p className="temporary-source-detail"><strong>Original source:</strong> <a href={resource.sourceUrl} target="_blank" rel="noreferrer">{resource.sourceTitle || resource.sourceUrl}</a> · Retrieved {new Date(resource.sourceRetrievedAt).toLocaleDateString()} · {resource.aiAssisted ? "AI-assisted draft" : "Source-based draft"}</p>
+        </details>
+      ) : null}
 
       <div className="handout-resource-details">
         {details.map(([label, value]) => <p key={label}><strong>{label}:</strong> {value}</p>)}
@@ -67,6 +98,7 @@ function HandoutResourceCard({ resource, index, total, dispatch }) {
         <textarea rows="4" value={resource.handoutDescription} onChange={(event) => dispatch({ type: "update_resource", key: resource.key, field: "handoutDescription", value: event.target.value })} />
         <span className="handout-print-value">{resource.handoutDescription}</span>
       </label>
+      {isTemporary && resource.showVerificationNote ? <p className="temporary-verification-note">{TEMPORARY_CARD_NOTICE}</p> : null}
       {resource.handoutDescription !== resource.originalDescription ? (
         <button type="button" className="restore-description" onClick={() => dispatch({ type: "restore_description", key: resource.key })}>Restore original description</button>
       ) : null}

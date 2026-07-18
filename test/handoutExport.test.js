@@ -25,3 +25,16 @@ test("handout modules contain no persistence or network save calls", () => {
   assert.doesNotMatch(combined, /localStorage|sessionStorage|document\.cookie|supabase|fetch\s*\(|XMLHttpRequest|navigator\.sendBeacon/)
 })
 
+test("exports temporary resources with uncertainty and rich public fields", () => {
+  const state = createInitialHandoutState()
+  state.resources.push({
+    type: "temporary-resource", key: "temporary:1", name: "Web Service", handoutDescription: "Source description",
+    verificationStatus: "unconfirmed", showVerificationNote: true, referralProcess: "Call intake", cost: "Free",
+    website: "https://example.org/service", handoutNote: "",
+  })
+  const html = generateHandoutHtml(state)
+  assert.match(html, /Temporary resource · unverified/)
+  assert.match(html, /Please confirm hours, eligibility, and availability/)
+  assert.match(html, /Call intake/)
+  assert.match(html, /Free/)
+})

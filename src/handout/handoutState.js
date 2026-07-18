@@ -30,6 +30,7 @@ export function createInitialHandoutState() {
 }
 
 export function getResourceKey(resource) {
+  if (resource?.key) return resource.key
   if (resource?.id !== undefined && resource?.id !== null) return `id:${resource.id}`
   return [resource?.website, resource?.name, resource?.city, resource?.organization]
     .map((value) => String(value || "").trim().toLowerCase())
@@ -39,6 +40,7 @@ export function getResourceKey(resource) {
 function copyResource(resource) {
   const originalDescription = String(resource.description || "")
   return {
+    type: "miller-resource",
     key: getResourceKey(resource),
     name: String(resource.name || "Unnamed Resource"),
     organization: String(resource.organization || ""),
@@ -76,6 +78,13 @@ export function handoutReducer(state, action) {
       if (!key || state.resources.some((resource) => resource.key === key)) return state
       return { ...state, resources: [...state.resources, copyResource(action.resource)] }
     }
+    case "add_temporary_resource": {
+      const resource = action.resource
+      if (!resource?.key || resource.type !== "temporary-resource") return state
+      const duplicate = state.resources.some((item) => item.key === resource.key || (resource.sourceKey && item.sourceKey === resource.sourceKey))
+      if (duplicate) return state
+      return { ...state, resources: [...state.resources, { ...resource }] }
+    }
     case "remove_resource":
       return { ...state, resources: state.resources.filter((resource) => resource.key !== action.key) }
     case "move_resource": {
@@ -86,11 +95,11 @@ export function handoutReducer(state, action) {
       if (!HANDOUT_FIELD_NAMES.includes(action.field)) return state
       return { ...state, fields: { ...state.fields, [action.field]: String(action.value ?? "") } }
     case "update_resource":
-      if (!["handoutDescription", "handoutNote"].includes(action.field)) return state
+      if (!["handoutDescription", "handoutNote", "name", "organization", "category", "city", "serviceArea", "address", "phone", "email", "website", "hours", "eligibility", "referralProcess", "cost", "accessibility", "languages", "limitations", "callBeforeNote", "verificationStatus", "showVerificationNote"].includes(action.field)) return state
       return {
         ...state,
         resources: state.resources.map((resource) => resource.key === action.key
-          ? { ...resource, [action.field]: String(action.value ?? "") }
+          ? { ...resource, [action.field]: action.field === "showVerificationNote" ? Boolean(action.value) : String(action.value ?? "") }
           : resource),
       }
     case "restore_description":
@@ -112,4 +121,3 @@ export function hasHandoutContent(state) {
   const defaults = createInitialHandoutState().fields
   return HANDOUT_FIELD_NAMES.some((field) => state.fields[field] !== defaults[field])
 }
-

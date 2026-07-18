@@ -28,6 +28,8 @@ import backgroundRose from "./assets/background_rose.png"
 import AddToHandoutButton from "./handout/AddToHandoutButton.jsx"
 import HandoutBuilder from "./handout/HandoutBuilder.jsx"
 import { createInitialHandoutState, getResourceKey, handoutReducer, hasHandoutContent } from "./handout/handoutState.js"
+import TemporaryCardEditor from "./handout/TemporaryCardEditor.jsx"
+import { isEligibleExternalResult } from "./handout/temporaryCard.js"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -681,6 +683,7 @@ function App() {
   const [hasSearched, setHasSearched] = useState(false)
   const [handout, dispatchHandout] = useReducer(handoutReducer, undefined, createInitialHandoutState)
   const [isHandoutOpen, setIsHandoutOpen] = useState(false)
+  const [temporaryCardSource, setTemporaryCardSource] = useState(null)
 
   const [millerIndex, setMillerIndex] = useState(() => {
   const saved = localStorage.getItem("miller-theme-index")
@@ -1401,6 +1404,16 @@ const millerImageStyle = {}
   alt=""
   className="scene-background"
 />
+      {temporaryCardSource ? (
+        <TemporaryCardEditor
+          source={temporaryCardSource}
+          onCancel={() => setTemporaryCardSource(null)}
+          onAdd={(resource) => {
+            dispatchHandout({ type: "add_temporary_resource", resource })
+            setTemporaryCardSource(null)
+          }}
+        />
+      ) : null}
       <div className="handout-toolbar">
         <button
           type="button"
@@ -1639,12 +1652,18 @@ const millerImageStyle = {}
     </a>
   ) : null}
 
-  <AddToHandoutButton
-    resource={resource}
-    selected={handout.resources.some((item) => item.key === getResourceKey(resource))}
-    onAdd={(item) => dispatchHandout({ type: "add_resource", resource: item })}
-    onRemove={() => dispatchHandout({ type: "remove_resource", key: getResourceKey(resource) })}
-  />
+  {isEligibleExternalResult(resource, handout.resources) ? (
+    <button type="button" className="create-temporary-card-button" onClick={() => setTemporaryCardSource(resource)}>
+      Create handout card
+    </button>
+  ) : resource.source === "tavily" && !resource.approved ? null : (
+    <AddToHandoutButton
+      resource={resource}
+      selected={handout.resources.some((item) => item.key === getResourceKey(resource))}
+      onAdd={(item) => dispatchHandout({ type: "add_resource", resource: item })}
+      onRemove={() => dispatchHandout({ type: "remove_resource", key: getResourceKey(resource) })}
+    />
+  )}
 </div>
                     </article>
                   ))}
