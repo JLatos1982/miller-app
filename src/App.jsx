@@ -1397,6 +1397,7 @@ const millerImageStyle = {}
             >
               <input
                 className="main-search-input"
+                aria-label="Describe the support you are looking for"
                 placeholder="Try detox, treatment centre, counselling, OAT, crisis, or harm reduction..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
@@ -1408,6 +1409,7 @@ const millerImageStyle = {}
             <div className="controls-row" ref={controlsRowRef}>
               <select
                 className="city-select"
+                aria-label="Filter resources by city"
                 value={selectedCity}
                 onChange={(event) => setSelectedCity(event.target.value)}
               >
@@ -1721,6 +1723,7 @@ const millerImageStyle = {}
     <button
       key={theme.name}
       type="button"
+      aria-label={`Choose ${theme.name} Miller theme`}
       className={`miller-dot ${index === millerIndex ? "active" : ""}`}
       style={{
         background:
