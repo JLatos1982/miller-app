@@ -31,6 +31,8 @@ import { createInitialHandoutState, getResourceKey, handoutReducer, hasHandoutCo
 import TemporaryCardEditor from "./handout/TemporaryCardEditor.jsx"
 import { isEligibleExternalResult } from "./handout/temporaryCard.js"
 import { MILLER_COPY } from "./interfaceCopy.js"
+import { adminFetch, getVerifiedAdminSession } from "./adminApi.js"
+import { safeEmailAddress, safeHttpUrl } from "./safeLinks.js"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -255,7 +257,7 @@ function safeEmail(resource) {
   if (!email) return ""
 
   if (looksLikePersonalEmail(email)) return ""
-  return email
+  return safeEmailAddress(email)
 }
 
 function safeNotes() {
@@ -788,8 +790,7 @@ useEffect(() => {
     note: "",
   })
   const [submissionStatus, setSubmissionStatus] = useState("")
-  const isAdminMode =
-  localStorage.getItem("miller_admin") === "true"
+  const [isAdminMode, setIsAdminMode] = useState(false)
 
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -833,12 +834,31 @@ useEffect(() => {
 }, [millerIndex])
 
 useEffect(() => {
+  let active = true
+
+  async function verifyAdmin() {
+    const session = await getVerifiedAdminSession().catch(() => null)
+    if (active) setIsAdminMode(Boolean(session))
+  }
+
+  verifyAdmin()
+  const { data: listener } = supabase.auth.onAuthStateChange(() => {
+    verifyAdmin()
+  })
+
+  return () => {
+    active = false
+    listener.subscription.unsubscribe()
+  }
+}, [])
+
+useEffect(() => {
   async function loadAdminReviewQueue() {
     if (!isAdminMode) return
 
-    const response = await fetch("/api/admin/tavily-resources", { credentials: "include" })
+    const response = await adminFetch("/api/admin/tavily-resources")
     if (!response.ok) {
-      console.error("Admin review load failed:", response.status)
+      if ([401, 403].includes(response.status)) setIsAdminMode(false)
       return
     }
 
@@ -1036,7 +1056,6 @@ setConversationMemory(updatedMemory)
         credentials: "include",
         headers: {
           "Content-Type": "application/json",
-          "x-site-password": localStorage.getItem("miller_site_password") || "",
         },
         body: JSON.stringify({
           query: trimmedQuery,
@@ -1179,13 +1198,16 @@ setConversationMemory((prev) =>
   }
 
 async function approveTavilyResource(resource) {
-  const response = await fetch(`/api/admin/tavily-resources/${encodeURIComponent(resource.id)}`, {
+  const response = await adminFetch(`/api/admin/tavily-resources/${encodeURIComponent(resource.id)}`, {
     method: "PATCH",
     credentials: "include",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ action: "approve" }),
   })
-  if (!response.ok) return
+  if (!response.ok) {
+    if ([401, 403].includes(response.status)) setIsAdminMode(false)
+    return
+  }
 
   setAdminReviewItems((prev) =>
     prev.filter((item) => item.id !== resource.id)
@@ -1194,13 +1216,16 @@ async function approveTavilyResource(resource) {
 }
 
 async function hideTavilyResource(resource) {
-  const response = await fetch(`/api/admin/tavily-resources/${encodeURIComponent(resource.id)}`, {
+  const response = await adminFetch(`/api/admin/tavily-resources/${encodeURIComponent(resource.id)}`, {
     method: "PATCH",
     credentials: "include",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ action: "hide" }),
   })
-  if (!response.ok) return
+  if (!response.ok) {
+    if ([401, 403].includes(response.status)) setIsAdminMode(false)
+    return
+  }
 
   setAdminReviewItems((prev) =>
     prev.filter((item) => item.id !== resource.id)
@@ -1213,13 +1238,14 @@ async function analyzeTavilyResource(resource, { force = false } = {}) {
   setAiReviewErrors((prev) => ({ ...prev, [resource.id]: "" }))
 
   try {
-    const response = await fetch(`/api/admin/tavily-resources/${encodeURIComponent(resource.id)}/ai-review`, {
+    const response = await adminFetch(`/api/admin/tavily-resources/${encodeURIComponent(resource.id)}/ai-review`, {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ force }),
     })
     const data = await response.json().catch(() => ({}))
+    if ([401, 403].includes(response.status)) setIsAdminMode(false)
     if (!response.ok) throw new Error(data.error || "AI review failed.")
     setAiReviews((prev) => ({ ...prev, [resource.id]: data.review }))
   } catch (error) {
@@ -1360,11 +1386,9 @@ function previousMiller() {
         note: "",
       })
       setSubmissionStatus("Thanks — your submission was sent.")
-    } catch (error) {
-      console.error("Submission failed:", error)
-      setSubmissionStatus(
-        `Something went wrong sending the submission.${error?.message ? ` ${error.message}` : ""}`
-      )
+    } catch {
+      console.error("Submission failed.")
+      setSubmissionStatus("Something went wrong sending the submission. Please try again.")
     } finally {
       setIsSubmitting(false)
     }
@@ -1624,10 +1648,10 @@ const millerImageStyle = {}
   </a>
 ) : null}
   
-  {resource.website ? (
+  {safeHttpUrl(resource.website) ? (
     <a
       className="resource-link-button"
-      href={resource.website}
+      href={safeHttpUrl(resource.website)}
       target="_blank"
       rel="noreferrer"
       onClick={() => {
@@ -1679,7 +1703,7 @@ const millerImageStyle = {}
           )}
         </section>
 
-{isAdminMode && adminReviewItems.length > 0 && (
+{isAdminMode && (
   <div className="admin-review-panel">
 
     <div className="results-head">
@@ -1690,6 +1714,9 @@ const millerImageStyle = {}
           {pendingCount} pending
         </span>
       </h2>
+      <button type="button" onClick={async () => { await supabase.auth.signOut({ scope: "local" }); setIsAdminMode(false); setAdminReviewItems([]) }}>
+        Sign out
+      </button>
     </div>
 
     <div className="resource-list">
@@ -1721,10 +1748,10 @@ const millerImageStyle = {}
 
           <div className="resource-links">
 
-            {resource.website && (
+            {safeHttpUrl(resource.website) && (
               <a
                 className="resource-link-button"
-                href={resource.website}
+                href={safeHttpUrl(resource.website)}
                 target="_blank"
                 rel="noreferrer"
               >

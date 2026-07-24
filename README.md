@@ -48,12 +48,23 @@ Do not expose the service-role key to the browser. The migration does not modify
 
 ## Admin access
 
-The existing site-password session authenticates the Express admin APIs. Browser `localStorage` controls only whether the admin UI is displayed; it does not authorize database access. Enable the interface in the browser console with:
+Admin access is separate from the temporary site-preview password. Administrators sign in at the discreet `/admin/login` route with an existing Supabase Auth email/password account. Express validates the bearer token with Supabase Auth and then checks the normalized email against the server-only `ADMIN_EMAIL_ALLOWLIST` on every `/api/admin/*` request.
 
-```js
-localStorage.setItem("miller_admin", "true");
-location.reload();
+```dotenv
+ADMIN_EMAIL_ALLOWLIST=administrator@example.org
 ```
+
+Do not enable public signup. Create or invite the administrator through the Supabase dashboard, set a strong unique password, and enable MFA when available for the project/account. A valid ordinary Supabase account is not sufficient: it must also be allowlisted. If the allowlist is empty, admin APIs fail closed.
+
+The public `SITE_PASSWORD` remains required before either the normal site or `/admin/login` can be used. It no longer grants admin API access.
+
+When the frontend and Express API use different production origins, configure exact origins rather than wildcards:
+
+```dotenv
+CORS_ALLOWED_ORIGINS=https://your-netlify-site.example
+```
+
+See [SECURITY_DEPLOYMENT.md](./SECURITY_DEPLOYMENT.md) before deploying.
 
 ## Personalized handouts
 

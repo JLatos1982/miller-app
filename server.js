@@ -10,6 +10,7 @@ import { createClient } from "@supabase/supabase-js"
 import crypto from "crypto"
 import { runResourceReviewPipeline } from "./server/review/orchestrator.js"
 import { generateHandoutCardDraft, getHandoutDraftFailureReason, validateHandoutDraftRequest } from "./server/handoutCardDraft.js"
+import { createRequireAdmin } from "./server/adminAuth.js"
 
 dotenv.config()
 
@@ -19,7 +20,45 @@ const __dirname = path.dirname(__filename)
 const app = express()
 const port = process.env.PORT || 8787
 
-app.use(cors())
+app.disable("x-powered-by")
+app.set("trust proxy", 1)
+
+function allowedCorsOrigins() {
+  return new Set(String(process.env.CORS_ALLOWED_ORIGINS || "")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean))
+}
+
+function isAllowedCorsRequest(req) {
+  const origin = String(req.headers.origin || "")
+  if (!origin) return true
+  const ownOrigin = `${req.protocol}://${req.get("host")}`
+  if (origin === ownOrigin || allowedCorsOrigins().has(origin)) return true
+  return process.env.NODE_ENV !== "production" && /^https?:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?$/.test(origin)
+}
+
+app.use((req, res, next) => {
+  if (!isAllowedCorsRequest(req)) return res.status(403).json({ error: "Origin not allowed." })
+  return cors({
+    origin: true,
+    credentials: true,
+    methods: ["GET", "POST", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Authorization", "Content-Type"],
+  })(req, res, next)
+})
+
+app.use((req, res, next) => {
+  res.setHeader("X-Content-Type-Options", "nosniff")
+  res.setHeader("X-Frame-Options", "DENY")
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin")
+  res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=()")
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin")
+  if (process.env.NODE_ENV === "production") {
+    res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
+  }
+  next()
+})
 app.use(express.json({ limit: "1mb" }))
 
 const SESSION_TTL_MS = 12 * 60 * 60 * 1000
@@ -49,11 +88,6 @@ function hasValidSession(req) {
     return false
   }
   return true
-}
-
-function requireAdmin(req, res, next) {
-  if (!hasValidSession(req)) return res.status(401).json({ error: "Unauthorized" })
-  return next()
 }
 
 function isValidResourceId(value) {
@@ -97,8 +131,10 @@ const supabaseUrl = process.env.SUPABASE_URL
 
 const supabase = createClient(
   supabaseUrl,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
+  process.env.SUPABASE_SERVICE_ROLE_KEY,
+  { auth: { autoRefreshToken: false, persistSession: false, detectSessionInUrl: false } }
 )
+const requireAdmin = createRequireAdmin({ supabase })
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -967,10 +1003,6 @@ function getCookieValue(req, name) {
   return ""
 }
 
-console.log("OPENAI_API_KEY loaded:", !!process.env.OPENAI_API_KEY)
-console.log("SITE_PASSWORD loaded:", !!process.env.SITE_PASSWORD)
-console.log("OPENAI_MODEL:", OPENAI_MODEL)
-
 app.get("/unlock", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "unlock.html"))
 })
@@ -978,8 +1010,8 @@ app.get("/unlock", (req, res) => {
 app.use((req, res, next) => {
   const publicPaths = [
   "/unlock",
-  "/api/unlock",
-  "/api/miller"
+  "/unlock.js",
+  "/api/unlock"
 ]
 
   if (publicPaths.includes(req.path)) {
@@ -1007,9 +1039,6 @@ app.use((req, res, next) => {
 app.post("/api/unlock", rateLimit({ windowMs: 15 * 60 * 1000, max: 10 }), (req, res) => {
   const { password } = req.body || {}
 
-  console.log("Hit /api/unlock")
-  console.log("Password received:", password ? "[provided]" : "[missing]")
-
   if (!process.env.SITE_PASSWORD) {
     return res.json({ ok: true })
   }
@@ -1025,6 +1054,10 @@ app.post("/api/unlock", rateLimit({ windowMs: 15 * 60 * 1000, max: 10 }), (req, 
   }
 
   return res.status(401).json({ ok: false, error: "Wrong password" })
+})
+
+app.get("/api/admin/session", requireAdmin, (req, res) => {
+  return res.json({ admin: true })
 })
 
 app.post("/api/handout-card-draft", rateLimit({ windowMs: 10 * 60 * 1000, max: 10 }), async (req, res) => {
@@ -1121,19 +1154,6 @@ const shouldUseAdvancedTavily =
   noCategoryMatch ||
   safeQuery.length > 10
 
-const shouldUseBasicTavily =
-  !shouldUseAdvancedTavily &&
-  (
-    safeMatches.length < 12 ||
-    topLocalScore < 260
-  )
-
-  console.log("Top local score:", topLocalScore)
-console.log("Safe matches:", safeMatches.length)
-console.log("No category match:", noCategoryMatch)
-console.log("Advanced Tavily:", shouldUseAdvancedTavily)
-console.log("Basic Tavily:", shouldUseBasicTavily)
-
   let tavilyMode = "basic"
 
 if (shouldUseAdvancedTavily) {
@@ -1205,12 +1225,8 @@ if (tavilyMode !== "none") {
   )
 })
 
-    console.log("Tavily mode:", tavilyMode)
-    console.log(
-  `Tavily returned ${tavilyResults.length} results`
-)
   } catch (error) {
-    console.error("Tavily search failed:", error)
+    console.error("Tavily search failed:", String(error?.message || "Unknown error").slice(0, 200))
   }
 }
 
@@ -1295,12 +1311,7 @@ TASK
 Follow all instructions above carefully.`,
     }))
 
-    console.log("OPENAI RAW OUTPUT:", response.output_text)
-console.log("OPENAI RESPONSE STATUS:", response.status)
-
 const parsed = safeParseJson(response.output_text)
-
-console.log("PARSED OPENAI OUTPUT:", parsed)
 
     const validRecommendedNames = uniqueStrings(
       (parsed?.searchHints?.recommendedResourceNames || []).filter((name) =>
@@ -1396,10 +1407,7 @@ for (const resource of formattedTavilyResults) {
   uniqueTavilyResults.push(resource)
 }   
 
-const {
-  data: insertedData,
-  error: insertError,
-} = await supabase
+const { error: insertError } = await supabase
   .from("tavily_resources")
   .insert(
     uniqueTavilyResults.map((resource) => ({
@@ -1420,22 +1428,11 @@ const {
   )
   .select()
 
-   if (insertError) {
-  console.error(
-    "SUPABASE INSERT ERROR:",
-    JSON.stringify(insertError, null, 2)
-  )
-} else {
-  console.log(
-    "SUPABASE INSERT SUCCESS:",
-    insertedData
-  )
+if (insertError) {
+  console.error("Could not store discovered resources:", insertError.code || "database_error")
 }
   } catch (error) {
-    console.error(
-      "Could not save Tavily resources:",
-      error
-    )
+    console.error("Could not save Tavily resources:", String(error?.message || "Unknown error").slice(0, 200))
   }
 }
 
@@ -1448,19 +1445,16 @@ res.json({
 })
 
 } catch (error) {
-  console.error("Miller API error:", error)
+  console.error("Miller API error:", String(error?.message || "Unknown error").slice(0, 200))
 
   res.status(500).json({
     error: "Failed to generate Miller response.",
-    details: error?.message || "Unknown error",
   })
 }
 
 })
 
-app.get("/api/admin/tavily-resources", async (req, res) => {
-  if (!hasValidSession(req)) return res.status(401).json({ error: "Unauthorized" })
-
+app.get("/api/admin/tavily-resources", requireAdmin, async (req, res) => {
   const { count, error: countError } = await supabase
     .from("tavily_resources")
     .select("id", { count: "exact", head: true })
@@ -1495,9 +1489,8 @@ app.get("/api/admin/tavily-resources", async (req, res) => {
   return res.json({ items: data || [], count: count || 0, latestReviews })
 })
 
-app.patch("/api/admin/tavily-resources/:id", async (req, res) => {
-  if (!hasValidSession(req)) return res.status(401).json({ error: "Unauthorized" })
-
+app.patch("/api/admin/tavily-resources/:id", requireAdmin, async (req, res) => {
+  if (!isValidResourceId(req.params.id)) return res.status(400).json({ error: "Invalid resource ID." })
   const action = req.body?.action
   if (!['approve', 'hide'].includes(action)) {
     return res.status(400).json({ error: "Invalid review action." })
@@ -1561,8 +1554,8 @@ app.post("/api/admin/tavily-resources/:id/ai-review", reviewRateLimit, requireAd
   } catch (error) {
     if (error.code === "RESOURCE_NOT_FOUND") return res.status(404).json({ error: error.message })
     if (error.code === "REVIEW_ALREADY_RUNNING") return res.status(409).json({ error: error.message })
-    console.error("AI resource review failed:", error.message)
-    return res.status(500).json({ error: error.message || "AI review failed." })
+    console.error("AI resource review failed:", String(error?.message || "Unknown error").slice(0, 200))
+    return res.status(500).json({ error: "AI review failed." })
   }
 })
 
