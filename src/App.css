@@ -155,11 +155,11 @@ textarea {
 
   display: grid;
 
- grid-template-columns:
-  minmax(820px, 980px)
-  minmax(320px, 420px);
-
-gap: 80px;
+  width: 100%;
+  grid-template-columns:
+    minmax(0, 720px)
+    minmax(360px, 420px);
+  gap: clamp(24px, 4vw, 64px);
 
   justify-content: center;
   align-items: start;
@@ -279,15 +279,22 @@ gap: 80px;
 
 .micro-options {
   margin-top: 14px;
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  align-items: center;
+  display: grid;
+  gap: 6px;
 }
 
-.ai-note {
+.ai-note,
+.ai-disclosure {
+  margin: 0;
   font-size: 0.92rem;
   color: var(--text-soft);
+  line-height: 1.45;
+}
+
+.ai-disclosure {
+  max-width: 66ch;
+  color: #536d91;
+  font-size: 0.86rem;
 }
 
 /* Results */
@@ -532,7 +539,8 @@ gap: 80px;
   padding-top: 0;
   overflow: visible;
 
-  margin-left: -140px;
+  min-width: 0;
+  margin-left: 0;
 }
 
 .miller-stage {
@@ -554,9 +562,9 @@ gap: 80px;
 .miller-bubble {
   position: absolute;
   top: 0;
-  right: 120px;
+  right: 0;
   z-index: 5;
-  width: 380px;
+  width: min(100%, 380px);
   max-width: 380px;
   min-height: 180px;
   background: rgba(255,255,255,0.90);

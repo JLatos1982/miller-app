@@ -1514,9 +1514,12 @@ const millerImageStyle = {}
             </div>
 
             <div className="micro-options">
-              <span className="ai-note">
+              <p className="ai-note">
                 Miller offers a short guide first, and the list stays searchable by city.
-              </span>
+              </p>
+              <p className="ai-disclosure">
+                Miller is not a therapist. It is an AI-assisted program that helps find local resources and is maintained by an unpaid volunteer.
+              </p>
             </div>
           </form>
 
