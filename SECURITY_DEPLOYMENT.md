@@ -15,14 +15,31 @@
 
 ## Supabase checks
 
-The repository verifies that `ai_resource_reviews` has RLS enabled and grants no `anon` or `authenticated` access. The policies for the following tables are not present in this repository and must be inspected in the Supabase dashboard before launch:
+The repository verifies that `ai_resource_reviews` has RLS enabled and grants no `anon` or `authenticated` access. Production policy inspection on 2026-07-23 identified and addressed a legacy unrestricted Tavily SELECT policy:
 
-- `tavily_resources`: public users should read only approved, non-hidden rows; browser writes should be denied.
-- `site_events`: allow only the minimal insert columns needed for public analytics; deny public reads and updates.
-- `resource_submissions`: allow constrained inserts if submissions remain public; deny public reads, updates, and deletes.
-- Any other resource or analytics table used by the browser.
+- Apply `202607230001_drop_broad_tavily_read_policy.sql` manually. It drops only `Enable read access for all users`.
+- Keep `Public can read approved tavily resources`; it restricts browser reads to approved, non-hidden rows.
+- `site_events` currently allows anonymous inserts. Public reads, updates, and deletes should remain denied.
+- `resource_submissions` currently allows public inserts. Public reads, updates, and deletes should remain denied.
 
 Do not restore a broad moderation-update policy for `anon` or `authenticated`. Approve, hide, and AI-review writes use the Express service-role client after server authorization.
+
+### Planned INSERT-policy replacement
+
+Browser inspection found these current direct writes:
+
+- `site_events`: `page_view`, `search`, and `resource_click` events.
+- `resource_submissions`: optional resource name, optional city, and a required note currently stored in `category`.
+
+Both are suitable for rate-limited Express endpoints. Before removing either INSERT policy:
+
+1. Add an event endpoint that accepts only the three known event types and their allow-listed fields, applies short string limits, and avoids storing free-text search queries unless explicitly retained.
+2. Add a submission endpoint with a low per-IP rate limit, required-note validation, field length limits, and generic errors.
+3. Switch every browser call to those endpoints and test failure handling.
+4. Deploy and verify the server endpoints.
+5. Apply a separate migration dropping only `Allow public inserts` and `Allow anon insert to resource_submissions`.
+
+Until all five steps are complete, the existing INSERT policies remain direct database bypass paths around Express validation and rate limiting.
 
 ## Verification
 
