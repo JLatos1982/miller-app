@@ -33,6 +33,7 @@ import { isEligibleExternalResult } from "./handout/temporaryCard.js"
 import { MILLER_COPY } from "./interfaceCopy.js"
 import { adminFetch, getVerifiedAdminSession } from "./adminApi.js"
 import { safeEmailAddress, safeHttpUrl } from "./safeLinks.js"
+import { submitResource, trackEvent } from "./publicApi.js"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -719,28 +720,10 @@ const sessionId = useMemo(() => {
 }, [])
 
 useEffect(() => {
-  async function trackVisit() {
-    console.log("Attempting page_view insert...")
-
-    const { error } = await supabase
-      .from("site_events")
-      .insert([
-        {
-          event_type: "page_view",
-          miller_theme: currentTheme.name,
-          query: null,
-          city: null,
-        },
-      ])
-
-    if (error) {
-      console.error("SUPABASE INSERT ERROR:", error)
-    } else {
-      console.log("Page view tracked successfully")
-    }
-  }
-
-  trackVisit()
+  trackEvent({
+    event_type: "page_view",
+    miller_theme: currentTheme.name,
+  })
 }, [currentTheme.name])
 
   useEffect(() => {
@@ -1018,15 +1001,12 @@ if (updatedMemory.length > 12) {
 
 setConversationMemory(updatedMemory)
 
-   await supabase.from("site_events").insert([
-  {
+trackEvent({
     event_type: "search",
-    query: trimmedQuery,
     city: selectedCity,
     miller_theme: currentTheme.name,
     session_id: sessionId,
-  }
-])
+})
 
     if (!trimmedQuery) {
       const cityPool = normalizedResources.filter((resource) =>
@@ -1369,16 +1349,12 @@ function previousMiller() {
 
     try {
       const payload = {
-        name: submission.resource_name.trim() || null,
+        resource_name: submission.resource_name.trim() || null,
         city: submission.city.trim() || null,
-        category: submission.note.trim(),
+        note: submission.note.trim(),
       }
 
-      const { error } = await supabase.from("resource_submissions").insert([payload])
-
-      if (error) {
-        throw error
-      }
+      await submitResource(payload)
 
       setSubmission({
         resource_name: "",
@@ -1658,16 +1634,13 @@ const millerImageStyle = {}
       target="_blank"
       rel="noreferrer"
       onClick={() => {
-        supabase.from("site_events").insert([
-          {
-            event_type: "resource_click",
-            resource_name: resource.name,
-            city: resource.city,
-            query,
-            miller_theme: currentTheme.name,
-            session_id: sessionId,
-          }
-        ])
+        trackEvent({
+          event_type: "resource_click",
+          resource_name: resource.name,
+          city: resource.city,
+          miller_theme: currentTheme.name,
+          session_id: sessionId,
+        })
       }}
     >
       🌐 Open Website

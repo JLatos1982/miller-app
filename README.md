@@ -72,6 +72,12 @@ Users can add ordinary search-result cards to a temporary handout, reorder them,
 
 Handout state exists only in active React memory. It is not written to Supabase, Express, analytics, OpenAI, Tavily, browser storage, cookies, URLs, or console logs. Refreshing or closing the page clears it; the browser shows a standard unsaved-changes warning while the handout contains work.
 
+## Public writes
+
+The browser sends allow-listed analytics events to `POST /api/events` and resource suggestions to `POST /api/resource-submissions`. Express validates and rate-limits these payloads before inserting with the server-only Supabase service-role client. New analytics events do not include free-text search queries.
+
+The migration `202607230002_drop_public_insert_policies_after_endpoint_verification.sql` must not be applied until both endpoints have been deployed and verified using the gate in `SECURITY_DEPLOYMENT.md`.
+
 ## Verification
 
 ```bash

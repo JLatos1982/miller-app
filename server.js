@@ -11,6 +11,7 @@ import crypto from "crypto"
 import { runResourceReviewPipeline } from "./server/review/orchestrator.js"
 import { generateHandoutCardDraft, getHandoutDraftFailureReason, validateHandoutDraftRequest } from "./server/handoutCardDraft.js"
 import { createRequireAdmin } from "./server/adminAuth.js"
+import { createPublicWriteHandlers } from "./server/publicWrites.js"
 
 dotenv.config()
 
@@ -115,6 +116,10 @@ function rateLimit({ windowMs, max }) {
   }
 }
 
+function clearRateLimitsForTests() {
+  rateLimits.clear()
+}
+
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 })
@@ -135,6 +140,7 @@ const supabase = createClient(
   { auth: { autoRefreshToken: false, persistSession: false, detectSessionInUrl: false } }
 )
 const requireAdmin = createRequireAdmin({ supabase })
+const publicWriteHandlers = createPublicWriteHandlers({ supabase })
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -1060,6 +1066,13 @@ app.get("/api/admin/session", requireAdmin, (req, res) => {
   return res.json({ admin: true })
 })
 
+const analyticsRateLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 120 })
+const submissionRateLimit = rateLimit({ windowMs: 60 * 60 * 1000, max: 5 })
+
+app.post("/api/events", analyticsRateLimit, publicWriteHandlers.createEvent)
+
+app.post("/api/resource-submissions", submissionRateLimit, publicWriteHandlers.createResourceSubmission)
+
 app.post("/api/handout-card-draft", rateLimit({ windowMs: 10 * 60 * 1000, max: 10 }), async (req, res) => {
   if (!process.env.OPENAI_API_KEY) return res.status(503).json({ error: "AI draft generation is not configured." })
   try {
@@ -1571,4 +1584,4 @@ if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
   })
 }
 
-export { app, isValidResourceId, requireAdmin }
+export { app, clearRateLimitsForTests, isValidResourceId, rateLimit, requireAdmin }

@@ -24,22 +24,55 @@ The repository verifies that `ai_resource_reviews` has RLS enabled and grants no
 
 Do not restore a broad moderation-update policy for `anon` or `authenticated`. Approve, hide, and AI-review writes use the Express service-role client after server authorization.
 
-### Planned INSERT-policy replacement
+### INSERT-policy replacement deployment gate
 
 Browser inspection found these current direct writes:
 
 - `site_events`: `page_view`, `search`, and `resource_click` events.
 - `resource_submissions`: optional resource name, optional city, and a required note currently stored in `category`.
 
-Both are suitable for rate-limited Express endpoints. Before removing either INSERT policy:
+The application now routes these through:
 
-1. Add an event endpoint that accepts only the three known event types and their allow-listed fields, applies short string limits, and avoids storing free-text search queries unless explicitly retained.
-2. Add a submission endpoint with a low per-IP rate limit, required-note validation, field length limits, and generic errors.
-3. Switch every browser call to those endpoints and test failure handling.
-4. Deploy and verify the server endpoints.
-5. Apply a separate migration dropping only `Allow public inserts` and `Allow anon insert to resource_submissions`.
+- `POST /api/events`: permits only `page_view`, `search`, and `resource_click`; 120 requests per IP per 10 minutes.
+- `POST /api/resource-submissions`: requires a meaningful note and permits five requests per IP per hour.
 
-Until all five steps are complete, the existing INSERT policies remain direct database bypass paths around Express validation and rate limiting.
+Both endpoints reject unknown fields, enforce type and length limits, and use the server-side service-role client. Search text is no longer sent for analytics and the server explicitly stores `query = null`. This preserves counts, city, theme, pseudonymous session, and public-resource click measurement while giving up exact keyword reporting.
+
+Do **not** apply `202607230002_drop_public_insert_policies_after_endpoint_verification.sql` merely because the code exists. It becomes safe only after all of the following production checks pass:
+
+1. Deploy the updated Express server and frontend together.
+2. Unlock the password-protected site and confirm page view, search, and resource-click requests reach `/api/events` with HTTP 202.
+3. Submit a suggested resource and confirm `/api/resource-submissions` returns HTTP 201.
+4. Confirm browser network traffic contains no direct `POST` to `/rest/v1/site_events` or `/rest/v1/resource_submissions`.
+5. Confirm the new rows appear in Supabase and search-event `query` is null.
+6. Confirm invalid and repeated requests receive HTTP 400 and 429 as appropriate.
+7. Keep the deployment stable long enough to exercise each public workflow.
+
+Only then apply the migration. Verify policy state afterward:
+
+```sql
+select schemaname, tablename, policyname, roles, cmd, qual, with_check
+from pg_policies
+where schemaname = 'public'
+  and tablename in ('site_events', 'resource_submissions')
+order by tablename, policyname;
+```
+
+The policies `Allow public inserts` and `Allow anon insert to resource_submissions` should be absent. The Express endpoints should continue working because service-role operations bypass RLS.
+
+Rollback before applying the migration: redeploy the previous frontend and server. Rollback after applying it: prefer fixing or rolling back the Express deployment while leaving public INSERT blocked. Only if the old direct-write frontend must be restored temporarily, recreate the previous policies:
+
+```sql
+create policy "Allow public inserts"
+  on public.site_events for insert to anon
+  with check (true);
+
+create policy "Allow anon insert to resource_submissions"
+  on public.resource_submissions for insert to public
+  with check (true);
+```
+
+These rollback policies reopen unvalidated direct database writes and should be removed again promptly.
 
 ## Verification
 
@@ -70,4 +103,4 @@ Rollback: restore `SITE_PASSWORD`, deploy the previous known-good application ve
 
 ## Remaining privacy decisions
 
-Miller currently stores full search queries in `site_events` and in `tavily_resources.original_query`. Before a broader launch, decide whether those fields are genuinely required, shorten their retention, and consider storing coarse categories instead of free text. Search text may contain sensitive personal information.
+Miller no longer sends full search queries to `site_events`; new search-event rows store `query = null`. Tavily discovery still stores the search text in `tavily_resources.original_query`. Before a broader launch, decide whether that field is genuinely required, shorten its retention, and consider storing coarse categories instead. Search text may contain sensitive personal information.
