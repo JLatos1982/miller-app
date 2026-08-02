@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert/strict"
-import { createInitialHandoutState, handoutReducer } from "../src/handout/handoutState.js"
+import { createInitialHandoutState, handoutReducer, normalizeHandoutState } from "../src/handout/handoutState.js"
 
 const firstResource = { id: 1, name: "First Resource", description: "Original description" }
 const secondResource = { id: 2, name: "Second Resource" }
@@ -55,4 +55,20 @@ test("selected-resource count follows reducer state", () => {
   state = handoutReducer(state, { type: "add_resource", resource: firstResource })
   state = handoutReducer(state, { type: "add_resource", resource: secondResource })
   assert.equal(state.resources.length, 2)
+})
+
+test("only approved Tavily results can enter a handout", () => {
+  let state = createInitialHandoutState()
+  state = handoutReducer(state, { type: "add_resource", resource: { id: 3, name: "External", source: "tavily", approved: false } })
+  assert.equal(state.resources.length, 0)
+  state = handoutReducer(state, { type: "add_resource", resource: { id: 3, name: "Approved", source: "tavily", approved: true } })
+  assert.equal(state.resources.length, 1)
+})
+
+test("legacy and incomplete handout state is normalized safely", () => {
+  const state = normalizeHandoutState({ fields: { personName: "Alex", subtitle: "Legacy" }, resources: null })
+  assert.equal(state.fields.personName, "Alex")
+  assert.equal(state.fields.generalNotes, "")
+  assert.deepEqual(state.resources, [])
+  assert.equal(state.identity.logo.visible, true)
 })

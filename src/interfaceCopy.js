@@ -5,7 +5,7 @@ export const MILLER_COPY = Object.freeze({
   searchUnavailable: "I couldn’t reach the guide just now, but I still gathered the closest matches below.",
   noResultsTitle: "I couldn’t find the right path yet",
   noResultsBody: "Try another word, a nearby city, or tell me a little more about what is needed.",
-  externalResult: "Found beyond Miller’s usual cards — please review carefully.",
+  externalResult: "External result — unverified by Miller.",
   temporaryLoading: "I’m gathering the public details already available.",
   temporaryFallback: "I found part of the information, but some details still need your review.",
   temporaryPartial: "I found the doorway, but not every detail behind it. I’ve added what I know so you can complete the rest.",

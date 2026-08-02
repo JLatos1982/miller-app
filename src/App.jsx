@@ -28,8 +28,6 @@ import backgroundRose from "./assets/background_rose.png"
 import AddToHandoutButton from "./handout/AddToHandoutButton.jsx"
 import HandoutBuilder from "./handout/HandoutBuilder.jsx"
 import { createInitialHandoutState, getResourceKey, handoutReducer, hasHandoutContent } from "./handout/handoutState.js"
-import TemporaryCardEditor from "./handout/TemporaryCardEditor.jsx"
-import { isEligibleExternalResult } from "./handout/temporaryCard.js"
 import { MILLER_COPY } from "./interfaceCopy.js"
 import { adminFetch, getVerifiedAdminSession } from "./adminApi.js"
 import { safeEmailAddress, safeHttpUrl } from "./safeLinks.js"
@@ -686,13 +684,6 @@ function App() {
   const [hasSearched, setHasSearched] = useState(false)
   const [handout, dispatchHandout] = useReducer(handoutReducer, undefined, createInitialHandoutState)
   const [isHandoutOpen, setIsHandoutOpen] = useState(false)
-  const [temporaryCardSource, setTemporaryCardSource] = useState(null)
-  const temporaryCardTriggerRef = useRef(null)
-
-  function closeTemporaryCard() {
-    setTemporaryCardSource(null)
-    window.requestAnimationFrame(() => temporaryCardTriggerRef.current?.focus())
-  }
 
   const [millerIndex, setMillerIndex] = useState(() => {
   const saved = localStorage.getItem("miller-theme-index")
@@ -1410,16 +1401,6 @@ const millerImageStyle = {}
   alt=""
   className="scene-background"
 />
-      {temporaryCardSource ? (
-        <TemporaryCardEditor
-          source={temporaryCardSource}
-          onCancel={closeTemporaryCard}
-          onAdd={(resource) => {
-            dispatchHandout({ type: "add_temporary_resource", resource })
-            closeTemporaryCard()
-          }}
-        />
-      ) : null}
       <div className="handout-toolbar">
         <button
           type="button"
@@ -1658,11 +1639,7 @@ const millerImageStyle = {}
     </a>
   ) : null}
 
-  {isEligibleExternalResult(resource, handout.resources) ? (
-    <button type="button" className="create-temporary-card-button" onClick={(event) => { temporaryCardTriggerRef.current = event.currentTarget; setTemporaryCardSource({ ...resource, searchCity: selectedCity === "All Cities" ? "" : selectedCity }) }}>
-      Create handout card
-    </button>
-  ) : resource.source === "tavily" && !resource.approved ? null : (
+  {resource.source === "tavily" && !resource.approved ? null : (
     <AddToHandoutButton
       resource={resource}
       selected={handout.resources.some((item) => item.key === getResourceKey(resource))}

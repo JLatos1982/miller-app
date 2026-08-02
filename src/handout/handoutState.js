@@ -36,6 +36,20 @@ export function createInitialHandoutState() {
   }
 }
 
+export function normalizeHandoutState(value) {
+  const defaults = createInitialHandoutState()
+  const fields = value?.fields && typeof value.fields === "object" ? value.fields : {}
+  const identity = value?.identity && typeof value.identity === "object" ? value.identity : {}
+  const logo = identity.logo && typeof identity.logo === "object" ? identity.logo : {}
+  return {
+    ...defaults,
+    ...value,
+    fields: { ...defaults.fields, ...fields },
+    identity: { ...defaults.identity, ...identity, logo: { ...defaults.identity.logo, ...logo } },
+    resources: Array.isArray(value?.resources) ? value.resources.filter(Boolean) : [],
+  }
+}
+
 export function getResourceKey(resource) {
   if (resource?.key) return resource.key
   if (resource?.id !== undefined && resource?.id !== null) return `id:${resource.id}`
@@ -81,16 +95,10 @@ function moveResource(resources, index, direction) {
 export function handoutReducer(state, action) {
   switch (action.type) {
     case "add_resource": {
+      if (action.resource?.source === "tavily" && action.resource.approved !== true) return state
       const key = getResourceKey(action.resource)
       if (!key || state.resources.some((resource) => resource.key === key)) return state
       return { ...state, resources: [...state.resources, copyResource(action.resource)] }
-    }
-    case "add_temporary_resource": {
-      const resource = action.resource
-      if (!resource?.key || resource.type !== "temporary-resource") return state
-      const duplicate = state.resources.some((item) => item.key === resource.key || (resource.sourceKey && item.sourceKey === resource.sourceKey))
-      if (duplicate) return state
-      return { ...state, resources: [...state.resources, { ...resource }] }
     }
     case "remove_resource":
       return { ...state, resources: state.resources.filter((resource) => resource.key !== action.key) }
@@ -138,6 +146,7 @@ export function handoutReducer(state, action) {
 }
 
 export function hasHandoutContent(state) {
+  state = normalizeHandoutState(state)
   if (state.resources.length) return true
   const defaults = createInitialHandoutState().fields
   if (HANDOUT_FIELD_NAMES.some((field) => state.fields[field] !== defaults[field])) return true
