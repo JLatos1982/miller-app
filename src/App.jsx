@@ -1035,6 +1035,7 @@ trackEvent({
           city: selectedCity,
           inferredCategories: candidatePack.inferredCategories,
           matches: candidatePack.candidatePool.slice(0, 30),
+          session_id: sessionId,
         }),
       }))
 

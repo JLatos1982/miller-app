@@ -7,11 +7,10 @@ import { fileURLToPath } from "url"
 import { tavily } from "@tavily/core"
 import fetch from "node-fetch"
 import { createClient } from "@supabase/supabase-js"
-import crypto from "crypto"
 import { runResourceReviewPipeline } from "./server/review/orchestrator.js"
-import { generateHandoutCardDraft, getHandoutDraftFailureReason, validateHandoutDraftRequest } from "./server/handoutCardDraft.js"
 import { createRequireAdmin } from "./server/adminAuth.js"
 import { createPublicWriteHandlers } from "./server/publicWrites.js"
+import { validateMillerRequest } from "./server/millerValidation.js"
 
 dotenv.config()
 
@@ -49,79 +48,91 @@ app.use((req, res, next) => {
   })(req, res, next)
 })
 
-app.use((req, res, next) => {
+function setSecurityHeaders(req, res, next) {
   res.setHeader("X-Content-Type-Options", "nosniff")
   res.setHeader("X-Frame-Options", "DENY")
   res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin")
   res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=()")
   res.setHeader("Cross-Origin-Opener-Policy", "same-origin")
+  res.setHeader("Content-Security-Policy", [
+    "default-src 'self'",
+    "base-uri 'self'",
+    "frame-ancestors 'none'",
+    "form-action 'self'",
+    "object-src 'none'",
+    "script-src 'self'",
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data: blob:",
+    `connect-src 'self' ${supabaseUrl || ""}`.trim(),
+  ].join("; "))
   if (process.env.NODE_ENV === "production") {
     res.setHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
   }
   next()
-})
-app.use(express.json({ limit: "1mb" }))
+}
+app.use(setSecurityHeaders)
+app.use(express.json({ limit: "128kb", strict: true }))
 
-const SESSION_TTL_MS = 12 * 60 * 60 * 1000
-const sessions = new Map()
 const rateLimits = new Map()
-
-function safeSecretEqual(left, right) {
-  const leftBuffer = Buffer.from(String(left || ""))
-  const rightBuffer = Buffer.from(String(right || ""))
-  return leftBuffer.length === rightBuffer.length && crypto.timingSafeEqual(leftBuffer, rightBuffer)
-}
-
-function createSession() {
-  const token = crypto.randomBytes(32).toString("base64url")
-  sessions.set(token, Date.now() + SESSION_TTL_MS)
-  return token
-}
-
-function hasValidSession(req) {
-  // Administrative operations fail closed when access control is not configured.
-  if (!process.env.SITE_PASSWORD) return false
-
-  const token = getCookieValue(req, "miller_access")
-  const expiresAt = sessions.get(token)
-  if (!expiresAt || expiresAt <= Date.now()) {
-    if (token) sessions.delete(token)
-    return false
-  }
-  return true
-}
+const dailyPaidUsage = { day: "", count: 0 }
 
 function isValidResourceId(value) {
   return /^\d+$/.test(String(value || ""))
 }
 
+function positiveInteger(value, fallback) {
+  const parsed = Number.parseInt(value, 10)
+  return Number.isSafeInteger(parsed) && parsed > 0 ? parsed : fallback
+}
+
 function rateLimit({ windowMs, max }) {
   return (req, res, next) => {
-    const key = `${req.ip}:${req.path}`
+    const sessionId = typeof req.body?.session_id === "string" && /^[0-9a-f-]{36}$/i.test(req.body.session_id) ? req.body.session_id : ""
+    const keys = [`ip:${req.ip}:${req.path}`, ...(sessionId ? [`session:${sessionId}:${req.path}`] : [])]
     const now = Date.now()
-    const current = rateLimits.get(key)
-
-    if (!current || current.resetAt <= now) {
-      rateLimits.set(key, { count: 1, resetAt: now + windowMs })
-      return next()
+    for (const key of keys) {
+      const current = rateLimits.get(key)
+      if (current && current.resetAt > now && current.count >= max) {
+        res.setHeader("Retry-After", Math.ceil((current.resetAt - now) / 1000))
+        return res.status(429).json({ error: "Too many requests. Please try again shortly." })
+      }
     }
-
-    if (current.count >= max) {
-      res.setHeader("Retry-After", Math.ceil((current.resetAt - now) / 1000))
-      return res.status(429).json({ error: "Too many requests. Please try again shortly." })
+    for (const key of keys) {
+      const current = rateLimits.get(key)
+      if (!current || current.resetAt <= now) rateLimits.set(key, { count: 1, resetAt: now + windowMs })
+      else current.count += 1
     }
-
-    current.count += 1
     next()
+  }
+}
+
+function paidDailyLimit(req, res, next) {
+  const day = new Date().toISOString().slice(0, 10)
+  if (dailyPaidUsage.day !== day) Object.assign(dailyPaidUsage, { day, count: 0 })
+  const max = positiveInteger(process.env.PAID_OPERATIONS_DAILY_LIMIT, 500)
+  if (dailyPaidUsage.count >= max) return res.status(503).json({ error: "Search is temporarily unavailable. Please try again later." })
+  dailyPaidUsage.count += 1
+  next()
+}
+
+function validateMillerRequestBody(req, res, next) {
+  try {
+    req.validatedMillerRequest = validateMillerRequest(req.body)
+    next()
+  } catch {
+    return res.status(400).json({ error: "Invalid search request." })
   }
 }
 
 function clearRateLimitsForTests() {
   rateLimits.clear()
+  Object.assign(dailyPaidUsage, { day: "", count: 0 })
 }
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
+  timeout: positiveInteger(process.env.PROVIDER_TIMEOUT_MS, 20_000),
+  maxRetries: 1,
 })
 
 const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-5.4-mini"
@@ -995,73 +1006,6 @@ COMPANION MODE
 `
 }
 
-function getCookieValue(req, name) {
-  const cookieHeader = req.headers.cookie || ""
-  const cookies = cookieHeader.split(";").map((part) => part.trim())
-
-  for (const cookie of cookies) {
-    const [key, ...rest] = cookie.split("=")
-    if (key === name) {
-      return decodeURIComponent(rest.join("="))
-    }
-  }
-
-  return ""
-}
-
-app.get("/unlock", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "unlock.html"))
-})
-
-app.use((req, res, next) => {
-  const publicPaths = [
-  "/unlock",
-  "/unlock.js",
-  "/api/unlock"
-]
-
-  if (publicPaths.includes(req.path)) {
-    return next()
-  }
-
-  const password = process.env.SITE_PASSWORD
-  if (!password) {
-    return next()
-  }
-
-  if (hasValidSession(req)) {
-    return next()
-  }
-
-  if (req.path.startsWith("/api/")) {
-    console.log("Blocked API request:", req.path)
-    return res.status(401).json({ error: "Unauthorized" })
-  }
-
-  console.log("Blocked page request:", req.path)
-  return res.sendFile(path.join(__dirname, "public", "unlock.html"))
-})
-
-app.post("/api/unlock", rateLimit({ windowMs: 15 * 60 * 1000, max: 10 }), (req, res) => {
-  const { password } = req.body || {}
-
-  if (!process.env.SITE_PASSWORD) {
-    return res.json({ ok: true })
-  }
-
-  if (safeSecretEqual(password, process.env.SITE_PASSWORD)) {
-    const token = createSession()
-    const secure = process.env.NODE_ENV === "production" ? "; Secure" : ""
-    res.setHeader(
-      "Set-Cookie",
-      `miller_access=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${Math.floor(SESSION_TTL_MS / 1000)}${secure}`
-    )
-    return res.json({ ok: true })
-  }
-
-  return res.status(401).json({ ok: false, error: "Wrong password" })
-})
-
 app.get("/api/admin/session", requireAdmin, (req, res) => {
   return res.json({ admin: true })
 })
@@ -1073,26 +1017,9 @@ app.post("/api/events", analyticsRateLimit, publicWriteHandlers.createEvent)
 
 app.post("/api/resource-submissions", submissionRateLimit, publicWriteHandlers.createResourceSubmission)
 
-app.post("/api/handout-card-draft", rateLimit({ windowMs: 10 * 60 * 1000, max: 10 }), async (req, res) => {
-  if (!process.env.OPENAI_API_KEY) return res.status(503).json({ error: "AI draft generation is not configured." })
+app.post("/api/miller", rateLimit({ windowMs: 60 * 1000, max: positiveInteger(process.env.MILLER_RATE_LIMIT_PER_MINUTE, 8) }), validateMillerRequestBody, paidDailyLimit, async (req, res) => {
   try {
-    validateHandoutDraftRequest(req.body)
-  } catch (error) {
-    return res.status(400).json({ error: error.message })
-  }
-  try {
-    const draft = await generateHandoutCardDraft(req.body, { openai: client })
-    return res.json({ draft })
-  } catch (error) {
-    console.error("Temporary handout draft failed:", String(error.message || "Unknown generator error").slice(0, 300))
-    return res.json({ draft: null, fallbackReason: getHandoutDraftFailureReason(error) })
-  }
-})
-
-app.post("/api/miller", rateLimit({ windowMs: 60 * 1000, max: 12 }), async (req, res) => {
-  try {
-    console.log("Hit /api/miller")
-
+    const validated = req.validatedMillerRequest
     const {
   query,
   city,
@@ -1101,26 +1028,10 @@ app.post("/api/miller", rateLimit({ windowMs: 60 * 1000, max: 12 }), async (req,
   conversationSummary = "",
   inferredCategories,
   communicationMode
-} = req.body || {}
-
-    if (!query || !String(query).trim()) {
-      return res.status(400).json({ error: "Query is required." })
-    }
-
-    if (String(query).length > 500) {
-      return res.status(400).json({ error: "Query is too long." })
-    }
-
-    if (!Array.isArray(conversationMemory) || conversationMemory.length > 24) {
-      return res.status(400).json({ error: "Invalid conversation history." })
-    }
-
-    if (String(conversationSummary).length > 4000) {
-      return res.status(400).json({ error: "Conversation summary is too long." })
-    }
+} = validated
 
     if (!process.env.OPENAI_API_KEY) {
-      return res.status(500).json({ error: "Missing OPENAI_API_KEY in .env" })
+      return res.status(503).json({ error: "Search is temporarily unavailable." })
     }
 
     const safeQuery = String(query).trim()
@@ -1180,6 +1091,7 @@ if (tavilyMode !== "none") {
       "https://api.tavily.com/search",
       {
         method: "POST",
+        signal: AbortSignal.timeout(positiveInteger(process.env.PROVIDER_TIMEOUT_MS, 20_000)),
         headers: {
           "Content-Type": "application/json"
         },
@@ -1374,11 +1286,6 @@ serviceType:
 
 if (formattedTavilyResults.length > 0) {
   try {
-    console.log(
-      "Formatted Tavily Results:",
-      formattedTavilyResults
-    )
-
  const existingWebsites = new Set()
 
 const uniqueTavilyResults = []
@@ -1436,7 +1343,7 @@ const { error: insertError } = await supabase
       quality_score: resource.qualityScore || 40,
       
       approved: false,
-      original_query: safeQuery,
+      original_query: null,
     }))
   )
   .select()
@@ -1584,4 +1491,4 @@ if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
   })
 }
 
-export { app, clearRateLimitsForTests, isValidResourceId, rateLimit, requireAdmin }
+export { app, clearRateLimitsForTests, isAllowedCorsRequest, isValidResourceId, paidDailyLimit, rateLimit, requireAdmin, setSecurityHeaders }

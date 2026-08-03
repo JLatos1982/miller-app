@@ -1,14 +1,15 @@
-# Miller limited-launch security checklist
+# Miller public-launch security checklist
 
 ## Before deployment
 
-- Keep `SITE_PASSWORD` configured. This milestone does not make the public site anonymous.
+- Remove `SITE_PASSWORD` from Render; the application no longer reads it and has no preview-password route or cookie.
 - In Supabase Auth, disable public user signup.
 - Create or invite the single administrator directly from the Supabase dashboard.
 - Use a strong unique administrator password and enable MFA when supported by the selected sign-in flow.
 - Set `ADMIN_EMAIL_ALLOWLIST` on Render to the administrator's normalized email. Do not add this value to Netlify or the browser build.
 - Keep `SUPABASE_SERVICE_ROLE_KEY`, `OPENAI_API_KEY`, and `TAVILY_API_KEY` on Render only.
 - Set `NODE_ENV=production`.
+- Set `MILLER_RATE_LIMIT_PER_MINUTE=8`, `PAID_OPERATIONS_DAILY_LIMIT=500`, and `PROVIDER_TIMEOUT_MS=20000` initially. Adjust from observed legitimate use, not by weakening admin controls.
 - If Netlify and Render use different origins, set `CORS_ALLOWED_ORIGINS` on Render to the exact HTTPS Netlify/custom-domain origin. Separate multiple origins with commas; do not use `*`.
 - Confirm HTTPS is enforced on both hosting providers.
 - Confirm Render runs one intended server entry point and that Netlify forwards API requests to it if Netlify serves the frontend.
@@ -41,7 +42,7 @@ Both endpoints reject unknown fields, enforce type and length limits, and use th
 Do **not** apply `202607230002_drop_public_insert_policies_after_endpoint_verification.sql` merely because the code exists. It becomes safe only after all of the following production checks pass:
 
 1. Deploy the updated Express server and frontend together.
-2. Unlock the password-protected site and confirm page view, search, and resource-click requests reach `/api/events` with HTTP 202.
+2. Open the public site and confirm page view, search, and resource-click requests reach `/api/events` with HTTP 202.
 3. Submit a suggested resource and confirm `/api/resource-submissions` returns HTTP 201.
 4. Confirm browser network traffic contains no direct `POST` to `/rest/v1/site_events` or `/rest/v1/resource_submissions`.
 5. Confirm the new rows appear in Supabase and search-event `query` is null.
@@ -76,31 +77,59 @@ These rollback policies reopen unvalidated direct database writes and should be 
 
 ## Verification
 
-1. Visit the site without the preview cookie; confirm `/` and `/admin/login` show the preview-password page.
-2. Call `/api/miller` without the preview cookie; confirm HTTP 401.
-3. Unlock the site and call `/api/admin/session` without a bearer token; confirm HTTP 401.
+1. Visit `/` in a private browser session and confirm the public site loads without a password.
+2. Run an ordinary search and confirm `/api/miller` accepts a valid request without authentication.
+3. Call `/api/admin/session` without a bearer token; confirm HTTP 401.
 4. Sign in at `/admin/login` with a non-allowlisted Supabase account; confirm the same generic rejection message and no admin interface.
 5. Sign in with the allowlisted account; confirm the queue loads and approve/hide/review work.
 6. Remove the email from `ADMIN_EMAIL_ALLOWLIST`, redeploy, and confirm admin endpoints fail closed.
 7. From an unlisted web origin, confirm API requests receive HTTP 403.
 8. Review Render logs and confirm search questions, model output, tokens, and database rows are not logged.
 
+## Public endpoint classification
+
+- Safe public read: static application assets and SPA routes. Browser reads from `tavily_resources` remain governed by Supabase RLS and must return only `approved = true AND hidden = false` rows.
+- Controlled public write: `POST /api/events` (validated analytics; 120/IP/10 minutes) and `POST /api/resource-submissions` (validated suggestions; 5/IP/hour).
+- Paid public operation: `POST /api/miller` (strict schema and 128 KB global JSON limit; default 8/IP and session/minute; default 500 operations/day; provider timeout). Raw queries are not written to analytics or new Tavily review rows.
+- Authenticated administrator actions: `GET /api/admin/session`, `GET /api/admin/tavily-resources`, `PATCH /api/admin/tavily-resources/:id`, and both AI-review routes. Every route validates a Supabase bearer token and the server-only administrator email allowlist. Paid AI review is additionally rate-limited.
+
+The removed `/api/handout-card-draft` route had no remaining frontend caller and would have exposed an unnecessary paid operation. Handout printing and HTML download remain browser-local.
+
 ## Rate-limit limitation
 
-Current rate limits are stored in one Node process. They reset on restart and do not coordinate across multiple Render instances. Keep a single instance for the limited launch or add a shared limiter such as Redis before scaling horizontally or removing the site password.
+Rate limits and the daily counter are stored in one Node process. They reset on restart and do not coordinate across multiple Render instances. Keep one Render instance for the initial launch. Before horizontal scaling, use a shared store such as managed Redis. No response cache stores sensitive search text; this intentionally favors privacy over caching repeated personal queries.
 
-## Later removal of the public password
+## Browser security and indexing
 
-Do not remove `SITE_PASSWORD` yet. After admin authentication and RLS are verified in production:
+Responses set CSP, `frame-ancestors 'none'`, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, strict referrer and permissions policies, COOP, and production HSTS. CSP permits same-origin scripts/assets, data/blob images used by the UI, inline styles required by generated presentation, and the configured Supabase origin for browser authentication/data reads. CORS accepts same-origin requests, exact origins in `CORS_ALLOWED_ORIGINS`, and local origins outside production; it never uses `*`.
 
-1. Change the site-access middleware so public pages and intended public APIs no longer require `miller_access`.
-2. Keep every `/api/admin/*` route behind Supabase token verification and the server allowlist.
-3. Retain strict rate limits on `/api/miller`, `/api/handout-card-draft`, and authentication attempts.
-4. Re-test that draft/hidden rows, analytics, service-role operations, and admin UI are unavailable to ordinary visitors.
-5. Monitor errors and abuse during a limited rollout.
-
-Rollback: restore `SITE_PASSWORD`, deploy the previous known-good application version, revoke administrator sessions in Supabase, and rotate any credential suspected of exposure.
+There is no `noindex`, `robots.txt`, canonical tag, or hard-coded Render URL. Search engines are therefore currently permitted to index the public site. Add a canonical URL when the permanent domain is chosen; do not guess one before then. `robots.txt` is not an access control.
 
 ## Remaining privacy decisions
 
-Miller no longer sends full search queries to `site_events`; new search-event rows store `query = null`. Tavily discovery still stores the search text in `tavily_resources.original_query`. Before a broader launch, decide whether that field is genuinely required, shorten its retention, and consider storing coarse categories instead. Search text may contain sensitive personal information.
+Miller does not send full search queries to `site_events`; search-event rows store `query = null`. New Tavily discovery rows also store `original_query = null`. Existing historical values require a separate retention decision and are not modified by this deployment.
+
+## Production RLS verification
+
+Repository migrations cannot prove live policy state. Run this in Supabase before launch and confirm only the intended approved-resource SELECT policy remains for anonymous/authenticated users:
+
+```sql
+select schemaname, tablename, policyname, roles, cmd, qual, with_check
+from pg_policies
+where schemaname = 'public'
+  and tablename in ('tavily_resources', 'ai_resource_reviews', 'site_events', 'resource_submissions')
+order by tablename, policyname;
+
+select c.relname as table_name, c.relrowsecurity as rls_enabled
+from pg_class c
+join pg_namespace n on n.oid = c.relnamespace
+where n.nspname = 'public'
+  and c.relname in ('tavily_resources', 'ai_resource_reviews', 'site_events', 'resource_submissions');
+
+select grantee, table_name, privilege_type
+from information_schema.role_table_grants
+where table_schema = 'public'
+  and grantee in ('anon', 'authenticated')
+  and table_name in ('tavily_resources', 'ai_resource_reviews', 'site_events', 'resource_submissions')
+order by table_name, grantee, privilege_type;
+```

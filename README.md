@@ -48,7 +48,7 @@ Do not expose the service-role key to the browser. The migration does not modify
 
 ## Admin access
 
-Admin access is separate from the temporary site-preview password. Administrators sign in at the discreet `/admin/login` route with an existing Supabase Auth email/password account. Express validates the bearer token with Supabase Auth and then checks the normalized email against the server-only `ADMIN_EMAIL_ALLOWLIST` on every `/api/admin/*` request.
+The public site and ordinary search require no password. Administrators sign in at the discreet `/admin/login` route with an existing Supabase Auth email/password account. Express validates the bearer token with Supabase Auth and then checks the normalized email against the server-only `ADMIN_EMAIL_ALLOWLIST` on every `/api/admin/*` request.
 
 ```dotenv
 ADMIN_EMAIL_ALLOWLIST=administrator@example.org
@@ -56,7 +56,7 @@ ADMIN_EMAIL_ALLOWLIST=administrator@example.org
 
 Do not enable public signup. Create or invite the administrator through the Supabase dashboard, set a strong unique password, and enable MFA when available for the project/account. A valid ordinary Supabase account is not sufficient: it must also be allowlisted. If the allowlist is empty, admin APIs fail closed.
 
-The public `SITE_PASSWORD` remains required before either the normal site or `/admin/login` can be used. It no longer grants admin API access.
+No public site password is used. `/admin/login` remains the only administrator sign-in entry point, and successful Supabase authentication still requires membership in the server-side allowlist.
 
 When the frontend and Express API use different production origins, configure exact origins rather than wildcards:
 

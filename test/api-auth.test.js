@@ -88,9 +88,8 @@ test("every admin route is wired to the server authorization middleware", () => 
   }
 })
 
-test("the expensive Miller endpoint is not exempt from the preview-password middleware", () => {
+test("public preview-password middleware and unlock routes are removed", () => {
   const source = fs.readFileSync(new URL("../server.js", import.meta.url), "utf8")
-  const publicPathsBlock = source.match(/const publicPaths = \[([\s\S]*?)\]/)?.[1] || ""
-  assert.doesNotMatch(publicPathsBlock, /\/api\/miller/)
-  assert.match(publicPathsBlock, /\/api\/unlock/)
+  assert.doesNotMatch(source, /SITE_PASSWORD|miller_access|\/api\/unlock|app\.get\("\/unlock"/)
+  assert.match(source, /app\.post\("\/api\/miller"/)
 })
