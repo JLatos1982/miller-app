@@ -11,6 +11,7 @@ import { runResourceReviewPipeline } from "./server/review/orchestrator.js"
 import { createRequireAdmin } from "./server/adminAuth.js"
 import { createPublicWriteHandlers } from "./server/publicWrites.js"
 import { validateMillerRequest } from "./server/millerValidation.js"
+import { addressCacheKey, createGeocoder, isPublicGeocodeCandidate, normalizeAddressParts } from "./server/geocoding.js"
 
 dotenv.config()
 
@@ -62,7 +63,7 @@ function setSecurityHeaders(req, res, next) {
     "object-src 'none'",
     "script-src 'self'",
     "style-src 'self' 'unsafe-inline'",
-    "img-src 'self' data: blob:",
+    "img-src 'self' data: blob: https://*.tile.openstreetmap.org",
     `connect-src 'self' ${supabaseUrl || ""}`.trim(),
   ].join("; "))
   if (process.env.NODE_ENV === "production") {
@@ -152,6 +153,7 @@ const supabase = createClient(
 )
 const requireAdmin = createRequireAdmin({ supabase })
 const publicWriteHandlers = createPublicWriteHandlers({ supabase })
+const geocoder = createGeocoder()
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -1436,6 +1438,72 @@ app.patch("/api/admin/tavily-resources/:id", requireAdmin, async (req, res) => {
     .is("reviewed_by_human_at", null)
 
   return res.json({ item: data })
+})
+
+app.get("/api/map/resources", async (_req, res) => {
+  const { data: resources, error } = await supabase
+    .from("tavily_resources")
+    .select("id,name,organization,description,website,city,category,service_type,approved,source")
+    .eq("approved", true)
+    .eq("hidden", false)
+    .limit(1000)
+  if (error) return res.status(503).json({ error: "Map resources are temporarily unavailable." })
+  const ids = (resources || []).map((item) => item.id)
+  let geography = []
+  if (ids.length) {
+    const result = await supabase.from("resource_geography").select("resource_id,original_address_text,street_address,city,province,postal_code,latitude,longitude,geographic_region,service_area,virtual_service,mobile_service,public_map,geocode_status,location_last_verified").in("resource_id", ids).eq("public_map", true)
+    if (!result.error) geography = result.data || []
+  }
+  const byResource = new Map(geography.map((item) => [String(item.resource_id), item]))
+  const items = (resources || []).map((resource) => {
+    const geo = byResource.get(String(resource.id)) || {}
+    return { ...resource, serviceType: resource.service_type, address: geo.street_address || geo.original_address_text || "", ...geo, verification_status: geo.geocode_status }
+  }).filter((item) => item.public_map !== false)
+  res.setHeader("Cache-Control", "public, max-age=300")
+  return res.json({ items })
+})
+
+app.patch("/api/admin/resource-geography/:resourceId", requireAdmin, async (req, res) => {
+  if (!isValidResourceId(req.params.resourceId)) return res.status(400).json({ error: "Invalid resource ID." })
+  const allowedStatuses = new Set(["geocoded", "verified", "approximate", "failed", "needs_review"])
+  const latitude = req.body?.latitude == null ? null : Number(req.body.latitude)
+  const longitude = req.body?.longitude == null ? null : Number(req.body.longitude)
+  if ((latitude != null && (!Number.isFinite(latitude) || latitude < -90 || latitude > 90)) || (longitude != null && (!Number.isFinite(longitude) || longitude < -180 || longitude > 180))) return res.status(400).json({ error: "Invalid coordinates." })
+  if (!allowedStatuses.has(req.body?.geocode_status)) return res.status(400).json({ error: "Invalid geocode status." })
+  const changes = {
+    resource_id: Number(req.params.resourceId), latitude, longitude,
+    geocode_status: req.body.geocode_status,
+    virtual_service: req.body.virtual_service === true,
+    mobile_service: req.body.mobile_service === true,
+    public_map: req.body.public_map !== false,
+    service_area: String(req.body.service_area || "").slice(0, 500) || null,
+    reviewed_by: req.adminUser.id, reviewed_at: new Date().toISOString(), updated_at: new Date().toISOString(),
+    ...(req.body.geocode_status === "verified" ? { location_last_verified: new Date().toISOString() } : {}),
+  }
+  const { data, error } = await supabase.from("resource_geography").upsert(changes, { onConflict: "resource_id" }).select().single()
+  if (error) return res.status(500).json({ error: "Could not update resource geography." })
+  return res.json({ item: data })
+})
+
+app.post("/api/admin/resource-geography/:resourceId/geocode", rateLimit({ windowMs: 60 * 1000, max: 10 }), requireAdmin, async (req, res) => {
+  if (!isValidResourceId(req.params.resourceId)) return res.status(400).json({ error: "Invalid resource ID." })
+  const address = normalizeAddressParts(req.body)
+  const candidate = { ...address, virtual_service: req.body?.virtual_service === true, mobile_service: req.body?.mobile_service === true, public_map: req.body?.public_map !== false }
+  if (!isPublicGeocodeCandidate(candidate)) return res.status(400).json({ error: "A published street address and city are required. Private, PO box, virtual, or mobile locations are not geocoded." })
+  const cacheKey = addressCacheKey(address)
+  const { data: cached } = await supabase.from("geocode_runs").select("response_summary").eq("cache_key", cacheKey).eq("status", "success").maybeSingle()
+  let result = cached?.response_summary ? { ...cached.response_summary, cached: true } : null
+  try {
+    if (!result) result = await geocoder.geocode(address)
+    if (!result) throw new Error("No match")
+    if (!cached) await supabase.from("geocode_runs").insert({ provider: "nominatim", cache_key: cacheKey, status: "success", response_summary: result })
+    const { data, error } = await supabase.from("resource_geography").upsert({ resource_id: Number(req.params.resourceId), original_address_text: String(req.body?.original_address_text || req.body?.street_address || "").slice(0, 500), ...address, latitude: result.latitude, longitude: result.longitude, geocode_source: result.geocode_source, geocode_confidence: result.geocode_confidence, geocode_status: "needs_review", updated_at: new Date().toISOString() }, { onConflict: "resource_id" }).select().single()
+    if (error) throw error
+    return res.json({ item: data, cached: Boolean(result.cached) })
+  } catch (error) {
+    await supabase.from("geocode_runs").insert({ provider: "nominatim", cache_key: cacheKey, status: "failed", error_summary: String(error?.message || "Geocoding failed").slice(0, 300) })
+    return res.status(422).json({ error: "No reliable public-location match was found." })
+  }
 })
 
 const reviewRateLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 10 })

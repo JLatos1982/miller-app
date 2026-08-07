@@ -32,6 +32,7 @@ import { MILLER_COPY } from "./interfaceCopy.js"
 import { adminFetch, getVerifiedAdminSession } from "./adminApi.js"
 import { safeEmailAddress, safeHttpUrl } from "./safeLinks.js"
 import { submitResource, trackEvent } from "./publicApi.js"
+import ServiceMap from "./map/ServiceMap.jsx"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -300,6 +301,16 @@ function cleanResources(rows) {
       city: getField(cleaned, ["City", "city"]),
       region: getField(cleaned, ["Region", "region"]),
       notes: getField(cleaned, ["Notes", "notes"]),
+      fundingType: getField(cleaned, ["Funding Type", "funding_type"]),
+      source: getField(cleaned, ["source"]) || "curated",
+      approved: getField(cleaned, ["approved"]) === "false" ? false : true,
+      latitude: getField(cleaned, ["latitude"]),
+      longitude: getField(cleaned, ["longitude"]),
+      virtual_service: getField(cleaned, ["virtual_service"]) === "true",
+      mobile_service: getField(cleaned, ["mobile_service"]) === "true",
+      public_map: getField(cleaned, ["public_map"]) !== "false",
+      verification_status: getField(cleaned, ["verification_status", "geocode_status"]),
+      location_last_verified: getField(cleaned, ["location_last_verified"]),
     }
   })
 }
@@ -684,6 +695,16 @@ function App() {
   const [hasSearched, setHasSearched] = useState(false)
   const [handout, dispatchHandout] = useReducer(handoutReducer, undefined, createInitialHandoutState)
   const [isHandoutOpen, setIsHandoutOpen] = useState(false)
+  const [isMapOpen, setIsMapOpen] = useState(false)
+  const [mapResources, setMapResources] = useState([])
+
+  useEffect(() => {
+    if (!isMapOpen) return
+    fetch("/api/map/resources", { credentials: "include" })
+      .then((response) => response.ok ? response.json() : Promise.reject(new Error("map unavailable")))
+      .then((data) => setMapResources(Array.isArray(data.items) ? data.items : []))
+      .catch(() => setMapResources([]))
+  }, [isMapOpen])
 
   const [millerIndex, setMillerIndex] = useState(() => {
   const saved = localStorage.getItem("miller-theme-index")
@@ -1392,6 +1413,10 @@ const millerImageStyle = {}
     )
   }
 
+  if (isMapOpen) {
+    return <ServiceMap resources={[...normalizedResources, ...mapResources]} handout={handout} dispatchHandout={dispatchHandout} onBack={() => setIsMapOpen(false)} isAdminMode={isAdminMode} />
+  }
+
   return (
     <div
   className="app-shell"
@@ -1403,6 +1428,7 @@ const millerImageStyle = {}
   className="scene-background"
 />
       <div className="handout-toolbar">
+        <button type="button" className="handout-indicator" onClick={() => setIsMapOpen(true)}><span aria-hidden="true">⌖</span>Service Map</button>
         <button
           type="button"
           className="handout-indicator"
