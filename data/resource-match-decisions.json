@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "decisions": [
+    {
+      "left_source_type": "curated_bundle",
+      "left_source_native_id": "curated:jvq43c",
+      "right_source_type": "tavily_resource",
+      "right_source_native_id": "160",
+      "decision": "same_resource",
+      "scope": "source_identity_only"
+    },
+    {
+      "left_source_type": "curated_bundle",
+      "left_source_native_id": "curated:85ses8",
+      "right_source_type": "tavily_resource",
+      "right_source_native_id": "180",
+      "decision": "same_resource",
+      "scope": "source_identity_only"
+    },
+    {
+      "left_source_type": "curated_bundle",
+      "left_source_native_id": "curated:oygyij",
+      "right_source_type": "tavily_resource",
+      "right_source_native_id": "30",
+      "decision": "defer",
+      "scope": "source_identity_only"
+    }
+  ]
+}

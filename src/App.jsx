@@ -30,9 +30,12 @@ import HandoutBuilder from "./handout/HandoutBuilder.jsx"
 import { createInitialHandoutState, getResourceKey, handoutReducer, hasHandoutContent } from "./handout/handoutState.js"
 import { MILLER_COPY } from "./interfaceCopy.js"
 import { adminFetch, getVerifiedAdminSession } from "./adminApi.js"
+import PendingLocationReview from "./map/PendingLocationReview.jsx"
 import { safeEmailAddress, safeHttpUrl } from "./safeLinks.js"
 import { submitResource, trackEvent } from "./publicApi.js"
 import ServiceMap from "./map/ServiceMap.jsx"
+import { stableCuratedResourceId } from "./map/mapChat.js"
+import { normalizedResourceRows } from "./resourceData.js"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -275,7 +278,7 @@ function getField(resource, keys) {
 }
 
 function cleanResources(rows) {
-  return rows.map((row) => {
+  return normalizedResourceRows(rows).map((row) => {
     const cleaned = {}
 
     for (const [key, value] of Object.entries(row)) {
@@ -283,7 +286,7 @@ function cleanResources(rows) {
       cleaned[cleanKey] = value
     }
 
-    return {
+    const normalized = {
       name: getField(cleaned, ["Resource Name", "Name", "name"]) || "Unnamed Resource",
       organization: getField(cleaned, ["Organization", "organization"]),
       serviceType: getField(cleaned, ["Service Type", "serviceType"]),
@@ -312,6 +315,7 @@ function cleanResources(rows) {
       verification_status: getField(cleaned, ["verification_status", "geocode_status"]),
       location_last_verified: getField(cleaned, ["location_last_verified"]),
     }
+    return { ...normalized, id: getField(cleaned, ["id"]) || stableCuratedResourceId(normalized) }
   })
 }
 
@@ -684,6 +688,7 @@ function renderMessageWithLinks(text) {
 }
 
 function App() {
+  const isAdminRoute = typeof window !== "undefined" && window.location.pathname.startsWith("/admin")
   const normalizedResources = useMemo(() => {
     return dedupeResources(cleanResources(rawResources))
   }, [])
@@ -786,6 +791,8 @@ useEffect(() => {
   })
   const [submissionStatus, setSubmissionStatus] = useState("")
   const [isAdminMode, setIsAdminMode] = useState(false)
+  const [adminLoginEmail, setAdminLoginEmail] = useState("")
+  const [adminLoginStatus, setAdminLoginStatus] = useState("")
 
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -829,6 +836,7 @@ useEffect(() => {
 }, [millerIndex])
 
 useEffect(() => {
+  if (!isAdminRoute) return undefined
   let active = true
 
   async function verifyAdmin() {
@@ -845,11 +853,18 @@ useEffect(() => {
     active = false
     listener.subscription.unsubscribe()
   }
-}, [])
+}, [isAdminRoute])
+
+async function requestAdminLogin(event) {
+  event.preventDefault()
+  setAdminLoginStatus("Sending secure sign-in link…")
+  const { error } = await supabase.auth.signInWithOtp({ email: adminLoginEmail.trim(), options: { emailRedirectTo: `${window.location.origin}/admin/login` } })
+  setAdminLoginStatus(error ? "Sign-in link could not be sent." : "Check your email and open the sign-in link in this browser.")
+}
 
 useEffect(() => {
   async function loadAdminReviewQueue() {
-    if (!isAdminMode) return
+    if (!isAdminRoute || !isAdminMode) return
 
     const response = await adminFetch("/api/admin/tavily-resources")
     if (!response.ok) {
@@ -864,7 +879,7 @@ useEffect(() => {
   }
 
   loadAdminReviewQueue()
-}, [isAdminMode])
+}, [isAdminMode, isAdminRoute])
 
   const isBubbleTyping =
     isLoading || displayedReply.length < String(aiReply || "").length
@@ -1401,6 +1416,10 @@ function previousMiller() {
 
 const millerImageStyle = {}
 
+  if (isAdminRoute) {
+    return <main className="admin-route-shell"><header className="admin-route-header"><a href="/">← Public resource finder</a><div><p className="eyebrow">Protected administration</p><h1>Miller administrator</h1></div>{isAdminMode ? <button type="button" onClick={async () => { await supabase.auth.signOut({ scope: "local" }); setIsAdminMode(false); setAdminReviewItems([]) }}>Sign out</button> : null}</header>{!isAdminMode ? <section className="admin-login-page" aria-labelledby="admin-login-title"><h2 id="admin-login-title">Administrator sign in</h2><p>Sign in with your Supabase account. Server access is granted only to an allowlisted administrator.</p><form onSubmit={requestAdminLogin}><label htmlFor="admin-email">Supabase account email</label><input id="admin-email" type="email" autoComplete="email" required value={adminLoginEmail} onChange={(event) => setAdminLoginEmail(event.target.value)}/><button type="submit">Email secure sign-in link</button><p role="status">{adminLoginStatus}</p></form></section> : <section className="admin-dashboard" aria-label="Administrator dashboard"><PendingLocationReview/><div className="admin-review-panel"><div className="results-head"><h2>Admin Review Queue <span className="results-count">{pendingCount} pending</span></h2></div><div className="resource-list">{adminReviewItems.map((resource, index) => <article key={`admin-${resource.website}-${index}`} className="resource-card"><div className="resource-top"><div><h3>{shortenTitle(resource.name)}</h3>{resource.city ? <p className="resource-org">{resource.city}</p> : null}</div></div>{resource.description ? <p className="resource-description">{resource.description}</p> : null}{renderAiReview(resource)}<div className="resource-links">{safeHttpUrl(resource.website) ? <a className="resource-link-button" href={safeHttpUrl(resource.website)} target="_blank" rel="noreferrer">🌐 Open Website</a> : null}</div><div className="resource-review-actions"><button className="approve-button" onClick={() => approveTavilyResource(resource)}>✅ Approve</button><button className="hide-button" onClick={() => hideTavilyResource(resource)}>🚫 Hide</button></div></article>)}</div></div></section>}</main>
+  }
+
   if (isHandoutOpen) {
     return (
       <div className="app-shell handout-app-shell">
@@ -1414,7 +1433,7 @@ const millerImageStyle = {}
   }
 
   if (isMapOpen) {
-    return <ServiceMap resources={[...normalizedResources, ...mapResources]} handout={handout} dispatchHandout={dispatchHandout} onBack={() => setIsMapOpen(false)} isAdminMode={isAdminMode} />
+    return <ServiceMap resources={[...new Map([...normalizedResources, ...mapResources].map((resource) => [String(resource.id), resource])).values()]} handout={handout} dispatchHandout={dispatchHandout} onBack={() => setIsMapOpen(false)} isAdminMode={isAdminMode} millerAvatar={currentTheme.avatar} sessionId={sessionId} />
   }
 
   return (
@@ -1683,92 +1702,6 @@ const millerImageStyle = {}
           )}
         </section>
 
-{isAdminMode && (
-  <div className="admin-review-panel">
-
-    <div className="results-head">
-      <h2>
-        Admin Review Queue
-        <span className="results-count">
-          {" "}
-          {pendingCount} pending
-        </span>
-      </h2>
-      <button type="button" onClick={async () => { await supabase.auth.signOut({ scope: "local" }); setIsAdminMode(false); setAdminReviewItems([]) }}>
-        Sign out
-      </button>
-    </div>
-
-    <div className="resource-list">
-      {adminReviewItems.map((resource, index) => (
-        <article
-          key={`admin-${resource.website}-${index}`}
-          className="resource-card"
-        >
-
-          <div className="resource-top">
-            <div>
-              <h3>{shortenTitle(resource.name)}</h3>
-
-              {resource.city && (
-                <p className="resource-org">
-                  {resource.city}
-                </p>
-              )}
-            </div>
-          </div>
-
-          {resource.description && (
-            <p className="resource-description">
-              {resource.description}
-            </p>
-          )}
-
-          {renderAiReview(resource)}
-
-          <div className="resource-links">
-
-            {safeHttpUrl(resource.website) && (
-              <a
-                className="resource-link-button"
-                href={safeHttpUrl(resource.website)}
-                target="_blank"
-                rel="noreferrer"
-              >
-                🌐 Open Website
-              </a>
-            )}
-
-          </div>
-
-          <div className="resource-review-actions">
-
-            <button
-              className="approve-button"
-              onClick={() =>
-                approveTavilyResource(resource)
-              }
-            >
-              ✅ Approve
-            </button>
-
-            <button
-              className="hide-button"
-              onClick={() =>
-                hideTavilyResource(resource)
-              }
-            >
-              🚫 Hide
-            </button>
-
-          </div>
-
-        </article>
-      ))}
-    </div>
-  </div>
-)}
-
         <aside className="hero-art">
           <div className="miller-stage">
             <div className="miller-figure" style={millerStyle}>
@@ -1934,6 +1867,7 @@ const millerImageStyle = {}
           </div>
         </aside>
       </main>
+      <footer className="site-footer"><a href="/admin/login">Admin</a></footer>
     </div>
   )
 }

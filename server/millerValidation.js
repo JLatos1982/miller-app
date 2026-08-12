@@ -3,6 +3,7 @@ export class MillerRequestValidationError extends Error {}
 const TOP_LEVEL_FIELDS = new Set([
   "query", "city", "matches", "conversationMemory", "conversationSummary",
   "inferredCategories", "communicationMode", "session_id",
+  "interface",
 ])
 const RESOURCE_FIELDS = new Set([
   "name", "organization", "serviceType", "service_type", "category", "population",
@@ -11,6 +12,7 @@ const RESOURCE_FIELDS = new Set([
   "qualityScore", "quality_score", "id", "tags",
 ])
 const MODES = new Set(["default", "worker", "crisis", "companion"])
+const INTERFACES = new Set(["main", "map"])
 
 function text(value, field, max, { required = false } = {}) {
   if (value === undefined || value === null) {
@@ -34,7 +36,7 @@ function resource(value) {
       result[key] = item
     } else if (key === "id" || key === "qualityScore" || key === "quality_score") {
       if (typeof item !== "number" && typeof item !== "string") throw new MillerRequestValidationError("Invalid resource match.")
-      result[key] = item
+      result[key] = typeof item === "string" ? text(item, "resource id", 200, { required: true }) : item
     } else if (key === "tags") {
       if (!Array.isArray(item) || item.length > 20) throw new MillerRequestValidationError("Invalid resource tags.")
       result.tags = item.map((tag) => text(tag, "resource tag", 100))
@@ -66,9 +68,11 @@ export function validateMillerRequest(payload) {
   if (communicationMode && !MODES.has(communicationMode)) throw new MillerRequestValidationError("Invalid communication mode.")
   const sessionId = text(payload.session_id, "Session ID", 36)
   if (sessionId && !/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(sessionId)) throw new MillerRequestValidationError("Invalid session ID.")
+  const requestInterface = text(payload.interface, "Interface", 10) || "main"
+  if (!INTERFACES.has(requestInterface)) throw new MillerRequestValidationError("Invalid interface.")
   return {
     query, city, matches: matches.map(resource), conversationMemory: safeMemory,
     conversationSummary, inferredCategories: inferredCategories.map((item) => text(item, "Category", 100, { required: true })),
-    communicationMode, session_id: sessionId,
+    communicationMode, session_id: sessionId, interface: requestInterface,
   }
 }

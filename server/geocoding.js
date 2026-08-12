@@ -22,11 +22,12 @@ export function parseNominatimResult(result) {
   return { latitude, longitude, display_name: String(result.display_name || ""), geocode_source: "nominatim", geocode_confidence: result.importance == null ? null : Math.max(0, Math.min(1, Number(result.importance))), raw: result }
 }
 
-export function createGeocoder({ fetchImpl = fetch, now = () => Date.now(), minIntervalMs = 1100 } = {}) {
+export function createGeocoder({ fetchImpl = fetch, now = () => Date.now(), minIntervalMs = 1100, contactEmail = "" } = {}) {
   const cache = new Map()
   let lastRequestAt = 0
   return {
     async geocode(input) {
+      if (!String(contactEmail).trim()) throw new Error("Geocoder contact configuration is required")
       const address = normalizeAddressParts(input)
       const key = addressCacheKey(address)
       const cached = cache.get(key)
@@ -36,8 +37,9 @@ export function createGeocoder({ fetchImpl = fetch, now = () => Date.now(), minI
       const query = Object.values(address).filter(Boolean).join(", ")
       const url = new URL("https://nominatim.openstreetmap.org/search")
       url.searchParams.set("q", query); url.searchParams.set("format", "jsonv2"); url.searchParams.set("limit", "1"); url.searchParams.set("countrycodes", "ca")
+      url.searchParams.set("email", String(contactEmail).trim())
       lastRequestAt = now()
-      const response = await fetchImpl(url, { headers: { "User-Agent": "Miller-Service-Map/1.0 (public-service-geocoding)", Accept: "application/json" } })
+      const response = await fetchImpl(url, { headers: { "User-Agent": `Miller-Service-Map/1.0 (${String(contactEmail).trim()})`, Accept: "application/json" } })
       if (!response.ok) throw new Error(`Geocoder returned ${response.status}`)
       const value = parseNominatimResult((await response.json())?.[0])
       cache.set(key, { storedAt: now(), value })

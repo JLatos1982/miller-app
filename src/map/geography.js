@@ -22,6 +22,7 @@ const lower = (value) => text(value).toLowerCase()
 const truthy = (value) => value === true || /^(yes|true|1)$/i.test(text(value))
 
 export function validCoordinate(value, axis) {
+  if (value === null || value === undefined || (typeof value === "string" && !value.trim())) return false
   const number = Number(value)
   return Number.isFinite(number) && (axis === "lat" ? number >= -90 && number <= 90 : number >= -180 && number <= 180)
 }
@@ -60,7 +61,7 @@ export function filterMapResources(resources, filters = {}) {
     if (populations.length && !populations.some((term) => item.populationText.includes(term))) return false
     if (access.length && !access.some((term) => term === "virtual" ? item.virtual_service : term === "mobile/outreach" ? item.mobile_service : item.accessText.includes(term))) return false
     if (costs.length && !costs.some((term) => term === "unknown" ? !item.costText : item.costText.includes(term))) return false
-    if (filters.approvedOnly && item.approved !== true && item.source === "tavily") return false
+    if (filters.approvedOnly && (item.approved !== true || item.hidden === true || item.public_map === false)) return false
     return true
   })
 }
@@ -77,10 +78,29 @@ export function distanceKm(a, b) {
 
 export function analyzeServiceAccess(resources, point) {
   const mapped = resources.filter((resource) => resource.mappable)
-  const distances = mapped.map((resource) => ({ resource, distance: distanceKm(point, resource) })).sort((a, b) => a.distance - b.distance)
+  const distances = mapped.map((resource) => ({ resource, distance: distanceKm(point, resource) })).sort((a, b) => a.distance - b.distance || String(a.resource.id).localeCompare(String(b.resource.id)))
   const within = Object.fromEntries([1, 5, 10, 25].map((radius) => [radius, distances.filter((item) => item.distance <= radius).length]))
   const nearestByType = Object.fromEntries(SERVICE_TYPES.map((type) => [type, distances.find((item) => item.resource.serviceTypes.includes(type)) || null]))
   return { totalMapped: mapped.length, within, nearestByType }
+}
+
+export function groupResourcesByCoordinate(resources, precision = 4) {
+  const groups = new Map()
+  resources.filter((resource) => resource.mappable).forEach((resource) => {
+    const key = coordinateKey(resource, precision)
+    groups.set(key, [...(groups.get(key) || []), resource])
+  })
+  return [...groups.values()].map((items) => [...items].sort((a, b) => a.name.localeCompare(b.name)))
+}
+
+export function nearestService(resources, point, predicate = () => true) {
+  return resources.filter((resource) => resource.mappable && predicate(resource))
+    .map((resource) => ({ resource, distance: distanceKm(point, resource) }))
+    .sort((a, b) => a.distance - b.distance || String(a.resource.id).localeCompare(String(b.resource.id)))[0] || null
+}
+
+export function resetMapFilters() {
+  return { serviceTypes: [], city: "All cities" }
 }
 
 export function coordinateKey(resource, precision = 4) {
