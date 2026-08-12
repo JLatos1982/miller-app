@@ -82,7 +82,7 @@ test("pending location preview is admin-only and never feeds the public map quer
   assert.match(server, /Explicit approval confirmation is required/)
   assert.match(server, /\.eq\("public_map", false\)/)
   assert.match(component, /Pending locations — not public/)
-  assert.match(component, /No bulk approval/)
+  assert.match(component, /Maximum 20; Tier 1 only/)
   assert.match(component, /window\.confirm/)
   assert.doesNotMatch(server.match(/app\.get\("\/api\/map\/resources"[\s\S]*?\n\}\)/)?.[0] || "", /review_status", "pending"/)
 })
@@ -96,10 +96,12 @@ test("pilot runner is capped, validates geography, and stores only pending non-p
   assert.match(source, /review_status: "pending", public_map: false/)
 })
 
-test("bounded approval requires exact UUID identities, versions, names, and a maximum of eight", () => {
+test("bounded approval requires exact UUID identities, versions, names, Tier 1, and a maximum of twenty", () => {
   const server = fs.readFileSync(new URL("../server.js", import.meta.url), "utf8")
   assert.match(server, /app\.post\("\/api\/admin\/pending-locations\/bounded-approve", requireAdmin/)
-  assert.match(server, /selected\.length > 8/)
+  assert.match(server, /selected\.length > 20/)
+  assert.match(server, /confirmed_public_statement/)
+  assert.match(server, /not_tier_one/)
   assert.match(server, /expected_updated_at/)
   assert.match(server, /identity_mismatch/)
   assert.match(server, /stale_record/)

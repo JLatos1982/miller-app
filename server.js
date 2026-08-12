@@ -14,6 +14,7 @@ import { validateMillerRequest } from "./server/millerValidation.js"
 import { addressCacheKey, createGeocoder, isPublicGeocodeCandidate, normalizeAddressParts } from "./server/geocoding.js"
 import { boundedMapConversation, buildAuthorizedMapResponse } from "./server/mapChat.js"
 import { authorizeMapMatches, getCuratedMapResource } from "./server/mapResources.js"
+import { classifyLocationReview } from "./server/locationReview.js"
 
 dotenv.config()
 
@@ -22,6 +23,7 @@ const __dirname = path.dirname(__filename)
 
 const app = express()
 const port = process.env.PORT || 8787
+let automatedLocationPublicationEnabled = false
 
 app.disable("x-powered-by")
 app.set("trust proxy", 1)
@@ -1014,6 +1016,12 @@ app.get("/api/admin/session", requireAdmin, (req, res) => {
   return res.json({ admin: true })
 })
 
+app.get("/api/admin/location-automation", requireAdmin, (_req, res) => res.json({ enabled: automatedLocationPublicationEnabled, note: "Disabled by default. Batch execution additionally requires an explicit server-side apply command." }))
+app.post("/api/admin/location-automation/pause", requireAdmin, (req, res) => {
+  automatedLocationPublicationEnabled = false
+  return res.json({ enabled: false, paused_by: req.adminUser.id })
+})
+
 app.get("/api/admin/map-diagnostics", requireAdmin, async (_req, res) => {
   const [authorized, aliases, locations, pending, publicLocations] = await Promise.all([
     supabase.from("tavily_resources").select("id", { count: "exact", head: true }).eq("approved", true).eq("hidden", false),
@@ -1039,7 +1047,7 @@ app.get("/api/admin/map-diagnostics", requireAdmin, async (_req, res) => {
 })
 
 app.get("/api/admin/pending-locations", requireAdmin, async (_req, res) => {
-  const { data: locations, error } = await supabase.from("resource_locations").select("id,resource_id,original_address_text,street_address,city,province,postal_code,latitude,longitude,geocode_source,geocode_confidence,geocode_status,review_status,public_map,created_at").eq("review_status", "pending").eq("public_map", false).not("latitude", "is", null).not("longitude", "is", null).order("created_at")
+  const { data: locations, error } = await supabase.from("resource_locations").select("id,resource_id,original_address_text,street_address,city,province,postal_code,latitude,longitude,geocode_source,geocode_confidence,geocode_status,review_status,public_map,created_at,updated_at").not("latitude", "is", null).not("longitude", "is", null).order("created_at")
   if (error) return res.status(503).json({ error: "Pending locations are unavailable." })
   const resourceIds = [...new Set((locations || []).map((item) => item.resource_id))]
   const locationIds = (locations || []).map((item) => item.id)
@@ -1054,7 +1062,13 @@ app.get("/api/admin/pending-locations", requireAdmin, async (_req, res) => {
   for (const alias of aliases.data || []) aliasesByResource.set(alias.resource_id, [...(aliasesByResource.get(alias.resource_id) || []), alias])
   const auditByLocation = new Map()
   for (const audit of audits.data || []) if (!auditByLocation.has(audit.location_id)) auditByLocation.set(audit.location_id, audit.new_values || {})
-  return res.json({ count: (locations || []).length, label: "Pending locations — not public", items: (locations || []).map((item) => { const audit = auditByLocation.get(item.id) || {}; return { ...item, resource_name: names.get(item.resource_id) || "Resource", aliases: aliasesByResource.get(item.resource_id) || [], normalized_query: audit.normalized_query || "", returned_address: audit.returned_address || "", provider_place_id: audit.provider_place_id || null, provider_type: audit.provider_type || "", provider_class: audit.provider_class || "", warnings: Array.isArray(audit.warnings) ? audit.warnings : [] } }) })
+  const items = (locations || []).map((item) => {
+    const audit = auditByLocation.get(item.id) || {}
+    const resource_name = names.get(item.resource_id) || "Resource"
+    const classification = item.review_status === "approved" && item.public_map === true ? { tier: 4, label: "Approved", selectable: false, warnings: [] } : classifyLocationReview({ location: item, evidence: audit, resource: { display_name: resource_name }, addressPeerCount: Number(audit.address_peer_count || 1) })
+    return { ...item, resource_name, aliases: aliasesByResource.get(item.resource_id) || [], normalized_query: audit.normalized_query || "", returned_address: audit.returned_address || "", provider_place_id: audit.provider_place_id || null, provider_type: audit.provider_type || "", provider_class: audit.provider_class || "", source_url: audit.source_url || "", tier: classification.tier, tier_label: classification.label, selectable: classification.selectable, warnings: classification.warnings }
+  })
+  return res.json({ count: items.length, label: "Pending locations — not public", items })
 })
 
 app.patch("/api/admin/pending-locations/:locationId", requireAdmin, async (req, res) => {
@@ -1064,22 +1078,24 @@ app.patch("/api/admin/pending-locations/:locationId", requireAdmin, async (req, 
   if (!["approve", "correct", "reject", "exclude", "defer"].includes(action)) return res.status(400).json({ error: "Invalid review action." })
   const { data: current, error: readError } = await supabase.from("resource_locations").select("*").eq("id", locationId).single()
   if (readError || !current) return res.status(404).json({ error: "Pending location not found." })
-  if (current.review_status !== "pending" || current.public_map) return res.status(409).json({ error: "This location is no longer pending." })
+  const isPublished = current.review_status === "approved" && current.public_map === true
+  if (current.review_status !== "pending" && !isPublished) return res.status(409).json({ error: "This location is not reviewable." })
+  if (isPublished && action === "approve") return res.status(409).json({ error: "This location is already approved." })
   if (action === "approve" && req.body?.confirmed !== true) return res.status(400).json({ error: "Explicit approval confirmation is required." })
   const changes = { reviewed_by: req.adminUser.id, reviewed_at: new Date().toISOString(), updated_at: new Date().toISOString() }
   if (action === "approve") Object.assign(changes, { review_status: "approved", geocode_status: "verified", public_map: true, location_last_verified: new Date().toISOString() })
   if (action === "reject") Object.assign(changes, { review_status: "rejected", geocode_status: "rejected", public_map: false })
   if (action === "exclude") Object.assign(changes, { review_status: "excluded", public_map: false })
-  if (action === "defer") Object.assign(changes, { review_status: "pending", public_map: false })
+  if (action === "defer") Object.assign(changes, { review_status: "pending", public_map: false, geocode_status: "matched" })
   if (action === "correct") {
     const latitude = Number(req.body?.latitude), longitude = Number(req.body?.longitude)
     if (!Number.isFinite(latitude) || !Number.isFinite(longitude) || !latitude || !longitude || Math.abs(latitude) > 90 || Math.abs(longitude) > 180) return res.status(400).json({ error: "Valid non-zero coordinates are required." })
     Object.assign(changes, { latitude, longitude, street_address: String(req.body?.street_address || current.street_address).slice(0, 500), review_status: "pending", geocode_status: "matched", public_map: false })
   }
-  const { data, error } = await supabase.from("resource_locations").update(changes).eq("id", locationId).eq("resource_id", current.resource_id).select().single()
+  const { data, error } = await supabase.from("resource_locations").update(changes).eq("id", locationId).eq("resource_id", current.resource_id).eq("updated_at", current.updated_at).select().single()
   if (error) return res.status(500).json({ error: "Could not record the location decision." })
   const auditAction = { approve: "approved", correct: "corrected", reject: "rejected", exclude: "excluded", defer: "corrected" }[action]
-  await supabase.from("resource_location_audit").insert({ location_id: locationId, action: auditAction, previous_values: current, new_values: data, actor_id: req.adminUser.id, reason: action === "defer" ? "Human review deferred; location remains pending and non-public." : `Human review action: ${action}` })
+  await supabase.from("resource_location_audit").insert({ location_id: locationId, action: auditAction, previous_values: current, new_values: { ...data, actor_type: "human_administrator", permanent_manual_review: req.body?.permanent_manual_review === true }, actor_id: req.adminUser.id, reason: action === "defer" ? "Human review deferred; location remains pending and non-public; automated reapproval is prohibited." : `Human review action: ${action}; automated reapproval is prohibited.` })
   return res.json({ item: data })
 })
 
@@ -1574,7 +1590,8 @@ app.get("/api/map/resources", async (_req, res) => {
 
 app.post("/api/admin/pending-locations/bounded-approve", requireAdmin, async (req, res) => {
   const selected = Array.isArray(req.body?.locations) ? req.body.locations : []
-  if (!selected.length || selected.length > 8) return res.status(400).json({ error: "Select between one and eight explicit locations." })
+  if (!selected.length || selected.length > 20) return res.status(400).json({ error: "Select between one and twenty explicit locations." })
+  if (req.body?.confirmed_public_statement !== true) return res.status(400).json({ error: "Explicit confirmation that every selected service and exact address may be public is required." })
   if (selected.some((item) => !/^[0-9a-f-]{36}$/i.test(String(item?.location_id)) || !/^[0-9a-f-]{36}$/i.test(String(item?.resource_id)) || !String(item?.expected_name || "").trim() || !String(item?.expected_updated_at || "").trim())) return res.status(400).json({ error: "Location UUID, canonical UUID, expected name, and review version are required." })
   const ids = selected.map((item) => String(item.location_id))
   if (new Set(ids).size !== ids.length) return res.status(400).json({ error: "Duplicate location IDs are not allowed." })
@@ -1585,7 +1602,11 @@ app.post("/api/admin/pending-locations/bounded-approve", requireAdmin, async (re
   const resourceIds = selected.map((item) => String(item.resource_id))
   const { data: registry, error: registryError } = await supabase.from("resource_registry").select("id,display_name,lifecycle_state,editorial_status").in("id", resourceIds)
   if (registryError) return res.status(503).json({ error: "Registry validation is unavailable." })
+  const { data: audits, error: auditError } = await supabase.from("resource_location_audit").select("location_id,new_values,created_at").in("location_id", ids).eq("action", "geocoded").order("created_at", { ascending: false })
+  if (auditError) return res.status(503).json({ error: "Location evidence validation is unavailable." })
   const locationById = new Map(locations.map((item) => [item.id, item])), registryById = new Map((registry || []).map((item) => [item.id, item]))
+  const auditByLocation = new Map()
+  for (const audit of audits || []) if (!auditByLocation.has(audit.location_id)) auditByLocation.set(audit.location_id, audit.new_values || {})
   const failures = []
   for (const expected of selected) {
     const location = locationById.get(String(expected.location_id)), resource = registryById.get(String(expected.resource_id))
@@ -1595,6 +1616,11 @@ app.post("/api/admin/pending-locations/bounded-approve", requireAdmin, async (re
     else if (location.review_status === "approved" && location.geocode_status === "verified" && location.public_map === true) continue
     else if (location.location_type !== "fixed" || location.review_status !== "pending" || location.public_map !== false || location.geocode_status !== "matched") failures.push({ location_id: expected.location_id, reason: "not_approvable_pending_state" })
     else if (!Number.isFinite(Number(location.latitude)) || !Number.isFinite(Number(location.longitude)) || !Number(location.latitude) || !Number(location.longitude)) failures.push({ location_id: expected.location_id, reason: "invalid_coordinates" })
+    else {
+      const evidence = auditByLocation.get(location.id) || {}
+      const classification = classifyLocationReview({ location, evidence, resource, addressPeerCount: Number(evidence.address_peer_count || 1) })
+      if (classification.tier !== 1 || !classification.selectable) failures.push({ location_id: expected.location_id, reason: "not_tier_one", warnings: classification.warnings })
+    }
   }
   if (failures.length) return res.status(409).json({ error: "Bounded approval preflight failed; nothing was changed.", failures })
   const results = []
