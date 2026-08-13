@@ -125,7 +125,7 @@ function validateMillerRequestBody(req, res, next) {
     req.validatedMillerRequest = validateMillerRequest(req.body)
     next()
   } catch {
-    return res.status(400).json({ error: "Invalid search request." })
+    return res.status(400).json({ error: "Invalid search request.", code: "invalid_request" })
   }
 }
 
@@ -1107,6 +1107,7 @@ app.post("/api/events", analyticsRateLimit, publicWriteHandlers.createEvent)
 app.post("/api/resource-submissions", submissionRateLimit, publicWriteHandlers.createResourceSubmission)
 
 app.post("/api/miller", rateLimit({ windowMs: 60 * 1000, max: positiveInteger(process.env.MILLER_RATE_LIMIT_PER_MINUTE, 8) }), validateMillerRequestBody, paidDailyLimit, async (req, res) => {
+  const requestId = crypto.randomUUID()
   try {
     const validated = req.validatedMillerRequest
     const {
@@ -1121,7 +1122,7 @@ app.post("/api/miller", rateLimit({ windowMs: 60 * 1000, max: positiveInteger(pr
     const isMapInterface = validated.interface === "map"
 
     if (!process.env.OPENAI_API_KEY) {
-      return res.status(503).json({ error: "Search is temporarily unavailable." })
+      return res.status(503).json({ error: "Search is temporarily unavailable.", code: "provider_unavailable", requestId })
     }
 
     const safeQuery = String(query).trim()
@@ -1451,13 +1452,20 @@ if (insertError) {
   }
 }
 
+const mapContract = isMapInterface ? buildAuthorizedMapResponse({ parsed, authorizedResources: safeMatches }) : null
 res.json({
+  contractVersion: "1.0",
+  requestId,
+  mode: isMapInterface ? "map" : "main",
+  message: isMapInterface ? mapContract.message : answer,
+  results: isMapInterface ? { resourceIds: mapContract.resourceIds, external: [], noResults: mapContract.noResults } : { resourceIds: validRecommendedNames, external: formattedTavilyResults, noResults: !safeMatches.length && !formattedTavilyResults.length },
+  clarification: parsed?.clarification || null,
   answer,
   searchHints: finalSearchHints,
   safetyMode,
   communicationMode: finalCommunicationMode,
   tavilyResults: formattedTavilyResults,
-  ...(isMapInterface ? { map: buildAuthorizedMapResponse({ parsed, authorizedResources: safeMatches }) } : {}),
+  ...(isMapInterface ? { map: mapContract } : {}),
 })
 
 } catch (error) {
@@ -1465,6 +1473,8 @@ res.json({
 
   res.status(500).json({
     error: "Failed to generate Miller response.",
+    code: "provider_failure",
+    requestId,
   })
 }
 

@@ -11,7 +11,7 @@ npm run build
 npm run server
 ```
 
-The Express server defaults to `http://localhost:8787`. Vite development remains available with `npm run dev`, but API requests require the Express backend or a configured development proxy.
+The Express server defaults to `http://localhost:8787`. For development, run `npm run server` and `npm run dev` in separate terminals; Vite proxies `/api` to the local Express server.
 
 `SUPABASE_URL` must be the project origin, such as `https://project-ref.supabase.co`; do not append `/rest/v1`. Keep `OPENAI_API_KEY` and `SUPABASE_SERVICE_ROLE_KEY` server-side. The browser uses the publishable key already configured in `src/supabaseClient.js` and relies on RLS.
 

@@ -7,6 +7,7 @@ import { getResourceKey } from "../handout/handoutState.js"
 import { safeHttpUrl } from "../safeLinks.js"
 import { adminFetch } from "../adminApi.js"
 import { buildMapCandidates, resolveAuthorizedMapResults, toMillerMatch } from "./mapChat.js"
+import { askMiller, buildMillerRequest } from "../millerApi.js"
 
 const LOWER_MAINLAND = [49.19, -122.86]
 const PIN_COLORS = {
@@ -142,12 +143,8 @@ export default function ServiceMap({ resources, handout, dispatchHandout, onBack
     const candidates = buildMapCandidates(filtered, query)
     const nextMessages = [...chatMessages, { role: "user", content: query }].slice(-16)
     setChatMessages(nextMessages); setChatInput(""); setChatStatus("loading"); setChatError(""); setChatAnswer(""); setGuideExpanded(true)
-    const controller = new AbortController()
-    const timeout = setTimeout(() => controller.abort(), 25_000)
     try {
-      const response = await fetch("/api/miller", { method: "POST", credentials: "include", signal: controller.signal, headers: { "Content-Type": "application/json" }, body: JSON.stringify({ interface: "map", query, city: city === "All cities" ? "All Cities" : city, matches: candidates.map(toMillerMatch), conversationMemory: nextMessages, inferredCategories: serviceTypes, session_id: sessionId }) })
-      if (!response.ok) throw new Error(response.status === 429 ? "Miller has had several requests. Please wait a moment and try again." : "Miller couldn’t complete that map search. Please try again.")
-      const data = await response.json()
+      const data = await askMiller(buildMillerRequest({ mode: "map", query, city, matches: candidates.map(toMillerMatch), conversationMemory: nextMessages, inferredCategories: serviceTypes, sessionId }))
       const contract = data.map || {}
       const authorized = resolveAuthorizedMapResults(candidates, contract.resourceIds)
       setChatResults(authorized); setChatAnswer(contract.noResults ? "I couldn’t find an approved Miller resource matching that request. Try a broader service type or clear the current filters." : contract.message || "I found these approved resources.")
@@ -158,7 +155,7 @@ export default function ServiceMap({ resources, handout, dispatchHandout, onBack
       else if (located.length === 1) mapRef.current?.setView([located[0].latitude, located[0].longitude], Math.min(13, Math.max(10, mapRef.current.getZoom())))
     } catch (error) {
       setChatStatus("error"); setChatError(error.name === "AbortError" ? "Miller’s search took too long. Please try again." : error.message)
-    } finally { clearTimeout(timeout) }
+    } finally { /* askMiller always clears its timeout */ }
   }
   function startOver() { setChatInput(""); setChatMessages([]); setChatAnswer(""); setChatResults([]); setChatStatus("idle"); setChatError(""); setSelected(null); setSelectedLocation([]); setActivePanel("filters") }
 

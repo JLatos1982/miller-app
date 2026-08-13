@@ -36,6 +36,7 @@ import { submitResource, trackEvent } from "./publicApi.js"
 import ServiceMap from "./map/ServiceMap.jsx"
 import { stableCuratedResourceId } from "./map/mapChat.js"
 import { normalizedResourceRows } from "./resourceData.js"
+import { askMiller, buildMillerRequest } from "./millerApi.js"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -639,22 +640,6 @@ function buildCandidatePack(resources, query, selectedCity) {
   }
 }
 
-async function retry(fn, retries = 2, delay = 1200) {
-  try {
-    return await fn()
-  } catch (error) {
-    if (retries <= 0) throw error
-
-    console.log("Retrying request...")
-
-    await new Promise((resolve) =>
-      setTimeout(resolve, delay)
-    )
-
-    return retry(fn, retries - 1, delay)
-  }
-}
-
 function shortenTitle(text, max = 60) {
   const clean = String(text || "").trim()
 
@@ -1057,29 +1042,16 @@ trackEvent({
     setTotalMatches(candidatePack.candidatePool.length)
 
     try {
-      const response = await retry(() =>
-  fetch("/api/miller", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+      const data = await askMiller(buildMillerRequest({
+          mode: "main",
           query: trimmedQuery,
           conversationMemory: updatedMemory,
           conversationSummary,
           city: selectedCity,
           inferredCategories: candidatePack.inferredCategories,
           matches: candidatePack.candidatePool.slice(0, 30),
-          session_id: sessionId,
-        }),
-      }))
-
-      if (!response.ok) {
-        throw new Error("Could not get Miller response.")
-      }
-
-      const data = await response.json()
+          sessionId,
+        }))
       const aiHints = data.searchHints || {}
 
       const { data: approvedMemory = [] } =
@@ -1168,7 +1140,7 @@ setResults(finalResults)
 setTotalMatches(rankedPool.length)
 
 setAiReply(
-  data.answer ||
+  data.message ||
     "Heres what stands out. I pulled the closest matches below so you can scan the best leads first."
 )
 
@@ -1177,7 +1149,7 @@ setConversationMemory((prev) =>
     ...prev,
     {
       role: "assistant",
-      content: data.answer,
+      content: data.message,
     },
   ].slice(-24)
 )

@@ -46,7 +46,7 @@ test("curated stable IDs are deterministic and distinguish resources", () => {
 test("map chat reuses protected Miller endpoint without analytics or browser location", () => {
   const client = fs.readFileSync(new URL("../src/map/ServiceMap.jsx", import.meta.url), "utf8")
   const server = fs.readFileSync(new URL("../server.js", import.meta.url), "utf8")
-  assert.match(client, /fetch\("\/api\/miller"/)
+  assert.match(client, /askMiller\(buildMillerRequest/)
   assert.match(server, /isMapInterface/)
   assert.doesNotMatch(client, /geolocation|getCurrentPosition|trackEvent/)
   assert.match(client, /aria-live="polite"/)
