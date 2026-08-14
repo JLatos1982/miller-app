@@ -38,6 +38,7 @@ import ServiceMap from "./map/ServiceMap.jsx"
 import { stableCuratedResourceId } from "./map/mapChat.js"
 import { normalizedResourceRows } from "./resourceData.js"
 import { askMiller, buildMillerRequest } from "./millerApi.js"
+import ShelterCandidateReview from "./admin/ShelterCandidateReview.jsx"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -751,6 +752,7 @@ useEffect(() => {
   const [aiReviewLoading, setAiReviewLoading] = useState({})
   const [aiReviewErrors, setAiReviewErrors] = useState({})
   const [pendingCount, setPendingCount] = useState(0)
+  const [adminReviewStatus, setAdminReviewStatus] = useState("")
   const [totalMatches, setTotalMatches] = useState(0)
 
   const chestRef = useRef(null)
@@ -1199,6 +1201,8 @@ setConversationMemory((prev) =>
   }
 
 async function approveTavilyResource(resource) {
+  if (!resource?.id) return setAdminReviewStatus("This web result has not been saved. Save it through Shelter discovery before approving it.")
+  setAdminReviewStatus(`Approving ${resource.name} for the directory…`)
   const response = await adminFetch(`/api/admin/tavily-resources/${encodeURIComponent(resource.id)}`, {
     method: "PATCH",
     credentials: "include",
@@ -1206,6 +1210,8 @@ async function approveTavilyResource(resource) {
     body: JSON.stringify({ action: "approve" }),
   })
   if (!response.ok) {
+    const body = await response.json().catch(() => ({}))
+    setAdminReviewStatus(body.error || "Directory approval failed. Reload the queue and try again.")
     if ([401, 403].includes(response.status)) setIsAdminMode(false)
     return
   }
@@ -1214,9 +1220,11 @@ async function approveTavilyResource(resource) {
     prev.filter((item) => item.id !== resource.id)
   )
   setPendingCount((prev) => Math.max(0, prev - 1))
+  setAdminReviewStatus(`${resource.name} was approved for the directory. This did not approve a map location.`)
 }
 
 async function hideTavilyResource(resource) {
+  if (!resource?.id) return setAdminReviewStatus("This web result has not been saved and cannot be hidden as a review record.")
   const response = await adminFetch(`/api/admin/tavily-resources/${encodeURIComponent(resource.id)}`, {
     method: "PATCH",
     credentials: "include",
@@ -1224,6 +1232,8 @@ async function hideTavilyResource(resource) {
     body: JSON.stringify({ action: "hide" }),
   })
   if (!response.ok) {
+    const body = await response.json().catch(() => ({}))
+    setAdminReviewStatus(body.error || "The hide decision failed. Reload the queue and try again.")
     if ([401, 403].includes(response.status)) setIsAdminMode(false)
     return
   }
@@ -1232,6 +1242,7 @@ async function hideTavilyResource(resource) {
     prev.filter((item) => item.id !== resource.id)
   )
   setPendingCount((prev) => Math.max(0, prev - 1))
+  setAdminReviewStatus(`${resource.name} was removed from the active review queue.`)
 }
 
 async function analyzeTavilyResource(resource, { force = false } = {}) {
@@ -1410,7 +1421,7 @@ function previousMiller() {
 const millerImageStyle = {}
 
   if (isAdminRoute) {
-    return <main className="admin-route-shell"><header className="admin-route-header"><a href="/">← Public resource finder</a><div><p className="eyebrow">Protected administration</p><h1>Miller administrator</h1></div>{isAdminMode ? <button type="button" onClick={async () => { await supabase.auth.signOut({ scope: "local" }); setIsAdminMode(false); setAdminReviewItems([]) }}>Sign out</button> : null}</header>{!isAdminMode ? <section className="admin-login-page" aria-labelledby="admin-login-title"><h2 id="admin-login-title">Administrator sign in</h2><p>Sign in with your Supabase account. Server access is granted only to an allowlisted administrator.</p><form onSubmit={requestAdminLogin}><label htmlFor="admin-email">Supabase account email</label><input id="admin-email" type="email" autoComplete="email" required value={adminLoginEmail} onChange={(event) => setAdminLoginEmail(event.target.value)}/><button type="submit">Email secure sign-in link</button><p role="status">{adminLoginStatus}</p></form></section> : <section className="admin-dashboard" aria-label="Administrator dashboard"><PendingLocationReview/><div className="admin-review-panel"><div className="results-head"><h2>Admin Review Queue <span className="results-count">{pendingCount} pending</span></h2></div><div className="resource-list">{adminReviewItems.map((resource, index) => <article key={`admin-${resource.website}-${index}`} className="resource-card"><div className="resource-top"><div><h3>{shortenTitle(resource.name)}</h3>{resource.city ? <p className="resource-org">{resource.city}</p> : null}</div></div>{resource.description ? <p className="resource-description">{resource.description}</p> : null}{renderAiReview(resource)}<div className="resource-links">{safeHttpUrl(resource.website) ? <a className="resource-link-button" href={safeHttpUrl(resource.website)} target="_blank" rel="noreferrer">🌐 Open Website</a> : null}</div><div className="resource-review-actions"><button className="approve-button" onClick={() => approveTavilyResource(resource)}>✅ Approve</button><button className="hide-button" onClick={() => hideTavilyResource(resource)}>🚫 Hide</button></div></article>)}</div></div></section>}</main>
+    return <main className="admin-route-shell"><header className="admin-route-header"><a href="/">← Public resource finder</a><div><p className="eyebrow">Protected administration</p><h1>Miller administrator</h1></div>{isAdminMode ? <button type="button" onClick={async () => { await supabase.auth.signOut({ scope: "local" }); setIsAdminMode(false); setAdminReviewItems([]) }}>Sign out</button> : null}</header>{!isAdminMode ? <section className="admin-login-page" aria-labelledby="admin-login-title"><h2 id="admin-login-title">Administrator sign in</h2><p>Sign in with your Supabase account. Server access is granted only to an allowlisted administrator.</p><form onSubmit={requestAdminLogin}><label htmlFor="admin-email">Supabase account email</label><input id="admin-email" type="email" autoComplete="email" required value={adminLoginEmail} onChange={(event) => setAdminLoginEmail(event.target.value)}/><button type="submit">Email secure sign-in link</button><p role="status">{adminLoginStatus}</p></form></section> : <section className="admin-dashboard" aria-label="Administrator dashboard"><p role="status">{adminReviewStatus}</p><PendingLocationReview/><ShelterCandidateReview/><div className="admin-review-panel"><div className="results-head"><h2>Admin Review Queue <span className="results-count">{pendingCount} pending</span></h2></div><div className="resource-list">{adminReviewItems.map((resource, index) => <article key={`admin-${resource.website}-${index}`} className="resource-card"><div className="resource-top"><div><h3>{shortenTitle(resource.name)}</h3>{resource.city ? <p className="resource-org">{resource.city}</p> : null}</div></div>{resource.description ? <p className="resource-description">{resource.description}</p> : null}{renderAiReview(resource)}<div className="resource-links">{safeHttpUrl(resource.website) ? <a className="resource-link-button" href={safeHttpUrl(resource.website)} target="_blank" rel="noreferrer">🌐 Open Website</a> : null}</div><div className="resource-review-actions"><button className="approve-button" onClick={() => approveTavilyResource(resource)}>✅ Approve</button><button className="hide-button" onClick={() => hideTavilyResource(resource)}>🚫 Hide</button></div></article>)}</div></div></section>}</main>
   }
 
   if (isHandoutOpen) {

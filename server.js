@@ -16,6 +16,8 @@ import { addressCacheKey, createGeocoder, isPublicGeocodeCandidate, normalizeAdd
 import { boundedMapConversation, buildAuthorizedMapResponse } from "./server/mapChat.js"
 import { authorizeMapMatches, getCuratedMapResource } from "./server/mapResources.js"
 import { classifyLocationReview } from "./server/locationReview.js"
+import { canonicalSeedId } from "./server/resourceIdentity.js"
+import { directoryApprovalState, findConservativeMatches, prepareShelterCandidate, SHELTER_REVIEW_ACTIONS } from "./server/shelterDiscovery.js"
 
 dotenv.config()
 
@@ -531,7 +533,7 @@ function getSourceQualityScore(url = "") {
   if (site.includes("northernhealth.ca")) return 92
   if (site.includes("phsa.ca")) return 90
   if (site.includes("foundrybc.ca")) return 88
-  if (site.includes("bc211.ca")) return 85
+  if (site.includes("bc.211.ca") || site.includes("bc211.ca")) return 85
   if (site.includes("towardtheheart.com")) return 85
   if (site.includes("cmha.bc.ca")) return 82
   if (site.includes("heretohelp.bc.ca")) return 80
@@ -1420,77 +1422,9 @@ serviceType:
   approved: false,
 }))
 
-if (formattedTavilyResults.length > 0) {
-  try {
- const existingWebsites = new Set()
-
-const uniqueTavilyResults = []
-
-for (const resource of formattedTavilyResults) {
-  const site = String(resource.website || "").trim()
-
-  if (!site) {
-    continue
-  }
-
-  if (existingWebsites.has(site)) {
-    continue
-  }
-
-  const descriptionLength =
-    String(resource.description || "").length
-
-  if (descriptionLength < 70) {
-    continue
-  }
-
-  if ((resource.qualityScore || 0) < 70) {
-  continue
-}
-
-  const { data: existingMatch } = await supabase
-    .from("tavily_resources")
-    .select("id")
-    .eq("website", site)
-    .limit(1)
-
-  if (existingMatch && existingMatch.length > 0) {
-    continue
-  }
-
-  existingWebsites.add(site)
-
-  uniqueTavilyResults.push(resource)
-}   
-
-const { error: insertError } = await supabase
-  .from("tavily_resources")
-  .insert(
-    uniqueTavilyResults.map((resource) => ({
-      name: resource.name,
-      organization: resource.organization,
-      description: resource.description,
-      website: resource.website,
-      city: resource.city,
-      category: resource.category,
-      service_type: resource.serviceType,
-      source: resource.source,
-      
-      quality_score: resource.qualityScore || 40,
-      
-      approved: false,
-      original_query: null,
-    }))
-  )
-  .select()
-
-if (insertError) {
-  console.error("Could not store discovered resources:", insertError.code || "database_error")
-}
-  } catch (error) {
-    console.error("Could not save Tavily resources:", String(error?.message || "Unknown error").slice(0, 200))
-  }
-}
+// Public searches are read-only. An authenticated, allowlisted administrator must
+// explicitly save evidence through /api/admin/discovery-candidates. This prevents
+// filtered candidates and duplicate URLs from silently disappearing.
 
 const mapContract = isMapInterface ? buildAuthorizedMapResponse({ parsed, authorizedResources: safeMatches }) : null
 res.json({
@@ -1553,6 +1487,76 @@ app.get("/api/admin/tavily-resources", requireAdmin, async (req, res) => {
   }
 
   return res.json({ items: data || [], count: count || 0, latestReviews })
+})
+
+app.get("/api/admin/discovery-candidates", requireAdmin, async (req, res) => {
+  let query = supabase.from("resource_discovery_candidates").select("*").order("created_at", { ascending: false }).limit(500)
+  for (const [field, parameter] of [["review_status", "status"], ["shelter_type", "type"], ["community", "community"], ["region", "region"], ["source_name", "source"], ["confidence", "confidence"]]) {
+    const value = String(req.query?.[parameter] || "").trim(); if (value) query = query.eq(field, value)
+  }
+  const { data, error } = await query
+  if (error) return res.status(503).json({ error: "Shelter candidates could not be loaded.", code: "candidate_queue_unavailable" })
+  res.setHeader("Cache-Control", "private, no-store")
+  return res.json({ items: data || [], count: data?.length || 0 })
+})
+
+app.post("/api/admin/discovery-candidates", requireAdmin, async (req, res) => {
+  let candidate
+  try { candidate = prepareShelterCandidate(req.body) }
+  catch (error) { return res.status(400).json({ error: error.message, code: "invalid_candidate" }) }
+  const existingCandidate = await supabase.from("resource_discovery_candidates").select("*").eq("source_fingerprint", candidate.source_fingerprint).maybeSingle()
+  if (existingCandidate.error) return res.status(503).json({ error: "The candidate registry could not be checked.", code: "candidate_lookup_failed" })
+  if (existingCandidate.data) return res.status(200).json({ outcome: "existing_candidate", candidate: existingCandidate.data, message: "This candidate was already saved. Its existing review record is shown." })
+  const { data: resources, error: resourceError } = await supabase.from("tavily_resources").select("id,name,organization,website,city,approved,hidden").limit(1000)
+  if (resourceError) return res.status(503).json({ error: "Existing resources could not be checked for duplicates.", code: "duplicate_check_failed" })
+  const matches = findConservativeMatches(candidate, resources || []).slice(0, 10).map((item) => ({ tavily_resource_id: item.resource.id, name: item.resource.name, classification: item.classification, score: item.score, evidence: item.evidence }))
+  const { data, error } = await supabase.from("resource_discovery_candidates").insert({ ...candidate, possible_matches: matches }).select().single()
+  if (error) return res.status(500).json({ error: "The candidate could not be saved. No resource was approved.", code: error.code || "candidate_insert_failed" })
+  return res.status(201).json({ outcome: matches.length ? "possible_duplicate" : "created", candidate: data, possible_matches: matches, message: matches.length ? "Candidate saved with possible matches requiring review." : "Candidate saved to the administrator review queue." })
+})
+
+app.patch("/api/admin/discovery-candidates/:id", requireAdmin, async (req, res) => {
+  if (!isValidResourceId(req.params.id)) return res.status(400).json({ error: "Invalid candidate ID.", code: "invalid_candidate_id" })
+  const action = String(req.body?.action || "")
+  if (action === "edit") {
+    let replacement
+    try { replacement = prepareShelterCandidate(req.body?.candidate || {}) }
+    catch (error) { return res.status(400).json({ error: error.message, code: "invalid_candidate" }) }
+    const { data, error } = await supabase.from("resource_discovery_candidates").update({ ...replacement, review_status: "pending", updated_at: new Date().toISOString(), last_error: null }).eq("id", req.params.id).select().single()
+    if (error) return res.status(500).json({ error: "Candidate edits could not be saved.", code: error.code || "candidate_edit_failed" })
+    return res.json({ outcome: "updated", candidate: data })
+  }
+  if (!SHELTER_REVIEW_ACTIONS.has(action)) return res.status(400).json({ error: "Choose approve, reject, exclude, defer, merge, or edit.", code: "invalid_review_action" })
+  const { data: candidate, error: candidateError } = await supabase.from("resource_discovery_candidates").select("*").eq("id", req.params.id).single()
+  if (candidateError || !candidate) return res.status(404).json({ error: "Candidate not found.", code: "candidate_not_found" })
+  if (action === "merge") {
+    const target = String(req.body?.canonical_resource_id || "")
+    if (!/^[0-9a-f-]{36}$/i.test(target)) return res.status(400).json({ error: "Select a valid canonical resource before merging.", code: "merge_target_required" })
+    const aliasCheck = await supabase.from("resource_registry").select("id,display_name").eq("id", target).maybeSingle()
+    if (aliasCheck.error || !aliasCheck.data) return res.status(409).json({ error: "The selected canonical resource no longer exists.", code: "merge_target_missing" })
+    const { data, error } = await supabase.from("resource_discovery_candidates").update({ review_status: "merged", matched_resource_id: target, reviewed_by: req.adminUser.id, reviewed_at: new Date().toISOString(), updated_at: new Date().toISOString() }).eq("id", candidate.id).eq("review_status", "pending").select().single()
+    if (error) return res.status(409).json({ error: "The candidate changed before it could be merged. Reload and retry.", code: "stale_candidate" })
+    return res.json({ outcome: "matched_existing_canonical", candidate: data, canonical_resource: aliasCheck.data })
+  }
+  if (action !== "approve") {
+    const status = { reject: "rejected", exclude: "excluded", defer: "deferred" }[action]
+    const { data, error } = await supabase.from("resource_discovery_candidates").update({ review_status: status, reviewed_by: req.adminUser.id, reviewed_at: new Date().toISOString(), updated_at: new Date().toISOString() }).eq("id", candidate.id).eq("review_status", "pending").select().single()
+    if (error) return res.status(409).json({ error: "The review decision was not saved. Reload and retry.", code: "stale_candidate" })
+    return res.json({ outcome: status, candidate: data })
+  }
+  if (candidate.possible_matches?.length && req.body?.confirmed_duplicate_review !== true) return res.status(409).json({ error: "Review the possible matches and explicitly confirm this is a separate resource, or merge it.", code: "duplicate_review_required", possible_matches: candidate.possible_matches })
+  const insert = await supabase.from("tavily_resources").insert({ name: candidate.name, organization: candidate.operator || "", description: candidate.evidence_notes || candidate.source_excerpt || `${candidate.shelter_type} in ${candidate.community}`, website: candidate.website || candidate.source_url, city: candidate.community, category: "Housing / Shelter", service_type: candidate.shelter_type, source: "shelter_discovery", quality_score: candidate.confidence === "high" ? 90 : candidate.confidence === "medium" ? 75 : 60, approved: true, hidden: false, original_query: "province-wide shelter discovery" }).select().single()
+  if (insert.error) return res.status(500).json({ error: "Directory approval failed before canonical registration. The candidate remains pending and can be retried.", code: insert.error.code || "directory_insert_failed" })
+  const canonicalId = canonicalSeedId("tavily_resource", String(insert.data.id))
+  const registry = await supabase.from("resource_registry").upsert({ id: canonicalId, display_name: candidate.name, lifecycle_state: "active", editorial_status: "approved" }, { onConflict: "id" })
+  const alias = registry.error ? { error: registry.error } : await supabase.from("resource_source_aliases").upsert({ resource_id: canonicalId, source_type: "tavily_resource", source_native_id: String(insert.data.id), source_url: candidate.source_url, source_fingerprint: candidate.source_fingerprint, provenance: { workflow: "shelter_discovery", candidate_id: candidate.id, source_name: candidate.source_name, checked_at: candidate.checked_at, retrieved_title: candidate.retrieved_title, source_excerpt: candidate.source_excerpt } }, { onConflict: "source_type,source_native_id" })
+  if (registry.error || alias.error) {
+    await supabase.from("tavily_resources").delete().eq("id", insert.data.id)
+    return res.status(500).json({ error: "Canonical registration failed; the newly-created directory row was rolled back. Retry is safe.", code: "canonical_registration_failed" })
+  }
+  const approved = await supabase.from("resource_discovery_candidates").update({ review_status: "approved", matched_resource_id: canonicalId, imported_tavily_resource_id: insert.data.id, reviewed_by: req.adminUser.id, reviewed_at: new Date().toISOString(), updated_at: new Date().toISOString(), last_error: null }).eq("id", candidate.id).eq("review_status", "pending").select().single()
+  if (approved.error) return res.status(500).json({ error: "The directory resource was created but final candidate reconciliation failed. Do not retry until an administrator reconciles the returned resource ID.", code: "candidate_reconciliation_failed", resource_id: insert.data.id, canonical_resource_id: canonicalId })
+  return res.json({ outcome: "approved_for_directory", candidate: approved.data, resource: insert.data, canonical_resource_id: canonicalId, ...directoryApprovalState(candidate) })
 })
 
 app.patch("/api/admin/tavily-resources/:id", requireAdmin, async (req, res) => {
