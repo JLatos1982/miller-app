@@ -18,6 +18,14 @@ test("weak same-domain or same-address evidence never automatically merges", () 
   assert.notEqual(addressOnly.classification, "high_confidence")
 })
 
+test("a shared operator website does not merge differently named shelter programs", () => {
+  const result = comparePublicResources(
+    { name: "Men's Shelter", organization: "Example Society", website: "https://example.org", city: "Kamloops" },
+    { name: "Women's Shelter", organization: "Example Society", website: "https://example.org", city: "Kamloops" },
+  )
+  assert.notEqual(result.classification, "high_confidence")
+})
+
 test("matching report proposes evidence but leaves every decision pending", () => {
   const report = proposeMatches([{ id: "curated:1", name: "Clinic", website: "https://example.org/clinic" }], [{ id: 2, name: "Clinic", website: "https://example.org/clinic" }])
   assert.equal(report[0].classification, "high_confidence")

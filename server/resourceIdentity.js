@@ -38,7 +38,7 @@ export function comparePublicResources(left, right) {
     exact_address: Boolean(normalizeIdentityText(left.address) && normalizeIdentityText(left.address) === normalizeIdentityText(right.address)),
   }
   let classification = "likely_distinct"
-  if (evidence.exact_url && (evidence.name_similarity >= 0.35 || evidence.organization_similarity >= 0.5)) classification = "high_confidence"
+  if (evidence.exact_url && evidence.name_similarity >= 0.35) classification = "high_confidence"
   else if ((evidence.exact_phone && evidence.exact_city) || (evidence.same_domain && evidence.name_similarity >= 0.5) || (evidence.exact_address && evidence.name_similarity >= 0.35)) classification = "possible"
   else if (!left.website && !right.website && !left.phone && !right.phone) classification = "insufficient"
   const score = (evidence.exact_url ? 50 : 0) + (evidence.exact_phone ? 25 : 0) + (evidence.exact_city ? 5 : 0) + evidence.name_similarity * 20 + evidence.organization_similarity * 10

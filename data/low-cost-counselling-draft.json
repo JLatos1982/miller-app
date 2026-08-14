@@ -1,0 +1,3451 @@
+{
+  "parser_version": "miller-counselling-docx-v1.0.0",
+  "source_filename": "Low cost counselling list.docx",
+  "source_sha256": "21d378f460d80f99ce671e6966d12e5719c905ee80a4fa9efaf4016503ccf47d",
+  "title": "LOW-COST COMMUNITY COUNSELLING OPTIONS",
+  "slug": "low-cost-community-counselling-options",
+  "introduction": "This list has been compiled to assist patients and families in need of low-cost community counselling options. It is comprised of various resources within the Fraser Health and Vancouver Coastal Health catchment areas, most offering supports to all communities regardless of which city you reside (Please note, there are several exceptions included in this list which only serve their surrounding community, for example those clearly indicating “Vancouver residents only” etc.) Please contact the resource which may benefit you to ensure they are still accepting clients and that you are suitable for their services.",
+  "status": "draft",
+  "sections": [
+    {
+      "title": "GENERAL COUNSELLING",
+      "source_paragraph": 5,
+      "items": [
+        {
+          "local_id": "1-1",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 7,
+          "display_order": 1,
+          "name": "Psychological Services and Counselling Training Centre",
+          "description": "UBC. As part of the Counselling Psychology program, the PSCTC offers counselling sessions to adults and students over the age of 19 from September to April every academic year. The counsellors are UBC Counselling Psychology Master’s and Doctoral students, with an instructor who is onsite supervising the counsellors. Sessions offer support with stress-management (work, home, school stress), anxiety, depression, school, or relationship issues. Counselling sessions are currently offered primarily in-person but with some opportunities for online counselling using Zoom/OWL Practice.",
+          "raw_source_text": "Psychological Services and Counselling Training Centre – UBC. As part of the Counselling Psychology program, the PSCTC offers counselling sessions to adults and students over the age of 19 from September to April every academic year. The counsellors are UBC Counselling Psychology Master’s and Doctoral students, with an instructor who is onsite supervising the counsellors. Sessions offer support with stress-management (work, home, school stress), anxiety, depression, school, or relationship issues. Counselling sessions are currently offered primarily in-person but with some opportunities for online counselling using Zoom/OWL Practice.\nContact: For further information, or to be included on the wait list, please contact the PSCTC by phone 604-822-1364.",
+          "phones": [
+            "604-822-1364"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "time_sensitive",
+              "message": "Contains a date or time-sensitive statement."
+            },
+            {
+              "code": "wait_or_duration",
+              "message": "Contains a wait estimate or program duration."
+            },
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "psychological services and counselling training centre|604-822-1364|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-2",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 10,
+          "display_order": 2,
+          "name": "Oak Counselling",
+          "description": "intakes@oakcounselling.org. Professional Individual and couples counselling on a sliding scale, $20-$100/session, based on household income. Maximum one year. Virtual, or in-person sessions. Waitlist 1-6 months, no crisis counselling.",
+          "raw_source_text": "Oak Counselling - intakes@oakcounselling.org. Professional Individual and couples counselling on a sliding scale, $20-$100/session, based on household income. Maximum one year. Virtual, or in-person sessions. Waitlist 1-6 months, no crisis counselling.\nContact: To book phone intake interview: https://oakcounselling.janeapp.com/locations/oakcounsellingservices-society/book",
+          "phones": [],
+          "emails": [
+            "intakes@oakcounselling.org"
+          ],
+          "websites": [
+            "https://oakcounselling.janeapp.com/locations/oakcounsellingservices-society/book"
+          ],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            },
+            {
+              "code": "wait_or_duration",
+              "message": "Contains a wait estimate or program duration."
+            },
+            {
+              "code": "crisis",
+              "message": "Crisis-related entry requires prominent review and presentation."
+            }
+          ],
+          "normalized_identity": "oak counselling||https://oakcounselling.janeapp.com/locations/oakcounsellingservices-society/book",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-3",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 12,
+          "display_order": 3,
+          "name": "Adler Centre",
+          "description": "Counselling Clinic - Subsidized individual and couples counselling. Counselling provided by supervised counselling psychology graduate students at the Adler Centre. $65-$90 (+sliding scale option) for counselling intern; $125-$140 with registered counsellor.",
+          "raw_source_text": "Adler Centre - Counselling Clinic - Subsidized individual and couples counselling. Counselling provided by supervised counselling psychology graduate students at the Adler Centre. $65-$90 (+sliding scale option) for counselling intern; $125-$140 with registered counsellor.\nContact: 604-742-1818 or info@adlercentre.ca",
+          "phones": [
+            "604-742-1818"
+          ],
+          "emails": [
+            "info@adlercentre.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "adler centre|604-742-1818|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-4",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 14,
+          "display_order": 4,
+          "name": "Moving Forward Family Services",
+          "description": "Subsidized counselling for individuals and families. Counselling primarily offered in Surrey, with limited availability in Metro Vancouver. Graduate-level counsellors and counselling interns. Contact for fees.",
+          "raw_source_text": "Moving Forward Family Services - Subsidized counselling for individuals and families. Counselling primarily offered in Surrey, with limited availability in Metro Vancouver. Graduate-level counsellors and counselling interns. Contact for fees.\nContact: 877-485-5025 https://movingforwardfamilyservices.com",
+          "phones": [
+            "877-485-5025"
+          ],
+          "emails": [],
+          "websites": [
+            "https://movingforwardfamilyservices.com"
+          ],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            }
+          ],
+          "normalized_identity": "moving forward family services|877-485-5025|https://movingforwardfamilyservices.com",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-5",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 16,
+          "display_order": 5,
+          "name": "Fraser River Counselling (Langley, Abbotsford, Aldergrove). There is a $20 charge for counselling services per 50-minute session with an FRC Practicum student (1st-year student) and $40 per session with an Advanced Practicum student (2nd or 3rd-year student). In case of hardship or exceptional circumstances, this fee can be reduced",
+          "description": "",
+          "raw_source_text": "Fraser River Counselling (Langley, Abbotsford, Aldergrove). There is a $20 charge for counselling services per 50-minute session with an FRC Practicum student (1st-year student) and $40 per session with an Advanced Practicum student (2nd or 3rd-year student). In case of hardship or exceptional circumstances, this fee can be reduced.\nContact: 604-513-2113",
+          "phones": [
+            "604-513-2113"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "fraser river counselling (langley, abbotsford, aldergrove). there is a $20 charge for counselling services per 50-minute session with an frc practicum student (1st-year student) and $40 per session with an advanced practicum student (2nd or 3rd-year student). in case of hardship or exceptional circumstances, this fee can be reduced|604-513-2113|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-6",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 20,
+          "display_order": 6,
+          "name": "Kelty’s Key Online Therapy",
+          "description": "Vancouver Coastal Health. Free, self-directed cognitive-behavioural online therapy.",
+          "raw_source_text": "Kelty’s Key Online Therapy - Vancouver Coastal Health. Free, self-directed cognitive-behavioural online therapy.\nContact: 604-675-3700 https://www.keltyskey.com",
+          "phones": [
+            "604-675-3700"
+          ],
+          "emails": [],
+          "websites": [
+            "https://www.keltyskey.com"
+          ],
+          "warnings": [],
+          "normalized_identity": "kelty’s key online therapy|604-675-3700|https://www.keltyskey.com",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-7",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 22,
+          "display_order": 7,
+          "name": "Bounce Back Program",
+          "description": "Canadian Mental Health Association. Telephone coaching for adults and youth (15+) with mild-moderate depression with or without accompanying anxiety. Check for current language availability. Family doctor’s referral required to access the coaching program. Free.",
+          "raw_source_text": "Bounce Back Program - Canadian Mental Health Association. Telephone coaching for adults and youth (15+) with mild-moderate depression with or without accompanying anxiety. Check for current language availability. Family doctor’s referral required to access the coaching program. Free.\nContact: 1-866-639-0522 http://www.cmha.bc.ca/programs-services/bounce-back",
+          "phones": [
+            "1-866-639-0522"
+          ],
+          "emails": [],
+          "websites": [
+            "http://www.cmha.bc.ca/programs-services/bounce-back"
+          ],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "referral",
+              "message": "Contains a referral requirement."
+            }
+          ],
+          "normalized_identity": "bounce back program|1-866-639-0522|http://www.cmha.bc.ca/programs-services/bounce-back",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-8",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 24,
+          "display_order": 8,
+          "name": "Mood Disorders Association of BC",
+          "description": "Counselling and Wellness Centre. Individual therapy with certified counsellor ($95-$105 an hour) or intern ($50 hour). Group therapy also available.",
+          "raw_source_text": "Mood Disorders Association of BC - Counselling and Wellness Centre. Individual therapy with certified counsellor ($95-$105 an hour) or intern ($50 hour). Group therapy also available.\nContact: 604-873-0103 (ext.2) http://www.mdabc.net/counselling-and-wellness-centre-mdabc",
+          "phones": [
+            "604-873-0103"
+          ],
+          "emails": [],
+          "websites": [
+            "http://www.mdabc.net/counselling-and-wellness-centre-mdabc"
+          ],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            }
+          ],
+          "normalized_identity": "mood disorders association of bc|604-873-0103|http://www.mdabc.net/counselling-and-wellness-centre-mdabc",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-9",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 27,
+          "display_order": 9,
+          "name": "SFU Surrey Counselling Centre",
+          "description": "free counselling by supervised SFU graduate students in Counselling Psychology Master’s program. Counselling is available on Tuesday and Wednesday’s evening from 5:00 pm to 8:00 pm. (open from September to April - client’s substance use needs to be stabilized). The SFU SCC Clinic will be reopening with clinical services in August / September of 2024.",
+          "raw_source_text": "SFU Surrey Counselling Centre - free counselling by supervised SFU graduate students in Counselling Psychology Master’s program. Counselling is available on Tuesday and Wednesday’s evening from 5:00 pm to 8:00 pm. (open from September to April - client’s substance use needs to be stabilized). The SFU SCC Clinic will be reopening with clinical services in August / September of 2024.\nContact: 604-587-7320",
+          "phones": [
+            "604-587-7320"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "time_sensitive",
+              "message": "Contains a date or time-sensitive statement."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "sfu surrey counselling centre|604-587-7320|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-10",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 30,
+          "display_order": 10,
+          "name": "Burnaby Clinical Psychology Centre",
+          "description": "Counselling for adults, children and youth provided by supervised graduate students. Limited assessments available per year (psychoeducational, psychodiagnostic and neuropsychological). Counselling services on a sliding scale, based on gross family income.",
+          "raw_source_text": "Burnaby Clinical Psychology Centre - Counselling for adults, children and youth provided by supervised graduate students. Limited assessments available per year (psychoeducational, psychodiagnostic and neuropsychological). Counselling services on a sliding scale, based on gross family income.\nContact: 778-782-4720 https://www.sfu.ca/psychology/clinical-psychology-centre.html",
+          "phones": [
+            "778-782-4720"
+          ],
+          "emails": [],
+          "websites": [
+            "https://www.sfu.ca/psychology/clinical-psychology-centre.html"
+          ],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            },
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            }
+          ],
+          "normalized_identity": "burnaby clinical psychology centre|778-782-4720|https://www.sfu.ca/psychology/clinical-psychology-centre.html",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-11",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 32,
+          "display_order": 11,
+          "name": "Employee Assistance Program",
+          "description": "If you have extended health through your employer, check with HR or your insurance plan to see whether your employer has paid for counselling benefits. Sometimes this is a separate, contracted service (Employee Assistance Program), other times you are covered for a particular counselling professional such as a Registered Social Worker (RSW or RCSW), Registered Clinical Counsellor (RCC) or a Registered Psychologist (R.Psych), whom you would hire privately.",
+          "raw_source_text": "Employee Assistance Program - If you have extended health through your employer, check with HR or your insurance plan to see whether your employer has paid for counselling benefits. Sometimes this is a separate, contracted service (Employee Assistance Program), other times you are covered for a particular counselling professional such as a Registered Social Worker (RSW or RCSW), Registered Clinical Counsellor (RCC) or a Registered Psychologist (R.Psych), whom you would hire privately.",
+          "phones": [],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "employee assistance program||",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-12",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 34,
+          "display_order": 12,
+          "name": "BC Association of Clinical Counsellors",
+          "description": "(if client can afford private counselling this is an option to find a counsellor in their geographical area who addresses their specific issues)",
+          "raw_source_text": "BC Association of Clinical Counsellors - (if client can afford private counselling this is an option to find a counsellor in their geographical area who addresses their specific issues)\nContact: 1-800-909-6303 or bc-counsellors.org",
+          "phones": [
+            "1-800-909-6303"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "residency",
+              "message": "Contains a geographic or residency restriction."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "bc association of clinical counsellors|1-800-909-6303|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-13",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 37,
+          "display_order": 13,
+          "name": "Canadian Mental Health Association, North and West Vancouver",
+          "description": "Offering short-term, low-cost, confidential, one-to-one support to adults living on the North Shore.",
+          "raw_source_text": "Canadian Mental Health Association, North and West Vancouver - Offering short-term, low-cost, confidential, one-to-one support to adults living on the North Shore.\nContact: 604-987-6959 or info@cmhanorthshore.ca.2030 Marine",
+          "phones": [
+            "604-987-6959"
+          ],
+          "emails": [
+            "info@cmhanorthshore.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "time_sensitive",
+              "message": "Contains a date or time-sensitive statement."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "canadian mental health association, north and west vancouver|604-987-6959|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-14",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 39,
+          "display_order": 14,
+          "name": "er, BC V7P",
+          "description": "Family Services of the North Shore - Offering counselling support for North Shore residents on a sliding scale.",
+          "raw_source_text": "er, BC V7P\nFamily Services of the North Shore - Offering counselling support for North Shore residents on a sliding scale.\nContact: 604-988-5281, ext. 226.",
+          "phones": [
+            "604-988-5281"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            },
+            {
+              "code": "crisis",
+              "message": "Crisis-related entry requires prominent review and presentation."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "er, bc v7p|604-988-5281|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-15",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 43,
+          "display_order": 15,
+          "name": "Archway Community Services",
+          "description": "Offers various mental health supports for community members In Abbotsford, Mission, Chilliwack, and Langley. Residents can access up to 10 free sessions of counselling with a staff counsellor. This service is available for clients who have been impacted by anxiety, depression, stress, anger, relationship issues or difficulty coping.",
+          "raw_source_text": "Archway Community Services - Offers various mental health supports for community members In Abbotsford, Mission, Chilliwack, and Langley. Residents can access up to 10 free sessions of counselling with a staff counsellor. This service is available for clients who have been impacted by anxiety, depression, stress, anger, relationship issues or difficulty coping.\nContact: Montrose@archway.ca",
+          "phones": [],
+          "emails": [
+            "Montrose@archway.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "session_limit",
+              "message": "Contains a session limit."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "archway community services||",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-16",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 45,
+          "display_order": 16,
+          "name": "Deltassist Family and Community Services",
+          "description": "Counselling Team is now offering up to six (6) free phone or online counselling sessions, for individuals, families and/or couples who live in Delta.",
+          "raw_source_text": "Deltassist Family and Community Services - Counselling Team is now offering up to six (6) free phone or online counselling sessions, for individuals, families and/or couples who live in Delta.\nContact: North Delta call (604) 594-3455. Ladner & Tsawwassen call (604) 946-9526.",
+          "phones": [
+            "(604) 594-3455",
+            "(604) 946-9526"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "time_sensitive",
+              "message": "Contains a date or time-sensitive statement."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "deltassist family and community services|(604) 594-3455|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-17",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 48,
+          "display_order": 17,
+          "name": "SHARE Family and Community Services “Talking Helps” is a fee-for-service counselling program available to residents of the Tri-Cities area and beyond. Tri-Cities residents, including Anmore and Belcarra, with a child or youth (0-18) in the home may be eligible for a reduced fee based on a sliding scale which will be determined at Intake",
+          "description": "",
+          "raw_source_text": "SHARE Family and Community Services “Talking Helps” is a fee-for-service counselling program available to residents of the Tri-Cities area and beyond. Tri-Cities residents, including Anmore and Belcarra, with a child or youth (0-18) in the home may be eligible for a reduced fee based on a sliding scale which will be determined at Intake.\nContact: Supervisor Bridgette Ebing, at 604.540.9161 ext. 206 or bridgette.ebing@sharesociety.ca. 2615 Clarke Street, Port Moody.",
+          "phones": [
+            "604.540.9161 ext. 206"
+          ],
+          "emails": [
+            "bridgette.ebing@sharesociety.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            },
+            {
+              "code": "residency",
+              "message": "Contains a geographic or residency restriction."
+            },
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "share family and community services “talking helps” is a fee-for-service counselling program available to residents of the tri-cities area and beyond. tri-cities residents, including anmore and belcarra, with a child or youth (0-18) in the home may be eligible for a reduced fee based on a sliding scale which will be determined at intake|604.540.9161 ext. 206|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-18",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 51,
+          "display_order": 18,
+          "name": "Jewish Family Services",
+          "description": "Offers counselling/therapy services on a sliding scale for the Jewish and broader community. The Counselling & Therapy program is fee-based, from $30-100.00 per session, based upon income. We provide up to 16 sessions with a Registered Clinical Counsellor or a Registered Professional Counsellor. In some cases, insurance may cover some or all the expense.",
+          "raw_source_text": "Jewish Family Services - Offers counselling/therapy services on a sliding scale for the Jewish and broader community. The Counselling & Therapy program is fee-based, from $30-100.00 per session, based upon income. We provide up to 16 sessions with a Registered Clinical Counsellor or a Registered Professional Counsellor. In some cases, insurance may cover some or all the expense.\nContact: 604-558-5719 or communitycare@jfsvancouver.ca.",
+          "phones": [
+            "604-558-5719"
+          ],
+          "emails": [
+            "communitycare@jfsvancouver.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            },
+            {
+              "code": "session_limit",
+              "message": "Contains a session limit."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "jewish family services|604-558-5719|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-19",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 54,
+          "display_order": 19,
+          "name": "Sources Counselling Services",
+          "description": "A fee-based counselling program located in White Rock (subsidy available if eligible). Individual, couples, family, and group counselling.",
+          "raw_source_text": "Sources Counselling Services - A fee-based counselling program located in White Rock (subsidy available if eligible). Individual, couples, family, and group counselling.\nContact: 604-538-2522 Email: counsellingservices@sourcesbc.ca.",
+          "phones": [
+            "604-538-2522"
+          ],
+          "emails": [
+            "counsellingservices@sourcesbc.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "sources counselling services|604-538-2522|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-20",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 57,
+          "display_order": 20,
+          "name": "SAFER",
+          "description": "**Vancouver Residents - Counselling for people in suicide crisis, History of attempt, or survivors of a suicide death.",
+          "raw_source_text": "SAFER - **Vancouver Residents - Counselling for people in suicide crisis, History of attempt, or survivors of a suicide death.\nContact: 604-875-4794 (M-F 8:30-4:30)",
+          "phones": [
+            "604-875-4794"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "crisis",
+              "message": "Crisis-related entry requires prominent review and presentation."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "safer|604-875-4794|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-21",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 59,
+          "display_order": 21,
+          "name": "Well Beings Counselling",
+          "description": "Low-cost, low-barrier counselling. Standard $50 session rates for individuals working with an intern therapist for 50-minutes.",
+          "raw_source_text": "Well Beings Counselling - Low-cost, low-barrier counselling. Standard $50 session rates for individuals working with an intern therapist for 50-minutes.\nContact: 604-265-8596 Email: https://wellbeingscounselling.ca/low-cost-counselling/",
+          "phones": [
+            "604-265-8596"
+          ],
+          "emails": [],
+          "websites": [
+            "https://wellbeingscounselling.ca/low-cost-counselling/"
+          ],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            },
+            {
+              "code": "mislabeled_contact",
+              "message": "An Email label appears to contain a website."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "well beings counselling|604-265-8596|https://wellbeingscounselling.ca/low-cost-counselling/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-22",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 61,
+          "display_order": 22,
+          "name": "Wellness North",
+          "description": "Located at 2850 Shaughnessy St in Port Coquitlam, they utilize a trauma-informed lens to treat PTSD, anxiety, and emotional overwhelm. They provide low-cost therapy through clinical interns, alongside dedicated sliding-scale spots",
+          "raw_source_text": "Wellness North: Located at 2850 Shaughnessy St in Port Coquitlam, they utilize a trauma-informed lens to treat PTSD, anxiety, and emotional overwhelm. They provide low-cost therapy through clinical interns, alongside dedicated sliding-scale spots\nContact: (604) 317-9267 or (604)-200-4247 Email: info@wellnessnorth.ca",
+          "phones": [
+            "(604) 317-9267",
+            "(604)-200-4247"
+          ],
+          "emails": [
+            "info@wellnessnorth.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "wellness north|(604) 317-9267|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-23",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 63,
+          "display_order": 23,
+          "name": "Lotus Therapy & Counselling Centre",
+          "description": "Located at 3030 Lincoln Ave in Coquitlam, they focus heavily on nervous system regulation and somatic trauma techniques. They keep explicit low-cost therapy openings specifically to keep quality care financially accessible",
+          "raw_source_text": "Lotus Therapy & Counselling Centre: Located at 3030 Lincoln Ave in Coquitlam, they focus heavily on nervous system regulation and somatic trauma techniques. They keep explicit low-cost therapy openings specifically to keep quality care financially accessible\nContact: 778-325-6505 Email: info@lotustherapy.ca",
+          "phones": [
+            "778-325-6505"
+          ],
+          "emails": [
+            "info@lotustherapy.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "lotus therapy & counselling centre|778-325-6505|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-24",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 66,
+          "display_order": 24,
+          "name": "Kristen Holbrook Counselling",
+          "description": "Located near Lincoln SkyTrain station at 3041 Anson Ave, they feature specialized adult clinicians trained in EMDR, CBT, and trauma care. Selected therapists provide individual sliding-scale rates upon direct request",
+          "raw_source_text": "Kristen Holbrook Counselling: Located near Lincoln SkyTrain station at 3041 Anson Ave, they feature specialized adult clinicians trained in EMDR, CBT, and trauma care. Selected therapists provide individual sliding-scale rates upon direct request\nContact: (604) 817-3794 Email: counselling@kristenholbrook.com",
+          "phones": [
+            "(604) 817-3794"
+          ],
+          "emails": [
+            "counselling@kristenholbrook.com"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "kristen holbrook counselling|(604) 817-3794|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-25",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 68,
+          "display_order": 25,
+          "name": "Good Talk Therapy",
+          "description": "Located at 1140 Austin Ave in Coquitlam, they specialize in relational, trauma-informed therapy. They provide alternative sliding-scale options for adults who do not possess third-party extended health coverage",
+          "raw_source_text": "Good Talk Therapy: Located at 1140 Austin Ave in Coquitlam, they specialize in relational, trauma-informed therapy. They provide alternative sliding-scale options for adults who do not possess third-party extended health coverage\nContact: 604.716.0631 Email: goodtalkhelps@gmail.com",
+          "phones": [
+            "604.716.0631"
+          ],
+          "emails": [
+            "goodtalkhelps@gmail.com"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "good talk therapy|604.716.0631|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "1-26",
+          "section_title": "GENERAL COUNSELLING",
+          "source_paragraph_start": 70,
+          "display_order": 26,
+          "name": "Aster Wellness (Port Coquitlam)",
+          "description": "Located right in the Tri-Cities, this clinic provides reduced-rate individual counselling sessions with student therapists and interns.",
+          "raw_source_text": "Aster Wellness (Port Coquitlam): Located right in the Tri-Cities, this clinic provides reduced-rate individual counselling sessions with student therapists and interns.\nContact: (604) 474-2790 Email: info@asterwellness.ca",
+          "phones": [
+            "(604) 474-2790"
+          ],
+          "emails": [
+            "info@asterwellness.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            },
+            {
+              "code": "residency",
+              "message": "Contains a geographic or residency restriction."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "aster wellness (port coquitlam)|(604) 474-2790|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        }
+      ],
+      "display_order": 1
+    },
+    {
+      "title": "CHILDREN, YOUTH AND FAMILIES",
+      "source_paragraph": 72,
+      "items": [
+        {
+          "local_id": "2-1",
+          "section_title": "CHILDREN, YOUTH AND FAMILIES",
+          "source_paragraph_start": 74,
+          "display_order": 1,
+          "name": "Cameray Child and Family Services",
+          "description": "Serving residents of New Westminster and Burnaby. Provides counselling up to 12 sessions for children or youth under 19 with a range of family issues. Referrals may come from any source.",
+          "raw_source_text": "Cameray Child and Family Services - Serving residents of New Westminster and Burnaby. Provides counselling up to 12 sessions for children or youth under 19 with a range of family issues. Referrals may come from any source.\nContact: New West: 604-520-0009. Burnaby: 604-436-9449 www.cameray.ca.",
+          "phones": [
+            "604-520-0009",
+            "604-436-9449"
+          ],
+          "emails": [],
+          "websites": [
+            "www.cameray.ca"
+          ],
+          "warnings": [
+            {
+              "code": "residency",
+              "message": "Contains a geographic or residency restriction."
+            },
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "session_limit",
+              "message": "Contains a session limit."
+            },
+            {
+              "code": "referral",
+              "message": "Contains a referral requirement."
+            }
+          ],
+          "normalized_identity": "cameray child and family services|604-520-0009|www.cameray.ca",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "2-2",
+          "section_title": "CHILDREN, YOUTH AND FAMILIES",
+          "source_paragraph_start": 77,
+          "display_order": 2,
+          "name": "SHARE Family and Community Services",
+          "description": "“Talking Helps” is a fee-for-service counselling program available to residents of the Tri-Cities area and beyond. Tri-Cities residents, including Anmore and Belcarra, with a child or youth (0-18) in the home may be eligible for a reduced fee based on a sliding scale which will be determined at Intake.",
+          "raw_source_text": "SHARE Family and Community Services - “Talking Helps” is a fee-for-service counselling program available to residents of the Tri-Cities area and beyond. Tri-Cities residents, including Anmore and Belcarra, with a child or youth (0-18) in the home may be eligible for a reduced fee based on a sliding scale which will be determined at Intake.\nContact: Supervisor Bridgette Ebing, at 604.540.9161 ext. 206 or bridgette.ebing@sharesociety.ca. 2615 Clarke Street, Port Moody.",
+          "phones": [
+            "604.540.9161 ext. 206"
+          ],
+          "emails": [
+            "bridgette.ebing@sharesociety.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            },
+            {
+              "code": "residency",
+              "message": "Contains a geographic or residency restriction."
+            },
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "share family and community services|604.540.9161 ext. 206|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "2-3",
+          "section_title": "CHILDREN, YOUTH AND FAMILIES",
+          "source_paragraph_start": 80,
+          "display_order": 3,
+          "name": "Wellness Aligned Youth Services (W.A.Y.S) Program",
+          "description": "- This is a free, confidential counselling service for youth aged 12-24 who would like to address concerns about mental health and substance use (their own or a friend/family member’s substance use).",
+          "raw_source_text": "Wellness Aligned Youth Services (W.A.Y.S) Program: - This is a free, confidential counselling service for youth aged 12-24 who would like to address concerns about mental health and substance use (their own or a friend/family member’s substance use).\nContact: 604-540-9161 ext. 230 Email: Intake@sharesociety.ca",
+          "phones": [
+            "604-540-9161 ext. 230"
+          ],
+          "emails": [
+            "Intake@sharesociety.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "wellness aligned youth services (w.a.y.s) program|604-540-9161 ext. 230|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "2-4",
+          "section_title": "CHILDREN, YOUTH AND FAMILIES",
+          "source_paragraph_start": 83,
+          "display_order": 4,
+          "name": "Community Services",
+          "description": "Maple Ridge Child & Youth Mental Health Outreach Program aims to instill hope and maximize the potential of children and youth living with mental health challenges by focusing on the strengths of the individual and their family/caregivers.",
+          "raw_source_text": "Community Services – Maple Ridge Child & Youth Mental Health Outreach Program aims to instill hope and maximize the potential of children and youth living with mental health challenges by focusing on the strengths of the individual and their family/caregivers.\nContact: Monica Evans, Child and Youth Mental Health Outreach 604-314-2778 mevans@comservice.bc.ca",
+          "phones": [
+            "604-314-2778"
+          ],
+          "emails": [
+            "mevans@comservice.bc.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "community services|604-314-2778|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "2-5",
+          "section_title": "CHILDREN, YOUTH AND FAMILIES",
+          "source_paragraph_start": 86,
+          "display_order": 5,
+          "name": "Foundry",
+          "description": "Province-wide network of integrated health and wellness services for young people ages 12-24. Our integrated services make it possible for young people to access five core services in one convenient location: mental health care, substance use services, physical and sexual health care, youth and family peer supports, and social services.",
+          "raw_source_text": "Foundry - Province-wide network of integrated health and wellness services for young people ages 12-24. Our integrated services make it possible for young people to access five core services in one convenient location: mental health care, substance use services, physical and sexual health care, youth and family peer supports, and social services.\nContact: online@foundrybc.ca or call 1.833.308.6379.",
+          "phones": [
+            "1.833.308.6379"
+          ],
+          "emails": [
+            "online@foundrybc.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "foundry|1.833.308.6379|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "2-6",
+          "section_title": "CHILDREN, YOUTH AND FAMILIES",
+          "source_paragraph_start": 89,
+          "display_order": 6,
+          "name": "START",
+          "description": "(Short Term, Assessment, Response, Treatment) Youth and families can directly access services by contacting the START Team - providing assessment and intervention services for 6 -18 year olds experiencing a mental health crisis in Fraser Health.",
+          "raw_source_text": "START - (Short Term, Assessment, Response, Treatment) Youth and families can directly access services by contacting the START Team - providing assessment and intervention services for 6 -18 year olds experiencing a mental health crisis in Fraser Health.\nContact: 1-844-782-7811",
+          "phones": [
+            "1-844-782-7811"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "crisis",
+              "message": "Crisis-related entry requires prominent review and presentation."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "start|1-844-782-7811|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "2-7",
+          "section_title": "CHILDREN, YOUTH AND FAMILIES",
+          "source_paragraph_start": 92,
+          "display_order": 7,
+          "name": "Options (Surrey)",
+          "description": "For families with children (ages 18 and under) living in Surrey who are looking for free, short-term counselling and support.",
+          "raw_source_text": "Options (Surrey) - For families with children (ages 18 and under) living in Surrey who are looking for free, short-term counselling and support.\nContact: 604.584.5811 at ext. 11301 www.options.bc.ca/program/family-counselling.",
+          "phones": [
+            "604.584.5811"
+          ],
+          "emails": [],
+          "websites": [
+            "www.options.bc.ca/program/family-counselling"
+          ],
+          "warnings": [
+            {
+              "code": "residency",
+              "message": "Contains a geographic or residency restriction."
+            },
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            }
+          ],
+          "normalized_identity": "options (surrey)|604.584.5811|www.options.bc.ca/program/family-counselling",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "2-8",
+          "section_title": "CHILDREN, YOUTH AND FAMILIES",
+          "source_paragraph_start": 94,
+          "display_order": 8,
+          "name": "Youth Urban Native Youth Association (UNYA)",
+          "description": "Counselling Program. Free individual and group clinical counselling for Indigenous youth, ages 13-24.",
+          "raw_source_text": "Youth Urban Native Youth Association (UNYA) - Counselling Program. Free individual and group clinical counselling for Indigenous youth, ages 13-24.\nContact: Wellness Centre for drop-in counselling hours: https://unya.bc.ca/programs/native-youthhealth-wellness-centre/ 604-253-5885 or link.counsellor@unya.bc.ca (intake counsellor works on Mondays).",
+          "phones": [
+            "604-253-5885"
+          ],
+          "emails": [
+            "link.counsellor@unya.bc.ca"
+          ],
+          "websites": [
+            "https://unya.bc.ca/programs/native-youthhealth-wellness-centre/"
+          ],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            }
+          ],
+          "normalized_identity": "youth urban native youth association (unya)|604-253-5885|https://unya.bc.ca/programs/native-youthhealth-wellness-centre/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "2-9",
+          "section_title": "CHILDREN, YOUTH AND FAMILIES",
+          "source_paragraph_start": 97,
+          "display_order": 9,
+          "name": "Dan’s Legacy",
+          "description": "Therapeutic Counselling Program for youth ages 15-25 who have experienced abuse or are affected by substance use. Family counselling also available. Bursaries available for those unable to afford therapy.",
+          "raw_source_text": "Dan’s Legacy - Therapeutic Counselling Program for youth ages 15-25 who have experienced abuse or are affected by substance use. Family counselling also available. Bursaries available for those unable to afford therapy.\nContact: tom@danslegacy.com https://www.danslegacy.com/help/",
+          "phones": [],
+          "emails": [
+            "tom@danslegacy.com"
+          ],
+          "websites": [
+            "https://www.danslegacy.com/help/"
+          ],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            }
+          ],
+          "normalized_identity": "dan’s legacy||https://www.danslegacy.com/help/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "2-10",
+          "section_title": "CHILDREN, YOUTH AND FAMILIES",
+          "source_paragraph_start": 100,
+          "display_order": 10,
+          "name": "PEACE Trauma Counselling",
+          "description": "Family Services of Greater Vancouver. Trauma counselling and therapy for children (age 3-18) affected by family violence. Master’s counsellors and supervised interns. Free.",
+          "raw_source_text": "PEACE Trauma Counselling - Family Services of Greater Vancouver. Trauma counselling and therapy for children (age 3-18) affected by family violence. Master’s counsellors and supervised interns. Free.\nContact: 604-731-4951 https://fsgv.ca/programs/traumacounselling/",
+          "phones": [
+            "604-731-4951"
+          ],
+          "emails": [],
+          "websites": [
+            "https://fsgv.ca/programs/traumacounselling/"
+          ],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            }
+          ],
+          "normalized_identity": "peace trauma counselling|604-731-4951|https://fsgv.ca/programs/traumacounselling/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "2-11",
+          "section_title": "CHILDREN, YOUTH AND FAMILIES",
+          "source_paragraph_start": 103,
+          "display_order": 11,
+          "name": "Chimo Community Services",
+          "description": "- Counselling services aid children, youth, women and adults to overcome a number of challenges- including abuse, sexual assault, grief and gender-based violence.",
+          "raw_source_text": "Chimo Community Services: - Counselling services aid children, youth, women and adults to overcome a number of challenges- including abuse, sexual assault, grief and gender-based violence.\nContact: 604-279-7077 (9-4:30pm) Email: chimo@chimoservices.com",
+          "phones": [
+            "604-279-7077"
+          ],
+          "emails": [
+            "chimo@chimoservices.com"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "chimo community services|604-279-7077|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "2-12",
+          "section_title": "CHILDREN, YOUTH AND FAMILIES",
+          "source_paragraph_start": 106,
+          "display_order": 12,
+          "name": "SAIP",
+          "description": "Family Services of Greater Vancouver. Professional counselling for children and youth (up to age 19) who have experienced sexual abuse and their supportive family members.",
+          "raw_source_text": "SAIP - Family Services of Greater Vancouver. Professional counselling for children and youth (up to age 19) who have experienced sexual abuse and their supportive family members.\nContact: 604-731-4951 https://fsgv.ca/programs/traumacounselling/",
+          "phones": [
+            "604-731-4951"
+          ],
+          "emails": [],
+          "websites": [
+            "https://fsgv.ca/programs/traumacounselling/"
+          ],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            }
+          ],
+          "normalized_identity": "saip|604-731-4951|https://fsgv.ca/programs/traumacounselling/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "2-13",
+          "section_title": "CHILDREN, YOUTH AND FAMILIES",
+          "source_paragraph_start": 109,
+          "display_order": 13,
+          "name": "DiscoverY- Free short-term counselling for youth and young adults ages 15-25. 8 session max",
+          "description": "",
+          "raw_source_text": "DiscoverY- Free short-term counselling for youth and young adults ages 15-25. 8 session max.\nContact: 604-538-2522 (Surrey) or discoverY@sources.bc.ca",
+          "phones": [
+            "604-538-2522"
+          ],
+          "emails": [
+            "discoverY@sources.bc.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "session_limit",
+              "message": "Contains a session limit."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "discovery- free short-term counselling for youth and young adults ages 15-25. 8 session max|604-538-2522|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "2-14",
+          "section_title": "CHILDREN, YOUTH AND FAMILIES",
+          "source_paragraph_start": 113,
+          "display_order": 14,
+          "name": "Kids Help Phone",
+          "description": "24/7 - In English or French 1-800-668-6868 - to talk to a professional counsellor - see webpage for current languages https://kidshelpphone.ca/ (to start live chat) or access online resources text CONNECT to 686868 for crisis text support - https://kidshelpphone.ca/text/ Phone, text or live chat. Anonymous and confidential. No need to give your name.",
+          "raw_source_text": "Kids Help Phone - 24/7 - In English or French 1-800-668-6868 - to talk to a professional counsellor - see webpage for current languages https://kidshelpphone.ca/ (to start live chat) or access online resources text CONNECT to 686868 for crisis text support - https://kidshelpphone.ca/text/ Phone, text or live chat. Anonymous and confidential. No need to give your name.",
+          "phones": [
+            "1-800-668-6868"
+          ],
+          "emails": [],
+          "websites": [
+            "https://kidshelpphone.ca/",
+            "https://kidshelpphone.ca/text/"
+          ],
+          "warnings": [
+            {
+              "code": "crisis",
+              "message": "Crisis-related entry requires prominent review and presentation."
+            }
+          ],
+          "normalized_identity": "kids help phone|1-800-668-6868|https://kidshelpphone.ca/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "2-15",
+          "section_title": "CHILDREN, YOUTH AND FAMILIES",
+          "source_paragraph_start": 115,
+          "display_order": 15,
+          "name": "Boys and Girls Clubs",
+          "description": "Substance Use Counselling Services. Free counselling for youth ages 13-24, concerned about their substance use or a loved one’s substance use. Family members or service providers concerned about a youth’s substance use can also access counselling.",
+          "raw_source_text": "Boys and Girls Clubs - Substance Use Counselling Services. Free counselling for youth ages 13-24, concerned about their substance use or a loved one’s substance use. Family members or service providers concerned about a youth’s substance use can also access counselling.\nContact: 604-879-6554 https://www.bgcbc.ca/counselling-support-services/substance-abuse-counselling-services/",
+          "phones": [
+            "604-879-6554"
+          ],
+          "emails": [],
+          "websites": [
+            "https://www.bgcbc.ca/counselling-support-services/substance-abuse-counselling-services/"
+          ],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            }
+          ],
+          "normalized_identity": "boys and girls clubs|604-879-6554|https://www.bgcbc.ca/counselling-support-services/substance-abuse-counselling-services/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        }
+      ],
+      "display_order": 2
+    },
+    {
+      "title": "OLDER ADULT COUNSELLING SERVICES",
+      "source_paragraph": 118,
+      "items": [
+        {
+          "local_id": "3-1",
+          "section_title": "OLDER ADULT COUNSELLING SERVICES",
+          "source_paragraph_start": 119,
+          "display_order": 1,
+          "name": "Family Services of Greater Vancouver",
+          "description": "Vital Connections subsidized counselling.",
+          "raw_source_text": "Family Services of Greater Vancouver - Vital Connections subsidized counselling.",
+          "phones": [],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "family services of greater vancouver||",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "3-2",
+          "section_title": "OLDER ADULT COUNSELLING SERVICES",
+          "source_paragraph_start": 120,
+          "display_order": 2,
+          "name": "Family Services of Greater Vancouver, in partnership with Century House, provides free confidential counselling for all people 50+ in the New Westminster area. Vital Connections offers accessible counselling services to seniors and their family members with a counsellor in place for the program on Thursdays",
+          "description": "",
+          "raw_source_text": "Family Services of Greater Vancouver, in partnership with Century House, provides free confidential counselling for all people 50+ in the New Westminster area. Vital Connections offers accessible counselling services to seniors and their family members with a counsellor in place for the program on Thursdays.\nContact: New referrals leave your name and contact number for Jaynie Miller on the Vital Connections voicemail (604-519-1064 ext. 2).",
+          "phones": [
+            "(604-519-1064 ext. 2"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "referral",
+              "message": "Contains a referral requirement."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "family services of greater vancouver, in partnership with century house, provides free confidential counselling for all people 50+ in the new westminster area. vital connections offers accessible counselling services to seniors and their family members with a counsellor in place for the program on thursdays|(604-519-1064 ext. 2|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        }
+      ],
+      "display_order": 3
+    },
+    {
+      "title": "INDIGENOUS SERVICES",
+      "source_paragraph": 123,
+      "items": [
+        {
+          "local_id": "4-1",
+          "section_title": "INDIGENOUS SERVICES",
+          "source_paragraph_start": 124,
+          "display_order": 1,
+          "name": "Metro Vancouver Indigenous Counselling. Free professional counselling for Indigenous individuals with First Nations status who are registered with the First Nations Health Authority",
+          "description": "",
+          "raw_source_text": "Metro Vancouver Indigenous Counselling. Free professional counselling for Indigenous individuals with First Nations status who are registered with the First Nations Health Authority.\nContact: 604-256-5850 Email: info@mvic.ca",
+          "phones": [
+            "604-256-5850"
+          ],
+          "emails": [
+            "info@mvic.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "metro vancouver indigenous counselling. free professional counselling for indigenous individuals with first nations status who are registered with the first nations health authority|604-256-5850|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "4-2",
+          "section_title": "INDIGENOUS SERVICES",
+          "source_paragraph_start": 126,
+          "display_order": 2,
+          "name": "First Nations Health Authority",
+          "description": "Provides coverage to access mental health providers, including counsellors, social workers, and psychologists. FNHB covers three mental health programs: Short-Term Crisis Intervention, Indian Residential School Resolution Health Support Program, and the Missing and Murdered Indigenous Women and Girls - Health Support Services.",
+          "raw_source_text": "First Nations Health Authority - Provides coverage to access mental health providers, including counsellors, social workers, and psychologists. FNHB covers three mental health programs: Short-Term Crisis Intervention, Indian Residential School Resolution Health Support Program, and the Missing and Murdered Indigenous Women and Girls - Health Support Services.\nMental Health Provider List: FNHA-First-Nations-Health-Benefits-Mental-Health-Provider-List.pdf\nContact: 1-800-317-7878 (Toll Free) http://www.fnha.ca/benefits/mental-health",
+          "phones": [
+            "1-800-317-7878"
+          ],
+          "emails": [],
+          "websites": [
+            "http://www.fnha.ca/benefits/mental-health"
+          ],
+          "warnings": [
+            {
+              "code": "crisis",
+              "message": "Crisis-related entry requires prominent review and presentation."
+            }
+          ],
+          "normalized_identity": "first nations health authority|1-800-317-7878|http://www.fnha.ca/benefits/mental-health",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "4-3",
+          "section_title": "INDIGENOUS SERVICES",
+          "source_paragraph_start": 130,
+          "display_order": 3,
+          "name": "Vancouver Aboriginal Friendship Centre",
+          "description": "Counselling and Emotional Support Programs for ages 14+. In-person and virtual pay-what-you-can professional counselling for Indigenous people without insurance (up to 12 sessions) and free, unlimited emotional support services to anyone who is seeking support.",
+          "raw_source_text": "Vancouver Aboriginal Friendship Centre - Counselling and Emotional Support Programs for ages 14+. In-person and virtual pay-what-you-can professional counselling for Indigenous people without insurance (up to 12 sessions) and free, unlimited emotional support services to anyone who is seeking support.\nContact: - Naomi Little Mustache at 604-251-4844 Ext. 332 or email Wellness@vafcs.org",
+          "phones": [
+            "604-251-4844 Ext. 332"
+          ],
+          "emails": [
+            "Wellness@vafcs.org"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "session_limit",
+              "message": "Contains a session limit."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "vancouver aboriginal friendship centre|604-251-4844 ext. 332|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        }
+      ],
+      "display_order": 4
+    },
+    {
+      "title": "MULTILINGUAL",
+      "source_paragraph": 134,
+      "items": [
+        {
+          "local_id": "5-1",
+          "section_title": "MULTILINGUAL",
+          "source_paragraph_start": 135,
+          "display_order": 1,
+          "name": "SUCCESS",
+          "description": "Individual and family counselling offered in Mandarin, Cantonese, Korean, Farsi and English with a focus on helping new immigrants of Chinese and other ethnic origins. Play and art therapy also available. Fees charged on a sliding scale based on income.",
+          "raw_source_text": "SUCCESS - Individual and family counselling offered in Mandarin, Cantonese, Korean, Farsi and English with a focus on helping new immigrants of Chinese and other ethnic origins. Play and art therapy also available. Fees charged on a sliding scale based on income.\nContact: #2058 - 1163 Pinetree Way Coquitlam, BC 604-468-6000\nhttps://successbc.ca/counselling-crisis-support/services/counselling/",
+          "phones": [
+            "604-468-6000"
+          ],
+          "emails": [],
+          "websites": [
+            "https://successbc.ca/counselling-crisis-support/services/counselling/"
+          ],
+          "warnings": [
+            {
+              "code": "time_sensitive",
+              "message": "Contains a date or time-sensitive statement."
+            },
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            },
+            {
+              "code": "crisis",
+              "message": "Crisis-related entry requires prominent review and presentation."
+            }
+          ],
+          "normalized_identity": "success|604-468-6000|https://successbc.ca/counselling-crisis-support/services/counselling/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "5-2",
+          "section_title": "MULTILINGUAL",
+          "source_paragraph_start": 138,
+          "display_order": 2,
+          "name": "SHARE Farsi-Speaking Counselling",
+          "description": "SHARE Farsi-Speaking Counselling is a short-term counselling service available to residents of the Tri-Cities, including Anmore and Belcarra who would like counselling services delivered by a Farsi speaking counsellor. This program is open to individuals of all ages as well as couples and families dealing with the challenges of daily life including relationship conflict and stress; trauma; anxiety; depression; loss and grief; along with other mental wellness concerns. Please note that for minors, parental consent is required, and in cases of shared decision making, both parents will need to consent to counselling for children under the age of 12.",
+          "raw_source_text": "SHARE Farsi-Speaking Counselling - SHARE Farsi-Speaking Counselling is a short-term counselling service available to residents of the Tri-Cities, including Anmore and Belcarra who would like counselling services delivered by a Farsi speaking counsellor. This program is open to individuals of all ages as well as couples and families dealing with the challenges of daily life including relationship conflict and stress; trauma; anxiety; depression; loss and grief; along with other mental wellness concerns. Please note that for minors, parental consent is required, and in cases of shared decision making, both parents will need to consent to counselling for children under the age of 12.\nContact: 604.540.9161 ext: 230 Email: Intake@sharesociety.ca",
+          "phones": [
+            "604.540.9161"
+          ],
+          "emails": [
+            "Intake@sharesociety.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "residency",
+              "message": "Contains a geographic or residency restriction."
+            },
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "referral",
+              "message": "Contains a referral requirement."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "share farsi-speaking counselling|604.540.9161|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "5-3",
+          "section_title": "MULTILINGUAL",
+          "source_paragraph_start": 141,
+          "display_order": 3,
+          "name": "SHARE Refugee Counselling",
+          "description": "SHARE Refugee Counselling is available to residents of Coquitlam, Port Coquitlam, Port Moody, Pitt Meadows and Maple Ridge. Services include short-term counselling support for individuals ages 19 & up who are Refugee Claimants, CUAET Visa Holders and other Vulnerable Newcomers to Canada. Clinical counsellors can provide support for issues related to trauma, settlement, and family relationships as well as supporting clients with social and group connections. Please contact our intake team to determine eligibility.",
+          "raw_source_text": "SHARE Refugee Counselling - SHARE Refugee Counselling is available to residents of Coquitlam, Port Coquitlam, Port Moody, Pitt Meadows and Maple Ridge. Services include short-term counselling support for individuals ages 19 & up who are Refugee Claimants, CUAET Visa Holders and other Vulnerable Newcomers to Canada. Clinical counsellors can provide support for issues related to trauma, settlement, and family relationships as well as supporting clients with social and group connections. Please contact our intake team to determine eligibility.",
+          "phones": [],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "residency",
+              "message": "Contains a geographic or residency restriction."
+            },
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "share refugee counselling||",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "5-4",
+          "section_title": "MULTILINGUAL",
+          "source_paragraph_start": 142,
+          "display_order": 4,
+          "name": "Clinical Counselling services are available in English and Farsi as well as other languages with the use interpretation services",
+          "description": "",
+          "raw_source_text": "Clinical Counselling services are available in English and Farsi as well as other languages with the use interpretation services.\nContact: 604.540.9161 ext: 230 Email: Intake@sharesociety.ca",
+          "phones": [
+            "604.540.9161"
+          ],
+          "emails": [
+            "Intake@sharesociety.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "clinical counselling services are available in english and farsi as well as other languages with the use interpretation services|604.540.9161|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "5-5",
+          "section_title": "MULTILINGUAL",
+          "source_paragraph_start": 145,
+          "display_order": 5,
+          "name": "DIVERSECity",
+          "description": "Community Resources Society. Offering you and your family free, culturally sensitive, confidential help in your first language at the Newton Town Centre campus.Contact: Phone: 604-547-1308 Email: info@dcrs.ca",
+          "raw_source_text": "DIVERSECity – Community Resources Society. Offering you and your family free, culturally sensitive, confidential help in your first language at the Newton Town Centre campus.Contact: Phone: 604-547-1308 Email: info@dcrs.ca",
+          "phones": [
+            "604-547-1308"
+          ],
+          "emails": [
+            "info@dcrs.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "diversecity|604-547-1308|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "5-6",
+          "section_title": "MULTILINGUAL",
+          "source_paragraph_start": 147,
+          "display_order": 6,
+          "name": "Vancouver Association for Survivors of Torture (VAST)",
+          "description": "Trauma-focused psychological counselling for refugees in one-on-one and group settings. Services provided in over a dozen languages.",
+          "raw_source_text": "Vancouver Association for Survivors of Torture (VAST) - Trauma-focused psychological counselling for refugees in one-on-one and group settings. Services provided in over a dozen languages.\nContact: 604-255-1881 or Toll Free: 1-866-393-3133 https://www.vastbc.ca/",
+          "phones": [
+            "604-255-1881",
+            "1-866-393-3133"
+          ],
+          "emails": [],
+          "websites": [
+            "https://www.vastbc.ca/"
+          ],
+          "warnings": [
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "vancouver association for survivors of torture (vast)|604-255-1881|https://www.vastbc.ca/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "5-7",
+          "section_title": "MULTILINGUAL",
+          "source_paragraph_start": 149,
+          "display_order": 7,
+          "name": "MOSAIC",
+          "description": "Stopping the Violence Program. 1:1 counselling for self-identified women experiencing or at risk of abuse or violence in an intimate relationship. Counselling available in English, French, Farsi, Vietnamese and Spanish.",
+          "raw_source_text": "MOSAIC - Stopping the Violence Program. 1:1 counselling for self-identified women experiencing or at risk of abuse or violence in an intimate relationship. Counselling available in English, French, Farsi, Vietnamese and Spanish.\nContact: 604-254-9626 or info@mosaicbc.org https://mosaicbc.org/our-programs/counselling-support-for-victims-of-violence/",
+          "phones": [
+            "604-254-9626"
+          ],
+          "emails": [
+            "info@mosaicbc.org"
+          ],
+          "websites": [
+            "https://mosaicbc.org/our-programs/counselling-support-for-victims-of-violence/"
+          ],
+          "warnings": [
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 6 times across the document."
+            }
+          ],
+          "normalized_identity": "mosaic|604-254-9626|https://mosaicbc.org/our-programs/counselling-support-for-victims-of-violence/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "5-8",
+          "section_title": "MULTILINGUAL",
+          "source_paragraph_start": 151,
+          "display_order": 8,
+          "name": "MOSAIC",
+          "description": "Men in Change Program. Individual and group counselling to help prevent the occurrence or recurrence of domestic violence. For men who want to take responsibility for their behaviour and work towards change. Vancouver and Surrey. Services in English, Hindi, Punjabi and Urdu. **Must have children under 19.",
+          "raw_source_text": "MOSAIC - Men in Change Program. Individual and group counselling to help prevent the occurrence or recurrence of domestic violence. For men who want to take responsibility for their behaviour and work towards change. Vancouver and Surrey. Services in English, Hindi, Punjabi and Urdu. **Must have children under 19.\nContact: Dilyadav Singh, Coordinator, Men in Change Programs. Call 236-688-7750",
+          "phones": [
+            "236-688-7750"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 6 times across the document."
+            }
+          ],
+          "normalized_identity": "mosaic|236-688-7750|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "5-9",
+          "section_title": "MULTILINGUAL",
+          "source_paragraph_start": 153,
+          "display_order": 9,
+          "name": "MOSAIC",
+          "description": "Vietnamese Family Support Program. One-on-one or family support and counselling for a variety of life issues. Services available in Vietnamese and English.",
+          "raw_source_text": "MOSAIC - Vietnamese Family Support Program. One-on-one or family support and counselling for a variety of life issues. Services available in Vietnamese and English.\nContact: 604.254.9626 and ask for the Vietnamese Family Support Program",
+          "phones": [
+            "604.254.9626"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 6 times across the document."
+            }
+          ],
+          "normalized_identity": "mosaic|604.254.9626|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "5-10",
+          "section_title": "MULTILINGUAL",
+          "source_paragraph_start": 155,
+          "display_order": 10,
+          "name": "Vancouver and Lower Mainland Multicultural Family Support Services Society",
+          "description": "Multicultural Outreach/ Stopping the Violence Program. Individual counselling, group counselling, advocacy, crisis intervention and referrals for women experiencing any form of abuse or violence, provided in numerous languages.",
+          "raw_source_text": "Vancouver and Lower Mainland Multicultural Family Support Services Society - Multicultural Outreach/ Stopping the Violence Program. Individual counselling, group counselling, advocacy, crisis intervention and referrals for women experiencing any form of abuse or violence, provided in numerous languages.\nContact: - 604-436-1025 help@vlmfss.ca",
+          "phones": [
+            "604-436-1025"
+          ],
+          "emails": [
+            "help@vlmfss.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "referral",
+              "message": "Contains a referral requirement."
+            },
+            {
+              "code": "crisis",
+              "message": "Crisis-related entry requires prominent review and presentation."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "vancouver and lower mainland multicultural family support services society|604-436-1025|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "5-11",
+          "section_title": "MULTILINGUAL",
+          "source_paragraph_start": 157,
+          "display_order": 11,
+          "name": "inform’Elles",
+          "description": "Ending the Violence Against Women Program. Conseil en Français. French-language only, 1:1 counselling (in-person, phone or email) for women. Free.",
+          "raw_source_text": "inform’Elles - Ending the Violence Against Women Program. Conseil en Français. French-language only, 1:1 counselling (in-person, phone or email) for women. Free.\nContact: 604-563-8213 https://www.informelles.ca/",
+          "phones": [
+            "604-563-8213"
+          ],
+          "emails": [],
+          "websites": [
+            "https://www.informelles.ca/"
+          ],
+          "warnings": [
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "inform’elles|604-563-8213|https://www.informelles.ca/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        }
+      ],
+      "display_order": 5
+    },
+    {
+      "title": "ADDICTION SUPPORT/COUNSELLING",
+      "source_paragraph": 161,
+      "items": [
+        {
+          "local_id": "6-1",
+          "section_title": "ADDICTION SUPPORT/COUNSELLING",
+          "source_paragraph_start": 162,
+          "display_order": 1,
+          "name": "SHARE Family and Community Services",
+          "description": "Provides free, confidential counselling services to individuals living in the Tri-Cities, Anmore, or Belcarra and aged 25+ who have concerns about their substance use or the substance use of someone they care about.",
+          "raw_source_text": "SHARE Family and Community Services - Provides free, confidential counselling services to individuals living in the Tri-Cities, Anmore, or Belcarra and aged 25+ who have concerns about their substance use or the substance use of someone they care about.\nContact: 604-540-9161 Website: https://sharesociety.ca/substance-use-supports",
+          "phones": [
+            "604-540-9161"
+          ],
+          "emails": [],
+          "websites": [
+            "https://sharesociety.ca/substance-use-supports"
+          ],
+          "warnings": [
+            {
+              "code": "residency",
+              "message": "Contains a geographic or residency restriction."
+            },
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "share family and community services|604-540-9161|https://sharesociety.ca/substance-use-supports",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "6-2",
+          "section_title": "ADDICTION SUPPORT/COUNSELLING",
+          "source_paragraph_start": 165,
+          "display_order": 2,
+          "name": "Tri-Cities Mental Health and Substance Use Centre",
+          "description": "Mental Health and Substance Use Centres offer a range of self-referral services that provide support for people 19+ years of age who are experiencing mental illness and substance use problems in the community.",
+          "raw_source_text": "Tri-Cities Mental Health and Substance Use Centre - Mental Health and Substance Use Centres offer a range of self-referral services that provide support for people 19+ years of age who are experiencing mental illness and substance use problems in the community.\nContact: 604-777-8400",
+          "phones": [
+            "604-777-8400"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "residency",
+              "message": "Contains a geographic or residency restriction."
+            },
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "referral",
+              "message": "Contains a referral requirement."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "tri-cities mental health and substance use centre|604-777-8400|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "6-3",
+          "section_title": "ADDICTION SUPPORT/COUNSELLING",
+          "source_paragraph_start": 168,
+          "display_order": 3,
+          "name": "Alouette Addictions Services",
+          "description": "People impacted by substance use might be an individual struggling with an addiction, or a family member impacted by another’s substance use. Funded by Fraser Health, our services are provided to residents of Pitt Meadows and Maple Ridge at no cost to you. Alouette offers one-on-one counselling in person, by phone, or virtually, as well as a daily in-person group. You can also join virtually. Each of our group programs are drop-in format.",
+          "raw_source_text": "Alouette Addictions Services - People impacted by substance use might be an individual struggling with an addiction, or a family member impacted by another’s substance use. Funded by Fraser Health, our services are provided to residents of Pitt Meadows and Maple Ridge at no cost to you. Alouette offers one-on-one counselling in person, by phone, or virtually, as well as a daily in-person group. You can also join virtually. Each of our group programs are drop-in format.\nContact: 604.467.5179",
+          "phones": [
+            "604.467.5179"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "residency",
+              "message": "Contains a geographic or residency restriction."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "alouette addictions services|604.467.5179|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "6-4",
+          "section_title": "ADDICTION SUPPORT/COUNSELLING",
+          "source_paragraph_start": 171,
+          "display_order": 4,
+          "name": "Wellness Aligned Youth Services (W.A.Y.S) Program",
+          "description": "- This is a free, confidential counselling service for youth aged 12-24 who would like to address concerns about mental health and substance use (their own or a friend/family member’s substance use).",
+          "raw_source_text": "Wellness Aligned Youth Services (W.A.Y.S) Program: - This is a free, confidential counselling service for youth aged 12-24 who would like to address concerns about mental health and substance use (their own or a friend/family member’s substance use).\nContact: 604-540-9161 ext. 230 Email: Intake@sharesociety.ca",
+          "phones": [
+            "604-540-9161 ext. 230"
+          ],
+          "emails": [
+            "Intake@sharesociety.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "wellness aligned youth services (w.a.y.s) program|604-540-9161 ext. 230|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "6-5",
+          "section_title": "ADDICTION SUPPORT/COUNSELLING",
+          "source_paragraph_start": 174,
+          "display_order": 5,
+          "name": "BC Responsible and Problem Gambling Program",
+          "description": "Free professional, multilingual counselling for any British Columbian struggling with their own or their family member’s gambling. Counsellors have a minimum of a Master’s degree in a counselling-related discipline",
+          "raw_source_text": "BC Responsible and Problem Gambling Program - Free professional, multilingual counselling for any British Columbian struggling with their own or their family member’s gambling. Counsellors have a minimum of a Master’s degree in a counselling-related discipline\nContact: 1-888-795-6111 (available 24/7) https://www.bcresponsiblegambling.ca/getting-help/find-counsellor",
+          "phones": [
+            "1-888-795-6111"
+          ],
+          "emails": [],
+          "websites": [
+            "https://www.bcresponsiblegambling.ca/getting-help/find-counsellor"
+          ],
+          "warnings": [],
+          "normalized_identity": "bc responsible and problem gambling program|1-888-795-6111|https://www.bcresponsiblegambling.ca/getting-help/find-counsellor",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "6-6",
+          "section_title": "ADDICTION SUPPORT/COUNSELLING",
+          "source_paragraph_start": 176,
+          "display_order": 6,
+          "name": "Watari Counselling and Support Services",
+          "description": "Community Addictions Counselling Team (CACT). Offers free confidential counselling, education, referrals, and other preventative programs for those in Strathcona/ Downtown Eastside area and surrounding communities around for issues related to problem substance use.",
+          "raw_source_text": "Watari Counselling and Support Services - Community Addictions Counselling Team (CACT). Offers free confidential counselling, education, referrals, and other preventative programs for those in Strathcona/ Downtown Eastside area and surrounding communities around for issues related to problem substance use.\nContact: 604-254-6995.",
+          "phones": [
+            "604-254-6995"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "referral",
+              "message": "Contains a referral requirement."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "watari counselling and support services|604-254-6995|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "6-7",
+          "section_title": "ADDICTION SUPPORT/COUNSELLING",
+          "source_paragraph_start": 179,
+          "display_order": 7,
+          "name": "Fraserside Community Services",
+          "description": "Perspectives Substance Use Counselling Services for Adults is for adults aged 19 years and older living in New Westminster, their families and partners who want to address their substance use or someone else’s substance use, and receive help with mental health issues, such as anxiety and depression. There is no fee for services.",
+          "raw_source_text": "Fraserside Community Services - Perspectives Substance Use Counselling Services for Adults is for adults aged 19 years and older living in New Westminster, their families and partners who want to address their substance use or someone else’s substance use, and receive help with mental health issues, such as anxiety and depression. There is no fee for services.\nContact: Phone: 604-522-3722, Ext. 101",
+          "phones": [
+            "604-522-3722"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "residency",
+              "message": "Contains a geographic or residency restriction."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "fraserside community services|604-522-3722|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "6-8",
+          "section_title": "ADDICTION SUPPORT/COUNSELLING",
+          "source_paragraph_start": 182,
+          "display_order": 8,
+          "name": "Substance Use Services, Vancouver Coastal Health",
+          "description": "Vancouver residents only.",
+          "raw_source_text": "Substance Use Services, Vancouver Coastal Health - Vancouver residents only.\nContact: Call Access Central at 1(866) 658-1221 http://www.vch.ca/your-care/mental-health-substance-use/substance-use-services Substance use assessment, counselling.",
+          "phones": [
+            "1(866) 658-1221"
+          ],
+          "emails": [],
+          "websites": [
+            "http://www.vch.ca/your-care/mental-health-substance-use/substance-use-services"
+          ],
+          "warnings": [
+            {
+              "code": "residency",
+              "message": "Contains a geographic or residency restriction."
+            }
+          ],
+          "normalized_identity": "substance use services, vancouver coastal health|1(866) 658-1221|http://www.vch.ca/your-care/mental-health-substance-use/substance-use-services",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "6-9",
+          "section_title": "ADDICTION SUPPORT/COUNSELLING",
+          "source_paragraph_start": 184,
+          "display_order": 9,
+          "name": "Burnaby Substance Use Services",
+          "description": "Free drop-in and booked 1:1 online and in-person counselling for Burnaby residents who want to change their relationship with substances. Counselling support also available for family members and supports.",
+          "raw_source_text": "Burnaby Substance Use Services - Free drop-in and booked 1:1 online and in-person counselling for Burnaby residents who want to change their relationship with substances. Counselling support also available for family members and supports.\nContact: 604-777-6870",
+          "phones": [
+            "604-777-6870"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "burnaby substance use services|604-777-6870|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        }
+      ],
+      "display_order": 6
+    },
+    {
+      "title": "HEALTH-RELATED",
+      "source_paragraph": 186,
+      "items": [
+        {
+          "local_id": "7-1",
+          "section_title": "HEALTH-RELATED",
+          "source_paragraph_start": 187,
+          "display_order": 1,
+          "name": "Needs manual identification",
+          "description": "",
+          "raw_source_text": "Callanish Society - Counselling for adults and youth affected by cancer at any stage, and for their family members. Counselling also available for family members grieving the loss of a loved one from cancer. Sliding scale rate ranging from $50 to $150 / session.\nContact: 604-732-0633 https://www.callanish.org/ongoing-programs",
+          "phones": [
+            "604-732-0633"
+          ],
+          "emails": [],
+          "websites": [
+            "https://www.callanish.org/ongoing-programs"
+          ],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            },
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            }
+          ],
+          "normalized_identity": "needs manual identification|604-732-0633|https://www.callanish.org/ongoing-programs",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "7-2",
+          "section_title": "HEALTH-RELATED",
+          "source_paragraph_start": 189,
+          "display_order": 2,
+          "name": "IBD Centre of BC",
+          "description": "Mental Health Services. Mental health assessments with possible referral to the counselling program for patients with known or suspected inflammatory bowel disease. Referral to this program is via a family doctor/physician only. Free for patients with a BC Care Card.",
+          "raw_source_text": "IBD Centre of BC - Mental Health Services. Mental health assessments with possible referral to the counselling program for patients with known or suspected inflammatory bowel disease. Referral to this program is via a family doctor/physician only. Free for patients with a BC Care Card.\nContact: 604-416-4444 https://www.ibdcentrebc.ca/services/psychology-services/",
+          "phones": [
+            "604-416-4444"
+          ],
+          "emails": [],
+          "websites": [
+            "https://www.ibdcentrebc.ca/services/psychology-services/"
+          ],
+          "warnings": [
+            {
+              "code": "referral",
+              "message": "Contains a referral requirement."
+            }
+          ],
+          "normalized_identity": "ibd centre of bc|604-416-4444|https://www.ibdcentrebc.ca/services/psychology-services/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "7-3",
+          "section_title": "HEALTH-RELATED",
+          "source_paragraph_start": 191,
+          "display_order": 3,
+          "name": "Parkinson Society of BC",
+          "description": "Free, short-term professional counselling and psychotherapy for individuals across BC with Parkinson’s disease and their families.",
+          "raw_source_text": "Parkinson Society of BC - Free, short-term professional counselling and psychotherapy for individuals across BC with Parkinson’s disease and their families.\nContact: 604-662-3240 https://www.parkinson.bc.ca/resources-services/counselling",
+          "phones": [
+            "604-662-3240"
+          ],
+          "emails": [],
+          "websites": [
+            "https://www.parkinson.bc.ca/resources-services/counselling"
+          ],
+          "warnings": [],
+          "normalized_identity": "parkinson society of bc|604-662-3240|https://www.parkinson.bc.ca/resources-services/counselling",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "7-4",
+          "section_title": "HEALTH-RELATED",
+          "source_paragraph_start": 193,
+          "display_order": 4,
+          "name": "Well Being Program for Deaf, Hard of Hearing and Deaf-Blind",
+          "description": "Free counselling and mental health support services for deaf, hard of hearing and deaf-blind individuals and their families across BC. Accessible for all communication needs and modalities.",
+          "raw_source_text": "Well Being Program for Deaf, Hard of Hearing and Deaf-Blind - Free counselling and mental health support services for deaf, hard of hearing and deaf-blind individuals and their families across BC. Accessible for all communication needs and modalities.\nContact: 778-819-0951 (voice) 778-987-4174 (text) 604-456-0901 (TTY only) https://deafwellbeing.vch.ca/services/adults/",
+          "phones": [
+            "778-819-0951",
+            "778-987-4174",
+            "604-456-0901"
+          ],
+          "emails": [],
+          "websites": [
+            "https://deafwellbeing.vch.ca/services/adults/"
+          ],
+          "warnings": [],
+          "normalized_identity": "well being program for deaf, hard of hearing and deaf-blind|778-819-0951|https://deafwellbeing.vch.ca/services/adults/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "7-5",
+          "section_title": "HEALTH-RELATED",
+          "source_paragraph_start": 195,
+          "display_order": 5,
+          "name": "Inspire Health",
+          "description": "Short-term, cancer-focused counselling support for those with a cancer diagnosis or their loved ones. Counselling provided by master’s level therapists. Free. No referral required.",
+          "raw_source_text": "Inspire Health - Short-term, cancer-focused counselling support for those with a cancer diagnosis or their loved ones. Counselling provided by master’s level therapists. Free. No referral required.\nContact: Call 604-734-7125 Email: info@inspirehealth.ca",
+          "phones": [
+            "604-734-7125"
+          ],
+          "emails": [
+            "info@inspirehealth.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "referral",
+              "message": "Contains a referral requirement."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "inspire health|604-734-7125|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "7-6",
+          "section_title": "HEALTH-RELATED",
+          "source_paragraph_start": 197,
+          "display_order": 6,
+          "name": "Family Caregivers of BC (FCBC)",
+          "description": "a provincial, not-for-profit organization that support people in British Columbia who provide physical and/or emotional care to a family member, friend, or neighbour. FCBC supports caregivers by providing access to information, education and supports so that caregivers feel more confident and successful in their important role.",
+          "raw_source_text": "Family Caregivers of BC (FCBC) - a provincial, not-for-profit organization that support people in British Columbia who provide physical and/or emotional care to a family member, friend, or neighbour. FCBC supports caregivers by providing access to information, education and supports so that caregivers feel more confident and successful in their important role.\nContact: Virtual caregiver support groups: https://www.familycaregiversbc.ca/family-caregiver-support-groups",
+          "phones": [],
+          "emails": [],
+          "websites": [
+            "https://www.familycaregiversbc.ca/family-caregiver-support-groups"
+          ],
+          "warnings": [],
+          "normalized_identity": "family caregivers of bc (fcbc)||https://www.familycaregiversbc.ca/family-caregiver-support-groups",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "7-7",
+          "section_title": "HEALTH-RELATED",
+          "source_paragraph_start": 199,
+          "display_order": 7,
+          "name": "Caregiver coaching",
+          "description": "https://www.familycaregiversbc.ca/get-help/1-to-1-caregiver-coaching",
+          "raw_source_text": "Caregiver coaching: https://www.familycaregiversbc.ca/get-help/1-to-1-caregiver-coaching",
+          "phones": [],
+          "emails": [],
+          "websites": [
+            "https://www.familycaregiversbc.ca/get-help/1-to-1-caregiver-coaching"
+          ],
+          "warnings": [],
+          "normalized_identity": "caregiver coaching||https://www.familycaregiversbc.ca/get-help/1-to-1-caregiver-coaching",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "7-8",
+          "section_title": "HEALTH-RELATED",
+          "source_paragraph_start": 200,
+          "display_order": 8,
+          "name": "BC Caregiver Support Line",
+          "description": "call 1-877-520-3267 or https://www.familycaregiversbc.ca/get-help",
+          "raw_source_text": "BC Caregiver Support Line: call 1-877-520-3267 or https://www.familycaregiversbc.ca/get-help",
+          "phones": [
+            "1-877-520-3267"
+          ],
+          "emails": [],
+          "websites": [
+            "https://www.familycaregiversbc.ca/get-help"
+          ],
+          "warnings": [],
+          "normalized_identity": "bc caregiver support line|1-877-520-3267|https://www.familycaregiversbc.ca/get-help",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "7-9",
+          "section_title": "HEALTH-RELATED",
+          "source_paragraph_start": 201,
+          "display_order": 9,
+          "name": "The After Stroke Recovery Program",
+          "description": "the Stroke Recovery Association of British Columbia offers a variety of programs and services in communities throughout BC to support stroke survivors, their families and friends, through the path forward after a stroke. Services include community navigation support with a stroke coordinator, drop-in virtual programs, community-based meetings, and peer group for people with aphasia. They offer an in-person meeting location in Burnaby.",
+          "raw_source_text": "The After Stroke Recovery Program - the Stroke Recovery Association of British Columbia offers a variety of programs and services in communities throughout BC to support stroke survivors, their families and friends, through the path forward after a stroke. Services include community navigation support with a stroke coordinator, drop-in virtual programs, community-based meetings, and peer group for people with aphasia. They offer an in-person meeting location in Burnaby.\nContact: https://strokerecoverybc.ca Email: AfterStrokeBC@marchofdimes.ca\nCall:604-688-3603",
+          "phones": [
+            "604-688-3603"
+          ],
+          "emails": [
+            "AfterStrokeBC@marchofdimes.ca"
+          ],
+          "websites": [
+            "https://strokerecoverybc.ca"
+          ],
+          "warnings": [],
+          "normalized_identity": "the after stroke recovery program|604-688-3603|https://strokerecoverybc.ca",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        }
+      ],
+      "display_order": 7
+    },
+    {
+      "title": "LGBTQIA2S+",
+      "source_paragraph": 205,
+      "items": [
+        {
+          "local_id": "8-1",
+          "section_title": "LGBTQIA2S+",
+          "source_paragraph_start": 207,
+          "display_order": 1,
+          "name": "LGBTQ+ Heath Initiative for Men (HIM)",
+          "description": "Brief professional counselling (8 sessions) is available to gay, bisexual and other men who have sex with men either by donation equivalent to hourly wage. Vancouver, New Westminster, Surrey, Abbotsford.",
+          "raw_source_text": "LGBTQ+ Heath Initiative for Men (HIM) - Brief professional counselling (8 sessions) is available to gay, bisexual and other men who have sex with men either by donation equivalent to hourly wage. Vancouver, New Westminster, Surrey, Abbotsford.\nContact: 604-488-1001 (ext. 230) https://checkhimout.ca/mental-health/counselling-support/",
+          "phones": [
+            "604-488-1001"
+          ],
+          "emails": [],
+          "websites": [
+            "https://checkhimout.ca/mental-health/counselling-support/"
+          ],
+          "warnings": [],
+          "normalized_identity": "lgbtq+ heath initiative for men (him)|604-488-1001|https://checkhimout.ca/mental-health/counselling-support/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "8-2",
+          "section_title": "LGBTQIA2S+",
+          "source_paragraph_start": 209,
+          "display_order": 2,
+          "name": "Qmunity",
+          "description": "Counselling Program Counselling for members of the LGBTQ+ communities provided by Registered Social Workers and Clinical Counsellors. $60-$120 a session. Low-cost counselling option provided by interns. Daytime only. 10-session limit.",
+          "raw_source_text": "Qmunity - Counselling Program Counselling for members of the LGBTQ+ communities provided by Registered Social Workers and Clinical Counsellors. $60-$120 a session. Low-cost counselling option provided by interns. Daytime only. 10-session limit.\nContact: 604-684-5307 (ext.107) https://qmunity.ca/get-support/counselling/",
+          "phones": [
+            "604-684-5307"
+          ],
+          "emails": [],
+          "websites": [
+            "https://qmunity.ca/get-support/counselling/"
+          ],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            },
+            {
+              "code": "session_limit",
+              "message": "Contains a session limit."
+            }
+          ],
+          "normalized_identity": "qmunity|604-684-5307|https://qmunity.ca/get-support/counselling/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "8-3",
+          "section_title": "LGBTQIA2S+",
+          "source_paragraph_start": 211,
+          "display_order": 3,
+          "name": "Catherine White Holman Wellness Centre",
+          "description": "Counselling currently limited to hormone, surgical readiness and ADHD assessments for trans and gender-diverse people.",
+          "raw_source_text": "Catherine White Holman Wellness Centre - Counselling currently limited to hormone, surgical readiness and ADHD assessments for trans and gender-diverse people.\nContact: 604-442-4352 https://cwhwc.com/services/",
+          "phones": [
+            "604-442-4352"
+          ],
+          "emails": [],
+          "websites": [
+            "https://cwhwc.com/services/"
+          ],
+          "warnings": [
+            {
+              "code": "time_sensitive",
+              "message": "Contains a date or time-sensitive statement."
+            }
+          ],
+          "normalized_identity": "catherine white holman wellness centre|604-442-4352|https://cwhwc.com/services/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        }
+      ],
+      "display_order": 8
+    },
+    {
+      "title": "TRAUMA",
+      "source_paragraph": 214,
+      "items": [
+        {
+          "local_id": "9-1",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 215,
+          "display_order": 1,
+          "name": "Family Services of Greater Vancouver",
+          "description": "Counsellors and support workers, help youth experiencing homelessness, families and children impacted by trauma, victims of domestic violence, and other vulnerable people from an evidence-based, trauma-informed lens. Vancouver, Richmond, New West.",
+          "raw_source_text": "Family Services of Greater Vancouver - Counsellors and support workers, help youth experiencing homelessness, families and children impacted by trauma, victims of domestic violence, and other vulnerable people from an evidence-based, trauma-informed lens. Vancouver, Richmond, New West.\nContact: traumaservices@fsgv.ca or 604 874 2938 X 4141",
+          "phones": [
+            "604 874 2938 X 4141"
+          ],
+          "emails": [
+            "traumaservices@fsgv.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "family services of greater vancouver|604 874 2938 x 4141|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-2",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 218,
+          "display_order": 2,
+          "name": "Sources Community Resource Centre",
+          "description": "South Fraser Women’s Services Society, trauma counselling program. Our experienced trauma counsellors provide individual and group counselling for those who identify as women including CIS, trans, two-spirit and non-binary who have experienced sexual assault, childhood trauma, and/or intimate partner abuse.",
+          "raw_source_text": "Sources Community Resource Centre - South Fraser Women’s Services Society, trauma counselling program. Our experienced trauma counsellors provide individual and group counselling for those who identify as women including CIS, trans, two-spirit and non-binary who have experienced sexual assault, childhood trauma, and/or intimate partner abuse.\nContact: 604-335-5035 or email trauma.counselling@sourcesbc.ca.",
+          "phones": [
+            "604-335-5035"
+          ],
+          "emails": [
+            "trauma.counselling@sourcesbc.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "sources community resource centre|604-335-5035|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-3",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 221,
+          "display_order": 3,
+          "name": "Sources Community Resource Centre",
+          "description": "Men Supporting Healthy Relationship Counselling (Group). Group counselling for men is offered three times per year through a program called MenTOR. The MenTOR model uses co-facilitators (one woman and one man) to offer group counselling. The group is 15 – 20 weeks long and focuses on relationship skills, managing anger, understanding gender-based privilege, communication,Contact: 208C- 1461 Johnston Road, White Rock, BC P: 778-731-8974Email: mens.counselling@sourcesbc.ca",
+          "raw_source_text": "Sources Community Resource Centre - Men Supporting Healthy Relationship Counselling (Group). Group counselling for men is offered three times per year through a program called MenTOR. The MenTOR model uses co-facilitators (one woman and one man) to offer group counselling. The group is 15 – 20 weeks long and focuses on relationship skills, managing anger, understanding gender-based privilege, communication,Contact: 208C- 1461 Johnston Road, White Rock, BC P: 778-731-8974Email: mens.counselling@sourcesbc.ca",
+          "phones": [
+            "778-731-8974"
+          ],
+          "emails": [
+            "mens.counselling@sourcesbc.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "wait_or_duration",
+              "message": "Contains a wait estimate or program duration."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "sources community resource centre|778-731-8974|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-4",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 222,
+          "display_order": 4,
+          "name": "Chimo Community Services",
+          "description": "- Counselling services aid children, youth, women and adults to overcome a number of challenges- including abuse, sexual assault, grief and gender-based violence.",
+          "raw_source_text": "Chimo Community Services: - Counselling services aid children, youth, women and adults to overcome a number of challenges- including abuse, sexual assault, grief and gender-based violence.\nContact: 604-279-7077 (9-4:30pm)Email: chimo@chimoservices.com",
+          "phones": [
+            "604-279-7077"
+          ],
+          "emails": [
+            "chimo@chimoservices.com"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "chimo community services|604-279-7077|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-5",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 224,
+          "display_order": 5,
+          "name": "Vancouver Association for Survivors of Torture (VAST)",
+          "description": "Trauma-focused psychological counselling for refugees in one-on-one and group settings. Services provided in over a dozen languages.",
+          "raw_source_text": "Vancouver Association for Survivors of Torture (VAST) - Trauma-focused psychological counselling for refugees in one-on-one and group settings. Services provided in over a dozen languages.\nContact: 604-255-1881 or Toll Free: 1-866-393-3133 https://www.vastbc.ca/",
+          "phones": [
+            "604-255-1881",
+            "1-866-393-3133"
+          ],
+          "emails": [],
+          "websites": [
+            "https://www.vastbc.ca/"
+          ],
+          "warnings": [
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "vancouver association for survivors of torture (vast)|604-255-1881|https://www.vastbc.ca/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-6",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 226,
+          "display_order": 6,
+          "name": "Residential Historical Abuse Program (RHAP)",
+          "description": "Free counselling for those who were sexually abused while under the care of the province (foster care, group homes, etc.)",
+          "raw_source_text": "Residential Historical Abuse Program (RHAP) - Free counselling for those who were sexually abused while under the care of the province (foster care, group homes, etc.)\nContact: 604-875-4255 https://vch.eduhealth.ca/PDFs/CE/CE.851.S49.pdf",
+          "phones": [
+            "604-875-4255"
+          ],
+          "emails": [],
+          "websites": [
+            "https://vch.eduhealth.ca/PDFs/CE/CE.851.S49.pdf"
+          ],
+          "warnings": [],
+          "normalized_identity": "residential historical abuse program (rhap)|604-875-4255|https://vch.eduhealth.ca/pdfs/ce/ce.851.s49.pdf",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-7",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 228,
+          "display_order": 7,
+          "name": "Crime Victims Assistance Program",
+          "description": "Victim Link BC. Funded counselling for victims of crime, immediate family members and witnesses. Contact for eligibility.",
+          "raw_source_text": "Crime Victims Assistance Program - Victim Link BC. Funded counselling for victims of crime, immediate family members and witnesses. Contact for eligibility.\nContact: Victim Link BC 1-800-563-0808 (available 24/7) 211-victimlinkbc@uwbc.ca",
+          "phones": [
+            "1-800-563-0808"
+          ],
+          "emails": [
+            "211-victimlinkbc@uwbc.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "crime victims assistance program|1-800-563-0808|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-8",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 230,
+          "display_order": 8,
+          "name": "BC Society for Male Survivors of Sexual Abuse",
+          "description": "Registered clinical counsellors (RCCs) provide individual and group counselling for male survivors of sexual abuse. RCC fee: $100 for individual counselling. Group counselling: $40 per week. Reduced cost counselling provided by practicum students at $50/hr. Victim services workers on staff to help apply for funding for those who qualify.",
+          "raw_source_text": "BC Society for Male Survivors of Sexual Abuse - Registered clinical counsellors (RCCs) provide individual and group counselling for male survivors of sexual abuse. RCC fee: $100 for individual counselling. Group counselling: $40 per week. Reduced cost counselling provided by practicum students at $50/hr. Victim services workers on staff to help apply for funding for those who qualify.\nContact: 604-682-6482 https://bc-malesurvivors.com/for-survivors/funding-your-therapy/",
+          "phones": [
+            "604-682-6482"
+          ],
+          "emails": [],
+          "websites": [
+            "https://bc-malesurvivors.com/for-survivors/funding-your-therapy/"
+          ],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            }
+          ],
+          "normalized_identity": "bc society for male survivors of sexual abuse|604-682-6482|https://bc-malesurvivors.com/for-survivors/funding-your-therapy/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-9",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 232,
+          "display_order": 9,
+          "name": "Battered Women’s Support Services",
+          "description": "Counselling and support services for any woman who has been abused in an intimate relationship as well as women survivors of childhood sexual abuse, adult sexual assault, and residential school survivors.",
+          "raw_source_text": "Battered Women’s Support Services - Counselling and support services for any woman who has been abused in an intimate relationship as well as women survivors of childhood sexual abuse, adult sexual assault, and residential school survivors.\nContact: 604-687-1868 https://www.bwss.org/support/programs/counselling/",
+          "phones": [
+            "604-687-1868"
+          ],
+          "emails": [],
+          "websites": [
+            "https://www.bwss.org/support/programs/counselling/"
+          ],
+          "warnings": [],
+          "normalized_identity": "battered women’s support services|604-687-1868|https://www.bwss.org/support/programs/counselling/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-10",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 234,
+          "display_order": 10,
+          "name": "Salal Sexual Violence Support Centre (formerly WAVAW)",
+          "description": "Up to 25 sessions of individual counselling and/or group support for marginalized genders: cis and trans women, two-spirit, trans and/or non-binary people who have experienced sexualized violence. Additional counselling programming for Indigenous survivors.",
+          "raw_source_text": "Salal Sexual Violence Support Centre (formerly WAVAW) - Up to 25 sessions of individual counselling and/or group support for marginalized genders: cis and trans women, two-spirit, trans and/or non-binary people who have experienced sexualized violence. Additional counselling programming for Indigenous survivors.\nContact: 604-255-6344 https://www.wavaw.ca/counselling/#counselling",
+          "phones": [
+            "604-255-6344"
+          ],
+          "emails": [],
+          "websites": [
+            "https://www.wavaw.ca/counselling/#counselling"
+          ],
+          "warnings": [
+            {
+              "code": "session_limit",
+              "message": "Contains a session limit."
+            }
+          ],
+          "normalized_identity": "salal sexual violence support centre (formerly wavaw)|604-255-6344|https://www.wavaw.ca/counselling/#counselling",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-11",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 236,
+          "display_order": 11,
+          "name": "Atira Community Services Society",
+          "description": "Stopping the Violence Counselling. Free individual and group counselling for women and trans women who have experienced relationship abuse, sexual assault, or physical, emotional or sexual abuse.",
+          "raw_source_text": "Atira Community Services Society - Stopping the Violence Counselling. Free individual and group counselling for women and trans women who have experienced relationship abuse, sexual assault, or physical, emotional or sexual abuse.\nContact: 604-331-1407 (ext. 106 or 107) info@atira.bc.ca",
+          "phones": [
+            "604-331-1407"
+          ],
+          "emails": [
+            "info@atira.bc.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "atira community services society|604-331-1407|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-12",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 239,
+          "display_order": 12,
+          "name": "Tri-City Transitions Society",
+          "description": "Serving the Tri-City communities of Coquitlam, Port Coquitlam, Port Moody, Anmore and Belcarra, providing emergency shelter and social support for women and children fleeing family violence and abuse.",
+          "raw_source_text": "Tri-City Transitions Society - Serving the Tri-City communities of Coquitlam, Port Coquitlam, Port Moody, Anmore and Belcarra, providing emergency shelter and social support for women and children fleeing family violence and abuse.\nContact: 402-2071 Kingsway Ave, Port Coquitlam, BC V3C 6N2. Services are being offered In-person or remotely, please call: 604-941-7111 Crisis Line: 604-492-1700 or 1-800-563-0808",
+          "phones": [
+            "604-941-7111",
+            "604-492-1700",
+            "1-800-563-0808"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "time_sensitive",
+              "message": "Contains a date or time-sensitive statement."
+            },
+            {
+              "code": "residency",
+              "message": "Contains a geographic or residency restriction."
+            },
+            {
+              "code": "crisis",
+              "message": "Crisis-related entry requires prominent review and presentation."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "tri-city transitions society|604-941-7111|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-13",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 242,
+          "display_order": 13,
+          "name": "MOSAIC",
+          "description": "Stopping the Violence Program. 1:1 counselling for self-identified women experiencing or at risk of abuse or violence in an intimate relationship. Counselling available in English, French, Farsi, Vietnamese and Spanish.",
+          "raw_source_text": "MOSAIC - Stopping the Violence Program. 1:1 counselling for self-identified women experiencing or at risk of abuse or violence in an intimate relationship. Counselling available in English, French, Farsi, Vietnamese and Spanish.\nContact: 604-254-9626 or info@mosaicbc.org https://mosaicbc.org/our-programs/counselling-support-for-victims-of-violence/",
+          "phones": [
+            "604-254-9626"
+          ],
+          "emails": [
+            "info@mosaicbc.org"
+          ],
+          "websites": [
+            "https://mosaicbc.org/our-programs/counselling-support-for-victims-of-violence/"
+          ],
+          "warnings": [
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 6 times across the document."
+            }
+          ],
+          "normalized_identity": "mosaic|604-254-9626|https://mosaicbc.org/our-programs/counselling-support-for-victims-of-violence/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-14",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 244,
+          "display_order": 14,
+          "name": "MOSAIC",
+          "description": "Men in Change Program - Individual and group counselling to help prevent the occurrence or recurrence of domestic violence. For men who want to take responsibility for their behaviour and work towards change. Vancouver and Surrey. Services in English, Hindi, Punjabi and Urdu.",
+          "raw_source_text": "MOSAIC - Men in Change Program - Individual and group counselling to help prevent the occurrence or recurrence of domestic violence. For men who want to take responsibility for their behaviour and work towards change. Vancouver and Surrey. Services in English, Hindi, Punjabi and Urdu.\nContact: 604-254-9626 or info@mosaicbc.org https://mosaicbc.org/our-programs/men-supporting-healthy-relationships/",
+          "phones": [
+            "604-254-9626"
+          ],
+          "emails": [
+            "info@mosaicbc.org"
+          ],
+          "websites": [
+            "https://mosaicbc.org/our-programs/men-supporting-healthy-relationships/"
+          ],
+          "warnings": [
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 6 times across the document."
+            }
+          ],
+          "normalized_identity": "mosaic|604-254-9626|https://mosaicbc.org/our-programs/men-supporting-healthy-relationships/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-15",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 246,
+          "display_order": 15,
+          "name": "MOSAIC",
+          "description": "Vietnamese Family Support Program. One-on-one or family support and counselling for a variety of life issues. Services available in Vietnamese and English.",
+          "raw_source_text": "MOSAIC - Vietnamese Family Support Program. One-on-one or family support and counselling for a variety of life issues. Services available in Vietnamese and English.\nContact: 604.254.9626 and ask for the Vietnamese Family Support Program",
+          "phones": [
+            "604.254.9626"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 6 times across the document."
+            }
+          ],
+          "normalized_identity": "mosaic|604.254.9626|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-16",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 248,
+          "display_order": 16,
+          "name": "Vancouver and Lower Mainland Multicultural Family Support Services Society",
+          "description": "Multicultural Outreach/ Stopping the Violence Program. Individual counselling, group counselling, advocacy, crisis intervention and referrals for women experiencing any form of abuse or violence, provided in numerous languages.",
+          "raw_source_text": "Vancouver and Lower Mainland Multicultural Family Support Services Society - Multicultural Outreach/ Stopping the Violence Program. Individual counselling, group counselling, advocacy, crisis intervention and referrals for women experiencing any form of abuse or violence, provided in numerous languages.\nContact: - 604-436-1025 help@vlmfss.ca",
+          "phones": [
+            "604-436-1025"
+          ],
+          "emails": [
+            "help@vlmfss.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "referral",
+              "message": "Contains a referral requirement."
+            },
+            {
+              "code": "crisis",
+              "message": "Crisis-related entry requires prominent review and presentation."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "vancouver and lower mainland multicultural family support services society|604-436-1025|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-17",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 250,
+          "display_order": 17,
+          "name": "inform’Elles",
+          "description": "Ending the Violence Against Women Program. Conseil en Français. French-language only, 1:1 counselling (in-person, phone or email) for women. Free.",
+          "raw_source_text": "inform’Elles - Ending the Violence Against Women Program. Conseil en Français. French-language only, 1:1 counselling (in-person, phone or email) for women. Free.\nContact: 604-563-8213 https://www.informelles.ca/",
+          "phones": [
+            "604-563-8213"
+          ],
+          "emails": [],
+          "websites": [
+            "https://www.informelles.ca/"
+          ],
+          "warnings": [
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "inform’elles|604-563-8213|https://www.informelles.ca/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-18",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 252,
+          "display_order": 18,
+          "name": "Well Beings Counselling",
+          "description": "Low-cost, low-barrier counselling. Standard $50 session rates for individuals working with an intern therapist for 50-minutes.",
+          "raw_source_text": "Well Beings Counselling - Low-cost, low-barrier counselling. Standard $50 session rates for individuals working with an intern therapist for 50-minutes.\nContact: 604-265-8596 Email: https://wellbeingscounselling.ca/low-cost-counselling/",
+          "phones": [
+            "604-265-8596"
+          ],
+          "emails": [],
+          "websites": [
+            "https://wellbeingscounselling.ca/low-cost-counselling/"
+          ],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            },
+            {
+              "code": "mislabeled_contact",
+              "message": "An Email label appears to contain a website."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "well beings counselling|604-265-8596|https://wellbeingscounselling.ca/low-cost-counselling/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-19",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 254,
+          "display_order": 19,
+          "name": "Wellness North",
+          "description": "Located at 2850 Shaughnessy St in Port Coquitlam, they utilize a trauma-informed lens to treat PTSD, anxiety, and emotional overwhelm. They provide low-cost therapy through clinical interns, alongside dedicated sliding-scale spots",
+          "raw_source_text": "Wellness North: Located at 2850 Shaughnessy St in Port Coquitlam, they utilize a trauma-informed lens to treat PTSD, anxiety, and emotional overwhelm. They provide low-cost therapy through clinical interns, alongside dedicated sliding-scale spots\nContact: (604) 317-9267 or (604)-200-4247 Email: info@wellnessnorth.ca",
+          "phones": [
+            "(604) 317-9267",
+            "(604)-200-4247"
+          ],
+          "emails": [
+            "info@wellnessnorth.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "wellness north|(604) 317-9267|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-20",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 256,
+          "display_order": 20,
+          "name": "Lotus Therapy & Counselling Centre",
+          "description": "Located at 3030 Lincoln Ave in Coquitlam, they focus heavily on nervous system regulation and somatic trauma techniques. They keep explicit low-cost therapy openings specifically to keep quality care financially accessible",
+          "raw_source_text": "Lotus Therapy & Counselling Centre: Located at 3030 Lincoln Ave in Coquitlam, they focus heavily on nervous system regulation and somatic trauma techniques. They keep explicit low-cost therapy openings specifically to keep quality care financially accessible\nContact: 778-325-6505 Email: info@lotustherapy.ca",
+          "phones": [
+            "778-325-6505"
+          ],
+          "emails": [
+            "info@lotustherapy.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "lotus therapy & counselling centre|778-325-6505|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-21",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 259,
+          "display_order": 21,
+          "name": "Kristen Holbrook Counselling",
+          "description": "Located near Lincoln SkyTrain station at 3041 Anson Ave, they feature specialized adult clinicians trained in EMDR, CBT, and trauma care. Selected therapists provide individual sliding-scale rates upon direct request",
+          "raw_source_text": "Kristen Holbrook Counselling: Located near Lincoln SkyTrain station at 3041 Anson Ave, they feature specialized adult clinicians trained in EMDR, CBT, and trauma care. Selected therapists provide individual sliding-scale rates upon direct request\nContact: (604) 817-3794 Email: counselling@kristenholbrook.com",
+          "phones": [
+            "(604) 817-3794"
+          ],
+          "emails": [
+            "counselling@kristenholbrook.com"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "kristen holbrook counselling|(604) 817-3794|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-22",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 261,
+          "display_order": 22,
+          "name": "Good Talk Therapy",
+          "description": "Located at 1140 Austin Ave in Coquitlam, they specialize in relational, trauma-informed therapy. They provide alternative sliding-scale options for adults who do not possess third-party extended health coverage",
+          "raw_source_text": "Good Talk Therapy: Located at 1140 Austin Ave in Coquitlam, they specialize in relational, trauma-informed therapy. They provide alternative sliding-scale options for adults who do not possess third-party extended health coverage\nContact: 604.716.0631 Email: goodtalkhelps@gmail.com",
+          "phones": [
+            "604.716.0631"
+          ],
+          "emails": [
+            "goodtalkhelps@gmail.com"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "good talk therapy|604.716.0631|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-23",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 263,
+          "display_order": 23,
+          "name": "Aster Wellness (Port Coquitlam)",
+          "description": "Located right in the Tri-Cities, this clinic provides reduced-rate individual counselling sessions with student therapists and interns.",
+          "raw_source_text": "Aster Wellness (Port Coquitlam): Located right in the Tri-Cities, this clinic provides reduced-rate individual counselling sessions with student therapists and interns.\nContact: (604) 474-2790 Email: info@asterwellness.ca",
+          "phones": [
+            "(604) 474-2790"
+          ],
+          "emails": [
+            "info@asterwellness.ca"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "cost",
+              "message": "Contains price, subsidy, or sliding-scale information."
+            },
+            {
+              "code": "residency",
+              "message": "Contains a geographic or residency restriction."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "aster wellness (port coquitlam)|(604) 474-2790|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "9-24",
+          "section_title": "TRAUMA",
+          "source_paragraph_start": 265,
+          "display_order": 24,
+          "name": "Women’s Resource Centre",
+          "description": "We offer individual and support group services to adult, self-identified women who have experienced gender-based violence, such as sexual assault, childhood abuse and relationship violence (or domestic violence).",
+          "raw_source_text": "Women’s Resource Centre – We offer individual and support group services to adult, self-identified women who have experienced gender-based violence, such as sexual assault, childhood abuse and relationship violence (or domestic violence).\nContact: 604-583-1295 24 hour support line (trauma, domestic violence issues) or drop-in 9:30am-5pm 10075 Whalley Blvd, Surrey BC",
+          "phones": [
+            "604-583-1295"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "women’s resource centre|604-583-1295|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        }
+      ],
+      "display_order": 9
+    },
+    {
+      "title": "GRIEF SUPPORT",
+      "source_paragraph": 267,
+      "items": [
+        {
+          "local_id": "10-1",
+          "section_title": "GRIEF SUPPORT",
+          "source_paragraph_start": 269,
+          "display_order": 1,
+          "name": "Lumara Grief and Bereavement Care Society",
+          "description": "Lumara is a charitable organization that helps children, youth, adults & families cope with serious illness, grief, and bereavement. Groups are available both in-person and online.",
+          "raw_source_text": "Lumara Grief and Bereavement Care Society - Lumara is a charitable organization that helps children, youth, adults & families cope with serious illness, grief, and bereavement. Groups are available both in-person and online.\nContact: https://lumarasociety.org/home/ 604-553-4663",
+          "phones": [
+            "604-553-4663"
+          ],
+          "emails": [],
+          "websites": [
+            "https://lumarasociety.org/home/"
+          ],
+          "warnings": [
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            }
+          ],
+          "normalized_identity": "lumara grief and bereavement care society|604-553-4663|https://lumarasociety.org/home/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "10-2",
+          "section_title": "GRIEF SUPPORT",
+          "source_paragraph_start": 271,
+          "display_order": 2,
+          "name": "Vancouver Hospice Society",
+          "description": "Up to 6 free individual or family sessions specific to grief with a clinical counsellor. In-person or online.",
+          "raw_source_text": "Vancouver Hospice Society - Up to 6 free individual or family sessions specific to grief with a clinical counsellor. In-person or online.\nContact: 604-737-7305 ext. 216 or counselling@vancouverhospice.org https://www.vancouverhospice.org/services/grief-support/individual-and-family-counselling/",
+          "phones": [
+            "604-737-7305 ext. 216"
+          ],
+          "emails": [
+            "counselling@vancouverhospice.org"
+          ],
+          "websites": [
+            "https://www.vancouverhospice.org/services/grief-support/individual-and-family-counselling/"
+          ],
+          "warnings": [],
+          "normalized_identity": "vancouver hospice society|604-737-7305 ext. 216|https://www.vancouverhospice.org/services/grief-support/individual-and-family-counselling/",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "10-3",
+          "section_title": "GRIEF SUPPORT",
+          "source_paragraph_start": 273,
+          "display_order": 3,
+          "name": "Crossroads Hospice Society",
+          "description": "Our services are accessible to anyone over 30 years of age living in Coquitlam, Port Coquitlam, Port Moody, Anmore or Belcarra, as well as those who have lost a loved one at our Crossroads Hospice Residence. We also provide support for youth and young adults, aged 13 – 29. No referral is needed. Free.",
+          "raw_source_text": "Crossroads Hospice Society - Our services are accessible to anyone over 30 years of age living in Coquitlam, Port Coquitlam, Port Moody, Anmore or Belcarra, as well as those who have lost a loved one at our Crossroads Hospice Residence. We also provide support for youth and young adults, aged 13 – 29. No referral is needed. Free.\nContact: To access our services, call our Adult Bereavement Coordinator at 604-945-0606 extension 1, or email support@crossroadshospice.org",
+          "phones": [
+            "604-945-0606"
+          ],
+          "emails": [
+            "support@crossroadshospice.org"
+          ],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "residency",
+              "message": "Contains a geographic or residency restriction."
+            },
+            {
+              "code": "age_or_population",
+              "message": "Contains an age or population restriction."
+            },
+            {
+              "code": "referral",
+              "message": "Contains a referral requirement."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "crossroads hospice society|604-945-0606|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "10-4",
+          "section_title": "GRIEF SUPPORT",
+          "source_paragraph_start": 275,
+          "display_order": 4,
+          "name": "SAFER",
+          "description": "**Vancouver Residents - Counselling for people in suicide crisis, History of attempt, or survivors of a suicide death.",
+          "raw_source_text": "SAFER - **Vancouver Residents - Counselling for people in suicide crisis, History of attempt, or survivors of a suicide death.\nContact: 604-875-4794 (M-F 8:30-4:30)",
+          "phones": [
+            "604-875-4794"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "crisis",
+              "message": "Crisis-related entry requires prominent review and presentation."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "safer|604-875-4794|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        }
+      ],
+      "display_order": 10
+    },
+    {
+      "title": "CRISIS LINES",
+      "source_paragraph": 277,
+      "items": [
+        {
+          "local_id": "11-1",
+          "section_title": "CRISIS LINES",
+          "source_paragraph_start": 278,
+          "display_order": 1,
+          "name": "Women’s Resource Centre",
+          "description": "604-583-1295 24 hour support line (trauma, domestic violence issues) or drop-in 9:30am-5pm 10075 Whalley Blvd, Surrey BC",
+          "raw_source_text": "Women’s Resource Centre – 604-583-1295 24 hour support line (trauma, domestic violence issues) or drop-in 9:30am-5pm 10075 Whalley Blvd, Surrey BC",
+          "phones": [
+            "604-583-1295"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            },
+            {
+              "code": "possible_duplicate",
+              "message": "Possible duplicate appears 2 times across the document."
+            }
+          ],
+          "normalized_identity": "women’s resource centre|604-583-1295|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "11-2",
+          "section_title": "CRISIS LINES",
+          "source_paragraph_start": 279,
+          "display_order": 2,
+          "name": "Fraser Health Crisis Line",
+          "description": "604-951-8855 (24 hour crisis line) 1-877-820-7444",
+          "raw_source_text": "Fraser Health Crisis Line – 604-951-8855 (24 hour crisis line) 1-877-820-7444",
+          "phones": [
+            "604-951-8855",
+            "1-877-820-7444"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "crisis",
+              "message": "Crisis-related entry requires prominent review and presentation."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "fraser health crisis line|604-951-8855|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "11-3",
+          "section_title": "CRISIS LINES",
+          "source_paragraph_start": 280,
+          "display_order": 3,
+          "name": "Crisis Line",
+          "description": "1-800-784-2433 or dial 9-8-8 if you are experiencing feelings of distress or despair, including thoughts of suicide.",
+          "raw_source_text": "Crisis Line - 1-800-784-2433 or dial 9-8-8 if you are experiencing feelings of distress or despair, including thoughts of suicide.",
+          "phones": [
+            "1-800-784-2433"
+          ],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "crisis",
+              "message": "Crisis-related entry requires prominent review and presentation."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "crisis line|1-800-784-2433|",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "11-4",
+          "section_title": "CRISIS LINES",
+          "source_paragraph_start": 282,
+          "display_order": 4,
+          "name": "310Mental Health Support",
+          "description": "(310-6789) is a crisis line that provides emotional support, information, and resources specific to mental health and substance use disorders.",
+          "raw_source_text": "310Mental Health Support - (310-6789) is a crisis line that provides emotional support, information, and resources specific to mental health and substance use disorders.",
+          "phones": [],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "crisis",
+              "message": "Crisis-related entry requires prominent review and presentation."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "310mental health support||",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        },
+        {
+          "local_id": "11-5",
+          "section_title": "CRISIS LINES",
+          "source_paragraph_start": 284,
+          "display_order": 5,
+          "name": "9-8-8",
+          "description": "Suicide Crisis Helpline. Dial 988. Languages: English and French. Text/phone 24/7.",
+          "raw_source_text": "9-8-8: Suicide Crisis Helpline. Dial 988. Languages: English and French. Text/phone 24/7.",
+          "phones": [],
+          "emails": [],
+          "websites": [],
+          "warnings": [
+            {
+              "code": "crisis",
+              "message": "Crisis-related entry requires prominent review and presentation."
+            },
+            {
+              "code": "no_website",
+              "message": "No reliable website was detected."
+            }
+          ],
+          "normalized_identity": "9-8-8||",
+          "review_status": "pending",
+          "final_disposition": "undecided",
+          "match_classification": "no_match",
+          "proposed_canonical_matches": []
+        }
+      ],
+      "display_order": 11
+    }
+  ],
+  "summary": {
+    "section_count": 11,
+    "entry_count": 111,
+    "warning_count": 216,
+    "duplicate_entry_count": 38
+  }
+}

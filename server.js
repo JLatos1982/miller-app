@@ -4,6 +4,9 @@ import dotenv from "dotenv"
 import OpenAI from "openai"
 import path from "path"
 import fs from "fs"
+import os from "os"
+import { execFileSync } from "node:child_process"
+import { createHash, randomUUID } from "node:crypto"
 import { fileURLToPath } from "url"
 import { tavily } from "@tavily/core"
 import fetch from "node-fetch"
@@ -17,7 +20,8 @@ import { boundedMapConversation, buildAuthorizedMapResponse } from "./server/map
 import { authorizeMapMatches, getCuratedMapResource } from "./server/mapResources.js"
 import { classifyLocationReview } from "./server/locationReview.js"
 import { canonicalSeedId } from "./server/resourceIdentity.js"
-import { directoryApprovalState, findConservativeMatches, prepareShelterCandidate, SHELTER_REVIEW_ACTIONS } from "./server/shelterDiscovery.js"
+import { collectCandidateMatches, directoryApprovalState, prepareShelterCandidate, SHELTER_REVIEW_ACTIONS } from "./server/shelterDiscovery.js"
+import { DOCX_MIME, LIST_PARSER_VERSION, MAX_DOCX_BYTES, parseCounsellingDocumentXml, proposeCanonicalMatches } from "./server/curatedLists.js"
 
 dotenv.config()
 
@@ -52,7 +56,7 @@ app.use((req, res, next) => {
     origin: true,
     credentials: true,
     methods: ["GET", "POST", "PATCH", "OPTIONS"],
-    allowedHeaders: ["Authorization", "Content-Type"],
+    allowedHeaders: ["Authorization", "Content-Type", "X-File-Name", "X-List-Title", "X-List-Slug"],
   })(req, res, next)
 })
 
@@ -1454,6 +1458,148 @@ res.json({
 
 })
 
+app.get("/api/lists", async (_req, res) => {
+  const { data: lists, error } = await supabase.from("curated_lists").select("id,slug,title,short_description,category,last_reviewed_at,published_at,display_order").eq("status", "published").order("display_order").order("title")
+  if (error) return res.status(503).json({ error: "Pre-made lists are temporarily unavailable." })
+  const ids = (lists || []).map((item) => item.id)
+  const placements = ids.length ? await supabase.from("curated_list_items").select("id,list_id").in("list_id", ids).eq("visible", true).eq("verification_status", "verified") : { data: [], error: null }
+  if (placements.error) return res.status(503).json({ error: "Pre-made list counts are temporarily unavailable." })
+  const counts = new Map(); for (const item of placements.data || []) counts.set(item.list_id, (counts.get(item.list_id) || 0) + 1)
+  res.setHeader("Cache-Control", "public, max-age=300")
+  return res.json({ items: (lists || []).map((item) => ({ ...item, visible_entry_count: counts.get(item.id) || 0 })) })
+})
+
+app.get("/api/lists/:slug", async (req, res) => {
+  const slug = String(req.params.slug || "")
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) return res.status(400).json({ error: "Invalid list slug." })
+  const listResult = await supabase.from("curated_lists").select("id,slug,title,short_description,introduction,disclaimer,category,last_reviewed_at,published_at").eq("slug", slug).eq("status", "published").maybeSingle()
+  if (listResult.error || !listResult.data) return res.status(404).json({ error: "Published list not found." })
+  const [sections, items, placements] = await Promise.all([
+    supabase.from("curated_list_sections").select("id,title,description,display_order").eq("list_id", listResult.data.id).eq("visible", true).order("display_order"),
+    supabase.from("curated_list_items").select("id,canonical_resource_id,item_type,resource_name,description,cost_information,eligibility,geographic_restriction,address,phone,email,website,contact_notes,curator_note,verification_status,last_verified_at").eq("list_id", listResult.data.id).eq("visible", true).eq("verification_status", "verified"),
+    supabase.from("curated_list_item_sections").select("item_id,section_id,display_order").eq("visible", true).order("display_order"),
+  ])
+  if (sections.error || items.error || placements.error) return res.status(503).json({ error: "This list is temporarily unavailable." })
+  const itemById = new Map((items.data || []).map((item) => [item.id, item]))
+  const visibleSections = (sections.data || []).map((section) => ({ ...section, items: (placements.data || []).filter((placement) => placement.section_id === section.id && itemById.has(placement.item_id)).map((placement) => itemById.get(placement.item_id)) }))
+  res.setHeader("Cache-Control", "public, max-age=300")
+  return res.json({ list: listResult.data, sections: visibleSections })
+})
+
+app.get("/api/admin/curated-lists", requireAdmin, async (_req, res) => {
+  const { data, error } = await supabase.from("curated_lists").select("*").order("updated_at", { ascending: false })
+  if (error) return res.status(503).json({ error: "Curated lists could not be loaded.", code: "curated_lists_unavailable" })
+  return res.json({ items: data || [] })
+})
+
+app.get("/api/admin/curated-lists/:id", requireAdmin, async (req, res) => {
+  if (!/^[0-9a-f-]{36}$/i.test(req.params.id)) return res.status(400).json({ error: "Invalid list ID." })
+  const [list, sections, batches] = await Promise.all([
+    supabase.from("curated_lists").select("*").eq("id", req.params.id).single(),
+    supabase.from("curated_list_sections").select("*").eq("list_id", req.params.id).order("display_order"),
+    supabase.from("list_import_batches").select("*").eq("list_id", req.params.id).order("uploaded_at", { ascending: false }),
+  ])
+  if (list.error) return res.status(404).json({ error: "Curated list not found." })
+  const batchIds = (batches.data || []).map((item) => item.id)
+  const importItems = batchIds.length ? await supabase.from("list_import_items").select("*").in("batch_id", batchIds).order("display_order") : { data: [], error: null }
+  if (sections.error || batches.error || importItems.error) return res.status(503).json({ error: "Draft list details could not be loaded." })
+  return res.json({ list: list.data, sections: sections.data || [], batches: batches.data || [], import_items: importItems.data || [] })
+})
+
+app.post("/api/admin/list-imports", express.raw({ type: DOCX_MIME, limit: MAX_DOCX_BYTES }), requireAdmin, async (req, res) => {
+  const filename = decodeURIComponent(String(req.get("X-File-Name") || "")); const title = decodeURIComponent(String(req.get("X-List-Title") || "Low-Cost Community Counselling Options")); const slug = decodeURIComponent(String(req.get("X-List-Slug") || "low-cost-community-counselling-options"))
+  if (!filename.toLowerCase().endsWith(".docx") || !Buffer.isBuffer(req.body) || req.body.length < 4 || req.body.length > MAX_DOCX_BYTES || req.body[0] !== 0x50 || req.body[1] !== 0x4b) return res.status(400).json({ error: "Upload a valid DOCX file no larger than 8 MB.", code: "invalid_docx" })
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) || title.trim().length < 3) return res.status(400).json({ error: "A valid list title and slug are required.", code: "invalid_list_identity" })
+  const sourceSha = createHash("sha256").update(req.body).digest("hex")
+  const duplicate = await supabase.from("list_import_batches").select("id,list_id,parsing_status").eq("source_sha256", sourceSha).eq("parser_version", LIST_PARSER_VERSION).maybeSingle()
+  if (duplicate.error) return res.status(503).json({ error: "Existing imports could not be checked.", code: "import_lookup_failed" })
+  if (duplicate.data) return res.status(409).json({ error: "This document version was already imported.", code: "duplicate_import", existing: duplicate.data })
+  const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "miller-list-import-")); const tempFile = path.join(tempDirectory, "source.docx")
+  let parsed
+  try { fs.writeFileSync(tempFile, req.body, { flag: "wx" }); const xml = execFileSync("unzip", ["-p", tempFile, "word/document.xml"], { encoding: "utf8", maxBuffer: MAX_DOCX_BYTES }); parsed = parseCounsellingDocumentXml(xml, { filename }) }
+  catch { return res.status(400).json({ error: "The DOCX could not be parsed. No list was created.", code: "docx_parse_failed" }) }
+  finally { fs.rmSync(tempDirectory, { recursive: true, force: true }) }
+  const storagePath = `${req.adminUser.id}/${new Date().toISOString().slice(0, 10)}/${randomUUID()}.docx`
+  const upload = await supabase.storage.from("curated-list-sources").upload(storagePath, req.body, { contentType: DOCX_MIME, upsert: false })
+  if (upload.error) return res.status(503).json({ error: "The private source document could not be stored. No list was created.", code: "private_upload_failed" })
+  const listInsert = await supabase.from("curated_lists").insert({ slug, title: title.trim(), short_description: "A curated collection of low-cost counselling and related supports.", introduction: parsed.introduction, disclaimer: "Information may change. Contact each service to confirm current cost, eligibility, availability, and fit. Crisis contacts are presented separately.", category: "Counselling", status: "draft", source_filename: filename, source_storage_path: storagePath, created_by: req.adminUser.id, updated_by: req.adminUser.id }).select().single()
+  if (listInsert.error) { await supabase.storage.from("curated-list-sources").remove([storagePath]); return res.status(409).json({ error: "The draft list could not be created. The private upload was removed.", code: listInsert.error.code || "list_create_failed" }) }
+  const batchInsert = await supabase.from("list_import_batches").insert({ list_id: listInsert.data.id, original_filename: filename, source_storage_path: storagePath, source_sha256: sourceSha, parser_version: LIST_PARSER_VERSION, parsing_status: "parsed", heading_count: parsed.summary.section_count, entry_count: parsed.summary.entry_count, parse_summary: parsed.summary, uploaded_by: req.adminUser.id }).select().single()
+  if (batchInsert.error) { await supabase.from("curated_lists").delete().eq("id", listInsert.data.id); await supabase.storage.from("curated-list-sources").remove([storagePath]); return res.status(500).json({ error: "Import tracking failed and the new draft was rolled back.", code: "batch_create_failed" }) }
+  const sectionRows = parsed.sections.map((section) => ({ list_id: listInsert.data.id, title: section.title, display_order: section.display_order, visible: true }))
+  const sectionInsert = await supabase.from("curated_list_sections").insert(sectionRows).select("id,title")
+  if (sectionInsert.error) return res.status(500).json({ error: "Sections could not be stored. The incomplete draft remains private for administrator recovery.", code: "section_create_failed" })
+  const [resourcesResult, aliasesResult] = await Promise.all([supabase.from("tavily_resources").select("id,name,website,city,organization"), supabase.from("resource_source_aliases").select("resource_id,source_native_id").eq("source_type", "tavily_resource")])
+  const canonicalBySource = new Map((aliasesResult.data || []).map((alias) => [String(alias.source_native_id), alias.resource_id]))
+  const resources = (resourcesResult.data || []).map((resource) => ({ ...resource, canonical_resource_id: canonicalBySource.get(String(resource.id)) || null })).filter((resource) => resource.canonical_resource_id)
+  const importRows = parsed.sections.flatMap((section) => section.items.map((item) => { const proposed = proposeCanonicalMatches(item, resources); const kinds = new Set(proposed.map((match) => match.classification)); return { batch_id: batchInsert.data.id, detected_section: section.title, source_paragraph_start: item.raw_paragraphs?.[0]?.paragraph_number || null, raw_source_text: item.raw_source_text, parsed_name: item.name, parsed_description: item.description, parsed_contact: { phones: item.phones, emails: item.emails, websites: item.websites }, proposed_matches: proposed, match_confidence: kinds.has("confident") ? "confident" : proposed.length > 1 ? "ambiguous" : proposed.length ? "possible" : "no_match", validation_warnings: item.warnings, display_order: item.display_order } }))
+  const itemInsert = await supabase.from("list_import_items").insert(importRows)
+  if (itemInsert.error) return res.status(500).json({ error: "Parsed entries could not be stored. The incomplete draft remains private for administrator recovery.", code: "import_items_failed" })
+  return res.status(201).json({ outcome: "draft_created", list: listInsert.data, batch: batchInsert.data, summary: parsed.summary, message: "DOCX parsed into a private draft review queue. Nothing was published." })
+})
+
+app.patch("/api/admin/curated-lists/:id", requireAdmin, async (req, res) => {
+  if (!/^[0-9a-f-]{36}$/i.test(req.params.id)) return res.status(400).json({ error: "Invalid list ID." })
+  const action = String(req.body?.action || "update")
+  if (action === "publish") {
+    const { count, error } = await supabase.from("curated_list_items").select("id", { count: "exact", head: true }).eq("list_id", req.params.id).eq("visible", true).eq("verification_status", "verified")
+    if (error || !count) return res.status(409).json({ error: "At least one visible, verified item is required before publication.", code: "publish_gate_failed" })
+    const updated = await supabase.from("curated_lists").update({ status: "published", published_at: new Date().toISOString(), updated_by: req.adminUser.id, updated_at: new Date().toISOString() }).eq("id", req.params.id).select().single()
+    if (updated.error) return res.status(500).json({ error: "The list could not be published." }); return res.json({ outcome: "published", list: updated.data })
+  }
+  if (action === "unpublish") { const updated = await supabase.from("curated_lists").update({ status: "draft", published_at: null, updated_by: req.adminUser.id, updated_at: new Date().toISOString() }).eq("id", req.params.id).select().single(); if (updated.error) return res.status(500).json({ error: "The list could not be unpublished." }); return res.json({ outcome: "draft", list: updated.data }) }
+  const allowed = {}; for (const field of ["title","slug","short_description","introduction","disclaimer","category","display_order","last_reviewed_at"]) if (req.body?.list?.[field] !== undefined) allowed[field] = req.body.list[field]
+  const updated = await supabase.from("curated_lists").update({ ...allowed, updated_by: req.adminUser.id, updated_at: new Date().toISOString() }).eq("id", req.params.id).select().single()
+  if (updated.error) return res.status(500).json({ error: "List changes could not be saved.", code: updated.error.code || "list_update_failed" }); return res.json({ outcome: "updated", list: updated.data })
+})
+
+app.post("/api/admin/curated-lists/:id/commit-import", requireAdmin, async (req, res) => {
+  if (!/^[0-9a-f-]{36}$/i.test(req.params.id)) return res.status(400).json({ error: "Invalid list ID." })
+  const [sections, batches, existing] = await Promise.all([
+    supabase.from("curated_list_sections").select("id,title").eq("list_id", req.params.id),
+    supabase.from("list_import_batches").select("id").eq("list_id", req.params.id).eq("parsing_status", "parsed"),
+    supabase.from("curated_list_items").select("id", { count: "exact", head: true }).eq("list_id", req.params.id),
+  ])
+  if (sections.error || batches.error || existing.error) return res.status(503).json({ error: "The draft commit gate could not be checked." })
+  if (existing.count) return res.status(409).json({ error: "This draft already has structured items. Edit those items instead of recommitting the import.", code: "already_committed" })
+  const batchIds = (batches.data || []).map((item) => item.id); if (!batchIds.length) return res.status(409).json({ error: "No parsed import batch is ready to commit." })
+  const reviewed = await supabase.from("list_import_items").select("*").in("batch_id", batchIds).order("display_order")
+  if (reviewed.error) return res.status(503).json({ error: "Reviewed import entries could not be loaded." })
+  const undecided = (reviewed.data || []).filter((item) => item.final_disposition === "undecided")
+  if (undecided.length) return res.status(409).json({ error: `${undecided.length} imported entries still require a keep, attach, or skip decision.`, code: "review_incomplete", remaining: undecided.length })
+  const sectionByTitle = new Map((sections.data || []).map((item) => [item.title, item.id])), createdByIdentity = new Map(), createdIds = [], placements = []
+  for (const item of (reviewed.data || []).filter((row) => row.final_disposition !== "skip")) {
+    const corrections = item.administrator_corrections || {}, contact = item.parsed_contact || {}
+    const identity = item.final_disposition === "canonical_resource" ? `canonical:${item.selected_canonical_resource_id}` : `list:${createHash("sha256").update(JSON.stringify([corrections.resource_name || item.parsed_name, corrections.description || item.parsed_description, contact.phones?.[0] || "", contact.websites?.[0] || ""])).digest("hex")}`
+    let structuredId = createdByIdentity.get(identity)
+    if (!structuredId) {
+      const insert = await supabase.from("curated_list_items").insert({ list_id: req.params.id, canonical_resource_id: item.final_disposition === "canonical_resource" ? item.selected_canonical_resource_id : null, item_type: item.final_disposition === "canonical_resource" ? "canonical_resource" : "list_only_entry", resource_name: corrections.resource_name || item.parsed_name || "Needs correction", description: corrections.description || item.parsed_description || "", cost_information: corrections.cost_information || "", eligibility: corrections.eligibility || "", geographic_restriction: corrections.geographic_restriction || "", address: corrections.address || "", phone: corrections.phone || contact.phones?.[0] || "", email: corrections.email || contact.emails?.[0] || "", website: corrections.website || contact.websites?.[0] || "", contact_notes: corrections.contact_notes || "", curator_note: corrections.curator_note || "", visible: false, verification_status: "needs_review", source_import_item_id: item.id }).select("id").single()
+      if (insert.error) { if (createdIds.length) await supabase.from("curated_list_items").delete().in("id", createdIds); return res.status(500).json({ error: "Structured draft creation failed and newly-created items were rolled back.", code: "draft_commit_failed" }) }
+      structuredId = insert.data.id; createdByIdentity.set(identity, structuredId); createdIds.push(structuredId)
+    }
+    const sectionId = sectionByTitle.get(item.detected_section); if (sectionId) placements.push({ item_id: structuredId, section_id: sectionId, display_order: item.display_order, visible: true })
+  }
+  const uniquePlacements = [...new Map(placements.map((item) => [`${item.item_id}:${item.section_id}`, item])).values()]
+  const placementInsert = uniquePlacements.length ? await supabase.from("curated_list_item_sections").insert(uniquePlacements) : { error: null }
+  if (placementInsert.error) { if (createdIds.length) await supabase.from("curated_list_items").delete().in("id", createdIds); return res.status(500).json({ error: "Section placement failed and newly-created items were rolled back.", code: "placement_commit_failed" }) }
+  await supabase.from("list_import_batches").update({ parsing_status: "committed", committed_at: new Date().toISOString() }).in("id", batchIds)
+  return res.json({ outcome: "structured_draft_committed", structured_items: createdIds.length, section_placements: uniquePlacements.length, published: false })
+})
+
+app.patch("/api/admin/list-import-items/:id", requireAdmin, async (req, res) => {
+  if (!/^[0-9a-f-]{36}$/i.test(req.params.id)) return res.status(400).json({ error: "Invalid import item ID." })
+  const disposition = String(req.body?.final_disposition || "undecided"); if (!["undecided","canonical_resource","list_only_entry","skip"].includes(disposition)) return res.status(400).json({ error: "Invalid final disposition." })
+  const canonical = req.body?.selected_canonical_resource_id || null; if (disposition === "canonical_resource" && !/^[0-9a-f-]{36}$/i.test(String(canonical))) return res.status(400).json({ error: "Select a canonical resource for this disposition." })
+  const changes = { final_disposition: disposition, selected_canonical_resource_id: disposition === "canonical_resource" ? canonical : null, administrator_corrections: req.body?.administrator_corrections || {}, review_status: disposition === "undecided" ? "pending" : "reviewed", reviewed_by: req.adminUser.id, reviewed_at: new Date().toISOString(), updated_at: new Date().toISOString() }
+  const updated = await supabase.from("list_import_items").update(changes).eq("id", req.params.id).select().single(); if (updated.error) return res.status(500).json({ error: "The review decision could not be saved." }); return res.json({ outcome: "reviewed", item: updated.data })
+})
+
+app.get("/api/admin/list-imports/:id/source-link", requireAdmin, async (req, res) => {
+  if (!/^[0-9a-f-]{36}$/i.test(req.params.id)) return res.status(400).json({ error: "Invalid import batch ID." })
+  const batch = await supabase.from("list_import_batches").select("source_storage_path").eq("id", req.params.id).single(); if (batch.error) return res.status(404).json({ error: "Import batch not found." })
+  const signed = await supabase.storage.from("curated-list-sources").createSignedUrl(batch.data.source_storage_path, 300); if (signed.error) return res.status(503).json({ error: "A temporary source link could not be created." }); return res.json({ url: signed.data.signedUrl, expires_in: 300 })
+})
+
 app.get("/api/admin/tavily-resources", requireAdmin, async (req, res) => {
   const { count, error: countError } = await supabase
     .from("tavily_resources")
@@ -1509,7 +1655,17 @@ app.post("/api/admin/discovery-candidates", requireAdmin, async (req, res) => {
   if (existingCandidate.data) return res.status(200).json({ outcome: "existing_candidate", candidate: existingCandidate.data, message: "This candidate was already saved. Its existing review record is shown." })
   const { data: resources, error: resourceError } = await supabase.from("tavily_resources").select("id,name,organization,website,city,approved,hidden").limit(1000)
   if (resourceError) return res.status(503).json({ error: "Existing resources could not be checked for duplicates.", code: "duplicate_check_failed" })
-  const matches = findConservativeMatches(candidate, resources || []).slice(0, 10).map((item) => ({ tavily_resource_id: item.resource.id, name: item.resource.name, classification: item.classification, score: item.score, evidence: item.evidence }))
+  const { data: aliases, error: aliasError } = await supabase.from("resource_source_aliases").select("resource_id,source_type,source_native_id,source_url,source_fingerprint")
+  if (aliasError) return res.status(503).json({ error: "Canonical aliases could not be checked for duplicates.", code: "alias_check_failed" })
+  const canonicalIds = [...new Set((aliases || []).map((item) => item.resource_id))]
+  const registryResult = canonicalIds.length ? await supabase.from("resource_registry").select("id,display_name").in("id", canonicalIds) : { data: [], error: null }
+  if (registryResult.error) return res.status(503).json({ error: "Canonical resources could not be checked for duplicates.", code: "canonical_check_failed" })
+  const canonicalBySource = new Map((aliases || []).filter((item) => item.source_type === "tavily_resource").map((item) => [String(item.source_native_id), item.resource_id]))
+  const resourcesWithCanonical = (resources || []).map((item) => ({ ...item, canonical_resource_id: canonicalBySource.get(String(item.id)) || null }))
+  const pendingResult = await supabase.from("resource_discovery_candidates").select("id,name,operator,website,phone,community,public_address,review_status").neq("source_fingerprint", candidate.source_fingerprint).limit(1000)
+  if (pendingResult.error) return res.status(503).json({ error: "Other review candidates could not be checked for duplicates.", code: "candidate_duplicate_check_failed" })
+  const pendingResources = (pendingResult.data || []).map((item) => ({ id: `candidate:${item.id}`, discovery_candidate_id: item.id, name: item.name, organization: item.operator, website: item.website, phone: item.phone, city: item.community, address: item.public_address }))
+  const matches = collectCandidateMatches(candidate, { resources: [...resourcesWithCanonical, ...pendingResources], aliases: aliases || [], registry: registryResult.data || [] })
   const { data, error } = await supabase.from("resource_discovery_candidates").insert({ ...candidate, possible_matches: matches }).select().single()
   if (error) return res.status(500).json({ error: "The candidate could not be saved. No resource was approved.", code: error.code || "candidate_insert_failed" })
   return res.status(201).json({ outcome: matches.length ? "possible_duplicate" : "created", candidate: data, possible_matches: matches, message: matches.length ? "Candidate saved with possible matches requiring review." : "Candidate saved to the administrator review queue." })

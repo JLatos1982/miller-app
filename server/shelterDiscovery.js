@@ -17,9 +17,11 @@ export function normalizeShelterCandidate(input = {}) {
   if (!/^https:\/\//i.test(sourceUrl)) throw new Error("A current HTTPS evidence URL is required.")
   const type = clean(input.shelter_type || "emergency_shelter", 100)
   const safetyText = `${name} ${type} ${input.population_served || ""} ${input.evidence_notes || ""}`
-  const explicitlyConfidential = input.location_disclosure_status === "confidential" || input.location_disclosure_status === "undisclosed"
+  const requestedDisclosure = ["public", "confidential", "undisclosed"].includes(input.location_disclosure_status) ? input.location_disclosure_status : ""
   const safetySensitive = confidentialPattern.test(safetyText)
-  const disclosure = explicitlyConfidential || (safetySensitive && !input.address_intentionally_public) ? "confidential" : input.public_address ? "public" : "undisclosed"
+  const disclosure = requestedDisclosure === "confidential" || requestedDisclosure === "undisclosed"
+    ? requestedDisclosure
+    : (safetySensitive && !input.address_intentionally_public) ? "confidential" : input.public_address ? "public" : "undisclosed"
   return Object.freeze({
     name, operator: clean(input.operator, 300), shelter_type: type, population_served: clean(input.population_served, 500), gender_eligibility: clean(input.gender_eligibility, 300), age_eligibility: clean(input.age_eligibility, 300), community: clean(input.community, 200), region: clean(input.region, 200), health_authority: clean(input.health_authority, 200),
     public_address: disclosure === "public" ? clean(input.public_address, 500) : "", location_disclosure_status: disclosure,
@@ -32,6 +34,30 @@ export function prepareShelterCandidate(input) { const item = normalizeShelterCa
 
 export function findConservativeMatches(candidate, resources = []) {
   return resources.map((resource) => ({ resource, ...comparePublicResources({ ...candidate, organization: candidate.operator, city: candidate.community, address: candidate.public_address }, { ...resource, address: resource.address || resource.public_address }) })).filter((item) => item.classification !== "likely_distinct" && item.classification !== "insufficient").sort((a, b) => b.score - a.score)
+}
+
+export function findCanonicalAliasMatches(candidate, aliases = [], registry = []) {
+  const registryById = new Map(registry.map((item) => [String(item.id), item]))
+  const sourceUrl = normalizePublicUrl(candidate.source_url)
+  return aliases
+    .filter((alias) => alias.source_fingerprint === candidate.source_fingerprint || (sourceUrl && normalizePublicUrl(alias.source_url) === sourceUrl))
+    .map((alias) => ({
+      canonical_resource_id: alias.resource_id,
+      source_type: alias.source_type,
+      source_native_id: String(alias.source_native_id),
+      name: registryById.get(String(alias.resource_id))?.display_name || "Existing canonical resource",
+      classification: "confirmed_alias",
+      score: 100,
+      evidence: { exact_source_fingerprint: alias.source_fingerprint === candidate.source_fingerprint, exact_source_url: Boolean(sourceUrl && normalizePublicUrl(alias.source_url) === sourceUrl) },
+    }))
+}
+
+export function collectCandidateMatches(candidate, { resources = [], aliases = [], registry = [] } = {}) {
+  const canonical = findCanonicalAliasMatches(candidate, aliases, registry)
+  const seenCanonical = new Set(canonical.map((item) => String(item.canonical_resource_id)))
+  const discovered = findConservativeMatches(candidate, resources).map((item) => ({ tavily_resource_id: item.resource.discovery_candidate_id ? null : item.resource.id, discovery_candidate_id: item.resource.discovery_candidate_id || null, canonical_resource_id: item.resource.canonical_resource_id || null, name: item.resource.name, classification: item.classification, score: item.score, evidence: item.evidence }))
+    .filter((item) => !item.canonical_resource_id || !seenCanonical.has(String(item.canonical_resource_id)))
+  return [...canonical, ...discovered].slice(0, 10)
 }
 
 export function directoryApprovalState(candidate = {}) {
