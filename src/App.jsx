@@ -40,6 +40,7 @@ import { normalizedResourceRows } from "./resourceData.js"
 import { askMiller, buildMillerRequest } from "./millerApi.js"
 import ShelterCandidateReview from "./admin/ShelterCandidateReview.jsx"
 import CuratedListManager from "./admin/CuratedListManager.jsx"
+import PdfDocumentManager from "./admin/PdfDocumentManager.jsx"
 import PreMadeLists from "./lists/PreMadeLists.jsx"
 
 const CATEGORY_ALIASES = {
@@ -690,7 +691,7 @@ function App() {
   const [handout, dispatchHandout] = useReducer(handoutReducer, undefined, createInitialHandoutState)
   const [isHandoutOpen, setIsHandoutOpen] = useState(false)
   const [isMapOpen, setIsMapOpen] = useState(false)
-  const [isListsOpen, setIsListsOpen] = useState(false)
+  const [isListsOpen, setIsListsOpen] = useState(() => window.location.pathname === "/lists" || window.location.pathname.startsWith("/lists/"))
   const [mapResources, setMapResources] = useState([])
 
   useEffect(() => {
@@ -1425,7 +1426,7 @@ const millerImageStyle = {}
 
   if (isAdminRoute) {
     if (isAdminMode && window.location.pathname.startsWith("/admin/lists")) {
-      return <main className="admin-route-shell"><header className="admin-route-header"><a href="/admin">← Administrator dashboard</a><div><p className="eyebrow">Protected administration</p><h1>Pre-made Lists</h1></div></header><CuratedListManager/></main>
+      return <main className="admin-route-shell"><header className="admin-route-header"><a href="/admin">← Administrator dashboard</a><div><p className="eyebrow">Protected administration</p><h1>Pre-made Lists</h1></div></header><PdfDocumentManager/><CuratedListManager/></main>
     }
     return <main className="admin-route-shell"><header className="admin-route-header"><a href="/">← Public resource finder</a><div><p className="eyebrow">Protected administration</p><h1>Miller administrator</h1></div>{isAdminMode ? <button type="button" onClick={async () => { await supabase.auth.signOut({ scope: "local" }); setIsAdminMode(false); setAdminReviewItems([]) }}>Sign out</button> : null}</header>{!isAdminMode ? <section className="admin-login-page" aria-labelledby="admin-login-title"><h2 id="admin-login-title">Administrator sign in</h2><p>Sign in with your Supabase account. Server access is granted only to an allowlisted administrator.</p><form onSubmit={requestAdminLogin}><label htmlFor="admin-email">Supabase account email</label><input id="admin-email" type="email" autoComplete="email" required value={adminLoginEmail} onChange={(event) => setAdminLoginEmail(event.target.value)}/><button type="submit">Email secure sign-in link</button><p role="status">{adminLoginStatus}</p></form></section> : <section className="admin-dashboard" aria-label="Administrator dashboard"><p role="status">{adminReviewStatus}</p><PendingLocationReview/><ShelterCandidateReview/><div className="admin-review-panel"><div className="results-head"><h2>Admin Review Queue <span className="results-count">{pendingCount} pending</span></h2></div><div className="resource-list">{adminReviewItems.map((resource, index) => <article key={`admin-${resource.website}-${index}`} className="resource-card"><div className="resource-top"><div><h3>{shortenTitle(resource.name)}</h3>{resource.city ? <p className="resource-org">{resource.city}</p> : null}</div></div>{resource.description ? <p className="resource-description">{resource.description}</p> : null}{renderAiReview(resource)}<div className="resource-links">{safeHttpUrl(resource.website) ? <a className="resource-link-button" href={safeHttpUrl(resource.website)} target="_blank" rel="noreferrer">🌐 Open Website</a> : null}</div><div className="resource-review-actions"><button className="approve-button" onClick={() => approveTavilyResource(resource)}>✅ Approve</button><button className="hide-button" onClick={() => hideTavilyResource(resource)}>🚫 Hide</button></div></article>)}</div></div></section>}</main>
   }
@@ -1443,7 +1444,7 @@ const millerImageStyle = {}
   }
 
   if (isListsOpen) {
-    return <PreMadeLists onBack={() => setIsListsOpen(false)} />
+    return <PreMadeLists onBack={() => { window.history.pushState({}, "", "/"); setIsListsOpen(false) }} />
   }
 
   if (isMapOpen) {
@@ -1461,7 +1462,7 @@ const millerImageStyle = {}
   className="scene-background"
 />
       <div className="handout-toolbar">
-        <button type="button" className="handout-indicator" onClick={() => setIsListsOpen(true)}><span aria-hidden="true">☷</span>Pre-made Lists</button>
+        <button type="button" className="handout-indicator" onClick={() => { window.history.pushState({}, "", "/lists"); setIsListsOpen(true) }}><span aria-hidden="true">☷</span>Pre-made Lists</button>
         <button type="button" className="handout-indicator" onClick={() => setIsMapOpen(true)}><span aria-hidden="true">⌖</span>Service Map</button>
         <button
           type="button"

@@ -22,6 +22,7 @@ import { classifyLocationReview } from "./server/locationReview.js"
 import { canonicalSeedId } from "./server/resourceIdentity.js"
 import { collectCandidateMatches, directoryApprovalState, prepareShelterCandidate, SHELTER_REVIEW_ACTIONS } from "./server/shelterDiscovery.js"
 import { DOCX_MIME, LIST_PARSER_VERSION, MAX_DOCX_BYTES, parseCounsellingDocumentXml, proposeCanonicalMatches } from "./server/curatedLists.js"
+import { MAX_PDF_BYTES, PDF_MIME, pdfDisposition, safePdfFilename, validatePdfBuffer } from "./server/pdfDocuments.js"
 
 dotenv.config()
 
@@ -56,7 +57,7 @@ app.use((req, res, next) => {
     origin: true,
     credentials: true,
     methods: ["GET", "POST", "PATCH", "OPTIONS"],
-    allowedHeaders: ["Authorization", "Content-Type", "X-File-Name", "X-List-Title", "X-List-Slug"],
+    allowedHeaders: ["Authorization", "Content-Type", "X-File-Name", "X-List-Title", "X-List-Slug", "X-List-Description", "X-List-Category", "X-Last-Reviewed-Date", "X-Download-File-Name"],
   })(req, res, next)
 })
 
@@ -72,6 +73,7 @@ function setSecurityHeaders(req, res, next) {
     "frame-ancestors 'none'",
     "form-action 'self'",
     "object-src 'none'",
+    "frame-src 'self' blob:",
     "script-src 'self'",
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: blob: https://*.tile.openstreetmap.org",
@@ -1459,9 +1461,9 @@ res.json({
 })
 
 app.get("/api/lists", async (_req, res) => {
-  const { data: lists, error } = await supabase.from("curated_lists").select("id,slug,title,short_description,category,last_reviewed_at,published_at,display_order").eq("status", "published").order("display_order").order("title")
+  const { data: lists, error } = await supabase.from("curated_lists").select("id,slug,title,short_description,category,last_reviewed_at,published_at,display_order,content_type,pdf_file_size_bytes,pdf_page_count,public_download_filename").eq("status", "published").order("display_order").order("title")
   if (error) return res.status(503).json({ error: "Pre-made lists are temporarily unavailable." })
-  const ids = (lists || []).map((item) => item.id)
+  const ids = (lists || []).filter((item) => item.content_type !== "pdf_document").map((item) => item.id)
   const placements = ids.length ? await supabase.from("curated_list_items").select("id,list_id").in("list_id", ids).eq("visible", true).in("verification_status", ["verified","externally_verified","imported_from_trusted_source"]) : { data: [], error: null }
   if (placements.error) return res.status(503).json({ error: "Pre-made list counts are temporarily unavailable." })
   const counts = new Map(); for (const item of placements.data || []) counts.set(item.list_id, (counts.get(item.list_id) || 0) + 1)
@@ -1472,8 +1474,12 @@ app.get("/api/lists", async (_req, res) => {
 app.get("/api/lists/:slug", async (req, res) => {
   const slug = String(req.params.slug || "")
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) return res.status(400).json({ error: "Invalid list slug." })
-  const listResult = await supabase.from("curated_lists").select("id,slug,title,short_description,introduction,disclaimer,category,last_reviewed_at,published_at").eq("slug", slug).eq("status", "published").maybeSingle()
+  const listResult = await supabase.from("curated_lists").select("id,slug,title,short_description,introduction,disclaimer,category,last_reviewed_at,published_at,content_type,pdf_file_size_bytes,pdf_page_count,public_download_filename").eq("slug", slug).eq("status", "published").maybeSingle()
   if (listResult.error || !listResult.data) return res.status(404).json({ error: "Published list not found." })
+  if (listResult.data.content_type === "pdf_document") {
+    res.setHeader("Cache-Control", "public, max-age=300")
+    return res.json({ list: listResult.data, format: "pdf_document", view_url: `/api/lists/${encodeURIComponent(slug)}/pdf`, download_url: `/api/lists/${encodeURIComponent(slug)}/pdf?disposition=attachment` })
+  }
   const [sections, items, placements] = await Promise.all([
     supabase.from("curated_list_sections").select("id,title,description,display_order").eq("list_id", listResult.data.id).eq("visible", true).order("display_order"),
     supabase.from("curated_list_items").select("id,canonical_resource_id,item_type,resource_name,description,cost_information,eligibility,geographic_restriction,address,phone,email,website,contact_notes,curator_note,verification_status,last_verified_at").eq("list_id", listResult.data.id).eq("visible", true).in("verification_status", ["verified","externally_verified","imported_from_trusted_source"]),
@@ -1484,6 +1490,28 @@ app.get("/api/lists/:slug", async (req, res) => {
   const visibleSections = (sections.data || []).map((section) => ({ ...section, items: (placements.data || []).filter((placement) => placement.section_id === section.id && itemById.has(placement.item_id)).map((placement) => itemById.get(placement.item_id)) }))
   res.setHeader("Cache-Control", "public, max-age=300")
   return res.json({ list: listResult.data, sections: visibleSections })
+})
+
+async function sendStoredListPdf(res, list, disposition = "inline") {
+  const stored = await supabase.storage.from("curated-list-documents").download(list.pdf_storage_path)
+  if (stored.error || !stored.data) return res.status(503).json({ error: "The PDF is temporarily unavailable." })
+  const bytes = Buffer.from(await stored.data.arrayBuffer())
+  res.setHeader("Content-Type", PDF_MIME)
+  res.setHeader("Content-Length", String(bytes.length))
+  res.setHeader("Content-Disposition", pdfDisposition(disposition, list.public_download_filename))
+  res.setHeader("Cache-Control", "private, no-store, max-age=0")
+  res.setHeader("X-Content-Type-Options", "nosniff")
+  res.setHeader("X-Frame-Options", "SAMEORIGIN")
+  res.setHeader("Content-Security-Policy", "default-src 'none'; frame-ancestors 'self'; sandbox")
+  return res.send(bytes)
+}
+
+app.get("/api/lists/:slug/pdf", async (req, res) => {
+  const slug = String(req.params.slug || "")
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) return res.status(400).json({ error: "Invalid list slug." })
+  const list = await supabase.from("curated_lists").select("pdf_storage_path,public_download_filename").eq("slug", slug).eq("content_type", "pdf_document").eq("status", "published").maybeSingle()
+  if (list.error || !list.data) return res.status(404).json({ error: "Published PDF not found." })
+  return sendStoredListPdf(res, list.data, req.query.disposition)
 })
 
 app.get("/api/admin/curated-lists", requireAdmin, async (_req, res) => {
@@ -1500,6 +1528,11 @@ app.get("/api/admin/curated-lists/:id", requireAdmin, async (req, res) => {
     supabase.from("list_import_batches").select("*").eq("list_id", req.params.id).order("uploaded_at", { ascending: false }),
   ])
   if (list.error) return res.status(404).json({ error: "Curated list not found." })
+  if (list.data.content_type === "pdf_document") {
+    const revisions = await supabase.from("curated_list_document_revisions").select("id,original_filename,public_download_filename,file_size_bytes,sha256,page_count,uploaded_by,uploaded_at,replaced_at").eq("list_id", req.params.id).order("uploaded_at", { ascending: false })
+    if (revisions.error) return res.status(503).json({ error: "PDF document history could not be loaded." })
+    return res.json({ list: list.data, revisions: revisions.data || [] })
+  }
   const batchIds = (batches.data || []).map((item) => item.id)
   const [importItems, structuredItems, placements] = await Promise.all([
     batchIds.length ? supabase.from("list_import_items").select("*").in("batch_id", batchIds).order("display_order") : { data: [], error: null },
@@ -1509,6 +1542,67 @@ app.get("/api/admin/curated-lists/:id", requireAdmin, async (req, res) => {
   if (sections.error || batches.error || importItems.error || structuredItems.error || placements.error) return res.status(503).json({ error: "Draft list details could not be loaded." })
   const structuredIds = new Set((structuredItems.data || []).map((item) => item.id))
   return res.json({ list: list.data, sections: sections.data || [], batches: batches.data || [], import_items: importItems.data || [], structured_items: structuredItems.data || [], placements: (placements.data || []).filter((item) => structuredIds.has(item.item_id)) })
+})
+
+function decodedHeader(req, name) {
+  try { return decodeURIComponent(String(req.get(name) || "")) } catch { return "" }
+}
+
+function pdfDocumentMetadata(req) {
+  const title = decodedHeader(req, "X-List-Title").trim(), slug = decodedHeader(req, "X-List-Slug").trim()
+  const originalFilename = safePdfFilename(decodedHeader(req, "X-File-Name")), downloadFilename = safePdfFilename(decodedHeader(req, "X-Download-File-Name") || title)
+  const shortDescription = decodedHeader(req, "X-List-Description").trim(), category = decodedHeader(req, "X-List-Category").trim()
+  const lastReviewed = decodedHeader(req, "X-Last-Reviewed-Date").trim()
+  if (title.length < 3 || title.length > 160 || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) return { error: "A valid PDF title and slug are required." }
+  if (!shortDescription || shortDescription.length > 500 || category.length > 120) return { error: "A description is required and metadata must fit the allowed limits." }
+  if (lastReviewed && !/^\d{4}-\d{2}-\d{2}$/.test(lastReviewed)) return { error: "Last reviewed must be a YYYY-MM-DD date." }
+  return { title, slug, originalFilename, downloadFilename, shortDescription, category: category || null, lastReviewed: lastReviewed || null }
+}
+
+app.post("/api/admin/curated-list-documents", express.raw({ type: PDF_MIME, limit: MAX_PDF_BYTES }), requireAdmin, async (req, res) => {
+  const metadata = pdfDocumentMetadata(req); if (metadata.error) return res.status(400).json({ error: metadata.error, code: "invalid_pdf_metadata" })
+  const validation = validatePdfBuffer(req.body); if (!validation.ok) return res.status(400).json(validation)
+  const duplicate = await supabase.from("curated_lists").select("id,slug,title,status").eq("content_type", "pdf_document").eq("pdf_sha256", validation.sha256).maybeSingle()
+  if (duplicate.error) return res.status(503).json({ error: "Duplicate PDFs could not be checked." })
+  if (duplicate.data) return res.status(409).json({ error: "This exact PDF is already stored as a Pre-made List.", code: "duplicate_pdf", existing: duplicate.data })
+  const storagePath = `${req.adminUser.id}/${new Date().toISOString().slice(0, 10)}/${randomUUID()}.pdf`
+  const upload = await supabase.storage.from("curated-list-documents").upload(storagePath, req.body, { contentType: PDF_MIME, upsert: false })
+  if (upload.error) return res.status(503).json({ error: "The private PDF could not be stored. No draft was created.", code: "pdf_storage_failed" })
+  const row = { content_type: "pdf_document", title: metadata.title, slug: metadata.slug, short_description: metadata.shortDescription, category: metadata.category, status: "draft", pdf_storage_path: storagePath, pdf_original_filename: metadata.originalFilename, public_download_filename: metadata.downloadFilename, pdf_file_size_bytes: validation.fileSizeBytes, pdf_sha256: validation.sha256, pdf_page_count: validation.pageCount, last_reviewed_at: metadata.lastReviewed, source_filename: metadata.originalFilename, source_storage_path: null, created_by: req.adminUser.id, updated_by: req.adminUser.id }
+  const inserted = await supabase.from("curated_lists").insert(row).select().single()
+  if (inserted.error) { await supabase.storage.from("curated-list-documents").remove([storagePath]); return res.status(409).json({ error: "The PDF draft could not be created. The private upload was removed.", code: inserted.error.code || "pdf_draft_failed" }) }
+  const revision = await supabase.from("curated_list_document_revisions").insert({ list_id: inserted.data.id, storage_path: storagePath, original_filename: metadata.originalFilename, public_download_filename: metadata.downloadFilename, file_size_bytes: validation.fileSizeBytes, sha256: validation.sha256, page_count: validation.pageCount, uploaded_by: req.adminUser.id })
+  if (revision.error) { await supabase.from("curated_lists").delete().eq("id", inserted.data.id); await supabase.storage.from("curated-list-documents").remove([storagePath]); return res.status(500).json({ error: "PDF audit history could not be created; the draft was rolled back.", code: "pdf_revision_failed" }) }
+  return res.status(201).json({ outcome: "pdf_draft_created", list: inserted.data, message: "PDF saved privately as a draft. Nothing was published." })
+})
+
+app.put("/api/admin/curated-list-documents/:id/pdf", express.raw({ type: PDF_MIME, limit: MAX_PDF_BYTES }), requireAdmin, async (req, res) => {
+  if (!/^[0-9a-f-]{36}$/i.test(req.params.id)) return res.status(400).json({ error: "Invalid list ID." })
+  const validation = validatePdfBuffer(req.body); if (!validation.ok) return res.status(400).json(validation)
+  const current = await supabase.from("curated_lists").select("id,content_type,pdf_storage_path,pdf_sha256,public_download_filename").eq("id", req.params.id).single()
+  if (current.error || current.data.content_type !== "pdf_document") return res.status(404).json({ error: "PDF document not found." })
+  if (current.data.pdf_sha256 === validation.sha256) return res.status(409).json({ error: "This is already the current PDF version.", code: "duplicate_pdf" })
+  const duplicate = await supabase.from("curated_lists").select("id,slug,title").eq("content_type", "pdf_document").eq("pdf_sha256", validation.sha256).neq("id", req.params.id).maybeSingle()
+  if (duplicate.error) return res.status(503).json({ error: "Duplicate PDFs could not be checked." })
+  if (duplicate.data) return res.status(409).json({ error: "This exact PDF belongs to another Pre-made List.", code: "duplicate_pdf", existing: duplicate.data })
+  const originalFilename = safePdfFilename(decodedHeader(req, "X-File-Name")), downloadFilename = safePdfFilename(decodedHeader(req, "X-Download-File-Name") || current.data.public_download_filename)
+  const storagePath = `${req.adminUser.id}/${new Date().toISOString().slice(0, 10)}/${randomUUID()}.pdf`
+  const upload = await supabase.storage.from("curated-list-documents").upload(storagePath, req.body, { contentType: PDF_MIME, upsert: false })
+  if (upload.error) return res.status(503).json({ error: "The replacement PDF could not be stored." })
+  const now = new Date().toISOString()
+  const revision = await supabase.from("curated_list_document_revisions").insert({ list_id: req.params.id, storage_path: storagePath, original_filename: originalFilename, public_download_filename: downloadFilename, file_size_bytes: validation.fileSizeBytes, sha256: validation.sha256, page_count: validation.pageCount, uploaded_by: req.adminUser.id }).select("id").single()
+  if (revision.error) { await supabase.storage.from("curated-list-documents").remove([storagePath]); return res.status(500).json({ error: "The replacement audit record could not be created; the new upload was removed.", code: "pdf_revision_failed" }) }
+  const updated = await supabase.from("curated_lists").update({ pdf_storage_path: storagePath, pdf_original_filename: originalFilename, public_download_filename: downloadFilename, pdf_file_size_bytes: validation.fileSizeBytes, pdf_sha256: validation.sha256, pdf_page_count: validation.pageCount, updated_by: req.adminUser.id, updated_at: now }).eq("id", req.params.id).eq("content_type", "pdf_document").select().single()
+  if (updated.error) { await supabase.from("curated_list_document_revisions").delete().eq("id", revision.data.id); await supabase.storage.from("curated-list-documents").remove([storagePath]); return res.status(500).json({ error: "The replacement could not be activated; the new upload and audit row were removed." }) }
+  await supabase.from("curated_list_document_revisions").update({ replaced_at: now }).eq("list_id", req.params.id).neq("id", revision.data.id).is("replaced_at", null)
+  return res.json({ outcome: "pdf_replaced", list: updated.data, previous_storage_retained: true })
+})
+
+app.get("/api/admin/curated-list-documents/:id/pdf", requireAdmin, async (req, res) => {
+  if (!/^[0-9a-f-]{36}$/i.test(req.params.id)) return res.status(400).json({ error: "Invalid list ID." })
+  const list = await supabase.from("curated_lists").select("pdf_storage_path,public_download_filename").eq("id", req.params.id).eq("content_type", "pdf_document").single()
+  if (list.error) return res.status(404).json({ error: "PDF document not found." })
+  return sendStoredListPdf(res, list.data, req.query.disposition)
 })
 
 app.post("/api/admin/list-imports", express.raw({ type: DOCX_MIME, limit: MAX_DOCX_BYTES }), requireAdmin, async (req, res) => {
@@ -1557,14 +1651,21 @@ app.post("/api/admin/curated-lists/:id/trusted-bulk-import", requireAdmin, async
 app.patch("/api/admin/curated-lists/:id", requireAdmin, async (req, res) => {
   if (!/^[0-9a-f-]{36}$/i.test(req.params.id)) return res.status(400).json({ error: "Invalid list ID." })
   const action = String(req.body?.action || "update")
+  const current = await supabase.from("curated_lists").select("id,content_type,pdf_storage_path,status").eq("id", req.params.id).single()
+  if (current.error) return res.status(404).json({ error: "Curated list not found." })
   if (action === "publish") {
     if (req.body?.confirmed_publication !== true) return res.status(400).json({ error: "Explicit publication confirmation is required.", code: "publication_confirmation_required" })
-    const { count, error } = await supabase.from("curated_list_items").select("id", { count: "exact", head: true }).eq("list_id", req.params.id).eq("visible", true).in("verification_status", ["verified","externally_verified","imported_from_trusted_source"])
-    if (error || !count) return res.status(409).json({ error: "At least one visible item accepted from a trusted source or externally verified is required before publication.", code: "publish_gate_failed" })
+    if (current.data.content_type === "pdf_document") {
+      if (!current.data.pdf_storage_path) return res.status(409).json({ error: "A privately stored PDF is required before publication.", code: "publish_gate_failed" })
+    } else {
+      const { count, error } = await supabase.from("curated_list_items").select("id", { count: "exact", head: true }).eq("list_id", req.params.id).eq("visible", true).in("verification_status", ["verified","externally_verified","imported_from_trusted_source"])
+      if (error || !count) return res.status(409).json({ error: "At least one visible item accepted from a trusted source or externally verified is required before publication.", code: "publish_gate_failed" })
+    }
     const updated = await supabase.from("curated_lists").update({ status: "published", published_at: new Date().toISOString(), updated_by: req.adminUser.id, updated_at: new Date().toISOString() }).eq("id", req.params.id).select().single()
     if (updated.error) return res.status(500).json({ error: "The list could not be published." }); return res.json({ outcome: "published", list: updated.data })
   }
-  if (action === "unpublish") { const updated = await supabase.from("curated_lists").update({ status: "draft", published_at: null, updated_by: req.adminUser.id, updated_at: new Date().toISOString() }).eq("id", req.params.id).select().single(); if (updated.error) return res.status(500).json({ error: "The list could not be unpublished." }); return res.json({ outcome: "draft", list: updated.data }) }
+  if (action === "unpublish") { const status = current.data.content_type === "pdf_document" ? "unpublished" : "draft"; const updated = await supabase.from("curated_lists").update({ status, published_at: null, updated_by: req.adminUser.id, updated_at: new Date().toISOString() }).eq("id", req.params.id).select().single(); if (updated.error) return res.status(500).json({ error: "The list could not be unpublished." }); return res.json({ outcome: status, list: updated.data }) }
+  if (action === "archive" && current.data.content_type === "pdf_document") { const updated = await supabase.from("curated_lists").update({ status: "archived", published_at: null, updated_by: req.adminUser.id, updated_at: new Date().toISOString() }).eq("id", req.params.id).select().single(); if (updated.error) return res.status(500).json({ error: "The PDF document could not be archived." }); return res.json({ outcome: "archived", list: updated.data }) }
   const allowed = {}; for (const field of ["title","slug","short_description","introduction","disclaimer","category","display_order","last_reviewed_at"]) if (req.body?.list?.[field] !== undefined) allowed[field] = req.body.list[field]
   const updated = await supabase.from("curated_lists").update({ ...allowed, updated_by: req.adminUser.id, updated_at: new Date().toISOString() }).eq("id", req.params.id).select().single()
   if (updated.error) return res.status(500).json({ error: "List changes could not be saved.", code: updated.error.code || "list_update_failed" }); return res.json({ outcome: "updated", list: updated.data })

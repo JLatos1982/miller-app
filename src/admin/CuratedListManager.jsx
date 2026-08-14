@@ -8,7 +8,7 @@ export default function CuratedListManager() {
   const [lists, setLists] = useState([]), [detail, setDetail] = useState(null), [status, setStatus] = useState("Loading curated lists…")
   const [title, setTitle] = useState("Low-Cost Community Counselling Options"), [slug, setSlug] = useState("low-cost-community-counselling-options")
   const [search, setSearch] = useState(""), [warningOnly, setWarningOnly] = useState(false), [duplicateOnly, setDuplicateOnly] = useState(false), [preview, setPreview] = useState(false), [sectionsOpen, setSectionsOpen] = useState(true)
-  const load = useCallback(async () => { const response = await adminFetch("/api/admin/curated-lists"); const body = await response.json().catch(() => ({})); if (!response.ok) return setStatus(body.error || "Lists could not be loaded."); setLists(body.items || []); setStatus(`${body.items?.length || 0} curated list(s).`) }, [])
+  const load = useCallback(async () => { const response = await adminFetch("/api/admin/curated-lists"); const body = await response.json().catch(() => ({})); if (!response.ok) return setStatus(body.error || "Lists could not be loaded."); const structured = (body.items || []).filter((item) => item.content_type !== "pdf_document"); setLists(structured); setStatus(`${structured.length} structured list(s).`) }, [])
   useEffect(() => { const timer = window.setTimeout(load, 0); return () => window.clearTimeout(timer) }, [load])
   const batch = detail?.batches?.[0], summary = batch?.parse_summary || {}
   const incompleteContacts = useMemo(() => detail?.import_items?.filter(contactProblem).length || 0, [detail])
