@@ -28,3 +28,13 @@ export function pdfDisposition(value, filename) {
   const ascii = safePdfFilename(filename).replace(/["\\]/g, "")
   return `${mode}; filename="${ascii}"; filename*=UTF-8''${encodeURIComponent(ascii)}`
 }
+
+export function requestedPdfByteRange(value, size) {
+  const match = String(value || "").match(/^bytes=(\d*)-(\d*)$/)
+  if (!match) return value ? null : undefined
+  let start = match[1] ? Number(match[1]) : null, end = match[2] ? Number(match[2]) : null
+  if (start === null && end !== null) { start = Math.max(0, size - end); end = size - 1 }
+  else { start ??= 0; end ??= size - 1 }
+  if (!Number.isSafeInteger(start) || !Number.isSafeInteger(end) || start < 0 || end < start || start >= size) return null
+  return { start, end: Math.min(end, size - 1) }
+}

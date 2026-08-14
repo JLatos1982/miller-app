@@ -22,7 +22,7 @@ import { classifyLocationReview } from "./server/locationReview.js"
 import { canonicalSeedId } from "./server/resourceIdentity.js"
 import { collectCandidateMatches, directoryApprovalState, prepareShelterCandidate, SHELTER_REVIEW_ACTIONS } from "./server/shelterDiscovery.js"
 import { DOCX_MIME, LIST_PARSER_VERSION, MAX_DOCX_BYTES, parseCounsellingDocumentXml, proposeCanonicalMatches } from "./server/curatedLists.js"
-import { MAX_PDF_BYTES, PDF_MIME, pdfDisposition, safePdfFilename, validatePdfBuffer } from "./server/pdfDocuments.js"
+import { MAX_PDF_BYTES, PDF_MIME, pdfDisposition, requestedPdfByteRange, safePdfFilename, validatePdfBuffer } from "./server/pdfDocuments.js"
 
 dotenv.config()
 
@@ -1492,18 +1492,24 @@ app.get("/api/lists/:slug", async (req, res) => {
   return res.json({ list: listResult.data, sections: visibleSections })
 })
 
-async function sendStoredListPdf(res, list, disposition = "inline") {
+async function sendStoredListPdf(req, res, list, disposition = "inline") {
   const stored = await supabase.storage.from("curated-list-documents").download(list.pdf_storage_path)
   if (stored.error || !stored.data) return res.status(503).json({ error: "The PDF is temporarily unavailable." })
   const bytes = Buffer.from(await stored.data.arrayBuffer())
+  const range = requestedPdfByteRange(req.get("Range"), bytes.length)
+  if (range === null) { res.setHeader("Content-Range", `bytes */${bytes.length}`); return res.status(416).end() }
+  const responseBytes = range ? bytes.subarray(range.start, range.end + 1) : bytes
   res.setHeader("Content-Type", PDF_MIME)
-  res.setHeader("Content-Length", String(bytes.length))
+  res.setHeader("Content-Length", String(responseBytes.length))
   res.setHeader("Content-Disposition", pdfDisposition(disposition, list.public_download_filename))
   res.setHeader("Cache-Control", "private, no-store, max-age=0")
+  res.setHeader("Accept-Ranges", "bytes")
   res.setHeader("X-Content-Type-Options", "nosniff")
   res.setHeader("X-Frame-Options", "SAMEORIGIN")
+  res.setHeader("Cross-Origin-Resource-Policy", "same-origin")
   res.setHeader("Content-Security-Policy", "default-src 'none'; frame-ancestors 'self'; sandbox")
-  return res.send(bytes)
+  if (range) { res.status(206); res.setHeader("Content-Range", `bytes ${range.start}-${range.end}/${bytes.length}`) }
+  return res.send(responseBytes)
 }
 
 app.get("/api/lists/:slug/pdf", async (req, res) => {
@@ -1511,7 +1517,7 @@ app.get("/api/lists/:slug/pdf", async (req, res) => {
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) return res.status(400).json({ error: "Invalid list slug." })
   const list = await supabase.from("curated_lists").select("pdf_storage_path,public_download_filename").eq("slug", slug).eq("content_type", "pdf_document").eq("status", "published").maybeSingle()
   if (list.error || !list.data) return res.status(404).json({ error: "Published PDF not found." })
-  return sendStoredListPdf(res, list.data, req.query.disposition)
+  return sendStoredListPdf(req, res, list.data, req.query.disposition)
 })
 
 app.get("/api/admin/curated-lists", requireAdmin, async (_req, res) => {
@@ -1602,7 +1608,7 @@ app.get("/api/admin/curated-list-documents/:id/pdf", requireAdmin, async (req, r
   if (!/^[0-9a-f-]{36}$/i.test(req.params.id)) return res.status(400).json({ error: "Invalid list ID." })
   const list = await supabase.from("curated_lists").select("pdf_storage_path,public_download_filename").eq("id", req.params.id).eq("content_type", "pdf_document").single()
   if (list.error) return res.status(404).json({ error: "PDF document not found." })
-  return sendStoredListPdf(res, list.data, req.query.disposition)
+  return sendStoredListPdf(req, res, list.data, req.query.disposition)
 })
 
 app.post("/api/admin/list-imports", express.raw({ type: DOCX_MIME, limit: MAX_DOCX_BYTES }), requireAdmin, async (req, res) => {

@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react"
+import { lazy, Suspense, useEffect, useState } from "react"
 import { safeEmailAddress, safeHttpUrl } from "../safeLinks.js"
 
 function formatDate(value) { if (!value) return "Not yet recorded"; return new Intl.DateTimeFormat("en-CA", { dateStyle: "medium" }).format(new Date(value)) }
 function formatBytes(value) { return value ? `${(Number(value) / 1024 / 1024).toFixed(2)} MB` : "Unknown size" }
+const PdfViewer = lazy(() => import("./PdfViewer.jsx"))
 
 function ListEntry({ item, crisis }) {
   const website = safeHttpUrl(item.website), email = safeEmailAddress(item.email)
@@ -12,7 +13,7 @@ function ListEntry({ item, crisis }) {
 function PdfDocument({ document, onBack }) {
   const { list } = document
   function printPdf() { const popup = window.open(document.view_url, "_blank", "noopener,noreferrer"); if (popup) popup.addEventListener("load", () => popup.print(), { once: true }) }
-  return <main className="premade-lists-page pdf-document-page"><div className="premade-toolbar"><button onClick={onBack}>← All pre-made lists</button><div><a href={document.view_url} target="_blank" rel="noreferrer">Open PDF</a><a href={document.download_url}>Download</a><button onClick={printPdf}>Print PDF</button></div></div><header><p className="eyebrow">Printable PDF</p><h1>{list.title}</h1><p>{list.short_description}</p><p>{list.pdf_page_count} page · {formatBytes(list.pdf_file_size_bytes)} · reviewed {formatDate(list.last_reviewed_at)}</p></header><aside className="premade-disclaimer">Resource details may change. Please contact services directly to confirm availability and eligibility.</aside><iframe className="pdf-document-frame" title={list.title} src={document.view_url}/><p className="pdf-mobile-fallback">If the document viewer is unavailable on your device, <a href={document.view_url} target="_blank" rel="noreferrer">open the complete PDF</a>.</p></main>
+  return <main className="premade-lists-page pdf-document-page"><div className="premade-toolbar"><button onClick={onBack}>← All pre-made lists</button><div><a href={document.view_url} target="_blank" rel="noreferrer">Open PDF</a><a href={document.download_url}>Download</a><button onClick={printPdf}>Print PDF</button></div></div><header><p className="eyebrow">Printable PDF</p><h1>{list.title}</h1><p>{list.short_description}</p><p>{list.pdf_page_count} page · {formatBytes(list.pdf_file_size_bytes)} · reviewed {formatDate(list.last_reviewed_at)}</p></header><aside className="premade-disclaimer">Resource details may change. Please contact services directly to confirm availability and eligibility.</aside><Suspense fallback={<div className="pdf-viewer-loading" role="status">Loading PDF preview…</div>}><PdfViewer sourceUrl={document.view_url} title={list.title}/></Suspense><p className="pdf-mobile-fallback">If the document viewer is unavailable on your device, <a href={document.view_url} target="_blank" rel="noreferrer">open the complete PDF</a>.</p></main>
 }
 
 export default function PreMadeLists({ onBack }) {

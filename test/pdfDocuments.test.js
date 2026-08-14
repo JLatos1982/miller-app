@@ -1,7 +1,7 @@
 import assert from "node:assert/strict"
 import fs from "node:fs"
 import test from "node:test"
-import { MAX_PDF_BYTES, pdfDisposition, safePdfFilename, validatePdfBuffer } from "../server/pdfDocuments.js"
+import { MAX_PDF_BYTES, pdfDisposition, requestedPdfByteRange, safePdfFilename, validatePdfBuffer } from "../server/pdfDocuments.js"
 
 const files = [
   ["Recovery_Support_Resources_Public.pdf", "2508f711d3d1b9f3dba9ce96b07f24f8e8781063f514fc93004f18a391f9f2c6"],
@@ -33,6 +33,15 @@ test("download filenames and content disposition are safe and PDF-only", () => {
   assert.match(pdfDisposition("inline", "Recovery Guide.pdf"), /^inline;/)
 })
 
+test("PDF delivery supports complete, partial, suffix, and invalid byte ranges", () => {
+  assert.equal(requestedPdfByteRange(undefined, 1000), undefined)
+  assert.deepEqual(requestedPdfByteRange("bytes=0-99", 1000), { start: 0, end: 99 })
+  assert.deepEqual(requestedPdfByteRange("bytes=900-", 1000), { start: 900, end: 999 })
+  assert.deepEqual(requestedPdfByteRange("bytes=-100", 1000), { start: 900, end: 999 })
+  assert.equal(requestedPdfByteRange("bytes=1000-1001", 1000), null)
+  assert.equal(requestedPdfByteRange("items=0-1", 1000), null)
+})
+
 test("forward migration adds PDF documents without mutating the counselling list or structured history", () => {
   const sql = fs.readFileSync(new URL("../supabase/migrations/202608150003_add_pdf_curated_documents.sql", import.meta.url), "utf8")
   assert.match(sql, /content_type text not null default 'structured_list'/)
@@ -57,6 +66,11 @@ test("server keeps structured rendering while gating PDF delivery and management
   assert.match(server, /app\.get\("\/api\/admin\/curated-list-documents\/:id\/pdf", requireAdmin/)
   assert.match(server, /curated_list_sections/)
   assert.match(server, /previous_storage_retained: true/)
+  assert.match(server, /Content-Type", PDF_MIME/)
+  assert.match(server, /Content-Disposition", pdfDisposition/)
+  assert.match(server, /Accept-Ranges", "bytes"/)
+  assert.match(server, /res\.status\(206\)/)
+  assert.match(server, /Cross-Origin-Resource-Policy", "same-origin"/)
 })
 
 test("public and administrator UIs distinguish PDF documents from structured lists", () => {
@@ -74,4 +88,22 @@ test("public and administrator UIs distinguish PDF documents from structured lis
   assert.match(adminUi, /Unpublish/)
   assert.match(adminUi, /Archive/)
   assert.doesNotMatch(adminUi, /trusted-bulk-import|canonical_resource|list_import_items/)
+})
+
+test("lazy PDF.js viewer has loading, timeout fallback, zoom, and multi-page scrolling", () => {
+  const detail = fs.readFileSync(new URL("../src/lists/PreMadeLists.jsx", import.meta.url), "utf8")
+  const viewer = fs.readFileSync(new URL("../src/lists/PdfViewer.jsx", import.meta.url), "utf8")
+  const css = fs.readFileSync(new URL("../src/App.css", import.meta.url), "utf8")
+  assert.match(detail, /lazy\(\(\) => import\("\.\/PdfViewer\.jsx"\)\)/)
+  assert.doesNotMatch(detail, /<iframe/)
+  assert.match(viewer, /pdfjs-dist\/legacy\/build\/pdf\.mjs/)
+  assert.match(viewer, /legacy\/build\/pdf\.worker\.min\.mjs\?url/)
+  assert.match(viewer, /Loading complete document/)
+  assert.match(viewer, /Preview unavailable in this browser/)
+  assert.match(viewer, /TIMEOUT_MS = 20_000/)
+  assert.match(viewer, /document\.numPages/)
+  assert.match(viewer, /Zoom out/)
+  assert.match(viewer, /Zoom in/)
+  assert.match(css, /pdf-viewer-pages\{[^}]*overflow:auto/)
+  for (const control of ["Open PDF", "Download", "Print PDF"]) assert.match(detail, new RegExp(control))
 })
