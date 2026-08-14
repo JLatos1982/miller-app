@@ -1462,7 +1462,7 @@ app.get("/api/lists", async (_req, res) => {
   const { data: lists, error } = await supabase.from("curated_lists").select("id,slug,title,short_description,category,last_reviewed_at,published_at,display_order").eq("status", "published").order("display_order").order("title")
   if (error) return res.status(503).json({ error: "Pre-made lists are temporarily unavailable." })
   const ids = (lists || []).map((item) => item.id)
-  const placements = ids.length ? await supabase.from("curated_list_items").select("id,list_id").in("list_id", ids).eq("visible", true).eq("verification_status", "verified") : { data: [], error: null }
+  const placements = ids.length ? await supabase.from("curated_list_items").select("id,list_id").in("list_id", ids).eq("visible", true).in("verification_status", ["verified","externally_verified","imported_from_trusted_source"]) : { data: [], error: null }
   if (placements.error) return res.status(503).json({ error: "Pre-made list counts are temporarily unavailable." })
   const counts = new Map(); for (const item of placements.data || []) counts.set(item.list_id, (counts.get(item.list_id) || 0) + 1)
   res.setHeader("Cache-Control", "public, max-age=300")
@@ -1476,7 +1476,7 @@ app.get("/api/lists/:slug", async (req, res) => {
   if (listResult.error || !listResult.data) return res.status(404).json({ error: "Published list not found." })
   const [sections, items, placements] = await Promise.all([
     supabase.from("curated_list_sections").select("id,title,description,display_order").eq("list_id", listResult.data.id).eq("visible", true).order("display_order"),
-    supabase.from("curated_list_items").select("id,canonical_resource_id,item_type,resource_name,description,cost_information,eligibility,geographic_restriction,address,phone,email,website,contact_notes,curator_note,verification_status,last_verified_at").eq("list_id", listResult.data.id).eq("visible", true).eq("verification_status", "verified"),
+    supabase.from("curated_list_items").select("id,canonical_resource_id,item_type,resource_name,description,cost_information,eligibility,geographic_restriction,address,phone,email,website,contact_notes,curator_note,verification_status,last_verified_at").eq("list_id", listResult.data.id).eq("visible", true).in("verification_status", ["verified","externally_verified","imported_from_trusted_source"]),
     supabase.from("curated_list_item_sections").select("item_id,section_id,display_order").eq("visible", true).order("display_order"),
   ])
   if (sections.error || items.error || placements.error) return res.status(503).json({ error: "This list is temporarily unavailable." })
@@ -1501,9 +1501,14 @@ app.get("/api/admin/curated-lists/:id", requireAdmin, async (req, res) => {
   ])
   if (list.error) return res.status(404).json({ error: "Curated list not found." })
   const batchIds = (batches.data || []).map((item) => item.id)
-  const importItems = batchIds.length ? await supabase.from("list_import_items").select("*").in("batch_id", batchIds).order("display_order") : { data: [], error: null }
-  if (sections.error || batches.error || importItems.error) return res.status(503).json({ error: "Draft list details could not be loaded." })
-  return res.json({ list: list.data, sections: sections.data || [], batches: batches.data || [], import_items: importItems.data || [] })
+  const [importItems, structuredItems, placements] = await Promise.all([
+    batchIds.length ? supabase.from("list_import_items").select("*").in("batch_id", batchIds).order("display_order") : { data: [], error: null },
+    supabase.from("curated_list_items").select("*").eq("list_id", req.params.id),
+    supabase.from("curated_list_item_sections").select("item_id,section_id,display_order,visible").order("display_order"),
+  ])
+  if (sections.error || batches.error || importItems.error || structuredItems.error || placements.error) return res.status(503).json({ error: "Draft list details could not be loaded." })
+  const structuredIds = new Set((structuredItems.data || []).map((item) => item.id))
+  return res.json({ list: list.data, sections: sections.data || [], batches: batches.data || [], import_items: importItems.data || [], structured_items: structuredItems.data || [], placements: (placements.data || []).filter((item) => structuredIds.has(item.item_id)) })
 })
 
 app.post("/api/admin/list-imports", express.raw({ type: DOCX_MIME, limit: MAX_DOCX_BYTES }), requireAdmin, async (req, res) => {
@@ -1538,12 +1543,24 @@ app.post("/api/admin/list-imports", express.raw({ type: DOCX_MIME, limit: MAX_DO
   return res.status(201).json({ outcome: "draft_created", list: listInsert.data, batch: batchInsert.data, summary: parsed.summary, message: "DOCX parsed into a private draft review queue. Nothing was published." })
 })
 
+app.post("/api/admin/curated-lists/:id/trusted-bulk-import", requireAdmin, async (req, res) => {
+  if (!/^[0-9a-f-]{36}$/i.test(req.params.id) || !/^[0-9a-f-]{36}$/i.test(String(req.body?.batch_id || ""))) return res.status(400).json({ error: "Valid list and import batch IDs are required." })
+  if (req.body?.confirmed !== true || req.body?.import_trust_level !== "trusted_curator") return res.status(400).json({ error: "Explicit trusted-curator confirmation is required.", code: "trusted_confirmation_required" })
+  const batch = await supabase.from("list_import_batches").select("id,list_id,entry_count,heading_count,parse_summary,parsing_status,import_source_type").eq("id", req.body.batch_id).eq("list_id", req.params.id).single()
+  if (batch.error) return res.status(404).json({ error: "Import batch not found." })
+  if (batch.data.import_source_type !== "admin_docx") return res.status(403).json({ error: "Trusted bulk import is limited to administrator-uploaded DOCX batches.", code: "untrusted_source_type" })
+  const result = await supabase.rpc("trusted_bulk_import_curated_list", { p_list_id: req.params.id, p_batch_id: batch.data.id, p_admin_id: req.adminUser.id })
+  if (result.error) return res.status(409).json({ error: "Trusted bulk import could not be completed atomically. No partial result was committed.", code: result.error.code || "trusted_bulk_failed" })
+  return res.json({ ...result.data, message: result.data?.idempotent ? "This trusted batch was already imported; the existing structured draft is unchanged." : "All included entries were imported as list-only entries. The list remains a draft and was not published." })
+})
+
 app.patch("/api/admin/curated-lists/:id", requireAdmin, async (req, res) => {
   if (!/^[0-9a-f-]{36}$/i.test(req.params.id)) return res.status(400).json({ error: "Invalid list ID." })
   const action = String(req.body?.action || "update")
   if (action === "publish") {
-    const { count, error } = await supabase.from("curated_list_items").select("id", { count: "exact", head: true }).eq("list_id", req.params.id).eq("visible", true).eq("verification_status", "verified")
-    if (error || !count) return res.status(409).json({ error: "At least one visible, verified item is required before publication.", code: "publish_gate_failed" })
+    if (req.body?.confirmed_publication !== true) return res.status(400).json({ error: "Explicit publication confirmation is required.", code: "publication_confirmation_required" })
+    const { count, error } = await supabase.from("curated_list_items").select("id", { count: "exact", head: true }).eq("list_id", req.params.id).eq("visible", true).in("verification_status", ["verified","externally_verified","imported_from_trusted_source"])
+    if (error || !count) return res.status(409).json({ error: "At least one visible item accepted from a trusted source or externally verified is required before publication.", code: "publish_gate_failed" })
     const updated = await supabase.from("curated_lists").update({ status: "published", published_at: new Date().toISOString(), updated_by: req.adminUser.id, updated_at: new Date().toISOString() }).eq("id", req.params.id).select().single()
     if (updated.error) return res.status(500).json({ error: "The list could not be published." }); return res.json({ outcome: "published", list: updated.data })
   }
