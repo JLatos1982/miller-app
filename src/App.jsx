@@ -31,7 +31,7 @@ import { createInitialHandoutState, getResourceKey, handoutReducer, hasHandoutCo
 import { MILLER_COPY } from "./interfaceCopy.js"
 import { adminFetch, getAdminAccessState } from "./adminApi.js"
 import { clearAuthCallbackFromUrl, hasAuthCallbackParams, requestAdminMagicLink } from "./adminAuthFlow.js"
-import PendingLocationReview from "./map/PendingLocationReview.jsx"
+import PendingLocationReview from "./map/AdminLocationReview.jsx"
 import { safeEmailAddress, safeHttpUrl } from "./safeLinks.js"
 import { submitResource, trackEvent } from "./publicApi.js"
 import ServiceMap from "./map/ServiceMap.jsx"

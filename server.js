@@ -3,6 +3,7 @@ import cors from "cors"
 import dotenv from "dotenv"
 import OpenAI from "openai"
 import path from "path"
+import fs from "fs"
 import { fileURLToPath } from "url"
 import { tavily } from "@tavily/core"
 import fetch from "node-fetch"
@@ -1016,7 +1017,35 @@ app.get("/api/admin/session", requireAdmin, (req, res) => {
   return res.json({ admin: true })
 })
 
+const addressEvidencePath = path.join(__dirname, "data", "address-evidence-inventory.json")
+const locationAutomationDryRunPath = path.join(__dirname, "data", "location-automation-v1.2-dry-run.json")
+function readAddressEvidence() { return JSON.parse(fs.readFileSync(addressEvidencePath, "utf8")) }
+app.get("/api/admin/address-evidence", requireAdmin, (_req, res) => {
+  try { res.setHeader("Cache-Control", "private, no-store"); return res.json(readAddressEvidence()) }
+  catch { return res.status(503).json({ error: "Address evidence has not been generated locally." }) }
+})
+app.post("/api/admin/address-evidence/bounded-approve", requireAdmin, (req, res) => {
+  const ids = Array.isArray(req.body?.canonical_uuids) ? req.body.canonical_uuids.map(String) : []
+  if (!ids.length || ids.length > 50 || new Set(ids).size !== ids.length) return res.status(400).json({ error: "Select between one and fifty distinct E1 records." })
+  if (req.body?.confirmed_geocoding_only !== true) return res.status(400).json({ error: "Confirm that this approves address evidence only for future geocoding." })
+  try {
+    const inventory = readAddressEvidence()
+    if (req.body?.evidence_version !== inventory.version) return res.status(409).json({ error: "The evidence inventory changed. Reload and review again." })
+    const chosen = inventory.records.filter((item) => ids.includes(item.canonical_uuid))
+    if (chosen.length !== ids.length || chosen.some((item) => item.tier !== "E1" || item.coordinates !== null || item.public_map !== false)) return res.status(409).json({ error: "Every selection must still be E1 evidence with no coordinate or public location." })
+    const reviewedAt = new Date().toISOString()
+    inventory.records = inventory.records.map((item) => ids.includes(item.canonical_uuid) ? { ...item, evidence_review_status: "approved_for_future_geocoding", evidence_reviewed_at: reviewedAt, evidence_reviewed_by: req.adminUser.id } : item)
+    const temporary = `${addressEvidencePath}.tmp`
+    fs.writeFileSync(temporary, `${JSON.stringify(inventory, null, 2)}\n`, { mode: 0o600 }); fs.renameSync(temporary, addressEvidencePath)
+    return res.json({ code: "address_evidence_approved_for_future_geocoding", approved_count: ids.length, canonical_uuids: ids, coordinates_created: 0, public_locations_created: 0 })
+  } catch { return res.status(500).json({ error: "Address evidence approval could not be saved." }) }
+})
+
 app.get("/api/admin/location-automation", requireAdmin, (_req, res) => res.json({ enabled: automatedLocationPublicationEnabled, note: "Disabled by default. Batch execution additionally requires an explicit server-side apply command." }))
+app.get("/api/admin/location-automation/dry-run", requireAdmin, (_req, res) => {
+  try { res.setHeader("Cache-Control", "private, no-store"); return res.json(JSON.parse(fs.readFileSync(locationAutomationDryRunPath, "utf8"))) }
+  catch { return res.status(503).json({ error: "The local v1.2 dry-run inventory has not been generated." }) }
+})
 app.post("/api/admin/location-automation/pause", requireAdmin, (req, res) => {
   automatedLocationPublicationEnabled = false
   return res.json({ enabled: false, paused_by: req.adminUser.id })

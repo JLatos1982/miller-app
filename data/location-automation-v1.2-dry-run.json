@@ -1,0 +1,1237 @@
+{
+  "policy_version": "miller-location-auto-v1.2.0",
+  "mode": "fixture_and_curated_evidence_dry_run",
+  "generated_at": "2026-08-14T04:02:51.976Z",
+  "baseline": {
+    "canonical": 430,
+    "approved_public_locations": 18,
+    "public_marker_groups": 18,
+    "unmapped": 412,
+    "pending": 0
+  },
+  "phase_1n_examined": 150,
+  "candidate_max": 100,
+  "request_max": 100,
+  "candidate_count": 69,
+  "bc_access": {
+    "enabled": false,
+    "key_configured": false,
+    "usable": false
+  },
+  "bc_requests": 0,
+  "bc_cache_hits": 0,
+  "productive_batch_started": false,
+  "existing_human_approvals": {
+    "count": 18,
+    "altered": 0,
+    "policy_regression_status": "protected_not_reconsidered; provider validation unavailable"
+  },
+  "counts": {
+    "A": 0,
+    "B": 68,
+    "C": 1
+  },
+  "failed_hard_gates": {
+    "bc_single_exact_result": 69,
+    "complete_numbered_curated_address": 1,
+    "no_conflicting_or_stale_evidence": 6,
+    "program_specific_curated_address": 6,
+    "storage_and_display_licensed": 69,
+    "valid_bc_coordinate": 69
+  },
+  "false_positives": {
+    "sensitive_tier_a": 0,
+    "centroid_tier_a": 0,
+    "known_conflict_tier_a": 0,
+    "human_decisions_overwritten": 0
+  },
+  "quality_control_sample": [],
+  "records": [
+    {
+      "canonical_uuid": "22c9ff25-1305-5403-a127-53e3cbed6f10",
+      "resource_name": "A Better Life Foundation",
+      "submitted_address": "43 W Hastings St",
+      "municipality": "Vancouver",
+      "facility_type": "Food / Community Support",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "c590181c-3721-58c6-9027-c2af7dc60108",
+      "resource_name": "Anne Vogel Clinic",
+      "submitted_address": "7671 Alderbridge Way, Unit 210",
+      "municipality": "Richmond",
+      "facility_type": "Addictions Medicine / OAT Clinic",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "0aeba4bd-bed0-58dd-a24d-5ced9459d4bf",
+      "resource_name": "Atira Women's Resource Society - Clothing",
+      "submitted_address": "101 E Cordova St",
+      "municipality": "Vancouver",
+      "facility_type": "Clothing",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "23b498ab-7fed-5fbc-9f21-c9bea51cdf46",
+      "resource_name": "Burnaby Community Substance Use Services Clinic",
+      "submitted_address": "Unit 320, 7155 Kingsway",
+      "municipality": "Burnaby",
+      "facility_type": "Counselling",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "56861cad-2e02-5f2b-a104-c6051660c0fa",
+      "resource_name": "Carnegie Community Centre",
+      "submitted_address": "401 Main St",
+      "municipality": "Vancouver",
+      "facility_type": "Community Organization",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "2c661803-4342-5d45-8ece-b481f3dde3ce",
+      "resource_name": "Change Pain Clinic",
+      "submitted_address": "301 East Columbia Street",
+      "municipality": "New Westminster",
+      "facility_type": "Medical / Pain Management",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "4aa6b168-d6e8-52b1-bca8-94173da78705",
+      "resource_name": "CleanStart Property Services",
+      "submitted_address": "312 Main St",
+      "municipality": "Vancouver",
+      "facility_type": "Employment Support / Training",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "33f02213-a466-5c4b-9694-5a0ad4a8e108",
+      "resource_name": "Community Addictions Counselling Team (CACT)",
+      "submitted_address": "200-678 East Hastings Street",
+      "municipality": "Vancouver",
+      "facility_type": "Addiction Counselling Service",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "16674c2f-302c-582b-a5cc-870511cdf829",
+      "resource_name": "Community Health Driver Program",
+      "submitted_address": "45921 Hocking Avenue",
+      "municipality": "Chilliwack",
+      "facility_type": "Transportation",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "d38870cc-9bc4-5892-88a1-60b1eb300972",
+      "resource_name": "Covenant House - Clothing",
+      "submitted_address": "575 Drake St",
+      "municipality": "Vancouver",
+      "facility_type": "Clothing",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "5af567df-cf72-5254-88ff-210cdf54569c",
+      "resource_name": "Downtown Eastside Women's Centre - Clothing",
+      "submitted_address": "302 Columbia St",
+      "municipality": "Vancouver",
+      "facility_type": "Clothing",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "3148d62f-97b3-5276-99d1-648537fa115e",
+      "resource_name": "Dress for Success",
+      "submitted_address": "675 W Hastings",
+      "municipality": "Vancouver",
+      "facility_type": "Clothing / Employment Clothing",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "f7060381-9f74-504e-8d42-586dc0d4a283",
+      "resource_name": "DUDES Club Society",
+      "submitted_address": "1318 Frances St",
+      "municipality": "Vancouver",
+      "facility_type": "Mental Health / Community Support",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "5a92bbb7-271f-5fbb-9ca1-dcfec04bc5b3",
+      "resource_name": "DUDES Club Society - neXup",
+      "submitted_address": "1318 Frances St",
+      "municipality": "Vancouver",
+      "facility_type": "Mental Health / Community Support",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "39a232ae-d537-560c-838d-31857d28d333",
+      "resource_name": "EMBERS Eastside Works",
+      "submitted_address": "57 E Hastings St",
+      "municipality": "Vancouver",
+      "facility_type": "Employment Support / Training",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "af12effe-41e4-5115-9b77-dd0e4c9e3472",
+      "resource_name": "EMBERS Staffing Solutions",
+      "submitted_address": "240-111 West Hastings Street",
+      "municipality": "Vancouver",
+      "facility_type": "Employment Support / Training",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "28711550-47ac-5a2a-9785-c54d158aab90",
+      "resource_name": "HAVE Culinary Training Society",
+      "submitted_address": "374 Powell St",
+      "municipality": "Vancouver",
+      "facility_type": "Employment Support / Training",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "80177a34-aa72-5057-b73b-da6d440a8582",
+      "resource_name": "Hope HATS / Cedar Strong",
+      "submitted_address": "400 Park Street",
+      "municipality": "Hope",
+      "facility_type": "Counselling",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "45f266df-1eff-556d-a4be-a9e038b01eb9",
+      "resource_name": "Indigenous Outpatient Addiction Counselling Program (IOAC)",
+      "submitted_address": "Lower Mainland Regional Office, 520 Richards Street",
+      "municipality": "Vancouver",
+      "facility_type": "Indigenous Addiction Counselling Program",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "8f501083-1196-5a21-9823-b14d01ad84e1",
+      "resource_name": "Jonnon Designs CCC Inc.",
+      "submitted_address": "312 Main St, Vancouver, BC V6A 2T2",
+      "municipality": "Vancouver",
+      "facility_type": "Employment Support / Training",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "e68822ed-1468-5482-a0cb-75d47aabeabe",
+      "resource_name": "La Boussole - Clothing",
+      "submitted_address": "312 Main Street",
+      "municipality": "Vancouver",
+      "facility_type": "Clothing",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "98bdd85b-5be9-5304-b6c3-f8c830194342",
+      "resource_name": "Langley Community Services Society",
+      "submitted_address": "5339-207 Street",
+      "municipality": "Langley",
+      "facility_type": "Counselling",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "987c0925-25d0-5316-9f55-98656d1a8d3a",
+      "resource_name": "Lookout Housing and Health Society - Clothing",
+      "submitted_address": "450 E Hastings",
+      "municipality": "Vancouver",
+      "facility_type": "Clothing",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "a763e085-2968-57a4-9c8e-a552b5d21c53",
+      "resource_name": "Lookout Housing and Health Society (Powell Street Getaway)",
+      "submitted_address": "450 E Hastings St",
+      "municipality": "Vancouver",
+      "facility_type": "Housing / Community Support",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "43a0a119-4c26-5074-84c1-74d7f75d6afb",
+      "resource_name": "Miscellany Finds",
+      "submitted_address": "1029 Commercial Dr",
+      "municipality": "Vancouver",
+      "facility_type": "Clothing",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "cb0f5920-0eb4-55ec-b5d7-59ef8f7e61c3",
+      "resource_name": "Moving Forward Family Services",
+      "submitted_address": "103-12827 76 Ave",
+      "municipality": "Surrey",
+      "facility_type": "Counselling",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "b4d0a924-ef3d-5385-956c-23c55ab24ea5",
+      "resource_name": "Open Door Group",
+      "submitted_address": "900 - 1200 Burrard St",
+      "municipality": "Vancouver",
+      "facility_type": "Employment Support / Training",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "b980ad5f-6dfc-5c03-ab5e-bbaaaf3d499f",
+      "resource_name": "Opioid Agonist Treatment - Burnaby",
+      "submitted_address": "Unit 320, 7155 Kingsway",
+      "municipality": "Burnaby",
+      "facility_type": "OAT Clinic",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "f2172fe7-58b7-5688-9895-94ecab30a45d",
+      "resource_name": "RainCity Housing and Support Society - Clothing",
+      "submitted_address": "707 Powell St",
+      "municipality": "Vancouver",
+      "facility_type": "Clothing",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "77ee863c-4877-59a6-ae18-5aca0d28b6e1",
+      "resource_name": "Richmond Community Mental Health and Substance Use - Central Intake",
+      "submitted_address": "8100 Granville Avenue",
+      "municipality": "Richmond",
+      "facility_type": "Central Intake",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "bf018a4b-45ee-593f-bd96-441ef7bdbe45",
+      "resource_name": "Road to Recovery - St. Paul's Hospital",
+      "submitted_address": "St. Paul's Hospital, 1081 Burrard Street",
+      "municipality": "Vancouver",
+      "facility_type": "Integrated Detox / Transition / Treatment Program",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "3fd01c09-8b36-55db-a0b0-392adfde2e9d",
+      "resource_name": "SHARE Family & Community Services",
+      "submitted_address": "2615 Clark Street",
+      "municipality": "Port Moody",
+      "facility_type": "Counselling",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "d78e273c-4f93-5576-9680-7e8ba5676178",
+      "resource_name": "Social Crust Cafe",
+      "submitted_address": "337 West Pender",
+      "municipality": "Vancouver",
+      "facility_type": "Employment Support / Training",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "a11f3ca7-1191-5c6e-b36c-57b922db651a",
+      "resource_name": "Street Degree Program - Vancouver Coastal Health",
+      "submitted_address": "487 Alexander St, Japanese Hall, Vancouver",
+      "municipality": "Vancouver",
+      "facility_type": "Employment Support / Training",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "8e8494dd-9387-55d0-a25e-3c13b06b6b67",
+      "resource_name": "The Door is Open - Clothing",
+      "submitted_address": "255 Dunlevy Ave",
+      "municipality": "Vancouver",
+      "facility_type": "Clothing",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "b3019bb6-c57a-53d8-94e8-81b1842dbd9b",
+      "resource_name": "Union Gospel Mission - Clothing",
+      "submitted_address": "601 E Hastings",
+      "municipality": "Vancouver",
+      "facility_type": "Clothing",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "ff98984d-3685-5d58-b370-116cd9f0b21c",
+      "resource_name": "Working Gear",
+      "submitted_address": "520 Powell St",
+      "municipality": "Vancouver",
+      "facility_type": "Clothing / Employment Clothing",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "1f60c6eb-4d9d-5fff-9108-092f60614c21",
+      "resource_name": "YVR Heart Tattoo Society",
+      "submitted_address": "138 E Hastings St",
+      "municipality": "Vancouver",
+      "facility_type": "Food / Community Support",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "a33f5559-e799-52c2-95e6-320f8f80a7fa",
+      "resource_name": "Abbotsford RAAC",
+      "submitted_address": "240-31935 South Fraser Way",
+      "municipality": "Abbotsford",
+      "facility_type": "Rapid Access to Addiction Care Clinic",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "0edf6cf6-ae96-523d-9a49-3bc520ab65f3",
+      "resource_name": "Agassiz-Harrison Community Services",
+      "submitted_address": "7086 Cheam Ave",
+      "municipality": "Agassiz",
+      "facility_type": "Counselling",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "51fe3c09-2d5e-5418-b7a9-c9600ea61c85",
+      "resource_name": "CAPS",
+      "submitted_address": "45921 Hocking Avenue",
+      "municipality": "Chilliwack",
+      "facility_type": "Counselling",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "0ce49cc6-9180-5c7f-af59-783af70ff7ba",
+      "resource_name": "Chilliwack RAAC",
+      "submitted_address": "45600 Menholm Road",
+      "municipality": "Chilliwack",
+      "facility_type": "Rapid Access to Addiction Care Clinic",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "23fa07b5-0ba4-53d9-a424-cfbf2a63d0c8",
+      "resource_name": "Creekside RAAC / RAC",
+      "submitted_address": "13740 94A Avenue",
+      "municipality": "Surrey",
+      "facility_type": "Rapid Access to Addiction Care Clinic",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "02e2f652-1d3b-5849-aa2b-fc671c00187c",
+      "resource_name": "Creekside Withdrawal Management Centre",
+      "submitted_address": "13740 94A Avenue",
+      "municipality": "Surrey",
+      "facility_type": "Withdrawal Management",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "149a90d6-581b-593d-8aaf-d62eb392cfa1",
+      "resource_name": "Deltassist Family & Community Services",
+      "submitted_address": "9097 120 Street",
+      "municipality": "Delta",
+      "facility_type": "Counselling",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "007246eb-fb67-55e3-a906-314ca922f333",
+      "resource_name": "DIVERSEcity Community Resource Society",
+      "submitted_address": "13455 76 Ave",
+      "municipality": "Surrey",
+      "facility_type": "Counselling",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "9fbe937c-8ece-5441-9988-2ccf98a0db97",
+      "resource_name": "Indigenous Primary Health & Wellness Clinic - Elder Support",
+      "submitted_address": "10095 Whalley Blvd",
+      "municipality": "Surrey",
+      "facility_type": "Cultural Support",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "a28c3329-cae8-59b2-a506-664e16bb876e",
+      "resource_name": "Mission RAAC",
+      "submitted_address": "7298 Hurd Street",
+      "municipality": "Mission",
+      "facility_type": "Rapid Access to Addiction Care Clinic",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "6560b9e4-cc6e-51f7-ae02-6ed91762aeeb",
+      "resource_name": "Options Community Services",
+      "submitted_address": "13520 78 Ave",
+      "municipality": "Surrey",
+      "facility_type": "Counselling",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "cc9e8cb3-2f74-5033-898f-b9de3ad2abb8",
+      "resource_name": "Roshni Clinic",
+      "submitted_address": "102-13670 94A Avenue / Quibble Creek area",
+      "municipality": "Surrey",
+      "facility_type": "Counselling",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "555c6bbd-7a53-52e6-955c-3c0136c1285e",
+      "resource_name": "Sources Substance Use Services",
+      "submitted_address": "882 Maple Street",
+      "municipality": "White Rock",
+      "facility_type": "Counselling",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "0ac63cc3-17cb-518b-991f-0fb4682dc70e",
+      "resource_name": "Surrey Substance Use Services (SSUS)",
+      "submitted_address": "102-13670 94A Avenue",
+      "municipality": "Surrey",
+      "facility_type": "Counselling",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "38ec0c24-8c8b-5619-81e7-4575b51f7306",
+      "resource_name": "Bounce Back Program",
+      "submitted_address": "- 1130 West Pender Street",
+      "municipality": "BC",
+      "facility_type": "Coaching / Counselling",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "program_specific_curated_address",
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "no_conflicting_or_stale_evidence",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "8dfe0bf6-c569-515b-a07d-9e31e1e8578b",
+      "resource_name": "Cameray Child and Family Services",
+      "submitted_address": "Info 2038 Rosser Ave",
+      "municipality": "Burnaby / New Westminster",
+      "facility_type": "Counselling",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "program_specific_curated_address",
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "no_conflicting_or_stale_evidence",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "40c89a43-5b4a-5e3d-a953-8b99dca1b45b",
+      "resource_name": "Jewish Family Services Counselling",
+      "submitted_address": "Office 320-2285 Clark Dr",
+      "municipality": "Vancouver",
+      "facility_type": "Counselling",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "program_specific_curated_address",
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "no_conflicting_or_stale_evidence",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "a21a3f85-a4cf-5eb7-938c-7d661785c7de",
+      "resource_name": "Options Family Counselling (Surrey)",
+      "submitted_address": "- 81 Avenue",
+      "municipality": "Surrey",
+      "facility_type": "Counselling",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "program_specific_curated_address",
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "no_conflicting_or_stale_evidence",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "fc869181-b43c-5224-9a15-e7fcc3a69432",
+      "resource_name": "SUCCESS Counselling Services",
+      "submitted_address": "Office 28 West Pender Street",
+      "municipality": "Coquitlam",
+      "facility_type": "Counselling",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "program_specific_curated_address",
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "no_conflicting_or_stale_evidence",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "18bca57f-9501-5e82-a556-d9970ddb8a48",
+      "resource_name": "312 Main",
+      "submitted_address": "312 Main St",
+      "municipality": "Vancouver",
+      "facility_type": "Community Organization",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "c9898bd5-116c-51bf-914d-7c15be254c3b",
+      "resource_name": "BC Poverty Reduction Coalition",
+      "submitted_address": "312 Main St",
+      "municipality": "Vancouver",
+      "facility_type": "Community Organization",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "44ca2823-3a5d-5654-a04a-ab78b5c9c132",
+      "resource_name": "Binners' Project",
+      "submitted_address": "312 Main St",
+      "municipality": "Vancouver",
+      "facility_type": "Community Organization",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "da120905-cff4-54a3-a393-b867ddd97b3c",
+      "resource_name": "DTES Peace Education Program Volunteers",
+      "submitted_address": "401 Main St",
+      "municipality": "Vancouver",
+      "facility_type": "Community Organization",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "a04fea72-29f4-5d03-a214-48cd75640109",
+      "resource_name": "Hogan's Alley Society",
+      "submitted_address": "312 Main St",
+      "municipality": "Vancouver",
+      "facility_type": "Community Organization",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "eabc53c0-fc2f-5d82-a191-9431fdc015e9",
+      "resource_name": "Kiwassa Neighbourhood House",
+      "submitted_address": "2425 Oxford Street",
+      "municipality": "Vancouver",
+      "facility_type": "Community Organization",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "c41cbb6d-0d2c-5b59-8938-a1e1cdb5f32a",
+      "resource_name": "La Boussole Centre Communautaire Francophone",
+      "submitted_address": "312 Main Street",
+      "municipality": "Vancouver",
+      "facility_type": "Community Organization",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "6caf95d5-cfa4-552b-bb68-c62103bf1243",
+      "resource_name": "Megaphone Magazine",
+      "submitted_address": "312 Main St",
+      "municipality": "Vancouver",
+      "facility_type": "Community Organization",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "e57dccff-d0dc-5cc4-8f57-74b275fea4d4",
+      "resource_name": "Parkinson Society BC Counselling",
+      "submitted_address": "BC 1021 W Hastings St",
+      "municipality": "",
+      "facility_type": "Counselling",
+      "tier": "C",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "complete_numbered_curated_address",
+        "program_specific_curated_address",
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "no_conflicting_or_stale_evidence",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "d0052186-a82d-5400-ae78-d14c97731283",
+      "resource_name": "PHS Community Services Society",
+      "submitted_address": "9 E Hastings St",
+      "municipality": "Vancouver",
+      "facility_type": "Harm Reduction / Peer Support",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "7b44b7fa-d400-50d5-a1d9-c00b3f1dbb6e",
+      "resource_name": "RainCity Housing First ACT Team",
+      "submitted_address": "616 Powell Street",
+      "municipality": "Vancouver",
+      "facility_type": "Assertive Community Treatment Team",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    },
+    {
+      "canonical_uuid": "e5a91a35-afd6-5fc9-8758-097a899f7168",
+      "resource_name": "The Dugout",
+      "submitted_address": "59 Powell St",
+      "municipality": "Vancouver",
+      "facility_type": "Community Organization",
+      "tier": "B",
+      "reason": "bc_access_not_configured",
+      "failed_hard_gates": [
+        "bc_single_exact_result",
+        "valid_bc_coordinate",
+        "storage_and_display_licensed"
+      ],
+      "warnings": [],
+      "public_map": false,
+      "coordinates": null
+    }
+  ]
+}
