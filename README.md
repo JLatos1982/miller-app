@@ -48,7 +48,7 @@ Do not expose the service-role key to the browser. The migration does not modify
 
 ## Admin access
 
-The public site and ordinary search require no password. Administrators sign in at the discreet `/admin/login` route with an existing Supabase Auth email/password account. Express validates the bearer token with Supabase Auth and then checks the normalized email against the server-only `ADMIN_EMAIL_ALLOWLIST` on every `/api/admin/*` request.
+The public site and ordinary search require no password. Administrators request a passwordless link at the discreet `/admin/login` route using an existing Supabase Auth account. The link returns to the requesting frontend origin at `/admin`; Express then validates the bearer token with Supabase Auth and checks the normalized email against the server-only `ADMIN_EMAIL_ALLOWLIST` on every `/api/admin/*` request. Magic-link sign-in does not create new users.
 
 ```dotenv
 ADMIN_EMAIL_ALLOWLIST=administrator@example.org

@@ -1,4 +1,4 @@
-export const LOCATION_POLICY_VERSION = "miller-location-auto-v1.0.0"
+export const LOCATION_POLICY_VERSION = "miller-location-auto-v1.1.0"
 
 const clean = (value) => String(value || "").trim()
 const unique = (values) => [...new Set(values.filter(Boolean))]
@@ -25,12 +25,13 @@ export function evaluateAutomaticLocation({ resource = {}, location = {}, eviden
   gate("valid_bc_coordinate", Number.isFinite(lat) && Number.isFinite(lon) && lat >= 48 && lat <= 60 && lon >= -140 && lon <= -114 && lat !== 0 && lon !== 0)
   gate("no_conflicting_or_stale_evidence", evidence.conflicting_address !== true && evidence.stale_source !== true && evidence.material_discrepancy !== true)
   gate("no_geocoder_warning", !Array.isArray(evidence.warnings) || evidence.warnings.length === 0)
+  gate("storage_and_display_licensed", evidence.storage_licensed === true && evidence.display_licensed === true)
   if (evidence.submitted_has_unit && !evidence.returned_has_unit) warnings.push("suite_not_returned")
   if (Number(evidence.address_peer_count || 1) > 1) warnings.push("shared_address")
   if (evidence.single_source) warnings.push("single_source")
   const score = Math.max(0, 100 - failed.length * 20 - warnings.length * 3)
   let tier = failed.length ? "B" : "A"
-  if (failed.some((name) => ["active_editorially_eligible", "public_fixed_facility", "not_sensitive", "not_virtual_mobile_service_area", "street_number_match", "municipality_match", "province_country_match", "building_address_level", "valid_bc_coordinate"].includes(name))) tier = "C"
+  if (failed.some((name) => ["active_editorially_eligible", "public_fixed_facility", "not_sensitive", "not_virtual_mobile_service_area", "street_number_match", "municipality_match", "province_country_match", "valid_bc_coordinate"].includes(name)) || (failed.includes("building_address_level") && evidence.large_campus !== true)) tier = "C"
   return { tier, score, passed_hard_gates: passed, failed_hard_gates: failed, warnings, evidence_urls: sourceUrls, policy_version: LOCATION_POLICY_VERSION, decision_reason: tier === "A" ? "All deterministic publication gates passed." : `Failed gates: ${failed.join(", ")}` }
 }
 

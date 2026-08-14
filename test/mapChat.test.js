@@ -87,6 +87,21 @@ test("pending location preview is admin-only and never feeds the public map quer
   assert.doesNotMatch(server.match(/app\.get\("\/api\/map\/resources"[\s\S]*?\n\}\)/)?.[0] || "", /review_status", "pending"/)
 })
 
+test("location review queue classifies the live location row and returns authoritative transitions", () => {
+  const server = fs.readFileSync(new URL("../server.js", import.meta.url), "utf8")
+  const review = fs.readFileSync(new URL("../src/map/PendingLocationReview.jsx", import.meta.url), "utf8")
+  assert.match(server, /select\("id,resource_id,location_type,original_address_text/)
+  assert.match(server, /code: "review_saved"/)
+  assert.match(server, /code: "stale_record"/)
+  assert.match(server, /code: "not_fixed"/)
+  assert.match(server, /next_eligible_queue_membership/)
+  assert.match(server, /audit_action_id/)
+  assert.match(review, /expected_updated_at: selected\.updated_at/)
+  assert.match(review, /resource_id: selected\.resource_id/)
+  assert.match(review, /setItems\(\(current\) => current\.map/)
+  assert.match(review, /result\.error \|\| `Decision was not saved/)
+})
+
 test("pilot runner is capped, validates geography, and stores only pending non-public points", () => {
   const source = fs.readFileSync(new URL("../scripts/geocoding-pilot.mjs", import.meta.url), "utf8")
   assert.match(source, /requestCount >= 15/)
@@ -122,7 +137,7 @@ test("public endpoint hydrates approved curated aliases and excludes hidden regi
 test("administrator login and dashboard render only on the dedicated admin route", () => {
   const app = fs.readFileSync(new URL("../src/App.jsx", import.meta.url), "utf8")
   assert.match(app, /window\.location\.pathname\.startsWith\("\/admin"\)/)
-  assert.match(app, /emailRedirectTo: `\$\{window\.location\.origin\}\/admin\/login`/)
+  assert.match(app, /requestAdminMagicLink/)
   assert.match(app, /<a href="\/admin\/login">Admin<\/a>/)
   assert.match(app, /if \(isAdminRoute\) \{[\s\S]*Administrator sign in/)
   const publicHero = app.slice(app.indexOf('className="hero-layout"'))
@@ -140,8 +155,7 @@ test("public route does not fetch protected administrator data", () => {
 
 test("dedicated admin login uses passwordless Supabase auth and returns to the admin route", () => {
   const login = fs.readFileSync(new URL("../src/AdminLogin.jsx", import.meta.url), "utf8")
-  assert.match(login, /signInWithOtp/)
-  assert.match(login, /emailRedirectTo: `\$\{window\.location\.origin\}\/admin\/login`/)
+  assert.match(login, /requestAdminMagicLink/)
   assert.match(login, /window\.location\.replace\("\/admin"\)/)
   assert.doesNotMatch(login, /signInWithPassword|type="password"/)
 })

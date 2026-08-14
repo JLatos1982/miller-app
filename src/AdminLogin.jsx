@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { supabase } from "./supabaseClient.js"
 import { getVerifiedAdminSession } from "./adminApi.js"
+import { requestAdminMagicLink } from "./adminAuthFlow.js"
 import "./AdminLogin.css"
 
 export default function AdminLogin() {
@@ -20,7 +21,7 @@ export default function AdminLogin() {
     setStatus("")
 
     try {
-      const { error } = await supabase.auth.signInWithOtp({ email: email.trim(), options: { emailRedirectTo: `${window.location.origin}/admin/login` } })
+      const { error } = await requestAdminMagicLink({ supabase, email, origin: window.location.origin })
       setStatus(error ? "The secure sign-in link could not be sent." : "Check your email and open the secure sign-in link in this browser.")
     } catch {
       setStatus("Sign-in is temporarily unavailable.")

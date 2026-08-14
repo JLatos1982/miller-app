@@ -29,7 +29,8 @@ import AddToHandoutButton from "./handout/AddToHandoutButton.jsx"
 import HandoutBuilder from "./handout/HandoutBuilder.jsx"
 import { createInitialHandoutState, getResourceKey, handoutReducer, hasHandoutContent } from "./handout/handoutState.js"
 import { MILLER_COPY } from "./interfaceCopy.js"
-import { adminFetch, getVerifiedAdminSession } from "./adminApi.js"
+import { adminFetch, getAdminAccessState } from "./adminApi.js"
+import { clearAuthCallbackFromUrl, hasAuthCallbackParams, requestAdminMagicLink } from "./adminAuthFlow.js"
 import PendingLocationReview from "./map/PendingLocationReview.jsx"
 import { safeEmailAddress, safeHttpUrl } from "./safeLinks.js"
 import { submitResource, trackEvent } from "./publicApi.js"
@@ -825,8 +826,24 @@ useEffect(() => {
   let active = true
 
   async function verifyAdmin() {
-    const session = await getVerifiedAdminSession().catch(() => null)
-    if (active) setIsAdminMode(Boolean(session))
+    const access = await getAdminAccessState().catch(() => null)
+    if (!active) return
+    if (access?.authorized) {
+      clearAuthCallbackFromUrl()
+      setAdminLoginStatus("")
+      setIsAdminMode(true)
+      return
+    }
+    setIsAdminMode(false)
+    if (access?.session && access.status === 403) {
+      clearAuthCallbackFromUrl()
+      setAdminLoginStatus("This authenticated account is not authorized for Miller administration.")
+      return
+    }
+    if (hasAuthCallbackParams()) {
+      clearAuthCallbackFromUrl()
+      setAdminLoginStatus("That sign-in link is invalid, expired, or has already been used. Please request a fresh link.")
+    }
   }
 
   verifyAdmin()
@@ -843,8 +860,12 @@ useEffect(() => {
 async function requestAdminLogin(event) {
   event.preventDefault()
   setAdminLoginStatus("Sending secure sign-in link…")
-  const { error } = await supabase.auth.signInWithOtp({ email: adminLoginEmail.trim(), options: { emailRedirectTo: `${window.location.origin}/admin/login` } })
-  setAdminLoginStatus(error ? "Sign-in link could not be sent." : "Check your email and open the sign-in link in this browser.")
+  try {
+    const { error } = await requestAdminMagicLink({ supabase, email: adminLoginEmail, origin: window.location.origin })
+    setAdminLoginStatus(error ? "The secure sign-in link could not be sent. Please wait a moment and try again." : "If that account can sign in, a secure link will arrive shortly. Open it in this browser.")
+  } catch {
+    setAdminLoginStatus("Sign-in is temporarily unavailable. Please check your connection and try again.")
+  }
 }
 
 useEffect(() => {
