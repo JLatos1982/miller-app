@@ -30,9 +30,11 @@ export function validCoordinate(value, axis) {
 export function normalizeMapResource(resource) {
   const combined = lower([resource.serviceType, resource.service_type, resource.category, resource.description, resource.tags?.join?.(" ")].join(" "))
   const serviceTypes = TYPE_RULES.filter(([, pattern]) => pattern.test(combined)).map(([name]) => name)
-  const virtual = truthy(resource.virtual_service) || /virtual|online|telephone/.test(lower(resource.accessType || resource.access_type))
-  const mobile = truthy(resource.mobile_service) || /mobile|outreach/.test(combined)
-  const precisePublicLocation = !virtual && !mobile && resource.public_map !== false && validCoordinate(resource.latitude, "lat") && validCoordinate(resource.longitude, "lng")
+  const hasCoordinates = validCoordinate(resource.latitude, "lat") && validCoordinate(resource.longitude, "lng")
+  const authoritativeFixedLocation = resource.public_map === true && lower(resource.verification_status || resource.geocode_status) === "verified" && hasCoordinates
+  const virtual = truthy(resource.virtual_service) || (!authoritativeFixedLocation && /virtual|online|telephone/.test(lower(resource.accessType || resource.access_type)))
+  const mobile = truthy(resource.mobile_service) || (!authoritativeFixedLocation && /mobile|outreach/.test(combined))
+  const precisePublicLocation = authoritativeFixedLocation || (!virtual && !mobile && resource.public_map !== false && hasCoordinates)
   return {
     ...resource,
     id: resource.id ?? `${resource.name || "resource"}-${resource.city || ""}`,

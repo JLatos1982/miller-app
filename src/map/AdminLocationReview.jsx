@@ -1,7 +1,8 @@
 import PendingLocationReview from "./PendingLocationReview.jsx"
 import AddressEvidenceReview from "./AddressEvidenceReview.jsx"
 import LocationAutomationReview from "./LocationAutomationReview.jsx"
+import MapPopulationPanel from "./MapPopulationPanel.jsx"
 
 export default function AdminLocationReview() {
-  return <><PendingLocationReview/><LocationAutomationReview/><AddressEvidenceReview/></>
+  return <><MapPopulationPanel/><PendingLocationReview/><LocationAutomationReview/><AddressEvidenceReview/></>
 }

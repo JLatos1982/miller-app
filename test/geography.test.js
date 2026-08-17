@@ -27,6 +27,12 @@ test("virtual and mobile services are never forced onto fixed markers", () => {
   }
 })
 
+test("server-verified fixed public locations override descriptive outreach keywords", () => {
+  const item = normalizeMapResource({ name: "Clinic with outreach", description: "Provides outreach and in-clinic care", latitude: 49.28, longitude: -123.1, public_map: true, geocode_status: "verified", approved: true })
+  assert.equal(item.mappable, true)
+  assert.equal(item.mobile_service, false)
+})
+
 test("filters categories, city, and approved Tavily exposure", () => {
   const rows = [
     normalizeMapResource({ name: "A", city: "Surrey", serviceType: "Detox", source: "curated", approved: true }),

@@ -24,6 +24,7 @@ import { collectCandidateMatches, directoryApprovalState, prepareShelterCandidat
 import { DOCX_MIME, LIST_PARSER_VERSION, MAX_DOCX_BYTES, parseCounsellingDocumentXml, proposeCanonicalMatches } from "./server/curatedLists.js"
 import { MAX_PDF_BYTES, PDF_MIME, pdfDisposition, requestedPdfByteRange, safePdfFilename, validatePdfBuffer } from "./server/pdfDocuments.js"
 import { readLocationQcStore, reconcileLocationQcReview, saveLocationQcDecision } from "./server/locationQcReview.js"
+import { buildAutoPublicationPreview, buildLocationReconciliation, isVirtualOrMobileResource } from "./server/mapPopulation.js"
 
 dotenv.config()
 
@@ -1029,6 +1030,7 @@ app.get("/api/admin/session", requireAdmin, (req, res) => {
 const addressEvidencePath = path.join(__dirname, "data", "address-evidence-inventory.json")
 const locationAutomationDryRunPath = path.join(__dirname, "data", "location-automation-v1.2.1-review.json")
 const locationQcReviewStorePath = path.join(__dirname, "data", "location-qc-review-decisions.local.json")
+const durableLocationQcEnabled = process.env.NODE_ENV === "production" || process.env.LOCATION_QC_REVIEW_STORE === "supabase"
 function readAddressEvidence() { return JSON.parse(fs.readFileSync(addressEvidencePath, "utf8")) }
 app.get("/api/admin/address-evidence", requireAdmin, (_req, res) => {
   try { res.setHeader("Cache-Control", "private, no-store"); return res.json(readAddressEvidence()) }
@@ -1058,14 +1060,28 @@ app.get("/api/admin/location-automation/dry-run", requireAdmin, (_req, res) => {
 })
 app.get("/api/admin/location-qc-review", requireAdmin, async (_req, res) => {
   try {
-    const report = JSON.parse(fs.readFileSync(locationAutomationDryRunPath, "utf8")), store = readLocationQcStore(locationQcReviewStorePath)
+    const report = JSON.parse(fs.readFileSync(locationAutomationDryRunPath, "utf8"))
+    let store = readLocationQcStore(locationQcReviewStorePath), persistence = "local_development_file"
+    if (durableLocationQcEnabled) {
+      const [decisions, audit] = await Promise.all([
+        supabase.from("location_qc_reviews").select("*"),
+        supabase.from("location_qc_review_audit").select("*").order("created_at"),
+      ])
+      if (decisions.error || audit.error) return res.status(503).json({ error: "Durable QC persistence is unavailable. No decision can be saved until the production migration is verified.", code: "durable_qc_unavailable" })
+      store = {
+        version: 1,
+        decisions: Object.fromEntries((decisions.data || []).map((item) => [item.canonical_resource_id, { ...item, canonical_uuid: item.canonical_resource_id, note: item.decision_note }])),
+        audit: (audit.data || []).map((item) => ({ ...item, canonical_uuid: item.canonical_resource_id, note: item.decision_note })),
+      }
+      persistence = "supabase"
+    }
     const ids = report.quality_control_sample.map((item) => item.canonical_uuid)
     const registry = await supabase.from("resource_registry").select("id,display_name,lifecycle_state,editorial_status").in("id", ids)
     if (registry.error) return res.status(503).json({ error: "Canonical identity validation is unavailable." })
     const canonical = new Map((registry.data || []).map((item) => [item.id, item]))
     const reconciled = reconcileLocationQcReview(report, store)
     const validate = (item) => ({ ...item, canonical_validation: { resolved: canonical.has(item.canonical_uuid), active: canonical.get(item.canonical_uuid)?.lifecycle_state === "active", editorially_approved: canonical.get(item.canonical_uuid)?.editorial_status === "approved", display_name_matches: canonical.get(item.canonical_uuid)?.display_name === item.resource_name } })
-    return res.json({ ...reconciled, active: reconciled.active.map(validate), completed: reconciled.completed.map(validate), eligible_for_later_pilot: reconciled.eligible_for_later_pilot.map(validate), persistence: "local_server_append_only_until_phase_1r_migration", publication_enabled: false })
+    return res.json({ ...reconciled, active: reconciled.active.map(validate), completed: reconciled.completed.map(validate), eligible_for_later_pilot: reconciled.eligible_for_later_pilot.map(validate), persistence, publication_enabled: false })
   } catch { return res.status(503).json({ error: "The local QC review workflow is unavailable." }) }
 })
 app.post("/api/admin/location-qc-review/:canonicalUuid/decision", requireAdmin, async (req, res) => {
@@ -1075,7 +1091,24 @@ app.post("/api/admin/location-qc-review/:canonicalUuid/decision", requireAdmin, 
     const registry = await supabase.from("resource_registry").select("id,display_name,lifecycle_state,editorial_status").eq("id", item.canonical_uuid).maybeSingle()
     if (registry.error || !registry.data || registry.data.display_name !== item.resource_name || registry.data.lifecycle_state !== "active" || registry.data.editorial_status !== "approved") return res.status(409).json({ error: "Canonical identity changed; review was not saved.", code: "canonical_identity_conflict" })
     if (item.policy_version !== report.policy_version || item.score !== 100 || item.location_descriptor !== "parcelpoint" || item.sensitivity_flags.length || item.conflicts.length || item.program_occupancy_confidence !== "supported") return res.status(409).json({ error: "The Phase 1P eligibility evidence changed; review was not saved.", code: "eligibility_revalidation_failed" })
-    const result = saveLocationQcDecision({ report, storeFile: locationQcReviewStorePath, canonicalUuid: item.canonical_uuid, decision: req.body?.decision, expectedVersion: req.body?.expected_version, actor: req.adminUser, note: req.body?.note })
+    let result
+    if (durableLocationQcEnabled) {
+      const decision = String(req.body?.decision || "")
+      if (!new Set(["pilot_eligible", "manual_review", "correct_address", "exclude_exact_location", "policy_problem", "defer"]).has(decision)) return res.status(400).json({ error: "Choose a valid location-review decision.", code: "invalid_decision" })
+      const saved = await supabase.rpc("save_location_qc_review_decision", {
+        p_canonical_resource_id: item.canonical_uuid,
+        p_policy_version: report.policy_version,
+        p_classification_fingerprint: report.classification_fingerprint,
+        p_decision: decision,
+        p_decision_note: String(req.body?.note || "").slice(0, 1000),
+        p_review_snapshot: item,
+        p_expected_version: Number(req.body?.expected_version || 0),
+        p_actor_id: req.adminUser.id,
+      })
+      if (saved.error?.code === "40001") return res.status(409).json({ error: "This review changed in another session. Reload and try again.", code: "review_version_conflict" })
+      if (saved.error) return res.status(503).json({ error: "The durable review decision was not saved.", code: "durable_qc_save_failed" })
+      result = { ok: true, status: Number(req.body?.expected_version || 0) ? 200 : 201, decision: saved.data, publication_created: false, location_created: false, public_map_changed: false }
+    } else result = saveLocationQcDecision({ report, storeFile: locationQcReviewStorePath, canonicalUuid: item.canonical_uuid, decision: req.body?.decision, expectedVersion: req.body?.expected_version, actor: req.adminUser, note: req.body?.note })
     if (!result.ok) return res.status(result.status).json({ error: result.code === "review_version_conflict" ? "This review changed in another session. Reload and try again." : "Review decision was not saved.", code: result.code, current: result.current })
     return res.status(result.status).json({ code: "qc_review_saved_non_public", ...result })
   } catch { return res.status(500).json({ error: "Review decision could not be saved." }) }
@@ -1107,6 +1140,66 @@ app.get("/api/admin/map-diagnostics", requireAdmin, async (_req, res) => {
     expected_marker_groups: markerGroups.size,
     note: "Marker groups may be fewer than locations when distinct services share reviewed coordinates.",
   })
+})
+
+async function loadMapPopulationContext() {
+  const [locations, registry, aliases, tavilyResources, audits] = await Promise.all([
+    supabase.from("resource_locations").select("*"),
+    supabase.from("resource_registry").select("id,display_name,lifecycle_state,editorial_status"),
+    supabase.from("resource_source_aliases").select("resource_id,source_type,source_native_id,source_url,provenance"),
+    supabase.from("tavily_resources").select("id,name,description,category,service_type,approved,hidden"),
+    supabase.from("resource_location_audit").select("id,location_id,action,previous_values,new_values,actor_id,reason,created_at").order("created_at", { ascending: false }),
+  ])
+  const failed = [locations, registry, aliases, tavilyResources, audits].find((result) => result.error)
+  if (failed) throw failed.error
+  const curatedIds = new Set((aliases.data || []).filter((item) => item.source_type === "curated_bundle" && getCuratedMapResource(item.source_native_id)).map((item) => String(item.source_native_id)))
+  const report = JSON.parse(fs.readFileSync(locationAutomationDryRunPath, "utf8"))
+  const input = { locations: locations.data || [], registry: registry.data || [], aliases: aliases.data || [], tavilyResources: tavilyResources.data || [], audits: audits.data || [], curatedIds }
+  return {
+    reconciliation: buildLocationReconciliation(input),
+    preview: buildAutoPublicationPreview({ automationRecords: report.records || [], locations: input.locations, registry: input.registry, audits: input.audits }),
+    publicResourceCount: (tavilyResources.data || []).filter((item) => item.approved === true && item.hidden !== true).length,
+    virtualMobileCount: (tavilyResources.data || []).filter((item) => item.approved === true && item.hidden !== true && isVirtualOrMobileResource(item)).length,
+  }
+}
+
+app.get("/api/admin/map-population", requireAdmin, async (_req, res) => {
+  try {
+    const context = await loadMapPopulationContext()
+    const published = context.reconciliation.filter((item) => item.appears_in_public_map_query)
+    const groups = new Set(published.map((item) => item.shared_address_group).filter(Boolean))
+    res.setHeader("Cache-Control", "private, no-store")
+    return res.json({
+      counts: {
+        public_services: published.length,
+        public_pins: groups.size,
+        shared_address_groups: [...groups].filter((group) => published.filter((item) => item.shared_address_group === group).length > 1).length,
+        eligible_for_automatic_publication: context.preview.counts.eligible,
+        needs_human_review: context.preview.counts.needs_human_review,
+        excluded_for_safety_privacy_or_manual_decision: context.preview.counts.excluded,
+        failed_validation: context.preview.counts.failed,
+        virtual_mobile_services: context.virtualMobileCount,
+        approved_directory_resources: context.publicResourceCount,
+      },
+      reconciliation: context.reconciliation,
+      preview_summary: { ...context.preview.counts, policy_version: context.preview.policy_version, dry_run: true, writes_performed: false },
+      publication_execution_enabled: false,
+    })
+  } catch (error) {
+    console.error("map_population_context_failed", { code: error?.code || "context_unavailable" })
+    return res.status(503).json({ error: "Map population diagnostics are unavailable.", code: "map_population_unavailable" })
+  }
+})
+
+app.post("/api/admin/map-population/preview", requireAdmin, async (_req, res) => {
+  try {
+    const context = await loadMapPopulationContext()
+    res.setHeader("Cache-Control", "private, no-store")
+    return res.json(context.preview)
+  } catch (error) {
+    console.error("map_population_preview_failed", { code: error?.code || "preview_unavailable" })
+    return res.status(503).json({ error: "The safe publication preview could not be generated. No records were changed.", code: "preview_unavailable", writes_performed: false })
+  }
 })
 
 app.get("/api/admin/pending-locations", requireAdmin, async (_req, res) => {
@@ -1144,11 +1237,14 @@ app.patch("/api/admin/pending-locations/:locationId", requireAdmin, async (req, 
   const { data: current, error: readError } = await supabase.from("resource_locations").select("*").eq("id", locationId).single()
   if (readError || !current) return res.status(404).json({ error: "Pending location not found." })
   if (req.body?.resource_id && String(req.body.resource_id) !== current.resource_id) return res.status(409).json({ error: "The resource identity changed. Reconcile the queue and retry.", code: "identity_mismatch" })
-  if (req.body?.expected_updated_at && String(req.body.expected_updated_at) !== String(current.updated_at)) return res.status(409).json({ error: "This item changed after it was loaded. Reconcile the queue and review it again.", code: "stale_record" })
   if (current.location_type !== "fixed" && ["approve", "correct"].includes(action)) return res.status(409).json({ error: "This resource has no fixed public point to approve or correct.", code: "not_fixed" })
   const isPublished = current.review_status === "approved" && current.public_map === true
+  const alreadyApplied = (action === "approve" && isPublished && current.geocode_status === "verified") ||
+    (action === "reject" && current.review_status === "rejected" && current.public_map === false) ||
+    (action === "exclude" && current.review_status === "excluded" && current.public_map === false)
+  if (alreadyApplied) return res.json({ code: "review_already_applied", idempotent: true, canonical_resource_uuid: current.resource_id, location_uuid: current.id, resulting_status: action, resulting_review_state: current.review_status, public_map: current.public_map, record_version: current.updated_at, next_eligible_queue_membership: isPublished ? "public" : "history", item: current })
+  if (req.body?.expected_updated_at && String(req.body.expected_updated_at) !== String(current.updated_at)) return res.status(409).json({ error: "This item changed after it was loaded. Reconcile the queue and review it again.", code: "stale_record" })
   if (current.review_status !== "pending" && !isPublished) return res.status(409).json({ error: "This location is not reviewable." })
-  if (isPublished && action === "approve") return res.status(409).json({ error: "This location is already approved." })
   if (action === "approve" && req.body?.confirmed !== true) return res.status(400).json({ error: "Explicit approval confirmation is required." })
   const changes = { reviewed_by: req.adminUser.id, reviewed_at: new Date().toISOString(), updated_at: new Date().toISOString() }
   if (action === "approve") Object.assign(changes, { review_status: "approved", geocode_status: "verified", public_map: true, location_last_verified: new Date().toISOString() })
@@ -1835,6 +1931,8 @@ app.patch("/api/admin/discovery-candidates/:id", requireAdmin, async (req, res) 
   if (!SHELTER_REVIEW_ACTIONS.has(action)) return res.status(400).json({ error: "Choose approve, reject, exclude, defer, merge, or edit.", code: "invalid_review_action" })
   const { data: candidate, error: candidateError } = await supabase.from("resource_discovery_candidates").select("*").eq("id", req.params.id).single()
   if (candidateError || !candidate) return res.status(404).json({ error: "Candidate not found.", code: "candidate_not_found" })
+  const existingOutcome = { approve: "approved", reject: "rejected", exclude: "excluded", defer: "deferred", merge: "merged" }[action]
+  if (candidate.review_status === existingOutcome) return res.json({ outcome: action === "approve" ? "approved_for_directory" : action === "merge" ? "matched_existing_canonical" : existingOutcome, idempotent: true, candidate, canonical_resource_id: candidate.matched_resource_id, resource_id: candidate.imported_tavily_resource_id, directory_created: false, directory_available: action === "approve", location_created: false, map_pin_created: false })
   if (action === "merge") {
     const target = String(req.body?.canonical_resource_id || "")
     if (!/^[0-9a-f-]{36}$/i.test(target)) return res.status(400).json({ error: "Select a valid canonical resource before merging.", code: "merge_target_required" })
