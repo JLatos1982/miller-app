@@ -23,6 +23,7 @@ import { canonicalSeedId } from "./server/resourceIdentity.js"
 import { collectCandidateMatches, directoryApprovalState, prepareShelterCandidate, SHELTER_REVIEW_ACTIONS } from "./server/shelterDiscovery.js"
 import { DOCX_MIME, LIST_PARSER_VERSION, MAX_DOCX_BYTES, parseCounsellingDocumentXml, proposeCanonicalMatches } from "./server/curatedLists.js"
 import { MAX_PDF_BYTES, PDF_MIME, pdfDisposition, requestedPdfByteRange, safePdfFilename, validatePdfBuffer } from "./server/pdfDocuments.js"
+import { readLocationQcStore, reconcileLocationQcReview, saveLocationQcDecision } from "./server/locationQcReview.js"
 
 dotenv.config()
 
@@ -1026,7 +1027,8 @@ app.get("/api/admin/session", requireAdmin, (req, res) => {
 })
 
 const addressEvidencePath = path.join(__dirname, "data", "address-evidence-inventory.json")
-const locationAutomationDryRunPath = path.join(__dirname, "data", "location-automation-v1.2-dry-run.json")
+const locationAutomationDryRunPath = path.join(__dirname, "data", "location-automation-v1.2.1-review.json")
+const locationQcReviewStorePath = path.join(__dirname, "data", "location-qc-review-decisions.local.json")
 function readAddressEvidence() { return JSON.parse(fs.readFileSync(addressEvidencePath, "utf8")) }
 app.get("/api/admin/address-evidence", requireAdmin, (_req, res) => {
   try { res.setHeader("Cache-Control", "private, no-store"); return res.json(readAddressEvidence()) }
@@ -1052,7 +1054,31 @@ app.post("/api/admin/address-evidence/bounded-approve", requireAdmin, (req, res)
 app.get("/api/admin/location-automation", requireAdmin, (_req, res) => res.json({ enabled: automatedLocationPublicationEnabled, note: "Disabled by default. Batch execution additionally requires an explicit server-side apply command." }))
 app.get("/api/admin/location-automation/dry-run", requireAdmin, (_req, res) => {
   try { res.setHeader("Cache-Control", "private, no-store"); return res.json(JSON.parse(fs.readFileSync(locationAutomationDryRunPath, "utf8"))) }
-  catch { return res.status(503).json({ error: "The local v1.2 dry-run inventory has not been generated." }) }
+  catch { return res.status(503).json({ error: "The local v1.2.1 review inventory has not been generated." }) }
+})
+app.get("/api/admin/location-qc-review", requireAdmin, async (_req, res) => {
+  try {
+    const report = JSON.parse(fs.readFileSync(locationAutomationDryRunPath, "utf8")), store = readLocationQcStore(locationQcReviewStorePath)
+    const ids = report.quality_control_sample.map((item) => item.canonical_uuid)
+    const registry = await supabase.from("resource_registry").select("id,display_name,lifecycle_state,editorial_status").in("id", ids)
+    if (registry.error) return res.status(503).json({ error: "Canonical identity validation is unavailable." })
+    const canonical = new Map((registry.data || []).map((item) => [item.id, item]))
+    const reconciled = reconcileLocationQcReview(report, store)
+    const validate = (item) => ({ ...item, canonical_validation: { resolved: canonical.has(item.canonical_uuid), active: canonical.get(item.canonical_uuid)?.lifecycle_state === "active", editorially_approved: canonical.get(item.canonical_uuid)?.editorial_status === "approved", display_name_matches: canonical.get(item.canonical_uuid)?.display_name === item.resource_name } })
+    return res.json({ ...reconciled, active: reconciled.active.map(validate), completed: reconciled.completed.map(validate), eligible_for_later_pilot: reconciled.eligible_for_later_pilot.map(validate), persistence: "local_server_append_only_until_phase_1r_migration", publication_enabled: false })
+  } catch { return res.status(503).json({ error: "The local QC review workflow is unavailable." }) }
+})
+app.post("/api/admin/location-qc-review/:canonicalUuid/decision", requireAdmin, async (req, res) => {
+  try {
+    const report = JSON.parse(fs.readFileSync(locationAutomationDryRunPath, "utf8")), item = report.quality_control_sample.find((candidate) => candidate.canonical_uuid === req.params.canonicalUuid)
+    if (!item) return res.status(404).json({ error: "QC record not found." })
+    const registry = await supabase.from("resource_registry").select("id,display_name,lifecycle_state,editorial_status").eq("id", item.canonical_uuid).maybeSingle()
+    if (registry.error || !registry.data || registry.data.display_name !== item.resource_name || registry.data.lifecycle_state !== "active" || registry.data.editorial_status !== "approved") return res.status(409).json({ error: "Canonical identity changed; review was not saved.", code: "canonical_identity_conflict" })
+    if (item.policy_version !== report.policy_version || item.score !== 100 || item.location_descriptor !== "parcelpoint" || item.sensitivity_flags.length || item.conflicts.length || item.program_occupancy_confidence !== "supported") return res.status(409).json({ error: "The Phase 1P eligibility evidence changed; review was not saved.", code: "eligibility_revalidation_failed" })
+    const result = saveLocationQcDecision({ report, storeFile: locationQcReviewStorePath, canonicalUuid: item.canonical_uuid, decision: req.body?.decision, expectedVersion: req.body?.expected_version, actor: req.adminUser, note: req.body?.note })
+    if (!result.ok) return res.status(result.status).json({ error: result.code === "review_version_conflict" ? "This review changed in another session. Reload and try again." : "Review decision was not saved.", code: result.code, current: result.current })
+    return res.status(result.status).json({ code: "qc_review_saved_non_public", ...result })
+  } catch { return res.status(500).json({ error: "Review decision could not be saved." }) }
 })
 app.post("/api/admin/location-automation/pause", requireAdmin, (req, res) => {
   automatedLocationPublicationEnabled = false

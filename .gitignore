@@ -8,6 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 .env
 node_modules
+data/location-qc-review-decisions.local.json
 dist
 dist-ssr
 .cache

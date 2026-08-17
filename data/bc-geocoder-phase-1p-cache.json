@@ -1,0 +1,3574 @@
+{
+  "version": 1,
+  "provider": "bc_address_geocoder",
+  "environment": "production",
+  "entries": {
+    "13455 76 ave|surrey|bc": {
+      "retrieved_at": "2026-08-17T01:26:53.527Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -122.8495236,
+              49.1410727
+            ]
+          },
+          "properties": {
+            "fullAddress": "13455 76 Ave, Surrey, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 13455,
+            "civicNumberSuffix": "",
+            "streetName": 76,
+            "streetType": "Ave",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Surrey",
+            "streetAddress": "13455 76 Ave",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "cf931952-5ec7-40d2-b11d-c86acab3955a",
+            "blockID": 137465,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "13740 94a avenue|surrey|bc": {
+      "retrieved_at": "2026-08-17T01:26:53.575Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -122.8420456,
+              49.1745161
+            ]
+          },
+          "properties": {
+            "fullAddress": "13740 94A Ave, Surrey, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 13740,
+            "civicNumberSuffix": "",
+            "streetName": "94A",
+            "streetType": "Ave",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Surrey",
+            "streetAddress": "13740 94A Ave",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "d9483736-8b15-4ef0-b0cd-e73526706d76",
+            "blockID": 2466086,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "102-13670 94a avenue|surrey|bc": {
+      "retrieved_at": "2026-08-17T01:26:53.624Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -122.8437601,
+              49.1745123
+            ]
+          },
+          "properties": {
+            "fullAddress": "UNIT 102 -- 13670 94A Ave, Surrey, BC",
+            "score": 99,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [
+              {
+                "value": "",
+                "element": "UNIT_DESIGNATOR",
+                "fault": "missing",
+                "penalty": 0
+              },
+              {
+                "value": 102,
+                "element": "UNIT_NUMBER",
+                "fault": "notMatched",
+                "penalty": 1
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "UNIT",
+            "unitNumber": 102,
+            "unitNumberSuffix": "",
+            "civicNumber": 13670,
+            "civicNumberSuffix": "",
+            "streetName": "94A",
+            "streetType": "Ave",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Surrey",
+            "streetAddress": "13670 94A Ave",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "1166948d-4531-4713-933e-4db85fa4b6e8",
+            "blockID": 2466085,
+            "fullSiteDescriptor": "UNIT 102",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "101 e cordova st|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:53.723Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.1015934,
+              49.2825768
+            ]
+          },
+          "properties": {
+            "fullAddress": "101 E Cordova St, Vancouver, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 101,
+            "civicNumberSuffix": "",
+            "streetName": "Cordova",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "E",
+            "isStreetDirectionPrefix": "true",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "101 E Cordova St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "3b9d0eb4-e043-4fd2-ab53-7759b1bf9eb5",
+            "blockID": 105944,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "45600 menholm road|chilliwack|bc": {
+      "retrieved_at": "2026-08-17T01:26:53.770Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -121.9638045,
+              49.1668449
+            ]
+          },
+          "properties": {
+            "fullAddress": "45600 Menholm Rd, Chilliwack, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 45600,
+            "civicNumberSuffix": "",
+            "streetName": "Menholm",
+            "streetType": "Rd",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Chilliwack",
+            "streetAddress": "45600 Menholm Rd",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "df924711-36f4-4328-adaa-a0f7740f0f1c",
+            "blockID": 185497,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "7086 cheam ave|agassiz|bc": {
+      "retrieved_at": "2026-08-17T01:26:53.817Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -121.763928,
+              49.2382859
+            ]
+          },
+          "properties": {
+            "fullAddress": "7086 Cheam Ave, Agassiz, BC",
+            "score": 99,
+            "matchPrecision": "BLOCK",
+            "precisionPoints": 99,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 7086,
+            "civicNumberSuffix": "",
+            "streetName": "Cheam",
+            "streetType": "Ave",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Agassiz",
+            "streetAddress": "7086 Cheam Ave",
+            "localityType": "Community",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "low",
+            "locationDescriptor": "accessPoint",
+            "siteID": "",
+            "blockID": 2637646,
+            "fullSiteDescriptor": "",
+            "accessNotes": "",
+            "siteStatus": "",
+            "siteRetireDate": "",
+            "changeDate": "",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "9097 120 street|delta|bc": {
+      "retrieved_at": "2026-08-17T01:26:53.919Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -122.8908765,
+              49.1682067
+            ]
+          },
+          "properties": {
+            "fullAddress": "9097 120 St, Delta, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 9097,
+            "civicNumberSuffix": "",
+            "streetName": 120,
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Delta",
+            "streetAddress": "9097 120 St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "2da88cf3-6ba9-49d2-8e1c-fda9eeec5b1d",
+            "blockID": 132836,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "45921 hocking avenue|chilliwack|bc": {
+      "retrieved_at": "2026-08-17T01:26:53.966Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -121.9530371,
+              49.1587769
+            ]
+          },
+          "properties": {
+            "fullAddress": "45921 Hocking Ave, Chilliwack, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 45921,
+            "civicNumberSuffix": "",
+            "streetName": "Hocking",
+            "streetType": "Ave",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Chilliwack",
+            "streetAddress": "45921 Hocking Ave",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "medium",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "06c94601-3138-4534-8497-ab92187eea0a",
+            "blockID": 185435,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "312 main st|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:54.013Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.0991922,
+              49.2818547
+            ]
+          },
+          "properties": {
+            "fullAddress": "312 Main St, Vancouver, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 312,
+            "civicNumberSuffix": "",
+            "streetName": "Main",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "312 Main St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "5d9d8421-b042-4622-8c21-6f260339567c",
+            "blockID": 106190,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "138 e hastings st|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:54.122Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.1011933,
+              49.2810618
+            ]
+          },
+          "properties": {
+            "fullAddress": "138 E Hastings St, Vancouver, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 138,
+            "civicNumberSuffix": "",
+            "streetName": "Hastings",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "E",
+            "isStreetDirectionPrefix": "true",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "138 E Hastings St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "4c738a12-2279-4f43-bd0b-e09ce9764081",
+            "blockID": 105313,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "43 w hastings st|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:54.176Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.1060123,
+              49.2820198
+            ]
+          },
+          "properties": {
+            "fullAddress": "43 W Hastings St, Vancouver, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 43,
+            "civicNumberSuffix": "",
+            "streetName": "Hastings",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "W",
+            "isStreetDirectionPrefix": "true",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "43 W Hastings St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "1d621909-a394-4279-9fba-45f3ddbfd774",
+            "blockID": 471933,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "unit 320, 7155 kingsway|burnaby|bc": {
+      "retrieved_at": "2026-08-17T01:26:54.222Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -122.9564335,
+              49.2186214
+            ]
+          },
+          "properties": {
+            "fullAddress": "UNIT 320 -- 7155 Kingsway, Burnaby, BC",
+            "score": 100,
+            "matchPrecision": "UNIT",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "UNIT",
+            "unitNumber": 320,
+            "unitNumberSuffix": "",
+            "civicNumber": 7155,
+            "civicNumberSuffix": "",
+            "streetName": "Kingsway",
+            "streetType": "",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Burnaby",
+            "streetAddress": "7155 Kingsway",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "fa8893ee-e904-418e-a168-d8d66416ab2c",
+            "blockID": 113891,
+            "fullSiteDescriptor": "UNIT 320",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "374 powell st|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:54.267Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.0959995,
+              49.2830924
+            ]
+          },
+          "properties": {
+            "fullAddress": "374 Powell St, Vancouver, BC",
+            "score": 99,
+            "matchPrecision": "BLOCK",
+            "precisionPoints": 99,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 374,
+            "civicNumberSuffix": "",
+            "streetName": "Powell",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "374 Powell St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "low",
+            "locationDescriptor": "accessPoint",
+            "siteID": "",
+            "blockID": 111220,
+            "fullSiteDescriptor": "",
+            "accessNotes": "",
+            "siteStatus": "",
+            "siteRetireDate": "",
+            "changeDate": "",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "301 east columbia street|new westminster|bc": {
+      "retrieved_at": "2026-08-17T01:26:54.326Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -122.8933071,
+              49.2260098
+            ]
+          },
+          "properties": {
+            "fullAddress": "301 E Columbia St, New Westminster, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 301,
+            "civicNumberSuffix": "",
+            "streetName": "Columbia",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "E",
+            "isStreetDirectionPrefix": "true",
+            "streetQualifier": "",
+            "localityName": "New Westminster",
+            "streetAddress": "301 E Columbia St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "fd54e713-3141-4181-a26e-91e85e9491e8",
+            "blockID": 429402,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "675 w hastings|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:54.377Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.1133363,
+              49.2853503
+            ]
+          },
+          "properties": {
+            "fullAddress": "675 W Hastings St, Vancouver, BC",
+            "score": 94,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [
+              {
+                "value": "",
+                "element": "STREET_TYPE",
+                "fault": "missing",
+                "penalty": 6
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 675,
+            "civicNumberSuffix": "",
+            "streetName": "Hastings",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "W",
+            "isStreetDirectionPrefix": "true",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "675 W Hastings St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "2fb54377-6afd-4191-abcb-20e30b9d3376",
+            "blockID": 100373,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "200-678 east hastings street|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:54.433Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.0901391,
+              49.2809175
+            ]
+          },
+          "properties": {
+            "fullAddress": "UNIT 200 -- 678 E Hastings St, Vancouver, BC",
+            "score": 100,
+            "matchPrecision": "UNIT",
+            "precisionPoints": 100,
+            "faults": [
+              {
+                "value": "",
+                "element": "UNIT_DESIGNATOR",
+                "fault": "missing",
+                "penalty": 0
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "UNIT",
+            "unitNumber": 200,
+            "unitNumberSuffix": "",
+            "civicNumber": 678,
+            "civicNumberSuffix": "",
+            "streetName": "Hastings",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "E",
+            "isStreetDirectionPrefix": "true",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "678 E Hastings St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "9567972f-96bb-4ea3-8269-2753989b5d80",
+            "blockID": 109272,
+            "fullSiteDescriptor": "UNIT 200",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "- 1130 west pender street|bc|bc": {
+      "retrieved_at": "2026-08-17T01:26:54.943Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.320386,
+              48.814308
+            ]
+          },
+          "properties": {
+            "fullAddress": "Westwind Rd, Pender Island, BC",
+            "score": 61,
+            "matchPrecision": "STREET",
+            "precisionPoints": 78,
+            "faults": [
+              {
+                "value": "STREET BC",
+                "element": "PROVINCE_GARBAGE",
+                "fault": "notAllowed",
+                "penalty": 2
+              },
+              {
+                "value": "WEST",
+                "element": "STREET_NAME",
+                "fault": "partialMatch",
+                "penalty": 1
+              },
+              {
+                "value": "PENDER",
+                "element": "LOCALITY",
+                "fault": "partialMatch",
+                "penalty": 1
+              },
+              {
+                "value": "",
+                "element": "STREET_TYPE",
+                "fault": "missing",
+                "penalty": 6
+              },
+              {
+                "value": 1130,
+                "element": "CIVIC_NUMBER",
+                "fault": "notInAnyBlock",
+                "penalty": 1
+              },
+              {
+                "value": "",
+                "element": "FAULTS",
+                "fault": "tooMany",
+                "penalty": 6
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": "",
+            "civicNumberSuffix": "",
+            "streetName": "Westwind",
+            "streetType": "Rd",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Pender Island",
+            "streetAddress": "Westwind Rd",
+            "localityType": "Community",
+            "electoralArea": "CAPRD Southern Gulf Islands Electoral Area",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "coarse",
+            "locationDescriptor": "streetPoint",
+            "siteID": "",
+            "blockID": "",
+            "fullSiteDescriptor": "",
+            "accessNotes": "",
+            "siteStatus": "",
+            "siteRetireDate": "",
+            "changeDate": "",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "57 e hastings st|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:54.993Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.1031545,
+              49.2814776
+            ]
+          },
+          "properties": {
+            "fullAddress": "57 E Hastings St, Vancouver, BC",
+            "score": 99,
+            "matchPrecision": "BLOCK",
+            "precisionPoints": 99,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 57,
+            "civicNumberSuffix": "",
+            "streetName": "Hastings",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "E",
+            "isStreetDirectionPrefix": "true",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "57 E Hastings St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "low",
+            "locationDescriptor": "accessPoint",
+            "siteID": "",
+            "blockID": 112100,
+            "fullSiteDescriptor": "",
+            "accessNotes": "",
+            "siteStatus": "",
+            "siteRetireDate": "",
+            "changeDate": "",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "2615 clark street|port moody|bc": {
+      "retrieved_at": "2026-08-17T01:26:55.150Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -122.853671,
+              49.2774817
+            ]
+          },
+          "properties": {
+            "fullAddress": "2615 Clarke St, Port Moody, BC",
+            "score": 98,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [
+              {
+                "value": "CLARK",
+                "element": "STREET_NAME",
+                "fault": "spelledWrong",
+                "penalty": 2
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 2615,
+            "civicNumberSuffix": "",
+            "streetName": "Clarke",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Port Moody",
+            "streetAddress": "2615 Clarke St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "9a129d44-ecab-49e8-bc4e-02b19a613ea0",
+            "blockID": 147067,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "office 320-2285 clark dr|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:55.195Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.0778418,
+              49.264516
+            ]
+          },
+          "properties": {
+            "fullAddress": "UNIT 320 -- 2285 Clark Dr, Vancouver, BC",
+            "score": 97,
+            "matchPrecision": "UNIT",
+            "precisionPoints": 100,
+            "faults": [
+              {
+                "value": "OFFICE",
+                "element": "INITIAL_GARBAGE",
+                "fault": "notAllowed",
+                "penalty": 3
+              },
+              {
+                "value": "",
+                "element": "UNIT_DESIGNATOR",
+                "fault": "missing",
+                "penalty": 0
+              },
+              {
+                "value": "",
+                "element": "MAX_RESULTS",
+                "fault": "too_low_to_include_all_best_matches",
+                "penalty": 0
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "UNIT",
+            "unitNumber": 320,
+            "unitNumberSuffix": "",
+            "civicNumber": 2285,
+            "civicNumberSuffix": "",
+            "streetName": "Clark",
+            "streetType": "Dr",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "2285 Clark Dr",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "8fe2ade6-d44b-4b8a-b7b4-16ca0e5b2c91",
+            "blockID": 472044,
+            "fullSiteDescriptor": "UNIT 320",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "1029 commercial dr|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:55.240Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.0699107,
+              49.2752361
+            ]
+          },
+          "properties": {
+            "fullAddress": "1029 Commercial Dr, Vancouver, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 1029,
+            "civicNumberSuffix": "",
+            "streetName": "Commercial",
+            "streetType": "Dr",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "1029 Commercial Dr",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "6008d9e1-d959-415e-a3ae-9578af9e42eb",
+            "blockID": 100797,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "lower mainland regional office, 520 richards street|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:55.289Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.1135601,
+              49.282967
+            ]
+          },
+          "properties": {
+            "fullAddress": "520 Richards St, Vancouver, BC",
+            "score": 96,
+            "matchPrecision": "BLOCK",
+            "precisionPoints": 99,
+            "faults": [
+              {
+                "value": "LOWER MAINLAND REGIONAL OFFICE",
+                "element": "INITIAL_GARBAGE",
+                "fault": "notAllowed",
+                "penalty": 3
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 520,
+            "civicNumberSuffix": "",
+            "streetName": "Richards",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "520 Richards St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "low",
+            "locationDescriptor": "accessPoint",
+            "siteID": "",
+            "blockID": 471584,
+            "fullSiteDescriptor": "",
+            "accessNotes": "",
+            "siteStatus": "",
+            "siteRetireDate": "",
+            "changeDate": "",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "882 maple street|white rock|bc": {
+      "retrieved_at": "2026-08-17T01:26:55.335Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -122.7884408,
+              49.0180498
+            ]
+          },
+          "properties": {
+            "fullAddress": "882 Maple St, White Rock, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 882,
+            "civicNumberSuffix": "",
+            "streetName": "Maple",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "White Rock",
+            "streetAddress": "882 Maple St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "36e9b39f-faf9-4293-9af4-dd71bfa7d07f",
+            "blockID": 136574,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "401 main st|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:55.380Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.100122,
+              49.281051
+            ]
+          },
+          "properties": {
+            "fullAddress": "401 Main St, Vancouver, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 401,
+            "civicNumberSuffix": "",
+            "streetName": "Main",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "401 Main St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "9b8056e7-bd72-44f6-acdc-2b2e578fba66",
+            "blockID": 106189,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "1318 frances st|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:55.426Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.0765592,
+              49.2791995
+            ]
+          },
+          "properties": {
+            "fullAddress": "1318 Frances St, Vancouver, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 1318,
+            "civicNumberSuffix": "",
+            "streetName": "Frances",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "1318 Frances St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "2e96fce2-a566-429a-9e0c-67b33c09b15e",
+            "blockID": 100851,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "302 columbia st|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:55.476Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.1021788,
+              49.282297
+            ]
+          },
+          "properties": {
+            "fullAddress": "302 Columbia St, Vancouver, BC",
+            "score": 99,
+            "matchPrecision": "BLOCK",
+            "precisionPoints": 99,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 302,
+            "civicNumberSuffix": "",
+            "streetName": "Columbia",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "302 Columbia St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "low",
+            "locationDescriptor": "accessPoint",
+            "siteID": "",
+            "blockID": 106131,
+            "fullSiteDescriptor": "",
+            "accessNotes": "",
+            "siteStatus": "",
+            "siteRetireDate": "",
+            "changeDate": "",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "13520 78 ave|surrey|bc": {
+      "retrieved_at": "2026-08-17T01:26:55.523Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -122.8480548,
+              49.1443456
+            ]
+          },
+          "properties": {
+            "fullAddress": "13520 78 Ave, Surrey, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 13520,
+            "civicNumberSuffix": "",
+            "streetName": 78,
+            "streetType": "Ave",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Surrey",
+            "streetAddress": "13520 78 Ave",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "d6595429-9548-4610-8520-54cdd8de6afa",
+            "blockID": 137381,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "8100 granville avenue|richmond|bc": {
+      "retrieved_at": "2026-08-17T01:26:55.570Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.1347193,
+              49.1621702
+            ]
+          },
+          "properties": {
+            "fullAddress": "8100 Granville Ave, Richmond, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 8100,
+            "civicNumberSuffix": "",
+            "streetName": "Granville",
+            "streetType": "Ave",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Richmond",
+            "streetAddress": "8100 Granville Ave",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "1edf3ac3-5a81-40a2-a233-bb3bb5879ca2",
+            "blockID": 128341,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "616 powell street|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:55.664Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.0910201,
+              49.282998
+            ]
+          },
+          "properties": {
+            "fullAddress": "616 Powell St, Vancouver, BC",
+            "score": 99,
+            "matchPrecision": "BLOCK",
+            "precisionPoints": 99,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 616,
+            "civicNumberSuffix": "",
+            "streetName": "Powell",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "616 Powell St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "low",
+            "locationDescriptor": "accessPoint",
+            "siteID": "",
+            "blockID": 109334,
+            "fullSiteDescriptor": "",
+            "accessNotes": "",
+            "siteStatus": "",
+            "siteRetireDate": "",
+            "changeDate": "",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "400 park street|hope|bc": {
+      "retrieved_at": "2026-08-17T01:26:55.715Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -121.4402868,
+              49.38181
+            ]
+          },
+          "properties": {
+            "fullAddress": "400 Park St, Hope, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 400,
+            "civicNumberSuffix": "",
+            "streetName": "Park",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Hope",
+            "streetAddress": "400 Park St",
+            "localityType": "District Municipality",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "05d0028b-5965-462b-bccf-18aed4986f15",
+            "blockID": 192728,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "info 2038 rosser ave|burnaby / new westminster|bc": {
+      "retrieved_at": "2026-08-17T01:26:55.760Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.0052149,
+              49.2652182
+            ]
+          },
+          "properties": {
+            "fullAddress": "2038 Rosser Ave, Burnaby, BC",
+            "score": 95,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [
+              {
+                "value": "INFO",
+                "element": "INITIAL_GARBAGE",
+                "fault": "notAllowed",
+                "penalty": 3
+              },
+              {
+                "value": "/ NEW WESTMINSTER",
+                "element": "PROVINCE_GARBAGE",
+                "fault": "notAllowed",
+                "penalty": 2
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 2038,
+            "civicNumberSuffix": "",
+            "streetName": "Rosser",
+            "streetType": "Ave",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Burnaby",
+            "streetAddress": "2038 Rosser Ave",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "55841ef0-c9eb-4527-94ac-c423522847f1",
+            "blockID": 114932,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "255 dunlevy ave|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:55.806Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.0956398,
+              49.2823987
+            ]
+          },
+          "properties": {
+            "fullAddress": "255 Dunlevy Ave, Vancouver, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 255,
+            "civicNumberSuffix": "",
+            "streetName": "Dunlevy",
+            "streetType": "Ave",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "255 Dunlevy Ave",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "a820448e-8ce0-4b91-9310-ca152dacb48f",
+            "blockID": 475407,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "312 main st, vancouver, bc v6a 2t2|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:55.857Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.0991922,
+              49.2818547
+            ]
+          },
+          "properties": {
+            "fullAddress": "312 Main St, Vancouver, BC",
+            "score": 97,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [
+              {
+                "value": "/PJ",
+                "element": "POSTAL_ADDRESS_ELEMENT",
+                "fault": "notAllowed",
+                "penalty": 1
+              },
+              {
+                "value": "BC VANCOUVER",
+                "element": "PROVINCE_GARBAGE",
+                "fault": "notAllowed",
+                "penalty": 2
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 312,
+            "civicNumberSuffix": "",
+            "streetName": "Main",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "312 Main St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "5d9d8421-b042-4622-8c21-6f260339567c",
+            "blockID": 106190,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "450 e hastings|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:55.907Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.0942613,
+              49.2809295
+            ]
+          },
+          "properties": {
+            "fullAddress": "450 E Hastings St, Vancouver, BC",
+            "score": 94,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [
+              {
+                "value": "",
+                "element": "STREET_TYPE",
+                "fault": "missing",
+                "penalty": 6
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 450,
+            "civicNumberSuffix": "",
+            "streetName": "Hastings",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "E",
+            "isStreetDirectionPrefix": "true",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "450 E Hastings St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "ddfbff32-8682-4f63-be06-da5fe5ce56cc",
+            "blockID": 109274,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "5339-207 street|langley|bc": {
+      "retrieved_at": "2026-08-17T01:26:55.954Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -122.6501436,
+              49.098875
+            ]
+          },
+          "properties": {
+            "fullAddress": "5339 207 St, Langley, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 5339,
+            "civicNumberSuffix": "",
+            "streetName": 207,
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Langley",
+            "streetAddress": "5339 207 St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "69095ee3-3891-4c2c-a8e5-045ec56a9c22",
+            "blockID": 2707152,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "10095 whalley blvd|surrey|bc": {
+      "retrieved_at": "2026-08-17T01:26:55.999Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -122.8434773,
+              49.1859468
+            ]
+          },
+          "properties": {
+            "fullAddress": "10095 Whalley Blvd, Surrey, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 10095,
+            "civicNumberSuffix": "",
+            "streetName": "Whalley",
+            "streetType": "Blvd",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Surrey",
+            "streetAddress": "10095 Whalley Blvd",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "b0c60cc0-79e1-44f1-9daa-955e9faa2340",
+            "blockID": 138331,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "487 alexander st, japanese hall, vancouver|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:56.050Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.0937714,
+              49.2840314
+            ]
+          },
+          "properties": {
+            "fullAddress": "487 Alexander St, Vancouver, BC",
+            "score": 96,
+            "matchPrecision": "BLOCK",
+            "precisionPoints": 99,
+            "faults": [
+              {
+                "value": "JAPANESE HALL VANCOUVER",
+                "element": "LOCALITY_GARBAGE",
+                "fault": "notAllowed",
+                "penalty": 3
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 487,
+            "civicNumberSuffix": "",
+            "streetName": "Alexander",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "487 Alexander St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "low",
+            "locationDescriptor": "accessPoint",
+            "siteID": "",
+            "blockID": 111141,
+            "fullSiteDescriptor": "",
+            "accessNotes": "",
+            "siteStatus": "",
+            "siteRetireDate": "",
+            "changeDate": "",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "- 81 avenue|surrey|bc": {
+      "retrieved_at": "2026-08-17T01:26:56.095Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -122.8191112,
+              49.1499184
+            ]
+          },
+          "properties": {
+            "fullAddress": "81 Ave, Surrey, BC",
+            "score": 78,
+            "matchPrecision": "STREET",
+            "precisionPoints": 78,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": "",
+            "civicNumberSuffix": "",
+            "streetName": 81,
+            "streetType": "Ave",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Surrey",
+            "streetAddress": "81 Ave",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "coarse",
+            "locationDescriptor": "streetPoint",
+            "siteID": "",
+            "blockID": "",
+            "fullSiteDescriptor": "",
+            "accessNotes": "",
+            "siteStatus": "",
+            "siteRetireDate": "",
+            "changeDate": "",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "7298 hurd street|mission|bc": {
+      "retrieved_at": "2026-08-17T01:26:56.138Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -122.3319461,
+              49.1348623
+            ]
+          },
+          "properties": {
+            "fullAddress": "7298 Hurd St, Mission, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 7298,
+            "civicNumberSuffix": "",
+            "streetName": "Hurd",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Mission",
+            "streetAddress": "7298 Hurd St",
+            "localityType": "District Municipality",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "d1a59d43-14ca-4146-ad49-6002e93be082",
+            "blockID": 483158,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "240-31935 south fraser way|abbotsford|bc": {
+      "retrieved_at": "2026-08-17T01:26:56.206Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -122.3394964,
+              49.0497177
+            ]
+          },
+          "properties": {
+            "fullAddress": "UNIT 240 -- 31935 South Fraser Way, Abbotsford, BC",
+            "score": 99,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [
+              {
+                "value": "",
+                "element": "UNIT_DESIGNATOR",
+                "fault": "missing",
+                "penalty": 0
+              },
+              {
+                "value": 240,
+                "element": "UNIT_NUMBER",
+                "fault": "notMatched",
+                "penalty": 1
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "UNIT",
+            "unitNumber": 240,
+            "unitNumberSuffix": "",
+            "civicNumber": 31935,
+            "civicNumberSuffix": "",
+            "streetName": "South Fraser",
+            "streetType": "Way",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Abbotsford",
+            "streetAddress": "31935 South Fraser Way",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "35e81621-7cce-48c0-96bf-b4eebc7f9f54",
+            "blockID": 2706522,
+            "fullSiteDescriptor": "UNIT 240",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "450 e hastings st|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:56.255Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.0942613,
+              49.2809295
+            ]
+          },
+          "properties": {
+            "fullAddress": "450 E Hastings St, Vancouver, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 450,
+            "civicNumberSuffix": "",
+            "streetName": "Hastings",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "E",
+            "isStreetDirectionPrefix": "true",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "450 E Hastings St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "ddfbff32-8682-4f63-be06-da5fe5ce56cc",
+            "blockID": 109274,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "240-111 west hastings street|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:56.334Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.1078704,
+              49.282637
+            ]
+          },
+          "properties": {
+            "fullAddress": "UNIT 240 -- 111 W Hastings St, Vancouver, BC",
+            "score": 99,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [
+              {
+                "value": "",
+                "element": "UNIT_DESIGNATOR",
+                "fault": "missing",
+                "penalty": 0
+              },
+              {
+                "value": 240,
+                "element": "UNIT_NUMBER",
+                "fault": "notMatched",
+                "penalty": 1
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "UNIT",
+            "unitNumber": 240,
+            "unitNumberSuffix": "",
+            "civicNumber": 111,
+            "civicNumberSuffix": "",
+            "streetName": "Hastings",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "W",
+            "isStreetDirectionPrefix": "true",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "111 W Hastings St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "62f5bfec-f347-4df1-81b9-a5c96e42f90f",
+            "blockID": 100384,
+            "fullSiteDescriptor": "UNIT 240",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "601 e hastings|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:56.383Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.09108,
+              49.2814743
+            ]
+          },
+          "properties": {
+            "fullAddress": "601 E Hastings St, Vancouver, BC",
+            "score": 94,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [
+              {
+                "value": "",
+                "element": "STREET_TYPE",
+                "fault": "missing",
+                "penalty": 6
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 601,
+            "civicNumberSuffix": "",
+            "streetName": "Hastings",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "E",
+            "isStreetDirectionPrefix": "true",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "601 E Hastings St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "8137bbd9-55c9-4ddd-b22c-209c862a9aab",
+            "blockID": 109272,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "900 - 1200 burrard st|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:56.428Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.1293008,
+              49.2785703
+            ]
+          },
+          "properties": {
+            "fullAddress": "UNIT 900 -- 1200 Burrard St, Vancouver, BC",
+            "score": 99,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [
+              {
+                "value": "",
+                "element": "UNIT_DESIGNATOR",
+                "fault": "missing",
+                "penalty": 0
+              },
+              {
+                "value": 900,
+                "element": "UNIT_NUMBER",
+                "fault": "notMatched",
+                "penalty": 1
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "UNIT",
+            "unitNumber": 900,
+            "unitNumberSuffix": "",
+            "civicNumber": 1200,
+            "civicNumberSuffix": "",
+            "streetName": "Burrard",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "1200 Burrard St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "8e27f424-52c9-4a81-ab16-5f2210223c63",
+            "blockID": 106115,
+            "fullSiteDescriptor": "UNIT 900",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "st. paul's hospital, 1081 burrard street|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:56.476Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.1289966,
+              49.2805979
+            ]
+          },
+          "properties": {
+            "fullAddress": "1081 Burrard St, Vancouver, BC",
+            "score": 97,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [
+              {
+                "value": "ST PAULS HOSPITAL",
+                "element": "INITIAL_GARBAGE",
+                "fault": "notAllowed",
+                "penalty": 3
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 1081,
+            "civicNumberSuffix": "",
+            "streetName": "Burrard",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "1081 Burrard St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "2318c521-233a-4c91-a46f-406c93dd215c",
+            "blockID": 106194,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "312 main street|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:56.524Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.0991922,
+              49.2818547
+            ]
+          },
+          "properties": {
+            "fullAddress": "312 Main St, Vancouver, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 312,
+            "civicNumberSuffix": "",
+            "streetName": "Main",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "312 Main St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "5d9d8421-b042-4622-8c21-6f260339567c",
+            "blockID": 106190,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "7671 alderbridge way, unit 210|richmond|bc": {
+      "retrieved_at": "2026-08-17T01:26:56.570Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.1364631,
+              49.1694686
+            ]
+          },
+          "properties": {
+            "fullAddress": "UNIT 210 -- 7671 Alderbridge Way, Richmond, BC",
+            "score": 100,
+            "matchPrecision": "UNIT",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "UNIT",
+            "unitNumber": 210,
+            "unitNumberSuffix": "",
+            "civicNumber": 7671,
+            "civicNumberSuffix": "",
+            "streetName": "Alderbridge",
+            "streetType": "Way",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Richmond",
+            "streetAddress": "7671 Alderbridge Way",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "5ba25734-fe70-4486-a5c6-5037ebdd27d0",
+            "blockID": 424732,
+            "fullSiteDescriptor": "UNIT 210",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "103-12827 76 ave|surrey|bc": {
+      "retrieved_at": "2026-08-17T01:26:56.617Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -122.8671536,
+              49.141173
+            ]
+          },
+          "properties": {
+            "fullAddress": "UNIT 103 -- 12827 76 Ave, Surrey, BC",
+            "score": 100,
+            "matchPrecision": "UNIT",
+            "precisionPoints": 100,
+            "faults": [
+              {
+                "value": "",
+                "element": "UNIT_DESIGNATOR",
+                "fault": "missing",
+                "penalty": 0
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "UNIT",
+            "unitNumber": 103,
+            "unitNumberSuffix": "",
+            "civicNumber": 12827,
+            "civicNumberSuffix": "",
+            "streetName": 76,
+            "streetType": "Ave",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Surrey",
+            "streetAddress": "12827 76 Ave",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "747fe0f7-351e-484a-b273-9fe3695e5c80",
+            "blockID": 382101,
+            "fullSiteDescriptor": "UNIT 103",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "102-13670 94a avenue / quibble creek area|surrey|bc": {
+      "retrieved_at": "2026-08-17T01:26:56.677Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -122.8437601,
+              49.1745123
+            ]
+          },
+          "properties": {
+            "fullAddress": "UNIT 102 -- 13670 94A Ave, Surrey, BC",
+            "score": 96,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [
+              {
+                "value": "/ QUIBBLE CREEK AREA",
+                "element": "LOCALITY_GARBAGE",
+                "fault": "notAllowed",
+                "penalty": 3
+              },
+              {
+                "value": "",
+                "element": "UNIT_DESIGNATOR",
+                "fault": "missing",
+                "penalty": 0
+              },
+              {
+                "value": 102,
+                "element": "UNIT_NUMBER",
+                "fault": "notMatched",
+                "penalty": 1
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "UNIT",
+            "unitNumber": 102,
+            "unitNumberSuffix": "",
+            "civicNumber": 13670,
+            "civicNumberSuffix": "",
+            "streetName": "94A",
+            "streetType": "Ave",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Surrey",
+            "streetAddress": "13670 94A Ave",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "1166948d-4531-4713-933e-4db85fa4b6e8",
+            "blockID": 2466085,
+            "fullSiteDescriptor": "UNIT 102",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "9 e hastings st|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:56.726Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.1040162,
+              49.281633
+            ]
+          },
+          "properties": {
+            "fullAddress": "9 E Hastings St, Vancouver, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 9,
+            "civicNumberSuffix": "",
+            "streetName": "Hastings",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "E",
+            "isStreetDirectionPrefix": "true",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "9 E Hastings St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "7ce9fb59-6880-4cd7-94e8-2b873720b77c",
+            "blockID": 112100,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "575 drake st|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:56.772Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.1265091,
+              49.2753284
+            ]
+          },
+          "properties": {
+            "fullAddress": "575 Drake St, Vancouver, BC",
+            "score": 99,
+            "matchPrecision": "BLOCK",
+            "precisionPoints": 99,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 575,
+            "civicNumberSuffix": "",
+            "streetName": "Drake",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "575 Drake St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "low",
+            "locationDescriptor": "accessPoint",
+            "siteID": "",
+            "blockID": 473849,
+            "fullSiteDescriptor": "",
+            "accessNotes": "",
+            "siteStatus": "",
+            "siteRetireDate": "",
+            "changeDate": "",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "337 west pender|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:56.836Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.1113022,
+              49.2827019
+            ]
+          },
+          "properties": {
+            "fullAddress": "337 W Pender St, Vancouver, BC",
+            "score": 94,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [
+              {
+                "value": "",
+                "element": "STREET_TYPE",
+                "fault": "missing",
+                "penalty": 6
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 337,
+            "civicNumberSuffix": "",
+            "streetName": "Pender",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "W",
+            "isStreetDirectionPrefix": "true",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "337 W Pender St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "d2b79f17-b1f4-462c-a24a-647fa7c256e4",
+            "blockID": 100378,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "bc 1021 w hastings st||bc": {
+      "retrieved_at": "2026-08-17T01:26:56.892Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.1181912,
+              49.2877318
+            ]
+          },
+          "properties": {
+            "fullAddress": "1021 W Hastings St, Vancouver, BC",
+            "score": 87,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [
+              {
+                "value": "BC",
+                "element": "INITIAL_GARBAGE",
+                "fault": "notAllowed",
+                "penalty": 3
+              },
+              {
+                "value": "",
+                "element": "LOCALITY",
+                "fault": "missing",
+                "penalty": 10
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 1021,
+            "civicNumberSuffix": "",
+            "streetName": "Hastings",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "W",
+            "isStreetDirectionPrefix": "true",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "1021 W Hastings St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "8d940f04-6753-41a1-ae8a-84f79e2164c8",
+            "blockID": 100292,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "59 powell st|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:56.938Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.1027068,
+              49.2834533
+            ]
+          },
+          "properties": {
+            "fullAddress": "59 Powell St, Vancouver, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 59,
+            "civicNumberSuffix": "",
+            "streetName": "Powell",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "59 Powell St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "395d4cb8-e282-4e71-8bca-f3695301aa38",
+            "blockID": 2530791,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "2425 oxford street|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:56.985Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.0558564,
+              49.2860049
+            ]
+          },
+          "properties": {
+            "fullAddress": "2425 Oxford St, Vancouver, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 2425,
+            "civicNumberSuffix": "",
+            "streetName": "Oxford",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "2425 Oxford St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "dcdbf2ff-9b7a-454c-a28a-906d4b4b4b88",
+            "blockID": 110830,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "707 powell st|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:57.030Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.08914,
+              49.2832595
+            ]
+          },
+          "properties": {
+            "fullAddress": "707 Powell St, Vancouver, BC",
+            "score": 100,
+            "matchPrecision": "CIVIC_NUMBER",
+            "precisionPoints": 100,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 707,
+            "civicNumberSuffix": "",
+            "streetName": "Powell",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "707 Powell St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "high",
+            "locationDescriptor": "parcelPoint",
+            "siteID": "94b2bff0-b44c-4711-b888-bc86911ec2ec",
+            "blockID": 109333,
+            "fullSiteDescriptor": "",
+            "accessNotes": "\"",
+            "siteStatus": "active",
+            "siteRetireDate": "9999-12-31",
+            "changeDate": "2026-07-07",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "office 28 west pender street|coquitlam|bc": {
+      "retrieved_at": "2026-08-17T01:26:57.776Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -122.8299702,
+              49.2249466
+            ]
+          },
+          "properties": {
+            "fullAddress": "28 Leeder St, Coquitlam, BC",
+            "score": 92,
+            "matchPrecision": "BLOCK",
+            "precisionPoints": 99,
+            "faults": [
+              {
+                "value": "OFFICE",
+                "element": "INITIAL_GARBAGE",
+                "fault": "notAllowed",
+                "penalty": 3
+              },
+              {
+                "value": "PENDER",
+                "element": "STREET_NAME",
+                "fault": "spelledWrong",
+                "penalty": 2
+              },
+              {
+                "value": "WEST",
+                "element": "STREET_DIRECTION",
+                "fault": "notMatched",
+                "penalty": 2
+              },
+              {
+                "value": "WEST",
+                "element": "STREET_DIRECTION",
+                "fault": "notPrefix",
+                "penalty": 0
+              }
+            ],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 28,
+            "civicNumberSuffix": "",
+            "streetName": "Leeder",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Coquitlam",
+            "streetAddress": "28 Leeder St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "low",
+            "locationDescriptor": "accessPoint",
+            "siteID": "",
+            "blockID": 148176,
+            "fullSiteDescriptor": "",
+            "accessNotes": "",
+            "siteStatus": "",
+            "siteRetireDate": "",
+            "changeDate": "",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    },
+    "520 powell st|vancouver|bc": {
+      "retrieved_at": "2026-08-17T01:26:57.832Z",
+      "http_status": 200,
+      "provider_status": "matched",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "crs": {
+              "type": "EPSG",
+              "properties": {
+                "code": 4326
+              }
+            },
+            "coordinates": [
+              -123.0924807,
+              49.2830258
+            ]
+          },
+          "properties": {
+            "fullAddress": "520 Powell St, Vancouver, BC",
+            "score": 99,
+            "matchPrecision": "BLOCK",
+            "precisionPoints": 99,
+            "faults": [],
+            "siteName": "",
+            "unitDesignator": "",
+            "unitNumber": "",
+            "unitNumberSuffix": "",
+            "civicNumber": 520,
+            "civicNumberSuffix": "",
+            "streetName": "Powell",
+            "streetType": "St",
+            "isStreetTypePrefix": "false",
+            "streetDirection": "",
+            "isStreetDirectionPrefix": "false",
+            "streetQualifier": "",
+            "localityName": "Vancouver",
+            "streetAddress": "520 Powell St",
+            "localityType": "City",
+            "electoralArea": "",
+            "provinceCode": "BC",
+            "locationPositionalAccuracy": "low",
+            "locationDescriptor": "accessPoint",
+            "siteID": "",
+            "blockID": 109335,
+            "fullSiteDescriptor": "",
+            "accessNotes": "",
+            "siteStatus": "",
+            "siteRetireDate": "",
+            "changeDate": "",
+            "isOfficial": "true"
+          }
+        }
+      ]
+    }
+  }
+}

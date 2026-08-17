@@ -2428,6 +2428,10 @@ body,
 .handout-attribution-option { display: flex; align-items: center; gap: 9px; min-height: 44px; font-weight: 800; }
 .handout-attribution-option input, .handout-logo-options input { width: 22px; height: 22px; }
 
+.automation-mini-map { min-height: 180px; margin: 12px 0; border: 1px solid #c8d5d1; border-radius: 12px; }
+.automation-review-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.automation-review-actions button.selected { background: #244f46; color: white; }
+
 .handout-fields {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
