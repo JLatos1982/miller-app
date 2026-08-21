@@ -30,6 +30,7 @@ import { capabilityReport } from "./server/capabilities.js"
 import { buildDirectoryCoverageReport } from "./server/directoryAddressCoverage.js"
 import { privateLocationAuditValues, privateLocationEligibility, privateLocationValues, sameFixedAddress } from "./server/privateLocation.js"
 import { buildShelterAutomationReport } from "./server/shelterAutomation.js"
+import { clustersFromPairs, compareShelterCandidates } from "./server/shelterReconciliation.js"
 import { getNearbyTransit } from "./server/transit/providers.js"
 import { buildAccessContext } from "./server/transit/accessContext.js"
 import { geocodeNavigationOrigin } from "./server/navigationOrigin.js"
@@ -2052,6 +2053,35 @@ app.get("/api/admin/discovery-candidates/automation-dry-run", requireAdmin, asyn
   const report = buildShelterAutomationReport(data || [])
   res.setHeader("Cache-Control", "private, no-store")
   return res.json({ ...report, pending_backlog: (data || []).filter((item) => item.review_status === "pending").length, production_changes: 0, map_locations_created: 0, map_locations_published: 0 })
+})
+app.get("/api/admin/shelter-reconciliations", requireAdmin, async (_req, res) => {
+  const { data: candidates, error } = await supabase.from("resource_discovery_candidates").select("id,name,operator,shelter_type,population_served,community,region,website,source_url,phone,public_address,location_disclosure_status,source_name,possible_matches,review_status").eq("review_status", "pending").order("id")
+  if (error) return res.status(503).json({ error: "Shelter reconciliation queue is unavailable." })
+  const byId = new Map((candidates || []).map((item) => [item.id, item]))
+  const seen = new Set(), pairs = []
+  for (const left of candidates || []) for (const match of left.possible_matches || []) {
+    const raw = String(match.discovery_candidate_id || "").replace(/^candidate:/, "")
+    const right = byId.get(Number(raw)); if (!right || right.id === left.id) continue
+    const ids = [left.id, right.id].sort((a, b) => a - b), key = ids.join(":"); if (seen.has(key)) continue; seen.add(key)
+    const comparison = compareShelterCandidates(left, right)
+    if (comparison.classification !== "insufficient_identity_evidence") pairs.push({ left, right, comparison })
+  }
+  const { data: decisions, error: decisionError } = await supabase.from("shelter_candidate_reconciliations").select("left_candidate_id,right_candidate_id,decision,decision_note,version,updated_at")
+  if (decisionError) return res.status(503).json({ error: "Shelter reconciliation ledger is unavailable." })
+  const decisionByPair = new Map((decisions || []).map((item) => [`${item.left_candidate_id}:${item.right_candidate_id}`, item]))
+  const safe = (item) => ({ ...item, public_address: item.location_disclosure_status === "public" ? item.public_address : null })
+  return res.json({ pairs: pairs.map((pair) => ({ ...pair, left: safe(pair.left), right: safe(pair.right), ledger: decisionByPair.get([pair.left.id, pair.right.id].sort((a, b) => a - b).join(":")) || null })), clusters: clustersFromPairs(pairs), automatic_action_enabled: false })
+})
+app.post("/api/admin/shelter-reconciliations/:leftCandidateId/:rightCandidateId", requireAdmin, async (req, res) => {
+  const left = Number(req.params.leftCandidateId), right = Number(req.params.rightCandidateId), expected = Number(req.body?.expected_version)
+  const decision = String(req.body?.decision || ""), note = String(req.body?.decision_note || "")
+  if (!Number.isSafeInteger(left) || !Number.isSafeInteger(right) || left === right || !Number.isInteger(expected) || !["same_program_duplicate", "different_program", "needs_more_research"].includes(decision)) return res.status(400).json({ error: "Invalid reconciliation decision." })
+  const { data: candidates, error } = await supabase.from("resource_discovery_candidates").select("id,name,operator,website,source_url,phone,community,public_address").in("id", [left, right])
+  if (error || candidates?.length !== 2) return res.status(404).json({ error: "Candidate pair was not found." })
+  const fingerprint = compareShelterCandidates(candidates[0], candidates[1]).fingerprint
+  const saved = await supabase.rpc("save_shelter_candidate_reconciliation", { p_left_candidate_id: left, p_right_candidate_id: right, p_classification_fingerprint: fingerprint, p_decision: decision, p_decision_note: note, p_expected_version: expected, p_actor_id: req.adminUser.id })
+  if (saved.error) return res.status(saved.error.code === "40001" ? 409 : 503).json({ error: saved.error.code === "40001" ? "This pair changed. Reload before saving." : "Reconciliation could not be saved." })
+  return res.json({ reconciliation: saved.data, automatic_action_enabled: false, candidate_status_changed: false, directory_resource_created: false, location_created: false, map_pin_created: false })
 })
 
 app.post("/api/admin/discovery-candidates", requireAdmin, async (req, res) => {
