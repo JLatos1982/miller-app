@@ -1139,6 +1139,18 @@ app.get("/api/admin/refreshed-location-reviews", requireAdmin, async (_req, res)
     return res.json({ items, count: items.length, publication_enabled: false })
   } catch { return res.status(503).json({ error: "Refreshed location reviews are unavailable." }) }
 })
+app.post("/api/admin/refreshed-location-reviews/:canonicalUuid/confirm", requireAdmin, async (req, res) => {
+  if (!/^[0-9a-f-]{36}$/i.test(req.params.canonicalUuid) || !Number.isInteger(req.body?.expected_version)) return res.status(400).json({ error: "A current QC version is required." })
+  try {
+    const context = await privateLocationContext(req.params.canonicalUuid)
+    if (!context.resource || !context.qc || context.qc.decision !== "manual_review") return res.status(409).json({ error: "This refreshed record is not awaiting human QC confirmation." })
+    if (context.qc.version !== req.body.expected_version) return res.status(409).json({ error: "This review changed. Reload before confirming." })
+    const saved = await supabase.rpc("save_location_qc_review_decision", { p_canonical_resource_id: context.resource.id, p_policy_version: context.qc.policy_version, p_classification_fingerprint: context.qc.classification_fingerprint, p_decision: "pilot_eligible", p_decision_note: "Human confirmation of refreshed evidence package.", p_review_snapshot: context.qc.review_snapshot, p_expected_version: context.qc.version, p_actor_id: req.adminUser.id })
+    if (saved.error?.code === "40001") return res.status(409).json({ error: "This review changed. Reload before confirming." })
+    if (saved.error) return res.status(503).json({ error: "Refreshed evidence could not be confirmed." })
+    return res.json({ qc: saved.data, location_created: false, public_map_changed: false, message: "Refreshed evidence confirmed. No location was created or published." })
+  } catch { return res.status(503).json({ error: "Refreshed evidence confirmation is unavailable." }) }
+})
 app.post("/api/admin/private-location-candidates/:canonicalUuid/confirm", requireAdmin, async (req, res) => {
   if (!/^[0-9a-f-]{36}$/i.test(req.params.canonicalUuid) || req.body?.confirmed_private_location !== true || !Number.isInteger(req.body?.expected_qc_version)) return res.status(400).json({ error: "An administrator confirmation and current QC version are required.", code: "private_location_confirmation_required" })
   try {
