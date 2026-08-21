@@ -6,12 +6,13 @@ import { buildOccupancyResearchPlan, evaluateOccupancyDocument, finishOccupancyR
 import { classifyLocationCandidate } from "../server/intelligence/locationAutomation.js"
 import { createShadowPersistence } from "../server/intelligence/shadowPersistence.js"
 
-const apply = process.argv.includes("--apply-shadow"), requested = Number(process.argv.find((arg) => arg.startsWith("--limit="))?.split("=")[1] || 100), limit = Math.max(1, Math.min(100, requested))
+const apply = process.argv.includes("--apply-shadow"), requested = Number(process.argv.find((arg) => arg.startsWith("--limit="))?.split("=")[1] || 100), limit = Math.max(1, Math.min(100, requested)), requestedIds = new Set(String(process.argv.find((arg) => arg.startsWith("--ids="))?.split("=")[1] || "").split(",").map((item) => item.trim()).filter(Boolean))
 if (!process.env.TAVILY_API_KEY || !process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) throw new Error("Server-side research configuration is incomplete")
 if (new URL(process.env.SUPABASE_URL).hostname.split(".")[0] !== "wccagykzugrahwugefqt") throw new Error("Refusing to run against an unexpected Supabase project")
 const db = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, { auth: { persistSession: false, autoRefreshToken: false } }), persistence = createShadowPersistence({ supabase: db }), search = tavily({ apiKey: process.env.TAVILY_API_KEY })
 await persistence.assertObserveOnly()
-const inventory = JSON.parse(fs.readFileSync(new URL("../data/location-automation-v1.2.1-review.json", import.meta.url), "utf8")), baseline = inventory.records.map((record) => ({ record, result: classifyLocationCandidate(record) })), unresolved = baseline.filter(({ record, result }) => result.decision === "needs_review" && record.program_occupancy_confidence !== "supported").slice(0, limit)
+const inventory = JSON.parse(fs.readFileSync(new URL("../data/location-automation-v1.2.1-review.json", import.meta.url), "utf8")), baseline = inventory.records.map((record) => ({ record, result: classifyLocationCandidate(record) })), unresolved = (requestedIds.size ? baseline.filter(({ record }) => requestedIds.has(record.canonical_uuid)) : baseline.filter(({ record, result }) => result.decision === "needs_review" && record.program_occupancy_confidence !== "supported")).slice(0, limit)
+if (requestedIds.size && unresolved.length !== requestedIds.size) throw new Error("One or more requested IDs are not available in the reviewed inventory")
 const ids = unresolved.map(({ record }) => record.canonical_uuid), [registry, aliases] = await Promise.all([db.from("resource_registry").select("id,display_name").in("id", ids), db.from("resource_source_aliases").select("resource_id,source_native_id,source_url,provenance").in("resource_id", ids)])
 if (registry.error || aliases.error) throw registry.error || aliases.error
 const registryNames = new Map((registry.data || []).map((item) => [item.id, item.display_name])), aliasMap = new Map()
