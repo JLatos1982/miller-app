@@ -28,13 +28,19 @@ export function rankPublicationFeedCandidates(contexts, limit = 10) {
     .slice(0, limit)
 }
 
-export async function processPublicationFeedItem({ runId, context, db, geocode, actorId, now = () => new Date().toISOString() }) {
+export async function processPublicationFeedItem({ runId, context, db, geocode, research, actorId, now = () => new Date().toISOString() }) {
   const resourceId = context.resource.id, leaseToken = randomUUID()
   const claimed = await db.rpc("claim_publication_feed_item", { p_run_id: runId, p_resource_id: resourceId, p_lease_token: leaseToken, p_lease_seconds: 300 })
   if (claimed.error) return { skipped: true, reason: "already_claimed_or_complete" }
   let assessment = publicationFeedAssessment(context)
   try {
     if (assessment.outcome !== "pending") return await finish(db, runId, resourceId, assessment.outcome, assessment.reasons, context.qc?.version)
+    if ((!assessment.occupancy || !assessment.completeAddress) && research) {
+      await db.from("publication_feed_run_items").update({ stage: "evidence", updated_at: now() }).eq("run_id", runId).eq("resource_id", resourceId)
+      const researched = await research(context, assessment)
+      if (researched) context = { ...context, ...researched }
+      assessment = publicationFeedAssessment(context)
+    }
     if (!assessment.occupancy || !assessment.completeAddress) return await finish(db, runId, resourceId, "machine_blocked", assessment.reasons, context.qc?.version)
     let snapshot = context.qc?.review_snapshot || null
     if (!assessment.geocoder) {
