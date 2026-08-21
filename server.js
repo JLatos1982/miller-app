@@ -25,6 +25,8 @@ import { DOCX_MIME, LIST_PARSER_VERSION, MAX_DOCX_BYTES, parseCounsellingDocumen
 import { MAX_PDF_BYTES, PDF_MIME, pdfDisposition, requestedPdfByteRange, safePdfFilename, validatePdfBuffer } from "./server/pdfDocuments.js"
 import { readLocationQcStore, reconcileLocationQcReview, saveLocationQcDecision } from "./server/locationQcReview.js"
 import { buildAutoPublicationPreview, buildLocationReconciliation, isVirtualOrMobileResource } from "./server/mapPopulation.js"
+import { capabilityReport } from "./server/capabilities.js"
+import { getNearbyTransit } from "./server/transit/providers.js"
 
 dotenv.config()
 
@@ -1881,6 +1883,11 @@ app.get("/api/admin/tavily-resources", requireAdmin, async (req, res) => {
   return res.json({ items: data || [], count: count || 0, latestReviews })
 })
 
+app.get("/api/admin/capabilities", requireAdmin, (_req, res) => {
+  res.setHeader("Cache-Control", "private, no-store")
+  return res.json(capabilityReport())
+})
+
 app.get("/api/admin/discovery-candidates", requireAdmin, async (req, res) => {
   let query = supabase.from("resource_discovery_candidates").select("*").order("created_at", { ascending: false }).limit(500)
   for (const [field, parameter] of [["review_status", "status"], ["shelter_type", "type"], ["community", "community"], ["region", "region"], ["source_name", "source"], ["confidence", "confidence"]]) {
@@ -2044,6 +2051,24 @@ app.get("/api/map/resources", async (_req, res) => {
   }
   res.setHeader("Cache-Control", "public, max-age=300")
   return res.json({ items })
+})
+
+app.get("/api/map/locations/:id/transit", async (req, res) => {
+  if (!/^[0-9a-f-]{36}$/i.test(String(req.params.id || ""))) return res.status(400).json({ error: "Invalid public location ID." })
+  const { data: location, error } = await supabase.from("resource_locations")
+    .select("id,latitude,longitude,location_type,public_map,geocode_status,review_status")
+    .eq("id", req.params.id).eq("location_type", "fixed").eq("public_map", true)
+    .eq("geocode_status", "verified").eq("review_status", "approved").maybeSingle()
+  if (error) return res.status(503).json({ error: "Transit context is temporarily unavailable." })
+  if (!location) return res.status(404).json({ error: "No approved public location was found." })
+  try {
+    const result = await getNearbyTransit({ latitude: Number(location.latitude), longitude: Number(location.longitude) })
+    res.setHeader("Cache-Control", "public, max-age=300")
+    return res.json(result)
+  } catch (providerError) {
+    console.error("Transit provider request failed", { provider: "configured_adapter", message: providerError.message })
+    return res.status(503).json({ error: "Nearby transit information is temporarily unavailable." })
+  }
 })
 
 app.post("/api/admin/pending-locations/bounded-approve", requireAdmin, async (req, res) => {
