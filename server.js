@@ -24,6 +24,7 @@ import { collectCandidateMatches, directoryApprovalState, prepareShelterCandidat
 import { DOCX_MIME, LIST_PARSER_VERSION, MAX_DOCX_BYTES, parseCounsellingDocumentXml, proposeCanonicalMatches } from "./server/curatedLists.js"
 import { MAX_PDF_BYTES, PDF_MIME, pdfDisposition, requestedPdfByteRange, safePdfFilename, validatePdfBuffer } from "./server/pdfDocuments.js"
 import { readLocationQcStore, reconcileLocationQcReview, saveLocationQcDecision } from "./server/locationQcReview.js"
+import { isLocationQcCanonicalEligible } from "./server/locationQcEligibility.js"
 import { buildAutoPublicationPreview, buildLocationReconciliation, isVirtualOrMobileResource } from "./server/mapPopulation.js"
 import { capabilityReport } from "./server/capabilities.js"
 import { buildDirectoryCoverageReport } from "./server/directoryAddressCoverage.js"
@@ -1155,7 +1156,7 @@ app.get("/api/admin/location-qc-review", requireAdmin, async (_req, res) => {
     if (registry.error) return res.status(503).json({ error: "Canonical identity validation is unavailable." })
     const canonical = new Map((registry.data || []).map((item) => [item.id, item]))
     const reconciled = reconcileLocationQcReview(report, store)
-    const validate = (item) => ({ ...item, canonical_validation: { resolved: canonical.has(item.canonical_uuid), active: canonical.get(item.canonical_uuid)?.lifecycle_state === "active", editorially_approved: canonical.get(item.canonical_uuid)?.editorial_status === "approved", display_name_matches: canonical.get(item.canonical_uuid)?.display_name === item.resource_name } })
+    const validate = (item) => ({ ...item, canonical_validation: { resolved: canonical.has(item.canonical_uuid), active: canonical.get(item.canonical_uuid)?.lifecycle_state === "active", qc_eligible: isLocationQcCanonicalEligible(canonical.get(item.canonical_uuid)), editorial_status: canonical.get(item.canonical_uuid)?.editorial_status, display_name_matches: canonical.get(item.canonical_uuid)?.display_name === item.resource_name } })
     return res.json({ ...reconciled, active: reconciled.active.map(validate), completed: reconciled.completed.map(validate), eligible_for_later_pilot: reconciled.eligible_for_later_pilot.map(validate), persistence, publication_enabled: false })
   } catch { return res.status(503).json({ error: "The local QC review workflow is unavailable." }) }
 })
@@ -1164,7 +1165,7 @@ app.post("/api/admin/location-qc-review/:canonicalUuid/decision", requireAdmin, 
     const report = JSON.parse(fs.readFileSync(locationAutomationDryRunPath, "utf8")), item = report.quality_control_sample.find((candidate) => candidate.canonical_uuid === req.params.canonicalUuid)
     if (!item) return res.status(404).json({ error: "QC record not found." })
     const registry = await supabase.from("resource_registry").select("id,display_name,lifecycle_state,editorial_status").eq("id", item.canonical_uuid).maybeSingle()
-    if (registry.error || !registry.data || registry.data.display_name !== item.resource_name || registry.data.lifecycle_state !== "active" || registry.data.editorial_status !== "approved") return res.status(409).json({ error: "Canonical identity changed; review was not saved.", code: "canonical_identity_conflict" })
+    if (registry.error || !registry.data || registry.data.display_name !== item.resource_name || !isLocationQcCanonicalEligible(registry.data)) return res.status(409).json({ error: "Canonical identity changed; review was not saved.", code: "canonical_identity_conflict" })
     if (item.policy_version !== report.policy_version || item.score !== 100 || item.location_descriptor !== "parcelpoint" || item.sensitivity_flags.length || item.conflicts.length || item.program_occupancy_confidence !== "supported") return res.status(409).json({ error: "The Phase 1P eligibility evidence changed; review was not saved.", code: "eligibility_revalidation_failed" })
     let result
     if (durableLocationQcEnabled) {
@@ -1180,7 +1181,7 @@ app.post("/api/admin/location-qc-review/:canonicalUuid/decision", requireAdmin, 
         p_expected_version: Number(req.body?.expected_version || 0),
         p_actor_id: req.adminUser.id,
       })
-      if (saved.error?.code === "40001") return res.status(409).json({ error: "This review changed in another session. Reload and try again.", code: "review_version_conflict" })
+      if (saved.error?.code === "40001" || /review version conflict/i.test(String(saved.error?.message))) return res.status(409).json({ error: "This review changed in another session. Reload and try again.", code: "review_version_conflict" })
       if (saved.error) return res.status(503).json({ error: "The durable review decision was not saved.", code: "durable_qc_save_failed" })
       result = { ok: true, status: Number(req.body?.expected_version || 0) ? 200 : 201, decision: saved.data, publication_created: false, location_created: false, public_map_changed: false }
     } else result = saveLocationQcDecision({ report, storeFile: locationQcReviewStorePath, canonicalUuid: item.canonical_uuid, decision: req.body?.decision, expectedVersion: req.body?.expected_version, actor: req.adminUser, note: req.body?.note })

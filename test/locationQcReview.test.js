@@ -4,6 +4,7 @@ import fs from "node:fs"
 import os from "node:os"
 import path from "node:path"
 import { readLocationQcStore, reconcileLocationQcReview, saveLocationQcDecision } from "../server/locationQcReview.js"
+import { isLocationQcCanonicalEligible } from "../server/locationQcEligibility.js"
 
 const item = { canonical_uuid: "22c9ff25-1305-5403-a127-53e3cbed6f10", resource_name: "A Better Life Foundation", policy_version: "miller-location-auto-v1.2.1", public_map: false }
 const report = { policy_version: "miller-location-auto-v1.2.1", classification_fingerprint: "fixture", quality_control_sample: [item], shared_address_groups: [] }
@@ -38,5 +39,16 @@ test("server routes are protected and contain no publication or geocoder call", 
 test("forward migration separates decisions, enforces versions, audit, RLS, and service-only execution", () => {
   const sql = fs.readFileSync(new URL("../supabase/migrations/202608160001_create_location_qc_reviews.sql", import.meta.url), "utf8")
   for (const expected of ["location_qc_reviews", "location_qc_review_audit", "enable row level security", "review version conflict", "append-only", "grant execute", "service_role", "pg_advisory_xact_lock"]) assert.match(sql, new RegExp(expected, "i"))
+  assert.doesNotMatch(sql, /insert into public\.resource_locations|update public\.resource_locations/)
+})
+test("additive eligibility correction permits private QC for active non-hidden resources only", () => {
+  assert.equal(isLocationQcCanonicalEligible({ lifecycle_state: "active", editorial_status: "pending" }), true)
+  assert.equal(isLocationQcCanonicalEligible({ lifecycle_state: "active", editorial_status: "approved" }), true)
+  assert.equal(isLocationQcCanonicalEligible({ lifecycle_state: "active", editorial_status: "hidden" }), false)
+  assert.equal(isLocationQcCanonicalEligible({ lifecycle_state: "merged", editorial_status: "pending" }), false)
+  assert.equal(isLocationQcCanonicalEligible({ lifecycle_state: "retired", editorial_status: "approved" }), false)
+  const sql = fs.readFileSync(new URL("../supabase/migrations/202608210001_allow_active_nonhidden_location_qc.sql", import.meta.url), "utf8")
+  assert.match(sql, /lifecycle_state\s*=\s*'active'/)
+  assert.match(sql, /editorial_status\s*<>\s*'hidden'/)
   assert.doesNotMatch(sql, /insert into public\.resource_locations|update public\.resource_locations/)
 })
