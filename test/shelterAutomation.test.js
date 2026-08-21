@@ -9,6 +9,15 @@ test("shelter dry run separates duplicates, safety, research, and a potential au
   assert.equal(classifyShelterCandidate({ ...base, location_disclosure_status: "confidential" }, { now: new Date("2026-08-21") }).category, "safety_sensitive")
   assert.equal(classifyShelterCandidate({ ...base, confidence: "medium" }, { now: new Date("2026-08-21") }).category, "strong_administrator_review")
 })
+
+test("throughput queue exposes direct human decisions without any map-publication control", async () => {
+  const fs = await import("node:fs")
+  const ui = fs.readFileSync(new URL("../src/admin/ShelterThroughputQueue.jsx", import.meta.url), "utf8")
+  for (const label of ["Approve directory resource", "Approve directory resource — keep location private", "Needs more research", "Reject", "Exclude", "Review possible duplicate"]) assert.match(ui, new RegExp(label))
+  assert.match(ui, /\/api\/admin\/discovery-candidates\/\$\{item\.id\}/)
+  assert.match(ui, /Directory resource approved\. No map location was created\./)
+  assert.doesNotMatch(ui, /publish_verified_map_pin/)
+})
 test("automation is observe-only while comparable human-decision validation is absent", () => {
   const report = buildShelterAutomationReport([base, { ...base, id: 2, review_status: "approved" }], { now: new Date("2026-08-21") })
   assert.equal(report.automatic_approval_enabled, false); assert.equal(report.location_publication_changed, false); assert.equal(report.validation.agreement_available, false)
