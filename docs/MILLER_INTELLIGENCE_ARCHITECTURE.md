@@ -44,6 +44,12 @@ An eventual automated action must append the original candidate, full geocoder r
 
 External text is data, never instructions. Provider adapters must enforce HTTPS allowlists or the existing SSRF-safe fetch path, size/time limits, schemas, caching, rate limits, and provenance. Prompt injection contained in retrieved content has no tool authority.
 
+## Active evidence research and shadow observation
+
+`server/intelligence/research.js` plans at most two queries and two opened pages per occupancy claim, with duplicate suppression and a twenty-second per-claim budget. It searches for the program/address and program/municipality, prefers first-party or institutional sources, stops after sufficient authoritative evidence or conflict, and treats the BC Geocoder only as address-normalization corroboration. Opened documents pass the existing DNS/IP SSRF controls, redirects and bodies are bounded, and hostile instructions are retained only as ignored security signals. Exact program-name and street-number co-occurrence is required; a generic operator office page does not prove occupancy.
+
+Shadow observations never mutate trusted facts or publication state. The protected local admin prototype separates `Miller needs your review` from `Handled by Miller`. Decision controls remain disabled while the production ledger and evidence migration are unverified. The in-memory decision model demonstrates optimistic concurrency, append-only events, rollback and agreement measurement for tests; it is not represented as durable production storage.
+
 ## Provider-neutral candidates and entity resolution
 
 `resourceCandidates.js` represents source identity, canonical candidate identity, program/operator, categories, location, contacts, access fields, evidence, freshness and trust without pretending unavailable fields exist. Entity resolution returns `definite_match`, `probable_match`, `uncertain`, or `distinct`. A definite match needs confirmed alias ownership or program identity plus two strong identity signals. A shared operator or website never merges different programs. Source records remain attached after linking.
@@ -66,6 +72,8 @@ Recheck intervals are field-specific: hours and phone age faster than address/co
 
 `buildExceptionQueue` is the backend prototype for an exception-only administrator queue. Each item includes current/proposed values, evidence on both sides, risk, confidence, reason codes and four fast actions: Approve suggestion, Keep existing, Reject, Mark unknown. Routine `auto_accept` and monitoring cases are excluded. A UI should be added only alongside durable append-only storage, authorization, optimistic concurrency, rollback and a kill switch.
 
+The local protected UI now provides exception and handled/audit views. One-click buttons are deliberately disabled until the migration is safely applied and the service-only decision function exists; this prevents a development prototype from implying that a durable decision was saved.
+
 ## Automation metrics and modes
 
 Metrics count claims/candidates and decisions without user-search or location data. The principal rate is low-risk routine claims handled by `auto_accept` or monitoring. Location automation is reported separately so weak evidence cannot be hidden in an aggregate.
@@ -82,4 +90,8 @@ Metrics count claims/candidates and decisions without user-search or location da
 
 ## Security and failure boundaries
 
-No architecture module performs network or database I/O. URLs are HTTPS-only where retained; values are bounded; no HTML is rendered; no external text is executed; no credentials enter client code. Future persistence must use parameterized Supabase operations and service-only append functions with RLS, immutable audit triggers, optimistic concurrency, rollback, and an automation kill switch. A Tavily, geocoder, transit, OpenAI, 211 or Pathways outage cannot mutate or erase trusted knowledge.
+Core intelligence and decision modules perform no network or database I/O. The explicit pilot runner delegates opened pages to Miller's SSRF-safe, redirect-limited and body-limited server fetch utility. URLs are HTTPS-only where retained; values are bounded; no HTML is rendered; no external text is executed; no credentials enter client code. Future persistence must use parameterized Supabase operations and service-only append functions with RLS, immutable audit triggers, optimistic concurrency, rollback, and an automation kill switch. A Tavily, geocoder, transit, OpenAI, 211 or Pathways outage cannot mutate or erase trusted knowledge.
+
+## Miller Watch
+
+`server/intelligence/watch.js` is the disabled scheduling foundation for future maintenance. It orders facts by source disappearance, field volatility, age, prior conflict and stable identity; assigns per-claim research budgets; limits concurrency; requires audit; and preserves trusted facts on provider failure. It has no timer, recurring job or automated write path. The global kill switch blocks fact, location, resource-publication and maintenance writes while leaving observe-only evidence gathering available.

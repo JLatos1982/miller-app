@@ -30,6 +30,8 @@ import { getNearbyTransit } from "./server/transit/providers.js"
 import { buildAccessContext } from "./server/transit/accessContext.js"
 import { geocodeNavigationOrigin } from "./server/navigationOrigin.js"
 import { buildSearchIntent, resolveSearchLocation } from "./server/searchIntent.js"
+import { classifyLocationCandidate } from "./server/intelligence/locationAutomation.js"
+import { nextSupportCategories } from "./server/intelligence/continuity.js"
 
 dotenv.config()
 
@@ -1043,6 +1045,12 @@ COMPANION MODE
 app.get("/api/admin/session", requireAdmin, (req, res) => {
   return res.json({ admin: true })
 })
+app.get("/api/capabilities/next-support", rateLimit({ windowMs: 60 * 1000, max: 30 }), (req, res) => {
+  const category = String(req.query?.category || "").replace(/[^a-z /-]/gi, "").trim().slice(0, 80)
+  if (!category) return res.status(400).json({ error: "Choose a support category." })
+  res.setHeader("Cache-Control", "public, max-age=300")
+  return res.json(nextSupportCategories(category))
+})
 
 const addressEvidencePath = path.join(__dirname, "data", "address-evidence-inventory.json")
 const locationAutomationDryRunPath = path.join(__dirname, "data", "location-automation-v1.2.1-review.json")
@@ -1074,6 +1082,18 @@ app.get("/api/admin/location-automation", requireAdmin, (_req, res) => res.json(
 app.get("/api/admin/location-automation/dry-run", requireAdmin, (_req, res) => {
   try { res.setHeader("Cache-Control", "private, no-store"); return res.json(JSON.parse(fs.readFileSync(locationAutomationDryRunPath, "utf8"))) }
   catch { return res.status(503).json({ error: "The local v1.2.1 review inventory has not been generated." }) }
+})
+app.get("/api/admin/intelligence-shadow", requireAdmin, (_req, res) => {
+  try {
+    const report = JSON.parse(fs.readFileSync(locationAutomationDryRunPath, "utf8"))
+    const items = (report.records || []).map((record) => {
+      const result = classifyLocationCandidate(record), handled = result.decision !== "needs_review"
+      return { id: `location:${record.canonical_uuid}`, type: "location", status: handled ? "handled" : "needs_review", question: `Does ${record.resource_name} operate at ${record.submitted_address}, ${record.municipality}?`, finding: result.decision === "auto_validatable" ? "Program-specific occupancy and an exact licensed geocoder result satisfy the deterministic public-location policy." : result.decision === "do_not_map" ? "The candidate does not satisfy safe public mapping rules." : "The geocoder may resolve the address, but program-specific occupancy is not yet sufficiently established.", currentValue: null, proposedValue: result.decision === "auto_validatable" ? record.returned_address : null, reasonCodes: result.reasonCodes, sourceUrls: [record.source_url].filter((url) => /^https:\/\//i.test(String(url || ""))), confidence: result.confidence, risk: "medium", version: 0 }
+    })
+    const needsReview = items.filter((item) => item.status === "needs_review"), handledByMiller = items.filter((item) => item.status === "handled")
+    res.setHeader("Cache-Control", "private, no-store")
+    return res.json({ mode: "local_shadow_observe_only", needsReview, handledByMiller, summary: `${needsReview.length} exceptions need judgment; ${handledByMiller.length} routine or do-not-map cases are separated for audit.`, controls: { shadow_enabled: true, fact_updates: false, location_publication: false, resource_publication: false, kill_switch_active: true }, persistence: "not_enabled_migration_ledger_unverified", persistenceNote: "Decision buttons remain disabled until the production migration ledger and durable audit schema are verified. No trusted record or publication can change." })
+  } catch { return res.status(503).json({ error: "The local shadow inventory is unavailable." }) }
 })
 app.get("/api/admin/location-qc-review", requireAdmin, async (_req, res) => {
   try {

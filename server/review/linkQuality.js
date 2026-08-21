@@ -86,6 +86,20 @@ async function readLimitedText(response) {
   return Buffer.concat(chunks).toString("utf8")
 }
 
+export async function fetchSafeResearchDocument(value, { fetchImpl = fetch, lookup = dns.lookup, timeoutMs = REQUEST_TIMEOUT_MS } = {}) {
+  let resolved = await resolveSafePublicUrl(value, lookup), current = resolved.url, safeAddresses = resolved.addresses
+  for (let redirect = 0; redirect <= MAX_REDIRECTS; redirect += 1) {
+    const controller = new AbortController(), timer = setTimeout(() => controller.abort(), Math.min(timeoutMs, REQUEST_TIMEOUT_MS))
+    let response
+    try { response = await fetchImpl(current, { redirect: "manual", signal: controller.signal, agent: pinnedAgent(current, safeAddresses), headers: { "User-Agent": "MillerEvidenceResearch/1.0", Accept: "text/html,text/plain;q=0.8" } }) }
+    finally { clearTimeout(timer) }
+    if ([301, 302, 303, 307, 308].includes(response.status)) { const location = response.headers.get("location"); response.body?.destroy?.(); if (!location || redirect === MAX_REDIRECTS) throw new Error("Too many or invalid redirects"); resolved = await resolveSafePublicUrl(new URL(location, current).toString(), lookup); current = resolved.url; safeAddresses = resolved.addresses; continue }
+    const text = await readLimitedText(response)
+    return { ok: response.ok, status: response.status, url: current.toString(), contentType: response.headers.get("content-type") || "", text, bytesBounded: true, redirects: redirect }
+  }
+  throw new Error("Research document could not be retrieved")
+}
+
 export async function checkResourceQuality(resource, { fetchImpl = fetch, lookup = dns.lookup } = {}) {
   if (!resource.website) {
     return { url_status: "unchecked", http_status: null, final_url: null, uses_https: false, apparent_title: "", missing_key_information: ["website"], stale_or_low_quality_signals: [], confidence: 1, explanation: "No website was supplied." }
