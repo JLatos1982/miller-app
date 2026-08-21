@@ -1,12 +1,12 @@
 import test from "node:test"
 import assert from "node:assert/strict"
-import { bcGeocoderConfiguration, bcResultMeetsExactPinStandard, normalizeBcAddressResult, requestBcAddressGeocode } from "../server/bcAddressGeocoder.js"
+import { bcGeocoderConfiguration, bcResultMeetsExactPinStandard, classifyBcAddressResults, normalizeBcAddressResult, requestBcAddressGeocode } from "../server/bcAddressGeocoder.js"
 
 const exactFeature = { geometry: { coordinates: [-122.9501, 49.2184] }, properties: { fullAddress: "7155 Kingsway, Burnaby, BC", streetName: "Kingsway", localityName: "Burnaby", provinceCode: "BC", score: 100, precisionPoints: 100, matchPrecision: "CIVIC_NUMBER", locationDescriptor: "accessPoint", siteID: "fixture-site", faults: [] } }
 const submitted = { street_address: "Unit 320, 7155 Kingsway", city: "Burnaby", result_count: 1 }
 
 test("BC configuration remains unusable unless explicitly enabled with a server key", () => {
-  assert.deepEqual(bcGeocoderConfiguration({}), { enabled: false, keyConfigured: false, baseUrlConfigured: false, baseUrl: "https://geocoder.api.gov.bc.ca", usable: false })
+  assert.deepEqual(bcGeocoderConfiguration({}), { enabled: false, keyConfigured: false, clientIdConfigured: false, baseUrlConfigured: false, baseUrl: "https://geocoder.api.gov.bc.ca", usable: false })
   assert.equal(bcGeocoderConfiguration({ BC_GEOCODER_ENABLED: "true", BC_GEOCODER_API_KEY: "fixture" }).usable, true)
 })
 test("BC provider normalization retains score, precision, descriptor, faults, site and coordinates", () => {
@@ -39,7 +39,15 @@ test("BC request uses only the documented server-side apikey header", async () =
   assert.equal(captured.options.headers.apikey, "fixture-secret")
   assert.equal(Object.keys(captured.options.headers).some((name) => /client/i.test(name)), false)
   assert.match(captured.url, /\/addresses\.geojson\?/)
-  assert.match(captured.url, /maxResults=1/)
+  assert.match(captured.url, /maxResults=5/)
+})
+test("BC result classification distinguishes exact, approximate, ambiguous, and no-match outcomes", () => {
+  assert.equal(classifyBcAddressResults([exactFeature], submitted).classification, "exact_civic")
+  const approximate = { ...exactFeature, properties: { ...exactFeature.properties, score: 80, matchPrecision: "STREET", interpolation: "adaptive" } }
+  assert.equal(classifyBcAddressResults([approximate], submitted).classification, "approximate")
+  const competing = { ...exactFeature, geometry: { coordinates: [-122.951, 49.219] }, properties: { ...exactFeature.properties, siteID: "other", score: 99 } }
+  assert.equal(classifyBcAddressResults([exactFeature, competing], submitted).classification, "ambiguous")
+  assert.equal(classifyBcAddressResults([], submitted).classification, "no_match")
 })
 test("BC request fails closed for invalid input and provider failures", async () => {
   const env = { BC_GEOCODER_ENABLED: "true", BC_GEOCODER_API_KEY: "fixture-secret" }

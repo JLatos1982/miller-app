@@ -21,7 +21,39 @@ export function classifySource(url, organization = "") {
   return { type: firstParty ? "first_party" : "existing_miller", priority: firstParty ? 1 : 6, authoritative: firstParty, domain: host }
 }
 
-export function normalizeAddress(value) { return String(value || "").replace(/\s+/g, " ").replace(/^#(\d+)-/, "Unit $1, ").trim() }
+const provincePattern = /\b(?:british columbia|b\.?\s*c\.?)\b/ig
+const postalPattern = /\b([ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTVWXYZ])[ -]?(\d[ABCEGHJ-NPRSTVWXYZ]\d)\b/i
+const unitPrefix = /\b(?:unit|suite|ste|office|apt|apartment|#)\s*#?\s*([A-Za-z0-9-]+)\b/i
+
+export function addressComponents(value, fallback = {}) {
+  const original = String(value || "").replace(/[\u2012-\u2015]/g, "-").replace(/\s+/g, " ").trim()
+  let text = original.replace(provincePattern, "BC").replace(/\s*,\s*/g, ", ").replace(/,+/g, ",")
+  const postal = text.match(postalPattern)
+  const fallbackPostal = String(fallback.postal_code || "").replace(/\s/g, "").toUpperCase()
+  const postalCode = postal ? `${postal[1].toUpperCase()} ${postal[2].toUpperCase()}` : fallbackPostal.length === 6 ? `${fallbackPostal.slice(0, 3)} ${fallbackPostal.slice(3)}` : fallbackPostal
+  if (postal) text = text.replace(postal[0], " ")
+  let unit = text.match(unitPrefix)?.[1] || ""
+  const leading = text.match(/^\s*([A-Za-z0-9-]+)\s*-\s*(\d+[A-Za-z]?)\s+(.+)$/)
+  if (!unit && leading && /^\d{1,4}[A-Za-z]?$/.test(leading[1])) { unit = leading[1]; text = `${leading[2]} ${leading[3]}` }
+  const trailing = text.match(/,?\s*(?:unit|suite|ste|office|apt|apartment|#)\s*#?\s*([A-Za-z0-9-]+)\s*$/i)
+  if (trailing) { unit ||= trailing[1]; text = text.slice(0, trailing.index) }
+  text = text.replace(unitPrefix, " ").replace(/^\s*[-,]+|[-,]+\s*$/g, "").replace(/\s+/g, " ").trim()
+  const parts = text.split(",").map((part) => part.trim()).filter(Boolean)
+  const civicIndex = parts.findIndex((part) => /\b\d+[A-Za-z]?\s+[A-Za-z]/.test(part))
+  const streetAddress = civicIndex >= 0 ? parts[civicIndex] : text
+  const municipality = String(fallback.city || parts[civicIndex + 1] || "").replace(provincePattern, "").trim()
+  return Object.freeze({ original, unit, street_address: streetAddress, municipality, province: "BC", postal_code: postalCode })
+}
+
+export function normalizeAddress(value) {
+  const parsed = addressComponents(value)
+  return [parsed.unit ? `Unit ${parsed.unit}, ${parsed.street_address}` : parsed.street_address, parsed.municipality, parsed.postal_code].filter(Boolean).join(", ")
+}
+
+export function normalizedGeocodingQuery(value, fallback = {}) {
+  const parsed = addressComponents(value, fallback)
+  return [parsed.unit ? `Unit ${parsed.unit} -- ${parsed.street_address}` : parsed.street_address, parsed.municipality, "BC", parsed.postal_code].filter(Boolean).join(", ")
+}
 export function isCompleteNumberedAddress(value) { return /\b\d+[A-Za-z]?\s+[A-Za-z]/.test(normalizeAddress(value)) && !/\bP\.?\s*O\.?\s*Box\b/i.test(value) }
 export function isSensitiveOrNonFixed(resource = {}) { return resource.virtual_service === true || resource.mobile_service === true || /\b(directory|online database|virtual|mobile|service area)\b/i.test(`${resource.service_type || resource.serviceType || ""} ${resource.accessType || ""}`) || sensitive.test(`${resource.name || ""} ${resource.service_type || resource.serviceType || ""} ${resource.address || ""}`) }
 

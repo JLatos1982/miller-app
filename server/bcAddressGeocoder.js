@@ -1,4 +1,4 @@
-import { normalizeAddress } from "./addressEvidence.js"
+import { addressComponents, normalizeAddress, normalizedGeocodingQuery } from "./addressEvidence.js"
 
 export const BC_GEOCODER_PROVIDER = "bc_address_geocoder"
 export const BC_GEOCODER_DEFAULT_BASE_URL = "https://geocoder.api.gov.bc.ca"
@@ -16,6 +16,7 @@ export function bcGeocoderConfiguration(env = process.env) {
   return Object.freeze({
     enabled: env.BC_GEOCODER_ENABLED === "true",
     keyConfigured: Boolean(clean(env.BC_GEOCODER_API_KEY)),
+    clientIdConfigured: Boolean(clean(env.BC_GEOCODER_CLIENT_ID)),
     baseUrlConfigured: Boolean(clean(env.BC_GEOCODER_BASE_URL)),
     baseUrl: clean(env.BC_GEOCODER_BASE_URL) || BC_GEOCODER_DEFAULT_BASE_URL,
     usable: env.BC_GEOCODER_ENABLED === "true" && Boolean(clean(env.BC_GEOCODER_API_KEY)),
@@ -29,8 +30,8 @@ export async function requestBcAddressGeocode(address, { env = process.env, fetc
   const municipality = clean(address?.city)
   if (!submittedAddress) return Object.freeze({ ok: false, status: "invalid_input", http_status: null, features: [] })
   const query = new URLSearchParams({
-    addressString: [submittedAddress, municipality, clean(address?.province || "BC")].filter(Boolean).join(", "),
-    maxResults: "1",
+    addressString: normalizedGeocodingQuery(submittedAddress, { city: municipality, postal_code: address?.postal_code }),
+    maxResults: "5",
     minScore: "1",
     echo: "true",
     outputSRS: "4326",
@@ -38,15 +39,16 @@ export async function requestBcAddressGeocode(address, { env = process.env, fetc
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), timeoutMs)
   try {
-    const response = await fetchImpl(`${config.baseUrl.replace(/\/$/, "")}/addresses.geojson?${query}`, {
-      method: "GET",
-      headers: { accept: "application/geo+json, application/json", apikey: clean(env.BC_GEOCODER_API_KEY) },
-      signal: controller.signal,
-    })
+    let response
+    for (let attempt = 0; attempt < 3; attempt++) {
+      response = await fetchImpl(`${config.baseUrl.replace(/\/$/, "")}/addresses.geojson?${query}`, { method: "GET", headers: { accept: "application/geo+json, application/json", apikey: clean(env.BC_GEOCODER_API_KEY) }, signal: controller.signal })
+      if (![429, 502, 503, 504].includes(response.status) || attempt === 2) break
+      await new Promise((resolve) => setTimeout(resolve, 150 * (2 ** attempt)))
+    }
     if (!response.ok) return Object.freeze({ ok: false, status: "provider_error", http_status: response.status, features: [] })
     const payload = await response.json()
     const features = Array.isArray(payload?.features) ? payload.features : []
-    return Object.freeze({ ok: features.length > 0, status: features.length ? "matched" : "no_match", http_status: response.status, features })
+    return Object.freeze({ ok: features.length > 0, status: features.length ? "matched" : "no_match", http_status: response.status, features, retry_after: response.headers?.get?.("retry-after") || null })
   } catch (error) {
     return Object.freeze({ ok: false, status: error?.name === "AbortError" ? "timeout" : "request_failed", http_status: null, features: [] })
   } finally {
@@ -58,6 +60,7 @@ export function normalizeBcAddressResult(feature = {}, submitted = {}) {
   const properties = feature.properties || feature, coordinates = feature.geometry?.coordinates || [feature.longitude, feature.latitude]
   const fullAddress = clean(properties.fullAddress || properties.addressString)
   const submittedAddress = normalizeAddress(submitted.street_address || submitted.address || "")
+  const submittedParts = addressComponents(submitted.street_address || submitted.address || "", submitted)
   const returnedStreet = clean(properties.streetName || properties.streetAddress || fullAddress)
   const precision = clean(properties.matchPrecision).toLowerCase().replace(/\s+/g, "_")
   const descriptor = clean(properties.locationDescriptor).toLowerCase().replace(/[^a-z]/g, "")
@@ -68,9 +71,10 @@ export function normalizeBcAddressResult(feature = {}, submitted = {}) {
   const precisionPoints = Number(properties.precisionPoints)
   const latitude = Number(coordinates?.[1]), longitude = Number(coordinates?.[0])
   return Object.freeze({
-    provider: BC_GEOCODER_PROVIDER, query: submittedAddress, normalized_address: fullAddress,
+    provider: BC_GEOCODER_PROVIDER, query: submittedAddress, normalized_query: normalizedGeocodingQuery(submitted.street_address || submitted.address || "", submitted), normalized_address: fullAddress,
     returned_address: fullAddress, score, precision, precision_points: precisionPoints,
     faults, location_descriptor: descriptor, interpolation: clean(properties.interpolation).toLowerCase(), site_id: clean(properties.siteID), locality,
+    standardized_components: Object.freeze({ unit: clean(properties.unitNumber), unit_designator: clean(properties.unitDesignator), civic_number: clean(properties.civicNumber), street_name: clean(properties.streetName), street_type: clean(properties.streetType), locality, province, postal_code: clean(properties.postalCode) }), submitted_unit: submittedParts.unit,
     latitude, longitude, result_count: Number(submitted.result_count || 1),
     civic_number_match: Boolean(civicNumber(submittedAddress) && civicNumber(submittedAddress) === civicNumber(fullAddress)),
     street_match: Boolean(streetKey(submittedAddress) && returnedStreet && streetKey(submittedAddress).includes(streetKey(returnedStreet).slice(0, 8))),
@@ -85,4 +89,16 @@ export function normalizeBcAddressResult(feature = {}, submitted = {}) {
 
 export function bcResultMeetsExactPinStandard(result = {}) {
   return result.score >= BC_GEOCODER_MIN_SCORE && result.precision_points >= BC_GEOCODER_MIN_PRECISION_POINTS && result.exact_precision === true && result.exact_descriptor === true && result.civic_number_match === true && result.street_match === true && result.municipality_match === true && result.province_match === true && result.valid_coordinate === true && result.materially_faulted === false && result.result_count === 1 && result.storage_licensed === true && result.display_licensed === true
+}
+
+export function classifyBcAddressResults(features = [], submitted = {}) {
+  const normalized = features.map((feature) => normalizeBcAddressResult(feature, { ...submitted, result_count: features.length }))
+  if (!normalized.length) return Object.freeze({ classification: "no_match", best: null, alternatives: [] })
+  const best = normalized[0], viable = normalized.filter((item) => item.valid_coordinate && item.province_match && item.municipality_match)
+  if (viable.length > 1 && Number(viable[1].score) >= Number(best.score) - 2 && viable[1].precision === best.precision && viable[1].site_id !== best.site_id) return Object.freeze({ classification: "ambiguous", best, alternatives: normalized.slice(1) })
+  if (bcResultMeetsExactPinStandard({ ...best, result_count: 1 })) return Object.freeze({ classification: "exact_civic", best, alternatives: normalized.slice(1) })
+  if (best.score >= 90 && best.precision_points >= 95 && best.civic_number_match && best.municipality_match) return Object.freeze({ classification: "high_confidence_close", best, alternatives: normalized.slice(1) })
+  if (/interpolat/i.test(best.interpolation) || ["block", "street"].includes(best.precision)) return Object.freeze({ classification: "approximate", best, alternatives: normalized.slice(1) })
+  if (["locality", "province"].includes(best.precision)) return Object.freeze({ classification: "locality_only", best, alternatives: normalized.slice(1) })
+  return Object.freeze({ classification: "low_confidence", best, alternatives: normalized.slice(1) })
 }

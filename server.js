@@ -26,6 +26,7 @@ import { MAX_PDF_BYTES, PDF_MIME, pdfDisposition, requestedPdfByteRange, safePdf
 import { readLocationQcStore, reconcileLocationQcReview, saveLocationQcDecision } from "./server/locationQcReview.js"
 import { buildAutoPublicationPreview, buildLocationReconciliation, isVirtualOrMobileResource } from "./server/mapPopulation.js"
 import { capabilityReport } from "./server/capabilities.js"
+import { buildAddressResolutionReport } from "./server/addressResolution.js"
 import { getNearbyTransit } from "./server/transit/providers.js"
 import { buildAccessContext } from "./server/transit/accessContext.js"
 import { geocodeNavigationOrigin } from "./server/navigationOrigin.js"
@@ -1061,6 +1062,19 @@ function readAddressEvidence() { return JSON.parse(fs.readFileSync(addressEviden
 app.get("/api/admin/address-evidence", requireAdmin, (_req, res) => {
   try { res.setHeader("Cache-Control", "private, no-store"); return res.json(readAddressEvidence()) }
   catch { return res.status(503).json({ error: "Address evidence has not been generated locally." }) }
+})
+app.get("/api/admin/address-resolution", requireAdmin, async (_req, res) => {
+  try {
+    const inventory = readAddressEvidence()
+    const geocoded = JSON.parse(fs.readFileSync(locationAutomationDryRunPath, "utf8"))
+    const [directory, locations] = await Promise.all([
+      supabase.from("resource_registry").select("id", { count: "exact", head: true }).eq("lifecycle_state", "active"),
+      supabase.from("resource_locations").select("id", { count: "exact", head: true }).eq("location_type", "fixed").eq("public_map", true).eq("geocode_status", "verified").eq("review_status", "approved"),
+    ])
+    if (directory.error || locations.error) throw new Error("production_counts_unavailable")
+    res.setHeader("Cache-Control", "private, no-store")
+    return res.json(buildAddressResolutionReport({ inventory, geocoded, totalDirectoryResources: directory.count, publicLocationCount: locations.count }))
+  } catch { return res.status(503).json({ error: "Address resolution is unavailable. No data was changed." }) }
 })
 app.post("/api/admin/address-evidence/bounded-approve", requireAdmin, (req, res) => {
   const ids = Array.isArray(req.body?.canonical_uuids) ? req.body.canonical_uuids.map(String) : []
