@@ -1068,17 +1068,18 @@ app.get("/api/admin/address-resolution", requireAdmin, async (_req, res) => {
   try {
     const inventory = readAddressEvidence()
     const geocoded = JSON.parse(fs.readFileSync(locationAutomationDryRunPath, "utf8"))
-    const [registry, aliases, tavilyResources, locations, claims, evidence] = await Promise.all([
+    const [registry, aliases, tavilyResources, locations, claims, evidence, qcReviews] = await Promise.all([
       supabase.from("resource_registry").select("*").eq("lifecycle_state", "active"),
       supabase.from("resource_source_aliases").select("*"),
       supabase.from("tavily_resources").select("*"),
       supabase.from("resource_locations").select("*"),
       supabase.from("resource_fact_claims").select("*"),
       supabase.from("resource_fact_evidence").select("*"),
+      supabase.from("location_qc_reviews").select("*"),
     ])
-    if ([registry, aliases, tavilyResources, locations, claims, evidence].some((result) => result.error)) throw new Error("production_coverage_unavailable")
+    if ([registry, aliases, tavilyResources, locations, claims, evidence, qcReviews].some((result) => result.error)) throw new Error("production_coverage_unavailable")
     res.setHeader("Cache-Control", "private, no-store")
-    return res.json(buildDirectoryCoverageReport({ registry: registry.data, aliases: aliases.data, tavilyResources: tavilyResources.data, curatedResources: curatedMapResources, locations: locations.data, claims: claims.data, evidence: evidence.data, inventory, geocoded }))
+    return res.json(buildDirectoryCoverageReport({ registry: registry.data, aliases: aliases.data, tavilyResources: tavilyResources.data, curatedResources: curatedMapResources, locations: locations.data, claims: claims.data, evidence: evidence.data, qcReviews: qcReviews.data, inventory, geocoded }))
   } catch { return res.status(503).json({ error: "Address resolution is unavailable. No data was changed." }) }
 })
 app.post("/api/admin/address-evidence/bounded-approve", requireAdmin, (req, res) => {

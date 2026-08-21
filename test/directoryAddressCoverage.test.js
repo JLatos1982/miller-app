@@ -46,6 +46,16 @@ test("research reconciliation and ranking cannot create or publish a location", 
   const script = fs.readFileSync(new URL("../scripts/directory-address-coverage.mjs", import.meta.url), "utf8"), server = fs.readFileSync(new URL("../server.js", import.meta.url), "utf8"), ui = fs.readFileSync(new URL("../src/map/AddressEvidenceReview.jsx", import.meta.url), "utf8")
   assert.doesNotMatch(script, /\.insert\(|\.update\(|\.upsert\(|\.delete\(/); assert.match(script, /read-only/)
   const route = server.slice(server.indexOf('app.get("/api/admin/address-resolution"'), server.indexOf('app.post("/api/admin/address-evidence'))
-  assert.match(route, /requireAdmin/); assert.doesNotMatch(route, /\.insert\(|\.update\(|\.upsert\(|public_map:\s*true/)
-  assert.match(ui, /pageSize = 25/); assert.match(ui, /Previous/); assert.match(ui, /Next/); assert.match(ui, /Not public from this workflow/)
+  assert.match(route, /requireAdmin/); assert.match(route, /location_qc_reviews/); assert.doesNotMatch(route, /\.insert\(|\.update\(|\.upsert\(|public_map:\s*true/)
+  assert.match(ui, /Strong location candidates/); assert.match(ui, /Administrator review needed/); assert.match(ui, /location-review-steps/); assert.match(ui, /pageSize = 25/); assert.match(ui, /Previous/); assert.match(ui, /Next/); assert.match(ui, /no location record was created/)
+})
+test("durable QC takes precedence over legacy triage without changing publication", () => {
+  const claims = [{ id: "claim-d", resource_id: "d", decision_category: "location_occupancy", field_name: "location_occupancy", recommendation: "auto_accept", confidence: "high", proposed_value: "100 Pilot Way, Burnaby, BC V5A 1A1", last_observed_at: "2026-08-21T00:00:00Z" }]
+  const evidence = [{ claim_id: "claim-d", source_type: "official_provider", source_url: "https://clinic.example/d", source_authority: 95, stale: false, retrieved_at: "2026-08-21T00:00:00Z" }, { claim_id: "claim-d", source_type: "bc_geocoder", source_authority: 95, extracted_value: { standardized_address: "100 Pilot Way, Burnaby, BC V5A 1A1", score: 99, precision: "civic_number", location_descriptor: "parcelpoint", coordinates: { latitude: 49.2, longitude: -123.1 } }, retrieved_at: "2026-08-21T00:00:00Z" }]
+  const qcReviews = [{ canonical_resource_id: "d", decision: "pilot_eligible", version: 1, updated_at: "2026-08-21T00:00:00Z" }]
+  const report = buildDirectoryCoverageReport({ registry, aliases, curatedResources, inventory, geocoded, claims, evidence, qcReviews })
+  const candidate = report.records.find((item) => item.canonical_uuid === "d")
+  assert.equal(candidate.category, "strong_location_candidate"); assert.equal(candidate.confidence, "strong")
+  assert.equal(candidate.standardized_address, "100 Pilot Way, Burnaby, BC V5A 1A1")
+  assert.equal(candidate.public_map, false); assert.equal(report.counts.strong_location_candidate, 1)
 })
