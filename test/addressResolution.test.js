@@ -26,6 +26,6 @@ test("bounded batches are deterministic, concurrent, cached, and idempotent", as
 test("address-resolution reporting cannot create a public pin", () => {
   const report = buildAddressResolutionReport({ inventory: { canonical_total: 2, records: [evidence] }, geocoded: { records: [geocode] }, publicLocationCount: 0 })
   assert.equal(report.strong_administrator_review_candidates, 1); assert.equal(report.records[0].public_map, false); assert.equal(report.publication_changed, false); assert.equal(report.writes_performed, false)
-  const server = fs.readFileSync(new URL("../server.js", import.meta.url), "utf8"), section = server.slice(server.indexOf('app.get("/api/admin/address-resolution"'), server.indexOf('app.post("/api/admin/address-evidence'))
+  const server = fs.readFileSync(new URL("../server.js", import.meta.url), "utf8"), section = server.slice(server.indexOf('app.get("/api/admin/address-resolution"'), server.indexOf('async function privateLocationContext'))
   assert.match(section, /requireAdmin/); assert.doesNotMatch(section, /\.insert\(|\.update\(|\.upsert\(|public_map:\s*true/)
 })

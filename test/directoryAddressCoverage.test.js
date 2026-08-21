@@ -45,7 +45,7 @@ test("research reconciliation and ranking cannot create or publish a location", 
   assert.equal(report.records.some((item) => item.public_map && item.category !== "already_public_mapped"), false)
   const script = fs.readFileSync(new URL("../scripts/directory-address-coverage.mjs", import.meta.url), "utf8"), server = fs.readFileSync(new URL("../server.js", import.meta.url), "utf8"), ui = fs.readFileSync(new URL("../src/map/AddressEvidenceReview.jsx", import.meta.url), "utf8")
   assert.doesNotMatch(script, /\.insert\(|\.update\(|\.upsert\(|\.delete\(/); assert.match(script, /read-only/)
-  const route = server.slice(server.indexOf('app.get("/api/admin/address-resolution"'), server.indexOf('app.post("/api/admin/address-evidence'))
+  const route = server.slice(server.indexOf('app.get("/api/admin/address-resolution"'), server.indexOf('async function privateLocationContext'))
   assert.match(route, /requireAdmin/); assert.match(route, /location_qc_reviews/); assert.doesNotMatch(route, /\.insert\(|\.update\(|\.upsert\(|public_map:\s*true/)
   assert.match(ui, /Strong location candidates/); assert.match(ui, /Administrator review needed/); assert.match(ui, /location-review-steps/); assert.match(ui, /pageSize = 25/); assert.match(ui, /Previous/); assert.match(ui, /Next/); assert.match(ui, /no location record was created/)
 })

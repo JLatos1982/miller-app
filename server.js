@@ -28,6 +28,8 @@ import { isLocationQcCanonicalEligible } from "./server/locationQcEligibility.js
 import { buildAutoPublicationPreview, buildLocationReconciliation, isVirtualOrMobileResource } from "./server/mapPopulation.js"
 import { capabilityReport } from "./server/capabilities.js"
 import { buildDirectoryCoverageReport } from "./server/directoryAddressCoverage.js"
+import { privateLocationAuditValues, privateLocationEligibility, privateLocationValues, sameFixedAddress } from "./server/privateLocation.js"
+import { buildShelterAutomationReport } from "./server/shelterAutomation.js"
 import { getNearbyTransit } from "./server/transit/providers.js"
 import { buildAccessContext } from "./server/transit/accessContext.js"
 import { geocodeNavigationOrigin } from "./server/navigationOrigin.js"
@@ -1082,6 +1084,71 @@ app.get("/api/admin/address-resolution", requireAdmin, async (_req, res) => {
     return res.json(buildDirectoryCoverageReport({ registry: registry.data, aliases: aliases.data, tavilyResources: tavilyResources.data, curatedResources: curatedMapResources, locations: locations.data, claims: claims.data, evidence: evidence.data, qcReviews: qcReviews.data, inventory, geocoded }))
   } catch { return res.status(503).json({ error: "Address resolution is unavailable. No data was changed." }) }
 })
+async function privateLocationContext(canonicalUuid) {
+  const [resourceResult, qcResult, locationsResult, claimsResult] = await Promise.all([
+    supabase.from("resource_registry").select("id,display_name,lifecycle_state,editorial_status").eq("id", canonicalUuid).maybeSingle(),
+    supabase.from("location_qc_reviews").select("*").eq("canonical_resource_id", canonicalUuid).maybeSingle(),
+    supabase.from("resource_locations").select("*").eq("resource_id", canonicalUuid),
+    supabase.from("resource_fact_claims").select("id,resource_id,decision_category,field_name").eq("resource_id", canonicalUuid),
+  ])
+  if ([resourceResult, qcResult, locationsResult, claimsResult].some((result) => result.error)) throw new Error("private_location_context_unavailable")
+  const claimIds = (claimsResult.data || []).filter((item) => item.decision_category === "location_occupancy" || item.field_name === "location_occupancy").map((item) => item.id)
+  const evidenceResult = claimIds.length ? await supabase.from("resource_fact_evidence").select("id,claim_id,source_url,source_authority,stale,retrieved_at").in("claim_id", claimIds) : { data: [], error: null }
+  if (evidenceResult.error) throw new Error("private_location_evidence_unavailable")
+  return { resource: resourceResult.data, qc: qcResult.data, locations: locationsResult.data || [], evidence: evidenceResult.data || [] }
+}
+app.get("/api/admin/private-location-candidates", requireAdmin, async (_req, res) => {
+  try {
+    const [resourcesResult, qcResult, locationsResult, claimsResult] = await Promise.all([
+      supabase.from("resource_registry").select("id,display_name,lifecycle_state,editorial_status").eq("lifecycle_state", "active"),
+      supabase.from("location_qc_reviews").select("*"),
+      supabase.from("resource_locations").select("id,resource_id,location_type,street_address,original_address_text,city,latitude,longitude,public_map,review_status,geocode_status"),
+      supabase.from("resource_fact_claims").select("id,resource_id,decision_category,field_name"),
+    ])
+    if ([resourcesResult, qcResult, locationsResult, claimsResult].some((result) => result.error)) throw new Error("private_location_candidates_unavailable")
+    const occupancyClaimIds = (claimsResult.data || []).filter((item) => item.decision_category === "location_occupancy" || item.field_name === "location_occupancy").map((item) => item.id)
+    const evidenceResult = occupancyClaimIds.length ? await supabase.from("resource_fact_evidence").select("id,claim_id,source_url,source_authority,stale,retrieved_at").in("claim_id", occupancyClaimIds) : { data: [], error: null }
+    if (evidenceResult.error) throw new Error("private_location_evidence_unavailable")
+    const resourceById = new Map((resourcesResult.data || []).map((item) => [item.id, item]))
+    const claimsByResource = new Map()
+    for (const claim of claimsResult.data || []) claimsByResource.set(claim.resource_id, [...(claimsByResource.get(claim.resource_id) || []), claim.id])
+    const evidenceByClaim = new Map()
+    for (const item of evidenceResult.data || []) evidenceByClaim.set(item.claim_id, [...(evidenceByClaim.get(item.claim_id) || []), item])
+    const locations = locationsResult.data || []
+    const items = (qcResult.data || []).map((qc) => {
+      const resource = resourceById.get(qc.canonical_resource_id)
+      const resourceLocations = locations.filter((item) => item.resource_id === qc.canonical_resource_id)
+      const evidence = (claimsByResource.get(qc.canonical_resource_id) || []).flatMap((id) => evidenceByClaim.get(id) || [])
+      const eligibility = privateLocationEligibility({ resource, qc, evidence, existingLocations: resourceLocations })
+      const coordinates = eligibility.snapshot.coordinates || {}
+      const nearby = Number.isFinite(Number(coordinates.latitude)) && Number.isFinite(Number(coordinates.longitude)) ? locations.filter((item) => item.resource_id !== qc.canonical_resource_id && Number.isFinite(Number(item.latitude)) && Number.isFinite(Number(item.longitude)) && Math.abs(Number(item.latitude) - Number(coordinates.latitude)) < 0.002 && Math.abs(Number(item.longitude) - Number(coordinates.longitude)) < 0.002).map((item) => ({ ...item, resource_name: resourceById.get(item.resource_id)?.display_name || "Existing Miller resource" })) : []
+      return { canonical_uuid: qc.canonical_resource_id, resource_name: resource?.display_name || "Unavailable resource", qc: { decision: qc.decision, version: qc.version, policy_version: qc.policy_version, reviewed_at: qc.reviewed_at }, proposed: { submitted_address: eligibility.snapshot.submitted_address, standardized_address: eligibility.snapshot.returned_address, city: eligibility.snapshot.locality, precision: eligibility.snapshot.precision, descriptor: eligibility.snapshot.location_descriptor, score: eligibility.snapshot.score, coordinates, source_url: eligibility.snapshot.source_url, source_evidence_tier: eligibility.snapshot.source_evidence_tier, occupancy_confidence: eligibility.snapshot.program_occupancy_confidence, warnings: eligibility.snapshot.warnings || [], sensitivity_flags: eligibility.snapshot.sensitivity_flags || [], conflicts: eligibility.snapshot.conflicts || [] }, eligible: eligibility.eligible, reason_codes: eligibility.reasons, existing_locations: resourceLocations.map((item) => ({ id: item.id, street_address: item.street_address, city: item.city, public_map: item.public_map, review_status: item.review_status })), nearby_locations: nearby }
+    }).filter((item) => item.qc.decision === "pilot_eligible" || item.eligible).sort((a, b) => Number(b.eligible) - Number(a.eligible) || a.resource_name.localeCompare(b.resource_name))
+    res.setHeader("Cache-Control", "private, no-store")
+    return res.json({ mode: "human_confirmed_private_location_only", publication_enabled: false, items, eligible_count: items.filter((item) => item.eligible).length })
+  } catch { return res.status(503).json({ error: "Private location candidates are unavailable. No location was created." }) }
+})
+app.post("/api/admin/private-location-candidates/:canonicalUuid/confirm", requireAdmin, async (req, res) => {
+  if (!/^[0-9a-f-]{36}$/i.test(req.params.canonicalUuid) || req.body?.confirmed_private_location !== true || !Number.isInteger(req.body?.expected_qc_version)) return res.status(400).json({ error: "An administrator confirmation and current QC version are required.", code: "private_location_confirmation_required" })
+  try {
+    const context = await privateLocationContext(req.params.canonicalUuid)
+    if (!context.resource || !context.qc) return res.status(404).json({ error: "The reviewed candidate is unavailable.", code: "private_location_candidate_missing" })
+    if (Number(context.qc.version) !== Number(req.body.expected_qc_version)) return res.status(409).json({ error: "The QC decision changed. Reload and review it again.", code: "private_location_qc_stale" })
+    const eligibility = privateLocationEligibility(context)
+    if (!eligibility.eligible) return res.status(409).json({ error: "This candidate no longer meets private-location eligibility.", code: "private_location_ineligible", reason_codes: eligibility.reasons })
+    const values = privateLocationValues({ resourceId: context.resource.id, qc: context.qc, actorId: req.adminUser.id })
+    const existing = context.locations.find((item) => item.location_type === "fixed" && sameFixedAddress(item, values))
+    if (existing) return res.json({ code: "private_location_already_exists", idempotent: true, location: existing, public_map: false, publication_created: false })
+    const inserted = await supabase.from("resource_locations").insert(values).select().single()
+    if (inserted.error) return res.status(500).json({ error: "The private location could not be created.", code: "private_location_insert_failed" })
+    const audit = await supabase.from("resource_location_audit").insert({ location_id: inserted.data.id, action: "created", previous_values: null, new_values: privateLocationAuditValues({ location: inserted.data, qc: context.qc }), actor_id: req.adminUser.id, reason: "Human-confirmed private location creation. This operation does not publish the location." }).select("id").single()
+    if (audit.error) {
+      await supabase.from("resource_locations").delete().eq("id", inserted.data.id).eq("public_map", false).eq("review_status", "pending")
+      return res.status(500).json({ error: "The location audit could not be saved; the private location was rolled back.", code: "private_location_audit_failed" })
+    }
+    return res.status(201).json({ code: "private_location_created", idempotent: false, location: inserted.data, audit_id: audit.data.id, public_map: false, publication_created: false })
+  } catch { return res.status(503).json({ error: "Private location creation is unavailable. No location was created." }) }
+})
 app.post("/api/admin/address-evidence/bounded-approve", requireAdmin, (req, res) => {
   const ids = Array.isArray(req.body?.canonical_uuids) ? req.body.canonical_uuids.map(String) : []
   if (!ids.length || ids.length > 50 || new Set(ids).size !== ids.length) return res.status(400).json({ error: "Select between one and fifty distinct E1 records." })
@@ -1978,6 +2045,13 @@ app.get("/api/admin/discovery-candidates", requireAdmin, async (req, res) => {
   if (error) return res.status(503).json({ error: "Shelter candidates could not be loaded.", code: "candidate_queue_unavailable" })
   res.setHeader("Cache-Control", "private, no-store")
   return res.json({ items: data || [], count: data?.length || 0 })
+})
+app.get("/api/admin/discovery-candidates/automation-dry-run", requireAdmin, async (_req, res) => {
+  const { data, error } = await supabase.from("resource_discovery_candidates").select("id,name,operator,shelter_type,population_served,community,source_name,source_url,retrieved_title,source_excerpt,additional_sources,checked_at,evidence_notes,confidence,review_status,location_disclosure_status,possible_matches,reviewed_by,reviewed_at").order("id")
+  if (error) return res.status(503).json({ error: "Shelter automation assessment is unavailable. No candidate was changed.", code: "shelter_automation_unavailable" })
+  const report = buildShelterAutomationReport(data || [])
+  res.setHeader("Cache-Control", "private, no-store")
+  return res.json({ ...report, pending_backlog: (data || []).filter((item) => item.review_status === "pending").length, production_changes: 0, map_locations_created: 0, map_locations_published: 0 })
 })
 
 app.post("/api/admin/discovery-candidates", requireAdmin, async (req, res) => {
