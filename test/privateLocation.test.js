@@ -21,7 +21,7 @@ test("created private location is structurally unable to publish", () => {
 })
 test("private creation route is protected, explicit, auditable, and has no public-map mutation", () => {
   const server = fs.readFileSync(new URL("../server.js", import.meta.url), "utf8")
-  const section = server.slice(server.indexOf('app.get("/api/admin/private-location-candidates"'), server.indexOf('app.post("/api/admin/address-evidence/bounded-approve"'))
+  const section = server.slice(server.indexOf('app.post("/api/admin/private-location-candidates/:canonicalUuid/confirm"'), server.indexOf('app.post("/api/admin/address-evidence/bounded-approve"'))
   assert.match(section, /requireAdmin/); assert.match(section, /confirmed_private_location/); assert.match(section, /resource_location_audit/); assert.match(section, /private_location_already_exists/)
   assert.doesNotMatch(section, /public_map:\s*true/); assert.doesNotMatch(section, /review_status:\s*["']approved/)
 })
