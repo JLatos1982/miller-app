@@ -2085,9 +2085,15 @@ app.get("/api/admin/discovery-candidates/automation-dry-run", requireAdmin, asyn
   return res.json({ ...report, pending_backlog: (data || []).filter((item) => item.review_status === "pending").length, production_changes: 0, map_locations_created: 0, map_locations_published: 0 })
 })
 app.get("/api/admin/shelter-throughput", requireAdmin, async (_req, res) => {
-  const { data, error } = await supabase.from("resource_discovery_candidates").select("id,name,operator,shelter_type,population_served,community,source_name,source_url,retrieved_title,source_excerpt,additional_sources,checked_at,evidence_notes,confidence,review_status,location_disclosure_status,possible_matches,reviewed_by,reviewed_at").eq("review_status", "pending").order("id")
+  const [{ data, error }, { data: research, error: researchError }] = await Promise.all([
+    supabase.from("resource_discovery_candidates").select("id,name,operator,shelter_type,population_served,community,source_name,source_url,retrieved_title,source_excerpt,additional_sources,checked_at,evidence_notes,confidence,review_status,location_disclosure_status,possible_matches,reviewed_by,reviewed_at").eq("review_status", "pending").order("id"),
+    supabase.from("shelter_candidate_research_claims").select("candidate_id,recommendation,confidence,reason_codes,research_summary,last_retrieved_at,updated_at").order("updated_at", { ascending: false }).limit(1000),
+  ])
   if (error) return res.status(503).json({ error: "Shelter throughput queue is unavailable." })
-  const report = buildShelterAutomationReport(data || [])
+  if (researchError) return res.status(503).json({ error: "Shelter research queue is unavailable." })
+  const latestResearch = new Map(); for (const item of research || []) if (!latestResearch.has(item.candidate_id)) latestResearch.set(item.candidate_id, item)
+  const enriched = (data || []).map((item) => ({ ...item, machine_research: latestResearch.get(item.id) || null }))
+  const report = buildShelterAutomationReport(enriched)
   const tiers = { tier_a_bulk_confirmable: report.items.filter((item) => item.category === "auto_approval_eligible"), tier_b_one_click_review: report.items.filter((item) => item.category === "strong_administrator_review"), tier_c_reconciliation: report.items.filter((item) => item.category === "duplicate_already_represented"), tier_d_research: report.items.filter((item) => item.category === "needs_more_research"), tier_e_safety_sensitive: report.items.filter((item) => item.category === "safety_sensitive") }
   return res.json({ ...tiers, counts: Object.fromEntries(Object.entries(tiers).map(([key, value]) => [key, value.length])), bulk_execution_enabled: false, automatic_approval_enabled: false, map_publication_enabled: false, note: "Tier A is a preview-only, administrator-confirmed bulk set. No candidate was changed." })
 })
