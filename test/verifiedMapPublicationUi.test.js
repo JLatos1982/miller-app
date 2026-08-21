@@ -42,9 +42,11 @@ test("primary admin location workflow leads with Ready to publish", () => {
 })
 
 test("publication queue keeps ready, confirmation-only, and blocked records distinct", () => {
-  assert.match(server, /queue_state = eligibility\.eligible \? "ready_to_publish"/)
+  assert.match(server, /alreadyPublished \? "already_published" : eligibility\.eligible \? "ready_to_publish"/)
   assert.match(server, /queue_counts = \{ ready_to_publish/)
   assert.match(ui, /Ready to publish \(\{counts\.ready_to_publish/)
   assert.match(ui, /One confirmation away \(\{counts\.one_confirmation_away/)
   assert.match(ui, /Blocked \(\{counts\.blocked/)
+  assert.match(server, /alreadyPublished \? "already_published"/)
+  assert.match(server, /filter\(\(item\) => item\.queue_state !== "already_published"\)/)
 })
