@@ -29,6 +29,7 @@ import { capabilityReport } from "./server/capabilities.js"
 import { getNearbyTransit } from "./server/transit/providers.js"
 import { buildAccessContext } from "./server/transit/accessContext.js"
 import { geocodeNavigationOrigin } from "./server/navigationOrigin.js"
+import { buildSearchIntent, resolveSearchLocation } from "./server/searchIntent.js"
 
 dotenv.config()
 
@@ -941,6 +942,16 @@ Use exactly this shape:
     "categories": ["up to 4 category names"],
     "keywords": ["up to 8 useful keywords"],
     "recommendedResourceNames": ["exact resource names from the list above"]
+  },
+  "searchIntent": {
+    "supportNeeds": ["only support needs explicitly communicated"],
+    "substances": ["only substances named by the user"],
+    "locationText": "exact geographic phrase or null",
+    "city": "explicit city or null",
+    "transport": { "noCar": false, "transitRelevant": false, "walkingRelevant": false },
+    "timing": ["explicit timing words only"],
+    "practicalConstraints": ["explicit constraints only"],
+    "uncertain": ["uncertain concepts, never diagnoses"]
   }
 }
 
@@ -963,6 +974,7 @@ RULES
 - Prefer 1 to 3 options, not long lists.
 - Only include recommendedResourceNames that exactly match supplied resource names.
 - Do not invent facts.
+- Search intent is extraction, not diagnosis. Never infer a disorder, overdose risk, withdrawal, housing status, treatment need, or other sensitive fact the user did not state.
 - VERY IMPORTANT:
   If a recommended service includes a phone number or website,
   include them directly in the answer whenever possible.
@@ -1507,6 +1519,10 @@ Follow all instructions above carefully.`,
     }))
 
 const parsed = safeParseJson(response.output_text)
+    const searchIntent = buildSearchIntent(safeQuery, parsed?.searchIntent, city)
+    const locationContext = isMapInterface
+      ? { status: "none" }
+      : await resolveSearchLocation(searchIntent, { geocode: (phrase) => geocodeNavigationOrigin(phrase) })
 
     const validRecommendedNames = uniqueStrings(
       (parsed?.searchHints?.recommendedResourceNames || []).filter((name) =>
@@ -1571,6 +1587,8 @@ res.json({
   safetyMode,
   communicationMode: finalCommunicationMode,
   tavilyResults: formattedTavilyResults,
+  searchIntent,
+  locationContext,
   ...(isMapInterface ? { map: mapContract } : {}),
 })
 

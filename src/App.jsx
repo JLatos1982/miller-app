@@ -44,6 +44,7 @@ import PdfDocumentManager from "./admin/PdfDocumentManager.jsx"
 import PreMadeLists from "./lists/PreMadeLists.jsx"
 import GetTherePanel from "./navigation/GetTherePanel.jsx"
 import { eligiblePublicLocation } from "./navigation/navigation.js"
+import { buildNavigationPacket, deterministicRelevance } from "./navigation/searchContext.js"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -696,6 +697,7 @@ function App() {
   const [isListsOpen, setIsListsOpen] = useState(() => window.location.pathname === "/lists" || window.location.pathname.startsWith("/lists/"))
   const [mapResources, setMapResources] = useState([])
   const [navigationTarget, setNavigationTarget] = useState(null)
+  const [searchContext, setSearchContext] = useState({ intent: null, location: { status: "none" } })
 
   useEffect(() => {
     if (!isMapOpen && !hasSearched) return
@@ -1060,6 +1062,7 @@ trackEvent({
       setResults(firstResults)
       setTotalMatches(cityPool.length)
       setAiReply(MILLER_COPY.searchHint)
+      setSearchContext({ intent: null, location: { status: "none" } })
       return
     }
 
@@ -1083,6 +1086,7 @@ trackEvent({
           sessionId,
         }))
       const aiHints = data.searchHints || {}
+      setSearchContext({ intent: data.searchIntent || null, location: data.locationContext || { status: "none" } })
 
       const { data: approvedMemory = [] } =
   await supabase
@@ -1202,6 +1206,7 @@ setConversationMemory((prev) =>
       setResults(fallbackResults)
       setTotalMatches(fallbackPool.length)
       setAiReply(MILLER_COPY.searchUnavailable)
+      setSearchContext({ intent: null, location: { status: "none" } })
     } finally {
       setIsLoading(false)
     }
@@ -1348,6 +1353,7 @@ function renderAiReview(resource) {
     setSelectedCity("All Cities")
     setHasSearched(false)
     setResults([])
+    setSearchContext({ intent: null, location: { status: "none" } })
     setTotalMatches(0)
     setIsTyping(false)
     setMillerMood("idle")
@@ -1554,6 +1560,11 @@ const millerImageStyle = {}
                   </span>
                 </h2>
               </div>
+              {searchContext.location.status !== "none" ? <p className="search-context-line">
+                {searchContext.location.status === "resolved" ? `Showing support options around ${searchContext.location.label}.` : null}
+                {searchContext.location.status === "community" ? `Showing support options in ${searchContext.location.label}.` : null}
+                {searchContext.location.status === "ambiguous" ? searchContext.location.clarification : null}
+              </p> : null}
 
               {results.length === 0 ? (
                 <div className="empty-card">
@@ -1564,6 +1575,7 @@ const millerImageStyle = {}
                 <div className="resource-list">
                   {results.map((resource, index) => {
                     const publicLocation = eligiblePublicLocation(resource, mapResources)
+                    const navigationContext = buildNavigationPacket({ resource, publicMapResources: mapResources, intent: searchContext.intent, locationContext: searchContext.location, relevance: deterministicRelevance(resource, searchContext.intent) })
                     return (
                     <article
                       key={`${resource.name}-${resource.city}-${resource.organization}-${index}`}
@@ -1623,6 +1635,7 @@ const millerImageStyle = {}
                       {resource.description && (
                         <p className="resource-description">{resource.description}</p>
                       )}
+                      {navigationContext.explanation ? <p className="resource-context-line">{navigationContext.explanation}</p> : null}
 
                       <div className="resource-details">
                         {resource.accessType && (
@@ -1712,7 +1725,7 @@ const millerImageStyle = {}
       onRemove={() => dispatchHandout({ type: "remove_resource", key: getResourceKey(resource) })}
     />
   )}
-  {publicLocation ? <button type="button" className="resource-link-button get-there-button" onClick={() => setNavigationTarget({ resource, location: publicLocation })}>Get there</button> : null}
+  {publicLocation ? <button type="button" className="resource-link-button get-there-button" onClick={() => setNavigationTarget({ resource, location: publicLocation, origin: navigationContext.origin })}>Get there</button> : null}
 </div>
                     </article>
                   )})}
@@ -1887,7 +1900,7 @@ const millerImageStyle = {}
           </div>
         </aside>
       </main>
-      {navigationTarget ? <GetTherePanel resource={navigationTarget.resource} location={navigationTarget.location} onClose={() => setNavigationTarget(null)}/> : null}
+      {navigationTarget ? <GetTherePanel resource={navigationTarget.resource} location={navigationTarget.location} initialOrigin={navigationTarget.origin} onClose={() => setNavigationTarget(null)}/> : null}
       <footer className="site-footer"><p className="footer-disclosure">Miller is an AI-assisted resource guide, not a therapist, and is maintained by an unpaid volunteer.</p><a href="/admin/login">Admin</a></footer>
     </div>
   )

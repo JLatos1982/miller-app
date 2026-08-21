@@ -23,6 +23,14 @@ Miller therefore stops at deterministic access context: approved destination, op
 
 Browser geolocation is requested only after the user chooses it. Typed origins use the existing server-side BC Address Geocoder. Origins are held only in the open navigation component and request body, use no analytics, receive `private, no-store` responses, and are never written to Supabase or browser storage.
 
+## Search intent, location privacy, and web discovery
+
+Natural-language search produces a strict, server-validated intent packet. Explicit statements, normalized search concepts, and uncertain concepts remain separate. A named substance may normalize to a broader search topic, but Miller does not turn that into a diagnosis or a fact about risk, withdrawal, housing, or treatment needs. Invalid model output falls back to conservative deterministic extraction and ordinary search.
+
+Textual place phrases may be resolved through the existing server-side BC Address Geocoder. Community-only searches remain community scoped; ambiguous landmarks are not assigned arbitrary coordinates. Resolved origins are returned only to the active client, held in transient state, omitted from analytics and storage, and reused by Get there only during that page session. Search ranking remains service-relevance based. Distance and transit availability are separate deterministic access context, not an opaque combined score.
+
+Tavily remains an unverified discovery aid. It may later help identify changed public information or missing resource details, but its output must pass administrator review and Miller's evidence workflow before becoming a trusted resource fact. It is not a source of location, hours, transit, or clinical truth for the navigation packet.
+
 ## Adding a provider
 
 Add provider metadata and a fixed official feed URL in `server/transit/providers.js`, retain the shared normalized output, add fixtures and mocked tests, and extend the capability status. Credentials belong in server environment variables and must never use a `VITE_` prefix.

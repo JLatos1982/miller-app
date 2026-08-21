@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react"
 import { googleTransitDirectionsUrl, validateTypedOrigin } from "./navigation.js"
 
-export default function GetTherePanel({ resource, location, onClose }) {
+export default function GetTherePanel({ resource, location, initialOrigin = null, onClose }) {
   const panelRef = useRef(null)
   const openerRef = useRef(typeof document !== "undefined" ? document.activeElement : null)
   const [state, setState] = useState({ status: "loading", context: null, message: "" })
-  const [origin, setOrigin] = useState(null)
+  const [origin, setOrigin] = useState(initialOrigin)
   const [typedOrigin, setTypedOrigin] = useState("")
-  const [originStatus, setOriginStatus] = useState("")
+  const [originStatus, setOriginStatus] = useState(initialOrigin ? "Using the starting location from this search for this panel only." : "")
 
   async function loadContext(nextOrigin = null) {
     setState((current) => ({ ...current, status: "loading", message: "" }))
@@ -21,7 +21,7 @@ export default function GetTherePanel({ resource, location, onClose }) {
 
   useEffect(() => {
     const opener = openerRef.current
-    loadContext()
+    loadContext(initialOrigin)
     panelRef.current?.focus()
     function keydown(event) {
       if (event.key === "Escape") return onClose()

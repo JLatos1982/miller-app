@@ -323,6 +323,8 @@ textarea {
 .results-count {
   color: var(--accent-dark);
 }
+.search-context-line,.resource-context-line { margin: 0 0 12px; color: var(--text-soft); font-size: .84rem; line-height: 1.4; text-align: left; }
+.resource-context-line { margin: 9px 0 0; font-weight: 700; }
 
 .resource-list {
   display: grid;
