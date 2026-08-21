@@ -7,5 +7,5 @@ import PrivateLocationReview from "./PrivateLocationReview.jsx"
 import RefreshedLocationReviews from "./RefreshedLocationReviews.jsx"
 
 export default function AdminLocationReview() {
-  return <><CapabilityStatus/><MapPopulationPanel/><PendingLocationReview/><RefreshedLocationReviews/><LocationAutomationReview/><AddressEvidenceReview/><PrivateLocationReview/></>
+  return <><RefreshedLocationReviews/><details className="address-evidence"><summary>Advanced location diagnostics and history</summary><CapabilityStatus/><MapPopulationPanel/><PendingLocationReview/><LocationAutomationReview/><AddressEvidenceReview/><PrivateLocationReview/></details></>
 }

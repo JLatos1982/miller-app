@@ -4,6 +4,7 @@ import fs from "node:fs"
 
 const ui = fs.readFileSync(new URL("../src/map/RefreshedLocationReviews.jsx", import.meta.url), "utf8")
 const server = fs.readFileSync(new URL("../server.js", import.meta.url), "utf8")
+const admin = fs.readFileSync(new URL("../src/map/AdminLocationReview.jsx", import.meta.url), "utf8")
 
 test("ready-to-publish UI requires an explicit confirmation and sends the protected request", () => {
   assert.match(ui, /Publish this verified service location on Miller's public map\?/) 
@@ -33,4 +34,9 @@ test("server publication endpoint is authenticated and validates confirmation an
   assert.match(section, /confirmed_publication !== true/)
   assert.match(section, /publish_verified_map_pin/)
   assert.match(section, /QC changed\. Reload before publishing\./)
+})
+
+test("primary admin location workflow leads with Ready to publish", () => {
+  assert.match(admin, /^import[\s\S]*return <>\s*<RefreshedLocationReviews\/>/)
+  assert.match(admin, /<summary>Advanced location diagnostics and history<\/summary>/)
 })
