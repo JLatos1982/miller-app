@@ -1,0 +1,15 @@
+begin;
+create extension if not exists pgtap with schema extensions;
+select plan(8);
+insert into auth.users(id,instance_id,aud,role,email,encrypted_password,raw_app_meta_data,raw_user_meta_data,created_at,updated_at) values ('00000000-0000-0000-0000-000000000020','00000000-0000-0000-0000-000000000000','authenticated','authenticated','refresh-admin@example.invalid','','{}','{}',now(),now());
+insert into public.resource_registry(id,display_name,lifecycle_state,editorial_status) values ('00000000-0000-0000-0000-000000000201','Refresh Clinic','active','approved');
+select is((public.save_location_qc_review_decision('00000000-0000-0000-0000-000000000201','v1',repeat('a',64),'pilot_eligible','original human review','{"old":true}'::jsonb,0,'00000000-0000-0000-0000-000000000020')).version,1,'original review saved');
+select is((public.refresh_location_qc_evidence('00000000-0000-0000-0000-000000000201','v2',repeat('b',64),'{"new":true}'::jsonb,'current evidence package',1,'00000000-0000-0000-0000-000000000020')).version,2,'refresh increments version');
+select is((select decision from public.location_qc_reviews where canonical_resource_id='00000000-0000-0000-0000-000000000201'),'manual_review','refresh requires human confirmation');
+select is((select snapshot from public.location_qc_review_snapshots where canonical_resource_id='00000000-0000-0000-0000-000000000201' and qc_version=1),'{"old": true}'::jsonb,'historical snapshot is preserved');
+select is((select count(*)::integer from public.location_qc_review_snapshots where canonical_resource_id='00000000-0000-0000-0000-000000000201'),2,'both snapshots are append-only history');
+select throws_ok($$select public.refresh_location_qc_evidence('00000000-0000-0000-0000-000000000201','v2',repeat('c',64),'{}'::jsonb,'stale',1,'00000000-0000-0000-0000-000000000020')$$,'40001','QC refresh version conflict','stale refresh fails');
+select is((select count(*)::integer from public.resource_locations),0,'refresh creates no locations');
+select is((select count(*)::integer from public.resource_locations where public_map),0,'refresh publishes no locations');
+select * from finish();
+rollback;
