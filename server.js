@@ -2054,6 +2054,13 @@ app.get("/api/admin/discovery-candidates/automation-dry-run", requireAdmin, asyn
   res.setHeader("Cache-Control", "private, no-store")
   return res.json({ ...report, pending_backlog: (data || []).filter((item) => item.review_status === "pending").length, production_changes: 0, map_locations_created: 0, map_locations_published: 0 })
 })
+app.get("/api/admin/shelter-throughput", requireAdmin, async (_req, res) => {
+  const { data, error } = await supabase.from("resource_discovery_candidates").select("id,name,operator,shelter_type,population_served,community,source_name,source_url,retrieved_title,source_excerpt,additional_sources,checked_at,evidence_notes,confidence,review_status,location_disclosure_status,possible_matches,reviewed_by,reviewed_at").eq("review_status", "pending").order("id")
+  if (error) return res.status(503).json({ error: "Shelter throughput queue is unavailable." })
+  const report = buildShelterAutomationReport(data || [])
+  const tiers = { tier_a_bulk_confirmable: report.items.filter((item) => item.category === "auto_approval_eligible"), tier_b_one_click_review: report.items.filter((item) => item.category === "strong_administrator_review"), tier_c_reconciliation: report.items.filter((item) => item.category === "duplicate_already_represented"), tier_d_research: report.items.filter((item) => item.category === "needs_more_research"), tier_e_safety_sensitive: report.items.filter((item) => item.category === "safety_sensitive") }
+  return res.json({ ...tiers, counts: Object.fromEntries(Object.entries(tiers).map(([key, value]) => [key, value.length])), bulk_execution_enabled: false, automatic_approval_enabled: false, map_publication_enabled: false, note: "Tier A is a preview-only, administrator-confirmed bulk set. No candidate was changed." })
+})
 app.get("/api/admin/shelter-reconciliations", requireAdmin, async (_req, res) => {
   const { data: candidates, error } = await supabase.from("resource_discovery_candidates").select("id,name,operator,shelter_type,population_served,community,region,website,source_url,phone,public_address,location_disclosure_status,source_name,possible_matches,review_status").eq("review_status", "pending").order("id")
   if (error) return res.status(503).json({ error: "Shelter reconciliation queue is unavailable." })
