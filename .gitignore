@@ -25,3 +25,4 @@ supabase/.temp/
 *.njsproj
 *.sln
 *.sw?
+data/directory-address-coverage-current.json
