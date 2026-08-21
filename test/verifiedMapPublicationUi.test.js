@@ -40,3 +40,11 @@ test("primary admin location workflow leads with Ready to publish", () => {
   assert.match(admin, /^import[\s\S]*return <>\s*<RefreshedLocationReviews\/>/)
   assert.match(admin, /<summary>Advanced location diagnostics and history<\/summary>/)
 })
+
+test("publication queue keeps ready, confirmation-only, and blocked records distinct", () => {
+  assert.match(server, /queue_state = eligibility\.eligible \? "ready_to_publish"/)
+  assert.match(server, /queue_counts = \{ ready_to_publish/)
+  assert.match(ui, /Ready to publish \(\{counts\.ready_to_publish/)
+  assert.match(ui, /One confirmation away \(\{counts\.one_confirmation_away/)
+  assert.match(ui, /Blocked \(\{counts\.blocked/)
+})
