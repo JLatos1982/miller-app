@@ -1098,6 +1098,25 @@ async function privateLocationContext(canonicalUuid) {
   if (evidenceResult.error) throw new Error("private_location_evidence_unavailable")
   return { resource: resourceResult.data, qc: qcResult.data, locations: locationsResult.data || [], evidence: evidenceResult.data || [] }
 }
+async function privateLocationContexts(canonicalUuids) {
+  const ids = [...new Set((canonicalUuids || []).filter((id) => /^[0-9a-f-]{36}$/i.test(id)))]
+  if (!ids.length) return new Map()
+  const [resourcesResult, qcResult, locationsResult, claimsResult] = await Promise.all([
+    supabase.from("resource_registry").select("id,display_name,lifecycle_state,editorial_status").in("id", ids),
+    supabase.from("location_qc_reviews").select("*").in("canonical_resource_id", ids),
+    supabase.from("resource_locations").select("*").in("resource_id", ids),
+    supabase.from("resource_fact_claims").select("id,resource_id,decision_category,field_name").in("resource_id", ids),
+  ])
+  if ([resourcesResult, qcResult, locationsResult, claimsResult].some((result) => result.error)) throw new Error("private_location_contexts_unavailable")
+  const occupancyClaimIds = (claimsResult.data || []).filter((item) => item.decision_category === "location_occupancy" || item.field_name === "location_occupancy").map((item) => item.id)
+  const evidenceResult = occupancyClaimIds.length ? await supabase.from("resource_fact_evidence").select("id,claim_id,source_url,source_authority,stale,retrieved_at").in("claim_id", occupancyClaimIds) : { data: [], error: null }
+  if (evidenceResult.error) throw new Error("private_location_evidence_unavailable")
+  const resourceById = new Map((resourcesResult.data || []).map((item) => [item.id, item])), qcById = new Map((qcResult.data || []).map((item) => [item.canonical_resource_id, item])), locationsById = new Map(), claimIdsByResource = new Map(), evidenceByClaim = new Map()
+  for (const item of locationsResult.data || []) locationsById.set(item.resource_id, [...(locationsById.get(item.resource_id) || []), item])
+  for (const item of claimsResult.data || []) if (item.decision_category === "location_occupancy" || item.field_name === "location_occupancy") claimIdsByResource.set(item.resource_id, [...(claimIdsByResource.get(item.resource_id) || []), item.id])
+  for (const item of evidenceResult.data || []) evidenceByClaim.set(item.claim_id, [...(evidenceByClaim.get(item.claim_id) || []), item])
+  return new Map(ids.map((id) => [id, { resource: resourceById.get(id) || null, qc: qcById.get(id) || null, locations: locationsById.get(id) || [], evidence: (claimIdsByResource.get(id) || []).flatMap((claimId) => evidenceByClaim.get(claimId) || []) }]))
+}
 app.get("/api/admin/private-location-candidates", requireAdmin, async (_req, res) => {
   try {
     const [resourcesResult, qcResult, locationsResult, claimsResult] = await Promise.all([
@@ -1134,7 +1153,8 @@ app.get("/api/admin/refreshed-location-reviews", requireAdmin, async (_req, res)
     const history = await supabase.from("location_qc_review_snapshots").select("canonical_resource_id,qc_version,origin,refresh_reason,created_at").in("origin", ["evidence_refresh", "machine_initial"]).order("created_at", { ascending: false })
     if (history.error) throw history.error
     const ids = [...new Set((history.data || []).map((item) => item.canonical_resource_id))]
-    const contexts = await Promise.all(ids.map(async (id) => ({ id, context: await privateLocationContext(id) })))
+    const contextById = await privateLocationContexts(ids)
+    const contexts = ids.map((id) => ({ id, context: contextById.get(id) }))
     const classified = contexts.map(({ id, context }) => { const prior = (history.data || []).filter((item) => item.canonical_resource_id === id).sort((a, b) => b.qc_version - a.qc_version)[0]; const eligibility = privateLocationEligibility(context); const confirmationEligibility = context.qc?.decision === "manual_review" ? privateLocationEligibility({ ...context, qc: { ...context.qc, decision: "pilot_eligible" } }) : eligibility; const snapshot = eligibility.snapshot; const alreadyPublished = context.locations.some((location) => location.location_type === "fixed" && location.public_map === true); const queue_state = alreadyPublished ? "already_published" : eligibility.eligible ? "ready_to_publish" : context.qc?.decision === "manual_review" && confirmationEligibility.eligible ? "one_confirmation_away" : "blocked"; return { canonical_uuid: id, resource_name: context.resource?.display_name || "Unavailable resource", qc: { decision: context.qc?.decision, version: context.qc?.version, prior_version: prior?.qc_version ? prior.qc_version - 1 : null, refreshed_at: prior?.created_at || null }, address: snapshot.submitted_address || null, community: snapshot.locality || null, standardized_address: snapshot.returned_address || null, geocoder: { score: snapshot.score || null, precision: snapshot.precision || null, descriptor: snapshot.location_descriptor || null, coordinates_present: Boolean(snapshot.coordinates?.latitude && snapshot.coordinates?.longitude) }, occupancy: snapshot.program_occupancy_confidence || "unverified", evidence_sources: context.evidence.filter((item) => item.source_url && item.stale !== true).length, blockers: alreadyPublished ? [] : eligibility.reasons, queue_state, eligible_after_human_qc: queue_state === "ready_to_publish", next_action: queue_state === "one_confirmation_away" ? "Confirm location evidence" : queue_state === "ready_to_publish" ? "Publish verified map pin" : queue_state === "already_published" ? "Already published" : "Complete evidence package" } })
     const items = classified.filter((item) => item.queue_state !== "already_published")
     const queue_counts = { ready_to_publish: items.filter((item) => item.queue_state === "ready_to_publish").length, one_confirmation_away: items.filter((item) => item.queue_state === "one_confirmation_away").length, blocked: items.filter((item) => item.queue_state === "blocked").length, already_published: classified.length - items.length }

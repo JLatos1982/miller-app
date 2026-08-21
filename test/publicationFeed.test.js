@@ -1,5 +1,6 @@
 import test from "node:test"
 import assert from "node:assert/strict"
+import fs from "node:fs"
 import { publicationFeedAssessment, rankPublicationFeedCandidates, synthesizeAuthoritativeOccupancyChain } from "../server/publicationFeed.js"
 
 const resource = (overrides = {}) => ({ id: "00000000-0000-0000-0000-000000000001", display_name: "Public Clinic", lifecycle_state: "active", editorial_status: "approved", ...overrides })
@@ -51,4 +52,12 @@ test("does not infer a programme location from an unrelated shared-building sour
     inspected({ domain: "other.org", operatorMatched: true, addressMatched: true, text: "Operator services at 100 Main St" })
   ] })
   assert.equal(result.supported, false)
+})
+
+test("refreshed admin queue batches location contexts instead of querying once per resource", () => {
+  const server = fs.readFileSync(new URL("../server.js", import.meta.url), "utf8")
+  const route = server.slice(server.indexOf('app.get("/api/admin/refreshed-location-reviews"'), server.indexOf('app.post("/api/admin/refreshed-location-reviews"'))
+  assert.match(server, /async function privateLocationContexts\(canonicalUuids\)/)
+  assert.match(route, /privateLocationContexts\(ids\)/)
+  assert.doesNotMatch(route, /Promise\.all\(ids\.map/)
 })
