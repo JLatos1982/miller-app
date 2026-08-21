@@ -5,17 +5,20 @@ import { classifySource } from "../server/addressEvidence.js"
 import { createShelterCandidateResearchPersistence } from "../server/shelterCandidateResearch.js"
 import { classifyShelterCandidate } from "../server/shelterAutomation.js"
 
-const limit = Math.max(1, Math.min(30, Number(process.argv.find((arg) => arg.startsWith("--limit="))?.split("=")[1] || 30)))
+const limit = Math.max(1, Math.min(100, Number(process.argv.find((arg) => arg.startsWith("--limit="))?.split("=")[1] || 30)))
 const apply = process.argv.includes("--apply")
 if (!process.env.SUPABASE_URL?.includes("wccagykzugrahwugefqt") || !process.env.SUPABASE_SERVICE_ROLE_KEY || !process.env.TAVILY_API_KEY) throw new Error("Unexpected production target or missing server-side research configuration")
 const db = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, { auth: { persistSession: false } })
 const search = tavily({ apiKey: process.env.TAVILY_API_KEY })
 const candidates = await db.from("resource_discovery_candidates").select("*").eq("review_status", "pending").order("id").limit(1000)
 if (candidates.error) throw candidates.error
-const chosen = (candidates.data || []).filter((candidate) => classifyShelterCandidate(candidate).category === "needs_more_research").filter((candidate) => candidate.source_url && candidate.confidence !== "low").slice(0, limit)
+const prior = await db.from("shelter_candidate_research_claims").select("candidate_id")
+if (prior.error) throw prior.error
+const researched = new Set((prior.data || []).map((item) => item.candidate_id))
+const chosen = (candidates.data || []).filter((candidate) => classifyShelterCandidate(candidate).category === "needs_more_research").filter((candidate) => !researched.has(candidate.id)).slice(0, limit)
 const persistence = createShelterCandidateResearchPersistence({ supabase: db }), results = []
 for (const candidate of chosen) {
-  const tokens = String(candidate.name).toLowerCase().split(/\W+/).filter((token) => token.length > 4), urls = [candidate.source_url], inspected = []
+  const tokens = String(candidate.name).toLowerCase().split(/\W+/).filter((token) => token.length > 4), urls = candidate.source_url ? [candidate.source_url] : [], inspected = []
   try {
     const discovery = await search.search(`"${candidate.name}" ${candidate.community || "British Columbia"} shelter`, { searchDepth: "basic", maxResults: 3, includeAnswer: false })
     for (const result of discovery.results || []) if (result.url && !urls.includes(result.url)) urls.push(result.url)
