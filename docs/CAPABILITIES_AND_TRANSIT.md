@@ -15,6 +15,14 @@ The public interface receives normalized alerts only when they are active and id
 
 `server/transit/accessContext.js` composes approved location facts, optional straight-line user distance, nearby stops and routes, relevant alerts, and source freshness. This is intended to be the factual input to a later AI explanation; the model must not invent transit facts.
 
+## Getting there and routing boundary
+
+The current official TransLink developer offering documents static GTFS and GTFS-Realtime feeds, while BC Transit publishes open static and realtime GTFS feeds. Neither currently documents a developer origin-to-destination itinerary endpoint that Miller is authorized to call. Their consumer trip planners are not treated as undocumented APIs.
+
+Miller therefore stops at deterministic access context: approved destination, optional ephemeral origin, straight-line origin distance, nearby destination stops and routes, and relevant alerts. Complete transit directions use the documented cross-platform Google Maps directions URL with `travelmode=transit`. No Google credential is required. Miller does not claim that nearby routes form a complete journey.
+
+Browser geolocation is requested only after the user chooses it. Typed origins use the existing server-side BC Address Geocoder. Origins are held only in the open navigation component and request body, use no analytics, receive `private, no-store` responses, and are never written to Supabase or browser storage.
+
 ## Adding a provider
 
 Add provider metadata and a fixed official feed URL in `server/transit/providers.js`, retain the shared normalized output, add fixtures and mocked tests, and extend the capability status. Credentials belong in server environment variables and must never use a `VITE_` prefix.

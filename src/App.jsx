@@ -42,6 +42,8 @@ import ShelterCandidateReview from "./admin/ShelterCandidateReview.jsx"
 import CuratedListManager from "./admin/CuratedListManager.jsx"
 import PdfDocumentManager from "./admin/PdfDocumentManager.jsx"
 import PreMadeLists from "./lists/PreMadeLists.jsx"
+import GetTherePanel from "./navigation/GetTherePanel.jsx"
+import { eligiblePublicLocation } from "./navigation/navigation.js"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -693,14 +695,15 @@ function App() {
   const [isMapOpen, setIsMapOpen] = useState(false)
   const [isListsOpen, setIsListsOpen] = useState(() => window.location.pathname === "/lists" || window.location.pathname.startsWith("/lists/"))
   const [mapResources, setMapResources] = useState([])
+  const [navigationTarget, setNavigationTarget] = useState(null)
 
   useEffect(() => {
-    if (!isMapOpen) return
+    if (!isMapOpen && !hasSearched) return
     fetch("/api/map/resources", { credentials: "include" })
       .then((response) => response.ok ? response.json() : Promise.reject(new Error("map unavailable")))
       .then((data) => setMapResources(Array.isArray(data.items) ? data.items : []))
       .catch(() => setMapResources([]))
-  }, [isMapOpen])
+  }, [isMapOpen, hasSearched])
 
   const [millerIndex, setMillerIndex] = useState(() => {
   const saved = localStorage.getItem("miller-theme-index")
@@ -1534,12 +1537,9 @@ const millerImageStyle = {}
 
             <div className="micro-options">
               <p className="ai-note">
-                Tell Miller what kind of support you need. Miller helps you find local addiction and community supports and understand your options.
+                Miller helps you find local addiction and community supports and take the next step.
               </p>
               <p className="capability-signal">Search · nearby services · getting there</p>
-              <p className="ai-disclosure">
-                Miller is not a therapist. It is an AI-assisted program that helps find local resources and is maintained by an unpaid volunteer.
-              </p>
             </div>
           </form>
 
@@ -1562,7 +1562,9 @@ const millerImageStyle = {}
                 </div>
               ) : (
                 <div className="resource-list">
-                  {results.map((resource, index) => (
+                  {results.map((resource, index) => {
+                    const publicLocation = eligiblePublicLocation(resource, mapResources)
+                    return (
                     <article
                       key={`${resource.name}-${resource.city}-${resource.organization}-${index}`}
                       className="resource-card"
@@ -1710,9 +1712,10 @@ const millerImageStyle = {}
       onRemove={() => dispatchHandout({ type: "remove_resource", key: getResourceKey(resource) })}
     />
   )}
+  {publicLocation ? <button type="button" className="resource-link-button get-there-button" onClick={() => setNavigationTarget({ resource, location: publicLocation })}>Get there</button> : null}
 </div>
                     </article>
-                  ))}
+                  )})}
                 </div>
               )}
             </div>
@@ -1884,7 +1887,8 @@ const millerImageStyle = {}
           </div>
         </aside>
       </main>
-      <footer className="site-footer"><a href="/admin/login">Admin</a></footer>
+      {navigationTarget ? <GetTherePanel resource={navigationTarget.resource} location={navigationTarget.location} onClose={() => setNavigationTarget(null)}/> : null}
+      <footer className="site-footer"><p className="footer-disclosure">Miller is an AI-assisted resource guide, not a therapist, and is maintained by an unpaid volunteer.</p><a href="/admin/login">Admin</a></footer>
     </div>
   )
 }

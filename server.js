@@ -27,6 +27,8 @@ import { readLocationQcStore, reconcileLocationQcReview, saveLocationQcDecision 
 import { buildAutoPublicationPreview, buildLocationReconciliation, isVirtualOrMobileResource } from "./server/mapPopulation.js"
 import { capabilityReport } from "./server/capabilities.js"
 import { getNearbyTransit } from "./server/transit/providers.js"
+import { buildAccessContext } from "./server/transit/accessContext.js"
+import { geocodeNavigationOrigin } from "./server/navigationOrigin.js"
 
 dotenv.config()
 
@@ -2069,6 +2071,41 @@ app.get("/api/map/locations/:id/transit", async (req, res) => {
     console.error("Transit provider request failed", { provider: "configured_adapter", message: providerError.message })
     return res.status(503).json({ error: "Nearby transit information is temporarily unavailable." })
   }
+})
+
+app.post("/api/navigation/origin", rateLimit({ windowMs: 60_000, max: 12 }), async (req, res) => {
+  try {
+    const result = await geocodeNavigationOrigin(req.body?.query)
+    res.setHeader("Cache-Control", "private, no-store")
+    if (!result.ok) return res.status(result.status === "not_configured" ? 503 : 404).json({ error: result.status === "not_configured" ? "Starting-location lookup is unavailable right now." : "I couldn't find that starting location. Try including the city." })
+    return res.json(result)
+  } catch (error) { return res.status(400).json({ error: error.message }) }
+})
+
+app.post("/api/map/locations/:id/access-context", rateLimit({ windowMs: 60_000, max: 20 }), async (req, res) => {
+  if (!/^[0-9a-f-]{36}$/i.test(String(req.params.id || ""))) return res.status(400).json({ error: "Invalid public location ID." })
+  const { data: location, error } = await supabase.from("resource_locations")
+    .select("id,resource_id,latitude,longitude,location_type,public_map,geocode_status,review_status")
+    .eq("id", req.params.id).eq("location_type", "fixed").eq("public_map", true)
+    .eq("geocode_status", "verified").eq("review_status", "approved").maybeSingle()
+  if (error) return res.status(503).json({ error: "Getting-there information is temporarily unavailable." })
+  if (!location) return res.status(404).json({ error: "This resource does not have an approved public location." })
+  const supplied = req.body?.origin
+  let origin = null
+  let originProvenance = null
+  if (supplied != null) {
+    const latitude = Number(supplied.latitude), longitude = Number(supplied.longitude)
+    if (!Number.isFinite(latitude) || latitude < 48 || latitude > 60 || !Number.isFinite(longitude) || longitude < -140 || longitude > -114) return res.status(400).json({ error: "The starting location is outside British Columbia or invalid." })
+    const provider = ["browser_geolocation", "bc_address_geocoder"].includes(supplied.provenance?.provider) ? supplied.provenance.provider : null
+    if (!provider) return res.status(400).json({ error: "The starting-location source is invalid." })
+    origin = { latitude, longitude }; originProvenance = { provider }
+  }
+  try {
+    const transit = await getNearbyTransit({ latitude: Number(location.latitude), longitude: Number(location.longitude) })
+    const context = buildAccessContext({ resource: { id: location.resource_id }, location, transit, userCoordinate: origin, originProvenance })
+    res.setHeader("Cache-Control", "private, no-store")
+    return res.json({ context })
+  } catch { return res.status(503).json({ error: "I couldn't find transit information for this location yet." }) }
 })
 
 app.post("/api/admin/pending-locations/bounded-approve", requireAdmin, async (req, res) => {
