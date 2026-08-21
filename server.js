@@ -949,6 +949,7 @@ Use exactly this shape:
     "locationText": "exact geographic phrase or null",
     "city": "explicit city or null",
     "transport": { "noCar": false, "transitRelevant": false, "walkingRelevant": false },
+    "barriers": { "noId": false, "noPhone": false, "walkInNeeded": false, "wheelchair": false, "cannotPay": false },
     "timing": ["explicit timing words only"],
     "practicalConstraints": ["explicit constraints only"],
     "uncertain": ["uncertain concepts, never diagnoses"]

@@ -4,7 +4,7 @@ const TIMING = [["now", /\b(?:right )?now\b/i], ["today", /\btoday\b/i], ["tonig
 const KNOWN_COMMUNITIES = ["Surrey", "Vancouver", "Burnaby", "Richmond", "Coquitlam", "New Westminster", "Delta", "Langley", "Abbotsford", "Chilliwack", "Maple Ridge", "White Rock"]
 function unique(values) { return [...new Set(values.filter(Boolean))] }
 function cleanText(value, maximum = 120) { const text = String(value || "").replace(/\s+/g, " ").trim().replace(/[,.!?]+$/, ""); return text && text.length <= maximum ? text : null }
-export function emptySearchIntent() { return { version: "1.0", explicit: { supportNeeds: [], substances: [], locationText: null, city: null, transport: { noCar: false, transitRelevant: false, walkingRelevant: false }, timing: [], practicalConstraints: [] }, normalized: { supportConcepts: [], substanceTopics: [] }, uncertain: [] } }
+export function emptySearchIntent() { return { version: "1.0", explicit: { supportNeeds: [], substances: [], locationText: null, city: null, transport: { noCar: false, transitRelevant: false, walkingRelevant: false }, barriers: { noId: false, noPhone: false, walkInNeeded: false, wheelchair: false, cannotPay: false }, timing: [], practicalConstraints: [] }, normalized: { supportConcepts: [], substanceTopics: [] }, uncertain: [] } }
 export function extractConservativeSearchIntent(query, selectedCity = "") {
   const text = String(query || "").slice(0, 2_000), intent = emptySearchIntent()
   intent.explicit.supportNeeds = SUPPORT_PATTERNS.filter(([, pattern]) => pattern.test(text)).map(([name]) => name)
@@ -15,6 +15,11 @@ export function extractConservativeSearchIntent(query, selectedCity = "") {
   intent.explicit.transport.noCar = /\b(?:i (?:do not|don['’]t) drive|no car|without a car)\b/i.test(text)
   intent.explicit.transport.walkingRelevant = /\b(?:walk|walking|walkable)\b/i.test(text)
   intent.explicit.transport.transitRelevant = intent.explicit.transport.noCar || /\b(?:transit|bus|skytrain)\b/i.test(text)
+  intent.explicit.barriers.noId = /\b(?:no|don['’]t have) (?:government )?id\b/i.test(text)
+  intent.explicit.barriers.noPhone = /\b(?:no|don['’]t have) (?:a )?phone\b/i.test(text)
+  intent.explicit.barriers.walkInNeeded = /\b(?:walk in|walk-in|without an appointment)\b/i.test(text)
+  intent.explicit.barriers.wheelchair = /\bwheelchair\b/i.test(text)
+  intent.explicit.barriers.cannotPay = /\b(?:can['’]t|cannot|unable to) pay|\bfree counselling\b/i.test(text)
   if (intent.explicit.transport.noCar) intent.explicit.practicalConstraints.push("no car")
   if (intent.explicit.transport.walkingRelevant) intent.explicit.practicalConstraints.push("walking")
   const city = KNOWN_COMMUNITIES.find((name) => new RegExp(`\\b${name.replace(" ", "\\s+")}\\b`, "i").test(text)) || (selectedCity && selectedCity !== "All Cities" ? cleanText(selectedCity, 80) : null)
@@ -26,11 +31,12 @@ export function extractConservativeSearchIntent(query, selectedCity = "") {
 function grounded(value, query) { return cleanText(value, 120) && String(query).toLocaleLowerCase().includes(String(value).toLocaleLowerCase()) }
 export function validateModelSearchIntent(value, query) {
   if (!value || typeof value !== "object" || Array.isArray(value)) return null
-  const allowed = new Set(["supportNeeds", "substances", "locationText", "city", "transport", "timing", "practicalConstraints", "uncertain"])
+  const allowed = new Set(["supportNeeds", "substances", "locationText", "city", "transport", "barriers", "timing", "practicalConstraints", "uncertain"])
   if (Object.keys(value).some((key) => !allowed.has(key))) return null
   const arrays = ["supportNeeds", "substances", "timing", "practicalConstraints", "uncertain"]
   if (arrays.some((key) => value[key] != null && (!Array.isArray(value[key]) || value[key].length > 8 || value[key].some((item) => !cleanText(item))))) return null
   if (value.transport != null && (typeof value.transport !== "object" || Array.isArray(value.transport) || Object.keys(value.transport).some((key) => !["noCar", "transitRelevant", "walkingRelevant"].includes(key)) || Object.values(value.transport).some((item) => typeof item !== "boolean"))) return null
+  if (value.barriers != null && (typeof value.barriers !== "object" || Array.isArray(value.barriers) || Object.keys(value.barriers).some((key) => !["noId", "noPhone", "walkInNeeded", "wheelchair", "cannotPay"].includes(key)) || Object.values(value.barriers).some((item) => typeof item !== "boolean"))) return null
   if (value.locationText && !grounded(value.locationText, query)) return null
   if (value.city && !grounded(value.city, query)) return null
   if (["supportNeeds", "substances", "timing", "practicalConstraints", "uncertain"].some((key) => (value[key] || []).some((item) => !grounded(item, query)))) return null
