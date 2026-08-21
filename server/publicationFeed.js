@@ -5,6 +5,27 @@ import { privateLocationEligibility } from "./privateLocation.js"
 
 const text = (value) => String(value ?? "").trim()
 const newest = (items, field = "updated_at") => [...items].sort((a, b) => String(b[field] || "").localeCompare(String(a[field] || "")))[0] || null
+const headOffice = /\b(head office|headquarters|corporate office|administrative office)\b/i
+
+// A single page is preferred, but public programmes are often documented across
+// an official programme page and an official contact/location page.  This does
+// not infer programme occupancy from an operator address: the first source must
+// name the programme (or a known alias), and the second must name that programme
+// or the verified operator at the exact proposed civic address.  A directory can
+// supply the second link only as corroboration of a first-party/authority source.
+export function synthesizeAuthoritativeOccupancyChain({ record, inspected = [] }) {
+  const authoritative = inspected.filter((item) => item?.source?.authoritative)
+  const program = authoritative.find((item) => item.identity?.matched)
+  const location = authoritative.find((item) => item.identity?.addressMatched && (item.identity?.matched || item.identity?.operatorMatched) && !headOffice.test(item.text || ""))
+  if (!program || !location) return { supported: false, reasonCodes: ["program_operator_location_chain_incomplete"], evidence: [] }
+  const sameOfficialPublisher = program.source.domain === location.source.domain
+  const corroboratingDirectory = location.source.type === "established_directory" && program.source.type !== "established_directory"
+  if (!sameOfficialPublisher && !corroboratingDirectory) return { supported: false, reasonCodes: ["program_operator_location_chain_not_independent"], evidence: [] }
+  const address = text(record?.submitted_address)
+  if (!address) return { supported: false, reasonCodes: ["complete_address_required"], evidence: [] }
+  const chain = [program, location].map((item, index) => ({ ...item.evidence, value: address, extractionMethod: index === 0 ? "authoritative_program_identity_chain" : "authoritative_service_location_chain", independentKey: `${program.source.domain}|${location.source.domain}` }))
+  return { supported: true, reasonCodes: ["authoritative_program_identity", "authoritative_service_location", "program_operator_location_chain"], evidence: chain }
+}
 
 export function publicationFeedAssessment({ resource, claims = [], evidence = [], qc = null, locations = [] }) {
   if (locations.some((item) => item.location_type === "fixed" && item.public_map === true)) return { outcome: "already_published", distance: 99, reasons: ["already_published"] }

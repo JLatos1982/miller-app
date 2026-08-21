@@ -27,7 +27,10 @@ export function sanitizeResearchDocument(input = {}) {
   return { title, url, text, injectionSignals, contentRole: "untrusted_data", instructionsHonoured: false, truncated: raw.length >= RESEARCH_LIMITS.maxDocumentCharacters }
 }
 export function evaluateOccupancyDocument(record, document, retrievedAt = new Date().toISOString()) {
-  const safe = sanitizeResearchDocument(document), source = classifySource(safe.url, record.resource_name), preliminary = classifyAddressEvidence({ resource: { name: record.resource_name, organization: record.operator || "", address: record.submitted_address }, source, page: { text: safe.text } })
+  // A canonical programme name is a safe fallback for identifying its own
+  // first-party domain.  This only affects source classification; identity
+  // still requires an exact canonical/known-alias match in the page content.
+  const safe = sanitizeResearchDocument(document), source = classifySource(safe.url, record.operator || record.resource_name), preliminary = classifyAddressEvidence({ resource: { name: record.resource_name, organization: record.operator || "", address: record.submitted_address }, source, page: { text: safe.text } })
   const identity = programIdentityEvidence(record, safe.text), classification = identity.sufficient ? { ...preliminary, tier: source.authoritative && source.priority <= 4 && preliminary.fixed_public_facility ? "E1" : "E2", recommendation: source.authoritative && source.priority <= 4 ? "ready for geocoding" : "needs address review", program_relationship_verified: true, reasons: [...new Set([...(preliminary.reasons || []).filter((reason) => reason !== "program_address_relationship_not_verified"), ...identity.reasonCodes])] } : { ...preliminary, tier: "E3", recommendation: "insufficient evidence", program_relationship_verified: false, reasons: [...new Set([...(preliminary.reasons || []), ...identity.reasonCodes, "exact_program_address_relationship_not_verified"])] }
   const sourceType = source.type === "first_party" ? "official_provider" : source.type
   const authority = { first_party: 95, health_authority: 95, government: 90, municipal: 85, established_directory: 60, existing_miller: 40 }[source.type] || 0

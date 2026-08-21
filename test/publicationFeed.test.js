@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert/strict"
-import { publicationFeedAssessment, rankPublicationFeedCandidates } from "../server/publicationFeed.js"
+import { publicationFeedAssessment, rankPublicationFeedCandidates, synthesizeAuthoritativeOccupancyChain } from "../server/publicationFeed.js"
 
 const resource = (overrides = {}) => ({ id: "00000000-0000-0000-0000-000000000001", display_name: "Public Clinic", lifecycle_state: "active", editorial_status: "approved", ...overrides })
 const claim = { id: "c1", proposed_value: "100 Main St, Surrey, BC", recommendation: "auto_accept", confidence: "high", last_observed_at: "2026-08-01" }
@@ -21,4 +21,34 @@ test("already published and confidential resources fail closed", () => {
 test("complete evidence without geocoder or QC reports both machine blockers", () => {
   const result = publicationFeedAssessment({ resource: resource(), claims: [claim], evidence, locations: [] })
   assert.deepEqual(result.reasons, ["bc_geocoder_package_required", "machine_qc_required"])
+})
+
+const inspected = ({ domain, type = "first_party", matched = "", operatorMatched = false, addressMatched = false, text = "", authoritative = true }) => ({
+  source: { domain, type, authoritative }, identity: { matched, operatorMatched, addressMatched }, text,
+  evidence: { sourceType: type, sourceAuthority: type === "established_directory" ? 60 : 95, url: `https://${domain}/page`, value: "unverified" }
+})
+
+test("synthesizes an official programme page and a same-publisher service location", () => {
+  const result = synthesizeAuthoritativeOccupancyChain({ record: { submitted_address: "100 Main St, Surrey, BC" }, inspected: [
+    inspected({ domain: "provider.org", matched: "Public Clinic" }),
+    inspected({ domain: "provider.org", operatorMatched: true, addressMatched: true, text: "Public Clinic services at 100 Main St" })
+  ] })
+  assert.equal(result.supported, true)
+  assert.equal(result.evidence.length, 2)
+  assert.ok(result.evidence.every((item) => item.value === "100 Main St, Surrey, BC"))
+})
+
+test("allows an official programme source plus BC 211 corroboration, but not a head office", () => {
+  const program = inspected({ domain: "provider.org", matched: "Public Clinic" })
+  const directory = inspected({ domain: "bc.211.ca", type: "established_directory", operatorMatched: true, addressMatched: true, text: "Public Clinic at 100 Main St" })
+  assert.equal(synthesizeAuthoritativeOccupancyChain({ record: { submitted_address: "100 Main St, Surrey, BC" }, inspected: [program, directory] }).supported, true)
+  assert.equal(synthesizeAuthoritativeOccupancyChain({ record: { submitted_address: "100 Main St, Surrey, BC" }, inspected: [program, { ...directory, text: "Head office at 100 Main St" }] }).supported, false)
+})
+
+test("does not infer a programme location from an unrelated shared-building source", () => {
+  const result = synthesizeAuthoritativeOccupancyChain({ record: { submitted_address: "100 Main St, Surrey, BC" }, inspected: [
+    inspected({ domain: "provider.org", matched: "Public Clinic" }),
+    inspected({ domain: "other.org", operatorMatched: true, addressMatched: true, text: "Operator services at 100 Main St" })
+  ] })
+  assert.equal(result.supported, false)
 })
