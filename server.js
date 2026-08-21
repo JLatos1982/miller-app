@@ -1129,6 +1129,16 @@ app.get("/api/admin/private-location-candidates", requireAdmin, async (_req, res
     return res.json({ mode: "human_confirmed_private_location_only", publication_enabled: false, items, eligible_count: items.filter((item) => item.eligible).length })
   } catch { return res.status(503).json({ error: "Private location candidates are unavailable. No location was created." }) }
 })
+app.get("/api/admin/refreshed-location-reviews", requireAdmin, async (_req, res) => {
+  try {
+    const history = await supabase.from("location_qc_review_snapshots").select("canonical_resource_id,qc_version,origin,refresh_reason,created_at").eq("origin", "evidence_refresh").order("created_at", { ascending: false })
+    if (history.error) throw history.error
+    const ids = [...new Set((history.data || []).map((item) => item.canonical_resource_id))]
+    const contexts = await Promise.all(ids.map(async (id) => ({ id, context: await privateLocationContext(id) })))
+    const items = contexts.map(({ id, context }) => { const prior = (history.data || []).filter((item) => item.canonical_resource_id === id).sort((a, b) => b.qc_version - a.qc_version)[0]; const eligibility = privateLocationEligibility(context); const snapshot = eligibility.snapshot; return { canonical_uuid: id, resource_name: context.resource?.display_name || "Unavailable resource", qc: { decision: context.qc?.decision, version: context.qc?.version, prior_version: prior?.qc_version ? prior.qc_version - 1 : null, refreshed_at: prior?.created_at || null }, address: snapshot.submitted_address || null, standardized_address: snapshot.returned_address || null, geocoder: { score: snapshot.score || null, precision: snapshot.precision || null, descriptor: snapshot.location_descriptor || null, coordinates_present: Boolean(snapshot.coordinates?.latitude && snapshot.coordinates?.longitude) }, occupancy: snapshot.program_occupancy_confidence || "unverified", evidence_sources: context.evidence.filter((item) => item.source_url && item.stale !== true).length, blockers: eligibility.reasons, eligible_after_human_qc: context.qc?.decision === "pilot_eligible" && eligibility.eligible, next_action: context.qc?.decision === "manual_review" ? "Review refreshed location evidence" : eligibility.eligible ? "Create private location" : "Complete evidence package" } })
+    return res.json({ items, count: items.length, publication_enabled: false })
+  } catch { return res.status(503).json({ error: "Refreshed location reviews are unavailable." }) }
+})
 app.post("/api/admin/private-location-candidates/:canonicalUuid/confirm", requireAdmin, async (req, res) => {
   if (!/^[0-9a-f-]{36}$/i.test(req.params.canonicalUuid) || req.body?.confirmed_private_location !== true || !Number.isInteger(req.body?.expected_qc_version)) return res.status(400).json({ error: "An administrator confirmation and current QC version are required.", code: "private_location_confirmation_required" })
   try {

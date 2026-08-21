@@ -1,0 +1,9 @@
+import { useCallback, useEffect, useState } from "react"
+import { adminFetch } from "../adminApi.js"
+const readable = (value) => String(value || "unknown").replaceAll("_", " ")
+export default function RefreshedLocationReviews() {
+  const [items, setItems] = useState([]), [status, setStatus] = useState("Loading refreshed location reviews…")
+  const load = useCallback(async () => { const response = await adminFetch("/api/admin/refreshed-location-reviews"), body = await response.json().catch(() => ({})); if (!response.ok) return setStatus(body.error || "Refreshed reviews are unavailable."); setItems(body.items || []); setStatus(`${body.count || 0} refreshed records require current human QC. Nothing is public.`) }, [])
+  useEffect(() => { const timer = window.setTimeout(load, 0); return () => window.clearTimeout(timer) }, [load])
+  return <section className="address-evidence"><header><p className="eyebrow">Administrator only · current evidence</p><h2>Refreshed location reviews</h2><p role="status">{status}</p></header>{items.map((item) => <article className="evidence-card" key={item.canonical_uuid}><h3>{item.resource_name}</h3><p><strong>Workflow:</strong> Evidence refreshed → <strong>Human QC</strong> → Private location → Map review → Published</p><dl><dt>Proposed address</dt><dd>{item.address || "Missing"}</dd><dt>BC geocoder</dt><dd>{item.geocoder.score ? `${item.geocoder.score} · ${item.geocoder.precision} · ${item.geocoder.descriptor}` : "Incomplete"}</dd><dt>Occupancy</dt><dd>{readable(item.occupancy)} · {item.evidence_sources} current source(s)</dd><dt>QC</dt><dd>{readable(item.qc.decision)} · version {item.qc.version}; prior version retained</dd><dt>Blockers</dt><dd>{item.blockers.map(readable).join(", ") || "None after human QC confirmation"}</dd></dl><p><strong>Next action:</strong> {item.next_action}. This will not create a location or publish a map pin.</p></article>)}</section>
+}
