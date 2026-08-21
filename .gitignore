@@ -13,6 +13,7 @@ dist
 dist-ssr
 .cache
 *.local
+supabase/.temp/
 
 # Editor directories and files
 .vscode/*
