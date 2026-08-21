@@ -62,3 +62,14 @@ test("resource fact reconciliation is idempotent and restores safe shadow defaul
   assert.match(sql, /grant execute on function public\.save_resource_fact_shadow_decision[^;]+to service_role/)
   assert.doesNotMatch(sql, /(?:delete from|drop table|truncate)\s+public\./i)
 })
+
+test("durable research migration adds private idempotency keys without trusted-data writes", () => {
+  const sql = fs.readFileSync(new URL("../supabase/migrations/202608200003_add_shadow_research_persistence.sql", import.meta.url), "utf8")
+  assert.match(sql, /claim_fingerprint text/)
+  assert.match(sql, /evidence_fingerprint text/)
+  assert.match(sql, /resource_fact_claims_fingerprint_unique/)
+  assert.match(sql, /resource_fact_evidence_fingerprint_unique/)
+  assert.match(sql, /enable row level security/g)
+  assert.match(sql, /revoke all[^;]+from anon, authenticated/)
+  assert.doesNotMatch(sql, /(?:update|delete from|insert into) public\.(?:resource_registry|resource_locations|tavily_resources)/i)
+})

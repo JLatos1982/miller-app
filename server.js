@@ -30,8 +30,8 @@ import { getNearbyTransit } from "./server/transit/providers.js"
 import { buildAccessContext } from "./server/transit/accessContext.js"
 import { geocodeNavigationOrigin } from "./server/navigationOrigin.js"
 import { buildSearchIntent, resolveSearchLocation } from "./server/searchIntent.js"
-import { classifyLocationCandidate } from "./server/intelligence/locationAutomation.js"
 import { nextSupportCategories } from "./server/intelligence/continuity.js"
+import { createShadowPersistence } from "./server/intelligence/shadowPersistence.js"
 
 dotenv.config()
 
@@ -176,6 +176,7 @@ const supabase = createClient(
 const requireAdmin = createRequireAdmin({ supabase })
 const publicWriteHandlers = createPublicWriteHandlers({ supabase })
 const geocoder = createGeocoder({ contactEmail: process.env.GEOCODER_CONTACT_EMAIL })
+const shadowPersistence = createShadowPersistence({ supabase })
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -1083,17 +1084,36 @@ app.get("/api/admin/location-automation/dry-run", requireAdmin, (_req, res) => {
   try { res.setHeader("Cache-Control", "private, no-store"); return res.json(JSON.parse(fs.readFileSync(locationAutomationDryRunPath, "utf8"))) }
   catch { return res.status(503).json({ error: "The local v1.2.1 review inventory has not been generated." }) }
 })
-app.get("/api/admin/intelligence-shadow", requireAdmin, (_req, res) => {
+app.get("/api/admin/intelligence-shadow", requireAdmin, async (_req, res) => {
   try {
-    const report = JSON.parse(fs.readFileSync(locationAutomationDryRunPath, "utf8"))
-    const items = (report.records || []).map((record) => {
-      const result = classifyLocationCandidate(record), handled = result.decision !== "needs_review"
-      return { id: `location:${record.canonical_uuid}`, type: "location", status: handled ? "handled" : "needs_review", question: `Does ${record.resource_name} operate at ${record.submitted_address}, ${record.municipality}?`, finding: result.decision === "auto_validatable" ? "Program-specific occupancy and an exact licensed geocoder result satisfy the deterministic public-location policy." : result.decision === "do_not_map" ? "The candidate does not satisfy safe public mapping rules." : "The geocoder may resolve the address, but program-specific occupancy is not yet sufficiently established.", currentValue: null, proposedValue: result.decision === "auto_validatable" ? record.returned_address : null, reasonCodes: result.reasonCodes, sourceUrls: [record.source_url].filter((url) => /^https:\/\//i.test(String(url || ""))), confidence: result.confidence, risk: "medium", version: 0 }
+    const stored = await shadowPersistence.listQueue()
+    const resources = [...new Set(stored.claims.map((item) => item.resource_id).filter(Boolean))]
+    const registryResult = resources.length ? await supabase.from("resource_registry").select("id,display_name").in("id", resources) : { data: [], error: null }
+    if (registryResult.error) throw registryResult.error
+    const names = new Map((registryResult.data || []).map((item) => [item.id, item.display_name]))
+    const items = stored.claims.map((claim) => {
+      const sourceUrls = [...new Set(claim.evidence.map((item) => item.source_url).filter(Boolean))]
+      const resolved = claim.status !== "needs_review"
+      return { id: claim.id, type: claim.decision_category, status: resolved ? "handled" : "needs_review", question: `Verify ${claim.field_name.replaceAll("_", " ")} for ${names.get(claim.resource_id) || "an unresolved resource"}`, finding: claim.research_summary || "Miller stored a bounded evidence-backed shadow recommendation.", currentValue: claim.existing_value, proposedValue: claim.proposed_value, reasonCodes: claim.reason_codes || [], sourceUrls, evidence: claim.evidence.map((item) => ({ sourceType: item.source_type, sourceUrl: item.source_url, authority: item.source_authority, retrievedAt: item.retrieved_at, value: item.extracted_value })), recommendation: claim.recommendation, confidence: claim.confidence, risk: claim.risk, version: claim.version, decisionCategory: claim.decision_category, observedAt: claim.last_observed_at }
     })
     const needsReview = items.filter((item) => item.status === "needs_review"), handledByMiller = items.filter((item) => item.status === "handled")
+    const reviewed = stored.claims.filter((item) => !["observed", "needs_review"].includes(item.status))
+    const agreements = reviewed.filter((item) => (item.status === "accepted" && ["auto_accept", "accept_with_monitoring"].includes(item.recommendation)) || (item.status === "superseded" && item.recommendation === "human_review") || (item.status === "rejected" && item.recommendation === "reject") || (item.status === "unknown" && item.recommendation === "unknown")).length
     res.setHeader("Cache-Control", "private, no-store")
-    return res.json({ mode: "local_shadow_observe_only", needsReview, handledByMiller, summary: `${needsReview.length} exceptions need judgment; ${handledByMiller.length} routine or do-not-map cases are separated for audit.`, controls: { shadow_enabled: true, fact_updates: false, location_publication: false, resource_publication: false, kill_switch_active: true }, persistence: "not_enabled_migration_ledger_unverified", persistenceNote: "Decision buttons remain disabled until the production migration ledger and durable audit schema are verified. No trusted record or publication can change." })
-  } catch { return res.status(503).json({ error: "The local shadow inventory is unavailable." }) }
+    return res.json({ mode: "durable_shadow_observe_only", needsReview, handledByMiller, summary: `${needsReview.length} exceptions need judgment; ${handledByMiller.length} cases were handled in shadow.`, controls: stored.controls, persistence: "supabase", persistenceNote: "Shadow decisions record agreement and audit history only. Trusted resources and publication remain unchanged.", metrics: { handled_by_miller: handledByMiller.length, human_judgment_required: needsReview.length, administrator_external_research_required: needsReview.filter((item) => !item.sourceUrls.length).length, reviewed: reviewed.length, agreements, disagreements: reviewed.length - agreements } })
+  } catch { return res.status(503).json({ error: "Durable shadow evidence is unavailable." }) }
+})
+
+app.post("/api/admin/intelligence-shadow/:claimId/decision", requireAdmin, async (req, res) => {
+  if (!/^[0-9a-f-]{36}$/i.test(req.params.claimId) || !Number.isInteger(req.body?.expected_version) || req.body.expected_version < 0) return res.status(400).json({ error: "Invalid shadow decision." })
+  try {
+    const item = await shadowPersistence.decide({ claimId: req.params.claimId, expectedVersion: req.body.expected_version, action: req.body?.action, actorId: req.adminUser.id })
+    return res.json({ item, trusted_record_changed: false, publication_changed: false })
+  } catch (error) {
+    if (error?.code === "40001" || /version conflict/i.test(String(error?.message))) return res.status(409).json({ error: "This recommendation changed. Reload before deciding.", code: "shadow_version_conflict" })
+    if (/invalid_shadow_action/.test(String(error?.message))) return res.status(400).json({ error: "Invalid shadow action." })
+    return res.status(503).json({ error: "The shadow decision could not be saved." })
+  }
 })
 app.get("/api/admin/location-qc-review", requireAdmin, async (_req, res) => {
   try {
