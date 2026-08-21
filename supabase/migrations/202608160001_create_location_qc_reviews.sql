@@ -41,6 +41,10 @@ declare v_current public.location_qc_reviews; v_next public.location_qc_reviews;
 begin
   if p_decision not in ('pilot_eligible','manual_review','correct_address','exclude_exact_location','policy_problem','defer') then raise exception 'invalid decision'; end if;
   if not exists (select 1 from public.resource_registry where id = p_canonical_resource_id and lifecycle_state = 'active' and editorial_status = 'approved') then raise exception 'canonical resource is not eligible'; end if;
+  -- A row lock cannot serialize the first decision because no QC row exists yet.
+  -- Lock the canonical identity for this transaction so concurrent version-zero
+  -- decisions cannot both insert/update version one and append contradictory audit.
+  perform pg_advisory_xact_lock(hashtextextended(p_canonical_resource_id::text, 0));
   select * into v_current from public.location_qc_reviews where canonical_resource_id = p_canonical_resource_id for update;
   if coalesce(v_current.version, 0) <> p_expected_version then raise exception 'review version conflict' using errcode = '40001'; end if;
   insert into public.location_qc_reviews (canonical_resource_id,policy_version,classification_fingerprint,decision,decision_note,review_snapshot,version,reviewed_by,reviewed_at,updated_at)

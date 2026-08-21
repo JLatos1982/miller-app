@@ -17,7 +17,7 @@ import { createPublicWriteHandlers } from "./server/publicWrites.js"
 import { validateMillerRequest } from "./server/millerValidation.js"
 import { addressCacheKey, createGeocoder, isPublicGeocodeCandidate, normalizeAddressParts } from "./server/geocoding.js"
 import { boundedMapConversation, buildAuthorizedMapResponse } from "./server/mapChat.js"
-import { authorizeMapMatches, getCuratedMapResource } from "./server/mapResources.js"
+import { authorizeMapMatches, curatedMapResources, getCuratedMapResource } from "./server/mapResources.js"
 import { classifyLocationReview } from "./server/locationReview.js"
 import { canonicalSeedId } from "./server/resourceIdentity.js"
 import { collectCandidateMatches, directoryApprovalState, prepareShelterCandidate, SHELTER_REVIEW_ACTIONS } from "./server/shelterDiscovery.js"
@@ -26,7 +26,7 @@ import { MAX_PDF_BYTES, PDF_MIME, pdfDisposition, requestedPdfByteRange, safePdf
 import { readLocationQcStore, reconcileLocationQcReview, saveLocationQcDecision } from "./server/locationQcReview.js"
 import { buildAutoPublicationPreview, buildLocationReconciliation, isVirtualOrMobileResource } from "./server/mapPopulation.js"
 import { capabilityReport } from "./server/capabilities.js"
-import { buildAddressResolutionReport } from "./server/addressResolution.js"
+import { buildDirectoryCoverageReport } from "./server/directoryAddressCoverage.js"
 import { getNearbyTransit } from "./server/transit/providers.js"
 import { buildAccessContext } from "./server/transit/accessContext.js"
 import { geocodeNavigationOrigin } from "./server/navigationOrigin.js"
@@ -1067,13 +1067,17 @@ app.get("/api/admin/address-resolution", requireAdmin, async (_req, res) => {
   try {
     const inventory = readAddressEvidence()
     const geocoded = JSON.parse(fs.readFileSync(locationAutomationDryRunPath, "utf8"))
-    const [directory, locations] = await Promise.all([
-      supabase.from("resource_registry").select("id", { count: "exact", head: true }).eq("lifecycle_state", "active"),
-      supabase.from("resource_locations").select("id", { count: "exact", head: true }).eq("location_type", "fixed").eq("public_map", true).eq("geocode_status", "verified").eq("review_status", "approved"),
+    const [registry, aliases, tavilyResources, locations, claims, evidence] = await Promise.all([
+      supabase.from("resource_registry").select("*").eq("lifecycle_state", "active"),
+      supabase.from("resource_source_aliases").select("*"),
+      supabase.from("tavily_resources").select("*"),
+      supabase.from("resource_locations").select("*"),
+      supabase.from("resource_fact_claims").select("*"),
+      supabase.from("resource_fact_evidence").select("*"),
     ])
-    if (directory.error || locations.error) throw new Error("production_counts_unavailable")
+    if ([registry, aliases, tavilyResources, locations, claims, evidence].some((result) => result.error)) throw new Error("production_coverage_unavailable")
     res.setHeader("Cache-Control", "private, no-store")
-    return res.json(buildAddressResolutionReport({ inventory, geocoded, totalDirectoryResources: directory.count, publicLocationCount: locations.count }))
+    return res.json(buildDirectoryCoverageReport({ registry: registry.data, aliases: aliases.data, tavilyResources: tavilyResources.data, curatedResources: curatedMapResources, locations: locations.data, claims: claims.data, evidence: evidence.data, inventory, geocoded }))
   } catch { return res.status(503).json({ error: "Address resolution is unavailable. No data was changed." }) }
 })
 app.post("/api/admin/address-evidence/bounded-approve", requireAdmin, (req, res) => {

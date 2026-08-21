@@ -37,6 +37,6 @@ test("server routes are protected and contain no publication or geocoder call", 
 })
 test("forward migration separates decisions, enforces versions, audit, RLS, and service-only execution", () => {
   const sql = fs.readFileSync(new URL("../supabase/migrations/202608160001_create_location_qc_reviews.sql", import.meta.url), "utf8")
-  for (const expected of ["location_qc_reviews", "location_qc_review_audit", "enable row level security", "review version conflict", "append-only", "grant execute", "service_role"]) assert.match(sql, new RegExp(expected, "i"))
+  for (const expected of ["location_qc_reviews", "location_qc_review_audit", "enable row level security", "review version conflict", "append-only", "grant execute", "service_role", "pg_advisory_xact_lock"]) assert.match(sql, new RegExp(expected, "i"))
   assert.doesNotMatch(sql, /insert into public\.resource_locations|update public\.resource_locations/)
 })
