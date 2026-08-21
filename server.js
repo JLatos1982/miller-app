@@ -1131,7 +1131,7 @@ app.get("/api/admin/private-location-candidates", requireAdmin, async (_req, res
 })
 app.get("/api/admin/refreshed-location-reviews", requireAdmin, async (_req, res) => {
   try {
-    const history = await supabase.from("location_qc_review_snapshots").select("canonical_resource_id,qc_version,origin,refresh_reason,created_at").eq("origin", "evidence_refresh").order("created_at", { ascending: false })
+    const history = await supabase.from("location_qc_review_snapshots").select("canonical_resource_id,qc_version,origin,refresh_reason,created_at").in("origin", ["evidence_refresh", "machine_initial"]).order("created_at", { ascending: false })
     if (history.error) throw history.error
     const ids = [...new Set((history.data || []).map((item) => item.canonical_resource_id))]
     const contexts = await Promise.all(ids.map(async (id) => ({ id, context: await privateLocationContext(id) })))
