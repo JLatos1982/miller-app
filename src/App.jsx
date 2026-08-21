@@ -1476,7 +1476,7 @@ const millerImageStyle = {}
         </button>
       </div>
       <div className="hero-header">
-       <p className="eyebrow">Gentle help finding support in BC’s Lower Mainland</p>
+       <p className="eyebrow">Gentle help finding your next step in BC’s Lower Mainland</p>
 
           <div className="title-stage">
             <div className="title-frame">
@@ -1534,8 +1534,9 @@ const millerImageStyle = {}
 
             <div className="micro-options">
               <p className="ai-note">
-                Miller offers a short guide first, and the list stays searchable by city.
+                Tell Miller what kind of support you need. Miller helps you find local addiction and community supports and understand your options.
               </p>
+              <p className="capability-signal">Search · nearby services · getting there</p>
               <p className="ai-disclosure">
                 Miller is not a therapist. It is an AI-assisted program that helps find local resources and is maintained by an unpaid volunteer.
               </p>

@@ -1,10 +1,14 @@
 import { cachedTransitValue, fetchTransitBytes } from "./fetch.js"
 import { nearbyStops, parseGtfsZip } from "./gtfs.js"
+import { decodeGtfsRealtime, normalizeGtfsRealtimeAlerts, normalizeGtfsRealtimeTrips, normalizeGtfsRealtimeVehicles, relevantActiveAlerts } from "./realtime.js"
 
 const BC_TRANSIT_OPERATOR = "13"
 const BC_TRANSIT_STATIC = `https://bct.tmix.se/Tmix.Cap.TdExport.WebApi/gtfs/?operatorIds=${BC_TRANSIT_OPERATOR}`
 const TRANSLINK_STATIC = "https://gtfs-static.translink.ca/gtfs/google_transit.zip"
 const STATIC_TTL_MS = 6 * 60 * 60 * 1000
+export const REALTIME_TTL_MS = 45 * 1000
+const runtime = { alerts: null, tripUpdates: null, vehiclePositions: null }
+let realtimeFailureUntil = 0
 
 export const transitProviderDefinitions = {
   bc_transit: { id: "bc_transit", name: "BC Transit", coverage: "Central Fraser Valley pilot", staticUrl: BC_TRANSIT_STATIC, realtime: "available", sourceUrl: "https://www.bctransit.com/open-data/" },
@@ -19,18 +23,45 @@ export async function getNearbyTransit(point, { providerId = providerForPoint(po
   const provider = transitProviderDefinitions[providerId]
   if (!provider) throw new Error("No transit provider is configured for this location.")
   const index = await cachedTransitValue(`static:${provider.id}`, async () => parseGtfsZip(await loadBytes(provider.staticUrl)), STATIC_TTL_MS)
+  const stops = nearbyStops(index, point)
+  const realtime = provider.id === "translink" ? await getTranslinkRealtime({ loadBytes }) : { status: "published_not_loaded", alerts: [], feeds: {} }
   return {
     provider: { id: provider.id, name: provider.name, coverage: provider.coverage, sourceUrl: provider.sourceUrl },
-    data: { kind: "nearby_stops", distanceMethod: "straight_line", radiusKm: 1.5, stops: nearbyStops(index, point) },
-    realtime: provider.id === "translink" && !process.env.TRANSLINK_GTFS_REALTIME_API_KEY ? { status: "not_configured", alerts: [] } : { status: "published_not_loaded", alerts: [] },
-    provenance: { retrievedAt: new Date().toISOString(), cacheMaxAgeSeconds: STATIC_TTL_MS / 1000, sourceFormat: "GTFS Schedule" },
+    data: { kind: "nearby_stops", distanceMethod: "straight_line", radiusKm: 1.5, stops },
+    realtime: { ...realtime, alerts: relevantActiveAlerts(realtime.alerts, stops) },
+    provenance: { retrievedAt: new Date().toISOString(), cacheMaxAgeSeconds: STATIC_TTL_MS / 1000, realtimeCacheMaxAgeSeconds: REALTIME_TTL_MS / 1000, sourceFormat: "GTFS Schedule + GTFS-Realtime" },
   }
 }
 
-export function translinkRealtimeUrls() {
-  if (!process.env.TRANSLINK_GTFS_REALTIME_API_KEY) return null
-  const key = encodeURIComponent(process.env.TRANSLINK_GTFS_REALTIME_API_KEY)
+export function translinkRealtimeUrls(env = process.env) {
+  if (!env.TRANSLINK_GTFS_REALTIME_API_KEY) return null
+  const key = encodeURIComponent(env.TRANSLINK_GTFS_REALTIME_API_KEY)
   return { tripUpdates: `https://gtfsapi.translink.ca/v3/gtfsrealtime?apikey=${key}`, vehiclePositions: `https://gtfsapi.translink.ca/v3/gtfsposition?apikey=${key}`, alerts: `https://gtfsapi.translink.ca/v3/gtfsalerts?apikey=${key}` }
+}
+
+export function getTransitRuntimeStatus(env = process.env) {
+  if (!env.TRANSLINK_GTFS_REALTIME_API_KEY) return { alerts: "not_configured", tripUpdates: "not_configured", vehiclePositions: "not_configured" }
+  return Object.fromEntries(Object.entries(runtime).map(([name, status]) => [name, status || "configured"]))
+}
+export function resetTransitRuntimeForTests() { runtime.alerts = null; runtime.tripUpdates = null; runtime.vehiclePositions = null; realtimeFailureUntil = 0 }
+
+export async function getTranslinkRealtime({ loadBytes = fetchTransitBytes, env = process.env } = {}) {
+  const urls = translinkRealtimeUrls(env)
+  if (!urls) return { status: "not_configured", alerts: [], tripUpdates: [], vehiclePositions: [], feeds: getTransitRuntimeStatus(env) }
+  if (Date.now() < realtimeFailureUntil) return { status: "temporarily_unavailable", alerts: [], tripUpdates: [], vehiclePositions: [], feeds: getTransitRuntimeStatus(env) }
+  const definitions = [
+    ["alerts", normalizeGtfsRealtimeAlerts], ["tripUpdates", normalizeGtfsRealtimeTrips], ["vehiclePositions", normalizeGtfsRealtimeVehicles],
+  ]
+  const results = await Promise.all(definitions.map(async ([name, normalize]) => {
+    try {
+      const value = await cachedTransitValue(`translink:realtime:${name}`, async () => { const retrievedAt = new Date().toISOString(); return normalize(decodeGtfsRealtime(await loadBytes(urls[name], { maxBytes: 12 * 1024 * 1024, timeoutMs: 8000 })), "translink", retrievedAt) }, REALTIME_TTL_MS)
+      runtime[name] = "available"; return [name, value]
+    } catch { runtime[name] = "temporarily_unavailable"; return [name, []] }
+  }))
+  const feeds = getTransitRuntimeStatus(env); const available = Object.values(feeds).some((status) => status === "available")
+  if (!available) realtimeFailureUntil = Date.now() + REALTIME_TTL_MS
+  const values = Object.fromEntries(results)
+  return { status: available ? "available" : "temporarily_unavailable", alerts: values.alerts, tripUpdates: values.tripUpdates, vehiclePositions: values.vehiclePositions, feeds }
 }
 
 export function bcTransitRealtimeUrls() {

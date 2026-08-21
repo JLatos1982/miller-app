@@ -2858,6 +2858,7 @@ body,
 .transit-context-panel { position: absolute; z-index: 720; right: 26px; bottom: 26px; box-sizing: border-box; width: min(330px, calc(88vw - 52px)); max-height: 48%; overflow: auto; padding: 12px; border: 1px solid #7d9daa; border-radius: 12px; background: #f7fbfc; box-shadow: 0 5px 18px rgba(23,50,74,.2); }
 .transit-nearby > button { width: 100%; min-height: 44px; border: 1px solid #42728c; border-radius: 9px; background: #e1f2f8; color: #174a68; font-weight: 800; }
 .transit-nearby ul { padding-left: 20px; }.transit-nearby li { margin: 8px 0; }.transit-nearby small { display: block; color: #536b78; line-height: 1.4; }
+.transit-alerts { margin: 12px 0; padding: 10px; border-left: 3px solid #b16a2e; border-radius: 6px; background: #fff8ed; }.transit-alerts h3 { margin: 0 0 7px; font-size: .95rem; }.transit-alerts article + article { margin-top: 8px; }.transit-alerts p,.transit-realtime-note { overflow-wrap: anywhere; font-size: .82rem; line-height: 1.4; }.capability-signal { margin: 4px 0 0; color: var(--text-soft); font-size: .78rem; letter-spacing: .025em; }
 .capability-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(210px,1fr)); gap: 10px; }.capability-grid article { padding: 12px; border: 1px solid #aac2c5; border-radius: 10px; background: #f8fcfc; }.capability-grid h3,.capability-grid p { margin: 0 0 6px; }
 .drawer-close { float: right; min-width: 44px; min-height: 44px; border: 0; background: transparent; font-size: 2rem; }
 .drawer-status, .verified-date { color: #667a89; font-size: .78rem; }
