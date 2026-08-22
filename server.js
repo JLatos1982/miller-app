@@ -43,6 +43,7 @@ import { buildPlannerDiagnostic, loadPlannerDiagnosticState } from "./server/pla
 import { buildImmuneSystemHealth } from "./server/immuneSystem.js"
 import { HEARTBEAT_MODES, planGrowthOpportunities, researchEffectiveness, runHeartbeatCycle } from "./server/heartbeat.js"
 import { buildGrowthTrendReport } from "./server/growthTrendRadar.js"
+import { planCuriosityQuestions, runTrendSensor } from "./server/trendSensor.js"
 import { createPlannerTaskExecutor, validatePlannerTaskRequest } from "./server/plannerTaskExecutor.js"
 import { fetchSafeResearchDocument } from "./server/review/linkQuality.js"
 
@@ -1087,34 +1088,67 @@ app.get("/api/admin/evidence-gap-plan", requireAdmin, async (req, res) => {
 })
 app.get("/api/admin/system-health", requireAdmin, async (_req, res) => {
   try {
-    const [plannerState, attachments, decisions] = await Promise.all([
+    const [plannerState, attachments, decisions, trendItems] = await Promise.all([
       loadPlannerDiagnosticState(supabase, { limit: 20 }),
       supabase.from("resource_submission_attachments").select("id,status,created_at").order("created_at", { ascending: false }).limit(200),
       supabase.from("resource_submission_attachment_scan_decisions").select("attachment_id,decision,actor_type,created_at").order("created_at", { ascending: false }).limit(400),
+      supabase.from("miller_trend_sensor_run_items").select("source_id,outcome,created_at").order("created_at", { ascending: false }).limit(30),
     ])
-    if (attachments.error || decisions.error) throw attachments.error || decisions.error
+    if (attachments.error || decisions.error || trendItems.error) throw attachments.error || decisions.error || trendItems.error
     res.setHeader("Cache-Control", "private, no-store")
-    return res.json(buildImmuneSystemHealth({ plannerState, attachments: attachments.data || [], scanDecisions: decisions.data || [], configuration: { admin_allowlist_configured: Boolean(process.env.ADMIN_EMAIL_ALLOWLIST), attachment_quarantine_enforced: true } }))
+    return res.json(buildImmuneSystemHealth({ plannerState, attachments: attachments.data || [], scanDecisions: decisions.data || [], trendSensorItems: trendItems.data || [], configuration: { admin_allowlist_configured: Boolean(process.env.ADMIN_EMAIL_ALLOWLIST), attachment_quarantine_enforced: true } }))
   } catch {
     return res.status(503).json({ error: "System health diagnostics are unavailable. No data was changed." })
   }
 })
 async function heartbeatInspection() {
-  const [plannerState, attachments, decisions, candidates, executions] = await Promise.all([
+  const [plannerState, attachments, decisions, candidates, executions, trendItems] = await Promise.all([
     loadPlannerDiagnosticState(supabase, { limit: 20 }),
     supabase.from("resource_submission_attachments").select("id,status,created_at").order("created_at", { ascending: false }).limit(200),
     supabase.from("resource_submission_attachment_scan_decisions").select("attachment_id,decision,actor_type,created_at").order("created_at", { ascending: false }).limit(400),
     supabase.from("resource_discovery_candidates").select("id,review_status,location_disclosure_status,matched_resource_id,community").limit(100),
     supabase.from("planner_task_executions").select("task_type,outcome").not("outcome", "is", null).limit(200),
+    supabase.from("miller_trend_sensor_run_items").select("source_id,outcome,created_at").order("created_at", { ascending: false }).limit(30),
   ])
-  if ([attachments, decisions, candidates, executions].some((item) => item.error)) throw new Error("heartbeat_state_unavailable")
-  const health = buildImmuneSystemHealth({ plannerState, attachments: attachments.data || [], scanDecisions: decisions.data || [], configuration: { admin_allowlist_configured: Boolean(process.env.ADMIN_EMAIL_ALLOWLIST), attachment_quarantine_enforced: true } })
+  if ([attachments, decisions, candidates, executions, trendItems].some((item) => item.error)) throw new Error("heartbeat_state_unavailable")
+  const health = buildImmuneSystemHealth({ plannerState, attachments: attachments.data || [], scanDecisions: decisions.data || [], trendSensorItems: trendItems.data || [], configuration: { admin_allowlist_configured: Boolean(process.env.ADMIN_EMAIL_ALLOWLIST), attachment_quarantine_enforced: true } })
   return { planner: buildPlannerDiagnostic(plannerState), health, growth_opportunities: planGrowthOpportunities({ resources: plannerState.resources, candidates: candidates.data || [] }), effectiveness: researchEffectiveness(executions.data || []) }
 }
 async function persistHeartbeatStart(cycle) { const result = await supabase.from("miller_maintenance_cycles").insert({ id: cycle.id, mode: cycle.mode, actor_id: cycle.actor_id, tasks_considered: cycle.tasks_considered, knowledge_finding_count: cycle.knowledge_finding_count, security_finding_count: cycle.security_finding_count }).select().single(); if (result.error) throw result.error }
 async function persistHeartbeatFinish(cycle) { const update = await supabase.from("miller_maintenance_cycles").update({ status: cycle.stop_reason === "security_halt" ? "security_halt" : "completed", tasks_executed: cycle.tasks_executed, useful_evidence_gained: cycle.useful_evidence_gained, external_call_count: cycle.external_call_count, knowledge_finding_count: cycle.knowledge_finding_count, security_finding_count: cycle.security_finding_count, stop_reason: cycle.stop_reason, summary: { selected_task_ids: cycle.selected_task_ids }, completed_at: cycle.completed_at }).eq("id", cycle.id); if (update.error) throw update.error; if (cycle.items.length) { const items = await supabase.from("miller_maintenance_cycle_items").insert(cycle.items.map((item) => ({ cycle_id: cycle.id, ...item }))); if (items.error) throw items.error } }
 app.get("/api/admin/heartbeat", requireAdmin, async (_req, res) => { try { const inspection = await heartbeatInspection(); const last = await supabase.from("miller_maintenance_cycles").select("id,mode,status,tasks_considered,tasks_executed,useful_evidence_gained,external_call_count,stop_reason,completed_at").order("started_at", { ascending: false }).limit(1).maybeSingle(); if (last.error) throw last.error; res.setHeader("Cache-Control", "private, no-store"); return res.json({ ...inspection, last_cycle: last.data || null }) } catch { return res.status(503).json({ error: "Heartbeat diagnostics are unavailable. No data was changed." }) } })
-app.get("/api/admin/growth-trends", requireAdmin, async (_req, res) => { try { const [resources, candidates, observations, executions] = await Promise.all([supabase.from("resource_registry").select("id,display_name").eq("lifecycle_state", "active").neq("editorial_status", "hidden").limit(500), supabase.from("resource_discovery_candidates").select("id,name,review_status,location_disclosure_status,matched_resource_id,community,category,source_authority").limit(200), supabase.from("miller_trend_observations").select("id,observation_fingerprint,source_url,source_authority,trend_category,attention,state,geographic_scope,canonical_resource_id,publication_date,retrieved_at,summary,recommended_response,supersedes_id").order("retrieved_at", { ascending: false }).limit(100), supabase.from("planner_task_executions").select("task_type,outcome").not("outcome", "is", null).limit(200)]); if ([resources,candidates,observations,executions].some((item) => item.error)) throw new Error("growth_trend_state_unavailable"); res.setHeader("Cache-Control", "private, no-store"); return res.json(buildGrowthTrendReport({ resources: resources.data || [], candidates: candidates.data || [], observations: observations.data || [], effectiveness: researchEffectiveness(executions.data || []) })) } catch { return res.status(503).json({ error: "Growth and trend diagnostics are unavailable. No data was changed." }) } })
+app.get("/api/admin/growth-trends", requireAdmin, async (_req, res) => { try { const [resources, candidates, observations, executions, lastInspection] = await Promise.all([supabase.from("resource_registry").select("id,display_name").eq("lifecycle_state", "active").neq("editorial_status", "hidden").limit(500), supabase.from("resource_discovery_candidates").select("id,name,review_status,location_disclosure_status,matched_resource_id,community,category,source_authority").limit(200), supabase.from("miller_trend_observations").select("id,observation_fingerprint,source_url,source_authority,trend_category,attention,state,geographic_scope,canonical_resource_id,publication_date,retrieved_at,summary,recommended_response,supersedes_id").order("retrieved_at", { ascending: false }).limit(100), supabase.from("planner_task_executions").select("task_type,outcome").not("outcome", "is", null).limit(200), supabase.from("miller_trend_sensor_runs").select("id,status,requests_used,new_observations,duplicates_ignored,stop_reason,started_at,completed_at").order("started_at", { ascending: false }).limit(1).maybeSingle()]); if ([resources,candidates,observations,executions,lastInspection].some((item) => item.error)) throw new Error("growth_trend_state_unavailable"); const report = buildGrowthTrendReport({ resources: resources.data || [], candidates: candidates.data || [], observations: observations.data || [], effectiveness: researchEffectiveness(executions.data || []) }); res.setHeader("Cache-Control", "private, no-store"); return res.json({ ...report, curiosity_questions: planCuriosityQuestions({ opportunities: report.growth_opportunities, trends: report.trends }), last_inspection: lastInspection.data || null }) } catch { return res.status(503).json({ error: "Growth and trend diagnostics are unavailable. No data was changed." }) } })
+const trendSensorRateLimit = rateLimit({ windowMs: 15 * 60 * 1000, max: 2 })
+app.post("/api/admin/growth-trends/inspect", trendSensorRateLimit, requireAdmin, async (req, res) => {
+  if (req.body?.confirm !== true) return res.status(400).json({ error: "Explicit trend-inspection confirmation is required." })
+  try {
+    const [inspection, fingerprints, resources] = await Promise.all([
+      heartbeatInspection(),
+      supabase.from("miller_trend_observations").select("observation_fingerprint").limit(500),
+      supabase.from("resource_registry").select("id,display_name").eq("lifecycle_state", "active").neq("editorial_status", "hidden").limit(500),
+    ])
+    if (fingerprints.error || resources.error) throw fingerprints.error || resources.error
+    const result = await runTrendSensor({
+      actorId: req.adminUser.id,
+      health: inspection.health,
+      resources: resources.data || [],
+      existingFingerprints: new Set((fingerprints.data || []).map((item) => item.observation_fingerprint)),
+      fetchDocument: async (entrypoint) => {
+        const document = await fetchSafeResearchDocument(entrypoint, { timeoutMs: 7_000 })
+        return { ...document, bytes: Buffer.byteLength(document.text || "", "utf8") }
+      },
+      persist: async (run) => {
+        const status = run.stop_reason === "security_halt" ? "security_halt" : run.stop_reason === "completed" || run.stop_reason === "budget_exhausted" ? "completed" : "failed"
+        const created = await supabase.from("miller_trend_sensor_runs").insert({ id: run.id, actor_id: run.actor_id, status, requests_used: run.requests_used, new_observations: run.new_observations, duplicates_ignored: run.duplicates_ignored, stop_reason: run.stop_reason, completed_at: new Date().toISOString() })
+        if (created.error) throw created.error
+        if (run.items.length) { const items = await supabase.from("miller_trend_sensor_run_items").insert(run.items.map((item) => ({ run_id: run.id, ...item }))); if (items.error) throw items.error }
+        if (run.observations.length) { const observations = await supabase.from("miller_trend_observations").insert(run.observations.map((item) => ({ observation_fingerprint: item.observation_fingerprint, source_url: item.source_url, source_authority: item.source_authority, trend_category: item.trend_category, attention: item.attention, geographic_scope: item.geographic_scope, canonical_resource_id: item.canonical_resource_id, publication_date: item.publication_date, summary: item.summary, recommended_response: item.recommended_response, provenance: { source_id: item.source_id, source_class: item.source_class, evidence_excerpt: item.evidence_excerpt, hostile_content_detected: item.hostile_content_detected, content_role: "untrusted_observation", link_status: item.link_status } }))); if (observations.error) throw observations.error }
+      },
+    })
+    res.setHeader("Cache-Control", "private, no-store")
+    return res.json({ ...result, automatic_maintenance_started: false, automatic_growth_started: false, map_publication_changed: false })
+  } catch (error) { console.error("Trend inspection failed:", String(error?.message || "unknown").slice(0, 200)); return res.status(503).json({ error: "Trend inspection could not complete. No canonical, growth, or map data was changed." }) }
+})
 const heartbeatRateLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 3 })
 app.post("/api/admin/heartbeat", heartbeatRateLimit, requireAdmin, async (req, res) => {
   const mode = req.body?.mode

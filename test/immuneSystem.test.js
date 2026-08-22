@@ -26,3 +26,10 @@ test("health endpoint is protected, bounded, metadata-only, and has no external 
   assert.match(section, /requireAdmin/); assert.match(section, /resource_submission_attachments/); assert.match(section, /buildImmuneSystemHealth/)
   assert.doesNotMatch(section, /storage\.from|createSignedUrl|tavily|OpenAI|fetch\(/)
 })
+
+test("repeated fixed-source Trend Sensor failures become a diagnostic only", () => {
+  const report = buildImmuneSystemHealth({ configuration: { admin_allowlist_configured: true, attachment_quarantine_enforced: true }, trendSensorItems: [{ source_id: "bc-government-substance-use", outcome: "failed" }, { source_id: "bc-government-substance-use", outcome: "blocked" }] })
+  const finding = report.findings.find((item) => item.finding_type === "trend_source_degraded")
+  assert.equal(finding?.severity, "medium")
+  assert.equal(finding?.requires_human_review, true)
+})

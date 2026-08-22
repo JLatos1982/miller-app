@@ -1,0 +1,16 @@
+begin;
+create extension if not exists pgtap with schema extensions;
+select plan(7);
+insert into auth.users(id,instance_id,aud,role,email,encrypted_password,raw_app_meta_data,raw_user_meta_data,created_at,updated_at) values ('00000000-0000-0000-0000-000000004301','00000000-0000-0000-0000-000000000000','authenticated','authenticated','trend-sensor@example.invalid','','{}','{}',now(),now());
+select ok(not has_table_privilege('anon','public.miller_trend_sensor_runs','select'),'anon cannot read sensor runs');
+select ok(not has_table_privilege('authenticated','public.miller_trend_sensor_runs','insert'),'ordinary users cannot create sensor runs');
+select ok(not has_table_privilege('authenticated','public.miller_trend_sensor_run_items','insert'),'ordinary users cannot create source audit items');
+select ok(has_table_privilege('service_role','public.miller_trend_sensor_runs','insert'),'service role can record sensor runs');
+set local role service_role;
+insert into public.miller_trend_sensor_runs(id,actor_id,status,requests_used,new_observations,duplicates_ignored,stop_reason,completed_at) values ('00000000-0000-0000-0000-000000004302','00000000-0000-0000-0000-000000004301','completed',1,0,1,'completed',now());
+insert into public.miller_trend_sensor_run_items(run_id,source_id,source_url,outcome,reason_code) values ('00000000-0000-0000-0000-000000004302','bc-government-substance-use','https://www2.gov.bc.ca/example','unchanged','no_new_observation');
+select is((select outcome from public.miller_trend_sensor_run_items where run_id='00000000-0000-0000-0000-000000004302'),'unchanged','bounded source outcome is retained');
+select throws_like($$delete from public.miller_trend_sensor_runs where id='00000000-0000-0000-0000-000000004302'$$,'resource fact audit is append-only','sensor run audit cannot be deleted');
+select throws_like($$update public.miller_trend_sensor_run_items set outcome='observed' where run_id='00000000-0000-0000-0000-000000004302'$$,'resource fact audit is append-only','sensor source audit cannot be altered');
+select * from finish();
+rollback;

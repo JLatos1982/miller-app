@@ -8,7 +8,7 @@ const latestByAttachment = (decisions = []) => {
 }
 const finding = (input) => Object.freeze({ read_only: true, requires_human_review: true, actionable: true, resource_id: null, object_ids: [], reason_codes: [], ...input })
 
-export function systemSecurityAudit({ attachments = [], scanDecisions = [], configuration = {} } = {}) {
+export function systemSecurityAudit({ attachments = [], scanDecisions = [], trendSensorItems = [], configuration = {} } = {}) {
   const decisions = latestByAttachment(scanDecisions), findings = []
   for (const attachment of attachments) {
     const decision = decisions.get(attachment.id), ids = [attachment.id]
@@ -20,11 +20,16 @@ export function systemSecurityAudit({ attachments = [], scanDecisions = [], conf
   }
   if (configuration.admin_allowlist_configured !== true) findings.push(finding({ finding_id: "security:admin_allowlist_missing", domain: "system", finding_type: "admin_protection_configuration", severity: "high", reason_codes: ["admin_allowlist_not_configured"], explanation: "Administrator access is not configured to fail closed through an email allowlist.", recommendation: "Configure the administrator allowlist before enabling admin use." }))
   if (configuration.attachment_quarantine_enforced !== true) findings.push(finding({ finding_id: "security:attachment_quarantine_unverified", domain: "system", finding_type: "attachment_quarantine_control", severity: "high", reason_codes: ["quarantine_control_unverified"], explanation: "The attachment quarantine control could not be confirmed.", recommendation: "Treat attachments as unavailable until the control is verified." }))
+  const trendFailures = new Map()
+  for (const item of trendSensorItems) if (["failed", "blocked"].includes(item.outcome)) trendFailures.set(item.source_id, (trendFailures.get(item.source_id) || 0) + 1)
+  for (const [sourceId, count] of trendFailures) if (count >= 2) findings.push(finding({ finding_id: `security:trend_source_degraded:${sourceId}`, domain: "system", finding_type: "trend_source_degraded", severity: "medium", reason_codes: ["authoritative_source_repeated_failure", itemSafeCode(sourceId)], explanation: "A fixed authoritative Trend Sensor source repeatedly failed or was blocked.", recommendation: "Review its allowlisted entrypoint and parser before another authorized inspection." }))
   return findings.sort((a, b) => severityRank[a.severity] - severityRank[b.severity] || a.finding_id.localeCompare(b.finding_id))
 }
 
-export function buildImmuneSystemHealth({ plannerState = {}, attachments = [], scanDecisions = [], configuration = {} } = {}) {
-  const planner = buildPlannerDiagnostic(plannerState), security_findings = systemSecurityAudit({ attachments, scanDecisions, configuration })
+const itemSafeCode = (value) => String(value || "unknown").replace(/[^a-z0-9_-]/gi, "_").slice(0, 80)
+
+export function buildImmuneSystemHealth({ plannerState = {}, attachments = [], scanDecisions = [], trendSensorItems = [], configuration = {} } = {}) {
+  const planner = buildPlannerDiagnostic(plannerState), security_findings = systemSecurityAudit({ attachments, scanDecisions, trendSensorItems, configuration })
   const knowledge_findings = planner.audit_findings.map((item) => finding({ finding_id: `knowledge:${item.resource_id}:${item.issue_type}`, domain: "knowledge", finding_type: item.issue_type, severity: item.issue_type === "authoritative_address_conflict" ? "high" : item.issue_type === "stale_evidence" ? "medium" : "low", resource_id: item.resource_id, reason_codes: item.reason_codes, actionable: item.recommended_next_action !== "no_action_needed", requires_human_review: item.recommended_next_action === "investigate_entity_relationship" || item.recommended_next_action === "stop_retrying_no_new_evidence", explanation: `Knowledge audit: ${item.issue_type.replaceAll("_", " ")}.`, recommendation: item.recommended_next_action }))
   const findings = [...knowledge_findings, ...security_findings].sort((a, b) => severityRank[a.severity] - severityRank[b.severity] || a.finding_id.localeCompare(b.finding_id))
   return { summary: { knowledge_findings: knowledge_findings.filter((item) => item.actionable).length, security_findings: security_findings.length, high_severity_findings: findings.filter((item) => ["critical", "high"].includes(item.severity)).length, quarantine_backlog: attachments.filter((item) => item.status === "pending_scan").length, failed_scans: security_findings.filter((item) => item.finding_type === "attachment_scan_failed").length, malicious_detections: security_findings.filter((item) => item.finding_type === "malicious_attachment_detected").length }, planner_summary: planner.summary, findings, checks: [{ id: "attachment_delivery", status: configuration.attachment_quarantine_enforced === true ? "healthy" : "unknown", detail: "Attachments remain unavailable until a clean scanner-service decision." }, { id: "admin_allowlist", status: configuration.admin_allowlist_configured === true ? "healthy" : "degraded", detail: "Admin authorization uses the configured allowlist." }] }
