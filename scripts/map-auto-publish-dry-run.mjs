@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js"
-import { MAP_AUTO_PUBLISH_MODES, assertMapAutoPublishProductionTarget, runMapAutoPublishDryRun } from "../server/mapAutoPublishWorker.js"
+import { MAP_AUTO_PUBLISH_MODES, assertMapAutoPublishProductionTarget, createMachineQcForCandidate, mapAutoPublishPreflight, runMapAutoPublishDryRun } from "../server/mapAutoPublishWorker.js"
 
 const args = new Set(process.argv.slice(2))
 const mode = [...args].find((arg) => arg.startsWith("--mode="))?.split("=")[1] || MAP_AUTO_PUBLISH_MODES.CLASSIFICATION_ONLY
@@ -10,10 +10,21 @@ const db = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_R
 const query = async (request) => { const { data, error } = await request; if (error) throw error; return data || [] }
 const [resources, claims, evidence, qc, locations] = await Promise.all([
   query(db.from("resource_registry").select("id,display_name,lifecycle_state,editorial_status")),
-  query(db.from("resource_fact_claims").select("id,resource_id,field_name,last_observed_at,updated_at" ).eq("field_name", "location_occupancy")),
+  query(db.from("resource_fact_claims").select("id,resource_id,field_name,proposed_value,status,last_observed_at,updated_at" ).eq("field_name", "location_occupancy")),
   query(db.from("resource_fact_evidence").select("id,claim_id,source_url,source_authority,stale")),
   query(db.from("location_qc_reviews").select("canonical_resource_id,version,origin,review_snapshot")),
   query(db.from("resource_locations").select("resource_id,review_status,public_map"))
 ])
-const report = await runMapAutoPublishDryRun({ db, data: { resources, claims, evidence, qc, locations }, mode, limit })
-console.log(JSON.stringify({ ...report, results: undefined }, null, 2))
+const data = { resources, claims, evidence, qc, locations }
+if (mode === MAP_AUTO_PUBLISH_MODES.MACHINE_QC_CREATE_DRY_RUN) {
+  const preflight = mapAutoPublishPreflight(data, limit), users = await db.auth.admin.listUsers({ perPage: 1000 }), actor = users.data.users.find((user) => user.email)
+  if (!actor) throw new Error("machine_qc_audit_actor_unavailable")
+  const selected = preflight.contexts.filter((item) => !item.qc && item.occupancyClaim).slice(0, 10), created = []
+  for (const item of selected) created.push({ item, created: await createMachineQcForCandidate({ db, item, actorId: actor.id }) })
+  const refreshed = { ...data, qc: [...qc, ...created.filter((item) => item.created.qc).map((item) => item.created.qc)] }
+  const report = await runMapAutoPublishDryRun({ db, data: refreshed, mode: MAP_AUTO_PUBLISH_MODES.CLASSIFICATION_ONLY, limit: 10 })
+  console.log(JSON.stringify({ mode, preflight: { total_considered: preflight.total_considered, counts: preflight.counts }, created: created.map(({ item, created: result }) => ({ resource_id: item.resource.id, resource_name: item.resource.display_name, ...result })), classification: { reason_counts: report.reason_counts, shelter_reason_counts: report.shelter_reason_counts, samples: report.samples } }, null, 2))
+} else {
+  const report = await runMapAutoPublishDryRun({ db, data, mode, limit })
+  console.log(JSON.stringify({ ...report, results: undefined }, null, 2))
+}
