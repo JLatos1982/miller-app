@@ -64,10 +64,10 @@ export default function HandoutBuilder({ handout: rawHandout, dispatch, onBack }
       </div>
 
       <header className="handout-builder-header">
-        <p className="handout-kicker">Miller resource handout</p>
+        <p className="handout-kicker">Resource handout</p>
         <h1 ref={headingRef} tabIndex="-1">Personalized Community Resources</h1>
-        <p className="handout-miller-attribution">Prepared using Miller.</p>
-        <p className="handout-privacy-note">{MILLER_COPY.handoutIntro} Handout details stay in this browser session and are not saved to Miller.</p>
+        <p className="handout-miller-attribution">Prepared from the resource finder.</p>
+        <p className="handout-privacy-note">{MILLER_COPY.handoutIntro} Handout details stay in this browser session and are not saved to this service.</p>
       </header>
 
       <p className="handout-output-warning handout-screen-only">Printed or downloaded handouts may contain personal information. Handle them according to your workplace privacy practices.</p>

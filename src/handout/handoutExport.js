@@ -68,7 +68,7 @@ export function generateHandoutHtml(handout) {
 <title>${escapeHtml(documentTitle)}</title>
 <style>
 body{max-width:8in;margin:0 auto;padding:32px;font:16px/1.5 Arial,sans-serif;color:#263b50;background:#fffdf7}header{border-bottom:3px solid #555;padding-bottom:18px;margin-bottom:24px}h1{margin:0;color:#263b50}h2{color:#315b62}.meta,.tags{display:flex;flex-wrap:wrap;gap:8px}.meta span,.tags span{padding:4px 9px;border-radius:999px;background:#edf4ec}.resource{break-inside:avoid;border:1px solid #cbd8d0;border-radius:16px;padding:18px;margin:16px 0;background:white}.organization{font-weight:bold;color:#587078}.details p{margin:5px 0}@media print{body{padding:0;background:white}.resource{box-shadow:none}}</style></head>
-<body><header><h1>${escapeHtml(documentTitle)}</h1><p>Prepared using Miller.</p>${fields.personName ? `<div class="meta"><span>${escapeHtml(fields.personName)}</span></div>` : ""}</header>
+<body><header><h1>${escapeHtml(documentTitle)}</h1><p>Prepared from the resource finder.</p>${fields.personName ? `<div class="meta"><span>${escapeHtml(fields.personName)}</span></div>` : ""}</header>
 ${section("Notes / suggestions", fields.generalNotes)}
 <main>${resourceHtml || "<p>No resources selected.</p>"}</main></body></html>`
 }

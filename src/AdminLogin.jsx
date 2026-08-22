@@ -42,7 +42,7 @@ export default function AdminLogin() {
         </label>
         <button type="submit" disabled={loading}>{loading ? "Sending…" : "Email secure sign-in link"}</button>
         <p className="admin-login-status" role="status" aria-live="polite">{status}</p>
-        <a href="/">Return to Miller</a>
+        <a href="/">Return to the resource finder</a>
       </form>
     </main>
   )

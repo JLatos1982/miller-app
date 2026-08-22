@@ -15,7 +15,7 @@ test("generates a standalone escaped HTML handout", () => {
   assert.match(html, /A &lt;Safe&gt; Client/)
   assert.match(html, /Notes \/ suggestions/)
   assert.match(html, /Call before visiting/)
-  assert.match(html, /Prepared using Miller/)
+  assert.match(html, /Prepared from the resource finder/)
   assert.match(html, /Helpful Service/)
   assert.match(html, /555-0100/)
   assert.match(html, /https:\/\/example\.org\//)

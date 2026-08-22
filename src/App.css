@@ -209,6 +209,14 @@ textarea {
   margin-bottom: 12px;
 }
 
+.main-search-label {
+  display: block;
+  margin: 0 0 7px 2px;
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
 .main-search-input {
   width: 100%;
   min-height: 64px;
@@ -2941,6 +2949,49 @@ body,
   font-size: inherit;
   font-weight: 750;
   box-shadow: var(--shadow-soft);
+}
+
+.private-counselling-modal {
+  border-color: var(--line-dark);
+  color: var(--text);
+}
+
+.site-modal-backdrop {
+  background: rgba(44, 74, 122, 0.46);
+}
+
+.private-counselling-modal .site-modal-header h2,
+.private-counselling-modal .private-counselling-name,
+.private-counselling-modal .private-counselling-services h3,
+.private-counselling-modal .private-counselling-contact h3 {
+  color: var(--text);
+}
+
+.private-counselling-modal .site-modal-close {
+  border-color: var(--line-dark);
+  background: var(--badge-bg);
+  color: var(--text);
+}
+
+.private-counselling-modal .private-counselling-intro {
+  border-color: var(--line);
+}
+
+.private-counselling-modal .private-counselling-specialties,
+.private-counselling-modal .private-counselling-availability,
+.private-counselling-modal .private-counselling-closing,
+.private-counselling-modal .private-counselling-separation {
+  color: var(--text-soft) !important;
+}
+
+.private-counselling-modal .private-counselling-services {
+  border-color: var(--line);
+  background: var(--badge-bg);
+}
+
+.private-counselling-modal .private-counselling-contact {
+  border-color: var(--line-dark);
+  background: #f8fbff;
 }
 
 @media (max-width: 700px) {

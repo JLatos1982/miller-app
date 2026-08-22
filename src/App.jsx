@@ -851,7 +851,7 @@ useEffect(() => {
     setIsAdminMode(false)
     if (access?.session && access.status === 403) {
       clearAuthCallbackFromUrl()
-      setAdminLoginStatus("This authenticated account is not authorized for Miller administration.")
+      setAdminLoginStatus("This authenticated account is not authorized for administration.")
       return
     }
     if (hasAuthCallbackParams()) {
@@ -1344,7 +1344,7 @@ function renderAiReview(resource) {
           {agentErrors.length ? <div className="ai-review-warning"><strong>Checks needing attention:</strong><ul>{agentErrors.map(([name, message]) => <li key={name}>{name.replaceAll("_", " ")}: {message}</li>)}</ul></div> : null}
           <p className="ai-review-timestamp">Last analyzed {new Date(review.completed_at || review.created_at).toLocaleString()}</p>
           {review.reused ? <p className="ai-review-reused">Reused because the resource, review model, and review version are unchanged.</p> : null}
-          <p className="ai-human-control">Miller has not changed this resource. Approve or Hide remains your decision.</p>
+          <p className="ai-human-control">This review has not changed the resource. Approve or Hide remains your decision.</p>
         </div>
       ) : null}
     </section>
@@ -1513,10 +1513,11 @@ const millerImageStyle = {}
               onMouseEnter={() => setIsSearchBarHovered(true)}
               onMouseLeave={() => setIsSearchBarHovered(false)}
             >
+              <label className="main-search-label" htmlFor="resource-search">Search for a service or type of support</label>
               <input
+                id="resource-search"
                 className="main-search-input"
-                aria-label="Describe the support you are looking for"
-                placeholder="Try detox, treatment centre, counselling, OAT, crisis, or harm reduction..."
+                placeholder="e.g. detox, treatment centre, counselling, OAT, crisis, harm reduction"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onFocus={() => setIsTyping(true)}
@@ -1539,7 +1540,7 @@ const millerImageStyle = {}
               </select>
 
               <button type="submit" className="primary-button">
-                Ask Miller
+                Search
               </button>
 
               <button type="button" className="ghost-button" onClick={clearSearch}>
@@ -1549,10 +1550,10 @@ const millerImageStyle = {}
 
             <div className="micro-options">
               <p className="ai-note">
-                Miller helps you find local addiction and community supports and take the next step.
+                Find local addiction and community supports and take the next step.
               </p>
               <p className="capability-signal">Search · nearby services · getting there</p>
-              <p className="miller-service-note">Miller offers volunteer resource-navigation support, not clinical counselling or therapy. I can help you find and organize trusted community resources.</p>
+              <p className="miller-service-note">This service offers volunteer resource-navigation support, not clinical counselling or therapy. I can help you find and organize trusted community resources.</p>
             </div>
           </form>
 
@@ -1749,7 +1750,7 @@ const millerImageStyle = {}
   <div className="miller-image-frame">
     <img
       src={millerImageSrc}
-      alt="Miller"
+      alt="Illustrated resource guide"
       className={millerClasses}
       style={millerImageStyle}
     />
@@ -1762,7 +1763,7 @@ const millerImageStyle = {}
   className="miller-arrow"
   type="button"
   onClick={previousMiller}
-  aria-label="Previous Miller"
+  aria-label="Previous guide style"
 >
   <img
     src={arrowLeft}
@@ -1776,7 +1777,7 @@ const millerImageStyle = {}
     <button
       key={theme.name}
       type="button"
-      aria-label={`Choose ${theme.name} Miller theme`}
+      aria-label={`Choose ${theme.name} guide style`}
       className={`miller-dot ${index === millerIndex ? "active" : ""}`}
       style={{
         background:
@@ -1794,7 +1795,7 @@ const millerImageStyle = {}
   className="miller-arrow"
   type="button"
   onClick={nextMiller}
-  aria-label="Next Miller"
+  aria-label="Next guide style"
 >
   <img
     src={arrowRight}
@@ -1847,7 +1848,7 @@ const millerImageStyle = {}
 
                   <div className="submission-panel-head">
                     <div>
-                      <p className="submission-kicker">Miller’s satchel</p>
+                      <p className="submission-kicker">Resource notes</p>
                       <h3>Share a resource update</h3>
                     </div>
 
@@ -1939,7 +1940,7 @@ const millerImageStyle = {}
           <p className="private-counselling-availability"><strong>Please note:</strong> Availability is limited. I will respond as soon as I can.</p>
         </section>
         <p className="private-counselling-closing">Helping people find their way forward, one step at a time.</p>
-        <p className="private-counselling-separation">Private counselling services are separate from Miller’s community resource directory.</p>
+        <p className="private-counselling-separation">Private counselling services are separate from this community resource directory.</p>
       </AccessibleModal> : null}
       <footer className="site-footer"><a href="/admin/login">Admin</a></footer>
     </div>
