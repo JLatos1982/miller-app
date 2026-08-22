@@ -12,13 +12,16 @@ export function validateTypedOrigin(value) {
   return text.length >= 5 && text.length <= 180 ? text : ""
 }
 
-export function googleTransitDirectionsUrl(destination, origin = null) {
+export function googleDirectionsUrl(destination, mode = "transit", origin = null) {
   if (!validCoordinate(destination?.latitude, "lat") || !validCoordinate(destination?.longitude, "lng")) return ""
   if (origin && (!validCoordinate(origin.latitude, "lat") || !validCoordinate(origin.longitude, "lng"))) return ""
+  if (!new Set(["transit", "walking", "driving", "bicycling"]).has(mode)) return ""
   const url = new URL("https://www.google.com/maps/dir/")
   url.searchParams.set("api", "1")
   url.searchParams.set("destination", `${Number(destination.latitude)},${Number(destination.longitude)}`)
-  url.searchParams.set("travelmode", "transit")
+  url.searchParams.set("travelmode", mode)
   if (origin) url.searchParams.set("origin", `${Number(origin.latitude)},${Number(origin.longitude)}`)
   return url.toString()
 }
+
+export function googleTransitDirectionsUrl(destination, origin = null) { return googleDirectionsUrl(destination, "transit", origin) }

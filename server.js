@@ -2392,7 +2392,7 @@ app.post("/api/map/locations/:id/access-context", rateLimit({ windowMs: 60_000, 
     origin = { latitude, longitude }; originProvenance = { provider }
   }
   try {
-    const transit = await getNearbyTransit({ latitude: Number(location.latitude), longitude: Number(location.longitude) })
+    const transit = await getNearbyTransit({ latitude: Number(location.latitude), longitude: Number(location.longitude) }, { origin })
     const context = buildAccessContext({ resource: { id: location.resource_id }, location, transit, userCoordinate: origin, originProvenance })
     res.setHeader("Cache-Control", "private, no-store")
     return res.json({ context })

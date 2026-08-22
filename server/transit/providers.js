@@ -1,5 +1,5 @@
 import { cachedTransitValue, fetchTransitBytes } from "./fetch.js"
-import { nearbyStops, parseGtfsZip } from "./gtfs.js"
+import { nearbyStops, parseGtfsZip, sharedRoutes } from "./gtfs.js"
 import { decodeGtfsRealtime, normalizeGtfsRealtimeAlerts, normalizeGtfsRealtimeTrips, normalizeGtfsRealtimeVehicles, relevantActiveAlerts } from "./realtime.js"
 
 const BC_TRANSIT_OPERATOR = "13"
@@ -19,15 +19,17 @@ export function providerForPoint({ latitude, longitude }) {
   return latitude >= 48.95 && latitude <= 49.5 && longitude >= -123.35 && longitude <= -122.4 ? "translink" : "bc_transit"
 }
 
-export async function getNearbyTransit(point, { providerId = providerForPoint(point), loadBytes = fetchTransitBytes } = {}) {
+export async function getNearbyTransit(point, { providerId = providerForPoint(point), origin = null, loadBytes = fetchTransitBytes } = {}) {
   const provider = transitProviderDefinitions[providerId]
   if (!provider) throw new Error("No transit provider is configured for this location.")
   const index = await cachedTransitValue(`static:${provider.id}`, async () => parseGtfsZip(await loadBytes(provider.staticUrl)), STATIC_TTL_MS)
   const stops = nearbyStops(index, point)
+  const originProviderId = origin ? providerForPoint(origin) : null
+  const originStops = origin && originProviderId === provider.id ? nearbyStops(index, origin) : []
   const realtime = provider.id === "translink" ? await getTranslinkRealtime({ loadBytes }) : { status: "published_not_loaded", alerts: [], feeds: {} }
   return {
     provider: { id: provider.id, name: provider.name, coverage: provider.coverage, sourceUrl: provider.sourceUrl },
-    data: { kind: "nearby_stops", distanceMethod: "straight_line", radiusKm: 1.5, stops },
+    data: { kind: "nearby_stops", distanceMethod: "straight_line", radiusKm: 1.5, stops, originStops, directRoutes: sharedRoutes(originStops, stops), originCoverage: origin ? (originProviderId === provider.id ? "same_provider" : "different_or_unsupported_provider") : "not_requested" },
     realtime: { ...realtime, alerts: relevantActiveAlerts(realtime.alerts, stops) },
     provenance: { retrievedAt: new Date().toISOString(), cacheMaxAgeSeconds: STATIC_TTL_MS / 1000, realtimeCacheMaxAgeSeconds: REALTIME_TTL_MS / 1000, sourceFormat: "GTFS Schedule + GTFS-Realtime" },
   }

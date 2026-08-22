@@ -58,3 +58,18 @@ export function nearbyStops(index, point, { radiusKm = 1.5, limit = 5 } = {}) {
     .filter((stop) => stop.distanceKm <= radiusKm)
     .sort((a, b) => a.distanceKm - b.distanceKm || a.name.localeCompare(b.name)).slice(0, limit)
 }
+
+// This is deliberately not a journey planner.  It only identifies a route that
+// the published schedule says serves a stop near each supplied point.
+export function sharedRoutes(originStops = [], destinationStops = [], { limit = 4 } = {}) {
+  const destinationRouteIds = new Set(destinationStops.flatMap((stop) => stop.routes || []).map((route) => route.id))
+  const seen = new Map()
+  for (const stop of originStops) {
+    for (const route of stop.routes || []) {
+      if (!destinationRouteIds.has(route.id) || seen.has(route.id)) continue
+      const destinationStop = destinationStops.find((candidate) => (candidate.routes || []).some((item) => item.id === route.id))
+      if (destinationStop) seen.set(route.id, { ...route, originStop: { id: stop.id, name: stop.name }, destinationStop: { id: destinationStop.id, name: destinationStop.name } })
+    }
+  }
+  return [...seen.values()].sort((a, b) => (a.shortName || a.longName || a.id).localeCompare(b.shortName || b.longName || b.id)).slice(0, limit)
+}

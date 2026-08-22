@@ -1465,7 +1465,7 @@ const millerImageStyle = {}
   }
 
   if (isMapOpen) {
-    return <ServiceMap resources={[...new Map([...normalizedResources, ...mapResources].map((resource) => [String(resource.id), resource])).values()]} handout={handout} dispatchHandout={dispatchHandout} onBack={() => setIsMapOpen(false)} isAdminMode={isAdminMode} millerAvatar={currentTheme.avatar} sessionId={sessionId} />
+    return <ServiceMap resources={[...new Map([...normalizedResources, ...mapResources].map((resource) => [String(resource.id), resource])).values()]} handout={handout} dispatchHandout={dispatchHandout} onBack={() => setIsMapOpen(false)} onGetThere={(resource) => setNavigationTarget({ resource, location: resource })} isAdminMode={isAdminMode} millerAvatar={currentTheme.avatar} sessionId={sessionId} />
   }
 
   return (
