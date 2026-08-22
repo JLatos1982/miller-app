@@ -1,0 +1,15 @@
+begin;
+create extension if not exists pgtap with schema extensions;
+select plan(5);
+insert into auth.users(id,instance_id,aud,role,email,encrypted_password,raw_app_meta_data,raw_user_meta_data,created_at,updated_at) values ('00000000-0000-0000-0000-000000004201','00000000-0000-0000-0000-000000000000','authenticated','authenticated','trend@example.invalid','','{}','{}',now(),now());
+insert into public.resource_registry(id,display_name,lifecycle_state,editorial_status) values ('00000000-0000-0000-0000-000000004202','Trend fixture','active','approved');
+select ok(not has_table_privilege('anon','public.miller_trend_observations','select'),'anon cannot read trend observations');
+select ok(not has_table_privilege('authenticated','public.miller_trend_observations','insert'),'ordinary users cannot add trend observations');
+select ok(has_table_privilege('service_role','public.miller_trend_observations','insert'),'service role can persist provenance');
+set local role service_role;
+insert into public.miller_trend_observations(observation_fingerprint,source_url,source_authority,trend_category,attention,canonical_resource_id,summary,recommended_response,provenance) values (repeat('b',64),'https://gov.bc.ca/example',90,'policy_change','important','00000000-0000-0000-0000-000000004202','Bounded fixture observation','human_review','{}');
+select is((select state from public.miller_trend_observations where observation_fingerprint=repeat('b',64)),'new','new observations retain durable initial state');
+select throws_like($$delete from public.miller_trend_observations$$,'resource fact audit is append-only','trend history cannot be deleted');
+reset role;
+select * from finish();
+rollback;

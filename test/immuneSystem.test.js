@@ -21,7 +21,7 @@ test("knowledge and system findings stay separate and the audit is pure", () => 
   assert.ok(report.findings.some((item) => item.domain === "knowledge")); assert.ok(report.findings.some((item) => item.domain === "system"))
 })
 test("health endpoint is protected, bounded, metadata-only, and has no external adapter", () => {
-  const source = fs.readFileSync(new URL("../server.js", import.meta.url), "utf8"), start = source.indexOf('app.get("/api/admin/system-health"'), end = source.indexOf('const plannerTaskResearchRateLimit')
+  const source = fs.readFileSync(new URL("../server.js", import.meta.url), "utf8"), start = source.indexOf('app.get("/api/admin/system-health"'), end = source.indexOf('async function heartbeatInspection')
   const section = source.slice(start, end)
   assert.match(section, /requireAdmin/); assert.match(section, /resource_submission_attachments/); assert.match(section, /buildImmuneSystemHealth/)
   assert.doesNotMatch(section, /storage\.from|createSignedUrl|tavily|OpenAI|fetch\(/)
