@@ -111,11 +111,17 @@ export function localServiceDates(now = new Date(), timeZone = "America/Vancouve
   return { today, previous: `${previous.getUTCFullYear()}${String(previous.getUTCMonth() + 1).padStart(2, "0")}${String(previous.getUTCDate()).padStart(2, "0")}` }
 }
 
+export function localTimeSeconds(now = new Date(), timeZone = "America/Vancouver") {
+  const parts = new Intl.DateTimeFormat("en-CA", { timeZone, hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23" }).formatToParts(now)
+  const item = (type) => Number(parts.find((part) => part.type === type)?.value || 0)
+  return item("hour") * 3600 + item("minute") * 60 + item("second")
+}
+
 export function directTransitOptions(index, originStops = [], destinationStops = [], { now = new Date(), timeZone = "America/Vancouver", limit = 4, originPoint = null, destinationPoint = null } = {}) {
   const originById = new Map(originStops.map((stop) => [stop.id, stop])), destinationById = new Map(destinationStops.map((stop) => [stop.id, stop]))
   const candidateTripIds = new Set()
   for (const originStop of originStops) for (const tripId of index.tripIdsByStop?.get(originStop.id) || []) candidateTripIds.add(tripId)
-  const dates = localServiceDates(now, timeZone), options = []
+  const dates = localServiceDates(now, timeZone), nowSeconds = localTimeSeconds(now, timeZone), options = []
   for (const tripId of candidateTripIds) {
     const trip = index.trips?.get(tripId), stopTimes = index.stopTimesByTrip?.get(tripId) || []
     if (!trip) continue
@@ -129,7 +135,9 @@ export function directTransitOptions(index, originStops = [], destinationStops =
     const departureSeconds = gtfsTimeToSeconds(originTime.departureTime || originTime.arrivalTime)
     const activeToday = serviceRunsOnDate(index, trip.serviceId, dates.today)
     const activePreviousDay = serviceRunsOnDate(index, trip.serviceId, dates.previous)
-    const serviceDay = activeToday === true ? dates.today : (departureSeconds != null && departureSeconds >= 24 * 3600 && activePreviousDay === true ? dates.previous : null)
+    const currentServiceDay = activeToday === true && (departureSeconds == null || departureSeconds >= nowSeconds) ? dates.today : null
+    const overnightPreviousServiceDay = departureSeconds != null && departureSeconds >= 24 * 3600 && activePreviousDay === true && departureSeconds - 24 * 3600 >= nowSeconds ? dates.previous : null
+    const serviceDay = currentServiceDay || overnightPreviousServiceDay
     if (activeToday === false && activePreviousDay === false) continue
     if (!serviceDay && (activeToday !== "unknown" || activePreviousDay !== "unknown")) continue
     const route = (originById.get(originTime.stopId)?.routes || []).find((item) => item.id === trip.routeId) || { id: trip.routeId, shortName: "", longName: "" }

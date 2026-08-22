@@ -1,7 +1,7 @@
 import test from "node:test"
 import assert from "node:assert/strict"
 import { strToU8, zipSync } from "fflate"
-import { buildGtfsIndex, directTransitOptions, gtfsTimeToSeconds, nearbyStops, parseCsv, parseGtfsZip, serviceRunsOnDate, sharedRoutes } from "../server/transit/gtfs.js"
+import { buildGtfsIndex, directTransitOptions, gtfsTimeToSeconds, localTimeSeconds, nearbyStops, parseCsv, parseGtfsZip, serviceRunsOnDate, sharedRoutes } from "../server/transit/gtfs.js"
 import { assertTrustedTransitUrl, clearTransitCache } from "../server/transit/fetch.js"
 import { bcTransitRealtimeUrls, getNearbyTransit, getTranslinkRealtime, providerForPoint, resetTransitRuntimeForTests, translinkRealtimeUrls } from "../server/transit/providers.js"
 import { decodeGtfsRealtime, encodeGtfsRealtime, normalizeGtfsRealtimeAlerts, relevantActiveAlerts } from "../server/transit/realtime.js"
@@ -43,7 +43,7 @@ test("direct transit options require one trip with forward stop order, a current
     "calendar.txt": parseCsv("service_id,monday,tuesday,wednesday,thursday,friday,saturday,sunday,start_date,end_date\nACTIVE,0,0,0,0,0,1,0,20260101,20261231\nINACTIVE,1,0,0,0,0,0,0,20260101,20261231\n"),
   })
   const origin = nearbyStops(index, { latitude: 49.1001, longitude: -122.3001 }), destination = nearbyStops(index, { latitude: 49.1101, longitude: -122.3001 })
-  const options = directTransitOptions(index, origin, destination, { now: new Date("2026-08-22T20:00:00Z"), originPoint: { latitude: 49.1001, longitude: -122.3001 }, destinationPoint: { latitude: 49.1101, longitude: -122.3001 } })
+  const options = directTransitOptions(index, origin, destination, { now: new Date("2026-08-22T14:00:00Z"), originPoint: { latitude: 49.1001, longitude: -122.3001 }, destinationPoint: { latitude: 49.1101, longitude: -122.3001 } })
   assert.equal(options.length, 1); assert.equal(options[0].tripId, "T_GOOD"); assert.equal(options[0].headsign, "To destination"); assert.equal(options[0].directionId, "0"); assert.equal(options[0].stopsBetween, 2)
 })
 test("calendar exceptions and after-midnight GTFS times preserve the previous service day", () => {
@@ -53,7 +53,8 @@ test("calendar exceptions and after-midnight GTFS times preserve the previous se
     "calendar.txt": parseCsv("service_id,monday,tuesday,wednesday,thursday,friday,saturday,sunday,start_date,end_date\nFRIDAY,0,0,0,0,1,0,0,20260101,20261231\n"), "calendar_dates.txt": parseCsv("service_id,date,exception_type\nFRIDAY,20260821,1\n"),
   })
   assert.equal(gtfsTimeToSeconds("25:10:00"), 90600); assert.equal(serviceRunsOnDate(index, "FRIDAY", "20260821"), true)
-  const options = directTransitOptions(index, nearbyStops(index, { latitude: 49.1, longitude: -122.3 }), nearbyStops(index, { latitude: 49.11, longitude: -122.3 }), { now: new Date("2026-08-22T08:30:00Z") })
+  assert.equal(localTimeSeconds(new Date("2026-08-22T08:00:00Z")), 3600)
+  const options = directTransitOptions(index, nearbyStops(index, { latitude: 49.1, longitude: -122.3 }), nearbyStops(index, { latitude: 49.11, longitude: -122.3 }), { now: new Date("2026-08-22T08:00:00Z") })
   assert.equal(options[0].serviceDay, "20260821")
 })
 test("realtime adapters expose official endpoints and normalized alerts", () => { assert.match(bcTransitRealtimeUrls().alerts, /^https:\/\/bct\.tmix\.se\/gtfs-realtime\/alerts\.pb/); const alerts = normalizeGtfsRealtimeAlerts({ header: {}, entity: [{ id: "a1", alert: { headerText: { translation: [{ language: "en", text: "Route detour" }] }, informedEntity: [{ routeId: "1" }] } }] }, "bc_transit"); assert.deepEqual(alerts[0].routeIds, ["1"]); assert.equal(alerts[0].header, "Route detour") })
