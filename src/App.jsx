@@ -1474,7 +1474,7 @@ const millerImageStyle = {}
   className="scene-background"
 />
       <div className="handout-toolbar">
-        <div className="handout-toolbar-primary">
+        <div className="handout-toolbar-controls">
           <button type="button" className="handout-indicator" onClick={() => { window.history.pushState({}, "", "/lists"); setIsListsOpen(true) }}><span aria-hidden="true">☷</span>Pre-made Lists</button>
           <button type="button" className="handout-indicator" onClick={() => setIsMapOpen(true)}><span aria-hidden="true">⌖</span>Service Map</button>
           <button
@@ -1487,8 +1487,8 @@ const millerImageStyle = {}
             Handout
             <span className="handout-count" aria-live="polite">{handout.resources.length}</span>
           </button>
+          <button type="button" className="handout-indicator private-counselling-nav" onClick={() => setOpenInfoModal("private-counselling")}>Private Counselling</button>
         </div>
-        <div className="private-counselling-toolbar-row"><button type="button" className="handout-indicator private-counselling-nav" onClick={() => setOpenInfoModal("private-counselling")}>Private Counselling</button></div>
       </div>
       <div className="hero-header">
        <p className="eyebrow">Gentle help finding your next step in BC’s Lower Mainland</p>
