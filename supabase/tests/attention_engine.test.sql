@@ -1,0 +1,16 @@
+begin;
+create extension if not exists pgtap with schema extensions;
+select plan(6);
+insert into auth.users(id,instance_id,aud,role,email,encrypted_password,raw_app_meta_data,raw_user_meta_data,created_at,updated_at) values ('00000000-0000-0000-0000-000000004401','00000000-0000-0000-0000-000000000000','authenticated','authenticated','attention@example.invalid','','{}','{}',now(),now());
+select ok(not has_table_privilege('anon','public.miller_attention_topics','select'),'anon cannot read private attention topics');
+select ok(not has_table_privilege('authenticated','public.miller_attention_signals','insert'),'ordinary users cannot inject signals');
+select ok(has_table_privilege('service_role','public.miller_attention_topics','insert'),'service role can persist attention topics');
+set local role service_role;
+insert into public.miller_attention_topics(id,topic_key,topic_type,title,current_score) values ('00000000-0000-0000-0000-000000004402','policy:oat','policy','OAT policy',10);
+insert into public.miller_attention_signals(topic_id,topic_key,signal_fingerprint,underlying_event_key,signal_type,signal_family,source_id,source_authority,magnitude,novelty,relevance,confidence,decay_class) values ('00000000-0000-0000-0000-000000004402','policy:oat',repeat('c',64),'fixture-event','policy_change','policy','fixture',95,0.5,0.5,0.5,0.5,'slow');
+insert into public.miller_attention_topic_events(topic_id,event_type,next_score,next_state) values ('00000000-0000-0000-0000-000000004402','created',10,'background');
+select is((select state from public.miller_attention_topics where id='00000000-0000-0000-0000-000000004402'),'background','topic attention state persists privately');
+select throws_like($$delete from public.miller_attention_signals where signal_fingerprint=repeat('c',64)$$,'resource fact audit is append-only','signals are append-only');
+select throws_like($$update public.miller_attention_topic_events set next_score=20 where topic_id='00000000-0000-0000-0000-000000004402'$$,'resource fact audit is append-only','topic history is append-only');
+select * from finish();
+rollback;
