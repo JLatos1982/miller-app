@@ -1,5 +1,5 @@
 import { cachedTransitValue, fetchTransitBytes } from "./fetch.js"
-import { nearbyStops, parseGtfsZip, sharedRoutes } from "./gtfs.js"
+import { directTransitOptions, nearbyStops, parseGtfsZip } from "./gtfs.js"
 import { decodeGtfsRealtime, normalizeGtfsRealtimeAlerts, normalizeGtfsRealtimeTrips, normalizeGtfsRealtimeVehicles, relevantActiveAlerts } from "./realtime.js"
 
 const BC_TRANSIT_OPERATOR = "13"
@@ -26,10 +26,11 @@ export async function getNearbyTransit(point, { providerId = providerForPoint(po
   const stops = nearbyStops(index, point)
   const originProviderId = origin ? providerForPoint(origin) : null
   const originStops = origin && originProviderId === provider.id ? nearbyStops(index, origin) : []
+  const directOptions = directTransitOptions(index, originStops, stops, { originPoint: origin, destinationPoint: point })
   const realtime = provider.id === "translink" ? await getTranslinkRealtime({ loadBytes }) : { status: "published_not_loaded", alerts: [], feeds: {} }
   return {
     provider: { id: provider.id, name: provider.name, coverage: provider.coverage, sourceUrl: provider.sourceUrl },
-    data: { kind: "nearby_stops", distanceMethod: "straight_line", radiusKm: 1.5, stops, originStops, directRoutes: sharedRoutes(originStops, stops), originCoverage: origin ? (originProviderId === provider.id ? "same_provider" : "different_or_unsupported_provider") : "not_requested" },
+    data: { kind: "nearby_stops", distanceMethod: "straight_line", radiusKm: 1.5, stops, originStops, directOptions, originCoverage: origin ? (originProviderId === provider.id ? "same_provider" : "different_or_unsupported_provider") : "not_requested" },
     realtime: { ...realtime, alerts: relevantActiveAlerts(realtime.alerts, stops) },
     provenance: { retrievedAt: new Date().toISOString(), cacheMaxAgeSeconds: STATIC_TTL_MS / 1000, realtimeCacheMaxAgeSeconds: REALTIME_TTL_MS / 1000, sourceFormat: "GTFS Schedule + GTFS-Realtime" },
   }
