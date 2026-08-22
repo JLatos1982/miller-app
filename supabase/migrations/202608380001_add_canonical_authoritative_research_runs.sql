@@ -45,6 +45,33 @@ returns public.canonical_authoritative_research_runs language plpgsql security d
 declare v public.canonical_authoritative_research_runs;
 begin select * into v from public.canonical_authoritative_research_runs where id=p_run_id for update; if not found then raise exception 'research run not found'; end if; if v.status='running' then update public.canonical_authoritative_research_runs set status='completed',completed_at=now(),actor_id=coalesce(actor_id,p_actor_id) where id=p_run_id returning * into v; end if; return v; end $$;
 
-revoke all on function public.begin_canonical_authoritative_research_run(uuid,integer,uuid),public.complete_canonical_authoritative_research_run(uuid,uuid) from public,anon,authenticated;
-grant execute on function public.begin_canonical_authoritative_research_run(uuid,integer,uuid),public.complete_canonical_authoritative_research_run(uuid,uuid) to service_role;
+create or replace function public.reserve_canonical_authoritative_research_item(p_run_id uuid,p_resource_id uuid,p_actor_id uuid)
+returns public.canonical_authoritative_research_run_items language plpgsql security definer set search_path=public as $$
+declare v_run public.canonical_authoritative_research_runs; v_item public.canonical_authoritative_research_run_items;
+begin
+ select * into v_run from public.canonical_authoritative_research_runs where id=p_run_id for update;
+ if not found or v_run.status<>'running' then raise exception 'research run is not resumable'; end if;
+ if not exists(select 1 from public.resource_registry where id=p_resource_id and lifecycle_state='active' and editorial_status<>'hidden') then raise exception 'canonical resource is not research eligible'; end if;
+ select * into v_item from public.canonical_authoritative_research_run_items where run_id=p_run_id and resource_id=p_resource_id for update;
+ if found then return v_item; end if;
+ if v_run.attempted_count>=v_run.authorized_max_attempts then raise exception 'authorized research attempt cap reached'; end if;
+ insert into public.canonical_authoritative_research_run_items(run_id,resource_id,outcome,reason_code) values(p_run_id,p_resource_id,'reserved','research_pending') returning * into v_item;
+ update public.canonical_authoritative_research_runs set attempted_count=attempted_count+1 where id=p_run_id;
+ return v_item;
+end $$;
+
+create or replace function public.finish_canonical_authoritative_research_item(p_run_id uuid,p_resource_id uuid,p_outcome text,p_reason_code text,p_claim_id uuid,p_evidence_id uuid,p_actor_id uuid)
+returns public.canonical_authoritative_research_run_items language plpgsql security definer set search_path=public as $$
+declare v public.canonical_authoritative_research_run_items;
+begin
+ if p_outcome not in ('confirmed','conflict','insufficient','protected','failed') then raise exception 'invalid research outcome'; end if;
+ select * into v from public.canonical_authoritative_research_run_items where run_id=p_run_id and resource_id=p_resource_id for update;
+ if not found or v.outcome<>'reserved' then raise exception 'research item is not reserved'; end if;
+ update public.canonical_authoritative_research_run_items set outcome=p_outcome,reason_code=left(p_reason_code,120),claim_id=p_claim_id,evidence_id=p_evidence_id,completed_at=now() where run_id=p_run_id and resource_id=p_resource_id returning * into v;
+ update public.canonical_authoritative_research_runs set evidence_success_count=evidence_success_count+case when p_outcome='confirmed' then 1 else 0 end,failure_count=failure_count+case when p_outcome='failed' then 1 else 0 end where id=p_run_id;
+ return v;
+end $$;
+
+revoke all on function public.begin_canonical_authoritative_research_run(uuid,integer,uuid),public.complete_canonical_authoritative_research_run(uuid,uuid),public.reserve_canonical_authoritative_research_item(uuid,uuid,uuid),public.finish_canonical_authoritative_research_item(uuid,uuid,text,text,uuid,uuid,uuid) from public,anon,authenticated;
+grant execute on function public.begin_canonical_authoritative_research_run(uuid,integer,uuid),public.complete_canonical_authoritative_research_run(uuid,uuid),public.reserve_canonical_authoritative_research_item(uuid,uuid,uuid),public.finish_canonical_authoritative_research_item(uuid,uuid,text,text,uuid,uuid,uuid) to service_role;
 commit;

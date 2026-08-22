@@ -1,13 +1,17 @@
 begin;
 create extension if not exists pgtap with schema extensions;
-select plan(8);
+select plan(11);
 insert into auth.users(id,instance_id,aud,role,email,encrypted_password,raw_app_meta_data,raw_user_meta_data,created_at,updated_at) values ('00000000-0000-0000-0000-000000003801','00000000-0000-0000-0000-000000000000','authenticated','authenticated','research-run@example.invalid','','{}','{}',now(),now());
+insert into public.resource_registry(id,display_name,lifecycle_state,editorial_status) values ('00000000-0000-0000-0000-000000003803','Research fixture','active','approved');
 select ok(not has_function_privilege('anon','public.begin_canonical_authoritative_research_run(uuid,integer,uuid)','execute'),'anon cannot begin canonical research');
 select ok(not has_function_privilege('authenticated','public.begin_canonical_authoritative_research_run(uuid,integer,uuid)','execute'),'ordinary users cannot begin canonical research');
 select ok(has_function_privilege('service_role','public.begin_canonical_authoritative_research_run(uuid,integer,uuid)','execute'),'service role can begin canonical research');
 set local role service_role;
 select is((public.begin_canonical_authoritative_research_run('00000000-0000-0000-0000-000000003802',3,'00000000-0000-0000-0000-000000003801')).authorized_max_attempts,3,'bounded research run is created');
 select is((public.begin_canonical_authoritative_research_run('00000000-0000-0000-0000-000000003802',3,'00000000-0000-0000-0000-000000003801')).id,'00000000-0000-0000-0000-000000003802'::uuid,'same bound run resumes idempotently');
+select is((public.reserve_canonical_authoritative_research_item('00000000-0000-0000-0000-000000003802','00000000-0000-0000-0000-000000003803','00000000-0000-0000-0000-000000003801')).outcome,'reserved','active canonical is durably reserved');
+select is((public.reserve_canonical_authoritative_research_item('00000000-0000-0000-0000-000000003802','00000000-0000-0000-0000-000000003803','00000000-0000-0000-0000-000000003801')).outcome,'reserved','same canonical retry reuses reservation');
+select is((select attempted_count from public.canonical_authoritative_research_runs where id='00000000-0000-0000-0000-000000003802'),1,'duplicate retry does not consume a new attempt');
 select throws_ok($$select public.begin_canonical_authoritative_research_run('00000000-0000-0000-0000-000000003802',4,'00000000-0000-0000-0000-000000003801')$$,null,'research run binding mismatch','cap cannot change on resume');
 select is((public.complete_canonical_authoritative_research_run('00000000-0000-0000-0000-000000003802','00000000-0000-0000-0000-000000003801')).status,'completed','run completion is durable');
 select throws_ok($$select public.begin_canonical_authoritative_research_run('00000000-0000-0000-0000-000000003802',3,'00000000-0000-0000-0000-000000003801')$$,null,'completed or stopped run cannot resume','completed run cannot restart');
