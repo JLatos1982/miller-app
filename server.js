@@ -40,6 +40,7 @@ import { buildSearchIntent, resolveSearchLocation } from "./server/searchIntent.
 import { nextSupportCategories } from "./server/intelligence/continuity.js"
 import { createShadowPersistence } from "./server/intelligence/shadowPersistence.js"
 import { buildPlannerDiagnostic, loadPlannerDiagnosticState } from "./server/plannerDiagnostics.js"
+import { buildImmuneSystemHealth } from "./server/immuneSystem.js"
 import { createPlannerTaskExecutor, validatePlannerTaskRequest } from "./server/plannerTaskExecutor.js"
 import { fetchSafeResearchDocument } from "./server/review/linkQuality.js"
 
@@ -1080,6 +1081,20 @@ app.get("/api/admin/evidence-gap-plan", requireAdmin, async (req, res) => {
   } catch (error) {
     if (error?.message === "invalid_resource_id") return res.status(400).json({ error: "Invalid resource ID." })
     return res.status(503).json({ error: "Evidence-gap planning is unavailable. No data was changed." })
+  }
+})
+app.get("/api/admin/system-health", requireAdmin, async (_req, res) => {
+  try {
+    const [plannerState, attachments, decisions] = await Promise.all([
+      loadPlannerDiagnosticState(supabase, { limit: 20 }),
+      supabase.from("resource_submission_attachments").select("id,status,created_at").order("created_at", { ascending: false }).limit(200),
+      supabase.from("resource_submission_attachment_scan_decisions").select("attachment_id,decision,actor_type,created_at").order("created_at", { ascending: false }).limit(400),
+    ])
+    if (attachments.error || decisions.error) throw attachments.error || decisions.error
+    res.setHeader("Cache-Control", "private, no-store")
+    return res.json(buildImmuneSystemHealth({ plannerState, attachments: attachments.data || [], scanDecisions: decisions.data || [], configuration: { admin_allowlist_configured: Boolean(process.env.ADMIN_EMAIL_ALLOWLIST), attachment_quarantine_enforced: true } }))
+  } catch {
+    return res.status(503).json({ error: "System health diagnostics are unavailable. No data was changed." })
   }
 })
 const plannerTaskResearchRateLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 6 })

@@ -29,5 +29,6 @@ if (mode === MAP_AUTO_PUBLISH_MODES.MACHINE_QC_CREATE_DRY_RUN) {
   console.log(JSON.stringify({ mode: "machine_qc_preflight", total_considered: preflight.total_considered, counts: preflight.counts, ready: preflight.contexts.filter((item) => preflightCategory(item) === "ready_for_machine_qc").slice(0, 10).map((item) => ({ resource_id: item.resource.id, resource_name: item.resource.display_name, occupancy_claim_id: item.occupancyClaim.id, geocoder_evidence_id: item.geocoderEvidence.id, preflight_status: "ready_for_machine_qc" })) }, null, 2))
 } else {
   const report = await runMapAutoPublishDryRun({ db, data, mode, limit })
-  console.log(JSON.stringify({ ...report, results: undefined }, null, 2))
+  const eligible = report.results.filter(({ result }) => result.decision === "auto_publish_eligible").map(({ item, result }) => ({ resource_id: item.resource.id, resource_name: item.resource.display_name, occupancy_claim_id: item.occupancyClaim?.id || null, qc_version: item.qc?.version || null, reason_code: result.reason_code }))
+  console.log(JSON.stringify({ ...report, results: undefined, eligible }, null, 2))
 }
