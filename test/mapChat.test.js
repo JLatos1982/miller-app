@@ -52,6 +52,9 @@ test("map chat reuses protected Miller endpoint without analytics or browser loc
   assert.match(client, /aria-live="polite"/)
   assert.match(client, /role="alert"/)
   assert.match(client, /Filters narrow both visible pins and conversational results/)
+  assert.match(client, /aria-label="Close search results"/)
+  assert.match(client, /setResultsDismissed\(true\)/)
+  assert.match(client, /setActivePanel\("filters"\)/)
 })
 
 test("public map endpoint exposes only administrator-verified geography", () => {
