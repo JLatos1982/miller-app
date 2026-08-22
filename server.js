@@ -39,6 +39,7 @@ import { geocodeNavigationOrigin } from "./server/navigationOrigin.js"
 import { buildSearchIntent, resolveSearchLocation } from "./server/searchIntent.js"
 import { nextSupportCategories } from "./server/intelligence/continuity.js"
 import { createShadowPersistence } from "./server/intelligence/shadowPersistence.js"
+import { buildPlannerDiagnostic, loadPlannerDiagnosticState } from "./server/plannerDiagnostics.js"
 
 dotenv.config()
 
@@ -1068,6 +1069,16 @@ function readAddressEvidence() { return JSON.parse(fs.readFileSync(addressEviden
 app.get("/api/admin/address-evidence", requireAdmin, (_req, res) => {
   try { res.setHeader("Cache-Control", "private, no-store"); return res.json(readAddressEvidence()) }
   catch { return res.status(503).json({ error: "Address evidence has not been generated locally." }) }
+})
+app.get("/api/admin/evidence-gap-plan", requireAdmin, async (req, res) => {
+  try {
+    const state = await loadPlannerDiagnosticState(supabase, { resourceId: req.query.resource_id || null, limit: req.query.limit })
+    res.setHeader("Cache-Control", "private, no-store")
+    return res.json(buildPlannerDiagnostic(state))
+  } catch (error) {
+    if (error?.message === "invalid_resource_id") return res.status(400).json({ error: "Invalid resource ID." })
+    return res.status(503).json({ error: "Evidence-gap planning is unavailable. No data was changed." })
+  }
 })
 app.get("/api/admin/address-resolution", requireAdmin, async (_req, res) => {
   try {
