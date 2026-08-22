@@ -1503,6 +1503,17 @@ app.post("/api/events", analyticsRateLimit, publicWriteHandlers.createEvent)
 
 app.post("/api/resource-submissions", submissionRateLimit, parseResourceSubmissionMultipart, publicWriteHandlers.createResourceSubmission)
 
+app.get("/api/admin/resource-submission-attachments/quarantine", requireAdmin, async (_req, res) => {
+  const { data, error } = await supabase
+    .from("resource_submission_attachments")
+    .select("id,submission_id,display_filename,byte_size,detected_mime_type,status,created_at")
+    .eq("status", "pending_scan")
+    .order("created_at", { ascending: true })
+    .limit(100)
+  if (error) return res.status(503).json({ error: "The attachment quarantine queue is unavailable.", code: "attachment_quarantine_unavailable" })
+  return res.json({ items: data || [], count: (data || []).length, delivery: "disabled_until_scanned" })
+})
+
 app.post("/api/miller", rateLimit({ windowMs: 60 * 1000, max: positiveInteger(process.env.MILLER_RATE_LIMIT_PER_MINUTE, 8) }), validateMillerRequestBody, paidDailyLimit, async (req, res) => {
   const requestId = crypto.randomUUID()
   try {
