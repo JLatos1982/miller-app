@@ -25,6 +25,7 @@ import backgroundJade from "./assets/background_jade.png"
 import backgroundGold from "./assets/background_gold.png"
 import backgroundNorth from "./assets/background_north.png"
 import backgroundRose from "./assets/background_rose.png"
+import justinPortrait from "./assets/Justin.png"
 import AddToHandoutButton from "./handout/AddToHandoutButton.jsx"
 import HandoutBuilder from "./handout/HandoutBuilder.jsx"
 import { createInitialHandoutState, getResourceKey, handoutReducer, hasHandoutContent } from "./handout/handoutState.js"
@@ -45,6 +46,7 @@ import PreMadeLists from "./lists/PreMadeLists.jsx"
 import GetTherePanel from "./navigation/GetTherePanel.jsx"
 import { eligiblePublicLocation } from "./navigation/navigation.js"
 import { buildNavigationPacket, deterministicRelevance } from "./navigation/searchContext.js"
+import AccessibleModal from "./site/AccessibleModal.jsx"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -697,6 +699,7 @@ function App() {
   const [isListsOpen, setIsListsOpen] = useState(() => window.location.pathname === "/lists" || window.location.pathname.startsWith("/lists/"))
   const [mapResources, setMapResources] = useState([])
   const [navigationTarget, setNavigationTarget] = useState(null)
+  const [openInfoModal, setOpenInfoModal] = useState(null)
   const [searchContext, setSearchContext] = useState({ intent: null, location: { status: "none" } })
 
   useEffect(() => {
@@ -1483,6 +1486,7 @@ const millerImageStyle = {}
           Handout
           <span className="handout-count" aria-live="polite">{handout.resources.length}</span>
         </button>
+        <button type="button" className="handout-indicator private-counselling-nav" onClick={() => setOpenInfoModal("private-counselling")}>Private Counselling</button>
       </div>
       <div className="hero-header">
        <p className="eyebrow">Gentle help finding your next step in BC’s Lower Mainland</p>
@@ -1901,6 +1905,30 @@ const millerImageStyle = {}
         </aside>
       </main>
       {navigationTarget ? <GetTherePanel resource={navigationTarget.resource} location={navigationTarget.location} initialOrigin={navigationTarget.origin} onClose={() => setNavigationTarget(null)}/> : null}
+      {openInfoModal === "private-counselling" ? <AccessibleModal title="Private Counselling Services" labelledBy="private-counselling-title" onClose={() => setOpenInfoModal(null)} className="private-counselling-modal">
+        <div className="private-counselling-intro">
+          <div>
+            <p>I maintain a small private practice with limited availability.</p>
+            <p>I offer support for a range of concerns including:</p>
+            <ul>
+              <li>Addictions &amp; substance use</li>
+              <li>Stress &amp; anxiety</li>
+              <li>Life transitions</li>
+              <li>Relationships</li>
+              <li>Adjustment</li>
+              <li>Personal growth</li>
+            </ul>
+          </div>
+          <figure className="private-counselling-portrait"><img src={justinPortrait} alt="Portrait sketch of Justin Latos"/></figure>
+        </div>
+        <section className="private-counselling-contact" aria-labelledby="private-counselling-contact-title">
+          <h3 id="private-counselling-contact-title">Get in Touch</h3>
+          <p>If you’d like to connect or ask a question, please reach out by email.</p>
+          <a href="mailto:justinlatos@protonmail.com">justinlatos@protonmail.com</a>
+          <p className="private-counselling-availability"><strong>Please note:</strong> Availability is limited. I will respond as soon as I can.</p>
+        </section>
+        <p className="private-counselling-separation">Private counselling services are separate from Miller’s community resource directory.</p>
+      </AccessibleModal> : null}
       <footer className="site-footer"><p className="footer-disclosure">Miller is an AI-assisted resource guide, not a therapist, and is maintained by an unpaid volunteer.</p><a href="/admin/login">Admin</a></footer>
     </div>
   )
