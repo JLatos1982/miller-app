@@ -1474,19 +1474,21 @@ const millerImageStyle = {}
   className="scene-background"
 />
       <div className="handout-toolbar">
-        <button type="button" className="handout-indicator" onClick={() => { window.history.pushState({}, "", "/lists"); setIsListsOpen(true) }}><span aria-hidden="true">☷</span>Pre-made Lists</button>
-        <button type="button" className="handout-indicator" onClick={() => setIsMapOpen(true)}><span aria-hidden="true">⌖</span>Service Map</button>
-        <button
-          type="button"
-          className="handout-indicator"
-          onClick={() => setIsHandoutOpen(true)}
-          aria-label={`Open handout with ${handout.resources.length} selected resources`}
-        >
-          <span aria-hidden="true">▤</span>
-          Handout
-          <span className="handout-count" aria-live="polite">{handout.resources.length}</span>
-        </button>
-        <button type="button" className="handout-indicator private-counselling-nav" onClick={() => setOpenInfoModal("private-counselling")}>Private Counselling</button>
+        <div className="handout-toolbar-primary">
+          <button type="button" className="handout-indicator" onClick={() => { window.history.pushState({}, "", "/lists"); setIsListsOpen(true) }}><span aria-hidden="true">☷</span>Pre-made Lists</button>
+          <button type="button" className="handout-indicator" onClick={() => setIsMapOpen(true)}><span aria-hidden="true">⌖</span>Service Map</button>
+          <button
+            type="button"
+            className="handout-indicator"
+            onClick={() => setIsHandoutOpen(true)}
+            aria-label={`Open handout with ${handout.resources.length} selected resources`}
+          >
+            <span aria-hidden="true">▤</span>
+            Handout
+            <span className="handout-count" aria-live="polite">{handout.resources.length}</span>
+          </button>
+        </div>
+        <div className="private-counselling-toolbar-row"><button type="button" className="handout-indicator private-counselling-nav" onClick={() => setOpenInfoModal("private-counselling")}>Private Counselling</button></div>
       </div>
       <div className="hero-header">
        <p className="eyebrow">Gentle help finding your next step in BC’s Lower Mainland</p>
@@ -1905,28 +1907,37 @@ const millerImageStyle = {}
         </aside>
       </main>
       {navigationTarget ? <GetTherePanel resource={navigationTarget.resource} location={navigationTarget.location} initialOrigin={navigationTarget.origin} onClose={() => setNavigationTarget(null)}/> : null}
-      {openInfoModal === "private-counselling" ? <AccessibleModal title="Private Counselling Services" labelledBy="private-counselling-title" onClose={() => setOpenInfoModal(null)} className="private-counselling-modal">
+      {openInfoModal === "private-counselling" ? <AccessibleModal title="Private Counselling" labelledBy="private-counselling-title" onClose={() => setOpenInfoModal(null)} className="private-counselling-modal">
         <div className="private-counselling-intro">
-          <div>
-            <p>I maintain a small private practice with limited availability.</p>
-            <p>I offer support for a range of concerns including:</p>
-            <ul>
-              <li>Addictions &amp; substance use</li>
-              <li>Stress &amp; anxiety</li>
-              <li>Life transitions</li>
-              <li>Relationships</li>
-              <li>Adjustment</li>
-              <li>Personal growth</li>
-            </ul>
-          </div>
+          <section className="private-counselling-profile" aria-label="About Justin Latos">
+            <p className="private-counselling-name">Justin Latos, MSc, CCC</p>
+            <p className="private-counselling-specialties">Counselling · addictions support · life transitions</p>
+            <p>I’m a Canadian Certified Counsellor with an MSc in Counselling and over a decade of experience in community mental health and addictions support.</p>
+            <p>Alongside my work as an addictions resource clinician, I offer a small private practice for adults seeking practical, compassionate support.</p>
+            <p>My approach is down-to-earth, collaborative, and focused on helping you find clarity, build resilience, and move toward meaningful change.</p>
+          </section>
           <figure className="private-counselling-portrait"><img src={justinPortrait} alt="Portrait sketch of Justin Latos"/></figure>
         </div>
+        <section className="private-counselling-services" aria-labelledby="private-counselling-services-title">
+          <h3 id="private-counselling-services-title">Private Counselling Services</h3>
+          <p>I maintain a small private practice with limited availability.</p>
+          <p>I offer support for a range of concerns including:</p>
+          <ul>
+            <li>Addictions &amp; substance use</li>
+            <li>Stress &amp; anxiety</li>
+            <li>Life transitions</li>
+            <li>Relationships</li>
+            <li>Adjustment</li>
+            <li>Personal growth</li>
+          </ul>
+        </section>
         <section className="private-counselling-contact" aria-labelledby="private-counselling-contact-title">
           <h3 id="private-counselling-contact-title">Get in Touch</h3>
           <p>If you’d like to connect or ask a question, please reach out by email.</p>
           <a href="mailto:justinlatos@protonmail.com">justinlatos@protonmail.com</a>
           <p className="private-counselling-availability"><strong>Please note:</strong> Availability is limited. I will respond as soon as I can.</p>
         </section>
+        <p className="private-counselling-closing">Helping people find their way forward, one step at a time.</p>
         <p className="private-counselling-separation">Private counselling services are separate from Miller’s community resource directory.</p>
       </AccessibleModal> : null}
       <footer className="site-footer"><p className="footer-disclosure">Miller is an AI-assisted resource guide, not a therapist, and is maintained by an unpaid volunteer.</p><a href="/admin/login">Admin</a></footer>
