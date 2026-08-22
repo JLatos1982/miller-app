@@ -1,0 +1,7 @@
+import test from "node:test"
+import assert from "node:assert/strict"
+import { HEALTH_CANADA, classifyHealthCanadaRecord, healthCanadaUrl, inspectHealthCanadaPayload } from "../server/healthCanadaAdapter.js"
+const oat={id:"123",title:"Methadone product safety alert",category:"Health product recall",date:"2026-08-22",url:"https://recalls-rappels.canada.ca/en/alert-recall"}
+test("Health Canada adapter has a fixed official API endpoint",()=>{assert.equal(healthCanadaUrl(HEALTH_CANADA.endpoint).hostname,"open.canada.ca");assert.throws(()=>healthCanadaUrl("https://evil.invalid/data/api/3/action/package_show"),/allowlist/)})
+test("controlled OAT relevance accepts a safety record and rejects unrelated recall",()=>{assert.equal(classifyHealthCanadaRecord(oat).medication,"methadone");assert.equal(classifyHealthCanadaRecord({id:"x",title:"toddler toy recall",category:"recall"}),null)})
+test("successful zero differs from duplicate and parser failure",()=>{const first=inspectHealthCanadaPayload({result:{records:[oat]}});assert.equal(first.status,"inspection_success_new_relevant_change");const duplicate=inspectHealthCanadaPayload({result:{records:[oat]}},{last_fingerprint:first.accepted[0].fingerprint});assert.equal(duplicate.status,"inspection_success_no_relevant_change");assert.equal(duplicate.duplicates_ignored,1);assert.throws(()=>inspectHealthCanadaPayload({unexpected:true}),/schema_drift/)})
