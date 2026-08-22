@@ -24,7 +24,7 @@ test("no-action and repeated no-gain results remain deterministic and non-execut
 test("admin diagnostic endpoint is protected, private, bounded, and read-only", () => {
   const server = fs.readFileSync(new URL("../server.js", import.meta.url), "utf8")
   const start = server.indexOf('app.get("/api/admin/evidence-gap-plan"')
-  const end = server.indexOf('app.get("/api/admin/address-resolution"')
+  const end = server.indexOf('app.get("/api/admin/system-health"')
   const section = server.slice(start, end)
   assert.match(section, /requireAdmin/)
   assert.match(section, /loadPlannerDiagnosticState/)

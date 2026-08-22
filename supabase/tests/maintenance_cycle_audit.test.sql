@@ -1,0 +1,16 @@
+begin;
+create extension if not exists pgtap with schema extensions;
+select plan(5);
+insert into auth.users(id,instance_id,aud,role,email,encrypted_password,raw_app_meta_data,raw_user_meta_data,created_at,updated_at) values ('00000000-0000-0000-0000-000000004101','00000000-0000-0000-0000-000000000000','authenticated','authenticated','heartbeat@example.invalid','','{}','{}',now(),now());
+insert into public.resource_registry(id,display_name,lifecycle_state,editorial_status) values ('00000000-0000-0000-0000-000000004102','Heartbeat fixture','active','approved');
+select ok(not has_table_privilege('anon','public.miller_maintenance_cycles','select'),'anon cannot read cycle audit');
+select ok(not has_table_privilege('authenticated','public.miller_maintenance_cycles','insert'),'ordinary users cannot create cycles');
+select ok(has_table_privilege('service_role','public.miller_maintenance_cycles','insert'),'service role can record cycles');
+set local role service_role;
+insert into public.miller_maintenance_cycles(id,mode,actor_id,stop_reason) values ('00000000-0000-0000-0000-000000004103','inspect_only','00000000-0000-0000-0000-000000004101','no_eligible_work');
+insert into public.miller_maintenance_cycle_items(cycle_id,task_id,resource_id,outcome) values ('00000000-0000-0000-0000-000000004103','task-1','00000000-0000-0000-0000-000000004102','skipped');
+select is((select stop_reason from public.miller_maintenance_cycles where id='00000000-0000-0000-0000-000000004103'),'no_eligible_work','cycle audit stores only compact stop state');
+select throws_like($$delete from public.miller_maintenance_cycle_items$$,'resource fact audit is append-only','cycle task audit cannot be deleted');
+reset role;
+select * from finish();
+rollback;

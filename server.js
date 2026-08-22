@@ -41,6 +41,7 @@ import { nextSupportCategories } from "./server/intelligence/continuity.js"
 import { createShadowPersistence } from "./server/intelligence/shadowPersistence.js"
 import { buildPlannerDiagnostic, loadPlannerDiagnosticState } from "./server/plannerDiagnostics.js"
 import { buildImmuneSystemHealth } from "./server/immuneSystem.js"
+import { HEARTBEAT_MODES, planGrowthOpportunities, researchEffectiveness, runHeartbeatCycle } from "./server/heartbeat.js"
 import { createPlannerTaskExecutor, validatePlannerTaskRequest } from "./server/plannerTaskExecutor.js"
 import { fetchSafeResearchDocument } from "./server/review/linkQuality.js"
 
@@ -1096,6 +1097,32 @@ app.get("/api/admin/system-health", requireAdmin, async (_req, res) => {
   } catch {
     return res.status(503).json({ error: "System health diagnostics are unavailable. No data was changed." })
   }
+})
+async function heartbeatInspection() {
+  const [plannerState, attachments, decisions, candidates, executions] = await Promise.all([
+    loadPlannerDiagnosticState(supabase, { limit: 20 }),
+    supabase.from("resource_submission_attachments").select("id,status,created_at").order("created_at", { ascending: false }).limit(200),
+    supabase.from("resource_submission_attachment_scan_decisions").select("attachment_id,decision,actor_type,created_at").order("created_at", { ascending: false }).limit(400),
+    supabase.from("resource_discovery_candidates").select("id,review_status,location_disclosure_status,matched_resource_id,community").limit(100),
+    supabase.from("planner_task_executions").select("task_type,outcome").not("outcome", "is", null).limit(200),
+  ])
+  if ([attachments, decisions, candidates, executions].some((item) => item.error)) throw new Error("heartbeat_state_unavailable")
+  const health = buildImmuneSystemHealth({ plannerState, attachments: attachments.data || [], scanDecisions: decisions.data || [], configuration: { admin_allowlist_configured: Boolean(process.env.ADMIN_EMAIL_ALLOWLIST), attachment_quarantine_enforced: true } })
+  return { planner: buildPlannerDiagnostic(plannerState), health, growth_opportunities: planGrowthOpportunities({ resources: plannerState.resources, candidates: candidates.data || [] }), effectiveness: researchEffectiveness(executions.data || []) }
+}
+async function persistHeartbeatStart(cycle) { const result = await supabase.from("miller_maintenance_cycles").insert({ id: cycle.id, mode: cycle.mode, actor_id: cycle.actor_id, tasks_considered: cycle.tasks_considered, knowledge_finding_count: cycle.knowledge_finding_count, security_finding_count: cycle.security_finding_count }).select().single(); if (result.error) throw result.error }
+async function persistHeartbeatFinish(cycle) { const update = await supabase.from("miller_maintenance_cycles").update({ status: cycle.stop_reason === "security_halt" ? "security_halt" : "completed", tasks_executed: cycle.tasks_executed, useful_evidence_gained: cycle.useful_evidence_gained, external_call_count: cycle.external_call_count, knowledge_finding_count: cycle.knowledge_finding_count, security_finding_count: cycle.security_finding_count, stop_reason: cycle.stop_reason, summary: { selected_task_ids: cycle.selected_task_ids }, completed_at: cycle.completed_at }).eq("id", cycle.id); if (update.error) throw update.error; if (cycle.items.length) { const items = await supabase.from("miller_maintenance_cycle_items").insert(cycle.items.map((item) => ({ cycle_id: cycle.id, ...item }))); if (items.error) throw items.error } }
+app.get("/api/admin/heartbeat", requireAdmin, async (_req, res) => { try { const inspection = await heartbeatInspection(); const last = await supabase.from("miller_maintenance_cycles").select("id,mode,status,tasks_considered,tasks_executed,useful_evidence_gained,external_call_count,stop_reason,completed_at").order("started_at", { ascending: false }).limit(1).maybeSingle(); if (last.error) throw last.error; res.setHeader("Cache-Control", "private, no-store"); return res.json({ ...inspection, last_cycle: last.data || null }) } catch { return res.status(503).json({ error: "Heartbeat diagnostics are unavailable. No data was changed." }) } })
+const heartbeatRateLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 3 })
+app.post("/api/admin/heartbeat", heartbeatRateLimit, requireAdmin, async (req, res) => {
+  const mode = req.body?.mode
+  if (!Object.values(HEARTBEAT_MODES).includes(mode) || mode === HEARTBEAT_MODES.MAINTENANCE && req.body?.confirm !== true) return res.status(400).json({ error: "A valid mode and explicit maintenance confirmation are required." })
+  if (mode === HEARTBEAT_MODES.MAINTENANCE && !process.env.TAVILY_API_KEY) return res.status(503).json({ error: "Bounded research is not configured." })
+  try {
+    const executor = mode === HEARTBEAT_MODES.MAINTENANCE ? createPlannerTaskExecutor({ db: supabase, research: async ({ plan, budget }) => { const docs = [], seen = new Set(); for (const query of plan.queries.slice(0, budget.maxSearchRequests)) { const search = await TAVILY_CLIENT.search(query, { searchDepth: "basic", maxResults: budget.maxFetchedSources, includeAnswer: false }); for (const result of search?.results || []) { if (docs.length >= budget.maxFetchedSources || seen.has(result.url)) continue; seen.add(result.url); try { const document = await fetchSafeResearchDocument(result.url, { timeoutMs: budget.timeoutMs }); if (document.ok && document.text) docs.push({ url: document.url, title: result.title, text: document.text }) } catch { /* bounded source failure */ } } if (docs.length >= budget.maxFetchedSources) break } return docs } }) : null
+    const cycle = await runHeartbeatCycle({ mode, actorId: req.adminUser.id, inspect: heartbeatInspection, executeTask: executor ? (task) => executor({ task_id: task.task_id, resource_id: task.resource_id, claim_id: task.claim_id }, req.adminUser.id) : null, persist: { begin: (cycle) => persistHeartbeatStart({ ...cycle, actor_id: req.adminUser.id }), finish: persistHeartbeatFinish } })
+    return res.json(cycle)
+  } catch (error) { console.error("Heartbeat cycle failed:", String(error?.message || "unknown").slice(0, 200)); return res.status(503).json({ error: "Heartbeat cycle could not complete. No additional task was started." }) }
 })
 const plannerTaskResearchRateLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 6 })
 app.post("/api/admin/evidence-gap-plan/execute", plannerTaskResearchRateLimit, requireAdmin, async (req, res) => {
