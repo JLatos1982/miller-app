@@ -35,8 +35,16 @@ export function selectOccupancyClaim(claims = [], evidenceByClaim = new Map()) {
   return { claim: newest(candidates.map((item) => item.claim)), reason_code: null }
 }
 export function selectGeocoderEvidence(claims = [], evidenceByClaim = new Map(), address) {
-  const candidates = claims.flatMap((claim) => (evidenceByClaim.get(claim.id) || []).map((evidence) => ({ claim, evidence }))).filter(({ evidence }) => evidence.stale !== true && evidence.source_type === "bc_geocoder" && evidence.extracted_value && Number(evidence.extracted_value.score) >= 90 && normalized(evidence.extracted_value.standardized_address || evidence.extracted_value.returned_address) === normalized(address))
+  const candidates = claims.flatMap((claim) => (evidenceByClaim.get(claim.id) || []).map((evidence) => ({ claim, evidence }))).filter(({ evidence }) => { const value = evidence.extracted_value || {}; return evidence.stale !== true && evidence.source_type === "bc_geocoder" && Number(value.score) >= 90 && value.municipality_match === true && String(value.province || "").toUpperCase() === "BC" && !/centroid|locality|postal/i.test(String(value.location_descriptor || value.precision || "")) && Number.isFinite(Number(value.coordinates?.latitude ?? value.latitude)) && Number.isFinite(Number(value.coordinates?.longitude ?? value.longitude)) && normalized(value.standardized_address || value.returned_address) === normalized(address) })
   return newest(candidates.map((item) => item.evidence))
+}
+const protectedName = /\b(safe home|transition house|domestic violence|trafficking|confidential|undisclosed|intake only)\b/i
+export function preflightCategory(item) {
+  if (item.qc) return "existing_qc"
+  if (protectedName.test(item.resource.display_name) || (item.locations || []).some((location) => ["confidential", "undisclosed"].includes(location.location_type))) return "sensitive_or_protected"
+  if (!item.occupancyClaim) return "ambiguous_or_conflicting_occupancy_claim"
+  if (!item.geocoderEvidence) return "missing_geocoder_evidence"
+  return "ready_for_machine_qc"
 }
 
 export function safeCandidateSample(item, result) {
@@ -68,8 +76,8 @@ export async function evaluateMapAutoPublishCandidate({ db, item, mode = MAP_AUT
 }
 
 export async function createMachineQcForCandidate({ db, item, actorId }) {
-  if (item.qc) return { created: false, reason_code: "existing_qc" }
-  if (!item.occupancyClaim) return { created: false, reason_code: item.occupancy_binding || "missing_or_ambiguous_occupancy_claim" }
+  const category = preflightCategory(item)
+  if (category !== "ready_for_machine_qc") return { created: false, reason_code: category }
   const result = await db.rpc("create_machine_initial_location_qc_from_evidence", { p_resource_id: item.resource.id, p_occupancy_claim_id: item.occupancyClaim.id, p_geocoder_evidence_id: item.geocoderEvidence?.id || null, p_actor_id: actorId })
   if (result.error) throw result.error
   return { created: true, qc: result.data, geocoder: item.geocoderEvidence ? "bound" : "missing" }
@@ -93,7 +101,7 @@ export async function runMapAutoPublishDryRun({ db, data, mode = MAP_AUTO_PUBLIS
 export function mapAutoPublishPreflight(data, limit = 100) {
   const contexts = buildMapAutoPublishContexts(data).slice(0, Math.max(1, limit)), counts = {}
   for (const item of contexts) {
-    const reason = item.qc ? "existing_qc" : !item.occupancyClaim ? item.occupancy_binding || "missing_or_ambiguous_occupancy_claim" : item.geocoderEvidence ? "ready_for_machine_qc_creation" : "missing_geocoder_evidence"
+    const reason = preflightCategory(item)
     counts[reason] = (counts[reason] || 0) + 1
   }
   return { total_considered: contexts.length, counts, contexts }
