@@ -49,7 +49,7 @@ export function planEvidenceGapWork({ resources = [], claims = [], evidence = []
 function makeTask({ resource, audit, claim, evidence, task_type, priority, actionable, blockers, investigation }) {
   const evidence_ids = evidence.map((item) => item.id).filter(Boolean).sort()
   const task_id = `${resource.id}:${task_type}:${claim?.id || "none"}`
-  return Object.freeze({ task_id, resource_id: resource.id, claim_id: claim?.id || null, task_type, priority, actionable, blockers, reason_codes: [...new Set(audit.reason_codes || [])], evidence_ids, previous_attempts: Number(audit.current_state?.prior_failed_attempts || 0), recommended_next_investigation: investigation, explanation: explain(resource, task_type, audit.reason_codes || []), read_only: true })
+  return Object.freeze({ task_id, resource_id: resource.id, resource_name: resource.display_name || null, claim_id: claim?.id || null, task_type, priority, actionable, blockers, reason_codes: [...new Set(audit.reason_codes || [])], evidence_ids, previous_attempts: Number(audit.current_state?.prior_failed_attempts || 0), recommended_next_investigation: investigation, explanation: explain(resource, task_type, audit.reason_codes || []), read_only: true })
 }
 
 function dedupe(tasks) { return [...new Map(tasks.map((task) => [task.task_id, task])).values()] }
