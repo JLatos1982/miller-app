@@ -14,9 +14,16 @@ export function enumerateMapAutoPublishCandidates({ resources = [], locations = 
     .sort((a, b) => (a.priority === b.priority ? text(a.resource.display_name).localeCompare(text(b.resource.display_name)) : a.priority === "shelter_housing" ? -1 : 1))
 }
 
-export function buildMapAutoPublishContexts({ resources = [], claims = [], evidence = [], qc = [], locations = [] }) {
+export function buildMapAutoPublishContexts({ resources = [], claims = [], evidence = [], evidenceBindings = [], qc = [], locations = [] }) {
   const evidenceByClaim = new Map(), qcByResource = new Map(qc.map((item) => [item.canonical_resource_id, item]))
   for (const item of evidence) evidenceByClaim.set(item.claim_id, [...(evidenceByClaim.get(item.claim_id) || []), item])
+  // Bindings preserve immutable source evidence while making a proven
+  // same-resource occupancy relationship visible to deterministic selection.
+  const evidenceById = new Map(evidence.map((item) => [item.id, item]))
+  for (const binding of evidenceBindings) {
+    const item = evidenceById.get(binding.evidence_id)
+    if (item && binding.target_claim_id) evidenceByClaim.set(binding.target_claim_id, [...(evidenceByClaim.get(binding.target_claim_id) || []), item])
+  }
   return enumerateMapAutoPublishCandidates({ resources, locations }).map(({ resource, priority }) => {
     const resourceClaims = claims.filter((claim) => claim.resource_id === resource.id && claim.field_name === "location_occupancy")
     const binding = selectOccupancyClaim(resourceClaims, evidenceByClaim)
