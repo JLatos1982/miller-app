@@ -28,10 +28,12 @@ export function buildMapAutoPublishContexts({ resources = [], claims = [], evide
 const normalized = (value) => text(typeof value === "string" ? value : value?.value ?? value).toLowerCase().replace(/[^a-z0-9]/g, "")
 const currentEvidence = (items = []) => items.filter((entry) => entry.stale !== true && entry.source_url && Number(entry.source_authority) >= 85)
 export function selectOccupancyClaim(claims = [], evidenceByClaim = new Map()) {
-  const candidates = claims.filter((claim) => !["superseded", "rejected", "unknown"].includes(claim.status)).map((claim) => ({ claim, evidence: currentEvidence(evidenceByClaim.get(claim.id)) })).filter((item) => item.evidence.length)
-  if (!candidates.length) return { claim: null, reason_code: "missing_or_ambiguous_occupancy_claim" }
+  const currentClaims = claims.filter((claim) => !["superseded", "rejected", "unknown"].includes(claim.status))
+  if (!currentClaims.length) return { claim: null, reason_code: "missing_occupancy_claim" }
+  const candidates = currentClaims.map((claim) => ({ claim, evidence: currentEvidence(evidenceByClaim.get(claim.id)) })).filter((item) => item.evidence.length)
+  if (!candidates.length) return { claim: null, reason_code: "missing_authoritative_occupancy_evidence" }
   const values = new Set(candidates.map((item) => normalized(item.claim.proposed_value)).filter(Boolean))
-  if (values.size !== 1) return { claim: null, reason_code: "missing_or_ambiguous_occupancy_claim" }
+  if (values.size !== 1) return { claim: null, reason_code: "ambiguous_or_conflicting_occupancy_claim" }
   return { claim: newest(candidates.map((item) => item.claim)), reason_code: null }
 }
 export function selectGeocoderEvidence(claims = [], evidenceByClaim = new Map(), address) {
@@ -42,7 +44,7 @@ const protectedName = /\b(safe home|transition house|domestic violence|trafficki
 export function preflightCategory(item) {
   if (item.qc) return "existing_qc"
   if (protectedName.test(item.resource.display_name) || (item.locations || []).some((location) => ["confidential", "undisclosed"].includes(location.location_type))) return "sensitive_or_protected"
-  if (!item.occupancyClaim) return "ambiguous_or_conflicting_occupancy_claim"
+  if (!item.occupancyClaim) return item.occupancy_binding || "other_binding_failure"
   if (!item.geocoderEvidence) return "missing_geocoder_evidence"
   return "ready_for_machine_qc"
 }
