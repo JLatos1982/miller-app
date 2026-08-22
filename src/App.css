@@ -1028,6 +1028,63 @@ textarea {
   font-size: 0.95rem;
 }
 
+.resource-attachment-picker {
+  min-width: 0;
+  margin: 2px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.resource-attachment-picker legend {
+  color: #264f70;
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.resource-attachment-picker legend span,
+.resource-attachment-help,
+.resource-attachment-privacy {
+  color: #5c7890;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.resource-attachment-help,
+.resource-attachment-privacy { margin: 4px 0; }
+.resource-attachment-privacy { color: #6f6570; }
+
+.resource-attachment-dropzone {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  padding: 14px;
+  border: 1.5px dashed #8bb8d6;
+  border-radius: 14px;
+  background: rgba(244, 250, 255, 0.86);
+  color: #244f70;
+  text-align: center;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.resource-attachment-dropzone.is-dragging { border-color: #3d82ad; background: #e7f5ff; }
+.resource-attachment-dropzone p { margin: 0; font-size: 0.88rem; font-weight: 700; }
+.resource-attachment-choose { color: #1f638d; font-size: 0.85rem; font-weight: 800; text-decoration: underline; cursor: pointer; }
+.resource-attachment-input { width: min(100%, 250px); color: #355d79; font-size: 0.8rem; }
+.resource-attachment-list { display: grid; gap: 6px; margin: 8px 0 0; padding: 0; list-style: none; }
+.resource-attachment-list li { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-width: 0; padding: 7px 9px; border: 1px solid #c6deec; border-radius: 10px; background: rgba(255,255,255,.8); color: #264f70; font-size: .83rem; }
+.resource-attachment-list span { min-width: 0; overflow-wrap: anywhere; }
+.resource-attachment-list small { color: #607c91; white-space: nowrap; }
+.resource-attachment-list button { flex: 0 0 auto; min-height: 32px; border: 1px solid #8bb8d6; border-radius: 8px; background: white; color: #245d84; font-weight: 700; cursor: pointer; }
+.resource-attachment-choose:focus-visible,
+.resource-attachment-input:focus-visible,
+.resource-attachment-list button:focus-visible { outline: 3px solid rgba(61,130,173,.35); outline-offset: 2px; }
+
+@media (max-width: 420px) {
+  .resource-attachment-list li { align-items: flex-start; }
+  .resource-attachment-list button { min-width: 64px; }
+}
+
 .empty-card {
   border: 1px solid #ead9b7;
   background: linear-gradient(180deg, #fffdf8 0%, #fff8eb 100%);

@@ -47,6 +47,7 @@ import GetTherePanel from "./navigation/GetTherePanel.jsx"
 import { eligiblePublicLocation } from "./navigation/navigation.js"
 import { buildNavigationPacket, deterministicRelevance } from "./navigation/searchContext.js"
 import AccessibleModal from "./site/AccessibleModal.jsx"
+import ResourceAttachmentPicker from "./site/ResourceAttachmentPicker.jsx"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -790,6 +791,8 @@ useEffect(() => {
     note: "",
   })
   const [submissionStatus, setSubmissionStatus] = useState("")
+  const [submissionAttachments, setSubmissionAttachments] = useState([])
+  const [attachmentResetKey, setAttachmentResetKey] = useState(0)
   const [isAdminMode, setIsAdminMode] = useState(false)
   const [adminLoginEmail, setAdminLoginEmail] = useState("")
   const [adminLoginStatus, setAdminLoginStatus] = useState("")
@@ -1402,17 +1405,19 @@ function previousMiller() {
         note: submission.note.trim(),
       }
 
-      await submitResource(payload)
+      const hasAttachments = submissionAttachments.length > 0
+      await submitResource({ ...payload, attachments: submissionAttachments })
 
       setSubmission({
         resource_name: "",
         city: "",
         note: "",
       })
-      setSubmissionStatus("Thanks — your submission was sent.")
-    } catch {
-      console.error("Submission failed.")
-      setSubmissionStatus("Something went wrong sending the submission. Please try again.")
+      setSubmissionAttachments([])
+      setAttachmentResetKey((value) => value + 1)
+      setSubmissionStatus(hasAttachments ? "Thanks — your note and attached resource documents were submitted for review." : "Thanks — your submission was sent.")
+    } catch (error) {
+      setSubmissionStatus(error?.message || "Something went wrong sending the submission. Please try again.")
     } finally {
       setIsSubmitting(false)
     }
@@ -1890,16 +1895,24 @@ const millerImageStyle = {}
                       onChange={(event) => updateSubmissionField("note", event.target.value)}
                     />
 
+                    <ResourceAttachmentPicker
+                      files={submissionAttachments}
+                      onFilesChange={setSubmissionAttachments}
+                      onValidationMessage={setSubmissionStatus}
+                      disabled={isSubmitting}
+                      resetKey={attachmentResetKey}
+                    />
+
                     <button
                       className="submission-submit-button"
                       type="submit"
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? "Sending..." : "Tuck into satchel"}
+                      {isSubmitting ? (submissionAttachments.length ? "Uploading…" : "Submitting…") : "Tuck into satchel"}
                     </button>
 
                     {submissionStatus ? (
-                      <p className="submission-status">{submissionStatus}</p>
+                      <p className="submission-status" role="status">{submissionStatus}</p>
                     ) : null}
                   </form>
                 </div>
