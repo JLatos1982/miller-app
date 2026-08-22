@@ -1,0 +1,18 @@
+begin;
+create extension if not exists pgtap with schema extensions;
+select plan(7);
+insert into auth.users(id,instance_id,aud,role,email,encrypted_password,raw_app_meta_data,raw_user_meta_data,created_at,updated_at) values ('00000000-0000-0000-0000-000000004001','00000000-0000-0000-0000-000000000000','authenticated','authenticated','planner-executor@example.invalid','','{}','{}',now(),now());
+insert into public.resource_registry(id,display_name,lifecycle_state,editorial_status) values ('00000000-0000-0000-0000-000000004002','Planner Test Programme','active','approved');
+insert into public.resource_fact_claims(id,resource_id,field_name,proposed_value,risk,recommendation,confidence,reason_codes,engine_version,status,claim_fingerprint,decision_category) values ('00000000-0000-0000-0000-000000004003','00000000-0000-0000-0000-000000004002','location_occupancy','"123 Main Street"','medium','human_review','bounded',array['test'],'test','observed',repeat('a',64),'location_occupancy');
+insert into public.canonical_authoritative_research_runs(id,operation,project_ref,authorized_max_attempts,actor_id) values ('00000000-0000-0000-0000-000000004004','canonical_authoritative_research_v1','wccagykzugrahwugefqt',1,'00000000-0000-0000-0000-000000004001');
+select ok(not has_function_privilege('anon','public.begin_planner_task_execution_v1(text,uuid,uuid,text,uuid,uuid)','execute'),'anon cannot begin planner execution');
+select ok(not has_function_privilege('authenticated','public.begin_planner_task_execution_v1(text,uuid,uuid,text,uuid,uuid)','execute'),'ordinary users cannot begin planner execution');
+select ok(has_function_privilege('service_role','public.begin_planner_task_execution_v1(text,uuid,uuid,text,uuid,uuid)','execute'),'service role can begin planner execution');
+set local role service_role;
+select is((public.begin_planner_task_execution_v1('00000000-0000-0000-0000-000000004002:verify_programme_at_site:00000000-0000-0000-0000-000000004003','00000000-0000-0000-0000-000000004002','00000000-0000-0000-0000-000000004003','verify_programme_at_site','00000000-0000-0000-0000-000000004001','00000000-0000-0000-0000-000000004004')).status,'running','one task begins running');
+select is((public.begin_planner_task_execution_v1('00000000-0000-0000-0000-000000004002:verify_programme_at_site:00000000-0000-0000-0000-000000004003','00000000-0000-0000-0000-000000004002','00000000-0000-0000-0000-000000004003','verify_programme_at_site','00000000-0000-0000-0000-000000004001','00000000-0000-0000-0000-000000004004')).id,(select id from public.planner_task_executions limit 1),'repeat returns the same execution');
+select is((public.finish_planner_task_execution_v1('00000000-0000-0000-0000-000000004002:verify_programme_at_site:00000000-0000-0000-0000-000000004003','completed','unchanged','["https://example.invalid"]',null)).outcome,'unchanged','result is append-only and deterministic');
+select throws_like($$delete from public.planner_task_executions$$,'resource fact audit is append-only','execution audit cannot be deleted');
+reset role;
+select * from finish();
+rollback;

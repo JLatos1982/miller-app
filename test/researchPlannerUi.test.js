@@ -16,8 +16,10 @@ test("planner presents summary, task states, programme guidance, trace, empty an
   assert.match(source, /task\.evidence_ids/)
   assert.match(source, /aria-pressed/)
 })
-test("planner has no execution or mutation control", () => {
-  assert.doesNotMatch(source, /method:\s*["'](?:POST|PATCH|PUT|DELETE)/)
-  assert.doesNotMatch(source, /\/publish|\/geocode|\/resolve|\/retry|\/approve/)
-  assert.doesNotMatch(source, /fetch\(/)
+test("planner exposes only the explicit bounded single-task control", () => {
+  assert.match(source, /Research this task/)
+  assert.match(source, /\/api\/admin\/evidence-gap-plan\/execute/)
+  assert.match(source, /method: "POST"/)
+  assert.match(source, /External research may occur only for this task/)
+  assert.doesNotMatch(source, /Run all|Research queue|retry all/i)
 })

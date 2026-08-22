@@ -40,6 +40,8 @@ import { buildSearchIntent, resolveSearchLocation } from "./server/searchIntent.
 import { nextSupportCategories } from "./server/intelligence/continuity.js"
 import { createShadowPersistence } from "./server/intelligence/shadowPersistence.js"
 import { buildPlannerDiagnostic, loadPlannerDiagnosticState } from "./server/plannerDiagnostics.js"
+import { createPlannerTaskExecutor, validatePlannerTaskRequest } from "./server/plannerTaskExecutor.js"
+import { fetchSafeResearchDocument } from "./server/review/linkQuality.js"
 
 dotenv.config()
 
@@ -1078,6 +1080,37 @@ app.get("/api/admin/evidence-gap-plan", requireAdmin, async (req, res) => {
   } catch (error) {
     if (error?.message === "invalid_resource_id") return res.status(400).json({ error: "Invalid resource ID." })
     return res.status(503).json({ error: "Evidence-gap planning is unavailable. No data was changed." })
+  }
+})
+const plannerTaskResearchRateLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 6 })
+app.post("/api/admin/evidence-gap-plan/execute", plannerTaskResearchRateLimit, requireAdmin, async (req, res) => {
+  let input
+  try { input = validatePlannerTaskRequest(req.body) }
+  catch { return res.status(400).json({ error: "Invalid planner task identifiers." }) }
+  if (req.body?.confirm !== true) return res.status(400).json({ error: "Explicit research confirmation is required." })
+  if (!process.env.TAVILY_API_KEY) return res.status(503).json({ error: "Bounded research is not configured." })
+  const executor = createPlannerTaskExecutor({
+    db: supabase,
+    research: async ({ plan, budget }) => {
+      const documents = [], seen = new Set()
+      for (const query of plan.queries.slice(0, budget.maxSearchRequests)) {
+        const response = await TAVILY_CLIENT.search(query, { searchDepth: "basic", maxResults: budget.maxFetchedSources, includeAnswer: false })
+        for (const result of response?.results || []) {
+          if (documents.length >= budget.maxFetchedSources || seen.has(result.url)) continue
+          seen.add(result.url)
+          try { const document = await fetchSafeResearchDocument(result.url, { timeoutMs: budget.timeoutMs }); if (document.ok && document.text) documents.push({ url: document.url, title: result.title, text: document.text }) } catch { /* a bounded source failure is not evidence */ }
+        }
+        if (documents.length >= budget.maxFetchedSources) break
+      }
+      return documents
+    },
+  })
+  try {
+    const result = await executor(input, req.adminUser.id)
+    return res.status(result.outcome === "stale_task" ? 409 : 200).json(result)
+  } catch (error) {
+    console.error("Planner task research failed:", String(error?.message || "unknown").slice(0, 200))
+    return res.status(503).json({ error: "Bounded research could not complete. No further task was started." })
   }
 })
 app.get("/api/admin/address-resolution", requireAdmin, async (_req, res) => {
