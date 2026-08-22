@@ -11,6 +11,8 @@ const production = args.has("--production-bootstrap")
 const apply = args.has("--apply")
 const withGeocoder = args.has("--with-geocoder")
 const limit = Math.max(1, Math.min(50, Number([...args].find((arg) => arg.startsWith("--limit="))?.slice(8) || 50)))
+const runId = [...args].find((arg) => arg.startsWith("--run-id="))?.slice(9) || ""
+const authorizedMax = Math.max(1, Math.min(50, Number([...args].find((arg) => arg.startsWith("--authorized-max="))?.slice(17) || limit)))
 const url = process.env.SUPABASE_URL || ""
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY || ""
 const host = url ? new URL(url).hostname : ""
@@ -19,6 +21,7 @@ if (!url || !key) throw new Error("trusted_master_bootstrap_requires_server_conf
 if (production ? host !== productionHost : !/^127\.0\.0\.1$|^localhost$/i.test(host)) throw new Error("trusted_master_bootstrap_refuses_unproven_target")
 if (apply && !args.has("--confirm-nonpublic-evidence")) throw new Error("trusted_master_bootstrap_requires_explicit_nonpublic_evidence_confirmation")
 if (withGeocoder && !apply) throw new Error("trusted_master_geocoder_requires_apply")
+if (apply && !runId) throw new Error("trusted_master_bootstrap_requires_durable_run_id")
 
 const clean = (value) => String(value ?? "").replace(/\s+/g, " ").trim()
 const normalized = (value) => clean(value).toLowerCase().replace(/[^a-z0-9]/g, "")
@@ -96,12 +99,15 @@ const selected = candidates.filter((item) => item.usable.length === 1 && !item.c
 const users = await db.auth.admin.listUsers({ perPage: 1 })
 const actor = users.data?.users?.[0]
 if (!actor) throw new Error("trusted_master_bootstrap_audit_actor_unavailable")
+const started = await db.rpc("begin_trusted_master_occupancy_bootstrap_run", { p_run_id: runId, p_authorized_max_successes: authorizedMax, p_actor_id: actor.id })
+if (started.error) throw started.error
 const created = []
 for (const item of selected) {
   const source = item.usable[0], record = sourceRecordByKey.get(`${source.source_type}:${source.source_native_id}:${source.source_record_hash}`)
   if (!record) throw new Error("trusted_master_source_record_missing_after_sync")
-  const { data, error } = await db.rpc("create_occupancy_claim_from_trusted_master_record", { p_resource_id: item.resource.id, p_source_record_id: record.id, p_actor_id: actor.id })
+  const { data, error } = await db.rpc("create_occupancy_claim_from_trusted_master_run", { p_run_id: runId, p_resource_id: item.resource.id, p_source_record_id: record.id, p_actor_id: actor.id })
   if (error) { created.push({ resource_id: item.resource.id, outcome: "blocked", reason_code: error.code || "server_blocked" }); continue }
+  if (data?.outcome === "refused") { created.push({ resource_id: item.resource.id, outcome: "refused", reason_code: data.reason_code }); break }
   created.push({ resource_id: item.resource.id, outcome: data?.outcome || "unknown", claim_id: data?.claim_id || null })
 }
 const geocoded = [], machineQc = [], classified = []
@@ -127,4 +133,4 @@ if (withGeocoder) {
     await new Promise((resolve) => setTimeout(resolve, 200))
   }
 }
-console.log(JSON.stringify({ mode: "bounded_nonpublic_bootstrap", ...preflight, source_records_created: insertRows.length, batch_limit: limit, occupancy_results: { attempted: selected.length, created: created.filter((item) => item.outcome === "created").length, idempotent: created.filter((item) => item.outcome === "idempotent").length, blocked: created.filter((item) => item.outcome === "blocked").length }, geocoder_results: { attempted: geocoded.length, exact_civic: geocoded.filter((item) => item.outcome === "exact_civic").length, blocked: geocoded.filter((item) => item.outcome !== "exact_civic").length }, machine_qc_results: { created: machineQc.filter((item) => item.outcome === "created").length, blocked: machineQc.filter((item) => item.outcome !== "created").length }, map_auto_publish_dry_run: { eligible: classified.filter((item) => item.decision === "auto_publish_eligible").length, manual_review: classified.filter((item) => item.decision !== "auto_publish_eligible").length }, publication_changes: 0, locations_created: 0 }, null, 2))
+console.log(JSON.stringify({ mode: "bounded_nonpublic_bootstrap", run: { id: started.data.id, authorized_max_successes: started.data.authorized_max_successes, successful_count: started.data.successful_count }, ...preflight, source_records_created: insertRows.length, batch_limit: limit, occupancy_results: { attempted: selected.length, created: created.filter((item) => item.outcome === "created").length, idempotent: created.filter((item) => item.outcome === "idempotent").length, blocked: created.filter((item) => item.outcome === "blocked").length, refused: created.filter((item) => item.outcome === "refused").length }, geocoder_results: { attempted: geocoded.length, exact_civic: geocoded.filter((item) => item.outcome === "exact_civic").length, blocked: geocoded.filter((item) => item.outcome !== "exact_civic").length }, machine_qc_results: { created: machineQc.filter((item) => item.outcome === "created").length, blocked: machineQc.filter((item) => item.outcome !== "created").length }, map_auto_publish_dry_run: { eligible: classified.filter((item) => item.decision === "auto_publish_eligible").length, manual_review: classified.filter((item) => item.decision !== "auto_publish_eligible").length }, publication_changes: 0, locations_created: 0 }, null, 2))
