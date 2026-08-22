@@ -1,0 +1,39 @@
+begin;
+create extension if not exists pgtap with schema extensions;
+select plan(19);
+insert into auth.users(id,instance_id,aud,role,email,encrypted_password,raw_app_meta_data,raw_user_meta_data,created_at,updated_at) values ('00000000-0000-0000-0000-000000003001','00000000-0000-0000-0000-000000000000','authenticated','authenticated','map-auto@example.invalid','','{}','{}',now(),now());
+insert into public.resource_registry(id,display_name,lifecycle_state,editorial_status) values ('00000000-0000-0000-0000-000000003101','Eligible service','active','approved'),('00000000-0000-0000-0000-000000003102','Existing public service','active','approved'),('00000000-0000-0000-0000-000000003103','Sensitive service','active','approved');
+insert into public.location_qc_reviews(canonical_resource_id,policy_version,classification_fingerprint,decision,review_snapshot,version,reviewed_by,origin) values
+('00000000-0000-0000-0000-000000003101','map_auto_publish_v1',repeat('a',64),'manual_review','{"submitted_address":"100 Main Street","returned_address":"100 Main Street, Vancouver, BC","locality":"Vancouver","municipality_match":true,"score":100,"precision_points":100,"location_descriptor":"parcelpoint","coordinates":{"latitude":49.2,"longitude":-123.1},"program_occupancy_confidence":"supported","sensitivity_flags":[],"conflicts":[]}',1,'00000000-0000-0000-0000-000000003001','machine_initial'),
+('00000000-0000-0000-0000-000000003102','map_auto_publish_v1',repeat('b',64),'manual_review','{"submitted_address":"200 Main Street","returned_address":"200 Main Street, Vancouver, BC","locality":"Vancouver","municipality_match":true,"score":100,"precision_points":100,"location_descriptor":"parcelpoint","coordinates":{"latitude":49.2,"longitude":-123.2},"program_occupancy_confidence":"supported","sensitivity_flags":[],"conflicts":[]}',1,'00000000-0000-0000-0000-000000003001','machine_initial'),
+('00000000-0000-0000-0000-000000003103','map_auto_publish_v1',repeat('c',64),'manual_review','{"submitted_address":"300 Main Street","returned_address":"300 Main Street, Vancouver, BC","locality":"Vancouver","municipality_match":true,"score":100,"precision_points":100,"location_descriptor":"parcelpoint","coordinates":{"latitude":49.2,"longitude":-123.3},"program_occupancy_confidence":"supported","sensitivity_flags":["confidential"],"conflicts":[]}',1,'00000000-0000-0000-0000-000000003001','machine_initial');
+insert into public.resource_fact_claims(id,resource_id,field_name,proposed_value,risk,recommendation,confidence,engine_version,status,claim_fingerprint) values
+('00000000-0000-0000-0000-000000003201','00000000-0000-0000-0000-000000003101','location_occupancy','"100 Main Street"','medium','auto_accept','high','test','observed',repeat('d',64)),
+('00000000-0000-0000-0000-000000003202','00000000-0000-0000-0000-000000003102','location_occupancy','"200 Main Street"','medium','auto_accept','high','test','observed',repeat('e',64)),
+('00000000-0000-0000-0000-000000003203','00000000-0000-0000-0000-000000003103','location_occupancy','"300 Main Street"','medium','auto_accept','high','test','observed',repeat('f',64));
+insert into public.resource_fact_evidence(claim_id,source_type,source_url,source_authority,extraction_method,independent_key,evidence_fingerprint) values
+('00000000-0000-0000-0000-000000003201','official_provider','https://example.invalid/one',95,'test','one',repeat('1',64)),('00000000-0000-0000-0000-000000003202','official_provider','https://example.invalid/two',95,'test','two',repeat('2',64)),('00000000-0000-0000-0000-000000003203','official_provider','https://example.invalid/three',95,'test','three',repeat('3',64));
+insert into public.resource_locations(resource_id,location_type,street_address,city,province,latitude,longitude,geocode_status,review_status,public_map) values ('00000000-0000-0000-0000-000000003102','fixed','200 Main Street','Vancouver','BC',49.2,-123.2,'verified','approved',true);
+select ok(has_function_privilege('service_role','public.classify_map_auto_publish_v1(uuid,integer,uuid)','execute'),'service role can classify');
+set local role service_role;
+select is(public.classify_map_auto_publish_v1('00000000-0000-0000-0000-000000003101',1,'00000000-0000-0000-0000-000000003201')->>'decision','auto_publish_eligible','service role can execute the database-derived classifier');
+reset role;
+select ok(not has_function_privilege('anon','public.dry_run_map_auto_publish_v1(uuid,integer,uuid)','execute'),'anonymous cannot call dry run');
+select ok(not has_function_privilege('authenticated','public.dry_run_map_auto_publish_v1(uuid,integer,uuid)','execute'),'ordinary user cannot call dry run');
+select ok(not has_table_privilege('authenticated','public.map_auto_publication_decisions','insert'),'ordinary users cannot write decision provenance');
+select is(public.classify_map_auto_publish_v1('00000000-0000-0000-0000-000000003101',1,'00000000-0000-0000-0000-000000003201')->>'decision','auto_publish_eligible','persisted exact machine QC and evidence qualify');
+select is(public.classify_map_auto_publish_v1('00000000-0000-0000-0000-000000003101',2,'00000000-0000-0000-0000-000000003201')->>'reason_code','current_machine_qc_required','stale QC fails closed');
+select is(public.classify_map_auto_publish_v1('00000000-0000-0000-0000-000000003101',1,'00000000-0000-0000-0000-000000003202')->>'reason_code','authoritative_occupancy_claim_required','caller cannot substitute another resource claim');
+select is(public.classify_map_auto_publish_v1('00000000-0000-0000-0000-000000003102',1,'00000000-0000-0000-0000-000000003202')->>'reason_code','existing_human_location','existing approved public pin is protected');
+select is(public.classify_map_auto_publish_v1('00000000-0000-0000-0000-000000003103',1,'00000000-0000-0000-0000-000000003203')->>'reason_code','sensitive_location','sensitivity fails closed');
+select is(public.dry_run_map_auto_publish_v1('00000000-0000-0000-0000-000000003101',1,'00000000-0000-0000-0000-000000003201')->>'mode','dry_run','dry run returns dry-run result');
+select is((select count(*)::integer from public.map_auto_publication_decisions where resource_id='00000000-0000-0000-0000-000000003101'),1,'qualification provenance is written once');
+select is(public.dry_run_map_auto_publish_v1('00000000-0000-0000-0000-000000003101',1,'00000000-0000-0000-0000-000000003201')->>'decision','auto_publish_eligible','retry returns same qualification');
+select is((select count(*)::integer from public.map_auto_publication_decisions where resource_id='00000000-0000-0000-0000-000000003101'),1,'retry is provenance-idempotent');
+select throws_ok($$select public.dry_run_map_auto_publish_v1('00000000-0000-0000-0000-000000003101',99,'00000000-0000-0000-0000-000000003201')$$,'40001','map auto publication QC version conflict','transaction failure rejects stale write');
+select is((select count(*)::integer from public.map_auto_publication_decisions where resource_id='00000000-0000-0000-0000-000000003101'),1,'failed transaction leaves no provenance partial state');
+select throws_ok($$update public.map_auto_publication_decisions set reason_code='changed' where resource_id='00000000-0000-0000-0000-000000003101'$$,null,'map auto publication decisions are append-only','provenance cannot be updated');
+select is((select count(*)::integer from public.resource_locations where resource_id='00000000-0000-0000-0000-000000003101'),0,'dry run does not create a location');
+select is((select public_map from public.resource_locations where resource_id='00000000-0000-0000-0000-000000003102'),true,'dry run does not alter public map state');
+select * from finish();
+rollback;
