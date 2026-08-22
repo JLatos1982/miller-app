@@ -10,7 +10,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "test": "node --test",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "scan-resource-attachments": "node --env-file-if-exists=.env.local scripts/scan-resource-attachments.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.102.1",
