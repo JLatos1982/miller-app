@@ -1552,6 +1552,7 @@ const millerImageStyle = {}
                 Miller helps you find local addiction and community supports and take the next step.
               </p>
               <p className="capability-signal">Search · nearby services · getting there</p>
+              <p className="miller-service-note">Miller offers volunteer resource-navigation support, not clinical counselling or therapy. I can help you find and organize trusted community resources.</p>
             </div>
           </form>
 
@@ -1912,7 +1913,7 @@ const millerImageStyle = {}
           <section className="private-counselling-profile" aria-label="About Justin Latos">
             <p className="private-counselling-name">Justin Latos, MSc, CCC</p>
             <p className="private-counselling-specialties">Counselling · addictions support · life transitions</p>
-            <p>I’m a Canadian Certified Counsellor with an MSc in Counselling and over a decade of experience in community mental health and addictions support.</p>
+            <p>I’m a Canadian Certified Counsellor with an MSc in Counselling and over 15 years of experience in counselling, community mental health, addictions, and related support work.</p>
             <p>Alongside my work as an addictions resource clinician, I offer a small private practice for adults seeking practical, compassionate support.</p>
             <p>My approach is down-to-earth, collaborative, and focused on helping you find clarity, build resilience, and move toward meaningful change.</p>
           </section>
@@ -1940,7 +1941,7 @@ const millerImageStyle = {}
         <p className="private-counselling-closing">Helping people find their way forward, one step at a time.</p>
         <p className="private-counselling-separation">Private counselling services are separate from Miller’s community resource directory.</p>
       </AccessibleModal> : null}
-      <footer className="site-footer"><p className="footer-disclosure">Miller is an AI-assisted resource guide, not a therapist, and is maintained by an unpaid volunteer.</p><a href="/admin/login">Admin</a></footer>
+      <footer className="site-footer"><a href="/admin/login">Admin</a></footer>
     </div>
   )
 }
