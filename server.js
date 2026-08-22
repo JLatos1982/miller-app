@@ -1,4 +1,5 @@
 import express from "express"
+import multer from "multer"
 import cors from "cors"
 import dotenv from "dotenv"
 import OpenAI from "openai"
@@ -14,6 +15,7 @@ import { createClient } from "@supabase/supabase-js"
 import { runResourceReviewPipeline } from "./server/review/orchestrator.js"
 import { createRequireAdmin } from "./server/adminAuth.js"
 import { createPublicWriteHandlers } from "./server/publicWrites.js"
+import { MAX_RESOURCE_SUGGESTION_ATTACHMENTS, MAX_RESOURCE_SUGGESTION_ATTACHMENT_BYTES, MAX_RESOURCE_SUGGESTION_ATTACHMENT_TOTAL_BYTES } from "./server/resourceSuggestionAttachments.js"
 import { validateMillerRequest } from "./server/millerValidation.js"
 import { addressCacheKey, createGeocoder, isPublicGeocodeCandidate, normalizeAddressParts } from "./server/geocoding.js"
 import { boundedMapConversation, buildAuthorizedMapResponse } from "./server/mapChat.js"
@@ -1467,10 +1469,39 @@ app.patch("/api/admin/pending-locations/:locationId", requireAdmin, async (req, 
 
 const analyticsRateLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 120 })
 const submissionRateLimit = rateLimit({ windowMs: 60 * 60 * 1000, max: 5 })
+const resourceSubmissionUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: {
+    files: MAX_RESOURCE_SUGGESTION_ATTACHMENTS,
+    fileSize: MAX_RESOURCE_SUGGESTION_ATTACHMENT_BYTES,
+    fields: 4,
+    fieldSize: 128 * 1024,
+    parts: 6,
+  },
+})
+
+function parseResourceSubmissionMultipart(req, res, next) {
+  if (!req.is("multipart/form-data")) return next()
+  const contentLength = Number(req.headers["content-length"])
+  const maximumRequestBytes = MAX_RESOURCE_SUGGESTION_ATTACHMENT_TOTAL_BYTES + (128 * 1024)
+  if (Number.isFinite(contentLength) && contentLength > maximumRequestBytes) {
+    return res.status(413).json({ error: "Attachments must not exceed 10 MB in total.", code: "attachments_too_large" })
+  }
+  return resourceSubmissionUpload.array("attachments", MAX_RESOURCE_SUGGESTION_ATTACHMENTS)(req, res, (error) => {
+    if (!error) return next()
+    if (error instanceof multer.MulterError && error.code === "LIMIT_FILE_SIZE") {
+      return res.status(413).json({ error: "Each attachment must be 5 MB or smaller.", code: "attachment_too_large" })
+    }
+    if (error instanceof multer.MulterError && error.code === "LIMIT_FILE_COUNT") {
+      return res.status(400).json({ error: "A submission can include at most 2 attachments.", code: "too_many_attachments" })
+    }
+    return res.status(400).json({ error: "Invalid attachment upload.", code: "invalid_attachment" })
+  })
+}
 
 app.post("/api/events", analyticsRateLimit, publicWriteHandlers.createEvent)
 
-app.post("/api/resource-submissions", submissionRateLimit, publicWriteHandlers.createResourceSubmission)
+app.post("/api/resource-submissions", submissionRateLimit, parseResourceSubmissionMultipart, publicWriteHandlers.createResourceSubmission)
 
 app.post("/api/miller", rateLimit({ windowMs: 60 * 1000, max: positiveInteger(process.env.MILLER_RATE_LIMIT_PER_MINUTE, 8) }), validateMillerRequestBody, paidDailyLimit, async (req, res) => {
   const requestId = crypto.randomUUID()
