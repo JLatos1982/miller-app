@@ -1493,6 +1493,7 @@ const millerImageStyle = {}
             <span className="handout-count" aria-live="polite">{handout.resources.length}</span>
           </button>
           <button type="button" className="handout-indicator private-counselling-nav" onClick={() => setOpenInfoModal("private-counselling")}>Private Counselling</button>
+          <button type="button" className="handout-indicator" onClick={() => setOpenInfoModal("about-site")}>About This Site</button>
         </div>
       </div>
       <div className="hero-header">
@@ -1954,6 +1955,12 @@ const millerImageStyle = {}
         </section>
         <p className="private-counselling-closing">Helping people find their way forward, one step at a time.</p>
         <p className="private-counselling-separation">Private counselling services are separate from this community resource directory.</p>
+      </AccessibleModal> : null}
+      {openInfoModal === "about-site" ? <AccessibleModal title="About This Site" labelledBy="about-site-title" onClose={() => setOpenInfoModal(null)} className="about-site-modal">
+        <section className="about-site-intro"><p className="about-site-lead">A little help finding your way.</p><p>Finding the right community service can involve a surprising amount of detective work. This site brings together information about addiction, mental health, housing, counselling, harm reduction, treatment, and other community supports to make that search a little easier.</p></section>
+        <section aria-labelledby="about-site-how-it-works"><h3 id="about-site-how-it-works">How it works</h3><dl className="about-site-tools"><div><dt>Search</dt><dd>Tell the resource finder what kind of help you’re looking for. Adding your city can help narrow the search.</dd></div><div><dt>Pre-made Lists</dt><dd>Browse organized collections when you’d rather explore than search. The Master List provides a broader view of available resources.</dd></div><div><dt>Service Map</dt><dd>Explore resources geographically when location matters.</dd></div><div><dt>Handout</dt><dd>Save useful resources in a simpler collection to refer to or share later.</dd></div><div><dt>Suggest a Resource / Notes</dt><dd>Leave a note about a missing, changed, or useful service. You can also attach a resource flyer or document for review.</dd></div></dl></section>
+        <section><h3>A bit of detective work</h3><p>Community-resource information changes. Programs move, eligibility and phone numbers change, and services sometimes close or open.</p><p>The site helps gather and organize useful information, but it’s always a good idea to confirm important details directly with the service provider. Think of the resource finder as helping with some investigative legwork — not replacing the people and organizations providing support.</p></section>
+        <section className="about-site-note"><h3>Important distinction</h3><p>This site provides community-resource navigation and information. It is not a counselling, medical, or emergency service.</p><p>Private Counselling is a separate service, available through the Private Counselling section. For immediate emergency assistance, use the appropriate local emergency service.</p></section>
       </AccessibleModal> : null}
       <footer className="site-footer"><a href="/admin/login">Admin</a></footer>
     </div>
