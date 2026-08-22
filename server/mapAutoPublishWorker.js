@@ -26,7 +26,7 @@ export function buildMapAutoPublishContexts({ resources = [], claims = [], evide
 }
 
 const normalized = (value) => text(typeof value === "string" ? value : value?.value ?? value).toLowerCase().replace(/[^a-z0-9]/g, "")
-const currentEvidence = (items = []) => items.filter((entry) => entry.stale !== true && entry.source_url && Number(entry.source_authority) >= 85)
+const currentEvidence = (items = []) => items.filter((entry) => entry.stale !== true && ((entry.source_url && Number(entry.source_authority) >= 85) || (entry.source_type === "trusted_master_record" && entry.source_record_id && Number(entry.source_authority) === 100)))
 export function selectOccupancyClaim(claims = [], evidenceByClaim = new Map()) {
   const currentClaims = claims.filter((claim) => !["superseded", "rejected", "unknown"].includes(claim.status))
   if (!currentClaims.length) return { claim: null, reason_code: "missing_occupancy_claim" }
