@@ -29,3 +29,9 @@ test("Control Room keeps summary, explanation, and action authority separate", (
   assert.match(source, /security-pulse\/run/)
   assert.doesNotMatch(source, /arbitrary SQL|fix everything|child_process/)
 })
+
+test("automation state is surfaced as a bounded local operational signal", () => {
+  const summary = buildControlRoomSummary({ automation: { state: "overdue", reason: "A heartbeat is later than the allowed window.", security_pulse: { freshness: "due" } }, deployment: { alignment_state: "aligned" } })
+  assert.ok(summary.important.some((item) => item.id === "automation"))
+  assert.equal(summary.subsystems.find((item) => item.id === "automation").state, "overdue")
+})

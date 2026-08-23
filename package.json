@@ -12,7 +12,8 @@
     "test": "node --test",
     "preview": "vite preview",
     "scan-resource-attachments": "node --env-file-if-exists=.env.local scripts/scan-resource-attachments.mjs",
-    "security-sentinel": "node --env-file-if-exists=.env.local scripts/run-local-external-sentinel.mjs"
+    "security-sentinel": "node --env-file-if-exists=.env.local scripts/run-local-external-sentinel.mjs",
+    "scheduler": "node --env-file-if-exists=.env.local scripts/run-local-automation-scheduler.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.102.1",

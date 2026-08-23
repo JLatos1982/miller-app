@@ -1,0 +1,11 @@
+begin;
+select plan(7);
+select has_table('public','miller_automation_scheduler_runs','automation scheduler runs are durable and private');
+select has_index('public','miller_automation_scheduler_runs','miller_automation_scheduler_one_live_idx','only one live scheduler lease is allowed');
+select has_index('public','miller_automation_scheduler_runs','miller_automation_scheduler_recent_idx','recent scheduler history is efficient');
+select ok(not has_table_privilege('anon','public.miller_automation_scheduler_runs','select,insert,update,delete'),'anon cannot access scheduler runs');
+select ok(not has_table_privilege('authenticated','public.miller_automation_scheduler_runs','select,insert,update,delete'),'ordinary users cannot access scheduler runs');
+select ok(has_table_privilege('service_role','public.miller_automation_scheduler_runs','select,insert,update'),'service role may operate bounded scheduler state');
+select ok(not has_table_privilege('service_role','public.miller_automation_scheduler_runs','delete'),'scheduler history cannot be deleted');
+select * from finish();
+rollback;

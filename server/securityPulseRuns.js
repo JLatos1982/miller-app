@@ -25,10 +25,10 @@ export function createPulseRunStore(supabase, { now = () => Date.now() } = {}) {
   }
 
   return {
-    async start() {
+    async start({ triggerType = "manual_admin", mode = "local_manual" } = {}) {
       const current = await activeOrRecover()
       if (current) return { already_running: true, run: current }
-      const result = await supabase.from("miller_security_pulse_runs").insert({ run_key: runKey(), trigger_type: "manual_admin", mode: "local_manual", status: "running", completeness: "partial" }).select().single()
+      const result = await supabase.from("miller_security_pulse_runs").insert({ run_key: runKey(), trigger_type: triggerType, mode, status: "running", completeness: "partial" }).select().single()
       if (result.error) {
         if (result.error.code === "23505") return { already_running: true, run: await activeOrRecover() }
         throw result.error
