@@ -9,7 +9,7 @@ alter table public.miller_maintenance_cycles drop constraint miller_maintenance_
 alter table public.miller_maintenance_cycles add constraint miller_maintenance_cycles_mode_check check(mode in ('inspect_only','maintenance','observe','maintain','preview_growth'));
 alter table public.miller_maintenance_cycles add constraint miller_maintenance_cycles_status_check check(status in ('running','completed','degraded','security_halt','failed'));
 alter table public.miller_maintenance_cycles
- add column cycle_key text default encode(digest(gen_random_uuid()::text,'sha256'),'hex'),
+ add column cycle_key text default encode(extensions.digest(gen_random_uuid()::text,'sha256'),'hex'),
  add column trigger_type text default 'manual_admin' check(trigger_type in ('manual_admin','manual_preview')),
  add column phase text default 'waking' check(phase in ('waking','orienting','working','reflecting','consolidating','idle')),
  add column completeness text default 'partial' check(completeness in ('complete','partial','failed')),
@@ -25,7 +25,7 @@ alter table public.miller_maintenance_cycles
  add column lessons_created integer not null default 0,
  add column attention_created integer not null default 0,
  add column schema_version text not null default 'maintenance-cycle-v1';
-update public.miller_maintenance_cycles set cycle_key=encode(digest('legacy-maintenance-cycle|'||id::text,'sha256'),'hex'),trigger_type='manual_admin',phase=case when status='running' then 'working' else 'idle' end,completeness=case when status='completed' then 'complete' when status='failed' then 'failed' else 'partial' end where cycle_key is null;
+update public.miller_maintenance_cycles set cycle_key=encode(extensions.digest('legacy-maintenance-cycle|'||id::text,'sha256'),'hex'),trigger_type='manual_admin',phase=case when status='running' then 'working' else 'idle' end,completeness=case when status='completed' then 'complete' when status='failed' then 'failed' else 'partial' end where cycle_key is null;
 alter table public.miller_maintenance_cycles alter column cycle_key set not null,alter column trigger_type set not null,alter column phase set not null,alter column completeness set not null;
 alter table public.miller_maintenance_cycles add constraint miller_maintenance_cycles_cycle_key_key unique(cycle_key),add constraint miller_maintenance_cycles_cycle_key_check check(cycle_key ~ '^[a-f0-9]{64}$');
 create unique index miller_maintenance_cycles_single_active_idx on public.miller_maintenance_cycles ((1)) where status='running';
