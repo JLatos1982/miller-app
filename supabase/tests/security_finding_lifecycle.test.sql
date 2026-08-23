@@ -1,0 +1,12 @@
+begin;
+select plan(8);
+select has_table('public','miller_security_findings','findings table exists');
+select has_table('public','miller_security_finding_events','events table exists');
+select ok(not has_table_privilege('anon','public.miller_security_findings','select,insert,update,delete'),'anon cannot access findings');
+select ok(not has_table_privilege('authenticated','public.miller_security_finding_events','select,insert,update,delete'),'authenticated cannot access events');
+select ok(has_function_privilege('service_role','public.record_security_finding(text,text,text,text,text,text,text,text,text,jsonb)','execute'),'service role may record');
+select ok(not has_function_privilege('anon','public.record_security_finding(text,text,text,text,text,text,text,text,text,jsonb)','execute'),'anon cannot invoke rpc');
+select ok(not exists(select 1 from information_schema.columns where table_schema='public' and table_name in ('miller_security_findings','miller_security_finding_events') and column_name in ('ip','request_body','authorization','token','cookie','secret')),'schema excludes sensitive request fields');
+select ok(not exists(select 1 from pg_policies where schemaname='public' and tablename in ('miller_security_findings','miller_security_finding_events') and roles && array['anon'::name,'authenticated'::name]),'no browser rls policy exists');
+select * from finish();
+rollback;
