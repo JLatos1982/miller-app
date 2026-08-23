@@ -1,0 +1,10 @@
+begin;
+select plan(6);
+select has_table('public','miller_maintenance_cycles','maintenance cycle history exists');
+select has_column('public','miller_maintenance_cycles','phase','phase is durable');
+select ok(not has_table_privilege('anon','public.miller_maintenance_cycles','select,insert,update,delete'),'anon denied');
+select ok(not has_table_privilege('authenticated','public.miller_maintenance_cycles','select,insert,update,delete'),'authenticated denied');
+select ok(has_table_privilege('service_role','public.miller_maintenance_cycles','select,insert,update'),'service role owns cycles');
+select ok(exists(select 1 from pg_indexes where indexname='miller_maintenance_cycles_single_active_idx'),'one active cycle constraint exists');
+select * from finish();
+rollback;
