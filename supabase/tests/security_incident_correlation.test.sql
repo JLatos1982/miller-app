@@ -1,0 +1,14 @@
+begin;
+select plan(10);
+select has_table('public','miller_security_incidents','private incident correlation ledger exists');
+select has_table('public','miller_security_incident_members','append-only incident members exist');
+select col_is_unique('public','miller_security_incidents',array['correlation_key'],'correlation identity is stable');
+select col_is_unique('public','miller_security_incident_members',array['incident_id','source_kind','source_key'],'correlation evidence cannot duplicate');
+select ok(not has_table_privilege('anon','public.miller_security_incidents','select,insert,update,delete'),'anon cannot access incidents');
+select ok(not has_table_privilege('authenticated','public.miller_security_incident_members','select,insert,update,delete'),'ordinary users cannot access incident members');
+select ok(has_table_privilege('service_role','public.miller_security_incidents','select,insert,update'),'service role may maintain derived incident state');
+select ok(has_table_privilege('service_role','public.miller_security_incident_members','select,insert'),'service role may append incident evidence');
+select ok(not has_table_privilege('service_role','public.miller_security_incident_members','delete'),'incident evidence is not erasable');
+select ok(not exists(select 1 from information_schema.columns where table_schema='public' and table_name in ('miller_security_incidents','miller_security_incident_members') and column_name in ('request_body','token','authorization','cookie','secret','raw_payload')),'incident ledger stores no raw sensitive request data');
+select * from finish();
+rollback;

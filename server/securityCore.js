@@ -10,7 +10,7 @@ export function defineSecurityProfile(profile = {}) {
   const targetId = safe(profile.targetId, 80)
   if (!SAFE_ID.test(targetId) || !SAFE_ID.test(safe(profile.version, 80))) throw new Error("security_profile_invalid")
   const routes = Object.freeze({ public: [...new Set(profile.expectedPublicRoutes || [])], protected: [...new Set(profile.protectedRoutes || [])] })
-  return Object.freeze({ targetId, targetKind: safe(profile.targetKind || "application", 80), environment: safe(profile.environment, 40), version: safe(profile.version, 80), authorization: safe(profile.authorization, 80), expectedHeaders: Object.freeze({ ...(profile.expectedHeaders || {}) }), expectedPublicRoutes: routes.public, protectedRoutes: routes.protected, expectedWorkers: Object.freeze([...(profile.expectedWorkers || [])]), expectedCapabilities: Object.freeze([...(profile.expectedCapabilities || [])]), securityPolicy: Object.freeze({ ...(profile.securityPolicy || {}) }) })
+  return Object.freeze({ targetId, targetKind: safe(profile.targetKind || "application", 80), environment: safe(profile.environment, 40), version: safe(profile.version, 80), authorization: safe(profile.authorization, 80), expectedHeaders: Object.freeze({ ...(profile.expectedHeaders || {}) }), expectedPublicRoutes: routes.public, protectedRoutes: routes.protected, attackSurface: Object.freeze({ ...(profile.attackSurface || {}) }), expectedWorkers: Object.freeze([...(profile.expectedWorkers || [])]), expectedCapabilities: Object.freeze([...(profile.expectedCapabilities || [])]), securityPolicy: Object.freeze({ ...(profile.securityPolicy || {}) }) })
 }
 
 export function securityFinding({ target, sensor, reasonCode, severity = "medium", description, recommendation, evidence = {} } = {}) {
