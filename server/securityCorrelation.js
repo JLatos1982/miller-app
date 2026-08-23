@@ -7,6 +7,9 @@ export function correlateSecurityEvidence({ findings = [], external = [] } = {})
   const internalAuth = findings.filter(auth), externalAuth = external.filter((item) => item.observation_type === "auth_negative_probe")
   add("auth_boundary", [...internalAuth, ...externalAuth.filter((item) => item.status === "fail")], ["auth_boundary_evidence"])
   add("http_posture", findings.filter(headers), ["http_contract_evidence"])
+  add("deployment", findings.filter((item) => /build_identity|schema_|required_schema_capability|deployment_compatibility/.test(key(item))), ["deployment_schema_evidence"])
+  const availability = external.filter((item) => item.observation_type === "availability" && item.status === "fail")
+  add("availability", availability, ["external_availability_evidence"])
   return incidents.sort((a, b) => a.correlation_key.localeCompare(b.correlation_key))
 }
 export function internalExternalAgreement({ internal = [], external = [] } = {}) {

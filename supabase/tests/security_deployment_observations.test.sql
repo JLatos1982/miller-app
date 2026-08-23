@@ -1,0 +1,12 @@
+begin;
+select plan(8);
+select has_table('public','miller_security_deployment_observations','deployment observations retain a safe timeline');
+select col_is_unique('public','miller_security_deployment_observations',array['observation_fingerprint'],'deployment observation identity is stable');
+select has_index('public','miller_security_deployment_observations','miller_security_deployment_observations_recent_idx','recent deployment observations are bounded');
+select ok(not has_table_privilege('anon','public.miller_security_deployment_observations','select,insert,update,delete'),'anon cannot access deployment observations');
+select ok(not has_table_privilege('authenticated','public.miller_security_deployment_observations','select,insert,update,delete'),'ordinary users cannot access deployment observations');
+select ok(has_table_privilege('service_role','public.miller_security_deployment_observations','select,insert'),'service role can append observations');
+select ok(not has_table_privilege('service_role','public.miller_security_deployment_observations','update,delete'),'deployment observations are append-only');
+select ok(not exists(select 1 from information_schema.columns where table_schema='public' and table_name='miller_security_deployment_observations' and column_name in ('token','secret','authorization','cookie','database_url','environment_value')),'deployment observations retain no secret values');
+select * from finish();
+rollback;

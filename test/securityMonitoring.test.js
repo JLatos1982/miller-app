@@ -2,7 +2,7 @@ import test from "node:test"
 import assert from "node:assert/strict"
 import { MILLER_SECURITY_PROFILE } from "../server/millerSecurityProfile.js"
 import { inspectAuthorizedSurface } from "../server/securitySurface.js"
-import { runLocalExternalSentinel } from "../server/externalSentinel.js"
+import { classifyTlsPosture, defineSentinelTarget, runLocalExternalSentinel } from "../server/externalSentinel.js"
 import { correlateSecurityEvidence, internalExternalAgreement } from "../server/securityCorrelation.js"
 import { buildSecurityPulseDigest } from "../server/securityDigest.js"
 import { securityVersionContext, versionAssociation } from "../server/securityVersion.js"
@@ -23,6 +23,13 @@ test("local external sentinel is fixed-target, bounded, and produces no raw evid
   assert.equal(result.observations.length, 5); assert.equal(submitted.length, 5)
   await assert.rejects(() => runLocalExternalSentinel({ url: "https://example.test", observerKey: "test_observer", request: cleanRequest, submit: async () => {} }), /local_only/)
   assert.doesNotMatch(JSON.stringify(result), /token|cookie|body/i)
+})
+
+test("future sentinel target and TLS contracts are explicit while remote execution remains disabled", () => {
+  assert.equal(defineSentinelTarget({ url: "http://127.0.0.1:8787" }).hostname, "127.0.0.1")
+  assert.throws(() => defineSentinelTarget({ mode: "remote", url: "https://example.test" }), /remote_sentinel_not_enabled/)
+  assert.equal(classifyTlsPosture({ certificatePresent: true, hostnameMatched: true, chainValid: true, protocol: "TLSv1.3", expiresAt: new Date(Date.now() + 90 * 86400000).toISOString() }).status, "pass")
+  assert.equal(classifyTlsPosture({ certificatePresent: true, hostnameMatched: false, chainValid: true, protocol: "TLSv1.3", expiresAt: new Date(Date.now() + 90 * 86400000).toISOString() }).reason_code, "certificate_hostname_mismatch")
 })
 
 test("correlation, independent agreement, and digest remain deterministic", () => {
