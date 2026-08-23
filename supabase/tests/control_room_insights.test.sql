@@ -1,0 +1,12 @@
+begin;
+select plan(8);
+select has_table('public','miller_attention_directives','human attention directives exist');
+select has_table('public','miller_insights','private insights exist');
+select has_table('public','miller_insight_events','insight audit exists');
+select ok(not has_table_privilege('anon','public.miller_insights','select,insert,update,delete'),'anon cannot access insights');
+select ok(not has_table_privilege('authenticated','public.miller_attention_directives','select,insert,update,delete'),'ordinary users cannot access directives');
+select ok(has_table_privilege('service_role','public.miller_insights','select,insert,update'),'service role can maintain insights');
+select ok(not exists(select 1 from information_schema.columns where table_schema='public' and table_name in ('miller_attention_directives','miller_insights','miller_insight_events') and column_name in ('query','raw_query','session_id','user_id','ip_address','device_id','email','phone')),'Control Room tables contain no direct identifiers or raw query fields');
+select ok(not exists(select 1 from pg_policies where schemaname='public' and tablename in ('miller_attention_directives','miller_insights') and roles && array['anon'::name,'authenticated'::name]),'no public RLS access policy exists');
+select * from finish();
+rollback;

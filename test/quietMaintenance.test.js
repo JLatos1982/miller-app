@@ -50,6 +50,18 @@ test("a derived-state contradiction is recorded for human review without changin
   assert.equal(plan.result_summary.canonical_mutations, 0)
 })
 
+test("a bounded human directive changes carry-forward ranking only, never evidence or scores", () => {
+  const topics = [topic({ topic_key: "service_system:transportation", current_score: 50 }), topic({ id: "00000000-0000-0000-0000-000000000009", topic_key: "service_system:housing", current_score: 52 })]
+  const signals = [signal({ topic_id: topics[0].id, magnitude: 1, novelty: 1, relevance: 1, confidence: 1 }), signal({ topic_id: topics[1].id, underlying_event_key: "housing", magnitude: 1, novelty: 1, relevance: 1, confidence: 1 })]
+  const baseline = buildQuietMaintenancePlan({ runKey: "4".repeat(64), topics, signals, hypotheses: [], buckets: [], asOf: "2026-01-02T00:00:00Z" })
+  const plan = buildQuietMaintenancePlan({ runKey: "3".repeat(64), topics, signals, hypotheses: [], buckets: [], directives: [{ status: "active", directive_type: "focus", strength: 2, topic_key: "service_system:transportation", expires_at: "2026-01-27T00:00:00Z" }], asOf: "2026-01-02T00:00:00Z" })
+  assert.equal(plan.carry_forward[0].topic_key, "service_system:transportation")
+  assert.equal(plan.carry_forward[0].human_directed, true)
+  assert.equal(plan.carry_forward[0].human_directive_weight, 2)
+  assert.deepEqual(plan.attention_updates.map((item) => [item.topic_id, item.next_score]), baseline.attention_updates.map((item) => [item.topic_id, item.next_score]))
+  assert.equal(plan.result_summary.canonical_mutations, 0)
+})
+
 test("quiet maintenance has no external adapter or canonical mutation path", () => {
   const source = fs.readFileSync(new URL("../server/quietMaintenance.js", import.meta.url), "utf8")
   assert.doesNotMatch(source, /fetch\(|OpenAI|tavily|supabase|resource_registry|resource_locations|public_map/)
