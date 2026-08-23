@@ -1,0 +1,14 @@
+begin;
+select plan(10);
+select has_table('public','miller_maintenance_scheduler_config','scheduler config exists');
+select has_table('public','miller_maintenance_cycle_journal','private cycle journal exists');
+select ok(not has_table_privilege('anon','public.miller_maintenance_scheduler_config','select,insert,update,delete'),'anon cannot access scheduler config');
+select ok(not has_table_privilege('authenticated','public.miller_maintenance_cycle_journal','select,insert,update,delete'),'ordinary users cannot access journal');
+select ok(has_table_privilege('service_role','public.miller_maintenance_scheduler_config','select,update'),'service role config access is limited');
+select ok(has_table_privilege('service_role','public.miller_maintenance_cycle_journal','select,insert,update'),'service role can record a bounded journal');
+select col_is_unique('public','miller_maintenance_cycle_journal',array['cycle_id'],'one journal entry per durable cycle');
+select ok(exists(select 1 from pg_indexes where indexname='miller_maintenance_cycle_journal_recent_idx'),'journal recent lookup is indexed');
+select ok(exists(select 1 from pg_constraint where conname='miller_maintenance_cycles_trigger_type_check'),'cycle trigger is constrained');
+select ok(not exists(select 1 from information_schema.columns where table_schema='public' and table_name='miller_maintenance_cycle_journal' and column_name in ('request_body','credential','secret','raw_payload')),'journal does not retain unsafe request or credential fields');
+select * from finish();
+rollback;

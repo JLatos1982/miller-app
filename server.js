@@ -64,6 +64,12 @@ import { buildDailyReview, buildDeepReview, buildOperationalGuidance, explainOpe
 import { explainMaintenanceIntent, maintenanceAdminSummary, routeMaintenanceIntent } from "./server/maintenanceAdmin.js"
 import { createPlannerTaskExecutor, validatePlannerTaskRequest } from "./server/plannerTaskExecutor.js"
 import { fetchSafeResearchDocument } from "./server/review/linkQuality.js"
+import { buildMapAutoPublishContexts } from "./server/mapAutoPublishWorker.js"
+import { buildMaintenanceToolbox } from "./server/maintenanceToolbox.js"
+import { createMaintenanceCycleStore } from "./server/maintenanceCycleRuns.js"
+import { createMaintenancePersistence } from "./server/maintenancePersistence.js"
+import { createMaintenanceSchedulerStore } from "./server/maintenanceSchedulerStore.js"
+import { nextExpectedWake, normalizeSchedulerConfig, runScheduledMaintenanceCycle, weeklyMaintenanceSummary } from "./server/maintenanceScheduler.js"
 
 dotenv.config()
 
@@ -1275,6 +1281,43 @@ async function maintenanceToolboxSnapshot() {
  return maintenanceAdminSummary({cycles:cycles.data||[],outcomes:outcomes.data||[],lessons:lessons.data||[],opportunities:opportunities.data||[],capability_gaps:capabilityGaps.data||[],security:security.data||[]})
 }
 app.get("/api/admin/maintenance-toolbox",requireAdmin,async(_req,res)=>{try{res.setHeader("Cache-Control","private, no-store");return res.json(await maintenanceToolboxSnapshot())}catch{return res.status(503).json({error:"Maintenance and growth state is unavailable. No data was changed."})}})
+async function maintenanceSchedulerSnapshot() {
+ const scheduler=createMaintenanceSchedulerStore(supabase), [config,journals,active]=await Promise.all([scheduler.config(),scheduler.recent(20),createMaintenanceCycleStore(supabase).inspectActive()])
+ const safe=normalizeSchedulerConfig(config), next=safe.next_expected_at||nextExpectedWake(safe.last_scheduled_at,safe.cadence_hours)
+ return { config:{...safe,next_expected_at:next}, currently_running:active||null, last_outcome:journals[0]||null, recent_cycles:journals, weekly_summary:weeklyMaintenanceSummary(journals) }
+}
+async function loadMaintenanceSchedulerState() {
+ const resourcesResult=await supabase.from("resource_registry").select("id,display_name,lifecycle_state,editorial_status").eq("lifecycle_state","active").neq("editorial_status","hidden").order("id").limit(100)
+ if(resourcesResult.error)throw resourcesResult.error
+ const resources=resourcesResult.data||[], ids=resources.map((item)=>item.id)
+ if(!ids.length)return buildMaintenanceToolbox({})
+ const [claims,bindings,qc,locations,pulse,findings]=await Promise.all([
+  supabase.from("resource_fact_claims").select("id,resource_id,field_name,proposed_value,status").in("resource_id",ids).eq("field_name","location_occupancy"),
+  supabase.from("resource_fact_evidence_bindings").select("target_claim_id,evidence_id").limit(1000),
+  supabase.from("location_qc_reviews").select("canonical_resource_id,version,origin,decision").in("canonical_resource_id",ids),
+  supabase.from("resource_locations").select("id,resource_id,location_type,public_map,review_status").in("resource_id",ids),
+  supabase.from("miller_security_pulse_runs").select("*").order("started_at",{ascending:false}).limit(1).maybeSingle(),
+  supabase.from("miller_security_findings").select("id,finding_fingerprint,finding_type,severity,lifecycle,recommended_action").order("last_observed_at",{ascending:false}).limit(20),
+ ])
+ if([claims,bindings,qc,locations,pulse,findings].some((item)=>item.error))throw new Error("maintenance_scheduler_state_unavailable")
+ const claimIds=(claims.data||[]).map((item)=>item.id), evidence=claimIds.length?await supabase.from("resource_fact_evidence").select("id,claim_id,source_url,source_authority,stale,retrieved_at,source_type,source_record_id,extracted_value,created_at").in("claim_id",claimIds):{data:[],error:null}
+ if(evidence.error)throw new Error("maintenance_scheduler_state_unavailable")
+ const contexts=buildMapAutoPublishContexts({resources,claims:claims.data||[],evidence:evidence.data||[],evidenceBindings:bindings.data||[],qc:qc.data||[],locations:locations.data||[]})
+ return buildMaintenanceToolbox({mapContexts:contexts,securityPulse:pulse.data||null,securityFindings:findings.data||[]})
+}
+async function loadMachineQcState(resourceId) {
+ const [qc,locations]=await Promise.all([supabase.from("location_qc_reviews").select("origin,decision,version").eq("canonical_resource_id",resourceId).order("version",{ascending:false}).limit(1).maybeSingle(),supabase.from("resource_locations").select("id,public_map").eq("resource_id",resourceId)])
+ if(qc.error||locations.error)throw qc.error||locations.error
+ return {qc:qc.data||null,location_count:(locations.data||[]).length,public_map:(locations.data||[]).some((item)=>item.public_map===true)}
+}
+async function runBoundedMaintenanceWake({ trigger, actorId=null }) {
+ const scheduler=createMaintenanceSchedulerStore(supabase), config=await scheduler.config()
+ return runScheduledMaintenanceCycle({trigger,config,store:createMaintenanceCycleStore(supabase),journal:scheduler,persistence:createMaintenancePersistence(supabase),snapshot:loadMaintenanceSchedulerState,db:supabase,actorId,loadMachineQcState,securityStore:createPulseRunStore(supabase)})
+}
+app.get("/api/admin/maintenance-scheduler",requireAdmin,async(_req,res)=>{try{res.setHeader("Cache-Control","private, no-store");return res.json(await maintenanceSchedulerSnapshot())}catch{return res.status(503).json({error:"Maintenance heartbeat state is unavailable."})}})
+app.post("/api/admin/maintenance-scheduler/config",requireAdmin,async(req,res)=>{const body=req.body||{},cadence=Number(body.cadence_hours);if(body.confirm!==true||typeof body.enabled!=="boolean"||!["dry_run","active"].includes(body.execution_mode)||!Number.isInteger(cadence)||cadence<24||cadence>168)return res.status(400).json({error:"Explicit confirmation and a daily-or-slower scheduler configuration are required."});try{const scheduler=createMaintenanceSchedulerStore(supabase),saved=await scheduler.updateConfig({enabled:body.enabled,execution_mode:body.execution_mode,cadence_hours:cadence,display_timezone:typeof body.display_timezone==="string"?body.display_timezone.slice(0,80):"America/Vancouver",version:Number(body.version||1)+1});return res.json({config:normalizeSchedulerConfig(saved)})}catch{return res.status(503).json({error:"Scheduler configuration could not be saved."})}})
+app.post("/api/admin/maintenance-scheduler/run",attentionRateLimit,requireAdmin,async(req,res)=>{if(req.body?.confirm!==true)return res.status(400).json({error:"Explicit maintenance-cycle confirmation is required."});try{const result=await runBoundedMaintenanceWake({trigger:"manual_admin",actorId:req.adminUser.id});return res.status(result.status==="already_running"?409:200).json(result)}catch(error){return res.status(503).json({error:"Maintenance cycle failed safely; no further action was attempted.",code:String(error?.message||"maintenance_cycle_failed").replace(/[^a-z0-9_-]/gi,"_").slice(0,120)})}})
+app.post("/api/internal/maintenance-scheduler/tick",async(req,res)=>{const token=String(process.env.MAINTENANCE_SCHEDULER_TOKEN||"");if(!token||req.get("x-maintenance-scheduler-token")!==token)return res.status(403).json({error:"Scheduler authorization denied."});try{const result=await runBoundedMaintenanceWake({trigger:"scheduled"});return res.status(result.status==="already_running"?409:200).json(result)}catch{return res.status(503).json({error:"Scheduled maintenance cycle failed safely."})}})
 app.get("/api/admin/control-room",requireAdmin,async(_req,res)=>{try{res.setHeader("Cache-Control","private, no-store");return res.json(await controlRoomSnapshot())}catch{return res.status(503).json({error:"Control Room data is unavailable. No data was changed."})}})
 app.post("/api/admin/miller-guide",requireAdmin,async(req,res)=>{const maintenanceIntent=routeMaintenanceIntent(req.body?.question),intent=maintenanceIntent||routeOperationalIntent(req.body?.question);if(intent==="unsupported")return res.status(400).json({error:"I can help with current status, changes, maintenance, mapping readiness, stale resource information, security, public-health information, or running the fixed Security Pulse."});try{if(maintenanceIntent){const summary=await maintenanceToolboxSnapshot(),answer=explainMaintenanceIntent(maintenanceIntent,summary);return res.json({intent:maintenanceIntent,text:answer.text,details:answer.details})}const snapshot=await controlRoomSnapshot();if(intent==="run_security_pulse")return res.json({intent,action_required:"run_security_pulse",text:"Security Pulse is a fixed local-only check. Confirm the action to run it; I cannot run arbitrary tools or commands."});const answer=explainOperationalIntent(intent,snapshot.operational_guidance);return res.json({intent,text:answer.text,details:answer.details,daily_review:snapshot.daily_review,deep_review:snapshot.deep_review})}catch{return res.status(503).json({error:"Miller's operational guidance is unavailable. No data was changed."})}})
 app.post("/api/admin/security-review/persist",requireAdmin,async(req,res)=>{if(req.body?.confirm!==true)return res.status(400).json({error:"Explicit security-review confirmation is required."});try{const snapshot=await controlRoomSnapshot(),result=await persistSecurityReview({supabase,review:snapshot.security_review});return res.json({...result,external_requests:0,canonical_mutations:0,map_mutations:0})}catch{return res.status(503).json({error:"Security review persistence failed safely. No canonical data was changed."})}})
