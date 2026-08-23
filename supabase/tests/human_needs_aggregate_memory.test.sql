@@ -1,0 +1,11 @@
+begin;
+select plan(7);
+select has_table('public','miller_need_observation_buckets','aggregate Human Needs bucket table exists');
+select ok(not has_table_privilege('anon','public.miller_need_observation_buckets','select,insert,update,delete'),'anonymous callers cannot access aggregate needs memory');
+select ok(not has_table_privilege('authenticated','public.miller_need_observation_buckets','select,insert,update,delete'),'ordinary callers cannot access aggregate needs memory');
+select ok(has_table_privilege('service_role','public.miller_need_observation_buckets','insert'),'service role can aggregate controlled observations');
+select ok(not exists(select 1 from information_schema.columns where table_schema='public' and table_name='miller_need_observation_buckets' and column_name='query'),'raw query column does not exist');
+select ok(not exists(select 1 from information_schema.columns where table_schema='public' and table_name='miller_need_observation_buckets' and column_name='session_id'),'session linkage column does not exist');
+select ok(not exists(select 1 from information_schema.columns where table_schema='public' and table_name='miller_need_observation_buckets' and column_name='user_id'),'user linkage column does not exist');
+select * from finish();
+rollback;

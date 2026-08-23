@@ -50,6 +50,7 @@ import { inspectPubmed } from "./server/pubmedAdapter.js"
 import { reflectionFromInvestigation } from "./server/reflection.js"
 import { HEALTH_CANADA } from "./server/healthCanadaAdapter.js"
 import { runHealthCanadaInspection } from "./server/healthCanadaSensor.js"
+import { HUMAN_NEEDS, activeNeedWorkspace, aggregateNeedSignal, classifyHumanNeed, humanNeedBucketKey } from "./server/humanNeedsSense.js"
 import { createPlannerTaskExecutor, validatePlannerTaskRequest } from "./server/plannerTaskExecutor.js"
 import { fetchSafeResearchDocument } from "./server/review/linkQuality.js"
 
@@ -1103,7 +1104,7 @@ app.get("/api/admin/system-health", requireAdmin, async (_req, res) => {
     ])
     if (attachments.error || decisions.error || trendItems.error || sensorCheckpoints.error) throw attachments.error || decisions.error || trendItems.error || sensorCheckpoints.error
     res.setHeader("Cache-Control", "private, no-store")
-    return res.json(buildImmuneSystemHealth({ plannerState, attachments: attachments.data || [], scanDecisions: decisions.data || [], trendSensorItems: trendItems.data || [], sensorCheckpoints: sensorCheckpoints.data || [], configuration: { admin_allowlist_configured: Boolean(process.env.ADMIN_EMAIL_ALLOWLIST), attachment_quarantine_enforced: true } }))
+    return res.json(buildImmuneSystemHealth({ plannerState, attachments: attachments.data || [], scanDecisions: decisions.data || [], trendSensorItems: trendItems.data || [], sensorCheckpoints: sensorCheckpoints.data || [], configuration: { admin_allowlist_configured: Boolean(process.env.ADMIN_EMAIL_ALLOWLIST), attachment_quarantine_enforced: true, human_needs_enabled: HUMAN_NEEDS.enabled(), human_needs_privacy_ready: process.env.MILLER_HUMAN_NEEDS_PRIVACY_REVIEWED === "true" } }))
   } catch {
     return res.status(503).json({ error: "System health diagnostics are unavailable. No data was changed." })
   }
@@ -1119,7 +1120,7 @@ async function heartbeatInspection() {
     supabase.from("miller_sensor_checkpoints").select("sensor_id,mode,last_success_at,health_state,failure_streak,last_error_code"),
   ])
   if ([attachments, decisions, candidates, executions, trendItems, sensorCheckpoints].some((item) => item.error)) throw new Error("heartbeat_state_unavailable")
-  const health = buildImmuneSystemHealth({ plannerState, attachments: attachments.data || [], scanDecisions: decisions.data || [], trendSensorItems: trendItems.data || [], sensorCheckpoints: sensorCheckpoints.data || [], configuration: { admin_allowlist_configured: Boolean(process.env.ADMIN_EMAIL_ALLOWLIST), attachment_quarantine_enforced: true } })
+  const health = buildImmuneSystemHealth({ plannerState, attachments: attachments.data || [], scanDecisions: decisions.data || [], trendSensorItems: trendItems.data || [], sensorCheckpoints: sensorCheckpoints.data || [], configuration: { admin_allowlist_configured: Boolean(process.env.ADMIN_EMAIL_ALLOWLIST), attachment_quarantine_enforced: true, human_needs_enabled: HUMAN_NEEDS.enabled(), human_needs_privacy_ready: process.env.MILLER_HUMAN_NEEDS_PRIVACY_REVIEWED === "true" } })
   return { planner: buildPlannerDiagnostic(plannerState), health, growth_opportunities: planGrowthOpportunities({ resources: plannerState.resources, candidates: candidates.data || [] }), effectiveness: researchEffectiveness(executions.data || []) }
 }
 async function persistHeartbeatStart(cycle) { const result = await supabase.from("miller_maintenance_cycles").insert({ id: cycle.id, mode: cycle.mode, actor_id: cycle.actor_id, tasks_considered: cycle.tasks_considered, knowledge_finding_count: cycle.knowledge_finding_count, security_finding_count: cycle.security_finding_count }).select().single(); if (result.error) throw result.error }
@@ -1173,12 +1174,26 @@ async function persistHealthCanadaInspection(actorId) {
   const audit = await supabase.from("miller_sensor_inspections").insert({ id: run.inspection_id, sensor_id: HEALTH_CANADA.id, actor_id: actorId, started_at: run.started_at, finished_at: run.finished_at, request_count: run.request_count, bytes_read: run.bytes_read, records_inspected: run.records_inspected, records_accepted: run.records_accepted, duplicates_ignored: run.duplicates_ignored, signals_created: createdSignals.length, topics_affected: new Set(createdSignals.map((signal) => signal.topic_id)).size, reflections_created: reflectionsCreated, health_state: "healthy", outcome, stop_reason: run.stop_reason, parser_version: HEALTH_CANADA.parserVersion, metadata: { source: HEALTH_CANADA.endpoint, rejected: run.records_rejected } }); if (audit.error) throw audit.error
   return { inspection_id: run.inspection_id, sensor_id: HEALTH_CANADA.id, source_health_state: "healthy", request_count: run.request_count, bytes_read: run.bytes_read, records_inspected: run.records_inspected, records_accepted: run.records_accepted, records_rejected: run.records_rejected, duplicates_ignored: run.duplicates_ignored, signals_created: createdSignals.length, topics_affected: new Set(createdSignals.map((signal) => signal.topic_id)).size, reflections_created: reflectionsCreated, checkpoint_outcome: outcome, stop_reason: run.stop_reason, canonical_mutations: 0, map_mutations: 0 }
 }
+async function persistHumanNeeds(query, city) {
+  if (!HUMAN_NEEDS.enabled()) return { enabled: false, persisted: 0, signals_created: 0 }
+  const classification = classifyHumanNeed(query, city), now = new Date(), observedHour = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours()).toISOString(), expiresAt = new Date(now.getTime() + HUMAN_NEEDS.retention_days * 86_400_000).toISOString(); let persisted = 0, signals_created = 0
+  for (const observation of classification.observations) {
+    const bucket_key = humanNeedBucketKey({ ...observation, observedAt: observedHour }), bucket = await supabase.rpc("record_human_need_observation", { p_bucket_key: bucket_key, p_kind: observation.kind, p_theme: observation.theme, p_geography: observation.geography, p_observed_hour: observedHour, p_expires_at: expiresAt }); if (bucket.error) throw bucket.error; persisted += 1
+    const signal = aggregateNeedSignal(bucket.data); if (!signal) continue
+    const topic = await supabase.from("miller_attention_topics").upsert({ topic_key: signal.topic_key, topic_type: signal.topic_type, title: signal.title, geographic_scope: signal.geographic_scope, service_scope: signal.service_scope, metadata: { origin: "human_needs_aggregate", aggregate_only: true } }, { onConflict: "topic_key" }).select("*").single(); if (topic.error) throw topic.error
+    const fingerprint = attentionSignalFingerprint(signal), exists = await supabase.from("miller_attention_signals").select("id").eq("signal_fingerprint", fingerprint).maybeSingle(); if (exists.error) throw exists.error
+    if (!exists.data) { const created = await supabase.from("miller_attention_signals").insert({ topic_id: topic.data.id, ...signal, signal_fingerprint: fingerprint }); if (created.error) throw created.error; signals_created += 1 }
+  }
+  return { enabled: true, persisted, signals_created, sensitive_entity_detected: classification.sensitive_entity_detected }
+}
 app.get("/api/admin/attention", requireAdmin, async (_req, res) => { try { res.setHeader("Cache-Control", "private, no-store"); return res.json(await attentionSnapshot()) } catch { return res.status(503).json({ error: "Attention diagnostics are unavailable. No data was changed." }) } })
 const attentionRateLimit = rateLimit({ windowMs: 10 * 60 * 1000, max: 4 })
 app.post("/api/admin/sensors/health-canada/inspect", attentionRateLimit, requireAdmin, async (req, res) => {
   if (req.body?.confirm !== true) return res.status(400).json({ error: "Explicit Health Canada inspection confirmation is required." })
   try { return res.json(await persistHealthCanadaInspection(req.adminUser.id)) } catch (error) { return res.status(503).json({ error: "Health Canada inspection failed closed. No resource or map data was changed.", code: String(error?.message || "health_canada_failed").replace(/[^a-z0-9_-]/gi, "_").slice(0, 100) }) }
 })
+app.get("/api/admin/human-needs", requireAdmin, async (_req, res) => { try { const buckets = await supabase.from("miller_need_observation_buckets").select("bucket_key,kind,theme,geography,observation_count,first_observed_at,last_observed_at,expires_at").gt("expires_at", new Date().toISOString()).order("observation_count", { ascending: false }).limit(100); if (buckets.error) throw buckets.error; return res.json({ enabled: HUMAN_NEEDS.enabled(), threshold: HUMAN_NEEDS.threshold, items: activeNeedWorkspace(buckets.data || []), label: "Aggregate privacy-protected signals, not individual user histories." }) } catch { return res.status(503).json({ error: "Human Needs aggregates are unavailable. No data was changed." }) } })
+app.post("/api/admin/human-needs/cleanup", attentionRateLimit, requireAdmin, async (req, res) => { if (req.body?.confirm !== true) return res.status(400).json({ error: "Explicit Human Needs cleanup confirmation is required." }); try { const cleaned = await supabase.rpc("cleanup_expired_human_need_observations", { p_now: new Date().toISOString() }); if (cleaned.error) throw cleaned.error; return res.json({ deleted_expired_buckets: cleaned.data || 0, raw_query_data: "never_stored" }) } catch { return res.status(503).json({ error: "Human Needs cleanup could not complete." }) } })
 app.get("/api/admin/reflections", requireAdmin, async (req, res) => {
   const limit = Math.max(1, Math.min(100, Number(req.query.limit) || 30)); try { let query = supabase.from("miller_reflections").select("id,reflection_key,category,topic_id,signal_ids,explanation,confidence,human_impact,recommendation,created_at,miller_attention_topics(topic_key,title)").order("created_at", { ascending: false }).limit(limit); if (req.query.category) query = query.eq("category", String(req.query.category).slice(0, 80)); if (req.query.topic) query = query.eq("topic_id", String(req.query.topic)); const reflections = await query; if (reflections.error) throw reflections.error; const acknowledgements = await supabase.from("miller_reflection_acknowledgements").select("reflection_id,acknowledged_at").eq("actor_id", req.adminUser.id).in("reflection_id", (reflections.data || []).map((item) => item.id)); if (acknowledgements.error) throw acknowledgements.error; const seen = new Map((acknowledgements.data || []).map((item) => [item.reflection_id, item.acknowledged_at])); return res.json({ items: (reflections.data || []).map((item) => ({ ...item, acknowledged_at: seen.get(item.id) || null })) }) } catch { return res.status(503).json({ error: "Reflections are unavailable. No data was changed." }) }
 })
@@ -1729,6 +1744,9 @@ app.post("/api/miller", rateLimit({ windowMs: 60 * 1000, max: positiveInteger(pr
     }
 
     const safeQuery = String(query).trim()
+    // Raw input is used only for this request. Aggregate learning is disabled by
+    // default and receives no identifier, session, or raw-text field.
+    try { await persistHumanNeeds(safeQuery, city) } catch { /* learning is fail-closed; search continues */ }
     const safetySignals = detectSafetySignals(safeQuery)
     const safetyMode = getSafetyMode(safetySignals)
 
