@@ -52,6 +52,7 @@ import { HEALTH_CANADA } from "./server/healthCanadaAdapter.js"
 import { runHealthCanadaInspection } from "./server/healthCanadaSensor.js"
 import { HUMAN_NEEDS, activeNeedWorkspace, aggregateNeedSignal, classifyHumanNeed, humanNeedBucketKey } from "./server/humanNeedsSense.js"
 import { activeCoverageWorkspace, buildCoverageHypothesis } from "./server/coverageHypotheses.js"
+import { buildQuietMaintenancePlan, quietMaintenanceMetrics } from "./server/quietMaintenance.js"
 import { createPlannerTaskExecutor, validatePlannerTaskRequest } from "./server/plannerTaskExecutor.js"
 import { fetchSafeResearchDocument } from "./server/review/linkQuality.js"
 
@@ -1096,22 +1097,23 @@ app.get("/api/admin/evidence-gap-plan", requireAdmin, async (req, res) => {
 })
 app.get("/api/admin/system-health", requireAdmin, async (_req, res) => {
   try {
-    const [plannerState, attachments, decisions, trendItems, sensorCheckpoints] = await Promise.all([
+    const [plannerState, attachments, decisions, trendItems, sensorCheckpoints, quietMaintenance] = await Promise.all([
       loadPlannerDiagnosticState(supabase, { limit: 20 }),
       supabase.from("resource_submission_attachments").select("id,status,created_at").order("created_at", { ascending: false }).limit(200),
       supabase.from("resource_submission_attachment_scan_decisions").select("attachment_id,decision,actor_type,created_at").order("created_at", { ascending: false }).limit(400),
       supabase.from("miller_trend_sensor_run_items").select("source_id,outcome,created_at").order("created_at", { ascending: false }).limit(30),
       supabase.from("miller_sensor_checkpoints").select("sensor_id,mode,last_success_at,health_state,failure_streak,last_error_code"),
+      supabase.from("miller_quiet_maintenance_runs").select("status,completed_at,action_counts").order("started_at", { ascending: false }).limit(1).maybeSingle(),
     ])
-    if (attachments.error || decisions.error || trendItems.error || sensorCheckpoints.error) throw attachments.error || decisions.error || trendItems.error || sensorCheckpoints.error
+    if (attachments.error || decisions.error || trendItems.error || sensorCheckpoints.error || quietMaintenance.error) throw attachments.error || decisions.error || trendItems.error || sensorCheckpoints.error || quietMaintenance.error
     res.setHeader("Cache-Control", "private, no-store")
-    return res.json(buildImmuneSystemHealth({ plannerState, attachments: attachments.data || [], scanDecisions: decisions.data || [], trendSensorItems: trendItems.data || [], sensorCheckpoints: sensorCheckpoints.data || [], configuration: { admin_allowlist_configured: Boolean(process.env.ADMIN_EMAIL_ALLOWLIST), attachment_quarantine_enforced: true, human_needs_enabled: HUMAN_NEEDS.enabled(), human_needs_privacy_ready: process.env.MILLER_HUMAN_NEEDS_PRIVACY_REVIEWED === "true" } }))
+    return res.json(buildImmuneSystemHealth({ plannerState, attachments: attachments.data || [], scanDecisions: decisions.data || [], trendSensorItems: trendItems.data || [], sensorCheckpoints: sensorCheckpoints.data || [], quietMaintenance: quietMaintenance.data || null, configuration: { admin_allowlist_configured: Boolean(process.env.ADMIN_EMAIL_ALLOWLIST), attachment_quarantine_enforced: true, human_needs_enabled: HUMAN_NEEDS.enabled(), human_needs_privacy_ready: process.env.MILLER_HUMAN_NEEDS_PRIVACY_REVIEWED === "true" } }))
   } catch {
     return res.status(503).json({ error: "System health diagnostics are unavailable. No data was changed." })
   }
 })
 async function heartbeatInspection() {
-  const [plannerState, attachments, decisions, candidates, executions, trendItems, sensorCheckpoints] = await Promise.all([
+  const [plannerState, attachments, decisions, candidates, executions, trendItems, sensorCheckpoints, quietMaintenance] = await Promise.all([
     loadPlannerDiagnosticState(supabase, { limit: 20 }),
     supabase.from("resource_submission_attachments").select("id,status,created_at").order("created_at", { ascending: false }).limit(200),
     supabase.from("resource_submission_attachment_scan_decisions").select("attachment_id,decision,actor_type,created_at").order("created_at", { ascending: false }).limit(400),
@@ -1119,9 +1121,10 @@ async function heartbeatInspection() {
     supabase.from("planner_task_executions").select("task_type,outcome").not("outcome", "is", null).limit(200),
     supabase.from("miller_trend_sensor_run_items").select("source_id,outcome,created_at").order("created_at", { ascending: false }).limit(30),
     supabase.from("miller_sensor_checkpoints").select("sensor_id,mode,last_success_at,health_state,failure_streak,last_error_code"),
+    supabase.from("miller_quiet_maintenance_runs").select("status,completed_at,action_counts").order("started_at", { ascending: false }).limit(1).maybeSingle(),
   ])
-  if ([attachments, decisions, candidates, executions, trendItems, sensorCheckpoints].some((item) => item.error)) throw new Error("heartbeat_state_unavailable")
-  const health = buildImmuneSystemHealth({ plannerState, attachments: attachments.data || [], scanDecisions: decisions.data || [], trendSensorItems: trendItems.data || [], sensorCheckpoints: sensorCheckpoints.data || [], configuration: { admin_allowlist_configured: Boolean(process.env.ADMIN_EMAIL_ALLOWLIST), attachment_quarantine_enforced: true, human_needs_enabled: HUMAN_NEEDS.enabled(), human_needs_privacy_ready: process.env.MILLER_HUMAN_NEEDS_PRIVACY_REVIEWED === "true" } })
+  if ([attachments, decisions, candidates, executions, trendItems, sensorCheckpoints, quietMaintenance].some((item) => item.error)) throw new Error("heartbeat_state_unavailable")
+  const health = buildImmuneSystemHealth({ plannerState, attachments: attachments.data || [], scanDecisions: decisions.data || [], trendSensorItems: trendItems.data || [], sensorCheckpoints: sensorCheckpoints.data || [], quietMaintenance: quietMaintenance.data || null, configuration: { admin_allowlist_configured: Boolean(process.env.ADMIN_EMAIL_ALLOWLIST), attachment_quarantine_enforced: true, human_needs_enabled: HUMAN_NEEDS.enabled(), human_needs_privacy_ready: process.env.MILLER_HUMAN_NEEDS_PRIVACY_REVIEWED === "true" } })
   return { planner: buildPlannerDiagnostic(plannerState), health, growth_opportunities: planGrowthOpportunities({ resources: plannerState.resources, candidates: candidates.data || [] }), effectiveness: researchEffectiveness(executions.data || []) }
 }
 async function persistHeartbeatStart(cycle) { const result = await supabase.from("miller_maintenance_cycles").insert({ id: cycle.id, mode: cycle.mode, actor_id: cycle.actor_id, tasks_considered: cycle.tasks_considered, knowledge_finding_count: cycle.knowledge_finding_count, security_finding_count: cycle.security_finding_count }).select().single(); if (result.error) throw result.error }
@@ -1197,6 +1200,46 @@ app.get("/api/admin/human-needs", requireAdmin, async (_req, res) => { try { con
 app.post("/api/admin/human-needs/cleanup", attentionRateLimit, requireAdmin, async (req, res) => { if (req.body?.confirm !== true) return res.status(400).json({ error: "Explicit Human Needs cleanup confirmation is required." }); try { const cleaned = await supabase.rpc("cleanup_expired_human_need_observations", { p_now: new Date().toISOString() }); if (cleaned.error) throw cleaned.error; return res.json({ deleted_expired_buckets: cleaned.data || 0, raw_query_data: "never_stored" }) } catch { return res.status(503).json({ error: "Human Needs cleanup could not complete." }) } })
 app.get("/api/admin/coverage-hypotheses", requireAdmin, async (_req,res)=>{try{const result=await supabase.from("miller_coverage_hypotheses").select("*").order("updated_at",{ascending:false}).limit(50);if(result.error)throw result.error;return res.json({items:activeCoverageWorkspace(result.data||[]),label:"Privacy-protected aggregate patterns and directory-quality hypotheses, not claims about community prevalence."})}catch{return res.status(503).json({error:"Coverage hypotheses are unavailable."})}})
 app.post("/api/admin/coverage-hypotheses/inspect", attentionRateLimit, requireAdmin, async (req,res)=>{if(req.body?.confirm!==true)return res.status(400).json({error:"Explicit coverage inspection confirmation is required."});try{const [buckets,resources]=await Promise.all([supabase.from("miller_need_observation_buckets").select("*").gt("expires_at",new Date().toISOString()).gte("observation_count",HUMAN_NEEDS.threshold).limit(100),supabase.from("tavily_resources").select("name,city,category,service_type,description").eq("approved",true).eq("hidden",false).limit(500)]);if(buckets.error||resources.error)throw buckets.error||resources.error;const hypotheses=(buckets.data||[]).map((item)=>buildCoverageHypothesis(item,resources.data||[])).filter(Boolean);for(const item of hypotheses){const saved=await supabase.from("miller_coverage_hypotheses").upsert({...item,last_observed_at:new Date().toISOString(),updated_at:new Date().toISOString()},{onConflict:"hypothesis_key"}).select("id").single();if(saved.error)throw saved.error;const reflection={reflection_key:createHash("sha256").update(`coverage|${item.hypothesis_key}|${item.coverage_state}`).digest("hex"),category:"coverage_gap",signal_ids:[],explanation:`Aggregate interest in ${item.theme.replaceAll("_"," ")} for ${item.geography.replaceAll("_"," ")} may warrant a directory coverage or discoverability review.`,confidence:item.coverage_state==="represented"?.55:.4,human_impact:"moderate",recommendation:"No automatic follow-up is recommended."};const reflected=await supabase.from("miller_reflections").upsert(reflection,{onConflict:"reflection_key",ignoreDuplicates:true});if(reflected.error)throw reflected.error}return res.json({hypotheses_created_or_refreshed:hypotheses.length,external_requests:0,canonical_mutations:0,map_mutations:0})}catch{return res.status(503).json({error:"Coverage inspection could not complete. No resources or map data were changed."})}})
+const quietMaintenanceEnabled = () => {
+  try {
+    const host = new URL(supabaseUrl).hostname
+    return process.env.NODE_ENV !== "production" && process.env.MILLER_QUIET_MAINTENANCE_LOCAL_ONLY === "true" && ["127.0.0.1", "localhost", "::1"].includes(host)
+  } catch { return false }
+}
+async function quietMaintenanceSnapshot() {
+  const [topics, signals, hypotheses, buckets, latest] = await Promise.all([
+    supabase.from("miller_attention_topics").select("*").order("current_score", { ascending: false }).limit(50),
+    supabase.from("miller_attention_signals").select("*").order("observed_at", { ascending: false }).limit(500),
+    supabase.from("miller_coverage_hypotheses").select("*").order("updated_at", { ascending: false }).limit(50),
+    supabase.from("miller_need_observation_buckets").select("bucket_key,expires_at").order("expires_at", { ascending: true }).limit(100),
+    supabase.from("miller_quiet_maintenance_runs").select("*").order("started_at", { ascending: false }).limit(1).maybeSingle(),
+  ])
+  if ([topics, signals, hypotheses, buckets, latest].some((item) => item.error)) throw topics.error || signals.error || hypotheses.error || buckets.error || latest.error
+  return { topics: topics.data || [], signals: signals.data || [], hypotheses: hypotheses.data || [], buckets: buckets.data || [], last_run: latest.data || null }
+}
+async function runQuietMaintenance({ actorId, requestKey, asOf = new Date().toISOString() }) {
+  if (!quietMaintenanceEnabled()) throw new Error("quiet_maintenance_local_only")
+  const started = await supabase.rpc("start_quiet_maintenance_cycle", { p_request_key: requestKey, p_trigger_type: "manual_admin", p_mode: "local_manual", p_actor_id: actorId, p_as_of: asOf })
+  if (started.error) throw started.error
+  if (started.data.status === "completed") return { run: started.data, idempotent: true }
+  if (started.data.status !== "running") throw new Error("quiet_maintenance_not_runnable")
+  try {
+    const snapshot = await quietMaintenanceSnapshot(), plan = buildQuietMaintenancePlan({ runKey: started.data.request_key, topics: snapshot.topics, signals: snapshot.signals, hypotheses: snapshot.hypotheses, buckets: snapshot.buckets, asOf })
+    const applied = await supabase.rpc("apply_quiet_maintenance_cycle", { p_run_id: started.data.id, p_plan: plan })
+    if (applied.error) throw applied.error
+    return { run: applied.data, metrics: quietMaintenanceMetrics(plan), idempotent: false }
+  } catch (error) {
+    await supabase.rpc("fail_quiet_maintenance_cycle", { p_run_id: started.data.id, p_failure_code: String(error?.message || "quiet_maintenance_failed") })
+    throw error
+  }
+}
+app.get("/api/admin/quiet-maintenance", requireAdmin, async (_req, res) => { try { const snapshot = await quietMaintenanceSnapshot(); res.setHeader("Cache-Control", "private, no-store"); return res.json({ enabled: quietMaintenanceEnabled(), local_only: true, last_run: snapshot.last_run, workspace: { attention: attentionSnapshot ? (await attentionSnapshot()).topics.slice(0, 10) : [], hypotheses: activeCoverageWorkspace(snapshot.hypotheses) }, limits: { carry_forward: 10, reflections: 4, external_requests: 0 } }) } catch { return res.status(503).json({ error: "Quiet maintenance diagnostics are unavailable. No data was changed." }) } })
+app.post("/api/admin/quiet-maintenance/run", attentionRateLimit, requireAdmin, async (req, res) => {
+  if (req.body?.confirm !== true) return res.status(400).json({ error: "Explicit quiet maintenance confirmation is required." })
+  if (!quietMaintenanceEnabled()) return res.status(403).json({ error: "Quiet maintenance is local-only and disabled outside the explicit local development flag." })
+  const supplied = String(req.body?.idempotency_key || ""), requestKey = /^[a-f0-9-]{16,80}$/i.test(supplied) ? createHash("sha256").update(`quiet-maintenance|${req.adminUser.id}|${supplied}`).digest("hex") : createHash("sha256").update(`quiet-maintenance|${req.adminUser.id}|${randomUUID()}`).digest("hex")
+  try { const result = await runQuietMaintenance({ actorId: req.adminUser.id, requestKey }); return res.json({ ...result, external_requests: 0, canonical_mutations: 0, map_mutations: 0 }) } catch (error) { return res.status(409).json({ error: "Quiet maintenance failed safely; no partial derived-state plan was applied.", code: String(error?.message || "quiet_maintenance_failed").replace(/[^a-z0-9_-]/gi, "_").slice(0, 100) }) }
+})
 app.get("/api/admin/reflections", requireAdmin, async (req, res) => {
   const limit = Math.max(1, Math.min(100, Number(req.query.limit) || 30)); try { let query = supabase.from("miller_reflections").select("id,reflection_key,category,topic_id,signal_ids,explanation,confidence,human_impact,recommendation,created_at,miller_attention_topics(topic_key,title)").order("created_at", { ascending: false }).limit(limit); if (req.query.category) query = query.eq("category", String(req.query.category).slice(0, 80)); if (req.query.topic) query = query.eq("topic_id", String(req.query.topic)); const reflections = await query; if (reflections.error) throw reflections.error; const acknowledgements = await supabase.from("miller_reflection_acknowledgements").select("reflection_id,acknowledged_at").eq("actor_id", req.adminUser.id).in("reflection_id", (reflections.data || []).map((item) => item.id)); if (acknowledgements.error) throw acknowledgements.error; const seen = new Map((acknowledgements.data || []).map((item) => [item.reflection_id, item.acknowledged_at])); return res.json({ items: (reflections.data || []).map((item) => ({ ...item, acknowledged_at: seen.get(item.id) || null })) }) } catch { return res.status(503).json({ error: "Reflections are unavailable. No data was changed." }) }
 })
