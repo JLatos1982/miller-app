@@ -9,17 +9,20 @@ export function routeMaintenanceIntent(question = "") {
   if (/resource information.*stale|needs? a fresh check|stale resource/.test(value)) return "resource_freshness"
   if (/what would you work on next|why did you choose/.test(value)) return "next_work"
   if (/what did you improve|did the repair.*work/.test(value)) return "verified_outcomes"
+  if (/what problems do you keep seeing|tools? are you missing|capability.*build next/.test(value)) return "capability_gaps"
+  if (/security issues.*attention|security.*need/.test(value)) return "security_attention"
+  if (/work requires a human|needs human/.test(value)) return "human_work"
   return null
 }
 
-export function maintenanceAdminSummary({ cycles = [], outcomes = [], lessons = [], opportunities = [] } = {}) {
+export function maintenanceAdminSummary({ cycles = [], outcomes = [], lessons = [], opportunities = [], capability_gaps = [], security = [] } = {}) {
   const activeGrowth = opportunities.filter((item) => !["retired", "improved"].includes(item.state))
   const count = (pattern) => activeGrowth.filter((item) => pattern.test(item.gap_type)).length
   return {
     scheduling: "not_enabled",
     max_repairs_per_cycle: 1,
     last_cycle: cycles[0] || null,
-    safe_repairs_available: 0,
+    safe_repairs_available: Number(cycles[0]?.summary?.safe_repairs_available || 0),
     almost_map_ready: count(/missing_geocoder|human_qc_confirmation/),
     location_research: count(/mapping_missing|mapping_location_conflict/),
     stale_resource_information: count(/^stale_/),
@@ -27,6 +30,8 @@ export function maintenanceAdminSummary({ cycles = [], outcomes = [], lessons = 
     ineffective_outcomes: outcomes.filter((item) => ["failed", "inconclusive"].includes(item.verification)).slice(0, 8),
     lessons: lessons.slice(0, 8),
     opportunities: activeGrowth.slice(0, 12),
+    capability_gaps: capability_gaps.filter((item) => !["addressed", "retired"].includes(item.status)).slice(0, 12),
+    security_attention: security.filter((item) => !["resolved", "false_positive", "expected_behavior"].includes(item.lifecycle)).slice(0, 12),
   }
 }
 
@@ -36,5 +41,8 @@ export function explainMaintenanceIntent(intent, summary) {
   if (intent === "location_research") return { text: `${summary.location_research} location opportunity record(s) need controlled research or human review. Maintenance will not run external research automatically.`, details: summary.opportunities }
   if (intent === "resource_freshness") return { text: `${summary.stale_resource_information} resource fact(s) are old enough for a fresh check. Stale does not mean incorrect.`, details: summary.opportunities }
   if (intent === "verified_outcomes") return { text: `${summary.verified_outcomes.length} recent bounded outcome(s) independently verified. An attempted action is never reported as a repair without verification.`, details: summary.verified_outcomes }
+  if (intent === "capability_gaps") return { text: `${summary.capability_gaps.length} recurring capability gap(s) are persisted. They are development recommendations, not permissions to act.`, details: summary.capability_gaps }
+  if (intent === "security_attention") return { text: `${summary.security_attention.length} private security finding(s) need attention. Miller will not autonomously modify protections or infrastructure.`, details: summary.security_attention }
+  if (intent === "human_work") return { text: `${summary.capability_gaps.filter((item) => ["human_review", "security_review"].includes(item.safety_category)).length} persisted gap(s) explicitly require a human.`, details: summary.capability_gaps }
   return { text: summary.last_cycle?.summary?.selected_action ? `The last cycle selected ${summary.last_cycle.summary.selected_action.action_id} using its bounded reason codes.` : "No persisted maintenance selection is available yet.", details: summary.last_cycle }
 }

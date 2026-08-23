@@ -20,6 +20,13 @@ test("missing geocoder becomes near-ready research and never healing", () => {
   assert.equal(toolbox.readiness[0].state, "near_ready")
   assert.equal(toolbox.research_handoffs[0].recommended_worker_class, "canonical_location_geocoder_review")
   assert.equal(toolbox.research_handoffs[0].automatic_execution, false)
+  assert.equal(toolbox.capability_gaps[0].problem_class, "mapping_missing_geocoder_evidence")
+})
+
+test("stale private Security Pulse is a bounded bookkeeping repair only", () => {
+  const toolbox = buildMaintenanceToolbox({ securityPulse: { id: "pulse", status: "running", started_at: "2026-08-23T11:40:00Z" } }, new Date("2026-08-23T12:00:00Z"))
+  assert.equal(toolbox.healing_needs[0].action_id, "recover_stale_security_pulse_run")
+  assert.equal(toolbox.security.mutation_scope, "finalize_private_stale_run_only")
 })
 
 test("conflicting and sensitive locations fail closed", () => {

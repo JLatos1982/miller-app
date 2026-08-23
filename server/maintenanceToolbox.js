@@ -2,6 +2,8 @@ import { createHash } from "node:crypto"
 import { preflightCategory } from "./mapAutoPublishWorker.js"
 import { recheckPriority } from "./intelligence/maintenance.js"
 import { growthOpportunity } from "./maintenanceLearning.js"
+import { capabilityGapsFromMaintenance, rankGrowth } from "./maintenanceCapabilityGaps.js"
+import { classifySecurityMaintenance } from "./maintenanceSecurity.js"
 
 const hash = (parts) => createHash("sha256").update(parts.join("|")).digest("hex")
 const text = (value) => String(value ?? "").trim()
@@ -96,12 +98,14 @@ export function resourceFreshnessOpportunity(fact = {}, now = new Date()) {
   })
 }
 
-export function buildMaintenanceToolbox({ mapContexts = [], freshnessFacts = [] } = {}, now = new Date()) {
+export function buildMaintenanceToolbox({ mapContexts = [], freshnessFacts = [], securityPulse = null, securityFindings = [] } = {}, now = new Date()) {
   const readiness = mapContexts.slice(0, 100).map(mapReadiness)
-  const healing_needs = mapContexts.map(machineQcHealingNeed).filter(Boolean).slice(0, 20)
+  const security = classifySecurityMaintenance({ pulse: securityPulse, findings: securityFindings, now })
+  const healing_needs = [...mapContexts.map(machineQcHealingNeed).filter(Boolean), ...security.healing_needs.map((item) => ({ ...item, context: securityPulse }))].slice(0, 20)
   const growth_opportunities = [...mapContexts.map(mappingGrowthOpportunity), ...freshnessFacts.map((fact) => resourceFreshnessOpportunity(fact, now))].filter(Boolean).slice(0, 40)
   const research_handoffs = mapContexts.map(researchHandoff).filter(Boolean).slice(0, 20)
-  return { readiness, healing_needs, growth_opportunities, research_handoffs, external_requests: 0, publication_mutations: 0 }
+  const capability_gaps = capabilityGapsFromMaintenance({ growth_opportunities, security })
+  return { readiness, healing_needs, growth_opportunities, growth_ranking: rankGrowth([...growth_opportunities, ...capability_gaps]), capability_gaps, security, research_handoffs, external_requests: 0, publication_mutations: 0 }
 }
 
 export async function createInitialMachineQcHealing({ db, item, actorId, loadState } = {}) {

@@ -5,12 +5,15 @@ const runKey = () => createHash("sha256").update(`security-pulse|${randomUUID()}
 const completedAt = (now) => new Date(now()).toISOString()
 
 export function createPulseRunStore(supabase, { now = () => Date.now() } = {}) {
-  async function activeOrRecover() {
+  async function active() {
     const active = await supabase.from("miller_security_pulse_runs").select("*").eq("status", "running").order("started_at", { ascending: false }).limit(1).maybeSingle()
     if (active.error) throw active.error
-    if (!active.data) return null
-    if (now() - new Date(active.data.started_at).getTime() <= STALE_MS) return active.data
-    const stale = await supabase.from("miller_security_pulse_runs").update({ status: "failed", completeness: "timed_out", completed_at: completedAt(now), summary: { failure_code: "stale_run_recovered" } }).eq("id", active.data.id)
+    return active.data || null
+  }
+  async function activeOrRecover() {
+    const current = await active()
+    if (!current || now() - new Date(current.started_at).getTime() <= STALE_MS) return current
+    const stale = await supabase.from("miller_security_pulse_runs").update({ status: "failed", completeness: "timed_out", completed_at: completedAt(now), summary: { failure_code: "stale_run_recovered" } }).eq("id", current.id)
     if (stale.error) throw stale.error
     return null
   }
@@ -23,8 +26,8 @@ export function createPulseRunStore(supabase, { now = () => Date.now() } = {}) {
 
   return {
     async start() {
-      const active = await activeOrRecover()
-      if (active) return { already_running: true, run: active }
+      const current = await activeOrRecover()
+      if (current) return { already_running: true, run: current }
       const result = await supabase.from("miller_security_pulse_runs").insert({ run_key: runKey(), trigger_type: "manual_admin", mode: "local_manual", status: "running", completeness: "partial" }).select().single()
       if (result.error) {
         if (result.error.code === "23505") return { already_running: true, run: await activeOrRecover() }
@@ -35,6 +38,12 @@ export function createPulseRunStore(supabase, { now = () => Date.now() } = {}) {
     finalize,
     fail(run, summary = {}) {
       return finalize(run, { ...summary, status: "failed", completeness: "failed" })
+    },
+    inspectActive: active,
+    async inspectRun(id) {
+      const result = await supabase.from("miller_security_pulse_runs").select("*").eq("id", id).maybeSingle()
+      if (result.error) throw result.error
+      return result.data || null
     },
     async latest() {
       const result = await supabase.from("miller_security_pulse_runs").select("*").order("started_at", { ascending: false }).limit(1).maybeSingle()

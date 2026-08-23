@@ -1,0 +1,12 @@
+begin;
+select plan(8);
+select has_table('public','miller_capability_gaps','capability gap ledger exists');
+select ok(not has_table_privilege('anon','public.miller_capability_gaps','select,insert,update,delete'),'anon cannot access capability gaps');
+select ok(not has_table_privilege('authenticated','public.miller_capability_gaps','select,insert,update,delete'),'ordinary users cannot access capability gaps');
+select ok(has_table_privilege('service_role','public.miller_capability_gaps','select,insert,update'),'service role may deduplicate gap observations');
+select col_is_unique('public','miller_capability_gaps',array['gap_fingerprint'],'gap fingerprint deduplicates recurring observations');
+select ok(exists(select 1 from pg_indexes where indexname='miller_capability_gaps_status_observed_idx'),'active gap lookup is indexed');
+select ok(not exists(select 1 from information_schema.columns where table_schema='public' and table_name='miller_capability_gaps' and column_name in ('query','prompt','url','request_body','email','phone','latitude','longitude')),'capability gaps do not retain raw requests or sensitive location/contact data');
+select ok(exists(select 1 from pg_constraint where conname='miller_capability_gaps_safety_category_check'),'safety category is bounded');
+select * from finish();
+rollback;

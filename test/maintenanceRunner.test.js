@@ -40,3 +40,18 @@ test("real-store ordering repairs stale ownership before opening and auditing a 
   assert.equal(result.outcomes[0].action_id, "recover_stale_maintenance_cycle")
   assert.equal(calls.length, 1)
 })
+
+test("security stale-run repair is selected only as one registered Tier-1 action", async () => {
+  const now = Date.parse("2026-08-23T12:00:00Z"), calls = [], pulse = { id: "pulse", status: "running", started_at: "2026-08-23T11:40:00Z" }
+  const result = await runMaintenanceCycle({ mode: "maintain", now: () => now, store: store(now), persistence: persistence(calls), snapshot: async () => ({ healing_needs: [{ id: "stale_security_pulse:pulse", action_id: "recover_stale_security_pulse_run", domain: "security", target_type: "security_pulse_run", target_id: "pulse", value: 90, expected: {}, context: pulse }] }), securityStore: { fail: async () => {}, inspectRun: async () => ({ id: "pulse", status: "failed", completeness: "failed", completed_at: new Date(now).toISOString() }) } })
+  assert.equal(result.outcomes.length, 1)
+  assert.equal(result.outcomes[0].action_id, "recover_stale_security_pulse_run")
+  assert.equal(calls.length, 1)
+})
+
+test("capability gaps are persisted separately from executable work", async () => {
+  const seen = [], result = await runMaintenanceCycle({ mode: "observe", store: store(Date.now()), persistence: { ...persistence(), observeCapabilityGap: async (item) => { seen.push(item); return item } }, snapshot: async () => ({ capability_gaps: [{ gap_fingerprint: "gap", subsystem: "mapping", problem_class: "missing_geocoder", target_key: "resource:r" }] }) })
+  assert.equal(result.outcomes.length, 0)
+  assert.equal(result.capability_gaps.length, 1)
+  assert.equal(seen.length, 1)
+})

@@ -1,6 +1,7 @@
 const STALE_MS = 20 * 60 * 1000
 export const HEALING_ACTIONS = Object.freeze({
   recover_stale_maintenance_cycle: { id: "recover_stale_maintenance_cycle", domain: "operations", tier: 1, enabled: true, modes: ["maintain"], idempotent: true, mutation: "finalize_stale_run", timeout_ms: 5_000, retry_limit: 0, version: "v1", priority: 100 },
+  recover_stale_security_pulse_run: { id: "recover_stale_security_pulse_run", domain: "security", tier: 1, enabled: true, modes: ["maintain"], idempotent: true, mutation: "finalize_private_stale_run", timeout_ms: 5_000, retry_limit: 0, version: "v1", priority: 90 },
   create_initial_machine_location_qc: { id: "create_initial_machine_location_qc", domain: "resource_data", tier: 1, enabled: true, modes: ["maintain"], idempotent: true, mutation: "machine_initial_manual_review_only", timeout_ms: 10_000, retry_limit: 0, version: "v1", priority: 80 },
 })
 export function staleCycleNeed(cycle, now = Date.now()) { if (!cycle || cycle.status !== "running" || now - new Date(cycle.started_at).getTime() <= STALE_MS) return null; return { id: `stale_maintenance_cycle:${cycle.id}`, domain: "operations", action_id: "recover_stale_maintenance_cycle", target_id: cycle.id, severity: "medium", before: { status: cycle.status, started_at: cycle.started_at }, expected: "historical cycle is finalized and ownership is released" } }
