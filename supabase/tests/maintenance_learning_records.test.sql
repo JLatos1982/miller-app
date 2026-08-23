@@ -1,0 +1,18 @@
+begin;
+select plan(14);
+select has_table('public','miller_maintenance_outcomes','maintenance outcomes exist');
+select has_table('public','miller_learning_records','learning records exist');
+select has_table('public','miller_growth_opportunities','growth opportunities exist');
+select ok(not has_table_privilege('anon','public.miller_maintenance_outcomes','select,insert,update,delete'),'anon cannot access outcomes');
+select ok(not has_table_privilege('authenticated','public.miller_learning_records','select,insert,update,delete'),'authenticated cannot access lessons');
+select ok(not has_table_privilege('authenticated','public.miller_growth_opportunities','select,insert,update,delete'),'authenticated cannot access growth');
+select ok(has_table_privilege('service_role','public.miller_maintenance_outcomes','select,insert'),'service role may append outcomes');
+select ok(not has_table_privilege('service_role','public.miller_maintenance_outcomes','update,delete'),'outcome evidence is not mutable even by adapter grants');
+select ok(has_table_privilege('service_role','public.miller_learning_records','select,insert,update'),'service role may reinforce bounded lessons');
+select ok(has_table_privilege('service_role','public.miller_growth_opportunities','select,insert,update'),'service role may deduplicate growth recurrence');
+select ok(exists(select 1 from pg_trigger where tgname='miller_maintenance_outcomes_append_only' and not tgisinternal),'append-only outcome trigger exists');
+select ok(exists(select 1 from pg_indexes where indexname='miller_maintenance_outcomes_cycle_idx'),'cycle outcome lookup is indexed');
+select ok(exists(select 1 from pg_indexes where indexname='miller_growth_opportunities_state_priority_idx'),'growth queue lookup is indexed');
+select ok(not exists(select 1 from information_schema.columns where table_schema='public' and table_name in ('miller_maintenance_outcomes','miller_learning_records','miller_growth_opportunities') and column_name in ('query','prompt','url','latitude','longitude','email','phone')),'private maintenance records have no arbitrary research or sensitive contact inputs');
+select * from finish();
+rollback;

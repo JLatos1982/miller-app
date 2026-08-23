@@ -1,6 +1,6 @@
 import { lessonFromOutcome, reinforceLesson } from "./maintenanceLearning.js"
 
-const bounded = (value, limit = 500) => JSON.parse(JSON.stringify(value || {})).toString().length <= limit ? value || {} : {}
+const bounded = (value, limit = 2_000) => { const safe = JSON.parse(JSON.stringify(value || {})); return JSON.stringify(safe).length <= limit ? safe : {} }
 export function createMaintenancePersistence(supabase) {
   return {
     async recordOutcome(outcome) { const values = { cycle_id: outcome.cycle_id, need_key: String(outcome.need_key).slice(0,180), action_id: String(outcome.action_id).slice(0,100), action_version: "v1", domain: outcome.domain, target_type: String(outcome.target_type).slice(0,80), target_key: String(outcome.target_key).slice(0,180), before_state: bounded(outcome.before), expected_state: bounded(outcome.expected), after_state: bounded(outcome.after), verification: outcome.verified ? "passed" : outcome.classification === "inconclusive" ? "inconclusive" : "failed", classification: outcome.classification, completed_at: new Date().toISOString() }; const result = await supabase.from("miller_maintenance_outcomes").insert(values).select().single(); if(result.error) throw result.error; return result.data },

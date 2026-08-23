@@ -17,3 +17,11 @@ test("reflection retains only verified outcome lessons and never claims repair o
   assert.match(reflection.lessons[1].lesson, /do not infer repair/)
   assert.equal(MAINTENANCE_RHYTHM.working.mutation, "policy_controlled")
 })
+
+test("orientation keeps healing, growth, and research handoffs separate", () => {
+  const result = orientMaintenanceCycle({ healing_needs: [{ id: "heal", action_id: "create_initial_machine_location_qc", domain: "resource_data", severity: "medium" }], growth_opportunities: [{ opportunity_fingerprint: "gap", domain: "resource_data", reason: "Needs evidence.", priority: 80 }], research_handoffs: [{ recommendation_id: "handoff", automatic_execution: false }] })
+  assert.equal(result.safe_work.length, 1)
+  assert.equal(result.growth.length, 1)
+  assert.equal(result.research_handoffs[0].automatic_execution, false)
+  assert.ok(result.human_review.some((item) => item.id === "growth:gap"))
+})
