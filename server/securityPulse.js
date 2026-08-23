@@ -1,6 +1,7 @@
 import { SECURITY_INSTRUMENTS, configurationDrift } from "./securityInstruments.js"
 import { normalizeSecurityFindings } from "./operationsDefense.js"
 import { inspectRepositoryHygiene } from "./securityRepositoryHygiene.js"
+import { runDependencyAdvisoryAudit } from "./securityDependencyAudit.js"
 
 export const SECURITY_RHYTHMS = Object.freeze([{ id: "heartbeat", purpose: "cheap present-state check", cadence: "minutes", scheduler: "disabled" }, { id: "security_pulse", purpose: "bounded defensive inspection", cadence: "manual", scheduler: "disabled_manual" }, { id: "daily_security_review", purpose: "consolidate lifecycle changes", cadence: "daily", scheduler: "disabled" }, { id: "deep_security_review", purpose: "security maintenance posture", cadence: "weekly", scheduler: "disabled" }])
 export const SECURITY_PULSE_MODES = Object.freeze({ local: { external_requests: 0, instruments: ["configuration_drift", "repository_hygiene"] }, advisories: { external_requests: 1, instruments: ["configuration_drift", "repository_hygiene", "dependency_posture"] }, deep_local: { external_requests: 0, instruments: ["configuration_drift", "repository_hygiene", "static_analysis", "container_posture"] } })
@@ -9,7 +10,7 @@ export function reconcileInstrumentFindings({ instrumentId, completeness, findin
 
 function configurationFindings(serverSource, clientSource) { return normalizeSecurityFindings({ findings: configurationDrift({ serverSource, clientSource }).filter((item) => !item.passed).map((item) => ({ finding_key: `configuration:${item.id}`, subsystem: "configuration", severity: item.severity, defensive_result: "protection_uncertain", observation: item.summary, recommended_action: "Review the deterministic invariant before deployment." })) }).map((item) => ({ ...item, instrument_id: "configuration_drift" })) }
 
-export async function runSecurityPulse({ environment = "local", mode = "local", repositoryRoot = process.cwd(), serverSource = "", clientSource = "", startRun = async () => ({ id: "ephemeral" }), finalizeRun = async () => {}, failRun = async () => {}, loadPrevious = async () => [], persist = async () => {}, resolve = async () => {}, reopen = async () => {}, repositoryHygiene = inspectRepositoryHygiene } = {}) {
+export async function runSecurityPulse({ environment = "local", mode = "local", repositoryRoot = process.cwd(), serverSource = "", clientSource = "", startRun = async () => ({ id: "ephemeral" }), finalizeRun = async () => {}, failRun = async () => {}, loadPrevious = async () => [], persist = async () => {}, resolve = async () => {}, reopen = async () => {}, repositoryHygiene = inspectRepositoryHygiene, dependencyAudit = runDependencyAdvisoryAudit } = {}) {
   if (environment !== "local" || !SECURITY_PULSE_MODES[mode]) throw new Error("security_pulse_environment_denied")
   const beganAt = Date.now(), started = await startRun({ trigger_type: "manual_admin", mode: "local_manual" })
   if (started?.already_running) return { run_id: started.run?.id || null, status: "already_running", completeness: "partial", scheduler: "disabled_manual", external_requests: 0, mutations: 0, instruments: [], findings: [], delta: {}, rhythms: SECURITY_RHYTHMS }
@@ -18,6 +19,7 @@ export async function runSecurityPulse({ environment = "local", mode = "local", 
     const selected = SECURITY_PULSE_MODES[mode].instruments, observations = []
     if (selected.includes("configuration_drift")) observations.push({ instrument_id: "configuration_drift", completeness: "complete", findings: configurationFindings(serverSource, clientSource), state: "verified" })
     if (selected.includes("repository_hygiene")) { const hygiene = await repositoryHygiene({ root: repositoryRoot }); observations.push({ ...hygiene, state: "verified" }) }
+    if (selected.includes("dependency_posture")) { const audit = await dependencyAudit({ root: repositoryRoot }); observations.push({ ...audit, state: audit.completeness === "complete" ? "verified" : "unavailable" }) }
     for (const instrumentId of selected.filter((id) => !observations.some((item) => item.instrument_id === id))) observations.push({ instrument_id: instrumentId, completeness: "unavailable", findings: [], state: "unavailable" })
     const summary = { findings_observed: 0, findings_new: 0, findings_recurring: 0, findings_reappeared: 0, findings_resolved: 0, findings_preserved: 0 }
     for (const observation of observations) {
