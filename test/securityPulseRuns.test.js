@@ -1,0 +1,2 @@
+import test from "node:test";import assert from "node:assert/strict";import {createPulseRunStore} from "../server/securityPulseRuns.js";
+test("pulse run store refuses a live active run",async()=>{const chain={select(){return this},eq(){return this},order(){return this},limit(){return this},async maybeSingle(){return {data:{id:"active",started_at:new Date().toISOString()},error:null}}};const store=createPulseRunStore({from(){return chain}});assert.equal((await store.start()).already_running,true)});

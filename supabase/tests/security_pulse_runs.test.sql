@@ -1,0 +1,17 @@
+begin;
+select plan(13);
+select has_table('public','miller_security_pulse_runs','pulse run table exists');
+select has_column('public','miller_security_pulse_runs','run_key','run identity is durable');
+select has_column('public','miller_security_pulse_runs','completeness','run completeness is durable');
+select has_column('public','miller_security_pulse_runs','findings_resolved','run lifecycle summary is durable');
+select ok(not has_table_privilege('anon','public.miller_security_pulse_runs','select,insert,update,delete'),'anon cannot access pulse runs');
+select ok(not has_table_privilege('authenticated','public.miller_security_pulse_runs','select,insert,update,delete'),'authenticated cannot access pulse runs');
+select ok(has_table_privilege('service_role','public.miller_security_pulse_runs','select,insert,update'),'service role owns pulse runs');
+select ok(not exists(select 1 from pg_policies where schemaname='public' and tablename='miller_security_pulse_runs' and roles && array['anon'::name,'authenticated'::name]),'pulse runs have no browser policy');
+select ok(exists(select 1 from pg_indexes where schemaname='public' and indexname='miller_security_pulse_runs_single_active_idx'),'only one active run index exists');
+select ok(has_function_privilege('service_role','public.record_security_instrument_finding(text,text,text,text,text,text,text,text,text,text,jsonb)','execute'),'service role may persist instrument findings');
+select ok(not has_function_privilege('anon','public.record_security_instrument_finding(text,text,text,text,text,text,text,text,text,text,jsonb)','execute'),'anon cannot persist instrument findings');
+select ok(has_function_privilege('service_role','public.resolve_security_instrument_finding(text,text)','execute'),'service role may resolve instrument findings');
+select ok(not has_function_privilege('authenticated','public.resolve_security_instrument_finding(text,text)','execute'),'authenticated cannot resolve instrument findings');
+select * from finish();
+rollback;
