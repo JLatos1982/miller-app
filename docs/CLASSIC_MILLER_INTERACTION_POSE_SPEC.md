@@ -103,12 +103,29 @@ the safe fallback: dog arrives and sits; Miller remains still.
 inform a separate `work_started` presentation, but it is not an interaction or
 petting asset and must not change the companion's authority boundary.
 
-## Deferred locomotion and result-indication artwork
+## Walking and result-indication artwork
 
-The approved interaction sheet contains no clean Classic walking cycle. Do not
-turn the neutral cutout into a walk with CSS rotation, skewing, or a sliding
-translation. A future two-step delivery needs two separate, true-alpha Classic
-Miller-only cutouts:
+`src/assets/companion/miller-companion-walk-result-pose-sheet.png` is the
+retained RGB source/reference sheet for Classic's walking references and the
+correct gray-and-white sheepdog identity. Its checkerboard is baked RGB, so it
+is never rendered at runtime. Reviewed derived, true-alpha production cutouts
+are:
+
+- `src/assets/miller/interaction/classic-miller-step-left-01.png`
+- `src/assets/miller/interaction/classic-miller-step-left-02.png`
+- `src/assets/companion/sheepdog-result-point.png`
+
+The Classic steps retain the canonical fedora, face, navy suit/coat, tall
+proportions, and coherent successive gait. They share
+`ground: { x: 0.5, y: 0.97 }` and drive the bounded reading-position walk.
+The dog result-point is a separate seated actor with the approved gray/cream
+coat, dark floppy ears, green bandana, gold tag, and a restrained raised paw;
+it uses `ground: { x: 0.5, y: 0.97 }` and
+`indicatePaw: { x: 0.62, y: 0.52 }`.
+
+Do not turn the neutral cutout into a walk with CSS rotation, skewing, or a
+sliding translation. Any replacement walking artwork needs two separate,
+true-alpha Classic Miller-only cutouts:
 
 - **stepLeft01** — weight on the right foot, left foot stepping toward the
   reading position; coat opening and hem follow the stride naturally.
@@ -119,15 +136,13 @@ Both require `ground: { x: 0.5, y: 0.97 }`, matching apparent height and
 transparent edges. They must be reviewed beside `miller_classic.png` before
 any walking animation replaces the current stable reading position.
 
-The approved sheepdog set likewise has no valid paw-lift/result-point pose.
-A future `sheepdog-result-point.png` must be an independent transparent
-cutout: the same seated older sheepdog, one front paw subtly raised toward the
-card, coherent four-legged anatomy, matching scale/ground anchor, and no
-Miller, card, text, or background pixels. Until then the approved head-raised
-`sheepdog-pet-reaction.png` is the calm result-side attentive pose.
+The result-point pose must remain an independent transparent cutout: the same
+seated older sheepdog, one front paw subtly raised toward the card, coherent
+four-legged anatomy, matching scale/ground anchor, and no Miller, card, text,
+or background pixels. `sheepdog-pet-reaction.png` remains the calm result-side
+attentive pose before and after the single indication.
 
 `src/companion/millerCompanionPosePreview.js` is the isolated, development
-preview registry for these future slots. It defines transparent bounds, named
-anchors, and neutral mock destination geometry, but keeps both slots inactive
-until a reviewed production asset marks them approved. Production does not
+preview registry for these approved slots. It defines transparent bounds,
+named anchors, and neutral mock destination geometry. Production does not
 depend on this preview registry.

@@ -4,6 +4,7 @@ import sheepdogSit from '../assets/companion/sheepdog-sit.png'
 import sheepdogWalk01 from '../assets/companion/sheepdog-walk-01.png'
 import sheepdogWalk02 from '../assets/companion/sheepdog-walk-02.png'
 import sheepdogPetReaction from '../assets/companion/sheepdog-pet-reaction.png'
+import sheepdogResultPoint from '../assets/companion/sheepdog-result-point.png'
 import { MILLER_COMPANION, staticCompanionPresentation } from './millerCompanionAdapter.js'
 import { millerDogIsTraveling } from './millerCompanionSequence.js'
 import { useMillerDogArrival } from './millerDogArrivalState.js'
@@ -12,7 +13,7 @@ import { MILLER_PRESENTATION_INTENTS, acceptsNewPresentationIntent, jogDurationF
 import { mayRunMillerIdlePet, nextMillerIdleDelay } from './millerCompanionIdle.js'
 import { dogVisualOwnership, MILLER_DOG_OWNERS } from './millerDogOwnership.js'
 
-const DOG_POSES = Object.freeze({ sit: sheepdogSit, 'walk-1': sheepdogWalk01, 'walk-2': sheepdogWalk02, 'pet-reaction': sheepdogPetReaction })
+const DOG_POSES = Object.freeze({ sit: sheepdogSit, 'walk-1': sheepdogWalk01, 'walk-2': sheepdogWalk02, 'pet-reaction': sheepdogPetReaction, 'result-point': sheepdogResultPoint })
 
 function isLightBackdrop(red, green, blue) {
   return Math.min(red, green, blue) > 210 && Math.max(red, green, blue) - Math.min(red, green, blue) < 24
@@ -202,13 +203,18 @@ export default function MillerSheepdog({ themeName, reducedMotion = false, anima
     const frame = window.requestAnimationFrame(() => setTravel(current => current ? { ...current, moving: true } : current))
     const frameTimer = window.setInterval(() => setTravel(current => current ? { ...current, pose: current.pose === 'walk-1' ? 'walk-2' : 'walk-1' } : current), 180)
     const settleTimer = window.setTimeout(() => {
-      // Existing approved head-raised pose is the quiet result-side fallback.
-      // No paw-lift artwork exists yet, so do not fake a pointing gesture.
-      setTravel(current => current ? { ...current, pose: 'pet-reaction', arrived: true, moving: false } : current)
+      setTravel(current => current ? { ...current, pose: 'pet-reaction', arrived: true, moving: false, indicated: false } : current)
       setSceneState('at-destination')
     }, travelDuration)
     return () => { window.cancelAnimationFrame(frame); window.clearInterval(frameTimer); window.clearTimeout(settleTimer) }
   }, [travelDuration, travelArrived])
+
+  useEffect(() => {
+    if (!travel?.arrived || travel.indicated) return undefined
+    const pointTimer = window.setTimeout(() => setTravel(current => current?.arrived && !current.indicated ? { ...current, pose: 'result-point', pointing: true } : current), 280)
+    const settleTimer = window.setTimeout(() => setTravel(current => current?.arrived && !current.indicated ? { ...current, pose: 'pet-reaction', pointing: false, indicated: true } : current), 1_130)
+    return () => { window.clearTimeout(pointTimer); window.clearTimeout(settleTimer) }
+  }, [travel?.arrived, travel?.indicated])
 
   const dogVisuals = dogVisualOwnership(dogOwner)
   const travelOverlay = dogVisuals.overlay && travel && overlayHost ? createPortal(

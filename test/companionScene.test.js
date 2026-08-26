@@ -11,6 +11,11 @@ import { dogVisualOwnership, MILLER_DOG_OWNERS } from '../src/companion/millerDo
 import { mayRunMillerIdlePet, nextMillerIdleDelay } from '../src/companion/millerCompanionIdle.js'
 import { bubbleNeedsMillerReadingPosition, readingStageHeight } from '../src/companion/millerSceneLayout.js'
 import { canPreviewClassicWalk, canPreviewSheepdogResultPoint, CLASSIC_WALK_POSE_SLOTS, COMPANION_POSE_PREVIEWS, SHEEPDOG_RESULT_POINT_SLOT } from '../src/companion/millerCompanionPosePreview.js'
+import { MILLER_CLASSIC_READING_WALK, millerClassicWalkStep, nextMillerClassicWalkIndex } from '../src/companion/millerClassicWalk.js'
+
+function pngHasRgbaColorType(file) {
+  return fs.readFileSync(new URL(file, import.meta.url))[25] === 6
+}
 
 test('portable companion core resolves a static pose without Miller dependencies', () => {
   const actor = defineCompanionActor({
@@ -110,21 +115,30 @@ test('bubble geometry opens reading space only when it would collide with Miller
   assert.equal(readingStageHeight(480), 965)
 })
 
-test('current Classic reading position never masquerades as a CSS walking animation', () => {
+test('Classic reading movement uses approved step assets rather than a standing-image slide', () => {
   const css = fs.readFileSync(new URL('../src/App.css', import.meta.url), 'utf8')
   const poseSpec = fs.readFileSync(new URL('../docs/CLASSIC_MILLER_INTERACTION_POSE_SPEC.md', import.meta.url), 'utf8')
-  assert.doesNotMatch(css, /millerReadingReposition|miller-reading-stepping/)
+  assert.match(css, /miller-reading-walking/)
   assert.match(poseSpec, /stepLeft01/)
   assert.match(poseSpec, /stepLeft02/)
+  assert.equal(MILLER_CLASSIC_READING_WALK.steps.reduce((total, step) => total + step.duration, 0), 760)
+  assert.equal(millerClassicWalkStep(0).pose, 'stepLeft01')
+  assert.equal(millerClassicWalkStep(1).pose, 'stepLeft02')
+  assert.equal(millerClassicWalkStep(2).settle, true)
+  assert.equal(nextMillerClassicWalkIndex(0), 1)
+  assert.equal(millerClassicWalkStep(0, { returning: true }).pose, 'stepLeft02')
 })
 
-test('future walk and result-point previews are inert until approved transparent assets exist', () => {
-  assert.equal(canPreviewClassicWalk(), false)
-  assert.equal(canPreviewSheepdogResultPoint(), false)
+test('approved walking and result-point assets are true-alpha production cutouts', () => {
+  assert.equal(canPreviewClassicWalk(), true)
+  assert.equal(canPreviewSheepdogResultPoint(), true)
   assert.equal(CLASSIC_WALK_POSE_SLOTS.stepLeft01.asset.endsWith('classic-miller-step-left-01.png'), true)
   assert.equal(CLASSIC_WALK_POSE_SLOTS.stepLeft02.anchors.ground.y, .97)
   assert.equal(SHEEPDOG_RESULT_POINT_SLOT.asset.endsWith('sheepdog-result-point.png'), true)
   assert.deepEqual(COMPANION_POSE_PREVIEWS.classicWalk.sequence, ['neutral', 'stepLeft01', 'stepLeft02', 'neutral'])
+  assert.equal(pngHasRgbaColorType('../src/assets/miller/interaction/classic-miller-step-left-01.png'), true)
+  assert.equal(pngHasRgbaColorType('../src/assets/miller/interaction/classic-miller-step-left-02.png'), true)
+  assert.equal(pngHasRgbaColorType('../src/assets/companion/sheepdog-result-point.png'), true)
 })
 
 test('idle petting is sparse, Classic-only, and unavailable while the dog is away', () => {

@@ -642,10 +642,13 @@ textarea {
   transform: rotate(-1deg);
 }
 
-/* Proper Classic walking frames are not yet approved. Resolve to this stable,
-   non-overlapping reading position rather than pretending a standing PNG can
-   walk by sliding it diagonally. */
-.miller-figure.miller-reading-reading { transform: translate(-132px, 158px) rotate(-1deg); }
+/* Each position increment is paired with a reviewed walking frame. The
+   standing image never glides diagonally as a substitute for a gait. */
+.miller-figure.miller-reading-walking,
+.miller-figure.miller-reading-reading,
+.miller-figure.miller-reading-returning {
+  transform: translate(var(--miller-reading-x, 0px), var(--miller-reading-y, 0px)) rotate(-1deg);
+}
 
 /* Static companion tableau. The dog is an independent decorative actor; its
    placement belongs to Miller's scene, not the portable companion core. */

@@ -56,9 +56,12 @@ import MillerSheepdog from "./companion/MillerSheepdog.jsx"
 import { destinationBesideRenderedResult } from "./companion/millerCompanionAdapter.js"
 import { isMeaningfulCompanionInput, MILLER_PRESENTATION_INTENTS, presentationIntent } from "./companion/millerCompanionLifecycle.js"
 import { bubbleNeedsMillerReadingPosition, readingStageHeight } from "./companion/millerSceneLayout.js"
+import { millerClassicWalkStep, nextMillerClassicWalkIndex } from "./companion/millerClassicWalk.js"
 import classicMillerNoticeDog from "./assets/miller/interaction/classic-miller-notice-dog.png"
 import classicMillerLeanReach from "./assets/miller/interaction/classic-miller-lean-reach.png"
 import classicMillerPetDog from "./assets/miller/interaction/classic-miller-pet-dog.png"
+import classicMillerStepLeft01 from "./assets/miller/interaction/classic-miller-step-left-01.png"
+import classicMillerStepLeft02 from "./assets/miller/interaction/classic-miller-step-left-02.png"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -224,6 +227,8 @@ const CLASSIC_INTERACTION_POSES = Object.freeze({
   noticeDog: classicMillerNoticeDog,
   leanReach: classicMillerLeanReach,
   petDog: classicMillerPetDog,
+  stepLeft01: classicMillerStepLeft01,
+  stepLeft02: classicMillerStepLeft02,
 })
 
 function normalizeText(value) {
@@ -797,6 +802,7 @@ useEffect(() => {
   const [companionIntent, setCompanionIntent] = useState(null)
   const [companionSearchOutcome, setCompanionSearchOutcome] = useState({ generation: 0, status: "idle" })
   const [millerReadingPosition, setMillerReadingPosition] = useState("home")
+  const [millerWalkIndex, setMillerWalkIndex] = useState(0)
   const [millerStageHeight, setMillerStageHeight] = useState(700)
   const [isSearchBarHovered, setIsSearchBarHovered] = useState(false)
   const [, setCursorOffset] = useState({ x: 0, y: 0 })
@@ -944,9 +950,8 @@ useEffect(() => {
       millerHomeFigureTopRef.current = figureRect.top
       if (bubbleNeedsMillerReadingPosition({ bubbleRect, figureRect })) {
         setMillerStageHeight(readingStageHeight(bubbleRect.height))
-        // No approved Classic walking frames exist yet. Resolve to the safe
-        // reading position rather than animating a translated standing PNG.
-        setMillerReadingPosition("reading")
+        setMillerWalkIndex(0)
+        setMillerReadingPosition("walking")
       }
       return undefined
     }
@@ -955,12 +960,27 @@ useEffect(() => {
       const frame = window.requestAnimationFrame(() => setMillerStageHeight(neededStageHeight))
       return () => window.cancelAnimationFrame(frame)
     }
-    if (millerReadingPosition === "reading" && bubbleRect.bottom < (millerHomeFigureTopRef.current || stageRect.top + 230) - 18) {
+    if (millerReadingPosition === "reading" && bubbleRect.bottom < (millerHomeFigureTopRef.current || stageRect.top + 230) - 42) {
       setMillerStageHeight(700)
-      setMillerReadingPosition("home")
+      setMillerWalkIndex(0)
+      setMillerReadingPosition("returning")
     }
     return undefined
   }, [currentTheme.name, displayedReply, isBubbleTyping, millerReadingPosition, millerStageHeight])
+
+  useEffect(() => {
+    if (currentTheme.name !== "Classic" || !["walking", "returning"].includes(millerReadingPosition)) return undefined
+    const returning = millerReadingPosition === "returning"
+    const step = millerClassicWalkStep(millerWalkIndex, { returning })
+    const timer = window.setTimeout(() => {
+      if (step.settle) {
+        setMillerReadingPosition(returning ? "home" : "reading")
+        return
+      }
+      setMillerWalkIndex(index => nextMillerClassicWalkIndex(index, { returning }))
+    }, step.duration)
+    return () => window.clearTimeout(timer)
+  }, [currentTheme.name, millerReadingPosition, millerWalkIndex])
 
   function emitCompanionIntent(type, target = null) {
     const intent = presentationIntent(++companionIntentIdRef.current, type, target)
@@ -1519,8 +1539,11 @@ function previousMiller() {
   }
 
   const shouldShowSearchMiller = isTyping || showSearchReveal || isLoading
+ const millerWalkPose = ["walking", "returning"].includes(millerReadingPosition)
+   ? millerClassicWalkStep(millerWalkIndex, { returning: millerReadingPosition === "returning" }).pose
+   : "neutral"
  const millerImageSrc = currentTheme.name === "Classic"
-   ? CLASSIC_INTERACTION_POSES[millerGreetingPose] || currentTheme.avatar
+   ? CLASSIC_INTERACTION_POSES[millerWalkPose !== "neutral" ? millerWalkPose : millerGreetingPose] || currentTheme.avatar
    : currentTheme.avatar
 
   const millerClasses = [
@@ -1535,11 +1558,15 @@ function previousMiller() {
   .filter(Boolean)
   .join(" ")
 
-  const millerStyle = {}
-
+  const millerWalkProgress = ["walking", "returning"].includes(millerReadingPosition)
+    ? millerClassicWalkStep(millerWalkIndex, { returning: millerReadingPosition === "returning" }).progress
+    : millerReadingPosition === "reading" ? 1 : 0
   const millerStageStyle = currentTheme.name === "Classic" && millerReadingPosition !== "home"
     ? { "--miller-stage-min-height": `${millerStageHeight}px` }
     : undefined
+  const millerStyle = currentTheme.name === "Classic"
+    ? { "--miller-reading-x": `${-112 * millerWalkProgress}px`, "--miller-reading-y": `${82 * millerWalkProgress}px` }
+    : {}
   const companionIdleAllowed = !isTyping && !isLoading && !query.trim() && millerReadingPosition === "home" && companionSearchOutcome.status !== "pending"
 
 const millerImageStyle = {}
