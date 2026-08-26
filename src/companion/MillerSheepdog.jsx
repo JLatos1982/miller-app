@@ -1,12 +1,14 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import sheepdogSit from '../assets/companion/sheepdog-sit.png'
 import sheepdogWalk01 from '../assets/companion/sheepdog-walk-01.png'
 import sheepdogWalk02 from '../assets/companion/sheepdog-walk-02.png'
+import sheepdogPetReaction from '../assets/companion/sheepdog-pet-reaction.png'
 import { MILLER_COMPANION, staticCompanionPresentation } from './millerCompanionAdapter.js'
 import { millerDogIsTraveling } from './millerCompanionSequence.js'
 import { useMillerDogArrival } from './millerDogArrivalState.js'
+import { MILLER_CLASSIC_GREETING, millerClassicGreetingStep, nextMillerClassicGreetingIndex } from './millerClassicGreeting.js'
 
-const DOG_POSES = Object.freeze({ sit: sheepdogSit, 'walk-1': sheepdogWalk01, 'walk-2': sheepdogWalk02 })
+const DOG_POSES = Object.freeze({ sit: sheepdogSit, 'walk-1': sheepdogWalk01, 'walk-2': sheepdogWalk02, 'pet-reaction': sheepdogPetReaction })
 
 function isLightBackdrop(red, green, blue) {
   return Math.min(red, green, blue) > 210 && Math.max(red, green, blue) - Math.min(red, green, blue) < 24
@@ -39,11 +41,44 @@ function clearConnectedBackdrop(imageData) {
 
 // The dog is an independent, decorative canvas actor. It never receives
 // Miller input, search, result, ranking, resource, clinical, or analytics data.
-export default function MillerSheepdog({ reducedMotion = false, animationEnabled = true }) {
+export default function MillerSheepdog({ themeName, reducedMotion = false, animationEnabled = true, onGreetingPhaseChange }) {
   const canvasRef = useRef(null)
+  const greetingStartedRef = useRef(false)
   const presentation = staticCompanionPresentation({ reducedMotion, animationEnabled })
   const { step, motionReduced, settled } = useMillerDogArrival({ reducedMotion, animationEnabled })
-  const source = DOG_POSES[step?.pose] || sheepdogSit
+  const [greetingIndex, setGreetingIndex] = useState(0)
+  const classicGreeting = themeName === 'Classic' && settled && !motionReduced
+  const greetingStep = millerClassicGreetingStep(greetingIndex, { reducedMotion: motionReduced, animationEnabled })
+  const dogPose = classicGreeting && greetingStep?.id === 'pet-dog'
+    ? 'pet-reaction'
+    : classicGreeting ? 'sit' : step?.pose || presentation.pose
+  const source = DOG_POSES[dogPose] || sheepdogSit
+
+  useEffect(() => {
+    if (!classicGreeting || greetingStartedRef.current) return undefined
+    greetingStartedRef.current = true
+    let active = true
+    let index = 0
+    let timer = null
+    const advance = () => {
+      const next = millerClassicGreetingStep(index)
+      onGreetingPhaseChange?.(next?.pose || 'neutral')
+      if (!active || next?.settle) return
+      timer = window.setTimeout(() => {
+        index = nextMillerClassicGreetingIndex(index)
+        if (!active) return
+        setGreetingIndex(index)
+        advance()
+      }, next.duration)
+    }
+    advance()
+    return () => { active = false; if (timer) window.clearTimeout(timer) }
+  }, [classicGreeting, onGreetingPhaseChange])
+
+  useEffect(() => {
+    if (classicGreeting) return
+    onGreetingPhaseChange?.('neutral')
+  }, [classicGreeting, onGreetingPhaseChange])
   useEffect(() => {
     const canvas = canvasRef.current, image = new Image()
     image.onload = () => {
@@ -56,5 +91,5 @@ export default function MillerSheepdog({ reducedMotion = false, animationEnabled
     }
     image.src = source
   }, [source])
-  return <div className={`miller-companion-actor ${millerDogIsTraveling(step) ? 'is-approaching' : ''} ${settled ? 'is-settled' : ''}`} aria-hidden="true" data-companion={presentation.actorId} data-pose={step?.pose || presentation.pose} data-arrival-step={step?.id || 'settled'} data-reduced-motion={motionReduced} data-ground-anchor={`${MILLER_COMPANION.anchors.ground.x},${MILLER_COMPANION.anchors.ground.y}`}><canvas ref={canvasRef} /></div>
+  return <div className={`miller-companion-actor ${millerDogIsTraveling(step) ? 'is-approaching' : ''} ${settled ? 'is-settled' : ''}`} aria-hidden="true" data-companion={presentation.actorId} data-pose={dogPose} data-arrival-step={step?.id || 'settled'} data-greeting-step={classicGreeting ? greetingStep?.id : 'static'} data-reduced-motion={motionReduced} data-ground-anchor={`${MILLER_COMPANION.anchors.ground.x},${MILLER_COMPANION.anchors.ground.y}`} data-pet-head-anchor={`${MILLER_COMPANION.anchors.petHead.x},${MILLER_COMPANION.anchors.petHead.y}`}><canvas ref={canvasRef} /></div>
 }

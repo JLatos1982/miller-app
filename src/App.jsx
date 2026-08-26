@@ -53,6 +53,9 @@ import { buildNavigationPacket, deterministicRelevance } from "./navigation/sear
 import AccessibleModal from "./site/AccessibleModal.jsx"
 import ResourceAttachmentPicker from "./site/ResourceAttachmentPicker.jsx"
 import MillerSheepdog from "./companion/MillerSheepdog.jsx"
+import classicMillerNoticeDog from "./assets/miller/interaction/classic-miller-notice-dog.png"
+import classicMillerLeanReach from "./assets/miller/interaction/classic-miller-lean-reach.png"
+import classicMillerPetDog from "./assets/miller/interaction/classic-miller-pet-dog.png"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -213,6 +216,12 @@ const MILLER_THEMES = [
     accent: "#6fd4d7",
   },
 ]
+
+const CLASSIC_INTERACTION_POSES = Object.freeze({
+  noticeDog: classicMillerNoticeDog,
+  leanReach: classicMillerLeanReach,
+  petDog: classicMillerPetDog,
+})
 
 function normalizeText(value) {
   return String(value || "")
@@ -772,6 +781,7 @@ useEffect(() => {
   const [isChestOpen, setIsChestOpen] = useState(false)
   const [isChestWiggling, setIsChestWiggling] = useState(false)
   const [millerMood, setMillerMood] = useState("idle")
+  const [millerGreetingPose, setMillerGreetingPose] = useState("neutral")
   const [isSearchBarHovered, setIsSearchBarHovered] = useState(false)
   const [, setCursorOffset] = useState({ x: 0, y: 0 })
   const [showSearchReveal, setShowSearchReveal] = useState(false)
@@ -1418,13 +1428,16 @@ function previousMiller() {
   }
 
   const shouldShowSearchMiller = isTyping || showSearchReveal || isLoading
- const millerImageSrc = currentTheme.avatar
+ const millerImageSrc = currentTheme.name === "Classic"
+   ? CLASSIC_INTERACTION_POSES[millerGreetingPose] || currentTheme.avatar
+   : currentTheme.avatar
 
   const millerClasses = [
   "miller-image",
   "theme-fade",
   `switch-${switchDirection}`,
   `miller-${millerMood}`,
+  `miller-scene-${millerGreetingPose}`,
   shouldShowSearchMiller ? "is-searching" : "",
   showSearchReveal ? "search-reveal" : "",
 ]
@@ -1811,7 +1824,7 @@ const millerImageStyle = {}
 
   </div>
 
-  <MillerSheepdog />
+  <MillerSheepdog themeName={currentTheme.name} onGreetingPhaseChange={setMillerGreetingPose} />
 
 </div>
 

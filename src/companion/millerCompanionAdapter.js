@@ -10,10 +10,13 @@ export const MILLER_COMPANION = Object.freeze({
 })
 
 export const MILLER_CHARACTER_INTERACTION = Object.freeze({
-  // Current Miller variants are canonical single-pose artwork. Do not invent
-  // a notice or pet reaction with CSS deformation.
-  supportsNotice: false,
-  supportsPetting: false,
+  classic: Object.freeze({
+    supportsNotice: true,
+    supportsPetting: true,
+    anchors: Object.freeze({ ground: Object.freeze({ x: .5, y: .97 }), petHand: Object.freeze({ x: .17, y: .71 }) }),
+  }),
+  // Jade, Violet, Rose, and North intentionally retain the static tableau
+  // until they have their own reviewed interaction art.
   fallback: 'static-companion-tableau',
 })
 

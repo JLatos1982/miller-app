@@ -701,6 +701,29 @@ textarea {
   filter: saturate(0.98);
 }
 
+/* These are independently extracted Classic Miller poses. The interaction
+   temporarily takes precedence over decorative float/pointer presentation. */
+.miller-image.miller-scene-noticeDog,
+.miller-image.miller-scene-leanReach,
+.miller-image.miller-scene-petDog {
+  animation: none;
+}
+
+.miller-image.miller-scene-leanReach,
+.miller-image.miller-scene-petDog {
+  transform: translateX(-74px);
+}
+
+@media (max-width: 900px) {
+  .miller-image.miller-scene-leanReach,
+  .miller-image.miller-scene-petDog { transform: translateX(-42px); }
+}
+
+@media (max-width: 600px) {
+  .miller-image.miller-scene-leanReach,
+  .miller-image.miller-scene-petDog { transform: translateX(-17px); }
+}
+
 /* Typing cursor */
 
 .typing-cursor {

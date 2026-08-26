@@ -2,10 +2,15 @@
 
 ## Current decision
 
-Classic Miller's only repository source is the canonical production portrait at
+Classic Miller's canonical neutral/identity reference remains
 `src/assets/miller_classic.png` (1024 × 1536 RGBA). It is a single flattened
-standing illustration, with no editable layers or companion-interaction poses.
-It remains the canonical neutral asset and must not be overwritten.
+standing illustration and must not be overwritten.
+
+The supplied pose/reference source is
+`src/assets/Classic Miller Interaction Pose Sheet.png` (1536 × 1024 RGBA).
+It remains intact and is not used directly at runtime. Its reviewed top-row
+poses produced the independent Miller-only cutouts in
+`src/assets/miller/interaction/`.
 
 The supplied Classic visual reference confirms this portrait as the identity and
 style target for every future interaction pose: the same navy fedora, dark
@@ -13,9 +18,10 @@ curly hair, blue/navy suit and overcoat, restrained smile, tall proportions,
 and painterly illustrated rendering. It is a reference, not a pose source that
 can be safely warped into a crouch or reach.
 
-A generated five-pose review sheet was evaluated for this checkpoint and
-rejected: its checkerboard-looking backdrop was baked pixels rather than alpha.
-No generated sheet or cutout is retained in this repository.
+An earlier generated five-pose review sheet was rejected because its
+checkerboard-looking backdrop was baked pixels rather than alpha. This supplied
+sheet has real alpha; the retained derivatives are cropped only from its
+reviewed pose regions.
 
 ## Required source delivery
 
@@ -36,6 +42,16 @@ Recommended derived production cutouts:
 `src/assets/miller/interaction/classic-miller-pet-dog.png`
 
 `src/assets/miller/interaction/classic-miller-rise.png`
+
+Current accepted production cutouts are `classic-miller-notice-dog.png`,
+`classic-miller-lean-reach.png`, and `classic-miller-pet-dog.png`. The lean
+pose deliberately serves in reverse for the short rise; no redundant rise
+cutout is shipped.
+
+The calm reaction uses the approved independent companion asset
+`src/assets/companion/sheepdog-pet-reaction.png`, copied from the already
+reviewed Samwise sheepdog workflow. It remains a separate dog actor; no Miller
+pose contains dog pixels.
 
 The canonical neutral may continue using `src/assets/miller_classic.png` if its
 ground/scale can be normalized with the derived set.
@@ -71,6 +87,10 @@ petHand: { x: /* measured from the approved lean/pet cutout */, y: /* measured *
 `petHand` must be measured from the final production cutout and align with the
 existing sheepdog `petHead` anchor (`{ x: 0.64, y: 0.28 }`). It should describe
 Miller's lowered hand, not a guessed screen coordinate.
+
+Current production metadata uses `ground: { x: 0.5, y: 0.97 }` and
+`petHand: { x: 0.17, y: 0.71 }` for Classic's reviewed reach/pet crop. These
+are normalized asset-space anchors; scene placement remains host-owned CSS.
 
 ## Production gate
 
