@@ -33,11 +33,13 @@ export function staticCompanionPresentation({ reducedMotion = false, animationEn
 export function destinationBesideRenderedResult({ hostRect, resultRect, viewport = {}, dogSize = { width: 132, height: 128 } } = {}) {
   if (!hostRect?.width || !hostRect?.height || !resultRect?.width || !resultRect?.height) return null
   if (!viewport?.width || viewport.width <= 600 || resultRect.bottom <= 0 || resultRect.top >= viewport.height) return null
-  const gap = 14
-  const right = resultRect.right + gap
+  // Prefer the quieter, presentation-only left side of a result. The right
+  // side is a fallback because it is more likely to contain result actions.
+  const gap = 36
   const left = resultRect.left - dogSize.width - gap
+  const right = resultRect.right + gap
   const withinHost = value => value >= hostRect.left && value + dogSize.width <= Math.min(hostRect.right, viewport.width)
-  const destinationLeft = withinHost(right) ? right : withinHost(left) ? left : null
+  const destinationLeft = withinHost(left) ? left : withinHost(right) ? right : null
   if (destinationLeft === null) return null
   const destinationTop = Math.max(resultRect.top + 8, Math.min(resultRect.bottom - dogSize.height - 10, viewport.height - dogSize.height - 8))
   if (destinationTop < 0) return null

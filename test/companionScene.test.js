@@ -7,6 +7,9 @@ import { MILLER_DOG_ARRIVAL, millerDogArrivalStep, millerDogIsTraveling, nextMil
 import { MILLER_CLASSIC_GREETING, millerClassicGreetingStep, nextMillerClassicGreetingIndex } from '../src/companion/millerClassicGreeting.js'
 import { MILLER_DESKTOP_COMPANION_LAYOUT, resolveDesktopPetContact } from '../src/companion/millerCompanionLayout.js'
 import { acceptsNewPresentationIntent, isMeaningfulCompanionInput, jogDurationForDistance, mayTravelToResult, MILLER_PRESENTATION_INTENTS, presentationIntent } from '../src/companion/millerCompanionLifecycle.js'
+import { dogVisualOwnership, MILLER_DOG_OWNERS } from '../src/companion/millerDogOwnership.js'
+import { mayRunMillerIdlePet, nextMillerIdleDelay } from '../src/companion/millerCompanionIdle.js'
+import { bubbleNeedsMillerReadingPosition, readingStageHeight } from '../src/companion/millerSceneLayout.js'
 
 test('portable companion core resolves a static pose without Miller dependencies', () => {
   const actor = defineCompanionActor({
@@ -87,6 +90,29 @@ test('jog duration is bounded and reduced-motion or mobile travel fails safely',
   assert.equal(mayTravelToResult({ target: { x: .7, y: .5 }, viewportWidth: 1280 }), true)
   assert.equal(mayTravelToResult({ target: { x: .7, y: .5 }, viewportWidth: 390 }), false)
   assert.equal(mayTravelToResult({ target: { x: .7, y: .5 }, viewportWidth: 1280, reducedMotion: true }), false)
+})
+
+test('the sheepdog has one visual owner through scene, overlay, and safe reset', () => {
+  assert.deepEqual(dogVisualOwnership(MILLER_DOG_OWNERS.SCENE), { scene: true, overlay: false })
+  assert.deepEqual(dogVisualOwnership(MILLER_DOG_OWNERS.OVERLAY), { scene: false, overlay: true })
+  assert.equal(Object.values(dogVisualOwnership(MILLER_DOG_OWNERS.SCENE)).filter(Boolean).length, 1)
+  assert.equal(Object.values(dogVisualOwnership(MILLER_DOG_OWNERS.OVERLAY)).filter(Boolean).length, 1)
+})
+
+test('bubble geometry opens reading space only when it would collide with Miller', () => {
+  assert.equal(bubbleNeedsMillerReadingPosition({ bubbleRect: { bottom: 590 }, figureRect: { top: 638 } }), false)
+  assert.equal(bubbleNeedsMillerReadingPosition({ bubbleRect: { bottom: 690 }, figureRect: { top: 638 } }), true)
+  assert.equal(readingStageHeight(180), 700)
+  assert.equal(readingStageHeight(480), 965)
+})
+
+test('idle petting is sparse, Classic-only, and unavailable while the dog is away', () => {
+  assert.equal(nextMillerIdleDelay(0), 48_000)
+  assert.equal(nextMillerIdleDelay(1), 62_000)
+  assert.equal(mayRunMillerIdlePet({ themeName: 'Classic', dogOwner: 'scene', settled: true, greetingComplete: true, idleAllowed: true }), true)
+  assert.equal(mayRunMillerIdlePet({ themeName: 'Jade', dogOwner: 'scene', settled: true, greetingComplete: true, idleAllowed: true }), false)
+  assert.equal(mayRunMillerIdlePet({ themeName: 'Classic', dogOwner: 'overlay', settled: true, greetingComplete: true, idleAllowed: true }), false)
+  assert.equal(mayRunMillerIdlePet({ themeName: 'Classic', dogOwner: 'scene', settled: true, greetingComplete: true, idleAllowed: true, reducedMotion: true }), false)
 })
 
 test('Classic greeting is bounded, uses the calm dog reaction only during petting, and settles', () => {

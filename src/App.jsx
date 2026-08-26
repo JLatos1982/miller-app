@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from "react"
+import { useCallback, useEffect, useLayoutEffect, useMemo, useReducer, useRef, useState } from "react"
 import "./App.css"
 import rawResources from "./vancouver_resources_merged_updated.json"
 import { supabase } from "./supabaseClient"
@@ -55,6 +55,7 @@ import ResourceAttachmentPicker from "./site/ResourceAttachmentPicker.jsx"
 import MillerSheepdog from "./companion/MillerSheepdog.jsx"
 import { destinationBesideRenderedResult } from "./companion/millerCompanionAdapter.js"
 import { isMeaningfulCompanionInput, MILLER_PRESENTATION_INTENTS, presentationIntent } from "./companion/millerCompanionLifecycle.js"
+import { bubbleNeedsMillerReadingPosition, readingStageHeight } from "./companion/millerSceneLayout.js"
 import classicMillerNoticeDog from "./assets/miller/interaction/classic-miller-notice-dog.png"
 import classicMillerLeanReach from "./assets/miller/interaction/classic-miller-lean-reach.png"
 import classicMillerPetDog from "./assets/miller/interaction/classic-miller-pet-dog.png"
@@ -779,6 +780,9 @@ useEffect(() => {
   const topResultRef = useRef(null)
   const controlsRowRef = useRef(null)
   const bubbleRef = useRef(null)
+  const millerStageRef = useRef(null)
+  const millerFigureRef = useRef(null)
+  const millerHomeFigureTopRef = useRef(null)
   const appShellRef = useRef(null)
   const [companionOverlayHost, setCompanionOverlayHost] = useState(null)
   const companionIntentIdRef = useRef(0)
@@ -792,6 +796,8 @@ useEffect(() => {
   const [millerGreetingPose, setMillerGreetingPose] = useState("neutral")
   const [companionIntent, setCompanionIntent] = useState(null)
   const [companionSearchOutcome, setCompanionSearchOutcome] = useState({ generation: 0, status: "idle" })
+  const [millerReadingPosition, setMillerReadingPosition] = useState("home")
+  const [millerStageHeight, setMillerStageHeight] = useState(700)
   const [isSearchBarHovered, setIsSearchBarHovered] = useState(false)
   const [, setCursorOffset] = useState({ x: 0, y: 0 })
   const [showSearchReveal, setShowSearchReveal] = useState(false)
@@ -928,6 +934,37 @@ useEffect(() => {
 
   const shouldShowResults =
   hasSearched && !isBubbleTyping
+
+  useLayoutEffect(() => {
+    if (currentTheme.name !== "Classic" || !bubbleRef.current || !millerFigureRef.current || !millerStageRef.current) return undefined
+    const bubbleRect = bubbleRef.current.getBoundingClientRect()
+    const figureRect = millerFigureRef.current.getBoundingClientRect()
+    const stageRect = millerStageRef.current.getBoundingClientRect()
+    if (millerReadingPosition === "home") {
+      millerHomeFigureTopRef.current = figureRect.top
+      if (bubbleNeedsMillerReadingPosition({ bubbleRect, figureRect })) {
+        setMillerStageHeight(readingStageHeight(bubbleRect.height))
+        setMillerReadingPosition("stepping")
+      }
+      return undefined
+    }
+    const neededStageHeight = readingStageHeight(bubbleRect.height)
+    if (neededStageHeight > millerStageHeight) {
+      const frame = window.requestAnimationFrame(() => setMillerStageHeight(neededStageHeight))
+      return () => window.cancelAnimationFrame(frame)
+    }
+    if (millerReadingPosition === "reading" && bubbleRect.bottom < (millerHomeFigureTopRef.current || stageRect.top + 230) - 18) {
+      setMillerStageHeight(700)
+      setMillerReadingPosition("home")
+    }
+    return undefined
+  }, [currentTheme.name, displayedReply, isBubbleTyping, millerReadingPosition, millerStageHeight])
+
+  useEffect(() => {
+    if (millerReadingPosition !== "stepping") return undefined
+    const timer = window.setTimeout(() => setMillerReadingPosition("reading"), 820)
+    return () => window.clearTimeout(timer)
+  }, [millerReadingPosition])
 
   function emitCompanionIntent(type, target = null) {
     const intent = presentationIntent(++companionIntentIdRef.current, type, target)
@@ -1503,6 +1540,11 @@ function previousMiller() {
 
   const millerStyle = {}
 
+  const millerStageStyle = currentTheme.name === "Classic" && millerReadingPosition !== "home"
+    ? { "--miller-stage-min-height": `${millerStageHeight}px` }
+    : undefined
+  const companionIdleAllowed = !isTyping && !isLoading && !query.trim() && millerReadingPosition === "home" && companionSearchOutcome.status !== "pending"
+
 const millerImageStyle = {}
 
   if (isAdminRoute) {
@@ -1815,8 +1857,8 @@ const millerImageStyle = {}
         </section>
 
         <aside className="hero-art">
-          <div className="miller-stage">
-            <div className="miller-figure" style={millerStyle}>
+          <div className="miller-stage" ref={millerStageRef} style={millerStageStyle}>
+            <div ref={millerFigureRef} className={`miller-figure ${currentTheme.name === "Classic" ? `miller-reading-${millerReadingPosition}` : ""}`} style={millerStyle}>
 
   <div className="miller-image-frame">
     <img
@@ -1882,7 +1924,7 @@ const millerImageStyle = {}
 
   </div>
 
-  <MillerSheepdog themeName={currentTheme.name} onGreetingPhaseChange={setMillerGreetingPose} presentationIntent={companionIntent} overlayHost={companionOverlayHost} />
+  <MillerSheepdog themeName={currentTheme.name} onGreetingPhaseChange={setMillerGreetingPose} presentationIntent={companionIntent} overlayHost={companionOverlayHost} idleAllowed={companionIdleAllowed} />
 
 </div>
 

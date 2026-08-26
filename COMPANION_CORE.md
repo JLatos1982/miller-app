@@ -20,6 +20,8 @@ The dog is decorative. It has no authority over search, resource ranking, recomm
 
 The host emits `input_started` once per meaningful input session without passing the input text. A genuine search emits `work_started`. Only after Miller's own search/ranking has finished and the first result card is rendered does the host measure that already-selected card. `destinationBesideRenderedResult()` receives rectangles only and returns normalized presentation geometry—never a resource identity, query, content, ranking score, clinical detail, or user data.
 
-The sheepdog can use that geometry in a page-level, `aria-hidden`, pointer-inert overlay. It cannot move a card, choose a result, delay a search, or alter focus. Offscreen targets and narrow phones safely leave the dog in its stable companion state. Reduced-motion and disabled-animation modes do the same.
+The sheepdog can use that geometry in a page-level, `aria-hidden`, pointer-inert overlay. A strict visual-ownership handoff means either the Miller-scene dog or the overlay dog is rendered, never both. It cannot move a card, choose a result, delay a search, or alter focus. Offscreen targets and narrow phones safely leave the dog in its stable companion state. Reduced-motion and disabled-animation modes do the same.
 
 `destination_arrived` is now an internal decorative completion point only. Future sound, if ever added, remains optional, low-volume, suppressible, and non-essential.
+
+Classic may also run one local, sparse `pet_dog` idle sequence after 48–76 seconds of genuine UI quiet. This is presentation state only, is canceled/preempted by input or search, and never runs while the dog is away at a result. Future `stretch`, `yawn`, `consult_book`, and `look_around` entries require approved dedicated artwork rather than warped existing poses.

@@ -571,7 +571,7 @@ textarea {
   width: 100%;
   max-width: 650px;
 
-  min-height: 1020px;
+  min-height: var(--miller-stage-min-height, 1020px);
 
   overflow: visible;
 
@@ -604,9 +604,8 @@ textarea {
   text-align: left;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-  max-height: 220px;
-  overflow-y: auto;
-  overscroll-behavior: contain;
+  max-height: none;
+  overflow: visible;
 }
 
 .miller-bubble.is-typing {
@@ -641,6 +640,17 @@ textarea {
   align-items: center;
 
   transform: rotate(-1deg);
+  transition: transform 760ms cubic-bezier(.22,.61,.36,1);
+}
+
+/* Classic steps out of a genuinely expanded response bubble; the character
+   moves, rather than trapping normal replies in a nested scroll container. */
+.miller-figure.miller-reading-reading { transform: translate(-132px, 158px) rotate(-1deg); }
+.miller-figure.miller-reading-stepping { animation: millerReadingReposition 820ms cubic-bezier(.22,.61,.36,1) both; }
+@keyframes millerReadingReposition {
+  0% { transform: translate(0, 0) rotate(-1deg); }
+  48% { transform: translate(-62px, 72px) rotate(-.7deg); }
+  100% { transform: translate(-132px, 158px) rotate(-1deg); }
 }
 
 /* Static companion tableau. The dog is an independent decorative actor; its
@@ -669,7 +679,6 @@ textarea {
   will-change: auto;
 }
 
-.miller-companion-actor.is-traveling { opacity: 0; transition: opacity 140ms ease-out; }
 .miller-companion-actor.is-ready { transform: translateX(12px); }
 
 .miller-companion-actor canvas {
@@ -3183,7 +3192,7 @@ body,
    prior desktop frame; the 180px dog is 55% larger. Their named anchors are
    calibrated in millerCompanionLayout.js. */
 @media (min-width:1181px){
-  .miller-stage{min-height:700px;padding-bottom:0}
+  .miller-stage{min-height:var(--miller-stage-min-height,700px);padding-bottom:0}
   .miller-figure{top:230px;right:100px}
   .miller-bubble{top:0;right:0}
   .miller-image-frame{width:300px;height:450px}
@@ -3195,7 +3204,7 @@ body,
 }
 
 @media (min-width:901px) and (max-width:1180px){
-  .miller-stage{min-height:645px;padding-bottom:0}
+  .miller-stage{min-height:var(--miller-stage-min-height,645px);padding-bottom:0}
   .miller-figure{top:200px;right:16px}
   .miller-image-frame{width:290px;height:435px}
   .miller-companion-actor{bottom:8px;left:-142px;width:170px;height:165px;transform:translateX(-54px)}
@@ -3209,7 +3218,7 @@ body,
    small; search and speech remain the priority there. */
 @media (min-width:601px) and (max-width:900px){
   .miller-stage{position:relative!important;display:block!important;min-height:300px!important;padding:0!important}
-  .miller-bubble{position:relative!important;width:calc(100% - 190px)!important;min-height:150px!important}
+  .miller-bubble{position:relative!important;width:calc(100% - 190px)!important;min-height:150px!important;max-height:none!important;overflow:visible!important}
   .miller-figure{display:flex!important;position:absolute!important;top:38px!important;right:10px!important;width:auto!important}
   .miller-image-frame{display:flex!important;width:180px!important;height:270px!important}
   .miller-companion-actor{bottom:5px!important;left:-94px!important;width:108px!important;height:105px!important;transform:translateX(-42px)!important}
