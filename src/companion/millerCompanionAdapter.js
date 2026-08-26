@@ -9,6 +9,14 @@ export const MILLER_COMPANION = Object.freeze({
   decorative: true,
 })
 
+export const MILLER_CHARACTER_INTERACTION = Object.freeze({
+  // Current Miller variants are canonical single-pose artwork. Do not invent
+  // a notice or pet reaction with CSS deformation.
+  supportsNotice: false,
+  supportsPetting: false,
+  fallback: 'static-companion-tableau',
+})
+
 export function staticCompanionPresentation({ reducedMotion = false, animationEnabled = true } = {}) {
   // The first Miller integration is intentionally static. These preferences
   // remain here so a future adapter can use the proven core without changing
