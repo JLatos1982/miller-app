@@ -42,10 +42,11 @@ export function destinationBesideRenderedResult({ hostRect, resultRect, viewport
   const withinLeftRail = left >= Math.max(hostRect.left + margin, margin) && left + dogSize.width + gap <= resultRect.left
   if (!withinLeftRail) return null
   const destinationLeft = left
-  // Keep the dog visually beside the upper part of the card: its head sits
-  // near the result's title/summary, while the body remains inside the view.
-  const preferredTop = resultRect.top + Math.min(54, Math.max(20, resultRect.height * .16))
-  const destinationTop = Math.max(8, Math.min(preferredTop, viewport.height - dogSize.height - 8))
+  // Align the dog's already-known head anchor to the card's upper third, not
+  // the dog's feet to the title line. This remains geometry-only.
+  const headOffset = dogSize.height * MILLER_COMPANION.anchors.petHead.y
+  const desiredHeadY = resultRect.top + Math.min(88, Math.max(54, resultRect.height * .22))
+  const destinationTop = Math.max(8, Math.min(desiredHeadY - headOffset, viewport.height - dogSize.height - 8))
   if (destinationTop < 0) return null
   return Object.freeze({ x: (destinationLeft - hostRect.left) / hostRect.width, y: (destinationTop - hostRect.top) / hostRect.height })
 }

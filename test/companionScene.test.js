@@ -10,6 +10,7 @@ import { acceptsNewPresentationIntent, isMeaningfulCompanionInput, jogDurationFo
 import { dogVisualOwnership, MILLER_DOG_OWNERS } from '../src/companion/millerDogOwnership.js'
 import { mayRunMillerIdlePet, nextMillerIdleDelay } from '../src/companion/millerCompanionIdle.js'
 import { bubbleNeedsMillerReadingPosition, readingStageHeight } from '../src/companion/millerSceneLayout.js'
+import { canPreviewClassicWalk, canPreviewSheepdogResultPoint, CLASSIC_WALK_POSE_SLOTS, COMPANION_POSE_PREVIEWS, SHEEPDOG_RESULT_POINT_SLOT } from '../src/companion/millerCompanionPosePreview.js'
 
 test('portable companion core resolves a static pose without Miller dependencies', () => {
   const actor = defineCompanionActor({
@@ -83,6 +84,8 @@ test('host converts only a visible rendered result rectangle into safe geometry'
   assert.equal(destinationBesideRenderedResult({ hostRect, resultRect: { ...resultRect, top: 1000, bottom: 1200 }, viewport: { width: 1280, height: 900 } }), null)
   assert.equal(destinationBesideRenderedResult({ hostRect, resultRect, viewport: { width: 390, height: 844 } }), null)
   assert.equal(destinationBesideRenderedResult({ hostRect, resultRect: { ...resultRect, left: 130, right: 670 }, viewport: { width: 1280, height: 900 } }), null)
+  const dogHeadY = target.y * hostRect.height + hostRect.top + 175 * .28
+  assert.ok(dogHeadY >= resultRect.top + 54 && dogHeadY <= resultRect.top + 88)
 })
 
 test('jog duration is bounded and reduced-motion or mobile travel fails safely', () => {
@@ -113,6 +116,15 @@ test('current Classic reading position never masquerades as a CSS walking animat
   assert.doesNotMatch(css, /millerReadingReposition|miller-reading-stepping/)
   assert.match(poseSpec, /stepLeft01/)
   assert.match(poseSpec, /stepLeft02/)
+})
+
+test('future walk and result-point previews are inert until approved transparent assets exist', () => {
+  assert.equal(canPreviewClassicWalk(), false)
+  assert.equal(canPreviewSheepdogResultPoint(), false)
+  assert.equal(CLASSIC_WALK_POSE_SLOTS.stepLeft01.asset.endsWith('classic-miller-step-left-01.png'), true)
+  assert.equal(CLASSIC_WALK_POSE_SLOTS.stepLeft02.anchors.ground.y, .97)
+  assert.equal(SHEEPDOG_RESULT_POINT_SLOT.asset.endsWith('sheepdog-result-point.png'), true)
+  assert.deepEqual(COMPANION_POSE_PREVIEWS.classicWalk.sequence, ['neutral', 'stepLeft01', 'stepLeft02', 'neutral'])
 })
 
 test('idle petting is sparse, Classic-only, and unavailable while the dog is away', () => {

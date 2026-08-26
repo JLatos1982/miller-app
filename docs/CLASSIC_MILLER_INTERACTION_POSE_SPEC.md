@@ -125,3 +125,9 @@ cutout: the same seated older sheepdog, one front paw subtly raised toward the
 card, coherent four-legged anatomy, matching scale/ground anchor, and no
 Miller, card, text, or background pixels. Until then the approved head-raised
 `sheepdog-pet-reaction.png` is the calm result-side attentive pose.
+
+`src/companion/millerCompanionPosePreview.js` is the isolated, development
+preview registry for these future slots. It defines transparent bounds, named
+anchors, and neutral mock destination geometry, but keeps both slots inactive
+until a reviewed production asset marks them approved. Production does not
+depend on this preview registry.
