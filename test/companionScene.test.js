@@ -5,6 +5,7 @@ import { MILLER_CHARACTER_INTERACTION, MILLER_COMPANION, staticCompanionPresenta
 import { defineCompanionActor, resolveActorPose } from '../src/companion-core/index.js'
 import { MILLER_DOG_ARRIVAL, millerDogArrivalStep, millerDogIsTraveling, nextMillerDogArrivalIndex } from '../src/companion/millerCompanionSequence.js'
 import { MILLER_CLASSIC_GREETING, millerClassicGreetingStep, nextMillerClassicGreetingIndex } from '../src/companion/millerClassicGreeting.js'
+import { MILLER_DESKTOP_COMPANION_LAYOUT, resolveDesktopPetContact } from '../src/companion/millerCompanionLayout.js'
 
 test('portable companion core resolves a static pose without Miller dependencies', () => {
   const actor = defineCompanionActor({
@@ -47,6 +48,15 @@ test('Classic interaction artwork is registered while other themes retain the st
   assert.deepEqual(MILLER_CHARACTER_INTERACTION.classic.anchors.ground, { x: .5, y: .97 })
   assert.deepEqual(MILLER_CHARACTER_INTERACTION.classic.anchors.petHand, { x: .17, y: .71 })
   assert.equal(MILLER_CHARACTER_INTERACTION.fallback, 'static-companion-tableau')
+})
+
+test('desktop companion layout keeps a larger dog on the shared ground and within pet-contact tolerance', () => {
+  const contact = resolveDesktopPetContact()
+  assert.deepEqual(MILLER_DESKTOP_COMPANION_LAYOUT.frame, { width: 300, height: 450 })
+  assert.deepEqual(MILLER_DESKTOP_COMPANION_LAYOUT.dog, { width: 180, height: 175, left: -150, bottom: 8.25, entranceOffsetX: -60 })
+  assert.ok(Math.abs(contact.delta.x) < 1, `pet contact horizontal delta: ${contact.delta.x}`)
+  assert.ok(Math.abs(contact.delta.y) < 5, `pet contact vertical delta: ${contact.delta.y}`)
+  assert.ok(Math.abs(contact.groundDeltaY) < 1, `ground delta: ${contact.groundDeltaY}`)
 })
 
 test('Classic greeting is bounded, uses the calm dog reaction only during petting, and settles', () => {
