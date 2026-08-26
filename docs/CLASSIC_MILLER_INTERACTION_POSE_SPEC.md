@@ -7,6 +7,12 @@ Classic Miller's only repository source is the canonical production portrait at
 standing illustration, with no editable layers or companion-interaction poses.
 It remains the canonical neutral asset and must not be overwritten.
 
+The supplied Classic visual reference confirms this portrait as the identity and
+style target for every future interaction pose: the same navy fedora, dark
+curly hair, blue/navy suit and overcoat, restrained smile, tall proportions,
+and painterly illustrated rendering. It is a reference, not a pose source that
+can be safely warped into a crouch or reach.
+
 A generated five-pose review sheet was evaluated for this checkpoint and
 rejected: its checkerboard-looking backdrop was baked pixels rather than alpha.
 No generated sheet or cutout is retained in this repository.

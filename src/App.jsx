@@ -4,14 +4,12 @@ import rawResources from "./vancouver_resources_merged_updated.json"
 import { supabase } from "./supabaseClient"
 import millerClassic from "./assets/miller_classic.png"
 import millerJade from "./assets/miller_jade.png"
-import millerGold from "./assets/miller_gold.png"
 import millerViolet from "./assets/miller_violet.png"
 import millerRose from "./assets/miller_rose.png"
 import millerNorth from "./assets/miller_north.png"
 
 import titleClassic from "./assets/title.png"
 import titleJade from "./assets/title_jade.png"
-import titleGold from "./assets/title_gold.png"
 import titleViolet from "./assets/title_violet.png"
 import titleRose from "./assets/title_rose.png"
 import titleNorth from "./assets/title_north.png"
@@ -22,7 +20,6 @@ import arrowRight from "./assets/arrow_right.png";
 import backgroundClassic from "./assets/background_classic.png"
 import backgroundViolet from "./assets/background_violet.png"
 import backgroundJade from "./assets/background_jade.png"
-import backgroundGold from "./assets/background_gold.png"
 import backgroundNorth from "./assets/background_north.png"
 import backgroundRose from "./assets/background_rose.png"
 import justinPortrait from "./assets/Justin.png"
@@ -38,6 +35,11 @@ import { submitResource, trackEvent } from "./publicApi.js"
 import ServiceMap from "./map/ServiceMap.jsx"
 import { stableCuratedResourceId } from "./map/mapChat.js"
 import { normalizedResourceRows } from "./resourceData.js"
+import {
+  MILLER_THEME_LEGACY_INDEX_STORAGE_KEY,
+  MILLER_THEME_NAME_STORAGE_KEY,
+  resolveMillerThemeIndex,
+} from "./millerThemePreference.js"
 import { askMiller, buildMillerRequest } from "./millerApi.js"
 import ShelterCandidateReview from "./admin/ShelterCandidateReview.jsx"
 import CuratedListManager from "./admin/CuratedListManager.jsx"
@@ -188,13 +190,6 @@ const MILLER_THEMES = [
     title: titleJade,
     background: backgroundJade,
     accent: "#71c99a",
-  },
-  {
-    name: "Gold",
-    avatar: millerGold,
-    title: titleGold,
-    background: backgroundGold,
-    accent: "#d8ac55",
   },
   {
     name: "Violet",
@@ -714,15 +709,11 @@ function App() {
       .catch(() => setMapResources([]))
   }, [isMapOpen, hasSearched])
 
-  const [millerIndex, setMillerIndex] = useState(() => {
-  const saved = localStorage.getItem("miller-theme-index")
-
-  if (saved !== null) {
-    return Number(saved)
-  }
-
-  return Math.floor(Math.random() * MILLER_THEMES.length)
-})
+  const [millerIndex, setMillerIndex] = useState(() => resolveMillerThemeIndex({
+    savedName: localStorage.getItem(MILLER_THEME_NAME_STORAGE_KEY),
+    legacyIndex: localStorage.getItem(MILLER_THEME_LEGACY_INDEX_STORAGE_KEY),
+    randomIndex: Math.floor(Math.random() * MILLER_THEMES.length),
+  }))
 
 const [switchDirection, setSwitchDirection] = useState("right")
 
@@ -837,9 +828,9 @@ useEffect(() => {
     }
   }, [aiReply, isLoading])
 
-  useEffect(() => {
-  localStorage.setItem("miller-theme-index", millerIndex)
-}, [millerIndex])
+useEffect(() => {
+  localStorage.setItem(MILLER_THEME_NAME_STORAGE_KEY, currentTheme.name)
+}, [currentTheme.name])
 
 useEffect(() => {
   if (!isAdminRoute) return undefined
