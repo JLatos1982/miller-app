@@ -50,6 +50,7 @@ import { eligiblePublicLocation } from "./navigation/navigation.js"
 import { buildNavigationPacket, deterministicRelevance } from "./navigation/searchContext.js"
 import AccessibleModal from "./site/AccessibleModal.jsx"
 import ResourceAttachmentPicker from "./site/ResourceAttachmentPicker.jsx"
+import MillerSheepdog from "./companion/MillerSheepdog.jsx"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -1818,6 +1819,8 @@ const millerImageStyle = {}
     </div>
 
   </div>
+
+  <MillerSheepdog />
 
 </div>
 
