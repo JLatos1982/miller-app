@@ -30,18 +30,22 @@ export function staticCompanionPresentation({ reducedMotion = false, animationEn
 // selected and rendered a result; no resource fields or ranking data cross this
 // boundary. The returned point is the decorative dog's top-left position in
 // the host scene's normalized coordinate space.
-export function destinationBesideRenderedResult({ hostRect, resultRect, viewport = {}, dogSize = { width: 132, height: 128 } } = {}) {
+export function destinationBesideRenderedResult({ hostRect, resultRect, viewport = {}, dogSize = { width: 180, height: 175 } } = {}) {
   if (!hostRect?.width || !hostRect?.height || !resultRect?.width || !resultRect?.height) return null
   if (!viewport?.width || viewport.width <= 600 || resultRect.bottom <= 0 || resultRect.top >= viewport.height) return null
-  // Prefer the quieter, presentation-only left side of a result. The right
-  // side is a fallback because it is more likely to contain result actions.
+  // A host-provided left rail makes this a decisive, presentation-only
+  // destination: dog | authoritative top result. There is deliberately no
+  // right-side fallback that could crowd a card's actions.
   const gap = 36
+  const margin = 16
   const left = resultRect.left - dogSize.width - gap
-  const right = resultRect.right + gap
-  const withinHost = value => value >= hostRect.left && value + dogSize.width <= Math.min(hostRect.right, viewport.width)
-  const destinationLeft = withinHost(left) ? left : withinHost(right) ? right : null
-  if (destinationLeft === null) return null
-  const destinationTop = Math.max(resultRect.top + 8, Math.min(resultRect.bottom - dogSize.height - 10, viewport.height - dogSize.height - 8))
+  const withinLeftRail = left >= Math.max(hostRect.left + margin, margin) && left + dogSize.width + gap <= resultRect.left
+  if (!withinLeftRail) return null
+  const destinationLeft = left
+  // Keep the dog visually beside the upper part of the card: its head sits
+  // near the result's title/summary, while the body remains inside the view.
+  const preferredTop = resultRect.top + Math.min(54, Math.max(20, resultRect.height * .16))
+  const destinationTop = Math.max(8, Math.min(preferredTop, viewport.height - dogSize.height - 8))
   if (destinationTop < 0) return null
   return Object.freeze({ x: (destinationLeft - hostRect.left) / hostRect.width, y: (destinationTop - hostRect.top) / hostRect.height })
 }

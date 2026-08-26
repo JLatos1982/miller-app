@@ -76,12 +76,13 @@ test('typing awareness is session-sized and carries no query text into the compa
 
 test('host converts only a visible rendered result rectangle into safe geometry', () => {
   const hostRect = { left: 20, top: 40, right: 1020, width: 1000, height: 1200 }
-  const resultRect = { left: 80, top: 430, right: 620, bottom: 760, width: 540, height: 330 }
+  const resultRect = { left: 280, top: 430, right: 820, bottom: 760, width: 540, height: 330 }
   const target = destinationBesideRenderedResult({ hostRect, resultRect, viewport: { width: 1280, height: 900 } })
-  assert.ok(target && target.x > .6 && target.x < 1 && target.y > 0 && target.y < 1)
+  assert.ok(target && target.x > 0 && target.x < .1 && target.y > 0 && target.y < 1)
   assert.deepEqual(Object.keys(target).sort(), ['x', 'y'])
   assert.equal(destinationBesideRenderedResult({ hostRect, resultRect: { ...resultRect, top: 1000, bottom: 1200 }, viewport: { width: 1280, height: 900 } }), null)
   assert.equal(destinationBesideRenderedResult({ hostRect, resultRect, viewport: { width: 390, height: 844 } }), null)
+  assert.equal(destinationBesideRenderedResult({ hostRect, resultRect: { ...resultRect, left: 130, right: 670 }, viewport: { width: 1280, height: 900 } }), null)
 })
 
 test('jog duration is bounded and reduced-motion or mobile travel fails safely', () => {
@@ -104,6 +105,14 @@ test('bubble geometry opens reading space only when it would collide with Miller
   assert.equal(bubbleNeedsMillerReadingPosition({ bubbleRect: { bottom: 690 }, figureRect: { top: 638 } }), true)
   assert.equal(readingStageHeight(180), 700)
   assert.equal(readingStageHeight(480), 965)
+})
+
+test('current Classic reading position never masquerades as a CSS walking animation', () => {
+  const css = fs.readFileSync(new URL('../src/App.css', import.meta.url), 'utf8')
+  const poseSpec = fs.readFileSync(new URL('../docs/CLASSIC_MILLER_INTERACTION_POSE_SPEC.md', import.meta.url), 'utf8')
+  assert.doesNotMatch(css, /millerReadingReposition|miller-reading-stepping/)
+  assert.match(poseSpec, /stepLeft01/)
+  assert.match(poseSpec, /stepLeft02/)
 })
 
 test('idle petting is sparse, Classic-only, and unavailable while the dog is away', () => {

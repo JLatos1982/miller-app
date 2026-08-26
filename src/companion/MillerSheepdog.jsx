@@ -202,7 +202,9 @@ export default function MillerSheepdog({ themeName, reducedMotion = false, anima
     const frame = window.requestAnimationFrame(() => setTravel(current => current ? { ...current, moving: true } : current))
     const frameTimer = window.setInterval(() => setTravel(current => current ? { ...current, pose: current.pose === 'walk-1' ? 'walk-2' : 'walk-1' } : current), 180)
     const settleTimer = window.setTimeout(() => {
-      setTravel(current => current ? { ...current, pose: 'sit', arrived: true, moving: false } : current)
+      // Existing approved head-raised pose is the quiet result-side fallback.
+      // No paw-lift artwork exists yet, so do not fake a pointing gesture.
+      setTravel(current => current ? { ...current, pose: 'pet-reaction', arrived: true, moving: false } : current)
       setSceneState('at-destination')
     }, travelDuration)
     return () => { window.cancelAnimationFrame(frame); window.clearInterval(frameTimer); window.clearTimeout(settleTimer) }

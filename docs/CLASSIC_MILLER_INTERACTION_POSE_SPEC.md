@@ -102,3 +102,26 @@ the safe fallback: dog arrives and sits; Miller remains still.
 `miller_search.png` remains an existing search illustration. It may later
 inform a separate `work_started` presentation, but it is not an interaction or
 petting asset and must not change the companion's authority boundary.
+
+## Deferred locomotion and result-indication artwork
+
+The approved interaction sheet contains no clean Classic walking cycle. Do not
+turn the neutral cutout into a walk with CSS rotation, skewing, or a sliding
+translation. A future two-step delivery needs two separate, true-alpha Classic
+Miller-only cutouts:
+
+- **stepLeft01** — weight on the right foot, left foot stepping toward the
+  reading position; coat opening and hem follow the stride naturally.
+- **stepLeft02** — weight transferred, opposite foot advancing; same hat,
+  face, suit, coat, scale, and ground line as `stepLeft01`.
+
+Both require `ground: { x: 0.5, y: 0.97 }`, matching apparent height and
+transparent edges. They must be reviewed beside `miller_classic.png` before
+any walking animation replaces the current stable reading position.
+
+The approved sheepdog set likewise has no valid paw-lift/result-point pose.
+A future `sheepdog-result-point.png` must be an independent transparent
+cutout: the same seated older sheepdog, one front paw subtly raised toward the
+card, coherent four-legged anatomy, matching scale/ground anchor, and no
+Miller, card, text, or background pixels. Until then the approved head-raised
+`sheepdog-pet-reaction.png` is the calm result-side attentive pose.

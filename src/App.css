@@ -640,18 +640,12 @@ textarea {
   align-items: center;
 
   transform: rotate(-1deg);
-  transition: transform 760ms cubic-bezier(.22,.61,.36,1);
 }
 
-/* Classic steps out of a genuinely expanded response bubble; the character
-   moves, rather than trapping normal replies in a nested scroll container. */
+/* Proper Classic walking frames are not yet approved. Resolve to this stable,
+   non-overlapping reading position rather than pretending a standing PNG can
+   walk by sliding it diagonally. */
 .miller-figure.miller-reading-reading { transform: translate(-132px, 158px) rotate(-1deg); }
-.miller-figure.miller-reading-stepping { animation: millerReadingReposition 820ms cubic-bezier(.22,.61,.36,1) both; }
-@keyframes millerReadingReposition {
-  0% { transform: translate(0, 0) rotate(-1deg); }
-  48% { transform: translate(-62px, 72px) rotate(-.7deg); }
-  100% { transform: translate(-132px, 158px) rotate(-1deg); }
-}
 
 /* Static companion tableau. The dog is an independent decorative actor; its
    placement belongs to Miller's scene, not the portable companion core. */
@@ -706,6 +700,12 @@ textarea {
 .miller-companion-travel.is-moving { transform: translate(calc(var(--dog-target-x) - var(--dog-start-x)), calc(var(--dog-target-y) - var(--dog-start-y))); }
 .miller-companion-travel.is-settled { will-change: auto; }
 .miller-companion-travel canvas { display:block; width:100%; height:100%; image-rendering:pixelated; filter:drop-shadow(0 6px 4px rgba(49,72,55,.22)); }
+
+/* A reserved left presentation rail lets the dog indicate the authoritative
+   first result without ever sitting on the result card or its actions. */
+@media (min-width: 601px) {
+  .results-panel.has-result-companion { padding-left: 216px; }
+}
 
 @media (min-width: 601px) and (max-width: 900px) {
   .miller-companion-travel { width: 108px; height: 105px; }

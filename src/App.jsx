@@ -944,7 +944,9 @@ useEffect(() => {
       millerHomeFigureTopRef.current = figureRect.top
       if (bubbleNeedsMillerReadingPosition({ bubbleRect, figureRect })) {
         setMillerStageHeight(readingStageHeight(bubbleRect.height))
-        setMillerReadingPosition("stepping")
+        // No approved Classic walking frames exist yet. Resolve to the safe
+        // reading position rather than animating a translated standing PNG.
+        setMillerReadingPosition("reading")
       }
       return undefined
     }
@@ -959,12 +961,6 @@ useEffect(() => {
     }
     return undefined
   }, [currentTheme.name, displayedReply, isBubbleTyping, millerReadingPosition, millerStageHeight])
-
-  useEffect(() => {
-    if (millerReadingPosition !== "stepping") return undefined
-    const timer = window.setTimeout(() => setMillerReadingPosition("reading"), 820)
-    return () => window.clearTimeout(timer)
-  }, [millerReadingPosition])
 
   function emitCompanionIntent(type, target = null) {
     const intent = presentationIntent(++companionIntentIdRef.current, type, target)
@@ -991,6 +987,7 @@ useEffect(() => {
         hostRect: appShellRef.current?.getBoundingClientRect(),
         resultRect: topResultRef.current?.getBoundingClientRect(),
         viewport: { width: window.innerWidth, height: window.innerHeight },
+        dogSize: window.innerWidth > 900 ? { width: 180, height: 175 } : { width: 108, height: 105 },
       })
       companionDestinationGenerationRef.current = companionSearchOutcome.generation
       emitCompanionIntent(target ? MILLER_PRESENTATION_INTENTS.DESTINATION_READY : MILLER_PRESENTATION_INTENTS.SETTLE, target)
@@ -1670,7 +1667,7 @@ const millerImageStyle = {}
           </form>
 
           {shouldShowResults && (
-  <div className="results-panel" ref={resultsPanelRef}>
+  <div className={`results-panel ${companionSearchOutcome.status === "success" ? "has-result-companion" : ""}`} ref={resultsPanelRef}>
               <div className="results-head">
                 <h2>
                   Matching resources
