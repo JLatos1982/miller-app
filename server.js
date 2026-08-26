@@ -87,6 +87,12 @@ const __dirname = path.dirname(__filename)
 
 const app = express()
 const port = process.env.PORT || 8787
+export function resolveMillerBindHost({ environment = process.env.NODE_ENV, configuredHost = process.env.MILLER_BIND_HOST } = {}) {
+  const requested = String(configuredHost || "").trim()
+  if (requested) return requested
+  return environment === "production" ? undefined : "127.0.0.1"
+}
+const bindHost = resolveMillerBindHost()
 const applicationStartedAt = new Date().toISOString()
 let automatedLocationPublicationEnabled = false
 
@@ -3004,8 +3010,8 @@ app.get("/{*splat}", (req, res) => {
 })
 
 if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
-  app.listen(port, () => {
-    console.log(`Miller server running on http://localhost:${port}`)
+  app.listen(port, bindHost, () => {
+    console.log(`Miller server running on ${bindHost ? `http://${bindHost}:${port}` : `platform-managed port ${port}`}`)
   })
 }
 

@@ -11,7 +11,9 @@ npm run build
 npm run server
 ```
 
-The Express server defaults to `http://localhost:8787`. For development, run `npm run server` and `npm run dev` in separate terminals; Vite proxies `/api` to the local Express server.
+The supported local development topology is two loopback-only services: the Express backend on `127.0.0.1:8787` and the Vite frontend on `127.0.0.1:5173`. Run `npm run server` and `npm run dev` in separate terminals; Vite proxies `/api` to `127.0.0.1:8787`. These are local-development services only; deployed/public Miller hosting is separate and keeps its platform-managed production binding.
+
+Local LAN access is opt-in. Set `MILLER_BIND_HOST` and/or `MILLER_VITE_HOST` explicitly (for example `0.0.0.0`) only when that broader exposure is intentional. Leave them blank for the safe loopback defaults.
 
 `SUPABASE_URL` must be the project origin, such as `https://project-ref.supabase.co`; do not append `/rest/v1`. Keep `OPENAI_API_KEY` and `SUPABASE_SERVICE_ROLE_KEY` server-side. The browser uses the publishable key already configured in `src/supabaseClient.js` and relies on RLS.
 
