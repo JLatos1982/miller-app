@@ -12,14 +12,14 @@ export function readingStageHeight(bubbleHeight = 0, minimum = 700) {
 // The host supplies rectangles only. This keeps the reading position responsive
 // to the actual bubble/scene geometry while preserving Miller's ground line.
 export function resolveMillerReadingOffset({ bubbleRect, figureRect, stageRect, controlsRect } = {}) {
-  if (!bubbleRect || !figureRect || !stageRect) return Object.freeze({ x: -96, y: 0 })
+  if (!bubbleRect || !figureRect || !stageRect) return Object.freeze({ x: -128, y: 0 })
   const verticalPressure = Math.max(0, bubbleRect.bottom - figureRect.top)
-  const desired = Math.min(118, Math.max(84, 84 + verticalPressure * .18))
+  const desired = Math.min(158, Math.max(118, 118 + verticalPressure * .18))
   // Never consume more than the presentation gap between the scene and the
   // functional controls. Controls retain a modest 18px visual clearance.
   const controlLimit = controlsRect?.right
-    ? Math.max(84, figureRect.left - controlsRect.right - 18)
+    ? Math.max(118, figureRect.left - controlsRect.right - 18)
     : desired
-  const stageLimit = Math.max(84, figureRect.left - stageRect.left + 20)
+  const stageLimit = Math.max(118, figureRect.left - stageRect.left + 20)
   return Object.freeze({ x: -Math.min(desired, controlLimit, stageLimit), y: 0 })
 }

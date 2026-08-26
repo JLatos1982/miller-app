@@ -11,7 +11,7 @@ import { dogVisualOwnership, MILLER_DOG_OWNERS } from '../src/companion/millerDo
 import { mayRunMillerIdlePet, nextMillerIdleDelay } from '../src/companion/millerCompanionIdle.js'
 import { bubbleNeedsMillerReadingPosition, readingStageHeight, resolveMillerReadingOffset } from '../src/companion/millerSceneLayout.js'
 import { canPreviewClassicWalk, canPreviewSheepdogResultPoint, CLASSIC_WALK_POSE_SLOTS, COMPANION_POSE_PREVIEWS, SHEEPDOG_RESULT_POINT_SLOT } from '../src/companion/millerCompanionPosePreview.js'
-import { MILLER_CLASSIC_READING_WALK, millerClassicWalkStep, nextMillerClassicWalkIndex } from '../src/companion/millerClassicWalk.js'
+import { MILLER_CLASSIC_READING_WALK, MILLER_CLASSIC_READING_WALK_DURATION, millerClassicWalkStep, nextMillerClassicWalkIndex } from '../src/companion/millerClassicWalk.js'
 
 function pngHasRgbaColorType(file) {
   return fs.readFileSync(new URL(file, import.meta.url))[25] === 6
@@ -119,7 +119,7 @@ test('bubble geometry opens reading space only when it would collide with Miller
     stageRect: { left: 420 },
     controlsRect: { right: 350 },
   })
-  assert.ok(offset.x <= -84 && offset.x >= -118)
+  assert.ok(offset.x <= -118 && offset.x >= -158)
   assert.equal(offset.y, 0)
 })
 
@@ -129,13 +129,25 @@ test('Classic reading movement uses approved step assets rather than a standing-
   assert.match(css, /miller-reading-walking/)
   assert.match(poseSpec, /stepLeft01/)
   assert.match(poseSpec, /stepLeft02/)
-  assert.equal(MILLER_CLASSIC_READING_WALK.steps.reduce((total, step) => total + step.duration, 0), 760)
+  assert.equal(MILLER_CLASSIC_READING_WALK_DURATION, 920)
+  assert.equal(MILLER_CLASSIC_READING_WALK.steps.reduce((total, step) => total + step.duration, 0), 920)
   assert.equal(millerClassicWalkStep(0).pose, 'stepLeft01')
   assert.equal(millerClassicWalkStep(1).pose, 'stepLeft02')
-  assert.equal(millerClassicWalkStep(2).settle, true)
+  assert.equal(millerClassicWalkStep(2).pose, 'stepLeft01')
+  assert.equal(millerClassicWalkStep(4).settle, true)
   assert.equal(nextMillerClassicWalkIndex(0), 1)
   assert.equal(millerClassicWalkStep(0, { returning: true }).pose, 'stepLeft02')
-  assert.equal(MILLER_CLASSIC_READING_WALK.steps.every(step => step.progress >= 0 && step.progress <= 1), true)
+  assert.equal(MILLER_CLASSIC_READING_WALK.steps.filter(step => !step.settle).every(step => step.duration === 210), true)
+})
+
+test('result-side overlay preserves its one left-rail destination through arrival, indication, and final settle', () => {
+  const css = fs.readFileSync(new URL('../src/App.css', import.meta.url), 'utf8')
+  const sheepdog = fs.readFileSync(new URL('../src/companion/MillerSheepdog.jsx', import.meta.url), 'utf8')
+  assert.match(css, /\.miller-companion-travel\.is-moving,\s*\.miller-companion-travel\.is-settled/)
+  assert.match(css, /calc\(var\(--dog-target-x\) - var\(--dog-start-x\)\)/)
+  assert.match(sheepdog, /pose: 'result-point', pointing: true/)
+  assert.match(sheepdog, /pose: 'pet-reaction', pointing: false, indicated: true/)
+  assert.doesNotMatch(sheepdog, /right-side|target\.right|resultRect\.right/)
 })
 
 test('approved walking and result-point assets are true-alpha production cutouts', () => {

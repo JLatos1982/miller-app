@@ -56,7 +56,7 @@ import MillerSheepdog from "./companion/MillerSheepdog.jsx"
 import { destinationBesideRenderedResult } from "./companion/millerCompanionAdapter.js"
 import { isMeaningfulCompanionInput, MILLER_PRESENTATION_INTENTS, presentationIntent } from "./companion/millerCompanionLifecycle.js"
 import { bubbleNeedsMillerReadingPosition, readingStageHeight, resolveMillerReadingOffset } from "./companion/millerSceneLayout.js"
-import { millerClassicWalkStep, nextMillerClassicWalkIndex } from "./companion/millerClassicWalk.js"
+import { MILLER_CLASSIC_READING_WALK_DURATION, millerClassicWalkStep, nextMillerClassicWalkIndex } from "./companion/millerClassicWalk.js"
 import classicMillerNoticeDog from "./assets/miller/interaction/classic-miller-notice-dog.png"
 import classicMillerLeanReach from "./assets/miller/interaction/classic-miller-lean-reach.png"
 import classicMillerPetDog from "./assets/miller/interaction/classic-miller-pet-dog.png"
@@ -1569,14 +1569,12 @@ function previousMiller() {
   .filter(Boolean)
   .join(" ")
 
-  const millerWalkProgress = ["walking", "returning"].includes(millerReadingPosition)
-    ? millerClassicWalkStep(millerWalkIndex, { returning: millerReadingPosition === "returning" }).progress
-    : millerReadingPosition === "reading" ? 1 : 0
+  const millerWalkProgress = ["walking", "reading"].includes(millerReadingPosition) ? 1 : 0
   const millerStageStyle = currentTheme.name === "Classic" && millerReadingPosition !== "home"
     ? { "--miller-stage-min-height": `${millerStageHeight}px` }
     : undefined
   const millerStyle = currentTheme.name === "Classic"
-    ? { "--miller-reading-x": `${millerReadingOffset.x * millerWalkProgress}px`, "--miller-reading-y": `${millerReadingOffset.y * millerWalkProgress}px` }
+    ? { "--miller-reading-x": `${millerReadingOffset.x * millerWalkProgress}px`, "--miller-reading-y": `${millerReadingOffset.y * millerWalkProgress}px`, "--miller-walk-duration": `${MILLER_CLASSIC_READING_WALK_DURATION}ms` }
     : {}
   const companionIdleAllowed = !prefersReducedMotion && !isTyping && !isLoading && !query.trim() && ["home", "reading"].includes(millerReadingPosition) && companionSearchOutcome.status !== "pending"
 

@@ -649,6 +649,11 @@ textarea {
 .miller-figure.miller-reading-returning {
   transform: translate(var(--miller-reading-x, 0px), var(--miller-reading-y, 0px)) rotate(-1deg);
 }
+.miller-figure.miller-reading-walking,
+.miller-figure.miller-reading-returning {
+  transition: transform var(--miller-walk-duration, 920ms) cubic-bezier(.32,.72,.36,1);
+  will-change: transform;
+}
 
 /* Static companion tableau. The dog is an independent decorative actor; its
    placement belongs to Miller's scene, not the portable companion core. */
@@ -701,7 +706,8 @@ textarea {
   transition: transform var(--dog-travel-duration) cubic-bezier(.22,.61,.36,1);
   will-change: transform;
 }
-.miller-companion-travel.is-moving { transform: translate(calc(var(--dog-target-x) - var(--dog-start-x)), calc(var(--dog-target-y) - var(--dog-start-y))); }
+.miller-companion-travel.is-moving,
+.miller-companion-travel.is-settled { transform: translate(calc(var(--dog-target-x) - var(--dog-start-x)), calc(var(--dog-target-y) - var(--dog-start-y))); }
 .miller-companion-travel.is-settled { will-change: auto; }
 .miller-companion-travel canvas { display:block; width:100%; height:100%; image-rendering:pixelated; filter:drop-shadow(0 6px 4px rgba(49,72,55,.22)); }
 
