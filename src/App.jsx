@@ -55,7 +55,7 @@ import ResourceAttachmentPicker from "./site/ResourceAttachmentPicker.jsx"
 import MillerSheepdog from "./companion/MillerSheepdog.jsx"
 import { destinationBesideRenderedResult } from "./companion/millerCompanionAdapter.js"
 import { isMeaningfulCompanionInput, MILLER_PRESENTATION_INTENTS, presentationIntent } from "./companion/millerCompanionLifecycle.js"
-import { bubbleNeedsMillerReadingPosition, readingStageHeight } from "./companion/millerSceneLayout.js"
+import { bubbleNeedsMillerReadingPosition, readingStageHeight, resolveMillerReadingOffset } from "./companion/millerSceneLayout.js"
 import { millerClassicWalkStep, nextMillerClassicWalkIndex } from "./companion/millerClassicWalk.js"
 import classicMillerNoticeDog from "./assets/miller/interaction/classic-miller-notice-dog.png"
 import classicMillerLeanReach from "./assets/miller/interaction/classic-miller-lean-reach.png"
@@ -803,10 +803,20 @@ useEffect(() => {
   const [companionSearchOutcome, setCompanionSearchOutcome] = useState({ generation: 0, status: "idle" })
   const [millerReadingPosition, setMillerReadingPosition] = useState("home")
   const [millerWalkIndex, setMillerWalkIndex] = useState(0)
+  const [millerReadingOffset, setMillerReadingOffset] = useState({ x: -96, y: 0 })
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches)
   const [millerStageHeight, setMillerStageHeight] = useState(700)
   const [isSearchBarHovered, setIsSearchBarHovered] = useState(false)
   const [, setCursorOffset] = useState({ x: 0, y: 0 })
   const [showSearchReveal, setShowSearchReveal] = useState(false)
+
+  useEffect(() => {
+    const media = window.matchMedia?.("(prefers-reduced-motion: reduce)")
+    if (!media) return undefined
+    const update = () => setPrefersReducedMotion(media.matches)
+    media.addEventListener("change", update)
+    return () => media.removeEventListener("change", update)
+  }, [])
 
   const setAppShell = useCallback((node) => {
     appShellRef.current = node
@@ -950,8 +960,9 @@ useEffect(() => {
       millerHomeFigureTopRef.current = figureRect.top
       if (bubbleNeedsMillerReadingPosition({ bubbleRect, figureRect })) {
         setMillerStageHeight(readingStageHeight(bubbleRect.height))
+        setMillerReadingOffset(resolveMillerReadingOffset({ bubbleRect, figureRect, stageRect, controlsRect: controlsRowRef.current?.getBoundingClientRect() }))
         setMillerWalkIndex(0)
-        setMillerReadingPosition("walking")
+        setMillerReadingPosition(prefersReducedMotion ? "reading" : "walking")
       }
       return undefined
     }
@@ -963,10 +974,10 @@ useEffect(() => {
     if (millerReadingPosition === "reading" && bubbleRect.bottom < (millerHomeFigureTopRef.current || stageRect.top + 230) - 42) {
       setMillerStageHeight(700)
       setMillerWalkIndex(0)
-      setMillerReadingPosition("returning")
+      setMillerReadingPosition(prefersReducedMotion ? "home" : "returning")
     }
     return undefined
-  }, [currentTheme.name, displayedReply, isBubbleTyping, millerReadingPosition, millerStageHeight])
+  }, [currentTheme.name, displayedReply, isBubbleTyping, millerReadingPosition, millerStageHeight, prefersReducedMotion])
 
   useEffect(() => {
     if (currentTheme.name !== "Classic" || !["walking", "returning"].includes(millerReadingPosition)) return undefined
@@ -1565,9 +1576,9 @@ function previousMiller() {
     ? { "--miller-stage-min-height": `${millerStageHeight}px` }
     : undefined
   const millerStyle = currentTheme.name === "Classic"
-    ? { "--miller-reading-x": `${-112 * millerWalkProgress}px`, "--miller-reading-y": `${82 * millerWalkProgress}px` }
+    ? { "--miller-reading-x": `${millerReadingOffset.x * millerWalkProgress}px`, "--miller-reading-y": `${millerReadingOffset.y * millerWalkProgress}px` }
     : {}
-  const companionIdleAllowed = !isTyping && !isLoading && !query.trim() && millerReadingPosition === "home" && companionSearchOutcome.status !== "pending"
+  const companionIdleAllowed = !prefersReducedMotion && !isTyping && !isLoading && !query.trim() && ["home", "reading"].includes(millerReadingPosition) && companionSearchOutcome.status !== "pending"
 
 const millerImageStyle = {}
 
@@ -1948,7 +1959,7 @@ const millerImageStyle = {}
 
   </div>
 
-  <MillerSheepdog themeName={currentTheme.name} onGreetingPhaseChange={setMillerGreetingPose} presentationIntent={companionIntent} overlayHost={companionOverlayHost} idleAllowed={companionIdleAllowed} />
+  <MillerSheepdog themeName={currentTheme.name} scenePosition={millerReadingPosition} reducedMotion={prefersReducedMotion} onGreetingPhaseChange={setMillerGreetingPose} presentationIntent={companionIntent} overlayHost={companionOverlayHost} idleAllowed={companionIdleAllowed} />
 
 </div>
 

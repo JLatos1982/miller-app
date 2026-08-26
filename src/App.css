@@ -677,6 +677,7 @@ textarea {
 }
 
 .miller-companion-actor.is-ready { transform: translateX(12px); }
+.miller-companion-actor.is-following { z-index: 1; }
 
 .miller-companion-actor canvas {
   display: block;
@@ -3196,7 +3197,7 @@ body,
    calibrated in millerCompanionLayout.js. */
 @media (min-width:1181px){
   .miller-stage{min-height:var(--miller-stage-min-height,700px);padding-bottom:0}
-  .miller-figure{top:230px;right:100px}
+  .miller-figure{top:230px;right:164px}
   .miller-bubble{top:0;right:0}
   .miller-image-frame{width:300px;height:450px}
   .miller-companion-actor{bottom:8px;left:-150px;width:180px;height:175px;transform:translateX(-60px)}
@@ -3208,7 +3209,7 @@ body,
 
 @media (min-width:901px) and (max-width:1180px){
   .miller-stage{min-height:var(--miller-stage-min-height,645px);padding-bottom:0}
-  .miller-figure{top:200px;right:16px}
+  .miller-figure{top:200px;right:68px}
   .miller-image-frame{width:290px;height:435px}
   .miller-companion-actor{bottom:8px;left:-142px;width:170px;height:165px;transform:translateX(-54px)}
   .miller-companion-actor.is-approaching,.miller-companion-actor.is-settled{transform:translateX(0)}

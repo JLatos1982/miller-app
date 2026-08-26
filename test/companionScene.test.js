@@ -9,7 +9,7 @@ import { MILLER_DESKTOP_COMPANION_LAYOUT, resolveDesktopPetContact } from '../sr
 import { acceptsNewPresentationIntent, isMeaningfulCompanionInput, jogDurationForDistance, mayTravelToResult, MILLER_PRESENTATION_INTENTS, presentationIntent } from '../src/companion/millerCompanionLifecycle.js'
 import { dogVisualOwnership, MILLER_DOG_OWNERS } from '../src/companion/millerDogOwnership.js'
 import { mayRunMillerIdlePet, nextMillerIdleDelay } from '../src/companion/millerCompanionIdle.js'
-import { bubbleNeedsMillerReadingPosition, readingStageHeight } from '../src/companion/millerSceneLayout.js'
+import { bubbleNeedsMillerReadingPosition, readingStageHeight, resolveMillerReadingOffset } from '../src/companion/millerSceneLayout.js'
 import { canPreviewClassicWalk, canPreviewSheepdogResultPoint, CLASSIC_WALK_POSE_SLOTS, COMPANION_POSE_PREVIEWS, SHEEPDOG_RESULT_POINT_SLOT } from '../src/companion/millerCompanionPosePreview.js'
 import { MILLER_CLASSIC_READING_WALK, millerClassicWalkStep, nextMillerClassicWalkIndex } from '../src/companion/millerClassicWalk.js'
 
@@ -113,6 +113,14 @@ test('bubble geometry opens reading space only when it would collide with Miller
   assert.equal(bubbleNeedsMillerReadingPosition({ bubbleRect: { bottom: 690 }, figureRect: { top: 638 } }), true)
   assert.equal(readingStageHeight(180), 700)
   assert.equal(readingStageHeight(480), 965)
+  const offset = resolveMillerReadingOffset({
+    bubbleRect: { bottom: 720 },
+    figureRect: { top: 638, left: 510 },
+    stageRect: { left: 420 },
+    controlsRect: { right: 350 },
+  })
+  assert.ok(offset.x <= -84 && offset.x >= -118)
+  assert.equal(offset.y, 0)
 })
 
 test('Classic reading movement uses approved step assets rather than a standing-image slide', () => {
@@ -127,6 +135,7 @@ test('Classic reading movement uses approved step assets rather than a standing-
   assert.equal(millerClassicWalkStep(2).settle, true)
   assert.equal(nextMillerClassicWalkIndex(0), 1)
   assert.equal(millerClassicWalkStep(0, { returning: true }).pose, 'stepLeft02')
+  assert.equal(MILLER_CLASSIC_READING_WALK.steps.every(step => step.progress >= 0 && step.progress <= 1), true)
 })
 
 test('approved walking and result-point assets are true-alpha production cutouts', () => {
@@ -148,6 +157,18 @@ test('idle petting is sparse, Classic-only, and unavailable while the dog is awa
   assert.equal(mayRunMillerIdlePet({ themeName: 'Jade', dogOwner: 'scene', settled: true, greetingComplete: true, idleAllowed: true }), false)
   assert.equal(mayRunMillerIdlePet({ themeName: 'Classic', dogOwner: 'overlay', settled: true, greetingComplete: true, idleAllowed: true }), false)
   assert.equal(mayRunMillerIdlePet({ themeName: 'Classic', dogOwner: 'scene', settled: true, greetingComplete: true, idleAllowed: true, reducedMotion: true }), false)
+})
+
+test('scene dog follows only the active Classic reading walk, while result travel retains exclusive overlay ownership', () => {
+  const sheepdog = fs.readFileSync(new URL('../src/companion/MillerSheepdog.jsx', import.meta.url), 'utf8')
+  const app = fs.readFileSync(new URL('../src/App.jsx', import.meta.url), 'utf8')
+  assert.match(sheepdog, /scenePosition = 'home'/)
+  assert.match(sheepdog, /\['walking', 'returning'\]\.includes\(scenePosition\)/)
+  assert.match(sheepdog, /shouldFollowMiller/)
+  assert.match(sheepdog, /dogOwner === MILLER_DOG_OWNERS\.SCENE/)
+  assert.match(app, /scenePosition=\{millerReadingPosition\}/)
+  assert.match(app, /reducedMotion=\{prefersReducedMotion\}/)
+  assert.match(app, /\["home", "reading"\]\.includes\(millerReadingPosition\)/)
 })
 
 test('Classic greeting is bounded, uses the calm dog reaction only during petting, and settles', () => {
