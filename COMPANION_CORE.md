@@ -14,8 +14,12 @@ The current arrival uses the approved Samwise-derived `sheepdog-walk-01`, `sheep
 
 The dog is decorative. It has no authority over search, resource ranking, recommendations, clinical/resource content, geolocation, analytics, or safety logic. Miller remains fully functional when the companion is absent.
 
-Future intent lifecycle, not implemented here:
+## Current Miller lifecycle
 
-`input_started → work_started → authoritative result rendered → destination_ready → work_completed → settle`
+`input_started → work_started → authoritative result rendered → destination_ready → settle`
 
-Only after Miller has selected and rendered a result may a future host adapter convert that element's bounds to a normalized decorative destination. It must not send query text, result content, ranking scores, or user data to the companion. Any future sound stays optional, low-volume, suppressible, and non-essential.
+The host emits `input_started` once per meaningful input session without passing the input text. A genuine search emits `work_started`. Only after Miller's own search/ranking has finished and the first result card is rendered does the host measure that already-selected card. `destinationBesideRenderedResult()` receives rectangles only and returns normalized presentation geometry—never a resource identity, query, content, ranking score, clinical detail, or user data.
+
+The sheepdog can use that geometry in a page-level, `aria-hidden`, pointer-inert overlay. It cannot move a card, choose a result, delay a search, or alter focus. Offscreen targets and narrow phones safely leave the dog in its stable companion state. Reduced-motion and disabled-animation modes do the same.
+
+`destination_arrived` is now an internal decorative completion point only. Future sound, if ever added, remains optional, low-volume, suppressible, and non-essential.

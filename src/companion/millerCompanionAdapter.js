@@ -21,8 +21,25 @@ export const MILLER_CHARACTER_INTERACTION = Object.freeze({
 })
 
 export function staticCompanionPresentation({ reducedMotion = false, animationEnabled = true } = {}) {
-  // The first Miller integration is intentionally static. These preferences
-  // remain here so a future adapter can use the proven core without changing
-  // the search or ranking path.
+  // Stable fallback used whenever decorative movement is unavailable. It does
+  // not change Miller's search or ranking path.
   return Object.freeze({ actorId: MILLER_COMPANION.actorId, pose: MILLER_COMPANION.reducedMotionPose, reducedMotion: Boolean(reducedMotion), animationEnabled: animationEnabled !== false, decorative: true })
+}
+
+// Host-only geometry adapter. It receives rectangles after Miller has already
+// selected and rendered a result; no resource fields or ranking data cross this
+// boundary. The returned point is the decorative dog's top-left position in
+// the host scene's normalized coordinate space.
+export function destinationBesideRenderedResult({ hostRect, resultRect, viewport = {}, dogSize = { width: 132, height: 128 } } = {}) {
+  if (!hostRect?.width || !hostRect?.height || !resultRect?.width || !resultRect?.height) return null
+  if (!viewport?.width || viewport.width <= 600 || resultRect.bottom <= 0 || resultRect.top >= viewport.height) return null
+  const gap = 14
+  const right = resultRect.right + gap
+  const left = resultRect.left - dogSize.width - gap
+  const withinHost = value => value >= hostRect.left && value + dogSize.width <= Math.min(hostRect.right, viewport.width)
+  const destinationLeft = withinHost(right) ? right : withinHost(left) ? left : null
+  if (destinationLeft === null) return null
+  const destinationTop = Math.max(resultRect.top + 8, Math.min(resultRect.bottom - dogSize.height - 10, viewport.height - dogSize.height - 8))
+  if (destinationTop < 0) return null
+  return Object.freeze({ x: (destinationLeft - hostRect.left) / hostRect.width, y: (destinationTop - hostRect.top) / hostRect.height })
 }

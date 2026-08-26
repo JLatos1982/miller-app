@@ -669,12 +669,37 @@ textarea {
   will-change: auto;
 }
 
+.miller-companion-actor.is-traveling { opacity: 0; transition: opacity 140ms ease-out; }
+.miller-companion-actor.is-ready { transform: translateX(12px); }
+
 .miller-companion-actor canvas {
   display: block;
   width: 100%;
   height: 100%;
   image-rendering: pixelated;
   filter: drop-shadow(0 6px 4px rgba(49, 72, 55, 0.22));
+}
+
+/* A page-level visual carrier only. It is portalled into .app-shell, never
+   changes a result card, and receives no content or interaction authority. */
+.miller-companion-travel {
+  position: absolute;
+  z-index: 20;
+  width: 180px;
+  height: 175px;
+  left: var(--dog-start-x);
+  top: var(--dog-start-y);
+  pointer-events: none;
+  transform: translate(0, 0);
+  transition: transform var(--dog-travel-duration) cubic-bezier(.22,.61,.36,1);
+  will-change: transform;
+}
+.miller-companion-travel.is-moving { transform: translate(calc(var(--dog-target-x) - var(--dog-start-x)), calc(var(--dog-target-y) - var(--dog-start-y))); }
+.miller-companion-travel.is-settled { will-change: auto; }
+.miller-companion-travel canvas { display:block; width:100%; height:100%; image-rendering:pixelated; filter:drop-shadow(0 6px 4px rgba(49,72,55,.22)); }
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .miller-companion-travel { width: 108px; height: 105px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -684,6 +709,7 @@ textarea {
     transition: none;
     will-change: auto;
   }
+  .miller-companion-travel { display: none; }
 }
 
 .miller-image.is-searching,

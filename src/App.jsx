@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useReducer, useRef, useState } from "react"
+import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from "react"
 import "./App.css"
 import rawResources from "./vancouver_resources_merged_updated.json"
 import { supabase } from "./supabaseClient"
@@ -53,6 +53,8 @@ import { buildNavigationPacket, deterministicRelevance } from "./navigation/sear
 import AccessibleModal from "./site/AccessibleModal.jsx"
 import ResourceAttachmentPicker from "./site/ResourceAttachmentPicker.jsx"
 import MillerSheepdog from "./companion/MillerSheepdog.jsx"
+import { destinationBesideRenderedResult } from "./companion/millerCompanionAdapter.js"
+import { isMeaningfulCompanionInput, MILLER_PRESENTATION_INTENTS, presentationIntent } from "./companion/millerCompanionLifecycle.js"
 import classicMillerNoticeDog from "./assets/miller/interaction/classic-miller-notice-dog.png"
 import classicMillerLeanReach from "./assets/miller/interaction/classic-miller-lean-reach.png"
 import classicMillerPetDog from "./assets/miller/interaction/classic-miller-pet-dog.png"
@@ -774,17 +776,30 @@ useEffect(() => {
   const chestRef = useRef(null)
   const searchPanelRef = useRef(null)
   const resultsPanelRef = useRef(null)
+  const topResultRef = useRef(null)
   const controlsRowRef = useRef(null)
   const bubbleRef = useRef(null)
   const appShellRef = useRef(null)
+  const [companionOverlayHost, setCompanionOverlayHost] = useState(null)
+  const companionIntentIdRef = useRef(0)
+  const companionInputStartedRef = useRef(false)
+  const companionSearchGenerationRef = useRef(0)
+  const companionDestinationGenerationRef = useRef(0)
 
   const [isChestOpen, setIsChestOpen] = useState(false)
   const [isChestWiggling, setIsChestWiggling] = useState(false)
   const [millerMood, setMillerMood] = useState("idle")
   const [millerGreetingPose, setMillerGreetingPose] = useState("neutral")
+  const [companionIntent, setCompanionIntent] = useState(null)
+  const [companionSearchOutcome, setCompanionSearchOutcome] = useState({ generation: 0, status: "idle" })
   const [isSearchBarHovered, setIsSearchBarHovered] = useState(false)
   const [, setCursorOffset] = useState({ x: 0, y: 0 })
   const [showSearchReveal, setShowSearchReveal] = useState(false)
+
+  const setAppShell = useCallback((node) => {
+    appShellRef.current = node
+    setCompanionOverlayHost(node)
+  }, [])
 
   const [conversationMemory, setConversationMemory] = useState([])
   const [conversationSummary, setConversationSummary] = useState("")
@@ -911,8 +926,40 @@ useEffect(() => {
   const isBubbleTyping =
     isLoading || displayedReply.length < String(aiReply || "").length
 
-    const shouldShowResults =
+  const shouldShowResults =
   hasSearched && !isBubbleTyping
+
+  function emitCompanionIntent(type, target = null) {
+    const intent = presentationIntent(++companionIntentIdRef.current, type, target)
+    if (intent) setCompanionIntent(intent)
+  }
+
+  function handleSearchInputChange(event) {
+    const nextValue = event.target.value
+    const meaningful = isMeaningfulCompanionInput(nextValue)
+    if (meaningful && !companionInputStartedRef.current) {
+      companionInputStartedRef.current = true
+      emitCompanionIntent(MILLER_PRESENTATION_INTENTS.INPUT_STARTED)
+    }
+    if (!meaningful) companionInputStartedRef.current = false
+    setQuery(nextValue)
+  }
+
+  useEffect(() => {
+    if (companionSearchOutcome.status !== "success" || !shouldShowResults || isLoading || !topResultRef.current) return undefined
+    if (companionDestinationGenerationRef.current === companionSearchOutcome.generation) return undefined
+    const frame = window.requestAnimationFrame(() => {
+      if (companionDestinationGenerationRef.current === companionSearchOutcome.generation) return
+      const target = destinationBesideRenderedResult({
+        hostRect: appShellRef.current?.getBoundingClientRect(),
+        resultRect: topResultRef.current?.getBoundingClientRect(),
+        viewport: { width: window.innerWidth, height: window.innerHeight },
+      })
+      companionDestinationGenerationRef.current = companionSearchOutcome.generation
+      emitCompanionIntent(target ? MILLER_PRESENTATION_INTENTS.DESTINATION_READY : MILLER_PRESENTATION_INTENTS.SETTLE, target)
+    })
+    return () => window.cancelAnimationFrame(frame)
+  }, [companionSearchOutcome, shouldShowResults, isLoading, results.length])
 
   const cities = useMemo(() => {
     const uniqueCities = Array.from(
@@ -1032,6 +1079,7 @@ useEffect(() => {
     event.preventDefault()
 
     const trimmedQuery = query.trim()
+    const companionGeneration = ++companionSearchGenerationRef.current
 
 let updatedMemory = [
   ...conversationMemory,
@@ -1073,6 +1121,8 @@ trackEvent({
       setTotalMatches(cityPool.length)
       setAiReply(MILLER_COPY.searchHint)
       setSearchContext({ intent: null, location: { status: "none" } })
+      setCompanionSearchOutcome({ generation: companionGeneration, status: "empty" })
+      emitCompanionIntent(MILLER_PRESENTATION_INTENTS.SETTLE)
       return
     }
 
@@ -1081,6 +1131,8 @@ trackEvent({
 
     setHasSearched(true)
     setIsLoading(true)
+    setCompanionSearchOutcome({ generation: companionGeneration, status: "pending" })
+    emitCompanionIntent(MILLER_PRESENTATION_INTENTS.WORK_STARTED)
     setResults(candidatePack.candidates.slice(0, resultLimit))
     setTotalMatches(candidatePack.candidatePool.length)
 
@@ -1181,6 +1233,9 @@ const finalResults = rerankedResults.slice(0, resultLimit)
 
 setResults(finalResults)
 
+setCompanionSearchOutcome({ generation: companionGeneration, status: finalResults.length ? "success" : "empty" })
+if (!finalResults.length) emitCompanionIntent(MILLER_PRESENTATION_INTENTS.SETTLE)
+
 setTotalMatches(rankedPool.length)
 
 setAiReply(
@@ -1217,6 +1272,8 @@ setConversationMemory((prev) =>
       setTotalMatches(fallbackPool.length)
       setAiReply(MILLER_COPY.searchUnavailable)
       setSearchContext({ intent: null, location: { status: "none" } })
+      setCompanionSearchOutcome({ generation: companionGeneration, status: "error" })
+      emitCompanionIntent(MILLER_PRESENTATION_INTENTS.SETTLE)
     } finally {
       setIsLoading(false)
     }
@@ -1478,7 +1535,7 @@ const millerImageStyle = {}
   return (
     <div
   className="app-shell"
-  ref={appShellRef}
+  ref={setAppShell}
 >
   <img
   src={currentTheme.background}
@@ -1532,7 +1589,7 @@ const millerImageStyle = {}
                 className="main-search-input"
                 placeholder="e.g. detox, treatment centre, counselling, OAT, crisis, harm reduction"
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={handleSearchInputChange}
                 onFocus={() => setIsTyping(true)}
                 onBlur={() => setIsTyping(false)}
               />
@@ -1599,6 +1656,7 @@ const millerImageStyle = {}
                     const navigationContext = buildNavigationPacket({ resource, publicMapResources: mapResources, intent: searchContext.intent, locationContext: searchContext.location, relevance: deterministicRelevance(resource, searchContext.intent) })
                     return (
                     <article
+                      ref={index === 0 ? topResultRef : null}
                       key={`${resource.name}-${resource.city}-${resource.organization}-${index}`}
                       className="resource-card"
                     >
@@ -1824,7 +1882,7 @@ const millerImageStyle = {}
 
   </div>
 
-  <MillerSheepdog themeName={currentTheme.name} onGreetingPhaseChange={setMillerGreetingPose} />
+  <MillerSheepdog themeName={currentTheme.name} onGreetingPhaseChange={setMillerGreetingPose} presentationIntent={companionIntent} overlayHost={companionOverlayHost} />
 
 </div>
 
