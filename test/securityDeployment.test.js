@@ -5,7 +5,7 @@ import { deploymentAlignment, inspectDeploymentConsistency, inspectRuntimeEnviro
 import { correlateSecurityEvidence } from "../server/securityCorrelation.js"
 
 const version = { git_sha: "b22459b" }
-const completeSchema = { migration_head: "202608600001", contract: "miller-security-deployment-contract-v1", capabilities: ["security_core_registry", "security_incident_correlation", "deployment_observation_ledger"] }
+const completeSchema = { migration_head: "202608610001", contract: "miller-security-deployment-contract-v1", capabilities: ["security_core_registry", "security_incident_correlation", "deployment_observation_ledger"] }
 
 test("deployment contract distinguishes aligned, unknown, ahead, behind, and missing capability states", () => {
   assert.equal(deploymentAlignment({ profile: MILLER_SECURITY_PROFILE, version, schema: completeSchema }).state, "aligned")
@@ -13,7 +13,7 @@ test("deployment contract distinguishes aligned, unknown, ahead, behind, and mis
   assert.equal(deploymentAlignment({ profile: MILLER_SECURITY_PROFILE, version, schema: {} }).state, "schema_unknown")
   assert.equal(deploymentAlignment({ profile: MILLER_SECURITY_PROFILE, version, schema: { ...completeSchema, migration_head: "202608590001" } }).state, "schema_behind_build")
   assert.equal(deploymentAlignment({ profile: MILLER_SECURITY_PROFILE, version, schema: { ...completeSchema, capabilities: [] } }).state, "migration_gap")
-  assert.equal(deploymentAlignment({ profile: MILLER_SECURITY_PROFILE, version, schema: { ...completeSchema, migration_head: "202608610001" } }).state, "schema_ahead_of_build")
+  assert.equal(deploymentAlignment({ profile: MILLER_SECURITY_PROFILE, version, schema: { ...completeSchema, migration_head: "202608620001" } }).state, "schema_ahead_of_build")
 })
 
 test("deployment and runtime posture are passive, bounded, and fail closed", () => {

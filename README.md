@@ -60,6 +60,20 @@ Do not enable public signup. Create or invite the administrator through the Supa
 
 No public site password is used. `/admin/login` remains the only administrator sign-in entry point, and successful Supabase authentication still requires membership in the server-side allowlist.
 
+## Samwise Status Adapter
+
+`GET /api/integrations/samwise/status` is a small, server-to-server, read-only status adapter for the separate Samwise Security Lab. It is not shown in the browser UI and accepts only a dedicated server-side bearer credential:
+
+```dotenv
+SAMWISE_STATUS_TOKEN=replace-with-a-high-entropy-server-only-secret
+```
+
+Configure that value only in Miller's deployment secret store and Samwise's corresponding secret store. Never reuse an administrator, Supabase, service-role, scheduler, provider, or browser credential. Rotate it by updating both secret stores; Miller does not persist or return it. Missing, malformed, or invalid credentials all receive the same generic `401 Unauthorized` response.
+
+The adapter reports fixed derived categories only: build-known state, internal database-query state, local-only Security Pulse state and aggregate finding counts, deployment-alignment category, maintenance state, four aggregate review/backlog counts, and public-health source mode/freshness. It deliberately excludes credentials, URLs/hosts, raw configuration, logs, request data, users, resources, evidence, attachments, source content, medication information, and all administrative detail. Responses use `Cache-Control: no-store`.
+
+Samwise must record this response as `application_self_report`. Miller's Security Pulse is local-only and is not evidence that the public deployment is secure; Samwise's own HTTPS observations remain separate `external_independent_observation` evidence. The endpoint has no action, scheduling, maintenance, database-write, or control capability.
+
 When the frontend and Express API use different production origins, configure exact origins rather than wildcards:
 
 ```dotenv

@@ -79,6 +79,7 @@ import { createMaintenanceCycleStore } from "./server/maintenanceCycleRuns.js"
 import { createMaintenancePersistence } from "./server/maintenancePersistence.js"
 import { createMaintenanceSchedulerStore } from "./server/maintenanceSchedulerStore.js"
 import { nextExpectedWake, normalizeSchedulerConfig, runScheduledMaintenanceCycle, weeklyMaintenanceSummary } from "./server/maintenanceScheduler.js"
+import { buildSamwiseStatus, createRequireSamwiseStatus } from "./server/samwiseStatus.js"
 
 dotenv.config()
 
@@ -254,6 +255,7 @@ const supabase = createClient(
   { auth: { autoRefreshToken: false, persistSession: false, detectSessionInUrl: false } }
 )
 const requireAdmin = createRequireAdmin({ supabase })
+const requireSamwiseStatus = createRequireSamwiseStatus()
 const publicWriteHandlers = createPublicWriteHandlers({ supabase })
 const geocoder = createGeocoder({ contactEmail: process.env.GEOCODER_CONTACT_EMAIL })
 const shadowPersistence = createShadowPersistence({ supabase })
@@ -1338,6 +1340,24 @@ async function controlRoomSummarySnapshot() {
  const automation={...automationPlan.posture,last_wake_at:automationRuns.data?.started_at||null,next_expected_at:automationPlan.next_expected_at,security_pulse:automationPlan.pulse||{freshness:"unknown"},local_only:true,maintenance_scheduler_enabled:automationConfig.data?.enabled===true}
  return buildControlRoomSummary({securityFindings:findings.data||[],pulse:pulse.data||null,incidents:incidents.data||[],deployment:observed,automation,maintenance:maintenance.data||[],healthSignals:healthSignals.data||[],resourceReviewCount:Number(resourceReviews.count||0),shelterReviewCount:Number(shelterReviews.count||0),locationReviewCount:Number(locationReviews.count||0),attachmentBacklog:Number(attachments.count||0),siteEvents:Number(events.count||0)})
 }
+async function samwiseStatusSnapshot() {
+ const now = new Date().toISOString()
+ const [findings,pulse,deployment,maintenance,checkpoints,resourceReviews,shelterReviews,locationReviews,attachments] = await Promise.all([
+  supabase.from("miller_security_findings").select("severity,lifecycle").limit(100),
+  supabase.from("miller_security_pulse_runs").select("status,completed_at").order("started_at",{ascending:false}).limit(1).maybeSingle(),
+  supabase.from("miller_security_deployment_observations").select("alignment_state").order("observed_at",{ascending:false}).limit(1).maybeSingle(),
+  supabase.from("miller_maintenance_cycle_journal").select("status,started_at,completed_at").order("started_at",{ascending:false}).limit(1).maybeSingle(),
+  supabase.from("miller_sensor_checkpoints").select("sensor_id,mode,last_success_at,health_state"),
+  supabase.from("tavily_resources").select("id",{count:"exact",head:true}).eq("approved",false).eq("hidden",false),
+  supabase.from("resource_discovery_candidates").select("id",{count:"exact",head:true}).eq("review_status","pending"),
+  supabase.from("location_qc_reviews").select("canonical_resource_id",{count:"exact",head:true}).eq("decision","manual_review"),
+  supabase.from("resource_submission_attachments").select("id",{count:"exact",head:true}).eq("status","pending_scan"),
+ ])
+ if ([findings,pulse,deployment,maintenance,checkpoints,resourceReviews,shelterReviews,locationReviews,attachments].some((item)=>item.error)) throw new Error("samwise_status_unavailable")
+ const runtimeVersion=securityVersionContext({profile:MILLER_SECURITY_PROFILE}), runtimeDeployment=deploymentAlignment({profile:MILLER_SECURITY_PROFILE,version:runtimeVersion,schema:runtimeSchemaContract()})
+ return buildSamwiseStatus({build:runtimeVersion,database:{state:"healthy",observed_at:now},securityFindings:findings.data||[],pulse:pulse.data||null,deploymentAlignment:deployment.data?.alignment_state||runtimeDeployment.state,maintenance:maintenance.data||null,checkpoints:checkpoints.data||[],queues:{resource_review:resourceReviews.count,shelter_review:shelterReviews.count,location_qc:locationReviews.count,attachment_scan:attachments.count}})
+}
+app.get("/api/integrations/samwise/status",requireSamwiseStatus,async(_req,res)=>{try{res.setHeader("Cache-Control","no-store");return res.json(await samwiseStatusSnapshot())}catch{return res.status(503).json({error:"Status unavailable"})}})
 async function maintenanceToolboxSnapshot() {
  const [cycles,outcomes,lessons,opportunities,capabilityGaps,security]=await Promise.all([supabase.from("miller_maintenance_cycles").select("*").order("started_at",{ascending:false}).limit(8),supabase.from("miller_maintenance_outcomes").select("*").order("completed_at",{ascending:false}).limit(20),supabase.from("miller_learning_records").select("*").order("last_confirmed_at",{ascending:false}).limit(20),supabase.from("miller_growth_opportunities").select("*").order("priority",{ascending:false}).order("last_observed_at",{ascending:false}).limit(40),supabase.from("miller_capability_gaps").select("*").order("last_observed_at",{ascending:false}).limit(40),supabase.from("miller_security_findings").select("*").order("last_observed_at",{ascending:false}).limit(20)])
  if([cycles,outcomes,lessons,opportunities,capabilityGaps,security].some((item)=>item.error))throw new Error("maintenance_toolbox_unavailable")
