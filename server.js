@@ -80,6 +80,8 @@ import { createMaintenancePersistence } from "./server/maintenancePersistence.js
 import { createMaintenanceSchedulerStore } from "./server/maintenanceSchedulerStore.js"
 import { nextExpectedWake, normalizeSchedulerConfig, runScheduledMaintenanceCycle, weeklyMaintenanceSummary } from "./server/maintenanceScheduler.js"
 import { buildSamwiseStatus, createRequireSamwiseStatus } from "./server/samwiseStatus.js"
+import { createPreparedPublicationService } from "./server/preparedPublicationService.js"
+import { createSamwisePreparedPublicationTransport } from "./server/samwisePreparedPublicationTransport.js"
 
 dotenv.config()
 
@@ -258,6 +260,21 @@ const requireAdmin = createRequireAdmin({ supabase })
 const requireSamwiseStatus = createRequireSamwiseStatus()
 const publicWriteHandlers = createPublicWriteHandlers({ supabase })
 const geocoder = createGeocoder({ contactEmail: process.env.GEOCODER_CONTACT_EMAIL })
+function startSamwisePreparedPublicationTransport() {
+  const token = String(process.env.MILLER_SAMWISE_CONVEYOR_TOKEN || "")
+  const actorId = String(process.env.MILLER_PREPARED_PUBLICATION_ACTOR_ID || "")
+  if (!token || !actorId) return null
+  try {
+    const conveyor = createPreparedPublicationService({ supabase, actorId, databasePath: process.env.MILLER_PREPARED_PUBLICATION_DB_PATH || path.join(process.cwd(), "data", "miller-prepared-publication-actions.sqlite") })
+    const local = createSamwisePreparedPublicationTransport({ conveyor, token })
+    const localPort = Number(process.env.MILLER_SAMWISE_CONVEYOR_PORT || 8791)
+    if (!Number.isInteger(localPort) || localPort < 1024 || localPort > 65535) throw new Error("local_conveyor_port_invalid")
+    return local.listen(localPort, "127.0.0.1", () => console.log(`Miller prepared-action conveyor listening on 127.0.0.1:${localPort}`))
+  } catch (error) {
+    console.error(`Miller prepared-action conveyor disabled: ${String(error?.message || "configuration_invalid").replace(/[^a-z0-9_-]/gi, "_").slice(0, 120)}`)
+    return null
+  }
+}
 const shadowPersistence = createShadowPersistence({ supabase })
 
 const CATEGORY_ALIASES = {
@@ -3033,6 +3050,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
   app.listen(port, bindHost, () => {
     console.log(`Miller server running on ${bindHost ? `http://${bindHost}:${port}` : `platform-managed port ${port}`}`)
   })
+  startSamwisePreparedPublicationTransport()
 }
 
 export { app, clearRateLimitsForTests, isAllowedCorsRequest, isValidResourceId, paidDailyLimit, rateLimit, requireAdmin, setSecurityHeaders }

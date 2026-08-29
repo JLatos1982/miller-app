@@ -26,3 +26,4 @@ supabase/.temp/
 *.sln
 *.sw?
 data/directory-address-coverage-current.json
+data/miller-prepared-publication-actions.sqlite

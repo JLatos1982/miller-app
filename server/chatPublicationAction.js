@@ -2,10 +2,14 @@ import { createHash, randomUUID } from "node:crypto"
 export const CHAT_PUBLICATION_ACTION_V1 = "miller-chat-publication-action-v1"
 const hash = (value) => createHash("sha256").update(JSON.stringify(value)).digest("hex")
 
+export function publicationCoordinateFingerprint(coordinates = {}) {
+  return hash({ latitude: Number(coordinates.latitude), longitude: Number(coordinates.longitude) })
+}
+
 export function preparePublicationAction({ resource, location, qc, geocoderEvidence, now = Date.now(), ttlMs = 5 * 60_000 } = {}) {
   const coordinates = qc?.review_snapshot?.coordinates || {}
   if (!resource?.id || !location?.id || !qc?.classification_fingerprint || qc.decision !== "pilot_eligible" || location.public_map || geocoderEvidence?.extracted_value?.address_identity?.fingerprint == null) throw new Error("chat_publication_not_prepared")
-  const body={contract:CHAT_PUBLICATION_ACTION_V1,action_id:`publish_${randomUUID()}`,action:"publish_verified_map_pin",resource_id:resource.id,location_id:location.id,qc_version:Number(qc.version),qc_fingerprint:qc.classification_fingerprint,address_identity_fingerprint:geocoderEvidence.extracted_value.address_identity.fingerprint,coordinate_fingerprint:hash({latitude:Number(coordinates.latitude),longitude:Number(coordinates.longitude)}),expires_at:new Date(now+ttlMs).toISOString()}
+  const body={contract:CHAT_PUBLICATION_ACTION_V1,action_id:`publish_${randomUUID()}`,action:"publish_verified_map_pin",resource_id:resource.id,location_id:location.id,qc_version:Number(qc.version),qc_fingerprint:qc.classification_fingerprint,address_identity_fingerprint:geocoderEvidence.extracted_value.address_identity.fingerprint,coordinate_fingerprint:publicationCoordinateFingerprint(coordinates),expires_at:new Date(now+ttlMs).toISOString()}
   return Object.freeze({...body,proposal_fingerprint:hash(body)})
 }
 export function confirmPublicationAction({ action, confirmedActionId, now = Date.now(), current = {} } = {}) {
