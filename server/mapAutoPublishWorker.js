@@ -1,3 +1,5 @@
+import { canonicalCivicAddress } from "./bcAddressGeocoder.js"
+
 const text = (value) => String(value ?? "").trim()
 const newest = (items) => [...items].sort((a, b) => String(b.last_observed_at || b.updated_at || b.created_at || "").localeCompare(String(a.last_observed_at || a.updated_at || a.created_at || "")))[0] || null
 const housing = /\b(shelter|housing|transition|recovery home|safe home|supportive living|residential)\b/i
@@ -33,6 +35,10 @@ export function buildMapAutoPublishContexts({ resources = [], claims = [], evide
 }
 
 const normalized = (value) => text(typeof value === "string" ? value : value?.value ?? value).toLowerCase().replace(/[^a-z0-9]/g, "")
+const sameExactCivicAddress = (left, right) => {
+  const leftKey = canonicalCivicAddress(left), rightKey = canonicalCivicAddress(right)
+  return Boolean(leftKey.civic_number && leftKey.civic_number === rightKey.civic_number && leftKey.street_name === rightKey.street_name && leftKey.street_type === rightKey.street_type && leftKey.street_direction === rightKey.street_direction)
+}
 const currentEvidence = (items = []) => items.filter((entry) => entry.stale !== true && ((entry.source_url && Number(entry.source_authority) >= 85) || (entry.source_type === "trusted_master_record" && entry.source_record_id && Number(entry.source_authority) === 100)))
 export function selectOccupancyClaim(claims = [], evidenceByClaim = new Map()) {
   const currentClaims = claims.filter((claim) => !["superseded", "rejected", "unknown"].includes(claim.status))
@@ -44,7 +50,7 @@ export function selectOccupancyClaim(claims = [], evidenceByClaim = new Map()) {
   return { claim: newest(candidates.map((item) => item.claim)), reason_code: null }
 }
 export function selectGeocoderEvidence(claims = [], evidenceByClaim = new Map(), address) {
-  const candidates = claims.flatMap((claim) => (evidenceByClaim.get(claim.id) || []).map((evidence) => ({ claim, evidence }))).filter(({ evidence }) => { const value = evidence.extracted_value || {}; return evidence.stale !== true && evidence.source_type === "bc_geocoder" && Number(value.score) >= 90 && value.municipality_match === true && String(value.province || "").toUpperCase() === "BC" && !/centroid|locality|postal/i.test(String(value.location_descriptor || value.precision || "")) && Number.isFinite(Number(value.coordinates?.latitude ?? value.latitude)) && Number.isFinite(Number(value.coordinates?.longitude ?? value.longitude)) && normalized(value.standardized_address || value.returned_address) === normalized(address) })
+  const candidates = claims.flatMap((claim) => (evidenceByClaim.get(claim.id) || []).map((evidence) => ({ claim, evidence }))).filter(({ evidence }) => { const value = evidence.extracted_value || {}; return evidence.stale !== true && evidence.source_type === "bc_geocoder" && Number(value.score) >= 90 && value.municipality_match === true && String(value.province || "").toUpperCase() === "BC" && !/centroid|locality|postal/i.test(String(value.location_descriptor || value.precision || "")) && Number.isFinite(Number(value.coordinates?.latitude ?? value.latitude)) && Number.isFinite(Number(value.coordinates?.longitude ?? value.longitude)) && sameExactCivicAddress(value.standardized_address || value.returned_address, address) })
   return newest(candidates.map((item) => item.evidence))
 }
 const protectedName = /\b(safe home|transition house|domestic violence|trafficking|confidential|undisclosed|intake only)\b/i

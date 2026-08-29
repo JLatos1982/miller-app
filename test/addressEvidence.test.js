@@ -1,7 +1,7 @@
 import test from "node:test"
 import assert from "node:assert/strict"
 import fs from "node:fs"
-import { addressComponents, approveEvidenceForGeocoding, classifyAddressEvidence, classifySource, extractNumberedAddresses, groupSharedAddresses, normalizedGeocodingQuery } from "../server/addressEvidence.js"
+import { addressComponents, approveEvidenceForGeocoding, classifyAddressEvidence, classifySource, extractNumberedAddresses, groupSharedAddresses, isCompleteNumberedAddress, normalizedGeocodingQuery } from "../server/addressEvidence.js"
 
 const resource = { name: "Burnaby Public OAT Clinic", organization: "Fraser Health", address: "Unit 320, 7155 Kingsway", city: "Burnaby", service_type: "OAT clinic" }
 const page = { text: "Burnaby Public OAT Clinic is located at Unit 320, 7155 Kingsway in Burnaby." }
@@ -41,6 +41,14 @@ test("BC address normalization preserves units across common formats", () => {
     assert.equal(parsed.unit, "320"); assert.equal(parsed.street_address, "7155 Kingsway"); assert.equal(parsed.postal_code, "V5E 1E8")
     assert.match(normalizedGeocodingQuery(value, { city: "Burnaby" }), /^Unit 320 -- 7155 Kingsway, Burnaby, BC/)
   }
+})
+
+test("address parsing keeps the leading civic number when a street begins with an ordinal", () => {
+  const parsed = addressComponents("323 8th Street, New Westminster")
+  assert.equal(parsed.unit, "")
+  assert.equal(parsed.street_address, "323 8th Street")
+  assert.equal(parsed.municipality, "New Westminster")
+  assert.equal(isCompleteNumberedAddress("323 8th Street, New Westminster"), true)
 })
 
 test("evidence approval is only permission for future geocoding", () => {

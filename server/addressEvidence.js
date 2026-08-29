@@ -23,7 +23,7 @@ export function classifySource(url, organization = "") {
 
 const provincePattern = /\b(?:british columbia|b\.?\s*c\.?)\b/ig
 const postalPattern = /\b([ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTVWXYZ])[ -]?(\d[ABCEGHJ-NPRSTVWXYZ]\d)\b/i
-const unitPrefix = /\b(?:unit|suite|ste|office|apt|apartment|#)\s*#?\s*([A-Za-z0-9-]+)\b/i
+const unitPrefix = /(?:\b(?:unit|suite|ste|office|apt|apartment)\b|#)\s*#?\s*([A-Za-z0-9-]+)\b/i
 
 export function addressComponents(value, fallback = {}) {
   const original = String(value || "").replace(/[\u2012-\u2015]/g, "-").replace(/\s+/g, " ").trim()
@@ -35,11 +35,14 @@ export function addressComponents(value, fallback = {}) {
   let unit = text.match(unitPrefix)?.[1] || ""
   const leading = text.match(/^\s*([A-Za-z0-9-]+)\s*-\s*(\d+[A-Za-z]?)\s+(.+)$/)
   if (!unit && leading && /^\d{1,4}[A-Za-z]?$/.test(leading[1])) { unit = leading[1]; text = `${leading[2]} ${leading[3]}` }
-  const trailing = text.match(/,?\s*(?:unit|suite|ste|office|apt|apartment|#)\s*#?\s*([A-Za-z0-9-]+)\s*$/i)
+  const trailing = text.match(/,?\s*(?:\b(?:unit|suite|ste|office|apt|apartment)\b|#)\s*#?\s*([A-Za-z0-9-]+)\s*$/i)
   if (trailing) { unit ||= trailing[1]; text = text.slice(0, trailing.index) }
   text = text.replace(unitPrefix, " ").replace(/^\s*[-,]+|[-,]+\s*$/g, "").replace(/\s+/g, " ").trim()
   const parts = text.split(",").map((part) => part.trim()).filter(Boolean)
-  const civicIndex = parts.findIndex((part) => /\b\d+[A-Za-z]?\s+[A-Za-z]/.test(part))
+  // Street names may legitimately begin with a numeric ordinal (for example
+  // "323 8th Street").  The prior word-only check treated the municipality as
+  // part of that street address and also confused the ordinal with the civic.
+  const civicIndex = parts.findIndex((part) => /^\s*\d+[A-Za-z]?\s+(?:\d+(?:st|nd|rd|th)?\b|[A-Za-z])/.test(part))
   const streetAddress = civicIndex >= 0 ? parts[civicIndex] : text
   const municipality = String(fallback.city || parts[civicIndex + 1] || "").replace(provincePattern, "").trim()
   return Object.freeze({ original, unit, street_address: streetAddress, municipality, province: "BC", postal_code: postalCode })
@@ -54,7 +57,7 @@ export function normalizedGeocodingQuery(value, fallback = {}) {
   const parsed = addressComponents(value, fallback)
   return [parsed.unit ? `Unit ${parsed.unit} -- ${parsed.street_address}` : parsed.street_address, parsed.municipality, "BC", parsed.postal_code].filter(Boolean).join(", ")
 }
-export function isCompleteNumberedAddress(value) { return /\b\d+[A-Za-z]?\s+[A-Za-z]/.test(normalizeAddress(value)) && !/\bP\.?\s*O\.?\s*Box\b/i.test(value) }
+export function isCompleteNumberedAddress(value) { return /\b\d+[A-Za-z]?\s+(?:\d+(?:st|nd|rd|th)?\b|[A-Za-z])/.test(normalizeAddress(value)) && !/\bP\.?\s*O\.?\s*Box\b/i.test(value) }
 export function isSensitiveOrNonFixed(resource = {}) { return resource.virtual_service === true || resource.mobile_service === true || /\b(directory|online database|virtual|mobile|service area)\b/i.test(`${resource.service_type || resource.serviceType || ""} ${resource.accessType || ""}`) || sensitive.test(`${resource.name || ""} ${resource.service_type || resource.serviceType || ""} ${resource.address || ""}`) }
 
 export function extractNumberedAddresses(pageText = "") {
