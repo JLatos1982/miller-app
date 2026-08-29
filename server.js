@@ -82,6 +82,7 @@ import { nextExpectedWake, normalizeSchedulerConfig, runScheduledMaintenanceCycl
 import { buildSamwiseStatus, createRequireSamwiseStatus } from "./server/samwiseStatus.js"
 import { createPreparedPublicationService } from "./server/preparedPublicationService.js"
 import { createSamwisePreparedPublicationTransport } from "./server/samwisePreparedPublicationTransport.js"
+import { readPreparedActionActorId, readPreparedActionTransportToken } from "./server/preparedActionRuntimeCredentials.js"
 
 dotenv.config()
 
@@ -261,8 +262,8 @@ const requireSamwiseStatus = createRequireSamwiseStatus()
 const publicWriteHandlers = createPublicWriteHandlers({ supabase })
 const geocoder = createGeocoder({ contactEmail: process.env.GEOCODER_CONTACT_EMAIL })
 function startSamwisePreparedPublicationTransport() {
-  const token = String(process.env.MILLER_SAMWISE_CONVEYOR_TOKEN || "")
-  const actorId = String(process.env.MILLER_PREPARED_PUBLICATION_ACTOR_ID || "")
+  const token = readPreparedActionTransportToken() || ""
+  const actorId = readPreparedActionActorId() || ""
   if (!token || !actorId) return null
   try {
     const conveyor = createPreparedPublicationService({ supabase, actorId, databasePath: process.env.MILLER_PREPARED_PUBLICATION_DB_PATH || path.join(process.cwd(), "data", "miller-prepared-publication-actions.sqlite") })

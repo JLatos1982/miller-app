@@ -14,6 +14,7 @@
     "scan-resource-attachments": "node --env-file-if-exists=.env.local scripts/scan-resource-attachments.mjs",
     "security-sentinel": "node --env-file-if-exists=.env.local scripts/run-local-external-sentinel.mjs",
     "scheduler": "node --env-file-if-exists=.env.local scripts/run-local-automation-scheduler.mjs"
+    ,"configure-prepared-action-conveyor": "node --env-file-if-exists=.env scripts/configure-prepared-action-conveyor.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.102.1",
