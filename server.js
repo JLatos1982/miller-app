@@ -83,6 +83,7 @@ import { buildSamwiseStatus, createRequireSamwiseStatus } from "./server/samwise
 import { createPreparedPublicationService } from "./server/preparedPublicationService.js"
 import { createSamwisePreparedPublicationTransport } from "./server/samwisePreparedPublicationTransport.js"
 import { readPreparedActionActorId, readPreparedActionTransportToken } from "./server/preparedActionRuntimeCredentials.js"
+import { IGOR_HANDOFF_CALLBACK_PATH, igorHandoffCallbackHeaders, renderIgorHandoffCallbackPage } from "./server/igorHandoffCallback.js"
 
 dotenv.config()
 
@@ -3039,6 +3040,11 @@ app.post("/api/admin/tavily-resources/:id/ai-review", reviewRateLimit, requireAd
     console.error("AI resource review failed:", String(error?.message || "Unknown error").slice(0, 200))
     return res.status(500).json({ error: "AI review failed." })
   }
+})
+
+app.get(IGOR_HANDOFF_CALLBACK_PATH, (_req, res) => {
+  for (const [name, value] of Object.entries(igorHandoffCallbackHeaders())) res.setHeader(name, value)
+  return res.type("html").send(renderIgorHandoffCallbackPage())
 })
 
 app.use(express.static(path.join(__dirname, "dist")))
