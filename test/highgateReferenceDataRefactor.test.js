@@ -5,9 +5,11 @@ import { join } from "node:path"
 
 const migrationPath = join(process.cwd(), "supabase", "migrations", "202608650001_refactor_highgate_reference_data.sql")
 const aclMigrationPath = join(process.cwd(), "supabase", "migrations", "202608660001_highgate_reference_acl_select_only.sql")
+const nonCrudAclMigrationPath = join(process.cwd(), "supabase", "migrations", "202608670001_highgate_reference_noncrud_acl_hardening.sql")
 const manifestPath = join(process.cwd(), "docs", "HIGHGATE_REVIEWED_DEPENDENCY_MANIFEST_V1.json")
 const migration = readFileSync(migrationPath, "utf8")
 const aclMigration = readFileSync(aclMigrationPath, "utf8")
+const nonCrudAclMigration = readFileSync(nonCrudAclMigrationPath, "utf8")
 const manifest = JSON.parse(readFileSync(manifestPath, "utf8"))
 
 function functionBody(name) {
@@ -67,5 +69,13 @@ test("HighGate reference ACL migration revokes only service-role DML and preserv
   assert.match(aclMigration, /grant select\s+on table public\.highgate_authoritative_location_reference\s+to service_role/i)
   assert.doesNotMatch(aclMigration, /^\s*(insert\s+into|update\s+public\.|delete\s+from|truncate|alter\s+table|create|drop)\b/im)
   const tableReferences = aclMigration.match(/public\.[a-z_]+/gi) ?? []
+  assert.deepEqual([...new Set(tableReferences)], ["public.highgate_authoritative_location_reference"])
+})
+
+test("HighGate reference non-CRUD ACL migration revokes only unused auxiliary privileges", () => {
+  assert.match(nonCrudAclMigration, /revoke truncate, references, trigger, maintain\s+on table public\.highgate_authoritative_location_reference\s+from service_role/i)
+  assert.match(nonCrudAclMigration, /grant select\s+on table public\.highgate_authoritative_location_reference\s+to service_role/i)
+  assert.doesNotMatch(nonCrudAclMigration, /^\s*(insert\s+into|update\s+public\.|delete\s+from|truncate\s+table|alter\s+table|create|drop)\b/im)
+  const tableReferences = nonCrudAclMigration.match(/public\.[a-z_]+/gi) ?? []
   assert.deepEqual([...new Set(tableReferences)], ["public.highgate_authoritative_location_reference"])
 })
