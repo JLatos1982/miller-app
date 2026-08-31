@@ -7,3 +7,40 @@ Prepared: `samwise-miller-location-apply-v1` binds one owner-confirmable mapping
 Authority: Miller owns canonical resources, `resource_locations`, and map eligibility/publication. Samwise owns observations, Farm projections, stewardship proposals, and owner attention. Igor is a future independent observer/reviewer only.
 
 Shared rules: evidence is shared without transferring authority; observer health is distinct from target health; model output is advisory. Mapping apply is domain-specific—not a generic mutation channel. Igor/security capabilities remain deferred.
+
+## Miller canonical contact and location projection v1
+
+`miller-canonical-contact-location-projection-v1` creates an initially empty,
+one-to-one `resource_canonical_profile` for a canonical `resource_registry`
+record. It does not backfill, infer, or choose values from Tavily, aliases,
+evidence, or existing locations.
+
+The fixed read-only Samwise contract is:
+
+`GET /api/integrations/samwise/canonical-profile-preview/:resourceId`
+
+It uses Miller's existing dedicated trusted Samwise bearer credential and returns
+`miller-canonical-profile-preview-v1`. The response always has the resource ID,
+`has_canonical_profile`, canonical-location ID, `phone`, `website`, `city`,
+`province`, `public_street_address`, `version`, and `canonical_fingerprint`.
+Absent profiles return null values and no fingerprint; they do not imply a
+canonical choice.
+
+Correction mapping for the future `miller-canonical-field-correction-v1`
+transaction is fixed:
+
+| Samwise field | Miller target |
+| --- | --- |
+| `phone` | `resource_canonical_profile.phone` |
+| `website` | `resource_canonical_profile.website` |
+| `city` | `resource_locations.city` for the profile's `canonical_location_id` |
+| `province` | `resource_locations.province` for the profile's `canonical_location_id` |
+| `public_street_address` | `resource_locations.street_address` for the profile's `canonical_location_id` |
+
+City, province, and address are deliberately derived rather than duplicated.
+The profile trigger requires the selected location to belong to the same
+resource and rejects confidential or undisclosed locations. The deterministic
+fingerprint covers normalized phone/website, location ID, derived location
+fields, and version. A later fixed write transaction must increment the version
+and append `resource_canonical_profile_audit` atomically with its supporting
+evidence bindings, actor, policy, reason, and before/after state.

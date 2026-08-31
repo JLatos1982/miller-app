@@ -80,6 +80,7 @@ import { createMaintenancePersistence } from "./server/maintenancePersistence.js
 import { createMaintenanceSchedulerStore } from "./server/maintenanceSchedulerStore.js"
 import { nextExpectedWake, normalizeSchedulerConfig, runScheduledMaintenanceCycle, weeklyMaintenanceSummary } from "./server/maintenanceScheduler.js"
 import { buildSamwiseStatus, createRequireSamwiseStatus } from "./server/samwiseStatus.js"
+import { buildCanonicalProfilePreview } from "./server/canonicalProfile.js"
 import { createPreparedPublicationService } from "./server/preparedPublicationService.js"
 import { createSamwisePreparedPublicationTransport } from "./server/samwisePreparedPublicationTransport.js"
 import { readPreparedActionActorId, readPreparedActionTransportToken } from "./server/preparedActionRuntimeCredentials.js"
@@ -1377,6 +1378,28 @@ async function samwiseStatusSnapshot() {
  return buildSamwiseStatus({build:runtimeVersion,database:{state:"healthy",observed_at:now},securityFindings:findings.data||[],pulse:pulse.data||null,deploymentAlignment:deployment.data?.alignment_state||runtimeDeployment.state,maintenance:maintenance.data||null,checkpoints:checkpoints.data||[],queues:{resource_review:resourceReviews.count,shelter_review:shelterReviews.count,location_qc:locationReviews.count,attachment_scan:attachments.count}})
 }
 app.get("/api/integrations/samwise/status",requireSamwiseStatus,async(_req,res)=>{try{res.setHeader("Cache-Control","no-store");return res.json(await samwiseStatusSnapshot())}catch{return res.status(503).json({error:"Status unavailable"})}})
+
+// Fixed, read-only contract for the future canonical correction client. This
+// uses the existing trusted Samwise backend credential; it has no mutation path.
+app.get("/api/integrations/samwise/canonical-profile-preview/:resourceId",requireSamwiseStatus,async(req,res)=>{
+  if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(req.params.resourceId)) return res.status(400).json({error:"Invalid canonical resource ID."})
+  try {
+    const resource = await supabase.from("resource_registry").select("id").eq("id", req.params.resourceId).maybeSingle()
+    if (resource.error) throw resource.error
+    if (!resource.data) return res.status(404).json({error:"Canonical resource not found."})
+    const profile = await supabase.from("resource_canonical_profile").select("resource_id,canonical_location_id,phone,website,version,canonical_fingerprint").eq("resource_id", req.params.resourceId).maybeSingle()
+    if (profile.error) throw profile.error
+    let location = null
+    if (profile.data?.canonical_location_id) {
+      const selected = await supabase.from("resource_locations").select("id,resource_id,street_address,city,province").eq("id", profile.data.canonical_location_id).maybeSingle()
+      if (selected.error) throw selected.error
+      location = selected.data
+    }
+    const preview = buildCanonicalProfilePreview({ resourceId: req.params.resourceId, profile: profile.data, location })
+    if (profile.data && preview.canonical_fingerprint !== profile.data.canonical_fingerprint) throw new Error("canonical_profile_fingerprint_mismatch")
+    res.setHeader("Cache-Control","no-store"); return res.json(preview)
+  } catch { return res.status(503).json({error:"Canonical profile preview is unavailable."}) }
+})
 async function maintenanceToolboxSnapshot() {
  const [cycles,outcomes,lessons,opportunities,capabilityGaps,security]=await Promise.all([supabase.from("miller_maintenance_cycles").select("*").order("started_at",{ascending:false}).limit(8),supabase.from("miller_maintenance_outcomes").select("*").order("completed_at",{ascending:false}).limit(20),supabase.from("miller_learning_records").select("*").order("last_confirmed_at",{ascending:false}).limit(20),supabase.from("miller_growth_opportunities").select("*").order("priority",{ascending:false}).order("last_observed_at",{ascending:false}).limit(40),supabase.from("miller_capability_gaps").select("*").order("last_observed_at",{ascending:false}).limit(40),supabase.from("miller_security_findings").select("*").order("last_observed_at",{ascending:false}).limit(20)])
  if([cycles,outcomes,lessons,opportunities,capabilityGaps,security].some((item)=>item.error))throw new Error("maintenance_toolbox_unavailable")
