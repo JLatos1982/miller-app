@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto"
-import { mkdirSync, writeFileSync } from "node:fs"
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import { resolve } from "node:path"
 import { createClient } from "@supabase/supabase-js"
 import { correctionRequestFingerprint, validateCanonicalCorrectionRequest } from "../server/canonicalFieldCorrection.js"
@@ -11,6 +11,7 @@ for (const key of required) if (!process.env[key]) throw new Error(`${key}_is_re
 const supabase = createClient(process.env.LOCAL_SUPABASE_URL, process.env.LOCAL_SUPABASE_SERVICE_ROLE_KEY, { auth: { persistSession: false } })
 const exportDir = resolve(process.env.PARITY_EXPORT_DIR)
 const CONTRACT = "miller-canonical-field-correction-v1"
+const fingerprintVectors = JSON.parse(readFileSync(new URL("../test/fixtures/canonical-profile-fingerprint-v1.json", import.meta.url), "utf8"))
 const ids = Object.freeze({
   resource: "00000000-0000-4000-8000-00000000e201",
   location: "00000000-0000-4000-8000-00000000e202",
@@ -77,13 +78,15 @@ async function main() {
   // This runner is deliberately local-only. The caller supplies a 127.0.0.1
   // Supabase URL and a temporary service key from `supabase status`.
   if (!/^http:\/\/127\.0\.0\.1:/.test(process.env.LOCAL_SUPABASE_URL)) fail("local_url_required")
-  const parityInput = { phone: null, website: null, canonical_location_id: ids.location, city: "Synthetic Corrected City", province: "BC", public_street_address: "100 Synthetic Start Road", version: 1 }
-  const expectedDatabaseFingerprint = canonicalProfileFingerprint(parityInput)
-  const databaseFingerprint = (await query(supabase.rpc("canonical_profile_fingerprint_v1", {
-    p_phone: parityInput.phone, p_website: parityInput.website, p_location_id: parityInput.canonical_location_id,
-    p_city: parityInput.city, p_province: parityInput.province, p_street: parityInput.public_street_address, p_version: parityInput.version,
-  }), "canonical_fingerprint_parity")).data
-  if (databaseFingerprint !== expectedDatabaseFingerprint) fail("canonical_fingerprint_contract_drift", { databaseFingerprint, expectedDatabaseFingerprint })
+  for (const vector of fingerprintVectors) {
+    const input = vector.input
+    const databaseFingerprint = (await query(supabase.rpc("canonical_profile_fingerprint_v1", {
+      p_phone: input.phone, p_website: input.website, p_location_id: input.canonical_location_id,
+      p_city: input.city, p_province: input.province, p_street: input.public_street_address, p_version: input.version,
+    }), `canonical_fingerprint_parity_${vector.id}`)).data
+    const expectedFingerprint = canonicalProfileFingerprint(input)
+    if (databaseFingerprint !== vector.sha256 || expectedFingerprint !== vector.sha256) fail("canonical_fingerprint_contract_drift", { vector: vector.id, databaseFingerprint, expectedFingerprint, expectedVectorFingerprint: vector.sha256 })
+  }
   await query(supabase.from("resource_registry").insert({ id: ids.resource, display_name: "Synthetic Canonical E2E Resource", lifecycle_state: "active", editorial_status: "approved" }), "seed_resource")
   await query(supabase.from("resource_locations").insert({
     id: ids.location, resource_id: ids.resource, location_label: "Synthetic public canonical location", location_type: "fixed",

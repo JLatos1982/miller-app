@@ -1,0 +1,41 @@
+[
+  {
+    "id": "all-null-v1",
+    "input": {
+      "phone": null,
+      "website": null,
+      "canonical_location_id": null,
+      "city": null,
+      "province": null,
+      "public_street_address": null,
+      "version": 1
+    },
+    "sha256": "5ed9630ea3e1bb6ca5b0ed0f38806a9b43ad42c0dd11e6f96ef7e6ae4e07c520"
+  },
+  {
+    "id": "utf8-full-v7",
+    "input": {
+      "phone": "+16045550101",
+      "website": "https://example.test/path",
+      "canonical_location_id": "00000000-0000-4000-8000-00000000e202",
+      "city": "Montréal",
+      "province": "QC",
+      "public_street_address": "12 Rue Éclair",
+      "version": 7
+    },
+    "sha256": "8afc681834bac1a67ea166c137247bb77d31426c426362e4bfc58db403e55f1e"
+  },
+  {
+    "id": "synthetic-location-v1",
+    "input": {
+      "phone": null,
+      "website": null,
+      "canonical_location_id": "00000000-0000-4000-8000-00000000e202",
+      "city": "Synthetic Corrected City",
+      "province": "BC",
+      "public_street_address": "100 Synthetic Start Road",
+      "version": 1
+    },
+    "sha256": "fb6582c9543f6173156f7920495e80ccece2121ab6de85e7886254f03f934e01"
+  }
+]
