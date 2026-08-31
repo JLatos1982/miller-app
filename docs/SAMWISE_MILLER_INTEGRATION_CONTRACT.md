@@ -44,3 +44,22 @@ fingerprint covers normalized phone/website, location ID, derived location
 fields, and version. A later fixed write transaction must increment the version
 and append `resource_canonical_profile_audit` atomically with its supporting
 evidence bindings, actor, policy, reason, and before/after state.
+
+## Canonical field correction transaction v1
+
+`POST /api/integrations/samwise/canonical-field-correction-v1` and its fixed
+`/preview` counterpart accept only `miller-canonical-field-correction-v1`.
+Required request members are `correction_id`, `resource_id`, `field`,
+`expected_current_value`, `expected_profile_version` (or explicit profile
+absence), `expected_canonical_fingerprint`, `proposed_value`,
+`supporting_evidence_bindings`, `policy_version`, `requester_id`, `created_at`,
+`expires_at`, and `request_fingerprint`; location fields additionally require
+`canonical_location_id`. Bindings are `{evidence_id,evidence_fingerprint,field}`.
+
+The database accepts a binding only when its immutable evidence belongs to the
+resource, is fresh, high-authority, explicitly server-marked authoritative,
+high-confidence, no-conflict and privacy-safe for the exact field/value, and is
+not AI/Qwen/OpenAI-derived. The response is either `preview`,
+`verified_updated`, or a fail-closed rejection/staleness outcome. Successful
+responses include correction ID, old/new values, fingerprints, versions, and
+audit ID for a separately authorized rollback proposal.

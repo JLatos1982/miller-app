@@ -81,6 +81,7 @@ import { createMaintenanceSchedulerStore } from "./server/maintenanceSchedulerSt
 import { nextExpectedWake, normalizeSchedulerConfig, runScheduledMaintenanceCycle, weeklyMaintenanceSummary } from "./server/maintenanceScheduler.js"
 import { buildSamwiseStatus, createRequireSamwiseStatus } from "./server/samwiseStatus.js"
 import { buildCanonicalProfilePreview } from "./server/canonicalProfile.js"
+import { correctionResultStatus, validateCanonicalCorrectionRequest } from "./server/canonicalFieldCorrection.js"
 import { createPreparedPublicationService } from "./server/preparedPublicationService.js"
 import { createSamwisePreparedPublicationTransport } from "./server/samwisePreparedPublicationTransport.js"
 import { readPreparedActionActorId, readPreparedActionTransportToken } from "./server/preparedActionRuntimeCredentials.js"
@@ -1399,6 +1400,12 @@ app.get("/api/integrations/samwise/canonical-profile-preview/:resourceId",requir
     if (profile.data && preview.canonical_fingerprint !== profile.data.canonical_fingerprint) throw new Error("canonical_profile_fingerprint_mismatch")
     res.setHeader("Cache-Control","no-store"); return res.json(preview)
   } catch { return res.status(503).json({error:"Canonical profile preview is unavailable."}) }
+})
+app.post("/api/integrations/samwise/canonical-field-correction-v1/preview",requireSamwiseStatus,async(req,res)=>{
+  try { const request=validateCanonicalCorrectionRequest(req.body); const result=await supabase.rpc("apply_miller_canonical_field_correction_v1",{p_request:request,p_preview:true}); if(result.error)throw result.error; res.setHeader("Cache-Control","no-store"); return res.json(result.data) } catch(error) { return res.status(correctionResultStatus(error)).json({outcome:"rejected",error:"Canonical correction preview was rejected."}) }
+})
+app.post("/api/integrations/samwise/canonical-field-correction-v1",requireSamwiseStatus,async(req,res)=>{
+  try { const request=validateCanonicalCorrectionRequest(req.body); const result=await supabase.rpc("apply_miller_canonical_field_correction_v1",{p_request:request,p_preview:false}); if(result.error)throw result.error; res.setHeader("Cache-Control","no-store"); return res.status(result.data?.outcome==="stale_before_write"?409:200).json(result.data) } catch(error) { return res.status(correctionResultStatus(error)).json({outcome:"rejected",error:"Canonical correction was rejected."}) }
 })
 async function maintenanceToolboxSnapshot() {
  const [cycles,outcomes,lessons,opportunities,capabilityGaps,security]=await Promise.all([supabase.from("miller_maintenance_cycles").select("*").order("started_at",{ascending:false}).limit(8),supabase.from("miller_maintenance_outcomes").select("*").order("completed_at",{ascending:false}).limit(20),supabase.from("miller_learning_records").select("*").order("last_confirmed_at",{ascending:false}).limit(20),supabase.from("miller_growth_opportunities").select("*").order("priority",{ascending:false}).order("last_observed_at",{ascending:false}).limit(40),supabase.from("miller_capability_gaps").select("*").order("last_observed_at",{ascending:false}).limit(40),supabase.from("miller_security_findings").select("*").order("last_observed_at",{ascending:false}).limit(20)])
