@@ -42,12 +42,13 @@ signatures, callers, grants, and bounded behavior remain unchanged.
 ## Quality reader access
 
 The two existing `authenticated` SELECT policies now call
-`public.is_miller_resource_quality_reader_v1()`. It is a no-argument,
+`miller_internal.is_miller_resource_quality_reader_v1()`. It is a no-argument,
 SECURITY DEFINER helper with a fixed safe search path; it only evaluates the
 current `auth.uid()` against the governed authorization row. It has EXECUTE
 only for `authenticated`, and no arguments with which a caller can probe a
-different user. The quality tables retain their existing forced RLS and
-authenticated SELECT grants.
+different user. `miller_internal` is not an exposed API schema, so the helper
+is not a public PostgREST RPC. The quality tables retain their existing forced
+RLS and authenticated SELECT grants.
 
 ## Verification and baseline relevance
 

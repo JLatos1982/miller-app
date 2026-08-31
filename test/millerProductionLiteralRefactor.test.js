@@ -4,7 +4,9 @@ import { readFileSync } from "node:fs"
 import { join } from "node:path"
 
 const path = join(process.cwd(), "supabase", "migrations", "202608680001_refactor_production_literal_bindings.sql")
+const hardeningPath = join(process.cwd(), "supabase", "migrations", "202608690001_move_quality_reader_helper_internal.sql")
 const migration = readFileSync(path, "utf8")
+const hardening = readFileSync(hardeningPath, "utf8")
 
 function functionBody(name) {
   const start = migration.indexOf(`create or replace function public.${name}`)
@@ -53,10 +55,14 @@ test("quality RLS policies delegate to a locked current-user authorization helpe
   assert.match(helper, /security definer/i)
   assert.match(helper, /reader_id = \(select auth\.uid\(\)\)/i)
   assert.match(migration, /revoke all on function public\.is_miller_resource_quality_reader_v1\(\) from public, anon, service_role/i)
-  assert.match(migration, /grant execute on function public\.is_miller_resource_quality_reader_v1\(\) to authenticated/i)
+  assert.match(hardening, /create schema if not exists miller_internal authorization postgres/i)
+  assert.match(hardening, /revoke all on schema miller_internal from public, anon, service_role/i)
+  assert.match(hardening, /grant usage on schema miller_internal to authenticated/i)
+  assert.match(hardening, /grant execute on function miller_internal\.is_miller_resource_quality_reader_v1\(\) to authenticated/i)
+  assert.match(hardening, /drop function public\.is_miller_resource_quality_reader_v1\(\)/i)
   for (const policy of ["miller_resource_quality_reader_select", "miller_resource_quality_detail_reader_select"]) {
-    assert.match(migration, new RegExp(`drop policy ${policy}`, "i"))
-    assert.match(migration, new RegExp(`create policy ${policy}[\\s\\S]*is_miller_resource_quality_reader_v1`, "i"))
+    assert.match(hardening, new RegExp(`drop policy ${policy}`, "i"))
+    assert.match(hardening, new RegExp(`create policy ${policy}[\\s\\S]*miller_internal\\.is_miller_resource_quality_reader_v1`, "i"))
   }
 })
 
