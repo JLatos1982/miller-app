@@ -1,0 +1,187 @@
+{
+  "contract": "highgate-reviewed-dependency-manifest-v1",
+  "source_commit": "f2045ddf1e0ee692ee97a25e5425a76a8d05fd4d",
+  "production_access": "read_only_catalog_only",
+  "closure_status": "bounded_catalog_verified_twice",
+  "dynamic_sql": false,
+  "execution_order": [
+    "platform_dependencies",
+    "resource_registry",
+    "trusted_master_resource_records",
+    "resource_fact_claims",
+    "resource_fact_evidence",
+    "resource_fact_change_audit",
+    "location_qc_reviews",
+    "location_qc_review_snapshots",
+    "location_qc_review_audit",
+    "prevent_authoritative_location_correction_mutation",
+    "authoritative_location_corrections",
+    "location_qc_supersessions",
+    "apply_highgate_authoritative_location_correction",
+    "supersede_highgate_human_qc_with_machine_initial"
+  ],
+  "objects": [
+    {
+      "identity": "auth.users(id uuid)",
+      "kind": "platform_table_column",
+      "introduced_by": "actor_id and reviewed_by foreign keys in four closure tables",
+      "included_because": "required to satisfy verified production foreign-key constraints during execution",
+      "catalog_verification": "verified by the catalog-extracted FK definitions; each target requires auth.users(id) and each local column is uuid",
+      "definition_sha256": "790edd392b338ef406ae4efcfbebb87f37b28230c1da05f7b9180a9760168b3d"
+    },
+    {
+      "identity": "extensions.digest(text,text)",
+      "kind": "extension_function",
+      "introduced_by": "both root function bodies",
+      "included_because": "computes claim, evidence, and QC fingerprints",
+      "catalog_verification": "signature text,text returns bytea",
+      "definition_sha256": "7e0427f3926ee11887327fb0640bbd1e97ccd26b85209cb589424d8b862b4ab1"
+    },
+    {
+      "identity": "public.resource_registry",
+      "kind": "table",
+      "introduced_by": "apply function SELECT FOR UPDATE; foreign keys from closure tables",
+      "included_because": "eligibility check and resource referential integrity",
+      "catalog_verification": "ordinary table; required columns id uuid, lifecycle_state text, editorial_status text",
+      "definition_sha256": "d1d8ca66032066994025662a65c154cc05de697f6d7cc32c484f9559ec2988f7"
+    },
+    {
+      "identity": "public.trusted_master_resource_records",
+      "kind": "table",
+      "introduced_by": "apply function SELECT FOR UPDATE and correction legacy_source_record_id FK",
+      "included_because": "legacy marker gate and preserved previous value",
+      "catalog_verification": "ordinary table; required id/resource/address/active/physical/recorded columns verified",
+      "definition_sha256": "2472471f333713534b451f6a8b0fb4dbac06d72d0a3ebe1766e3f5c2614fa11d"
+    },
+    {
+      "identity": "public.resource_fact_claims",
+      "kind": "table",
+      "introduced_by": "both root function bodies",
+      "included_because": "correction claim persistence and QC evidence binding",
+      "catalog_verification": "ordinary table; referenced columns, checks, FK, and partial fingerprint uniqueness verified",
+      "definition_sha256": "2979d651ca12c087810838655b66d932269bdf1fd1561adc2258d56c5dc5f8d8"
+    },
+    {
+      "identity": "public.resource_fact_evidence",
+      "kind": "table",
+      "introduced_by": "both root function bodies",
+      "included_because": "official evidence insertion and bound current geocoder evidence lookup",
+      "catalog_verification": "ordinary table; referenced columns, checks, FK, and partial fingerprint uniqueness verified",
+      "definition_sha256": "d77239e483a26b8a4ebe70357fa5d89dc7dba63370cf11fd2e1e7807e734df71"
+    },
+    {
+      "identity": "public.resource_fact_change_audit",
+      "kind": "table",
+      "introduced_by": "apply function INSERT",
+      "included_because": "append-only correction provenance effect",
+      "catalog_verification": "ordinary table; referenced audit columns and identity primary key verified",
+      "definition_sha256": "56c2160e2c0ea8b1149fa83d82dca60df92a41b50a06812d96c792099e3fc21e"
+    },
+    {
+      "identity": "public.location_qc_reviews",
+      "kind": "table_and_composite_return_type",
+      "introduced_by": "supersede function return type, SELECT FOR UPDATE, and UPDATE RETURNING",
+      "included_because": "current QC concurrency and resulting machine-initial state",
+      "catalog_verification": "ordinary table and implicit row type; referenced columns/checks/FKs verified",
+      "definition_sha256": "35ed1d274411ef547a955431e9626dca1fb10d063d26a8372c76097a9d8095fc"
+    },
+    {
+      "identity": "public.location_qc_review_snapshots",
+      "kind": "table",
+      "introduced_by": "supersede function INSERT statements",
+      "included_because": "preserves prior and new QC snapshots",
+      "catalog_verification": "ordinary table; unique resource/version constraint and identity sequence verified",
+      "definition_sha256": "cf94c739ad3aceabbed2d5bfe46f137a371b39905c6024bb96777329543cdc9f"
+    },
+    {
+      "identity": "public.location_qc_review_audit",
+      "kind": "table",
+      "introduced_by": "supersede function INSERT",
+      "included_because": "QC version/decision audit effect",
+      "catalog_verification": "ordinary table; referenced columns/FKs and identity sequence verified",
+      "definition_sha256": "a37a1e6e216c6f880b66bfe4b5b12e6b2ebefcf7e94e3b04c1c6a18e231cb9e4"
+    },
+    {
+      "identity": "public.authoritative_location_corrections",
+      "kind": "root_table",
+      "introduced_by": "task root and both root function bodies",
+      "included_because": "authoritative correction ledger and QC binding",
+      "catalog_verification": "ordinary table; all columns, eight constraints, RLS, indexes, and append-only trigger verified",
+      "definition_sha256": "88bda3f0b1d885b887b07d89f3117e6aa384170122d81522ab5290c95fc26104",
+      "fixed_address_constraint_sha256": "4192e0e4d7f21b19433c829ca4640dc17b6366f345a5f1926bba6c71d71149c8"
+    },
+    {
+      "identity": "public.location_qc_supersessions",
+      "kind": "table",
+      "introduced_by": "supersede function INSERT",
+      "included_because": "idempotent QC supersession ledger",
+      "catalog_verification": "ordinary table; all referenced columns/constraints/indexes and append-only trigger verified",
+      "definition_sha256": "babc6e9f1513c239d018eb079ee7e554f738a87fb42dea5d8cc6eebb60b18743"
+    },
+    {
+      "identity": "public.prevent_authoritative_location_correction_mutation()",
+      "kind": "trigger_function",
+      "introduced_by": "append-only triggers on the correction and supersession tables",
+      "included_because": "actual mutation-refusal behavior",
+      "catalog_verification": "pg_get_functiondef and both pg_get_triggerdef outputs verified",
+      "definition_sha256": "687898cfbb64d1010811cc6f9467787a33df788004f95a5a2f1c8ca6f7250e75"
+    },
+    {
+      "identity": "public.apply_highgate_authoritative_location_correction(uuid,uuid)",
+      "kind": "root_function",
+      "introduced_by": "task root",
+      "included_because": "legacy correction workflow under comparison",
+      "catalog_verification": "pg_get_functiondef verified twice; no EXECUTE statement",
+      "definition_sha256": "70960b19df447ffceb87539fc17f268499c222ea91f319b1fdeae85582b4295c"
+    },
+    {
+      "identity": "public.supersede_highgate_human_qc_with_machine_initial(uuid,uuid,uuid,integer,uuid)",
+      "kind": "root_function",
+      "introduced_by": "task root",
+      "included_because": "legacy QC supersession workflow under comparison",
+      "catalog_verification": "pg_get_functiondef verified twice; no EXECUTE statement",
+      "definition_sha256": "39f29238b2a92279af6bce17bfa3ece0bcc18484d7cd15040778f265b96f1b28"
+    },
+    {
+      "identity": "public.resource_fact_change_audit_id_seq",
+      "kind": "identity_sequence",
+      "introduced_by": "resource_fact_change_audit.id identity",
+      "included_because": "audit inserts require identity allocation",
+      "catalog_verification": "start=1 increment=1 cache=1",
+      "definition_sha256": "d568629dbc5d5a78f53aa858b2dc357bd504e2dc84e23960944b0f264733dd34"
+    },
+    {
+      "identity": "public.location_qc_review_snapshots_id_seq",
+      "kind": "identity_sequence",
+      "introduced_by": "location_qc_review_snapshots.id identity",
+      "included_because": "snapshot inserts require identity allocation",
+      "catalog_verification": "start=1 increment=1 cache=1",
+      "definition_sha256": "d568629dbc5d5a78f53aa858b2dc357bd504e2dc84e23960944b0f264733dd34"
+    },
+    {
+      "identity": "public.location_qc_review_audit_id_seq",
+      "kind": "identity_sequence",
+      "introduced_by": "location_qc_review_audit.id identity",
+      "included_because": "QC audit inserts require identity allocation",
+      "catalog_verification": "start=1 increment=1 cache=1",
+      "definition_sha256": "d568629dbc5d5a78f53aa858b2dc357bd504e2dc84e23960944b0f264733dd34"
+    }
+  ],
+  "pg_depend_comparison": {
+    "reported_for_roots": ["pg_language", "public namespace", "public.location_qc_reviews composite type"],
+    "body_review_additions": [
+      "public.resource_registry",
+      "public.trusted_master_resource_records",
+      "public.authoritative_location_corrections",
+      "public.resource_fact_claims",
+      "public.resource_fact_evidence",
+      "public.resource_fact_change_audit",
+      "public.location_qc_review_snapshots",
+      "public.location_qc_review_audit",
+      "public.location_qc_supersessions",
+      "extensions.digest(text,text)"
+    ],
+    "explanation": "PostgreSQL does not record these PL/pgSQL static body references as pg_depend edges; each addition was introduced by an exact SQL statement in a root body and independently catalog-verified."
+  },
+  "unresolved_or_dynamic_dependencies": []
+}
