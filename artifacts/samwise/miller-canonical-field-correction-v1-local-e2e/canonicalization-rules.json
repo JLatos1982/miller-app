@@ -1,0 +1,14 @@
+{
+  "contract": "miller-canonical-field-correction-v1",
+  "policy_version": "miller-canonical-field-correction-v1",
+  "field_mapping": {
+    "phone": "resource_canonical_profile.phone",
+    "website": "resource_canonical_profile.website",
+    "city": "resource_locations.city via resource_canonical_profile.canonical_location_id",
+    "province": "resource_locations.province via resource_canonical_profile.canonical_location_id",
+    "public_street_address": "resource_locations.street_address via resource_canonical_profile.canonical_location_id"
+  },
+  "phone": "E.164; non-digits removed except leading plus",
+  "website": "HTTPS; lower-cased; trailing slashes removed",
+  "fingerprint": "sha256(miller-canonical-profile-v1 plus length-delimited phone, website, canonical_location_id, city, province, public_street_address, version)"
+}

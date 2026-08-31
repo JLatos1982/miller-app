@@ -1,0 +1,24 @@
+{
+  "contract": "miller-canonical-field-correction-v1",
+  "correction_id": "00000000-0000-4000-8000-00000000e211",
+  "resource_id": "00000000-0000-4000-8000-00000000e201",
+  "field": "phone",
+  "expected_current_value": "+16045550101",
+  "expected_profile_version": 1,
+  "expected_profile_absent": false,
+  "expected_canonical_fingerprint": "fb6582c9543f6173156f7920495e80ccece2121ab6de85e7886254f03f934e01",
+  "proposed_value": "+16045550102",
+  "canonical_location_id": null,
+  "supporting_evidence_bindings": [
+    {
+      "evidence_id": "00000000-0000-4000-8000-00000000e208",
+      "evidence_fingerprint": "4192b266da9fe126b80b3300c6b0c834d98c88dac7c473aaf82d8954c07729ee",
+      "field": "phone"
+    }
+  ],
+  "policy_version": "miller-canonical-field-correction-v1",
+  "requester_id": "samwise:local-e2e-v1",
+  "created_at": "2026-08-31T16:00:00.000Z",
+  "expires_at": "2036-08-31T16:30:00.000Z",
+  "request_fingerprint": "c7fc8adaf99aa3010ec58d22b9361e84b379ebab340a1d95900b0e965f57c2b6"
+}

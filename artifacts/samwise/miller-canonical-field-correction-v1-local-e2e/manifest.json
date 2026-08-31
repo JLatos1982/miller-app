@@ -1,0 +1,18 @@
+{
+  "contract": "miller-canonical-field-correction-v1",
+  "source_miller_commit": "1883eaa11eb9936c55be8f97e6cc54f19c304b29",
+  "synthetic_only": true,
+  "production_data_or_credentials_included": false,
+  "vectors": {
+    "city-first-profile-request.json": "9bb95058d852b702378b3b41a386c6eb135a5f1ec65620f5820ef17b64e0009e",
+    "city-preview-response.json": "df15476df71dde7a9dc345aaacd612aeabb8bb93ae7a926b454e137880b62aa3",
+    "city-apply-response.json": "255e7db5c1f77ce8c607b56178423cc6927532f7570f71ec27cdee8cf58e3b89",
+    "phone-update-request.json": "df3e1c8342653926eba5e03af6f77a1a676a1e8a864b11488592bc0b84baaa38",
+    "phone-apply-response.json": "537f41884d256384520d5a0a6f34de41d80b50445cc640793ff45bf762169c9c",
+    "phone-idempotent-replay-response.json": "537f41884d256384520d5a0a6f34de41d80b50445cc640793ff45bf762169c9c",
+    "phone-stale-request.json": "9cd8d8556d25114c5bfa2a7e05d87860208c0caf8eac1a49e8cbb811ba86bf2f",
+    "phone-stale-response.json": "9f1ba83575e811e2ac53bb5abaccd8e4a5ef46d09a85220d4ccaf9a4d8622884",
+    "rollback-ready-proposal.json": "f00b3337eff468fbfd9287cff56abc9d8e49893f0252494f0822d18a268cc2f9",
+    "canonicalization-rules.json": "56678f0a66db446528694d8ed8b73e064ae4a8d1f9ab0c8a455dd0b1f4a7cf3a"
+  }
+}

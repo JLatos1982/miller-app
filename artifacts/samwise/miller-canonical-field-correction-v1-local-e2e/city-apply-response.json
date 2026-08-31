@@ -1,0 +1,14 @@
+{
+  "field": "city",
+  "outcome": "verified_updated",
+  "audit_id": 1,
+  "applied_at": "2026-08-31T17:51:31.817115+00:00",
+  "new_version": 1,
+  "prior_value": "Synthetic Start City",
+  "verified_at": "2026-08-31T17:51:31.817115+00:00",
+  "correction_id": "00000000-0000-4000-8000-00000000e209",
+  "current_value": "Synthetic Corrected City",
+  "prior_version": null,
+  "new_fingerprint": "fb6582c9543f6173156f7920495e80ccece2121ab6de85e7886254f03f934e01",
+  "prior_fingerprint": null
+}

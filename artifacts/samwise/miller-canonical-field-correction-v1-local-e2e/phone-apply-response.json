@@ -1,0 +1,14 @@
+{
+  "field": "phone",
+  "outcome": "verified_updated",
+  "audit_id": 2,
+  "applied_at": "2026-08-31T17:51:31.839452+00:00",
+  "new_version": 2,
+  "prior_value": null,
+  "verified_at": "2026-08-31T17:51:31.839452+00:00",
+  "correction_id": "00000000-0000-4000-8000-00000000e210",
+  "current_value": "+16045550101",
+  "prior_version": 1,
+  "new_fingerprint": "a21dbf88bf2017c0fc87249b9106fadf9bb9a3250715a9b1e2d542cf0a77c2aa",
+  "prior_fingerprint": "fb6582c9543f6173156f7920495e80ccece2121ab6de85e7886254f03f934e01"
+}

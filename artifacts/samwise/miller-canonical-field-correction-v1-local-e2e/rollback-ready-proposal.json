@@ -1,0 +1,11 @@
+{
+  "correction_id": "00000000-0000-4000-8000-00000000e210",
+  "resource_id": "00000000-0000-4000-8000-00000000e201",
+  "prior_value": null,
+  "current_value": "+16045550101",
+  "prior_version": 1,
+  "current_version": 2,
+  "prior_fingerprint": "fb6582c9543f6173156f7920495e80ccece2121ab6de85e7886254f03f934e01",
+  "current_fingerprint": "a21dbf88bf2017c0fc87249b9106fadf9bb9a3250715a9b1e2d542cf0a77c2aa",
+  "audit_id": 2
+}

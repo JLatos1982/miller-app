@@ -1,0 +1,111 @@
+{
+  "outcome": "canonical_correction_local_e2e_and_samwise_parity_verified",
+  "fixture": {
+    "resource_id": "00000000-0000-4000-8000-00000000e201",
+    "location_id": "00000000-0000-4000-8000-00000000e202",
+    "evidence_ids": [
+      "00000000-0000-4000-8000-00000000e204",
+      "00000000-0000-4000-8000-00000000e206",
+      "00000000-0000-4000-8000-00000000e208"
+    ]
+  },
+  "preview": {
+    "field": "city",
+    "outcome": "preview",
+    "prior_profile": null,
+    "proposed_value": "Synthetic Corrected City",
+    "projected_version": 1,
+    "evidence_binding_count": 1
+  },
+  "city_apply": {
+    "field": "city",
+    "outcome": "verified_updated",
+    "audit_id": 1,
+    "applied_at": "2026-08-31T17:51:31.817115+00:00",
+    "new_version": 1,
+    "prior_value": "Synthetic Start City",
+    "verified_at": "2026-08-31T17:51:31.817115+00:00",
+    "correction_id": "00000000-0000-4000-8000-00000000e209",
+    "current_value": "Synthetic Corrected City",
+    "prior_version": null,
+    "new_fingerprint": "fb6582c9543f6173156f7920495e80ccece2121ab6de85e7886254f03f934e01",
+    "prior_fingerprint": null
+  },
+  "phone_apply": {
+    "field": "phone",
+    "outcome": "verified_updated",
+    "audit_id": 2,
+    "applied_at": "2026-08-31T17:51:31.839452+00:00",
+    "new_version": 2,
+    "prior_value": null,
+    "verified_at": "2026-08-31T17:51:31.839452+00:00",
+    "correction_id": "00000000-0000-4000-8000-00000000e210",
+    "current_value": "+16045550101",
+    "prior_version": 1,
+    "new_fingerprint": "a21dbf88bf2017c0fc87249b9106fadf9bb9a3250715a9b1e2d542cf0a77c2aa",
+    "prior_fingerprint": "fb6582c9543f6173156f7920495e80ccece2121ab6de85e7886254f03f934e01"
+  },
+  "replay": {
+    "field": "phone",
+    "outcome": "verified_updated",
+    "audit_id": 2,
+    "applied_at": "2026-08-31T17:51:31.839452+00:00",
+    "new_version": 2,
+    "prior_value": null,
+    "verified_at": "2026-08-31T17:51:31.839452+00:00",
+    "correction_id": "00000000-0000-4000-8000-00000000e210",
+    "current_value": "+16045550101",
+    "prior_version": 1,
+    "new_fingerprint": "a21dbf88bf2017c0fc87249b9106fadf9bb9a3250715a9b1e2d542cf0a77c2aa",
+    "prior_fingerprint": "fb6582c9543f6173156f7920495e80ccece2121ab6de85e7886254f03f934e01"
+  },
+  "stale": {
+    "outcome": "stale_before_write"
+  },
+  "counts": {
+    "beforePreview": {
+      "profile": 0,
+      "audit": 0,
+      "ledger": 0
+    },
+    "afterPreview": {
+      "profile": 0,
+      "audit": 0,
+      "ledger": 0
+    },
+    "afterReplay": {
+      "profile": 1,
+      "audit": 2,
+      "ledger": 2
+    },
+    "afterStale": {
+      "profile": 1,
+      "audit": 2,
+      "ledger": 2
+    }
+  },
+  "rollback_ready": {
+    "correction_id": "00000000-0000-4000-8000-00000000e210",
+    "resource_id": "00000000-0000-4000-8000-00000000e201",
+    "prior_value": null,
+    "current_value": "+16045550101",
+    "prior_version": 1,
+    "current_version": 2,
+    "prior_fingerprint": "fb6582c9543f6173156f7920495e80ccece2121ab6de85e7886254f03f934e01",
+    "current_fingerprint": "a21dbf88bf2017c0fc87249b9106fadf9bb9a3250715a9b1e2d542cf0a77c2aa",
+    "audit_id": 2
+  },
+  "hashes": {
+    "city-first-profile-request.json": "9bb95058d852b702378b3b41a386c6eb135a5f1ec65620f5820ef17b64e0009e",
+    "city-preview-response.json": "df15476df71dde7a9dc345aaacd612aeabb8bb93ae7a926b454e137880b62aa3",
+    "city-apply-response.json": "255e7db5c1f77ce8c607b56178423cc6927532f7570f71ec27cdee8cf58e3b89",
+    "phone-update-request.json": "df3e1c8342653926eba5e03af6f77a1a676a1e8a864b11488592bc0b84baaa38",
+    "phone-apply-response.json": "537f41884d256384520d5a0a6f34de41d80b50445cc640793ff45bf762169c9c",
+    "phone-idempotent-replay-response.json": "537f41884d256384520d5a0a6f34de41d80b50445cc640793ff45bf762169c9c",
+    "phone-stale-request.json": "9cd8d8556d25114c5bfa2a7e05d87860208c0caf8eac1a49e8cbb811ba86bf2f",
+    "phone-stale-response.json": "9f1ba83575e811e2ac53bb5abaccd8e4a5ef46d09a85220d4ccaf9a4d8622884",
+    "rollback-ready-proposal.json": "f00b3337eff468fbfd9287cff56abc9d8e49893f0252494f0822d18a268cc2f9",
+    "canonicalization-rules.json": "56678f0a66db446528694d8ed8b73e064ae4a8d1f9ab0c8a455dd0b1f4a7cf3a"
+  },
+  "manifest_sha256": "b6dc1b63320d10d83cd09cbb789205fc71e1419d2f052f4978826320f7ed2912"
+}
