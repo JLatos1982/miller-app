@@ -4,8 +4,10 @@ import { readFileSync } from "node:fs"
 import { join } from "node:path"
 
 const migrationPath = join(process.cwd(), "supabase", "migrations", "202608650001_refactor_highgate_reference_data.sql")
+const aclMigrationPath = join(process.cwd(), "supabase", "migrations", "202608660001_highgate_reference_acl_select_only.sql")
 const manifestPath = join(process.cwd(), "docs", "HIGHGATE_REVIEWED_DEPENDENCY_MANIFEST_V1.json")
 const migration = readFileSync(migrationPath, "utf8")
+const aclMigration = readFileSync(aclMigrationPath, "utf8")
 const manifest = JSON.parse(readFileSync(manifestPath, "utf8"))
 
 function functionBody(name) {
@@ -58,4 +60,12 @@ test("refactored executable definitions contain no production-bound HighGate val
     "fraserhealth.ca",
     "'Burnaby'",
   ]) assert.equal(executable.includes(literal), false, `schema body excludes ${literal}`)
+})
+
+test("HighGate reference ACL migration revokes only service-role DML and preserves SELECT", () => {
+  assert.match(aclMigration, /revoke insert, update, delete\s+on table public\.highgate_authoritative_location_reference\s+from service_role/i)
+  assert.match(aclMigration, /grant select\s+on table public\.highgate_authoritative_location_reference\s+to service_role/i)
+  assert.doesNotMatch(aclMigration, /^\s*(insert\s+into|update\s+public\.|delete\s+from|truncate|alter\s+table|create|drop)\b/im)
+  const tableReferences = aclMigration.match(/public\.[a-z_]+/gi) ?? []
+  assert.deepEqual([...new Set(tableReferences)], ["public.highgate_authoritative_location_reference"])
 })
