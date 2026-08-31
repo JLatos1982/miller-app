@@ -3,7 +3,8 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import { resolve } from "node:path"
 import { createClient } from "@supabase/supabase-js"
 import { correctionRequestFingerprint, validateCanonicalCorrectionRequest } from "../server/canonicalFieldCorrection.js"
-import { canonicalProfileFingerprint } from "../server/canonicalProfile.js"
+import { normalizeCanonicalPhone, normalizeCanonicalWebsite, canonicalProfileFingerprint } from "../server/canonicalProfile.js"
+import { verifyCanonicalCorrectionParityBundle } from "../server/canonicalCorrectionParityBundle.js"
 
 const required = ["LOCAL_SUPABASE_URL", "LOCAL_SUPABASE_SERVICE_ROLE_KEY", "PARITY_EXPORT_DIR"]
 for (const key of required) if (!process.env[key]) throw new Error(`${key}_is_required`)
@@ -33,6 +34,7 @@ const count = async (table) => (await query(supabase.from(table).select("*", { c
 const canonical = (value) => JSON.parse(JSON.stringify(value))
 
 function request({ correctionId, field, expectedCurrentValue, expectedProfileVersion, expectedProfileAbsent, expectedFingerprint, proposedValue, locationId, evidenceId, evidenceFingerprint }) {
+  const normalizedProposedValue = field === "phone" ? normalizeCanonicalPhone(proposedValue) : field === "website" ? normalizeCanonicalWebsite(proposedValue) : proposedValue
   const value = {
     contract: CONTRACT,
     correction_id: correctionId,
@@ -42,7 +44,7 @@ function request({ correctionId, field, expectedCurrentValue, expectedProfileVer
     expected_profile_version: expectedProfileVersion,
     expected_profile_absent: expectedProfileAbsent,
     expected_canonical_fingerprint: expectedFingerprint,
-    proposed_value: proposedValue,
+    proposed_value: normalizedProposedValue,
     canonical_location_id: locationId,
     supporting_evidence_bindings: [{ evidence_id: evidenceId, evidence_fingerprint: evidenceFingerprint, field }],
     policy_version: CONTRACT,
@@ -158,7 +160,8 @@ async function main() {
   const manifest = { contract: CONTRACT, source_miller_commit: process.env.SOURCE_MILLER_COMMIT || "unknown", synthetic_only: true, production_data_or_credentials_included: false, vectors: hashes }
   const manifestSerialized = `${JSON.stringify(manifest, null, 2)}\n`
   writeFileSync(resolve(exportDir, "manifest.json"), manifestSerialized)
-  const report = { outcome: "canonical_correction_local_e2e_and_samwise_parity_verified", fixture: { resource_id: ids.resource, location_id: ids.location, evidence_ids: [ids.cityEvidence, ids.phoneEvidence, ids.staleEvidence] }, preview, city_apply: cityApply, phone_apply: phoneApply, replay, stale, counts: { beforePreview, afterPreview, afterReplay, afterStale }, rollback_ready: rollbackReady, hashes, manifest_sha256: sha256(manifestSerialized) }
+  const bundle_self_check = verifyCanonicalCorrectionParityBundle({ bundlePath: exportDir })
+  const report = { outcome: "canonical_correction_local_e2e_and_samwise_parity_verified", fixture: { resource_id: ids.resource, location_id: ids.location, evidence_ids: [ids.cityEvidence, ids.phoneEvidence, ids.staleEvidence] }, preview, city_apply: cityApply, phone_apply: phoneApply, replay, stale, counts: { beforePreview, afterPreview, afterReplay, afterStale }, rollback_ready: rollbackReady, hashes, manifest_sha256: sha256(manifestSerialized), bundle_self_check }
   writeFileSync(resolve(exportDir, "local-e2e-report.json"), `${JSON.stringify(report, null, 2)}\n`)
   console.log(JSON.stringify(report, null, 2))
 }
