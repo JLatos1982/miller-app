@@ -53,6 +53,7 @@ import { buildNavigationPacket, deterministicRelevance } from "./navigation/sear
 import AccessibleModal from "./site/AccessibleModal.jsx"
 import ResourceAttachmentPicker from "./site/ResourceAttachmentPicker.jsx"
 import MillerSheepdog from "./companion/MillerSheepdog.jsx"
+import DirectoryHealthAuditBackPage from "./owner/DirectoryHealthAuditBackPage.jsx"
 import { destinationBesideRenderedResult } from "./companion/millerCompanionAdapter.js"
 import { isMeaningfulCompanionInput, MILLER_PRESENTATION_INTENTS, presentationIntent } from "./companion/millerCompanionLifecycle.js"
 import { bubbleNeedsMillerReadingPosition, readingStageHeight, resolveMillerReadingOffset } from "./companion/millerSceneLayout.js"
@@ -700,6 +701,8 @@ function renderMessageWithLinks(text) {
 
 function App() {
   const isAdminRoute = typeof window !== "undefined" && window.location.pathname.startsWith("/admin")
+  const isOwnerRoute = typeof window !== "undefined" && window.location.pathname === "/owner/directory-health-audit"
+  const isInternalRoute = isAdminRoute || isOwnerRoute
   const normalizedResources = useMemo(() => {
     return dedupeResources(cleanResources(rawResources))
   }, [])
@@ -880,7 +883,7 @@ useEffect(() => {
 }, [currentTheme.name])
 
 useEffect(() => {
-  if (!isAdminRoute) return undefined
+  if (!isInternalRoute) return undefined
   let active = true
 
   async function verifyAdmin() {
@@ -913,7 +916,7 @@ useEffect(() => {
     active = false
     listener.subscription.unsubscribe()
   }
-}, [isAdminRoute])
+}, [isInternalRoute])
 
 async function requestAdminLogin(event) {
   event.preventDefault()
@@ -1579,6 +1582,11 @@ function previousMiller() {
   const companionIdleAllowed = !prefersReducedMotion && !isTyping && !isLoading && !query.trim() && ["home", "reading"].includes(millerReadingPosition) && companionSearchOutcome.status !== "pending"
 
 const millerImageStyle = {}
+
+  if (isOwnerRoute) {
+    if (isAdminMode) return <DirectoryHealthAuditBackPage onSignOut={async () => { await supabase.auth.signOut({ scope: "local" }); setIsAdminMode(false) }}/>
+    return <main className="admin-route-shell"><header className="admin-route-header"><a href="/">← Public resource finder</a><div><p className="eyebrow">Protected internal draft</p><h1>Directory Health Audit</h1></div></header><section className="admin-login-page" aria-labelledby="owner-login-title"><h2 id="owner-login-title">Owner sign in required</h2><p>This internal draft uses Miller’s existing allowlisted administrator access boundary.</p><a className="directory-audit-internal-link" href="/admin/login">Sign in to Miller administration</a></section></main>
+  }
 
   if (isAdminRoute) {
     if (isAdminMode && window.location.pathname.startsWith("/admin/lists")) {

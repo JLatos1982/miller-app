@@ -3084,6 +3084,12 @@ app.get(IGOR_HANDOFF_CALLBACK_PATH, (_req, res) => {
   return res.type("html").send(renderIgorHandoffCallbackPage())
 })
 
+app.get("/owner/directory-health-audit", (_req, res) => {
+  res.setHeader("X-Robots-Tag", "noindex, nofollow, noarchive")
+  res.setHeader("Cache-Control", "private, no-store")
+  return res.sendFile(path.join(__dirname, "dist", "index.html"))
+})
+
 app.use(express.static(path.join(__dirname, "dist")))
 
 app.get("/{*splat}", (req, res) => {
