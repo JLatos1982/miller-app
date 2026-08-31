@@ -1,0 +1,14 @@
+{
+  "epoch": "miller-schema-baseline-v1",
+  "epoch_boundary_migration": "202608690001",
+  "source": "verified_current_miller_production_schema",
+  "source_schema_sha256": "e03ca4874885957bf63371244aeafd475b4ce448b6fe2eeeecc892f305ef7fca",
+  "schema_file": "schema.sql",
+  "schema_file_sha256": "e03ca4874885957bf63371244aeafd475b4ce448b6fe2eeeecc892f305ef7fca",
+  "contains_production_data": false,
+  "historical_migrations_replayed": false,
+  "baseline_not_for_production_deployment": true,
+  "known_historical_provenance_gaps": [
+    "202608300003/202608300004 provenance remains unknown; their verified resulting quality schema is represented by the current-state baseline."
+  ]
+}
