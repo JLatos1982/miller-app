@@ -62,3 +62,30 @@ export function buildEvidenceJson(records) {
 }
 
 export const includesReportedAccounts = records => records.some(record => record.evidence_status === "reported_account")
+
+const comparableYear = value => Number.isInteger(value) ? value : null
+
+export function sortCondensedEvidenceRecords(records, sort) {
+  return records.map((record, index) => ({ record, index })).sort((a, b) => {
+    const aYear = comparableYear(a.record.year), bYear = comparableYear(b.record.year)
+    if (sort === "newest") {
+      if (aYear !== null && bYear !== null && aYear !== bYear) return bYear - aYear
+      if (aYear !== null && bYear === null) return -1
+      if (aYear === null && bYear !== null) return 1
+    }
+    if (sort === "oldest") {
+      if (aYear !== null && bYear !== null && aYear !== bYear) return aYear - bYear
+      if (aYear !== null && bYear === null) return -1
+      if (aYear === null && bYear !== null) return 1
+    }
+    if (sort === "province") {
+      const comparison = (PROVINCE_LABELS[a.record.province] || a.record.province).localeCompare(PROVINCE_LABELS[b.record.province] || b.record.province)
+      if (comparison) return comparison
+    }
+    if (sort === "care_setting") {
+      const comparison = readable(a.record.care_setting).localeCompare(readable(b.record.care_setting))
+      if (comparison) return comparison
+    }
+    return a.index - b.index
+  }).map(item => item.record)
+}

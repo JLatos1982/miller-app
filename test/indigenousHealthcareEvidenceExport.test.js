@@ -2,7 +2,7 @@ import assert from "node:assert/strict"
 import { readFileSync } from "node:fs"
 import test from "node:test"
 
-import { buildEvidenceCsv, buildEvidenceJson, describeEvidenceFilters, filterEvidenceRecords, includesReportedAccounts, publicEvidenceExportRecord } from "../src/site/indigenousHealthcareEvidenceExport.js"
+import { buildEvidenceCsv, buildEvidenceJson, describeEvidenceFilters, filterEvidenceRecords, includesReportedAccounts, publicEvidenceExportRecord, sortCondensedEvidenceRecords } from "../src/site/indigenousHealthcareEvidenceExport.js"
 
 const projection = JSON.parse(readFileSync(new URL("../src/data/indigenous-healthcare-evidence-public-v1.json", import.meta.url), "utf8"))
 const all = { status: "all", province: "all", careSetting: "all", publisher: "all", sourceType: "all", year: "all" }
@@ -28,6 +28,20 @@ test("filter descriptions and reported-account cautions are deterministic", () =
   assert.equal(includesReportedAccounts(filterEvidenceRecords(projection.records, { ...all, status: "formal_finding" })), false)
 })
 
+test("condensed list preserves filtered-record parity and uses explicit stable sorting", () => {
+  const filtered = filterEvidenceRecords(projection.records, { ...all, province: "alberta" })
+  const newest = sortCondensedEvidenceRecords(filtered, "newest")
+  const oldest = sortCondensedEvidenceRecords(filtered, "oldest")
+  const province = sortCondensedEvidenceRecords(filtered, "province")
+  const careSetting = sortCondensedEvidenceRecords(filtered, "care_setting")
+  assert.deepEqual(new Set(newest.map(record => record.public_record_id)), new Set(filtered.map(record => record.public_record_id)))
+  assert.equal(newest.length, filtered.length)
+  assert.deepEqual(newest.map(record => record.year).filter(Number.isInteger), [...newest.map(record => record.year).filter(Number.isInteger)].sort((a, b) => b - a))
+  assert.deepEqual(oldest.map(record => record.year).filter(Number.isInteger), [...oldest.map(record => record.year).filter(Number.isInteger)].sort((a, b) => a - b))
+  assert.deepEqual(province.map(record => record.province), [...province.map(record => record.province)].sort())
+  assert.deepEqual(careSetting.map(record => record.care_setting || "Not specified"), [...careSetting.map(record => record.care_setting || "Not specified")].sort())
+})
+
 test("CSV and JSON exports retain Unicode and escape public fields without private data", () => {
   const synthetic = { ...projection.records[0], summary: "Métis, \"quoted\"\nline", source: { ...projection.records[0].source, publisher: "École, Centre" } }
   const csv = buildEvidenceCsv([synthetic])
@@ -49,7 +63,12 @@ test("print source excludes controls and includes the conditional caution and fo
   assert.match(page, /Print \/ Save as PDF/)
   assert.match(page, /Download CSV/)
   assert.match(page, /Download JSON/)
+  assert.match(page, /aria-pressed={view === "detailed"}/)
+  assert.match(page, /aria-pressed={view === "condensed"}/)
+  assert.match(page, /Print condensed list/)
+  assert.match(page, /public_record_id/)
   assert.match(styles, /@media print/)
   assert.match(styles, /\.ihe-controls.*display:none!important/)
   assert.match(styles, /page-break-inside:avoid/)
+  assert.match(styles, /@media\(max-width:600px\).*\.ihe-condensed-row code/s)
 })
