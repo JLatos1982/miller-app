@@ -2,13 +2,13 @@ import assert from "node:assert/strict"
 import { readFileSync } from "node:fs"
 import test from "node:test"
 
-import { buildEvidenceCsv, buildEvidenceJson, describeEvidenceFilters, filterEvidenceRecords, includesReportedAccounts, publicEvidenceExportRecord, sortCondensedEvidenceRecords } from "../src/site/indigenousHealthcareEvidenceExport.js"
+import { buildEvidenceCsv, buildEvidenceJson, describeEvidenceFilters, filterEvidenceRecords, includesReportedAccounts, isYearFilterMatch, publicEvidenceExportRecord, sortCondensedEvidenceRecords } from "../src/site/indigenousHealthcareEvidenceExport.js"
 
 const projection = JSON.parse(readFileSync(new URL("../src/data/indigenous-healthcare-evidence-public-v1.json", import.meta.url), "utf8"))
 const all = { status: "all", province: "all", careSetting: "all", publisher: "all", sourceType: "all", year: "all" }
 const allowedKeys = ["approximate_year", "care_setting", "evidence_status", "province", "public_record_id", "source_organization", "source_title", "source_type", "source_url", "summary"].sort()
 
-test("exports use the exact current filtered public record set", () => {
+test("exports use the exact current filtered public record set, including year states", () => {
   assert.equal(filterEvidenceRecords(projection.records, all).length, 363)
   const alberta = filterEvidenceRecords(projection.records, { ...all, province: "alberta" })
   assert.ok(alberta.length > 0)
@@ -18,17 +18,34 @@ test("exports use the exact current filtered public record set", () => {
   assert.ok(reported.every(record => record.evidence_status === "reported_account"))
   const combined = filterEvidenceRecords(projection.records, { ...all, province: "alberta", status: "reported_account" })
   assert.ok(combined.every(record => record.province === "alberta" && record.evidence_status === "reported_account"))
+  const unknown = filterEvidenceRecords(projection.records, { ...all, year: "unknown" })
+  assert.equal(unknown.length, 363)
+  assert.ok(unknown.every(record => record.year === null))
+  for (const filter of ["pre_1990", "1990s", "2000s", "2010s", "2020s", "2024"]) assert.equal(filterEvidenceRecords(projection.records, { ...all, year: filter }).length, 0)
+  const combinedUnknown = filterEvidenceRecords(projection.records, { ...all, province: "alberta", status: "reported_account", year: "unknown" })
+  assert.deepEqual(combinedUnknown.map(record => record.public_record_id), combined.map(record => record.public_record_id))
   assert.equal(filterEvidenceRecords(projection.records, { ...all, province: "alberta", year: "1900" }).length, 0)
 })
 
 test("filter descriptions and reported-account cautions are deterministic", () => {
   assert.equal(describeEvidenceFilters(all), "All approved public records")
   assert.equal(describeEvidenceFilters({ ...all, province: "alberta", status: "reported_account", careSetting: "Emergency" }), "Province: Alberta · Evidence status: Reported account · Care setting: Emergency")
+  assert.equal(describeEvidenceFilters({ ...all, province: "alberta", year: "2010s" }), "Province: Alberta · Decade: 2010s")
+  assert.equal(describeEvidenceFilters({ ...all, year: "unknown" }), "Year: not established")
   assert.equal(includesReportedAccounts(filterEvidenceRecords(projection.records, { ...all, status: "reported_account" })), true)
   assert.equal(includesReportedAccounts(filterEvidenceRecords(projection.records, { ...all, status: "formal_finding" })), false)
 })
 
-test("condensed list preserves filtered-record parity and uses explicit stable sorting", () => {
+test("year filters support exact years, decades, pre-1990, and unknown without inferring dates", () => {
+  assert.equal(isYearFilterMatch(2024, "2024"), true)
+  assert.equal(isYearFilterMatch(2024, "2020s"), true)
+  assert.equal(isYearFilterMatch(2019, "2020s"), false)
+  assert.equal(isYearFilterMatch(1989, "pre_1990"), true)
+  assert.equal(isYearFilterMatch(null, "unknown"), true)
+  assert.equal(isYearFilterMatch(null, "2010s"), false)
+})
+
+test("condensed list preserves filtered-record parity and sorts known years before unknown years", () => {
   const filtered = filterEvidenceRecords(projection.records, { ...all, province: "alberta" })
   const newest = sortCondensedEvidenceRecords(filtered, "newest")
   const oldest = sortCondensedEvidenceRecords(filtered, "oldest")
@@ -40,6 +57,14 @@ test("condensed list preserves filtered-record parity and uses explicit stable s
   assert.deepEqual(oldest.map(record => record.year).filter(Number.isInteger), [...oldest.map(record => record.year).filter(Number.isInteger)].sort((a, b) => a - b))
   assert.deepEqual(province.map(record => record.province), [...province.map(record => record.province)].sort())
   assert.deepEqual(careSetting.map(record => record.care_setting || "Not specified"), [...careSetting.map(record => record.care_setting || "Not specified")].sort())
+
+  const withKnownYears = [
+    { ...projection.records[0], public_record_id: "known-2020", year: 2020 },
+    { ...projection.records[1], public_record_id: "unknown", year: null },
+    { ...projection.records[2], public_record_id: "known-1995", year: 1995 },
+  ]
+  assert.deepEqual(sortCondensedEvidenceRecords(withKnownYears, "newest").map(record => record.public_record_id), ["known-2020", "known-1995", "unknown"])
+  assert.deepEqual(sortCondensedEvidenceRecords(withKnownYears, "oldest").map(record => record.public_record_id), ["known-1995", "known-2020", "unknown"])
 })
 
 test("CSV and JSON exports retain Unicode and escape public fields without private data", () => {
@@ -63,6 +88,9 @@ test("print source excludes controls and includes the conditional caution and fo
   assert.match(page, /Print \/ Save as PDF/)
   assert.match(page, /Download CSV/)
   assert.match(page, /Download JSON/)
+  assert.match(page, /YEAR_FILTER_OPTIONS/)
+  assert.match(page, /Exact year/)
+  assert.match(page, /Year not established/)
   assert.match(page, /aria-pressed={view === "detailed"}/)
   assert.match(page, /aria-pressed={view === "condensed"}/)
   assert.match(page, /Print condensed list/)

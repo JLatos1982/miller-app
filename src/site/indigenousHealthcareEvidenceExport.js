@@ -11,6 +11,34 @@ export const PROVINCE_LABELS = Object.freeze({ british_columbia: "British Columb
 
 const readable = value => value || "Not specified"
 
+export const YEAR_FILTER_OPTIONS = Object.freeze([
+  ["2020s", "2020s"],
+  ["2010s", "2010s"],
+  ["2000s", "2000s"],
+  ["1990s", "1990s"],
+  ["pre_1990", "Before 1990"],
+  ["unknown", "Unknown / year not established"],
+])
+
+const comparableYear = value => Number.isInteger(value) ? value : null
+
+export function isYearFilterMatch(year, filter) {
+  const value = comparableYear(year)
+  if (filter === "all") return true
+  if (filter === "unknown") return value === null
+  if (value === null) return false
+  if (filter === "pre_1990") return value < 1990
+  if (/^\d{4}s$/.test(filter)) return value >= Number.parseInt(filter, 10) && value < Number.parseInt(filter, 10) + 10
+  return /^\d{4}$/.test(filter) && value === Number.parseInt(filter, 10)
+}
+
+export function describeYearFilter(filter) {
+  if (filter === "unknown") return "Year: not established"
+  if (filter === "pre_1990") return "Year: before 1990"
+  if (/^\d{4}s$/.test(filter)) return `Decade: ${filter}`
+  return `Year: ${filter}`
+}
+
 export function filterEvidenceRecords(records, filters) {
   return records.filter(record => (
     (filters.status === "all" || record.evidence_status === filters.status) &&
@@ -18,7 +46,7 @@ export function filterEvidenceRecords(records, filters) {
     (filters.careSetting === "all" || readable(record.care_setting) === filters.careSetting) &&
     (filters.publisher === "all" || record.source.publisher === filters.publisher) &&
     (filters.sourceType === "all" || readable(record.source.source_type) === filters.sourceType) &&
-    (filters.year === "all" || String(readable(record.year)) === filters.year)
+    isYearFilterMatch(record.year, filters.year)
   ))
 }
 
@@ -29,7 +57,7 @@ export function describeEvidenceFilters(filters) {
     filters.careSetting !== "all" && `Care setting: ${filters.careSetting}`,
     filters.publisher !== "all" && `Source organization: ${filters.publisher}`,
     filters.sourceType !== "all" && `Source type: ${filters.sourceType}`,
-    filters.year !== "all" && `Approximate year: ${filters.year}`,
+    filters.year !== "all" && describeYearFilter(filters.year),
   ].filter(Boolean)
   return values.length ? values.join(" · ") : "All approved public records"
 }
@@ -62,8 +90,6 @@ export function buildEvidenceJson(records) {
 }
 
 export const includesReportedAccounts = records => records.some(record => record.evidence_status === "reported_account")
-
-const comparableYear = value => Number.isInteger(value) ? value : null
 
 export function sortCondensedEvidenceRecords(records, sort) {
   return records.map((record, index) => ({ record, index })).sort((a, b) => {
