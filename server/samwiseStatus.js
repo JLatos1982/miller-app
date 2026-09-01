@@ -62,7 +62,7 @@ function overallState({ database, findings, latestCheck, maintenance, queues, de
   return "healthy"
 }
 
-export function buildSamwiseStatus({ now = Date.now(), build = {}, database = {}, securityFindings = [], pulse = null, deploymentAlignment = "compatibility_unknown", maintenance = null, checkpoints = [], queues = {} } = {}) {
+export function buildSamwiseStatus({ now = Date.now(), build = {}, database = {}, securityFindings = [], pulse = null, deploymentAlignment = "compatibility_unknown", maintenance = null, checkpoints = [], queues = {}, verification = {} } = {}) {
   const generated_at = new Date(now).toISOString()
   const open_findings = securityFindings.filter(activeFinding).reduce((result, item) => {
     if (["critical", "high", "medium"].includes(item?.severity)) result[item.severity] += 1
@@ -76,12 +76,20 @@ export function buildSamwiseStatus({ now = Date.now(), build = {}, database = {}
   const sources = publicHealthSourceStatus(checkpoints, now).map((source) => ({ id: source.id, mode: sourceMode(source), freshness: sourceFreshness(source), last_success_at: timestamp(source.last_success_at) }))
   const security = { self_check_scope: pulse ? "local_only" : "not_run", latest_check, open_findings, deployment_alignment: deployment }
   const operations = { database: db, maintenance: maintenanceStatus, queues: safeQueues }
+  const trusted_writer = {
+    writer_evidence_rows: count(verification.writer_evidence_rows),
+    writer_claim_rows: count(verification.writer_claim_rows),
+    canonical_profile_rows: count(verification.canonical_profile_rows),
+    canonical_audit_rows: count(verification.canonical_audit_rows),
+    correction_ledger_rows: count(verification.correction_ledger_rows),
+  }
   return {
     schema_version: "miller-status-v1",
     application: { id: "miller", generated_at, build: build.git_sha || build.build_id ? "known" : "unknown" },
     overall: overallState({ database: db, findings: open_findings, latestCheck: latest_check, maintenance: maintenanceStatus, queues: safeQueues, deployment }),
     security,
     operations,
+    verification: { trusted_website_correction_evidence: trusted_writer },
     sources,
   }
 }

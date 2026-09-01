@@ -1364,7 +1364,7 @@ async function controlRoomSummarySnapshot() {
 }
 async function samwiseStatusSnapshot() {
  const now = new Date().toISOString()
- const [findings,pulse,deployment,maintenance,checkpoints,resourceReviews,shelterReviews,locationReviews,attachments] = await Promise.all([
+ const [findings,pulse,deployment,maintenance,checkpoints,resourceReviews,shelterReviews,locationReviews,attachments,writerEvidence,writerClaims,canonicalProfiles,canonicalAudits,correctionLedger] = await Promise.all([
   supabase.from("miller_security_findings").select("severity,lifecycle").limit(100),
   supabase.from("miller_security_pulse_runs").select("status,completed_at").order("started_at",{ascending:false}).limit(1).maybeSingle(),
   supabase.from("miller_security_deployment_observations").select("alignment_state").order("observed_at",{ascending:false}).limit(1).maybeSingle(),
@@ -1374,10 +1374,17 @@ async function samwiseStatusSnapshot() {
   supabase.from("resource_discovery_candidates").select("id",{count:"exact",head:true}).eq("review_status","pending"),
   supabase.from("location_qc_reviews").select("canonical_resource_id",{count:"exact",head:true}).eq("decision","manual_review"),
   supabase.from("resource_submission_attachments").select("id",{count:"exact",head:true}).eq("status","pending_scan"),
+  // Aggregate-only service-role checks for the trusted Samwise verification
+  // boundary. These intentionally expose neither canonical rows nor fields.
+  supabase.from("resource_fact_evidence").select("id",{count:"exact",head:true}).eq("extraction_method","server_validated_first_party_website_v1"),
+  supabase.from("resource_fact_claims").select("id",{count:"exact",head:true}).eq("engine_version","miller-trusted-website-correction-evidence-v1"),
+  supabase.from("resource_canonical_profile").select("resource_id",{count:"exact",head:true}),
+  supabase.from("resource_canonical_profile_audit").select("id",{count:"exact",head:true}),
+  supabase.from("miller_canonical_field_corrections").select("correction_id",{count:"exact",head:true}),
  ])
- if ([findings,pulse,deployment,maintenance,checkpoints,resourceReviews,shelterReviews,locationReviews,attachments].some((item)=>item.error)) throw new Error("samwise_status_unavailable")
+ if ([findings,pulse,deployment,maintenance,checkpoints,resourceReviews,shelterReviews,locationReviews,attachments,writerEvidence,writerClaims,canonicalProfiles,canonicalAudits,correctionLedger].some((item)=>item.error)) throw new Error("samwise_status_unavailable")
  const runtimeVersion=securityVersionContext({profile:MILLER_SECURITY_PROFILE}), runtimeDeployment=deploymentAlignment({profile:MILLER_SECURITY_PROFILE,version:runtimeVersion,schema:runtimeSchemaContract()})
- return buildSamwiseStatus({build:runtimeVersion,database:{state:"healthy",observed_at:now},securityFindings:findings.data||[],pulse:pulse.data||null,deploymentAlignment:deployment.data?.alignment_state||runtimeDeployment.state,maintenance:maintenance.data||null,checkpoints:checkpoints.data||[],queues:{resource_review:resourceReviews.count,shelter_review:shelterReviews.count,location_qc:locationReviews.count,attachment_scan:attachments.count}})
+ return buildSamwiseStatus({build:runtimeVersion,database:{state:"healthy",observed_at:now},securityFindings:findings.data||[],pulse:pulse.data||null,deploymentAlignment:deployment.data?.alignment_state||runtimeDeployment.state,maintenance:maintenance.data||null,checkpoints:checkpoints.data||[],queues:{resource_review:resourceReviews.count,shelter_review:shelterReviews.count,location_qc:locationReviews.count,attachment_scan:attachments.count},verification:{writer_evidence_rows:writerEvidence.count,writer_claim_rows:writerClaims.count,canonical_profile_rows:canonicalProfiles.count,canonical_audit_rows:canonicalAudits.count,correction_ledger_rows:correctionLedger.count}})
 }
 app.get("/api/integrations/samwise/status",requireSamwiseStatus,async(_req,res)=>{try{res.setHeader("Cache-Control","no-store");return res.json(await samwiseStatusSnapshot())}catch{return res.status(503).json({error:"Status unavailable"})}})
 
