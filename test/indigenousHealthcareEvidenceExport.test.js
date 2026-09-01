@@ -9,7 +9,7 @@ const all = { status: "all", province: "all", careSetting: "all", publisher: "al
 const allowedKeys = ["approximate_year", "care_setting", "evidence_status", "province", "public_record_id", "source_organization", "source_title", "source_type", "source_url", "summary"].sort()
 
 test("exports use the exact current filtered public record set, including year states", () => {
-  assert.equal(filterEvidenceRecords(projection.records, all).length, 402)
+  assert.equal(filterEvidenceRecords(projection.records, all).length, 517)
   const alberta = filterEvidenceRecords(projection.records, { ...all, province: "alberta" })
   assert.ok(alberta.length > 0)
   assert.ok(alberta.every(record => record.province === "alberta"))
@@ -19,7 +19,7 @@ test("exports use the exact current filtered public record set, including year s
   const combined = filterEvidenceRecords(projection.records, { ...all, province: "alberta", status: "reported_account" })
   assert.ok(combined.every(record => record.province === "alberta" && record.evidence_status === "reported_account"))
   const unknown = filterEvidenceRecords(projection.records, { ...all, year: "unknown" })
-  assert.equal(unknown.length, 402)
+  assert.equal(unknown.length, 517)
   assert.ok(unknown.every(record => record.year === null))
   for (const filter of ["pre_1990", "1990s", "2000s", "2010s", "2020s", "2024"]) assert.equal(filterEvidenceRecords(projection.records, { ...all, year: filter }).length, 0)
   const combinedUnknown = filterEvidenceRecords(projection.records, { ...all, province: "alberta", status: "reported_account", year: "unknown" })
