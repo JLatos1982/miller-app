@@ -20,12 +20,15 @@ const expectedLegacySourceKeys = expectedSourceKeys.filter(key => key !== "sourc
 test("approved First Nations Healthcare Evidence projection is public-only and approval-bound", () => {
   assert.equal(projection.schema_version, INDIGENOUS_HEALTHCARE_EVIDENCE_MANIFEST.projectionVersion)
   assert.equal(projection.records.length, INDIGENOUS_HEALTHCARE_EVIDENCE_MANIFEST.publicRecordCount)
-  assert.equal(new Set(projection.records.map(record => record.public_record_id)).size, 517)
+  assert.equal(new Set(projection.records.map(record => record.public_record_id)).size, 695)
   assert.equal(projection.records.filter(record => record.evidence_status === "reported_account").length, 45)
-  assert.equal(projection.records.filter(record => record.evidence_status === "systemic_evidence").length, 356)
+  assert.equal(projection.records.filter(record => record.evidence_status === "systemic_evidence").length, 534)
   assert.equal(projection.records.filter(record => record.evidence_status === "official_investigation").length, 108)
   assert.equal(projection.records.filter(record => record.evidence_status === "procedural_adjudicative_context").length, 5)
   assert.equal(projection.records.filter(record => record.evidence_status === "formal_finding").length, 3)
+  assert.equal(projection.records.filter(record => record.province === "alberta").length, 201)
+  assert.equal(projection.records.filter(record => record.province === "british_columbia").length, 269)
+  assert.equal(projection.records.filter(record => record.province === "saskatchewan").length, 225)
   assert.equal(projection.projection_fingerprint, INDIGENOUS_HEALTHCARE_EVIDENCE_MANIFEST.projectionFingerprint)
   assert.equal(fingerprint(projection.records), INDIGENOUS_HEALTHCARE_EVIDENCE_MANIFEST.projectionFingerprint)
   for (const record of projection.records) {
