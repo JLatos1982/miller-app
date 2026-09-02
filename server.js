@@ -87,6 +87,7 @@ import { createPreparedPublicationService } from "./server/preparedPublicationSe
 import { createSamwisePreparedPublicationTransport } from "./server/samwisePreparedPublicationTransport.js"
 import { readPreparedActionActorId, readPreparedActionTransportToken } from "./server/preparedActionRuntimeCredentials.js"
 import { IGOR_HANDOFF_CALLBACK_PATH, igorHandoffCallbackHeaders, renderIgorHandoffCallbackPage } from "./server/igorHandoffCallback.js"
+import { MAX_EVIDENCE_SEARCH_QUERY_LENGTH, searchIndigenousHealthcareEvidence } from "./server/indigenousHealthcareEvidenceSearch.js"
 
 dotenv.config()
 
@@ -246,10 +247,24 @@ const client = new OpenAI({
   maxRetries: 1,
 })
 
+const evidenceSearchClient = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+  timeout: 12_000,
+  maxRetries: 0,
+})
+
 const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-5.4-mini"
 
 const TAVILY_CLIENT = tavily({
   apiKey: process.env.TAVILY_API_KEY,
+})
+
+app.post("/api/indigenous-healthcare-evidence/search", rateLimit({ windowMs: 60_000, max: 8 }), async (req, res) => {
+  const query = typeof req.body?.query === "string" ? req.body.query.trim() : ""
+  if (!query || query.length > MAX_EVIDENCE_SEARCH_QUERY_LENGTH) return res.status(400).json({ error: "Enter a search question of up to 500 characters." })
+  const result = await searchIndigenousHealthcareEvidence({ query, openai: evidenceSearchClient, apiKeyPresent: Boolean(process.env.OPENAI_API_KEY) })
+  res.setHeader("Cache-Control", "no-store")
+  return res.json(result)
 })
 
 const supabaseUrl = process.env.SUPABASE_URL
