@@ -90,7 +90,7 @@ test("print source excludes controls and includes the conditional caution and fo
   assert.match(page, /Download JSON/)
   assert.match(page, /YEAR_FILTER_OPTIONS/)
   assert.match(page, /Exact year/)
-  assert.match(page, /Year not established/)
+  assert.match(page, /Source date not specified/)
   assert.match(page, /aria-pressed={view === "detailed"}/)
   assert.match(page, /aria-pressed={view === "condensed"}/)
   assert.match(page, /Print condensed list/)

@@ -45,8 +45,9 @@ test("OpenAI context is capped and carries the reported-account instruction", as
 
 test("evidence page includes search, clear/reset, and retains existing filters", () => {
   const page = readFileSync(new URL("../src/site/IndigenousHealthcareEvidence.jsx", import.meta.url), "utf8")
-  assert.match(page, /First Nations Healthcare Racism &amp; Discrimination Evidence/)
-  assert.match(page, /Ask about the evidence/)
+  assert.match(page, /First Nations Healthcare Evidence/)
+  assert.match(page, /Ask about patterns, sources, places, or evidence/)
+  assert.match(page, /Type here to search the evidence/)
   assert.match(page, /Emergency departments in Alberta/)
   assert.match(page, /setSearchQuery\(example\)/)
   assert.match(page, /relevant record/)
