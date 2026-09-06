@@ -476,6 +476,66 @@
       "website": "https://www2.gov.bc.ca/servicebc",
       "source": { "title": "Service BC", "authority": "Government of British Columbia", "url": "https://www2.gov.bc.ca/servicebc" },
       "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "support:new-westminster-crt-outreach",
+      "kind": "service",
+      "name": "New Westminster Crises Response Outreach Team",
+      "organization": "City of New Westminster",
+      "area_served": "New Westminster",
+      "category": "identification",
+      "description": "Person-centred outreach for people experiencing homelessness, mental-health or substance-use challenges, including help connecting to food, shelter, community services and identification such as BCID.",
+      "eligibility": "People in New Westminster who may need help connecting to resources related to homelessness, mental health or substance use.",
+      "access": "Call CRT Outreach Monday to Friday, 8:30 a.m. to 4:30 p.m., excluding holidays, or use the current City page for drop-in updates.",
+      "phone": "604-527-4502",
+      "website": "https://www.newwestcity.ca/crises-response-outreach-team",
+      "source": { "title": "Crises Response Outreach Team", "authority": "City of New Westminster", "url": "https://www.newwestcity.ca/crises-response-outreach-team" },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "support:share-food-bank-tricities",
+      "kind": "service",
+      "name": "SHARE Food Bank",
+      "organization": "SHARE Family & Community Services",
+      "area_served": "Coquitlam, Port Coquitlam and Port Moody",
+      "category": "basic_needs",
+      "description": "Food support for Tri-Cities individuals and families, with registration and distribution locations in Coquitlam, Port Coquitlam and Port Moody.",
+      "eligibility": "Tri-Cities residents seeking food support. Registration requires government-issued identification and recent proof of address; the operator states that no means test is required.",
+      "access": "Register in person without an appointment at the Port Moody food bank, or review the current operator page for community distribution locations and times.",
+      "phone": "604-540-9161",
+      "website": "https://sharesociety.ca/share-food-bank",
+      "source": { "title": "SHARE Food Bank", "authority": "SHARE Family & Community Services", "url": "https://sharesociety.ca/share-food-bank" },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "support:surrey-streetsmart",
+      "kind": "service",
+      "name": "StreetSMART",
+      "organization": "City of Surrey, Surrey Libraries and Lookout Housing and Health Society",
+      "area_served": "Surrey City Centre and Newton",
+      "category": "advocacy_navigation",
+      "description": "Trauma-informed street outreach and walk-in support connecting people experiencing homelessness with health services, shelters, supportive housing and other community supports.",
+      "eligibility": "People experiencing homelessness in Surrey City Centre or Newton who need outreach or service connections.",
+      "access": "Use the weekday outreach or walk-in hours listed on the City page, or contact the StreetSMART team by phone.",
+      "phone": "604-589-7777",
+      "website": "https://www.surrey.ca/about-surrey/housing-homelessness/housing-homelessness-resources-and-services",
+      "source": { "title": "Housing & Homelessness Resources and Services — StreetSMART", "authority": "City of Surrey", "url": "https://www.surrey.ca/about-surrey/housing-homelessness/housing-homelessness-resources-and-services" },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "support:alouette-outreach-services",
+      "kind": "service",
+      "name": "Alouette Outreach Services",
+      "organization": "Alouette Addictions Services Society",
+      "area_served": "Maple Ridge and Pitt Meadows",
+      "category": "advocacy_navigation",
+      "description": "Outreach for people experiencing or at risk of homelessness, with help replacing lost ID, accessing income assistance, navigating health and addiction services and finding housing or shelter.",
+      "eligibility": "People experiencing or at risk of homelessness in Maple Ridge or Pitt Meadows; contact the operator to confirm the appropriate outreach pathway.",
+      "access": "Call Alouette Addictions Services or use the current operator page to ask for Outreach Services.",
+      "phone": "604-467-5179",
+      "website": "https://alouette.org/programs-services/",
+      "source": { "title": "Programs & Services — Outreach Services", "authority": "Alouette Addictions Services Society", "url": "https://alouette.org/programs-services/" },
+      "last_verified_at": "2026-09-06"
     }
   ]
 }

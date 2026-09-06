@@ -6,20 +6,26 @@ import projection from "../src/data/miller-north-emerging-cases-public-v1.json" 
 import { validateMillerNorthEmergingCasesProjection } from "../server/millerNorthEmergingCasesPublic.js"
 
 test("Watching Now projection is publication-safe, evidence-bearing and province-complete", () => {
-  assert.deepEqual(validateMillerNorthEmergingCasesProjection(projection), { valid: true, items: 8, provinces: 3, dossier_candidates: 1, evidence_bearing: 8 })
+  assert.deepEqual(validateMillerNorthEmergingCasesProjection(projection), { valid: true, items: 8, provinces: 3, dossier_candidates: 0, mature_transitions: 1, evidence_bearing: 8 })
   assert.equal(projection.items.every(item => item.sources.length > 0), true)
 })
 
-test("emerging cases cannot contain private workflow fields, named held leads or mature cases", () => {
+test("emerging cases cannot contain private workflow fields or named held leads", () => {
   const privateField = structuredClone(projection)
   privateField.items[0].owner_review = true
   assert.throws(() => validateMillerNorthEmergingCasesProjection(privateField), /private_or_identifying/)
   const named = structuredClone(projection)
   named.items[0].description = "Yvonne Houssin"
   assert.throws(() => validateMillerNorthEmergingCasesProjection(named), /private_or_identifying/)
-  const mature = structuredClone(projection)
-  mature.items[0].stage = "research_policy_case"
-  assert.throws(() => validateMillerNorthEmergingCasesProjection(mature), /stage_invalid/)
+  const brokenTransition = structuredClone(projection)
+  brokenTransition.items[0].stage = "research_policy_case"
+  assert.throws(() => validateMillerNorthEmergingCasesProjection(brokenTransition), /mature_transition_invalid/)
+})
+
+test("all Watching Now records carry deterministic freshness questions", () => {
+  assert.equal(projection.items.every(item => item.last_verified_at && item.last_material_change_at && item.next_check_due), true)
+  assert.equal(projection.items.every(item => item.current_question === item.next_question), true)
+  assert.equal(projection.items.filter(item => item.refresh_classification === "moved_to_mature_case").length, 1)
 })
 
 test("Watching Now route and navigation remain distinct from Live Listening and mature research", () => {

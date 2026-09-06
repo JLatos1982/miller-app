@@ -1,8 +1,10 @@
 import { useMemo, useState } from "react"
 
 import supports from "../data/miller-practical-supports-public-v1.json"
+import funding from "../data/miller-funding-assistance-public-v1.json"
 import EmailResultsDialog from "./EmailResultsDialog.jsx"
 import MillerUtilityCompanion from "./MillerUtilityCompanion.jsx"
+import { relatedFundingRecords, relatedSupportCategories } from "./millerRelatedSupports.js"
 import "./MillerPracticalSupports.css"
 
 const categoryLabels = {
@@ -32,7 +34,9 @@ const emailRecord = record => ({
   last_verified_at: record.last_verified_at,
 })
 
-function PracticalSupportCard({ record }) {
+function PracticalSupportCard({ record, onSelectCategory }) {
+  const relatedCategories = relatedSupportCategories(record.category)
+  const fundingMatches = relatedFundingRecords(funding.records, record.category)
   return <article className="practical-support-card">
     <div className="practical-support-card-top"><span>{categoryLabels[record.category]}</span><small>{record.area_served}</small></div>
     <h2>{record.name}</h2>
@@ -42,6 +46,8 @@ function PracticalSupportCard({ record }) {
       <dt>Who it may help</dt><dd>{record.eligibility}</dd>
       <dt>How to access it</dt><dd>{record.access}</dd>
     </dl>
+    <aside className="practical-related"><strong>You may also need</strong><div>{relatedCategories.map(category => <button type="button" key={category} onClick={() => onSelectCategory(category)}>{categoryLabels[category]}</button>)}</div></aside>
+    {fundingMatches.length ? <aside className="practical-funding-links"><strong>Possible funding/support to explore</strong>{fundingMatches.map(item => <a key={item.id} href={item.application_url} target="_blank" rel="noreferrer">{item.name} ↗</a>)}<small>Eligibility is not automatic. Check the official program page.</small></aside> : null}
     <footer>
       {record.phone ? <a href={`tel:${record.phone.replace(/[^+\d]/g, "")}`}>{record.phone}</a> : null}
       <a href={record.website} target="_blank" rel="noreferrer">Official information ↗</a>
@@ -55,6 +61,10 @@ export default function MillerPracticalSupports() {
   const [emailOpen, setEmailOpen] = useState(false)
   const categories = useMemo(() => [...new Set(supports.records.map(record => record.category))], [])
   const visible = category === "all" ? supports.records : supports.records.filter(record => record.category === category)
+  const selectRelatedCategory = value => {
+    setCategory(value)
+    window.requestAnimationFrame(() => document.querySelector(".practical-controls")?.scrollIntoView({ behavior: "smooth", block: "start" }))
+  }
 
   return <main className="practical-supports-page">
     <header className="practical-page-header"><a href="/">← Find treatment</a><nav aria-label="Miller practical navigation"><a aria-current="page" href="/practical-supports">Practical Supports</a><a href="/funding-assistance">Funding &amp; Assistance</a></nav></header>
@@ -62,7 +72,7 @@ export default function MillerPracticalSupports() {
     <section className="practical-pathways" aria-labelledby="pathways-title"><h2 id="pathways-title">Start with what you need</h2><p>These are navigation links, not a prescribed care plan. A treatment search can lead naturally to housing, ID, income or work support.</p><div>{categories.map(value => <button key={value} type="button" aria-pressed={category === value} onClick={() => setCategory(category === value ? "all" : value)}>{categoryLabels[value]}</button>)}</div></section>
     <section className="practical-controls" aria-label="Practical support filters"><label>Support type<select value={category} onChange={event => setCategory(event.target.value)}><option value="all">All support types</option>{categories.map(value => <option value={value} key={value}>{categoryLabels[value]}</option>)}</select></label><p aria-live="polite">{visible.length} support{visible.length === 1 ? "" : "s"}</p><button type="button" onClick={() => setEmailOpen(true)}>Email these supports</button></section>
     <aside className="practical-caution">{supports.caution}</aside>
-    <section className="practical-support-grid" aria-label="Verified practical supports">{visible.map(record => <PracticalSupportCard key={record.id} record={record} />)}</section>
+    <section className="practical-support-grid" aria-label="Verified practical supports">{visible.map(record => <PracticalSupportCard key={record.id} record={record} onSelectCategory={selectRelatedCategory} />)}</section>
     <footer className="practical-page-footer">This page uses a publication-safe projection. Candidate notes and internal review fields are not included.</footer>
     {emailOpen ? <EmailResultsDialog results={visible.map(emailRecord)} city="" onClose={() => setEmailOpen(false)} /> : null}
   </main>

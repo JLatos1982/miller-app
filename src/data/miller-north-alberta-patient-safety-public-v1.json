@@ -1,0 +1,356 @@
+{
+  "schema_version": "miller-north-alberta-patient-safety-public-v1",
+  "slug": "alberta-indigenous-patient-safety",
+  "province": "Alberta",
+  "title": "Indigenous Patient Safety Investigator and Advocate",
+  "focus": "A culturally safer route for First Nations, Métis and Inuit patient concerns—and the public evidence still needed about its results",
+  "what_happened": "Alberta created an Indigenous Patient Safety Investigator and Advocate within the Office of Alberta Health Advocates after an Indigenous advisory panel called for a more accountable response to racism and patient concerns. The role supports First Nations, Métis and Inuit patients and families, helps navigate complaint processes, can conduct a bounded Health Charter review where no other process exists, and can make recommendations to government and health authorities.",
+  "why_this_matters": [
+    "It creates a distinct point of contact for First Nations, Métis and Inuit patients who encounter racism, mistreatment or other concerns in Alberta health care.",
+    "Its public authority is meaningful but limited: it can support, review and recommend, but cannot reverse decisions, discipline providers or impose penalties.",
+    "The role is operating, while aggregate complaint, outcome and system-change reporting remains difficult to locate publicly."
+  ],
+  "one_thing_to_remember": "The office provides a documented complaint-support and review route, but the public record does not yet show a comprehensive account of its caseload, recommendations or resulting changes.",
+  "metrics": [
+    { "label": "First announced", "value": "2023" },
+    { "label": "Current advocate began", "value": "Oct. 2024" },
+    { "label": "Service area", "value": "Alberta" },
+    { "label": "Public outcome ledger", "value": "Not located" }
+  ],
+  "maturity": "dossier_ready_with_gaps",
+  "dossier_sections": [
+    {
+      "eyebrow": "Authority and institutional position",
+      "title": "What the public record supports",
+      "items": [
+        {
+          "title": "Located within a provincial office",
+          "text": "The role is part of the Office of Alberta Health Advocates and the public job description places it in Alberta Health, reporting to the Manager, Investigations. Miller North therefore does not describe it as institutionally independent.",
+          "sources": [
+            { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" },
+            { "title": "Indigenous Patient Safety Investigator job description", "organization": "Government of Alberta", "category": "Government", "url": "https://mydocs.wfd.alberta.ca/media/tigjql3o/jd-indigenous-pt-safety-inv.pdf", "publication_date": "2023" }
+          ]
+        },
+        {
+          "title": "Delegated and bounded review authority",
+          "text": "Where no other dispute-resolution process exists, the advocate may review—with or without a complaint—whether conduct was inconsistent with the Alberta Health Charter. The public page does not describe general coercive or disciplinary powers.",
+          "sources": [
+            { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" },
+            { "title": "Alberta Health Charter", "organization": "Government of Alberta", "category": "Law and policy", "url": "https://www.alberta.ca/alberta-health-charter.aspx" }
+          ]
+        },
+        {
+          "title": "Community relationships are part of the mandate",
+          "text": "The public mandate includes relationships with First Nations, Métis and Inuit representatives and leaders and access to Elders, Knowledge Keepers and Knowledge Holders. Public governance or oversight terms for those relationships were not located.",
+          "sources": [
+            { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" }
+          ]
+        }
+      ]
+    },
+    {
+      "eyebrow": "Complaint and review route",
+      "title": "From a concern to possible follow-up",
+      "items": [
+        {
+          "title": "1. Contact and intake",
+          "text": "A First Nations, Métis or Inuit patient or family member can contact the Office of Alberta Health Advocates. The office asks for a general description and warns people not to send a health number or detailed health information through the initial web form.",
+          "sources": [
+            { "title": "Contact the Health Advocates", "organization": "Government of Alberta", "category": "Service and access", "url": "https://www.alberta.ca/contact-the-health-advocates" }
+          ]
+        },
+        {
+          "title": "2. Triage and navigation",
+          "text": "An office representative determines how the concern can be addressed. The office may provide information, support early resolution or refer the person to another complaints body when the concern is outside its jurisdiction.",
+          "sources": [
+            { "title": "Make a complaint to the Health Advocate offices", "organization": "Government of Alberta", "category": "Service and access", "url": "https://www.alberta.ca/make-a-complaint-to-the-health-advocate-offices" },
+            { "title": "Indigenous Patient Safety Investigator job description", "organization": "Government of Alberta", "category": "Government", "url": "https://mydocs.wfd.alberta.ca/media/tigjql3o/jd-indigenous-pt-safety-inv.pdf", "publication_date": "2023" }
+          ]
+        },
+        {
+          "title": "3. Review where the mandate permits",
+          "text": "If no other dispute process exists, delegated Health Charter review authority may apply. The advocate can also assist with investigations and make recommendations or provide system advice.",
+          "sources": [
+            { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" },
+            { "title": "Indigenous Patient Safety Investigator job description", "organization": "Government of Alberta", "category": "Government", "url": "https://mydocs.wfd.alberta.ca/media/tigjql3o/jd-indigenous-pt-safety-inv.pdf", "publication_date": "2023" }
+          ]
+        },
+        {
+          "title": "4. Recommendation and follow-up",
+          "text": "The mandate includes recommendations and advice to government, health authorities and professional organizations. A public procedure for responses, follow-up, reconsideration or appeals was not located in the sources reviewed.",
+          "sources": [
+            { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" }
+          ]
+        }
+      ]
+    },
+    {
+      "eyebrow": "Access and limits",
+      "title": "What the role can—and cannot—do",
+      "items": [
+        {
+          "title": "Who it supports",
+          "text": "The published mandate is for First Nations, Métis and Inuit patients and families with concerns about Alberta health-care services. The office is reachable by phone, email or the provincial web inquiry form.",
+          "sources": [
+            { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "category": "Service and access", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" },
+            { "title": "Contact the Health Advocates", "organization": "Government of Alberta", "category": "Service and access", "url": "https://www.alberta.ca/contact-the-health-advocates" }
+          ]
+        },
+        {
+          "title": "Published restrictions",
+          "text": "The advocate cannot represent a person in court or at a tribunal, reverse a clinical or administrative decision, discipline a provider, impose fines or investigate federal or municipal governments, police, universities, schools or non-health companies.",
+          "sources": [
+            { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" }
+          ]
+        },
+        {
+          "title": "Processes not publicly resolved",
+          "text": "The pages reviewed do not set out a case-specific time limit, appeal route, reconsideration route or public reporting standard for this role. Those details should not be inferred.",
+          "sources": [
+            { "title": "Make a complaint to the Health Advocate offices", "organization": "Government of Alberta", "category": "Service and access", "url": "https://www.alberta.ca/make-a-complaint-to-the-health-advocate-offices" },
+            { "title": "Alberta Health Advocate resources", "organization": "Government of Alberta", "category": "Reporting", "url": "https://www.alberta.ca/alberta-health-advocate-resources" }
+          ]
+        }
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2023",
+      "type": "recommendation",
+      "title": "Indigenous advisory panel calls for a distinct complaints and oversight response",
+      "description": "Recommendation 1 included a separate Indigenous complaints function and an investigator supported by Elders and Knowledge Keepers.",
+      "organization": "Indigenous Primary Health Care Advisory Panel",
+      "sources": [
+        { "title": "Indigenous Primary Health Care Advisory Panel final report", "organization": "Government of Alberta", "category": "Original recommendation", "url": "https://open.alberta.ca/dataset/68717edd-5861-406e-b4ea-dd0e9051dadc/resource/da7c9aae-9cc1-48f4-bce5-6e71bd02a9c8/download/hlth-maps-indigenous-primary-health-care-advisory-panel-final-report.pdf", "publication_date": "2023" }
+      ]
+    },
+    {
+      "date": "2023-10-18",
+      "type": "government response",
+      "title": "Alberta announces the new patient-safety role",
+      "description": "The role was announced as an early response to the panel recommendations, alongside other Indigenous primary-care investments.",
+      "organization": "Government of Alberta",
+      "sources": [
+        { "title": "Modernizing Alberta's Primary Health Care System engagement", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/modernizing-albertas-primary-health-care-system-engagement", "publication_date": "2024-01-08" },
+        { "title": "Strengthening health care, improving access for all", "organization": "Siksika Health Services", "category": "Indigenous health organization", "url": "https://siksikahealth.com/2023/10/18/strengthening-health-care-improving-access-for-all/", "publication_date": "2023-10-18" }
+      ]
+    },
+    {
+      "date": "2023-2024",
+      "type": "implementation",
+      "title": "Recruitment and office capacity are reported",
+      "description": "Alberta Health reported recruitment for the role and 14 approved or hired positions across the Office of Alberta Health Advocates and Mental Health Patient Advocate. The report does not attribute those positions specifically to this role.",
+      "organization": "Alberta Health",
+      "sources": [
+        { "title": "Alberta Health Annual Report 2023–2024", "organization": "Government of Alberta", "category": "Implementation and reporting", "url": "https://open.alberta.ca/dataset/4bb6bc99-ab59-47fd-a633-dfc27d7a049e/resource/0cbfe4d6-a288-4c51-91f6-7a0870de9b2c/download/hlth-annual-report-2023-2024.pdf", "publication_date": "2024" }
+      ]
+    },
+    {
+      "date": "2024-10",
+      "type": "operational launch",
+      "title": "Tony Cardinal begins in the role",
+      "description": "Government implementation newsletters identify October 2024 as the start of the current advocate's work.",
+      "organization": "Office of Alberta Health Advocates",
+      "sources": [
+        { "title": "Assistant Deputy Minister newsletter — January 2025", "organization": "Government of Alberta Indigenous Health Division", "category": "Implementation and reporting", "url": "https://tsuutina.com/wp-content/uploads/2025/01/ADM-News-Letter-January-2025.pdf", "publication_date": "2025-01" },
+        { "title": "Assistant Deputy Minister newsletter — May 2025", "organization": "Government of Alberta Indigenous Health Division", "category": "Implementation and reporting", "url": "https://tsuutina.com/wp-content/uploads/2025/05/May-2025-ADM-Newsletter.pdf", "publication_date": "2025-05" }
+      ]
+    },
+    {
+      "date": "2025-07",
+      "type": "implementation update",
+      "title": "Public update describes support, reviews and investigations",
+      "description": "A provincial newsletter described the advocate's complaint-support work and ability to initiate formal reviews or investigations through the Office of Alberta Health Advocates.",
+      "organization": "Government of Alberta Indigenous Health Division",
+      "sources": [
+        { "title": "Assistant Deputy Minister newsletter — July 2025", "organization": "Government of Alberta Indigenous Health Division", "category": "Implementation and reporting", "url": "https://tsuutina.com/wp-content/uploads/2025/06/ADM-Newsletter-July-2025.pdf", "publication_date": "2025-07" }
+      ]
+    },
+    {
+      "date": "2026-06-16",
+      "type": "public education",
+      "title": "First Nations Telehealth Network hosts a public learning session",
+      "description": "A First Nations-serving network described intake, consent, navigation, referral, follow-up and system-learning functions. This is implementation evidence, not an independent evaluation of outcomes.",
+      "organization": "Alberta First Nations Information Governance Centre / First Nations Telehealth Network",
+      "sources": [
+        { "title": "Indigenous Patient Safety Investigator and Advocate learning session", "organization": "First Nations Telehealth Network", "category": "Indigenous-serving implementation source", "url": "https://docs.fntn.ca/VC22944/Handouts/POSTER_and_ZOOMLINK_0616.pdf", "publication_date": "2026-06-16" }
+      ]
+    }
+  ],
+  "evidence_path": [
+    {
+      "from": "Indigenous advisory-panel findings",
+      "relationship": "led to recommendation for",
+      "to": "a distinct Indigenous complaints and investigation function",
+      "sources": [
+        { "title": "Indigenous Primary Health Care Advisory Panel final report", "organization": "Government of Alberta", "category": "Original recommendation", "url": "https://open.alberta.ca/dataset/68717edd-5861-406e-b4ea-dd0e9051dadc/resource/da7c9aae-9cc1-48f4-bce5-6e71bd02a9c8/download/hlth-maps-indigenous-primary-health-care-advisory-panel-final-report.pdf", "publication_date": "2023" }
+      ]
+    },
+    {
+      "from": "Panel recommendation",
+      "relationship": "followed by",
+      "to": "government announcement and recruitment",
+      "sources": [
+        { "title": "Modernizing Alberta's Primary Health Care System engagement", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/modernizing-albertas-primary-health-care-system-engagement", "publication_date": "2024-01-08" },
+        { "title": "Alberta Health Annual Report 2023–2024", "organization": "Government of Alberta", "category": "Implementation and reporting", "url": "https://open.alberta.ca/dataset/4bb6bc99-ab59-47fd-a633-dfc27d7a049e/resource/0cbfe4d6-a288-4c51-91f6-7a0870de9b2c/download/hlth-annual-report-2023-2024.pdf", "publication_date": "2024" }
+      ]
+    },
+    {
+      "from": "Role creation",
+      "relationship": "became operational through",
+      "to": "appointment within the Office of Alberta Health Advocates",
+      "sources": [
+        { "title": "Assistant Deputy Minister newsletter — January 2025", "organization": "Government of Alberta Indigenous Health Division", "category": "Implementation and reporting", "url": "https://tsuutina.com/wp-content/uploads/2025/01/ADM-News-Letter-January-2025.pdf", "publication_date": "2025-01" },
+        { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" }
+      ]
+    },
+    {
+      "from": "Patient or family concern",
+      "relationship": "can enter",
+      "to": "intake, navigation, early resolution or referral",
+      "sources": [
+        { "title": "Make a complaint to the Health Advocate offices", "organization": "Government of Alberta", "category": "Service and access", "url": "https://www.alberta.ca/make-a-complaint-to-the-health-advocate-offices" },
+        { "title": "Indigenous Patient Safety Investigator job description", "organization": "Government of Alberta", "category": "Government", "url": "https://mydocs.wfd.alberta.ca/media/tigjql3o/jd-indigenous-pt-safety-inv.pdf", "publication_date": "2023" }
+      ]
+    },
+    {
+      "from": "Eligible concern with no other dispute process",
+      "relationship": "may receive",
+      "to": "a delegated Health Charter review",
+      "sources": [
+        { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" },
+        { "title": "Alberta Health Charter", "organization": "Government of Alberta", "category": "Law and policy", "url": "https://www.alberta.ca/alberta-health-charter.aspx" }
+      ]
+    },
+    {
+      "from": "Review and system learning",
+      "relationship": "can produce",
+      "to": "advice or recommendations",
+      "sources": [
+        { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" }
+      ]
+    },
+    {
+      "from": "Operational role",
+      "relationship": "has not yet been connected publicly to",
+      "to": "a comprehensive outcome ledger",
+      "sources": [
+        { "title": "Alberta Health Advocate resources", "organization": "Government of Alberta", "category": "Reporting", "url": "https://www.alberta.ca/alberta-health-advocate-resources" },
+        { "title": "Reconciliation in Alberta", "organization": "Government of Alberta", "category": "Implementation and reporting", "url": "https://www.alberta.ca/reconciliation-in-alberta" }
+      ]
+    }
+  ],
+  "policy_and_government": [
+    {
+      "label": "Originating recommendation",
+      "title": "Indigenous Primary Health Care Advisory Panel",
+      "description": "Recommendation 1 called for a stronger response to racism, including a distinct complaints and investigation function. The role implements part of that wider recommendation; it is not evidence that every element is complete.",
+      "sources": [
+        { "title": "Indigenous Primary Health Care Advisory Panel final report", "organization": "Government of Alberta", "category": "Original recommendation", "url": "https://open.alberta.ca/dataset/68717edd-5861-406e-b4ea-dd0e9051dadc/resource/da7c9aae-9cc1-48f4-bce5-6e71bd02a9c8/download/hlth-maps-indigenous-primary-health-care-advisory-panel-final-report.pdf", "publication_date": "2023" }
+      ]
+    },
+    {
+      "label": "Institutional home",
+      "title": "Office of Alberta Health Advocates",
+      "description": "The role is housed within the provincial advocate office and the lead ministry is Primary and Preventative Health Services. Public sources support delegated authority, but not a claim of structural independence from government.",
+      "sources": [
+        { "title": "Office of Alberta Health Advocates", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/office-of-alberta-health-advocates" },
+        { "title": "Indigenous Patient Safety Investigator job description", "organization": "Government of Alberta", "category": "Government", "url": "https://mydocs.wfd.alberta.ca/media/tigjql3o/jd-indigenous-pt-safety-inv.pdf", "publication_date": "2023" }
+      ]
+    },
+    {
+      "label": "Legal and policy context",
+      "title": "Alberta Health Act and Health Charter",
+      "description": "The wider office's complaint and review functions are grounded in the Alberta Health Act and Health Charter. The Indigenous advocate's published authority is described as delegated and limited to specified review circumstances.",
+      "sources": [
+        { "title": "Make a complaint to the Health Advocate offices", "organization": "Government of Alberta", "category": "Law and policy", "url": "https://www.alberta.ca/make-a-complaint-to-the-health-advocate-offices" },
+        { "title": "Alberta Health Charter", "organization": "Government of Alberta", "category": "Law and policy", "url": "https://www.alberta.ca/alberta-health-charter.aspx" }
+      ]
+    },
+    {
+      "label": "Indigenous participation",
+      "title": "Relationships and cultural support",
+      "description": "The mandate commits to community partnerships and involvement of Elders and Knowledge Keepers. Public sources did not establish a separate Indigenous governing board, oversight authority or published co-governance terms for the role.",
+      "sources": [
+        { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" }
+      ]
+    }
+  ],
+  "what_public_evidence_shows": [
+    {
+      "text": "A dedicated, publicly accessible advocate role is operating within the Office of Alberta Health Advocates.",
+      "sources": [
+        { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" },
+        { "title": "Indigenous Patient Safety Investigator and Advocate learning session", "organization": "First Nations Telehealth Network", "category": "Indigenous-serving implementation source", "url": "https://docs.fntn.ca/VC22944/Handouts/POSTER_and_ZOOMLINK_0616.pdf", "publication_date": "2026-06-16" }
+      ]
+    },
+    {
+      "text": "The role supports complaint navigation, early resolution and culturally safer engagement and has bounded authority to review certain Health Charter concerns.",
+      "sources": [
+        { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" },
+        { "title": "Make a complaint to the Health Advocate offices", "organization": "Government of Alberta", "category": "Service and access", "url": "https://www.alberta.ca/make-a-complaint-to-the-health-advocate-offices" }
+      ]
+    },
+    {
+      "text": "The public mandate includes advice and recommendations to government, health authorities and professional organizations, but not decision reversal, discipline or penalties.",
+      "sources": [
+        { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" }
+      ]
+    },
+    {
+      "text": "First Nations-serving public education material confirms an operational intake, navigation, referral and follow-up function; it does not evaluate effectiveness.",
+      "sources": [
+        { "title": "Indigenous Patient Safety Investigator and Advocate learning session", "organization": "First Nations Telehealth Network", "category": "Indigenous-serving implementation source", "url": "https://docs.fntn.ca/VC22944/Handouts/POSTER_and_ZOOMLINK_0616.pdf", "publication_date": "2026-06-16" }
+      ]
+    }
+  ],
+  "what_remains_unclear": [
+    {
+      "text": "No comprehensive public reporting was located for complaint volume, investigations, recommendations, remedies, referrals or resulting policy and service changes.",
+      "sources": [
+        { "title": "Alberta Health Advocate resources", "organization": "Government of Alberta", "category": "Reporting", "url": "https://www.alberta.ca/alberta-health-advocate-resources" }
+      ]
+    },
+    {
+      "text": "Public sources do not establish structural or investigative independence, Indigenous oversight authority or a formal governance body for the role.",
+      "sources": [
+        { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" },
+        { "title": "Indigenous Patient Safety Investigator job description", "organization": "Government of Alberta", "category": "Government", "url": "https://mydocs.wfd.alberta.ca/media/tigjql3o/jd-indigenous-pt-safety-inv.pdf", "publication_date": "2023" }
+      ]
+    },
+    {
+      "text": "A role-specific staffing budget, resource count and public reporting obligation were not located; the 14-position figure in the 2023–24 annual report covers more than this role.",
+      "sources": [
+        { "title": "Alberta Health Annual Report 2023–2024", "organization": "Government of Alberta", "category": "Implementation and reporting", "url": "https://open.alberta.ca/dataset/4bb6bc99-ab59-47fd-a633-dfc27d7a049e/resource/0cbfe4d6-a288-4c51-91f6-7a0870de9b2c/download/hlth-annual-report-2023-2024.pdf", "publication_date": "2024" }
+      ]
+    },
+    {
+      "text": "No independent Indigenous-led evaluation of accessibility, trust, cultural safety, accountability or effectiveness was located in this bounded review.",
+      "sources": [
+        { "title": "Indigenous Patient Safety Investigator and Advocate learning session", "organization": "First Nations Telehealth Network", "category": "Indigenous-serving implementation source", "url": "https://docs.fntn.ca/VC22944/Handouts/POSTER_and_ZOOMLINK_0616.pdf", "publication_date": "2026-06-16" }
+      ]
+    }
+  ],
+  "recommended_next_question": "Will the Office of Alberta Health Advocates publish a role-specific, privacy-protecting account of complaints, actions, recommendations and resulting changes?",
+  "legal_note": "This page describes public complaint and review mechanisms. It is public-record context, not legal advice, and it does not determine whether any individual complaint falls within the office's jurisdiction.",
+  "sources": [
+    { "title": "Indigenous Primary Health Care Advisory Panel final report", "organization": "Government of Alberta", "category": "Original recommendation", "url": "https://open.alberta.ca/dataset/68717edd-5861-406e-b4ea-dd0e9051dadc/resource/da7c9aae-9cc1-48f4-bce5-6e71bd02a9c8/download/hlth-maps-indigenous-primary-health-care-advisory-panel-final-report.pdf", "publication_date": "2023" },
+    { "title": "Indigenous panel recommendations: opportunities for early investment", "organization": "Government of Alberta", "category": "Government", "url": "https://open.alberta.ca/dataset/e9016d69-8688-4e77-a565-82d461370bdc/resource/337df180-3cda-4cb7-9025-a7fa178aa0d6/download/hlth-maps-indigenous-panel-recommendations-opportunities-for-early-investment.pdf", "publication_date": "2023" },
+    { "title": "Modernizing Alberta's Primary Health Care System engagement", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/modernizing-albertas-primary-health-care-system-engagement", "publication_date": "2024-01-08" },
+    { "title": "Strengthening health care, improving access for all", "organization": "Siksika Health Services", "category": "Indigenous health organization", "url": "https://siksikahealth.com/2023/10/18/strengthening-health-care-improving-access-for-all/", "publication_date": "2023-10-18" },
+    { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" },
+    { "title": "Indigenous Patient Safety Investigator job description", "organization": "Government of Alberta", "category": "Government", "url": "https://mydocs.wfd.alberta.ca/media/tigjql3o/jd-indigenous-pt-safety-inv.pdf", "publication_date": "2023" },
+    { "title": "Office of Alberta Health Advocates", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/office-of-alberta-health-advocates" },
+    { "title": "Make a complaint to the Health Advocate offices", "organization": "Government of Alberta", "category": "Service and access", "url": "https://www.alberta.ca/make-a-complaint-to-the-health-advocate-offices" },
+    { "title": "Contact the Health Advocates", "organization": "Government of Alberta", "category": "Service and access", "url": "https://www.alberta.ca/contact-the-health-advocates" },
+    { "title": "Alberta Health Charter", "organization": "Government of Alberta", "category": "Law and policy", "url": "https://www.alberta.ca/alberta-health-charter.aspx" },
+    { "title": "Alberta Health Annual Report 2023–2024", "organization": "Government of Alberta", "category": "Implementation and reporting", "url": "https://open.alberta.ca/dataset/4bb6bc99-ab59-47fd-a633-dfc27d7a049e/resource/0cbfe4d6-a288-4c51-91f6-7a0870de9b2c/download/hlth-annual-report-2023-2024.pdf", "publication_date": "2024" },
+    { "title": "Assistant Deputy Minister newsletter — January 2025", "organization": "Government of Alberta Indigenous Health Division", "category": "Implementation and reporting", "url": "https://tsuutina.com/wp-content/uploads/2025/01/ADM-News-Letter-January-2025.pdf", "publication_date": "2025-01" },
+    { "title": "Assistant Deputy Minister newsletter — May 2025", "organization": "Government of Alberta Indigenous Health Division", "category": "Implementation and reporting", "url": "https://tsuutina.com/wp-content/uploads/2025/05/May-2025-ADM-Newsletter.pdf", "publication_date": "2025-05" },
+    { "title": "Assistant Deputy Minister newsletter — July 2025", "organization": "Government of Alberta Indigenous Health Division", "category": "Implementation and reporting", "url": "https://tsuutina.com/wp-content/uploads/2025/06/ADM-Newsletter-July-2025.pdf", "publication_date": "2025-07" },
+    { "title": "Indigenous Patient Safety Investigator and Advocate learning session", "organization": "First Nations Telehealth Network", "category": "Indigenous-serving implementation source", "url": "https://docs.fntn.ca/VC22944/Handouts/POSTER_and_ZOOMLINK_0616.pdf", "publication_date": "2026-06-16" },
+    { "title": "Alberta Health Advocate resources", "organization": "Government of Alberta", "category": "Reporting", "url": "https://www.alberta.ca/alberta-health-advocate-resources" },
+    { "title": "Reconciliation in Alberta", "organization": "Government of Alberta", "category": "Implementation and reporting", "url": "https://www.alberta.ca/reconciliation-in-alberta" }
+  ]
+}

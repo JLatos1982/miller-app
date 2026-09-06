@@ -100,6 +100,7 @@
 .funding-card dd { margin: 0; }
 .practical-support-card footer,
 .funding-page:not(.funding-page-north) .funding-card footer { display: grid; gap: 8px; padding-top: 14px; border-top: 1px solid var(--utility-line); }
+.practical-related,.practical-funding-links{display:grid;gap:7px;margin:14px 0;padding:12px;border-radius:12px;background:#f3f7ff;color:var(--utility-muted);font-size:.82rem}.practical-related div{display:flex;flex-wrap:wrap;gap:6px}.practical-related button{padding:6px 9px;border:1px solid #aec8f6;border-radius:999px;background:#fff;color:var(--utility-accent-dark);font:inherit;font-weight:750;cursor:pointer}.practical-funding-links a{font-weight:750}.practical-funding-links small{line-height:1.45}
 .practical-support-card a,
 .funding-page:not(.funding-page-north) .funding-card a { color: var(--utility-accent-dark); font-weight: 800; }
 .practical-page-footer { margin-top: 30px; color: var(--utility-muted, #627065); text-align: center; }
