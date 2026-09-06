@@ -17,3 +17,12 @@ test("related funding stays current, bounded and purpose-based", () => {
   assert.equal(housing.some(record => record.name.includes("Security Deposit")), true)
   assert.equal(relatedFundingRecords(funding.records, "transportation", 4).some(record => record.name.includes("residential alcohol and drug treatment")), true)
 })
+
+test("new thin-area records inherit bounded related support and funding connections", () => {
+  for (const id of ["support:plan-institute-disability-planning-helpline", "support:sources-admin-accounting-works", "support:bc-travel-assistance-program"]) {
+    const record = supports.records.find(item => item.id === id)
+    assert.ok(record)
+    assert.ok(relatedSupportCategories(record.category).length <= 2)
+    assert.ok(relatedFundingRecords(funding.records, record.category).length <= 2)
+  }
+})

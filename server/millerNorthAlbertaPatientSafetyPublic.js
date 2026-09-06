@@ -13,6 +13,6 @@ export function validateAlbertaPatientSafetyProjection(record) {
   if (!validateSources(record.sources) || !Array.isArray(record.timeline) || !record.timeline.every(item => item.date && validateSources(item.sources))) throw new Error("alberta_patient_safety_timeline_source_invalid")
   if (!Array.isArray(record.evidence_path) || record.evidence_path.length < 5 || !record.evidence_path.every(edge => edge.from && edge.relationship && edge.to && validateSources(edge.sources))) throw new Error("alberta_patient_safety_edge_invalid")
   if (!Array.isArray(record.dossier_sections) || record.dossier_sections.length < 3 || !record.dossier_sections.every(section => section.title && section.items?.every(item => item.title && item.text && validateSources(item.sources)))) throw new Error("alberta_patient_safety_section_invalid")
-  if (!record.what_remains_unclear?.some(item => /No comprehensive public reporting was located/.test(item.text))) throw new Error("alberta_patient_safety_outcome_limit_missing")
+  if (!record.what_remains_unclear?.some(item => /No comprehensive (?:role-specific )?public outcome reporting was located/.test(item.text))) throw new Error("alberta_patient_safety_outcome_limit_missing")
   return { valid: true, timeline_events: record.timeline.length, evidence_edges: record.evidence_path.length, source_count: record.sources.length, maturity: record.maturity }
 }

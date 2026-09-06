@@ -1,0 +1,83 @@
+{
+  "schema_version": "miller-north-accountability-comparison-public-v1",
+  "generated_at": "2026-09-06",
+  "title": "How selected healthcare accountability routes are structured",
+  "caution": "This describes selected public mechanisms and their published structures. It does not rank provinces, compare harms or measure effectiveness.",
+  "sources": {
+    "bc_act": { "title": "Patient Care Quality Review Board Act", "organization": "BC Laws", "url": "https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/08035_01" },
+    "bc_board": { "title": "Patient Care Quality Review Board", "organization": "Patient Care Quality Review Boards", "url": "https://www.patientcarequalityreviewboard.ca/" },
+    "bc_complaints": { "title": "Concerns and Complaints", "organization": "Government of British Columbia", "url": "https://www2.gov.bc.ca/gov/content/health/accessing-health-care/home-community-care/concerns-and-complaints" },
+    "bc_review": { "title": "Patient Care Quality Review", "organization": "Government of British Columbia", "url": "https://engage.gov.bc.ca/patientcarequality" },
+    "bc_ips": { "title": "In Plain Sight annual report 2022", "organization": "Government of British Columbia", "url": "https://www2.gov.bc.ca/assets/gov/government/ministries-organizations/ministries/health/office-of-indigenous-health/in-plain-sight-annual-report-2022.pdf" },
+    "ab_role": { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" },
+    "ab_complaint": { "title": "Make a complaint to the Health Advocate offices", "organization": "Government of Alberta", "url": "https://www.alberta.ca/make-a-complaint-to-the-health-advocate-offices" },
+    "ab_office": { "title": "Office of Alberta Health Advocates", "organization": "Government of Alberta", "url": "https://www.alberta.ca/office-of-alberta-health-advocates" },
+    "ab_resources": { "title": "Alberta Health Advocate resources", "organization": "Government of Alberta", "url": "https://www.alberta.ca/alberta-health-advocate-resources" },
+    "ab_plan": { "title": "Primary and Preventative Health Services Business Plan 2026–29", "organization": "Government of Alberta", "url": "https://open.alberta.ca/dataset/1f359112-3adc-4202-8002-35c96521e80f/resource/a9fb0611-e4d9-42eb-9d9a-50779aaf8903/download/pphs-business-plan-2026-29.pdf" },
+    "ab_fntn": { "title": "Indigenous Patient Safety Investigator and Advocate learning session", "organization": "First Nations Telehealth Network", "url": "https://docs.fntn.ca/VC22944/Handouts/POSTER_and_ZOOMLINK_0616.pdf" },
+    "sk_governance": { "title": "Governance", "organization": "First Nations Health Ombudsperson Office", "url": "https://fnhoo.ca/governance/" },
+    "sk_services": { "title": "Services", "organization": "First Nations Health Ombudsperson Office", "url": "https://fnhoo.ca/services/" },
+    "sk_faq": { "title": "Frequently asked questions", "organization": "First Nations Health Ombudsperson Office", "url": "https://fnhoo.ca/faq/" },
+    "sk_report": { "title": "Inaugural Report 2023–2025", "organization": "First Nations Health Ombudsperson Office", "url": "https://fnhoo.ca/wp-content/uploads/2025/10/Inaugural-Report-2023-2025.pdf" },
+    "sk_hansard": { "title": "Saskatchewan Legislative Assembly debates — October 28, 2025", "organization": "Legislative Assembly of Saskatchewan", "url": "https://docs.legassembly.sk.ca/legdocs/Assembly/Debates/30L2S/20251028DebatesHTML.htm" }
+  },
+  "mechanisms": [
+    {
+      "province": "British Columbia",
+      "mechanism": "Patient Care Quality Offices and Review Boards",
+      "case_slug": "in-plain-sight",
+      "fields": [
+        { "field": "complaint_entry_point", "label": "Complaint entry point", "value": "A health authority Patient Care Quality Office is the first step for complaints about health-authority care.", "source_ids": ["bc_act", "bc_board"] },
+        { "field": "investigator_reviewer", "label": "Investigator or reviewer", "value": "The health authority office processes the complaint; an independent Review Board can review unresolved concerns after that response.", "source_ids": ["bc_complaints", "bc_board"] },
+        { "field": "institutional_home", "label": "Institutional home", "value": "Complaint offices sit within health authorities. Review Boards are statutory provincial boards.", "source_ids": ["bc_act"] },
+        { "field": "indigenous_specific_mechanism", "label": "Indigenous-specific mechanism", "value": "The statutory route is general. Health authorities have added Indigenous complaint liaisons and related processes, and the 2026 provincial review explicitly includes Indigenous-specific racism.", "source_ids": ["bc_ips", "bc_review"] },
+        { "field": "authority", "label": "Published authority", "value": "Review Boards can review complaints, report findings and actions, and make recommendations to health authorities or the minister.", "source_ids": ["bc_act", "bc_board"] },
+        { "field": "recommendations", "label": "Recommendations", "value": "Recommendations may address patient-care quality or complaint processes; they are advisory rather than disciplinary orders.", "source_ids": ["bc_act"] },
+        { "field": "appeal_reconsideration", "label": "Appeal or reconsideration", "value": "A Review Board is the published second-stage review after the health authority office. A further appeal route is not clearly stated on the public process pages reviewed.", "source_ids": ["bc_board", "bc_complaints"] },
+        { "field": "public_reporting", "label": "Public reporting", "value": "The Act requires Review Boards to report annually to the minister; public reports have been posted by the Boards.", "source_ids": ["bc_act", "bc_board"] },
+        { "field": "aggregate_outcome_reporting", "label": "Aggregate outcome reporting", "value": "The Act provides for reporting complaint and review volumes and resolution times. Current Indigenous-specific public disaggregation varies and was not located as one provincewide ledger.", "source_ids": ["bc_act", "bc_ips"] },
+        { "field": "implementation_follow_up", "label": "Implementation follow-up", "value": "In Plain Sight follow-up records health-authority complaint-process changes, while the province's wider quality-review reform remains underway.", "source_ids": ["bc_ips", "bc_review"] },
+        { "field": "indigenous_governance_input", "label": "Indigenous governance or input", "value": "The current reform includes sessions with First Nations and Métis communities. Published materials describe engagement; they do not by themselves establish shared governance of the statutory Boards.", "source_ids": ["bc_review"] },
+        { "field": "major_transparency_gap", "label": "Major transparency gap", "value": "No single current public view was located that connects Indigenous-specific complaints, recommendations and implementation across all health authorities.", "source_ids": ["bc_ips", "bc_review"] }
+      ]
+    },
+    {
+      "province": "Alberta",
+      "mechanism": "Indigenous Patient Safety Investigator and Advocate",
+      "case_slug": "alberta-indigenous-patient-safety",
+      "fields": [
+        { "field": "complaint_entry_point", "label": "Complaint entry point", "value": "First Nations, Métis and Inuit patients or families can contact the Office of Alberta Health Advocates by phone, email or web inquiry.", "source_ids": ["ab_role", "ab_complaint"] },
+        { "field": "investigator_reviewer", "label": "Investigator or reviewer", "value": "The Indigenous Patient Safety Investigator and Advocate supports navigation and may conduct a delegated Health Charter review where no other dispute process exists.", "source_ids": ["ab_role"] },
+        { "field": "institutional_home", "label": "Institutional home", "value": "The role is part of the provincial Office of Alberta Health Advocates under the Ministry of Primary and Preventative Health Services.", "source_ids": ["ab_role", "ab_office"] },
+        { "field": "indigenous_specific_mechanism", "label": "Indigenous-specific mechanism", "value": "The role is specifically available to First Nations, Métis and Inuit patients and families with concerns about Alberta health-care services.", "source_ids": ["ab_role"] },
+        { "field": "authority", "label": "Published authority", "value": "Published functions include support, early resolution, referral, delegated Health Charter review, system advice and recommendations. The role cannot reverse decisions, discipline providers or impose penalties.", "source_ids": ["ab_role", "ab_complaint"] },
+        { "field": "recommendations", "label": "Recommendations", "value": "The mandate permits recommendations to government and professional organizations, but no role-specific public recommendation ledger was located.", "source_ids": ["ab_role", "ab_resources"] },
+        { "field": "appeal_reconsideration", "label": "Appeal or reconsideration", "value": "A role-specific appeal or reconsideration process was not clearly stated on the public pages reviewed.", "source_ids": ["ab_role", "ab_complaint"] },
+        { "field": "public_reporting", "label": "Public reporting", "value": "A ministry business plan now includes a role-specific correspondence measure. No comprehensive role-specific annual outcome report was located.", "source_ids": ["ab_plan", "ab_resources"] },
+        { "field": "aggregate_outcome_reporting", "label": "Aggregate outcome reporting", "value": "The business plan reports 321 correspondence items in 2025. It does not disaggregate accepted matters, completed reviews, recommendations, referrals, resolutions or outcomes.", "source_ids": ["ab_plan"] },
+        { "field": "implementation_follow_up", "label": "Implementation follow-up", "value": "Appointment, operation and public education are documented; role-specific follow-up on recommendations and resulting changes was not located.", "source_ids": ["ab_fntn", "ab_resources"] },
+        { "field": "indigenous_governance_input", "label": "Indigenous governance or input", "value": "The mandate includes relationships with First Nations, Métis and Inuit representatives and access to Elders and Knowledge Keepers. Published governance or oversight terms were not located.", "source_ids": ["ab_role"] },
+        { "field": "major_transparency_gap", "label": "Major transparency gap", "value": "Correspondence volume is visible, but what happened after contact remains mostly unavailable in role-specific aggregate reporting.", "source_ids": ["ab_plan", "ab_resources"] }
+      ]
+    },
+    {
+      "province": "Saskatchewan",
+      "mechanism": "First Nations Health Ombudsperson Office",
+      "case_slug": "first-nations-health-ombudsperson",
+      "fields": [
+        { "field": "complaint_entry_point", "label": "Complaint entry point", "value": "First Nations people in Saskatchewan can contact FNHO directly for advocacy, navigation, complaint resolution or investigation support.", "source_ids": ["sk_services", "sk_faq"] },
+        { "field": "investigator_reviewer", "label": "Investigator or reviewer", "value": "FNHO describes advocacy, mediation, investigation and systemic-recommendation functions.", "source_ids": ["sk_services", "sk_report"] },
+        { "field": "institutional_home", "label": "Institutional home", "value": "FNHO is a First Nations-governed office, separate from the Saskatchewan Health Authority and provincial government.", "source_ids": ["sk_governance"] },
+        { "field": "indigenous_specific_mechanism", "label": "Indigenous-specific mechanism", "value": "The office serves First Nations people in Saskatchewan and describes its authority through the FSIN Chiefs-in-Assembly.", "source_ids": ["sk_governance", "sk_faq"] },
+        { "field": "authority", "label": "Published authority", "value": "FNHO describes independent advocacy, mediation and investigation, with recommendations and referrals. Its public pages do not describe coercive enforcement powers.", "source_ids": ["sk_governance", "sk_services"] },
+        { "field": "recommendations", "label": "Recommendations", "value": "The inaugural report presents recommendations and systemic themes directed toward healthcare organizations and public institutions.", "source_ids": ["sk_report"] },
+        { "field": "appeal_reconsideration", "label": "Appeal or reconsideration", "value": "A formal appeal or reconsideration route for FNHO decisions was not clearly stated on the public pages reviewed.", "source_ids": ["sk_services", "sk_faq"] },
+        { "field": "public_reporting", "label": "Public reporting", "value": "FNHO published an inaugural 2023–2025 report with aggregate complaint and activity information.", "source_ids": ["sk_report"] },
+        { "field": "aggregate_outcome_reporting", "label": "Aggregate outcome reporting", "value": "The inaugural report records 391 complaints, with 224 closed or resolved and 167 active; 64% related to the Saskatchewan Health Authority.", "source_ids": ["sk_report"] },
+        { "field": "implementation_follow_up", "label": "Implementation follow-up", "value": "A ministerial statement said the Ministry and Saskatchewan Health Authority were reviewing the report. A later comprehensive public response or implementation ledger was not located in the bounded review.", "source_ids": ["sk_hansard", "sk_report"] },
+        { "field": "indigenous_governance_input", "label": "Indigenous governance or input", "value": "FNHO describes governance authority through the FSIN Chiefs-in-Assembly. Public funding support is distinct from that governance relationship.", "source_ids": ["sk_governance"] },
+        { "field": "major_transparency_gap", "label": "Major transparency gap", "value": "The office reports its own activity, but a recommendation-by-recommendation public response from Saskatchewan institutions was not located.", "source_ids": ["sk_report", "sk_hansard"] }
+      ]
+    }
+  ]
+}

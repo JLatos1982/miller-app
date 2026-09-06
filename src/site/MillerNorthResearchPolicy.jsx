@@ -3,6 +3,7 @@ import { useMemo, useState } from "react"
 import research from "../data/miller-north-research-policy-public-v1.json"
 import fnho from "../data/miller-north-fnho-public-v1.json"
 import albertaPatientSafety from "../data/miller-north-alberta-patient-safety-public-v1.json"
+import accountabilityComparison from "../data/miller-north-accountability-comparison-public-v1.json"
 import MillerNorthPublicNav from "./MillerNorthPublicNav.jsx"
 import MillerNorthStartHere from "./MillerNorthStartHere.jsx"
 import "./MillerNorthResearchPolicy.css"
@@ -11,14 +12,14 @@ const words = value => String(value || "").replaceAll("_", " ")
 const cases = [...research.cases, fnho, albertaPatientSafety]
 const statusOrder = ["implemented", "substantially_implemented", "partially_implemented", "implementation_underway", "implementation_evidence_fragmentary"]
 const statusLabels = { implemented: "Implemented", substantially_implemented: "Substantially implemented", partially_implemented: "Partially implemented", implementation_underway: "Implementation underway", implementation_evidence_fragmentary: "Fragmentary evidence", public_evidence_fragmentary: "Fragmentary public evidence", partial_implementation_evidence: "Partial implementation evidence", no_formal_response_located: "No formal response located" }
-const provinceComparison = [
-  { province: "British Columbia", caseSlug: "in-plain-sight", documented: "Independent provincewide review", response: "Ministry, health authorities and professional regulators", indigenous: "Indigenous participants, leaders and organizations inform both the review and later work", formal: "24 recommendations", reporting: "Implementation evidence is distributed; no one current 24-item public ledger was located" },
-  { province: "Alberta", caseSlug: "alberta-indigenous-primary-care", documented: "Indigenous Primary Health Care Advisory Panel", response: "Provincial government, implementation programs and a patient-safety mechanism", indigenous: "Indigenous-led advice and advisory structures", formal: "22 recommendations", reporting: "Programs are public, but no one current 22-item crosswalk was located" },
-  { province: "Saskatchewan", caseSlug: "saskatoon-coerced-sterilization", documented: "External cohort review and a separate First Nations-governed ombudsperson", response: "Health region or authority, Ministry and First Nations-governed accountability", indigenous: "Anonymized lived experience, Indigenous birth support and FNHO governance", formal: "Ten Calls to Action; four FNHO recommendation themes", reporting: "Follow-up is spread across programs, public statements and organizational reporting" },
-]
-
 function Sources({ sources = [], inline = false }) {
   return <span className={inline ? "mnrp-inline-sources" : "mnrp-source-links"}>{sources.map((source, index) => <span key={source.url}>{index ? " · " : ""}<a href={source.url} target="_blank" rel="noreferrer">{inline ? source.organization : source.title}</a></span>)}</span>
+}
+
+function AccountabilityComparison({ onOpen }) {
+  const headlineFields = new Set(["complaint_entry_point", "investigator_reviewer", "institutional_home", "indigenous_specific_mechanism", "aggregate_outcome_reporting", "major_transparency_gap"])
+  const resolveSources = ids => ids.map(id => accountabilityComparison.sources[id])
+  return <section className="mnrp-comparison"><p className="mnrp-kicker">Across three provinces</p><h2>{accountabilityComparison.title}</h2><p>{accountabilityComparison.caution}</p><div>{accountabilityComparison.mechanisms.map(item => <article key={item.province}><h3>{item.province}</h3><p className="mnrp-comparison-mechanism">{item.mechanism}</p><dl>{item.fields.filter(field => headlineFields.has(field.field)).map(field => <span key={field.field}><dt>{field.label}</dt><dd>{field.value}<Sources sources={resolveSources(field.source_ids)} inline /></dd></span>)}</dl><details><summary>Compare all {item.fields.length} fields</summary><dl>{item.fields.filter(field => !headlineFields.has(field.field)).map(field => <span key={field.field}><dt>{field.label}</dt><dd>{field.value}<Sources sources={resolveSources(field.source_ids)} inline /></dd></span>)}</dl></details><button type="button" onClick={() => onOpen(item.case_slug)}>See the evidence in this case →</button></article>)}</div></section>
 }
 
 function MethodNote() {
@@ -31,7 +32,7 @@ function Landing({ onOpen }) {
     <MillerNorthStartHere compact />
     <section className="mnrp-path-section"><p className="mnrp-kicker">How the research works</p><h2>Following what happened next</h2><p>Each case follows only the stages supported by public evidence.</p><ol className="mnrp-path">{research.research_path.map((step, index) => <li key={step}><span>{String(index + 1).padStart(2, "0")}</span>{step}</li>)}</ol></section>
     <section className="mnrp-case-section"><p className="mnrp-kicker">{cases.length} Research &amp; Policy cases</p><h2>Follow the public record</h2><div className="mnrp-case-grid">{cases.map(record => <article className={`mnrp-case-card mnrp-${record.slug}`} key={record.slug}><p className="mnrp-province">{record.province}</p><h2>{record.title}</h2><p className="mnrp-focus">{record.focus}</p><div className="mnrp-card-metrics">{record.metrics.slice(0, 4).map(metric => <span key={metric.label}><strong>{metric.value}</strong>{metric.label}</span>)}</div><button type="button" onClick={() => onOpen(record.slug)}>Explore this case <span aria-hidden="true">→</span></button></article>)}</div></section>
-    <section className="mnrp-comparison"><p className="mnrp-kicker">Across three provinces</p><h2>Different routes to public accountability</h2><p>This compares structures—not the severity of harm or institutional performance.</p><div>{provinceComparison.map(item => <article key={item.province}><h3>{item.province}</h3><dl><dt>How documented</dt><dd>{item.documented}</dd><dt>Who responds</dt><dd>{item.response}</dd><dt>Indigenous role</dt><dd>{item.indigenous}</dd><dt>Recommendation structure</dt><dd>{item.formal}</dd><dt>Public reporting</dt><dd>{item.reporting}</dd></dl><button type="button" onClick={() => onOpen(item.caseSlug)}>See the evidence in this case →</button></article>)}</div></section>
+    <AccountabilityComparison onOpen={onOpen}/>
     <section className="mnrp-latest"><p className="mnrp-kicker">Latest source checks</p><h2>What changed in this review</h2><div>{Object.entries(research.bounded_discovery).map(([province, findings]) => <article key={province}><h3>{words(province)}</h3>{findings.map(item => <p key={item.text}>{item.text}<Sources sources={item.sources} inline /></p>)}</article>)}</div></section>
     <MethodNote />
   </>

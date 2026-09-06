@@ -15,6 +15,7 @@
     { "label": "First announced", "value": "2023" },
     { "label": "Current advocate began", "value": "Oct. 2024" },
     { "label": "Service area", "value": "Alberta" },
+    { "label": "2025 correspondence", "value": "321" },
     { "label": "Public outcome ledger", "value": "Not located" }
   ],
   "maturity": "dossier_ready_with_gaps",
@@ -44,6 +45,13 @@
           "text": "The public mandate includes relationships with First Nations, Métis and Inuit representatives and leaders and access to Elders, Knowledge Keepers and Knowledge Holders. Public governance or oversight terms for those relationships were not located.",
           "sources": [
             { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "category": "Government", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" }
+          ]
+        },
+        {
+          "title": "One aggregate activity measure is public",
+          "text": "Alberta's 2026–29 business plan reports 321 correspondence items in 2025 for this role. That number measures correspondence, not unique complainants, accepted cases, completed reviews, recommendations or outcomes.",
+          "sources": [
+            { "title": "Primary and Preventative Health Services Business Plan 2026–29", "organization": "Government of Alberta", "category": "Implementation and reporting", "url": "https://open.alberta.ca/dataset/1f359112-3adc-4202-8002-35c96521e80f/resource/a9fb0611-e4d9-42eb-9d9a-50779aaf8903/download/pphs-business-plan-2026-29.pdf", "publication_date": "2026" }
           ]
         }
       ]
@@ -176,6 +184,16 @@
       "sources": [
         { "title": "Indigenous Patient Safety Investigator and Advocate learning session", "organization": "First Nations Telehealth Network", "category": "Indigenous-serving implementation source", "url": "https://docs.fntn.ca/VC22944/Handouts/POSTER_and_ZOOMLINK_0616.pdf", "publication_date": "2026-06-16" }
       ]
+    },
+    {
+      "date": "2026",
+      "type": "aggregate reporting",
+      "title": "Business plan publishes a role-specific correspondence measure",
+      "description": "The 2026–29 business plan reports 321 correspondence items in 2025. It does not disaggregate complaints, accepted matters, completed reviews, recommendations, referrals, resolutions or outcomes.",
+      "organization": "Primary and Preventative Health Services",
+      "sources": [
+        { "title": "Primary and Preventative Health Services Business Plan 2026–29", "organization": "Government of Alberta", "category": "Implementation and reporting", "url": "https://open.alberta.ca/dataset/1f359112-3adc-4202-8002-35c96521e80f/resource/a9fb0611-e4d9-42eb-9d9a-50779aaf8903/download/pphs-business-plan-2026-29.pdf", "publication_date": "2026" }
+      ]
     }
   ],
   "evidence_path": [
@@ -233,11 +251,19 @@
     },
     {
       "from": "Operational role",
-      "relationship": "has not yet been connected publicly to",
-      "to": "a comprehensive outcome ledger",
+      "relationship": "is measured publicly by",
+      "to": "321 correspondence items in 2025",
+      "sources": [
+        { "title": "Primary and Preventative Health Services Business Plan 2026–29", "organization": "Government of Alberta", "category": "Implementation and reporting", "url": "https://open.alberta.ca/dataset/1f359112-3adc-4202-8002-35c96521e80f/resource/a9fb0611-e4d9-42eb-9d9a-50779aaf8903/download/pphs-business-plan-2026-29.pdf", "publication_date": "2026" }
+      ]
+    },
+    {
+      "from": "Role-specific correspondence measure",
+      "relationship": "does not establish",
+      "to": "complaint disposition, recommendations, resolutions or system outcomes",
       "sources": [
         { "title": "Alberta Health Advocate resources", "organization": "Government of Alberta", "category": "Reporting", "url": "https://www.alberta.ca/alberta-health-advocate-resources" },
-        { "title": "Reconciliation in Alberta", "organization": "Government of Alberta", "category": "Implementation and reporting", "url": "https://www.alberta.ca/reconciliation-in-alberta" }
+        { "title": "Primary and Preventative Health Services Business Plan 2026–29", "organization": "Government of Alberta", "category": "Implementation and reporting", "url": "https://open.alberta.ca/dataset/1f359112-3adc-4202-8002-35c96521e80f/resource/a9fb0611-e4d9-42eb-9d9a-50779aaf8903/download/pphs-business-plan-2026-29.pdf", "publication_date": "2026" }
       ]
     }
   ],
@@ -303,13 +329,20 @@
       "sources": [
         { "title": "Indigenous Patient Safety Investigator and Advocate learning session", "organization": "First Nations Telehealth Network", "category": "Indigenous-serving implementation source", "url": "https://docs.fntn.ca/VC22944/Handouts/POSTER_and_ZOOMLINK_0616.pdf", "publication_date": "2026-06-16" }
       ]
+    },
+    {
+      "text": "A provincial business plan reports 321 correspondence items for the role in 2025. This is aggregate activity evidence, not an outcome or effectiveness measure.",
+      "sources": [
+        { "title": "Primary and Preventative Health Services Business Plan 2026–29", "organization": "Government of Alberta", "category": "Implementation and reporting", "url": "https://open.alberta.ca/dataset/1f359112-3adc-4202-8002-35c96521e80f/resource/a9fb0611-e4d9-42eb-9d9a-50779aaf8903/download/pphs-business-plan-2026-29.pdf", "publication_date": "2026" }
+      ]
     }
   ],
   "what_remains_unclear": [
     {
-      "text": "No comprehensive public reporting was located for complaint volume, investigations, recommendations, remedies, referrals or resulting policy and service changes.",
+      "text": "No comprehensive role-specific public outcome reporting was located for unique complaints, accepted matters, completed reviews, recommendations, remedies, referrals or resulting policy and service changes.",
       "sources": [
-        { "title": "Alberta Health Advocate resources", "organization": "Government of Alberta", "category": "Reporting", "url": "https://www.alberta.ca/alberta-health-advocate-resources" }
+        { "title": "Alberta Health Advocate resources", "organization": "Government of Alberta", "category": "Reporting", "url": "https://www.alberta.ca/alberta-health-advocate-resources" },
+        { "title": "Primary and Preventative Health Services Business Plan 2026–29", "organization": "Government of Alberta", "category": "Implementation and reporting", "url": "https://open.alberta.ca/dataset/1f359112-3adc-4202-8002-35c96521e80f/resource/a9fb0611-e4d9-42eb-9d9a-50779aaf8903/download/pphs-business-plan-2026-29.pdf", "publication_date": "2026" }
       ]
     },
     {
@@ -323,6 +356,12 @@
       "text": "A role-specific staffing budget, resource count and public reporting obligation were not located; the 14-position figure in the 2023–24 annual report covers more than this role.",
       "sources": [
         { "title": "Alberta Health Annual Report 2023–2024", "organization": "Government of Alberta", "category": "Implementation and reporting", "url": "https://open.alberta.ca/dataset/4bb6bc99-ab59-47fd-a633-dfc27d7a049e/resource/0cbfe4d6-a288-4c51-91f6-7a0870de9b2c/download/hlth-annual-report-2023-2024.pdf", "publication_date": "2024" }
+      ]
+    },
+    {
+      "text": "The 2024–25 annual report describes follow-up and information-sharing improvements at the parent advocate-office level, but does not attribute those changes to this role.",
+      "sources": [
+        { "title": "Alberta Health Annual Report 2024–2025", "organization": "Government of Alberta", "category": "Implementation and reporting", "url": "https://open.alberta.ca/dataset/4bb6bc99-ab59-47fd-a633-dfc27d7a049e/resource/6920038c-39c3-4dbd-ad36-14c649bff0a6/download/hlth-annual-report-2024-2025.pdf", "publication_date": "2025" }
       ]
     },
     {
@@ -346,6 +385,8 @@
     { "title": "Contact the Health Advocates", "organization": "Government of Alberta", "category": "Service and access", "url": "https://www.alberta.ca/contact-the-health-advocates" },
     { "title": "Alberta Health Charter", "organization": "Government of Alberta", "category": "Law and policy", "url": "https://www.alberta.ca/alberta-health-charter.aspx" },
     { "title": "Alberta Health Annual Report 2023–2024", "organization": "Government of Alberta", "category": "Implementation and reporting", "url": "https://open.alberta.ca/dataset/4bb6bc99-ab59-47fd-a633-dfc27d7a049e/resource/0cbfe4d6-a288-4c51-91f6-7a0870de9b2c/download/hlth-annual-report-2023-2024.pdf", "publication_date": "2024" },
+    { "title": "Alberta Health Annual Report 2024–2025", "organization": "Government of Alberta", "category": "Implementation and reporting", "url": "https://open.alberta.ca/dataset/4bb6bc99-ab59-47fd-a633-dfc27d7a049e/resource/6920038c-39c3-4dbd-ad36-14c649bff0a6/download/hlth-annual-report-2024-2025.pdf", "publication_date": "2025" },
+    { "title": "Primary and Preventative Health Services Business Plan 2026–29", "organization": "Government of Alberta", "category": "Implementation and reporting", "url": "https://open.alberta.ca/dataset/1f359112-3adc-4202-8002-35c96521e80f/resource/a9fb0611-e4d9-42eb-9d9a-50779aaf8903/download/pphs-business-plan-2026-29.pdf", "publication_date": "2026" },
     { "title": "Assistant Deputy Minister newsletter — January 2025", "organization": "Government of Alberta Indigenous Health Division", "category": "Implementation and reporting", "url": "https://tsuutina.com/wp-content/uploads/2025/01/ADM-News-Letter-January-2025.pdf", "publication_date": "2025-01" },
     { "title": "Assistant Deputy Minister newsletter — May 2025", "organization": "Government of Alberta Indigenous Health Division", "category": "Implementation and reporting", "url": "https://tsuutina.com/wp-content/uploads/2025/05/May-2025-ADM-Newsletter.pdf", "publication_date": "2025-05" },
     { "title": "Assistant Deputy Minister newsletter — July 2025", "organization": "Government of Alberta Indigenous Health Division", "category": "Implementation and reporting", "url": "https://tsuutina.com/wp-content/uploads/2025/06/ADM-Newsletter-July-2025.pdf", "publication_date": "2025-07" },

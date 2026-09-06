@@ -11,14 +11,19 @@ import { fundingFreshnessSummary, materialFundingChanges, nextFundingCheckDue, v
 
 const forbidden = /owner_review|private_notes|patient_name|client_name|username|medical_record/i
 
-test("practical supports projection publishes 31 reviewed records without private state or duplicate identities", () => {
+test("practical supports projection publishes 43 reviewed records without private state or duplicate identities", () => {
   assert.equal(practicalPublic.schema_version, "miller-practical-supports-public-v1")
-  assert.equal(practicalPublic.records.length, 31)
-  assert.equal(new Set(practicalPublic.records.map(record => record.id)).size, 31)
+  assert.equal(practicalPublic.records.length, 43)
+  assert.equal(new Set(practicalPublic.records.map(record => record.id)).size, 43)
+  assert.equal(new Set(practicalPublic.records.map(record => `${record.organization}|${record.name}`.toLowerCase())).size, 43)
   assert.equal(practicalPublic.records.every(record => /^https:\/\//.test(record.website) && record.last_verified_at === "2026-09-06"), true)
   assert.doesNotMatch(JSON.stringify(practicalPublic), forbidden)
   assert.equal(practicalPublic.records.filter(record => record.id.startsWith("curated:")).length, 4)
-  assert.equal(practicalPublic.records.filter(record => record.id.startsWith("support:")).length, 27)
+  assert.equal(practicalPublic.records.filter(record => record.id.startsWith("support:")).length, 39)
+  const counts = Object.groupBy(practicalPublic.records, record => record.category)
+  assert.equal(counts.income_benefits.length, 5)
+  assert.equal(counts.training.length, 6)
+  assert.equal(counts.transportation.length, 8)
 })
 
 test("public funding projections expose only validated fields and the high-confidence First Nations subset", () => {
