@@ -1,0 +1,548 @@
+{
+  "schema_version": "miller-north-live-listening-public-v1",
+  "generated_at": "2026-09-06T16:17:44.809Z",
+  "publication_scope": "publication_safe_public_sources",
+  "methodology": "Recent public-source signals under review. These records are not canonical incident findings and may later be linked, reconciled, retained as context, or withheld.",
+  "metrics": {
+    "leads_inspected": 22,
+    "items_displayed": 15,
+    "linked_existing_incidents": 1,
+    "duplicates_suppressed": 1,
+    "held_back": 6
+  },
+  "items": [
+    {
+      "listening_item_id": "mnl_878e97d4078642616a4a",
+      "title": "Family calls for an independent review after a hospital death",
+      "summary": "A public report described a family's concerns after an Indigenous patient died during delivery at a Saskatoon hospital and their call for an independent investigation. The family position is presented as a reported account; no independent finding is implied.",
+      "province": "saskatchewan",
+      "municipality": "Saskatoon",
+      "facility": "Jim Pattison Children's Hospital",
+      "event_date": null,
+      "event_year": 2026,
+      "date_label": "Reported in May 2026",
+      "source_publication_date": "2026-05-25",
+      "last_checked_date": "2026-09-06",
+      "evidence_state": "verification_in_progress",
+      "corroboration_located": false,
+      "linked_evidence_group_id": null,
+      "linked_evidence_href": null,
+      "sources": [
+        {
+          "role": "primary_public_report",
+          "organization": "CBC News",
+          "title": "CBC News report",
+          "source_type": "credible_journalism",
+          "publication_date": "2026-05-25",
+          "url": "https://www.cbc.ca/news/canada/saskatoon/indigenous-woman-health-pregnancy-preeclampsia-death-9.7211641"
+        }
+      ]
+    },
+    {
+      "listening_item_id": "mnl_674f1b725456b992af78",
+      "title": "Hospital security response after an internal review",
+      "summary": "Public reporting described a First Nations patient being removed from a Prince Albert emergency department. The reporting said the health authority's internal review found that the guards' actions did not meet its standards and that the guards were barred from its facilities.",
+      "province": "saskatchewan",
+      "municipality": "Prince Albert",
+      "facility": "Victoria Hospital emergency department",
+      "event_date": "2025-12-11",
+      "event_year": 2025,
+      "date_label": "Event reported for December 11, 2025",
+      "source_publication_date": "2025-12-19",
+      "last_checked_date": "2026-09-06",
+      "evidence_state": "corroborated_public_report",
+      "corroboration_located": true,
+      "linked_evidence_group_id": null,
+      "linked_evidence_href": null,
+      "sources": [
+        {
+          "role": "primary_public_report",
+          "organization": "620 CKRM",
+          "title": "620 CKRM report",
+          "source_type": "credible_journalism",
+          "publication_date": "2025-12-19",
+          "url": "https://www.620ckrm.com/2025/12/19/sha-bans-security-guards-who-removed-indigenous-man-from-pa-hospital/"
+        },
+        {
+          "role": "corroborating_public_report",
+          "organization": "CBC News",
+          "title": "CBC News report",
+          "source_type": "public_reporting",
+          "publication_date": "2025-12-19",
+          "url": "https://www.cbc.ca/news/canada/saskatchewan/saskatchewan-health-authority-bans-security-guards-who-evicted-indigenous-man-from-prince-albert-hospital-9.7023387"
+        }
+      ]
+    },
+    {
+      "listening_item_id": "mnl_8589346b6202a2a8b18d",
+      "title": "Family seeks review after a hospital death",
+      "summary": "Multiple public reports described a First Nations family's concerns following a patient's death after hospital treatment. Reporting said the health authority apologized directly and committed to a full review with family participation; the item does not state a finding about cause, care or intent.",
+      "province": "british_columbia",
+      "municipality": "Cowichan Valley and Victoria",
+      "facility": "Cowichan District Hospital and Victoria General Hospital",
+      "event_date": "2025-11-20",
+      "event_year": 2025,
+      "date_label": "Death reported for November 20, 2025",
+      "source_publication_date": "2025-12-11",
+      "last_checked_date": "2026-09-06",
+      "evidence_state": "corroborated_public_report",
+      "corroboration_located": true,
+      "linked_evidence_group_id": null,
+      "linked_evidence_href": null,
+      "sources": [
+        {
+          "role": "primary_public_report",
+          "organization": "The Discourse",
+          "title": "The Discourse report",
+          "source_type": "credible_journalism",
+          "publication_date": "2025-12-11",
+          "url": "https://thediscourse.ca/cowichan-valley/penelakut-family-calls-on-island-health-to-address-systemic-racism-after-lenny-sylvesters-death"
+        },
+        {
+          "role": "corroborating_public_report",
+          "organization": "CBC News",
+          "title": "CBC News report",
+          "source_type": "credible_journalism",
+          "publication_date": "2025-12-11",
+          "url": "https://www.cbc.ca/news/canada/british-columbia/first-nations-family-calls-for-answers-after-unexpected-death-9.7010556"
+        },
+        {
+          "role": "corroborating_public_report",
+          "organization": "CHEK News",
+          "title": "CHEK News report",
+          "source_type": "credible_journalism",
+          "publication_date": "2025-12-10",
+          "url": "https://cheknews.ca/family-left-in-the-dark-over-indigenous-mans-death-following-routine-procedure-in-b-c-hospital-1293637"
+        }
+      ]
+    },
+    {
+      "listening_item_id": "mnl_6b416850fdf2d450237a",
+      "title": "Family seeks answers after braids were cut during hospital care",
+      "summary": "Several public reports described a family's account that an Indigenous patient's braids were cut and discarded during an Edmonton hospital stay without family knowledge or consent. The health authority called the incident deeply regrettable; that response is not presented as a finding about individual intent.",
+      "province": "alberta",
+      "municipality": "Edmonton",
+      "facility": "Royal Alexandra Hospital",
+      "event_date": null,
+      "event_year": 2024,
+      "date_label": "Event reported for 2024",
+      "source_publication_date": "2024-12-10",
+      "last_checked_date": "2026-09-06",
+      "evidence_state": "corroborated_public_report",
+      "corroboration_located": true,
+      "linked_evidence_group_id": null,
+      "linked_evidence_href": null,
+      "sources": [
+        {
+          "role": "primary_public_report",
+          "organization": "Global News",
+          "title": "Global News report",
+          "source_type": "credible_journalism",
+          "publication_date": "2024-12-10",
+          "url": "https://globalnews.ca/news/10911408/edmonton-hospital-indigenous-braids-alberta"
+        },
+        {
+          "role": "corroborating_public_report",
+          "organization": "APTN News",
+          "title": "APTN News report",
+          "source_type": "indigenous_journalism",
+          "publication_date": "2024-12-10",
+          "url": "https://www.aptnnews.ca/national-news/cree-doctor-from-alberta-says-nurse-who-cut-pasqua-first-nations-mans-braids-should-be-charged"
+        },
+        {
+          "role": "corroborating_public_report",
+          "organization": "CityNews Edmonton",
+          "title": "CityNews Edmonton report",
+          "source_type": "credible_journalism",
+          "publication_date": "2024-12-10",
+          "url": "https://edmonton.citynews.ca/2024/12/10/indigenous-man-braids-cut-edmonton-hospital"
+        },
+        {
+          "role": "corroborating_public_report",
+          "organization": "Edmonton Journal",
+          "title": "Edmonton Journal report",
+          "source_type": "credible_journalism",
+          "publication_date": "2024-12-10",
+          "url": "https://edmontonjournal.com/news/indigenous-elders-braids-cut-off-in-hospital"
+        }
+      ]
+    },
+    {
+      "listening_item_id": "mnl_71bb3661bcf1b9865511",
+      "title": "Hospital complaint linked to an Evidence Library record",
+      "summary": "An Indigenous news source publicly reported that a First Nations patient and family filed an ombudsperson complaint alleging racism and discrimination during hospital treatment. Additional news organizations reported the same underlying account; the item links to the more developed Evidence Library record.",
+      "province": "saskatchewan",
+      "municipality": "Regina",
+      "facility": "Regina General Hospital",
+      "event_date": "2022-09-30",
+      "event_year": 2022,
+      "date_label": "Event reported for September 30, 2022",
+      "source_publication_date": "2022-10-11",
+      "last_checked_date": "2026-09-06",
+      "evidence_state": "linked_existing_incident",
+      "corroboration_located": true,
+      "linked_evidence_group_id": "iheg_a28ea18749ce9b81adbf",
+      "linked_evidence_href": "/indigenous-healthcare-evidence?group=iheg_a28ea18749ce9b81adbf",
+      "sources": [
+        {
+          "role": "primary_public_report",
+          "organization": "APTN News",
+          "title": "APTN News report",
+          "source_type": "indigenous_journalism",
+          "publication_date": "2022-10-11",
+          "url": "https://www.aptnnews.ca/national-news/kawacatoose-elder-files-complaint-of-racism-discrimination-against-regina-hospital"
+        },
+        {
+          "role": "corroborating_public_report",
+          "organization": "Global News",
+          "title": "Global News report",
+          "source_type": "public_reporting",
+          "publication_date": "2022-10-12",
+          "url": "https://globalnews.ca/news/9191847/indigenous-man-alleges-racism-assault-regina-general-hospital/"
+        },
+        {
+          "role": "corroborating_public_report",
+          "organization": "CBC News",
+          "title": "CBC News report",
+          "source_type": "public_reporting",
+          "publication_date": null,
+          "url": "https://www.cbc.ca/news/canada/saskatchewan/family-of-elder-claims-he-was-abused-racially-discriminated-against-by-regina-general-hospital-staff-1.6612573"
+        }
+      ]
+    },
+    {
+      "listening_item_id": "mnl_d7a3f7981317a6157a19",
+      "title": "Family complaint and health-authority response",
+      "summary": "Public sources reported a First Nations family's complaint about an Elder's hospital treatment. The health authority acknowledged that the care was not culturally safe while not attributing the individual treatment directly to heritage; the item preserves that distinction.",
+      "province": "british_columbia",
+      "municipality": "Nanaimo",
+      "facility": "Nanaimo Regional General Hospital",
+      "event_date": "2022-05-25",
+      "event_year": 2022,
+      "date_label": "Event reported for May 25, 2022",
+      "source_publication_date": "2022-06-16",
+      "last_checked_date": "2026-09-06",
+      "evidence_state": "corroborated_public_report",
+      "corroboration_located": true,
+      "linked_evidence_group_id": null,
+      "linked_evidence_href": null,
+      "sources": [
+        {
+          "role": "primary_public_report",
+          "organization": "Global News",
+          "title": "Global News report",
+          "source_type": "credible_journalism",
+          "publication_date": "2022-06-16",
+          "url": "https://globalnews.ca/news/8925793/indigenous-patient-complaint-nanaimo-regional-general-hospital/"
+        },
+        {
+          "role": "corroborating_public_report",
+          "organization": "CHEK News",
+          "title": "CHEK News report",
+          "source_type": "public_reporting",
+          "publication_date": "2022-06-16",
+          "url": "https://cheknews.ca/indigenous-family-files-complaint-for-mistreatment-at-nanaimo-hospital-1041448/"
+        }
+      ]
+    },
+    {
+      "listening_item_id": "mnl_33a428890260f96c40bf",
+      "title": "Human-rights complaint concerning hospital care",
+      "summary": "A First Nations government public source reported that the Alberta Human Rights Commission accepted a complaint alleging anti-Indigenous discrimination connected to care at Strathmore Hospital. Acceptance of a complaint is a legal-process step, not a finding on its merits.",
+      "province": "alberta",
+      "municipality": "Strathmore",
+      "facility": "Strathmore Hospital",
+      "event_date": null,
+      "event_year": 2022,
+      "date_label": "Care reported in 2022; complaint publicized in September 2023",
+      "source_publication_date": "2023-09-28",
+      "last_checked_date": "2026-09-06",
+      "evidence_state": "corroborated_public_report",
+      "corroboration_located": true,
+      "linked_evidence_group_id": null,
+      "linked_evidence_href": null,
+      "sources": [
+        {
+          "role": "primary_public_report",
+          "organization": "Siksika Nation",
+          "title": "Siksika Nation report",
+          "source_type": "indigenous_organization",
+          "publication_date": "2023-09-28",
+          "url": "https://siksikanation.com/siksika-nation-member-brings-human-rights-complaint-in-response-to-systemic-anti-indigenous-discrimination-in-albertas-healthcare-sector/"
+        },
+        {
+          "role": "corroborating_public_report",
+          "organization": "APTN News",
+          "title": "APTN News report",
+          "source_type": "public_reporting",
+          "publication_date": "2023-09-28",
+          "url": "https://www.aptnnews.ca/national-news/siksika-man-lodges-human-rights-complaint-against-alberta-hospital-after-wifes-death/"
+        }
+      ]
+    },
+    {
+      "listening_item_id": "mnl_9fd4d9f3aa6a97b0cd60",
+      "title": "Family complaint concerning stereotyping and hospital care",
+      "summary": "A public report described an Indigenous patient and family's account of stereotyping and care concerns during a Calgary hospital admission. The report said a complaint was filed and the health authority assigned a patient-concerns consultant; no later public determination was located in the existing research set.",
+      "province": "alberta",
+      "municipality": "Calgary",
+      "facility": "South Health Campus",
+      "event_date": "2021-06-11",
+      "event_year": 2021,
+      "date_label": "Admission reported for June 11–16, 2021",
+      "source_publication_date": "2021-06-29",
+      "last_checked_date": "2026-09-06",
+      "evidence_state": "verification_in_progress",
+      "corroboration_located": false,
+      "linked_evidence_group_id": null,
+      "linked_evidence_href": null,
+      "sources": [
+        {
+          "role": "primary_public_report",
+          "organization": "CTV News Calgary",
+          "title": "CTV News Calgary report",
+          "source_type": "credible_journalism",
+          "publication_date": "2021-06-29",
+          "url": "https://www.ctvnews.ca/calgary/article/calgary-family-speaks-out-against-indigenous-racism-neglect-and-discrimination-in-healthcare-system"
+        }
+      ]
+    },
+    {
+      "listening_item_id": "mnl_bdf0aaa3ab5635ed3202",
+      "title": "Reported stereotyping during hospital care",
+      "summary": "A public report described a First Nations patient's account of disrespectful treatment and stereotyping at a southern Alberta hospital. The report said complaints were filed and the health authority opened an investigation; a later public result was not located in the existing research set.",
+      "province": "alberta",
+      "municipality": "Cardston",
+      "facility": "Cardston Health Centre",
+      "event_date": "2021-03-25",
+      "event_year": 2021,
+      "date_label": "Event reported for March 25, 2021",
+      "source_publication_date": "2021-04-14",
+      "last_checked_date": "2026-09-06",
+      "evidence_state": "verification_in_progress",
+      "corroboration_located": false,
+      "linked_evidence_group_id": null,
+      "linked_evidence_href": null,
+      "sources": [
+        {
+          "role": "primary_public_report",
+          "organization": "Global News",
+          "title": "Global News report",
+          "source_type": "credible_journalism",
+          "publication_date": "2021-04-14",
+          "url": "https://globalnews.ca/news/7758146/indigenous-woman-racist-encounter-alberta-hospital/"
+        }
+      ]
+    },
+    {
+      "listening_item_id": "mnl_e1f8c004bcd1d8e87293",
+      "title": "Pregnancy-care concerns followed by a health-system review",
+      "summary": "A public source reported that an Indigenous patient was turned away from a Kitimat hospital before a stillbirth at another hospital, and that the B.C. health minister said a review was underway. The reporting records family allegations and a review response; it does not establish a finding about the care.",
+      "province": "british_columbia",
+      "municipality": "Kitimat and Terrace",
+      "facility": "Kitimat hospital and a Terrace hospital",
+      "event_date": null,
+      "event_year": null,
+      "date_label": "Reported in January 2021",
+      "source_publication_date": "2021-01-30",
+      "last_checked_date": "2026-09-06",
+      "evidence_state": "corroborated_public_report",
+      "corroboration_located": true,
+      "linked_evidence_group_id": null,
+      "linked_evidence_href": null,
+      "sources": [
+        {
+          "role": "primary_public_report",
+          "organization": "CityNews Vancouver",
+          "title": "CityNews Vancouver report",
+          "source_type": "credible_journalism",
+          "publication_date": "2021-01-30",
+          "url": "https://vancouver.citynews.ca/2021/01/30/b-c-minister-says-review-launched-after-stillbirth-leads-to-allegations-of-racism/"
+        },
+        {
+          "role": "corroborating_public_report",
+          "organization": "Global News / The Canadian Press",
+          "title": "Global News / The Canadian Press report",
+          "source_type": "public_reporting",
+          "publication_date": "2021-03-11",
+          "url": "https://globalnews.ca/news/7690875/northern-health-responds-to-lawsuit-that-alleges-racism-played-a-part-in-babys-death/"
+        }
+      ]
+    },
+    {
+      "listening_item_id": "mnl_058348e3a666374a313c",
+      "title": "Reported stereotyping during an emergency visit",
+      "summary": "A public report described an Indigenous patient's account of racist stereotyping and communication concerns during an emergency-department visit. The health authority said it was following up and apologized that the patient felt heritage influenced the care; no later public outcome was located in the existing research set.",
+      "province": "saskatchewan",
+      "municipality": "Regina",
+      "facility": "Regina General Hospital emergency department",
+      "event_date": null,
+      "event_year": 2021,
+      "date_label": "Event reported for late November 2021",
+      "source_publication_date": "2022-01-24",
+      "last_checked_date": "2026-09-06",
+      "evidence_state": "verification_in_progress",
+      "corroboration_located": false,
+      "linked_evidence_group_id": null,
+      "linked_evidence_href": null,
+      "sources": [
+        {
+          "role": "primary_public_report",
+          "organization": "Global News",
+          "title": "Global News report",
+          "source_type": "credible_journalism",
+          "publication_date": "2022-01-24",
+          "url": "https://globalnews.ca/news/8533176/indigenous-woman-alleges-racist-treatment-at-regina-general-hospital-er/"
+        }
+      ]
+    },
+    {
+      "listening_item_id": "mnl_1193f907922e81686c32",
+      "title": "Reported injury concern followed by a health-authority investigation",
+      "summary": "An Indigenous news source reported a Cree patient's account of severe pain and swelling after an injection during an emergency visit. Public reporting said a First Nations organization called for an investigation and the health authority was investigating; no clinical-cause finding is implied.",
+      "province": "saskatchewan",
+      "municipality": "Prince Albert",
+      "facility": "Victoria Hospital emergency department",
+      "event_date": "2020-06-30",
+      "event_year": 2020,
+      "date_label": "Event reported for June 30, 2020",
+      "source_publication_date": "2020-08-21",
+      "last_checked_date": "2026-09-06",
+      "evidence_state": "corroborated_public_report",
+      "corroboration_located": true,
+      "linked_evidence_group_id": null,
+      "linked_evidence_href": null,
+      "sources": [
+        {
+          "role": "primary_public_report",
+          "organization": "APTN News / The Canadian Press",
+          "title": "APTN News / The Canadian Press report",
+          "source_type": "indigenous_journalism",
+          "publication_date": "2020-08-21",
+          "url": "https://www.aptnnews.ca/national-news/saskatchewan-health-authority-investigating-incident-cree-woman-describes-as-worst-pain-i-ever-had"
+        },
+        {
+          "role": "corroborating_public_report",
+          "organization": "CBC News",
+          "title": "CBC News report",
+          "source_type": "credible_journalism",
+          "publication_date": "2020-08-21",
+          "url": "https://www.cbc.ca/news/canada/saskatchewan/fsin-calls-upon-sha-for-investigation-negligence-1.5693131"
+        }
+      ]
+    },
+    {
+      "listening_item_id": "mnl_f90b677c102b322f4e92",
+      "title": "Legal and human-rights processes concerning maternity care",
+      "summary": "Public reporting described allegations that race affected maternity care at an Edmonton hospital and documented related court, professional-regulator and human-rights complaint processes. These are reported allegations and procedural steps, not adjudicated findings.",
+      "province": "alberta",
+      "municipality": "Edmonton",
+      "facility": "Misericordia Hospital",
+      "event_date": "2020-06-11",
+      "event_year": 2020,
+      "date_label": "Care reported for June 2020; legal reporting published in 2022 and 2023",
+      "source_publication_date": "2023-04-11",
+      "last_checked_date": "2026-09-06",
+      "evidence_state": "corroborated_public_report",
+      "corroboration_located": true,
+      "linked_evidence_group_id": null,
+      "linked_evidence_href": null,
+      "sources": [
+        {
+          "role": "corroborating_public_report",
+          "organization": "CityNews Edmonton",
+          "title": "CityNews Edmonton report",
+          "source_type": "credible_journalism",
+          "publication_date": "2022-11-03",
+          "url": "https://edmonton.citynews.ca/2022/11/03/hospital-denial-baby-death/"
+        },
+        {
+          "role": "primary_public_report",
+          "organization": "Canada's National Observer (indexed excerpt via Indigenous Watchdog)",
+          "title": "Canada's National Observer (indexed excerpt via Indigenous Watchdog) report",
+          "source_type": "credible_journalism_indexed_excerpt",
+          "publication_date": "2023-04-11",
+          "url": "https://www.nationalobserver.com/2023/04/11/investigations/anti-indigenous-racism-health-care"
+        },
+        {
+          "role": "corroborating_public_report",
+          "organization": "Global News",
+          "title": "Global News report",
+          "source_type": "credible_journalism",
+          "publication_date": "2022-11-03",
+          "url": "https://globalnews.ca/news/9249962/lawsuit-pearl-gambler-birth-indigenous-edmonton-hospital-racism"
+        }
+      ]
+    },
+    {
+      "listening_item_id": "mnl_ede1b67f18b6fb0db446",
+      "title": "Family-reported concerns about care at two Island hospitals",
+      "summary": "An Indigenous-led public report described a family's account of racist treatment and care concerns at two Vancouver Island hospitals. The health authority acknowledged that systemic anti-Indigenous racism exists within the system; the source did not publish a formal finding about the individual care episode.",
+      "province": "british_columbia",
+      "municipality": "Vancouver Island",
+      "facility": "Cowichan District Hospital and Royal Jubilee Hospital",
+      "event_date": null,
+      "event_year": 2020,
+      "date_label": "Reported in 2020",
+      "source_publication_date": "2020-08-21",
+      "last_checked_date": "2026-09-06",
+      "evidence_state": "corroborated_public_report",
+      "corroboration_located": true,
+      "linked_evidence_group_id": null,
+      "linked_evidence_href": null,
+      "sources": [
+        {
+          "role": "primary_public_report",
+          "organization": "IndigiNews",
+          "title": "IndigiNews report",
+          "source_type": "indigenous_organization",
+          "publication_date": "2020-08-21",
+          "url": "https://indiginews.com/news/connor-sutton-anti-indigenous-racism-needs-to-stop/"
+        },
+        {
+          "role": "corroborating_public_report",
+          "organization": "Times Colonist",
+          "title": "Times Colonist report",
+          "source_type": "credible_journalism",
+          "publication_date": "2020-07-23",
+          "url": "https://www.timescolonist.com/local-news/military-member-victim-of-anti-indigenous-racism-in-hospital-first-nations-council-says-4682869"
+        }
+      ]
+    },
+    {
+      "listening_item_id": "mnl_181ac2eb4ab170636925",
+      "title": "Reported stereotyping during a hospital visit",
+      "summary": "Public reporting described a Métis patient's account of being questioned about drugs and alcohol during a hospital visit and her view that she was singled out as an Indigenous patient. The item records a public account, not an adjudicated finding.",
+      "province": "british_columbia",
+      "municipality": "Port Alberni",
+      "facility": "West Coast General Hospital",
+      "event_date": null,
+      "event_year": 2018,
+      "date_label": "Event reported for 2018",
+      "source_publication_date": null,
+      "last_checked_date": "2026-09-06",
+      "evidence_state": "corroborated_public_report",
+      "corroboration_located": true,
+      "linked_evidence_group_id": null,
+      "linked_evidence_href": null,
+      "sources": [
+        {
+          "role": "primary_public_report",
+          "organization": "CBC News",
+          "title": "CBC News report",
+          "source_type": "credible_journalism",
+          "publication_date": null,
+          "url": "https://www.cbc.ca/news/canada/british-columbia/indigenous-patients-nurses-on-alleged-racist-game-in-hospitals-1.5622448"
+        },
+        {
+          "role": "corroborating_public_report",
+          "organization": "The Martlet",
+          "title": "The Martlet report",
+          "source_type": "public_reporting",
+          "publication_date": null,
+          "url": "https://martlet.ca/opinion-newsunsettled-racism-in-heatlhcare-indigenous-2020/"
+        }
+      ]
+    }
+  ]
+}

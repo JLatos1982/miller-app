@@ -137,11 +137,11 @@ test("public endpoint hydrates approved curated aliases and excludes hidden regi
   assert.match(server, /representedLocations/)
 })
 
-test("administrator login and dashboard render only on the dedicated admin route", () => {
+test("administrator login and dashboard render only on the dedicated admin route without a public entry affordance", () => {
   const app = fs.readFileSync(new URL("../src/App.jsx", import.meta.url), "utf8")
   assert.match(app, /window\.location\.pathname\.startsWith\("\/admin"\)/)
   assert.match(app, /requestAdminMagicLink/)
-  assert.match(app, /<a href="\/admin\/login">Admin<\/a>/)
+  assert.doesNotMatch(app, /<a href="\/admin\/login">Admin<\/a>/)
   assert.match(app, /if \(isAdminRoute\) \{[\s\S]*Administrator sign in/)
   const publicHero = app.slice(app.indexOf('className="hero-layout"'))
   assert.doesNotMatch(publicHero, /Administrator sign in/)
@@ -151,7 +151,7 @@ test("administrator login and dashboard render only on the dedicated admin route
 test("public route does not fetch protected administrator data", () => {
   const app = fs.readFileSync(new URL("../src/App.jsx", import.meta.url), "utf8")
   assert.match(app, /if \(!isAdminRoute \|\| !isAdminMode\) return/)
-  assert.match(app, /if \(!isAdminRoute\) return undefined/)
+  assert.match(app, /if \(!isInternalRoute\) return undefined/)
   const server = fs.readFileSync(new URL("../server.js", import.meta.url), "utf8")
   assert.match(server, /app\.get\("\/api\/admin\/pending-locations", requireAdmin/)
 })

@@ -54,7 +54,10 @@ import AccessibleModal from "./site/AccessibleModal.jsx"
 import ResourceAttachmentPicker from "./site/ResourceAttachmentPicker.jsx"
 import MillerSheepdog from "./companion/MillerSheepdog.jsx"
 import DirectoryHealthAuditBackPage from "./owner/DirectoryHealthAuditBackPage.jsx"
-import IndigenousHealthcareEvidence, { FirstNationsHealthcareEvidenceFeather } from "./site/IndigenousHealthcareEvidence.jsx"
+import IndigenousHealthcareEvidence from "./site/IndigenousHealthcareEvidence.jsx"
+import MillerNorthLiveListening from "./site/MillerNorthLiveListening.jsx"
+import MillerNorthMethodology from "./site/MillerNorthMethodology.jsx"
+import MillerNorthResearchPolicy from "./site/MillerNorthResearchPolicy.jsx"
 import { destinationBesideRenderedResult } from "./companion/millerCompanionAdapter.js"
 import { isMeaningfulCompanionInput, MILLER_PRESENTATION_INTENTS, presentationIntent } from "./companion/millerCompanionLifecycle.js"
 import { bubbleNeedsMillerReadingPosition, readingStageHeight, resolveMillerReadingOffset } from "./companion/millerSceneLayout.js"
@@ -1589,6 +1592,18 @@ const millerImageStyle = {}
     return <main className="admin-route-shell"><header className="admin-route-header"><a href="/">← Public resource finder</a><div><p className="eyebrow">Protected internal draft</p><h1>Directory Health Audit</h1></div></header><section className="admin-login-page" aria-labelledby="owner-login-title"><h2 id="owner-login-title">Owner sign in required</h2><p>This internal draft uses Miller’s existing allowlisted administrator access boundary.</p><a className="directory-audit-internal-link" href="/admin/login">Sign in to Miller administration</a></section></main>
   }
 
+  if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence/research-policy") {
+    return <MillerNorthResearchPolicy />
+  }
+
+  if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence/live-listening") {
+    return <MillerNorthLiveListening />
+  }
+
+  if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence/methodology") {
+    return <MillerNorthMethodology />
+  }
+
   if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence") {
     return <IndigenousHealthcareEvidence />
   }
@@ -2117,8 +2132,7 @@ const millerImageStyle = {}
         <section><h3>A bit of detective work</h3><p>Community-resource information changes. Programs move, eligibility and phone numbers change, and services sometimes close or open.</p><p>The site helps gather and organize useful information, but it’s always a good idea to confirm important details directly with the service provider. Think of the resource finder as helping with some investigative legwork — not replacing the people and organizations providing support.</p></section>
         <section className="about-site-note"><h3>Important distinction</h3><p>This site provides community-resource navigation and information. It is not a counselling, medical, or emergency service.</p><p>Private Counselling is a separate service, available through the Private Counselling section. For immediate emergency assistance, use the appropriate local emergency service.</p></section>
       </AccessibleModal> : null}
-      <FirstNationsHealthcareEvidenceFeather />
-      <footer className="site-footer"><a href="/admin/login">Admin</a></footer>
+      <footer className="site-footer" />
     </div>
   )
 }

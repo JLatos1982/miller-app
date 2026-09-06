@@ -39,12 +39,19 @@ test("approved First Nations Healthcare Evidence projection is public-only and a
   }
 })
 
-test("Miller integrates the public evidence route and accessible feather without a Samwise runtime dependency", () => {
+test("Miller integrates the hidden Miller North routes and shared public navigation without a Samwise runtime dependency", () => {
   const app = readFileSync(new URL("../src/App.jsx", import.meta.url), "utf8")
   const page = readFileSync(new URL("../src/site/IndigenousHealthcareEvidence.jsx", import.meta.url), "utf8")
+  const navigation = readFileSync(new URL("../src/site/MillerNorthPublicNav.jsx", import.meta.url), "utf8")
   assert.match(app, /window\.location\.pathname === "\/indigenous-healthcare-evidence"/)
-  assert.match(app, /<FirstNationsHealthcareEvidenceFeather/)
-  assert.match(page, /aria-label="First Nations Healthcare Evidence"/)
+  assert.match(app, /\/indigenous-healthcare-evidence\/live-listening/)
+  assert.match(app, /\/indigenous-healthcare-evidence\/research-policy/)
+  assert.match(app, /\/indigenous-healthcare-evidence\/methodology/)
+  assert.match(page, /<MillerNorthPublicNav current="evidence"/)
+  assert.match(navigation, /aria-label="Miller North"/)
+  assert.match(navigation, /Live Listening/)
+  assert.match(navigation, /Research & Policy/)
+  assert.match(navigation, /How evidence works/)
   assert.match(page, /Reported account/)
   assert.doesNotMatch(page, /samwise|localhost|\/Users\//i)
 })

@@ -1,0 +1,3502 @@
+{
+  "schema_version": "miller-north-research-policy-public-v1",
+  "generated_at": "2026-09-06",
+  "visibility": "hidden_site_read_only",
+  "publication_state": "owner_approved_hidden_experience",
+  "title": "Research & Policy",
+  "introduction": "Miller North follows documented public evidence beyond an original incident or systemic concern. A case may connect a review to recommendations, a government or health-system response, policy or governance changes, implementation evidence and later follow-up. Not every case contains every stage.",
+  "research_path": [
+    "Incident or systemic concern",
+    "Investigation or review",
+    "Recommendation",
+    "Government or health-system response",
+    "Policy or governance change",
+    "Implementation evidence",
+    "Later follow-up"
+  ],
+  "caution": "Miller North uses public-source evidence. Evidence statuses describe what current public reporting supports. Missing public evidence does not prove an action did not occur. Legal material is public-record context, not legal advice. The project distinguishes reported experiences from formal findings.",
+  "status_notice": "These classifications describe available public evidence. They are not ratings of effectiveness, legal compliance or institutional performance.",
+  "cases": [
+    {
+      "slug": "in-plain-sight",
+      "province": "British Columbia",
+      "title": "In Plain Sight",
+      "focus": "What current public evidence shows about implementation of 24 recommendations",
+      "what_happened": "The 2020 In Plain Sight review documented widespread Indigenous-specific racism and discrimination in B.C. health care and issued 24 recommendations. Later public records describe laws, standards, offices, programs and reporting created in response.",
+      "why_this_matters": [
+        "It is the clearest Miller North example of a systemic finding followed by multi-institution reform.",
+        "The 24-row ledger separates a promised response from policy adoption, operation and evaluation.",
+        "The absence of one current public status ledger is itself an important reporting limitation, not proof of non-implementation."
+      ],
+      "one_thing_to_remember": "Public evidence documents substantial activity, but evidence of activity is not the same as evidence of system-wide outcomes.",
+      "metrics": [
+        {
+          "label": "Recommendations",
+          "value": "24"
+        },
+        {
+          "label": "Implemented",
+          "value": "2"
+        },
+        {
+          "label": "Substantially implemented",
+          "value": "3"
+        },
+        {
+          "label": "Partially implemented",
+          "value": "12"
+        },
+        {
+          "label": "Underway",
+          "value": "4"
+        },
+        {
+          "label": "Fragmentary evidence",
+          "value": "3"
+        }
+      ],
+      "status_counts": {
+        "implemented": 2,
+        "substantially_implemented": 3,
+        "partially_implemented": 12,
+        "implementation_underway": 4,
+        "implementation_evidence_fragmentary": 3
+      },
+      "recommendations": [
+        {
+          "number": 1,
+          "summary": "The Province should apologize, prompt comparable health-system apologies and lead a comprehensive system-wide anti-racism response with common language and clear institutional responsibilities.",
+          "theme": "Governance and Indigenous leadership",
+          "status": "substantially_implemented",
+          "status_label": "Substantially implemented",
+          "latest_evidence_date": "2026-09-06",
+          "responsible_organizations": [
+            "Government of British Columbia (lead)",
+            "health authorities",
+            "health regulators",
+            "health-sector associations and unions",
+            "health education institutions"
+          ],
+          "what_followed": [
+            {
+              "date": "2020-11-30 to 2023-11-30",
+              "description": "Provincial and health-system apologies were issued and 2022–25 agreements added relevant provisions.",
+              "depth": "policy adoption",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2023-2024",
+              "description": "Declaration Act reporting continued to identify agreement provisions as implementation activity.",
+              "depth": "reporting",
+              "sources": [
+                {
+                  "title": "Declaration Act Action 3.07",
+                  "organization": "Government of British Columbia",
+                  "category": "government",
+                  "url": "https://declaration.gov.bc.ca/actions/3-07/"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "Official reporting documents apologies and concrete agreement provisions, while describing the provisions as an early step in longer system change."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Declaration Act Action 3.07",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://declaration.gov.bc.ca/actions/3-07/"
+            }
+          ],
+          "source_availability": "3 public sources linked",
+          "reporting_limitation": "The public record does not provide one system-wide outcome measure showing the broader transformation is complete."
+        },
+        {
+          "number": 2,
+          "summary": "The Province, working with Indigenous peoples, should establish policy foundations and legislative changes that require anti-racism and embed cultural safety consistently with the Declaration Act and UN Declaration.",
+          "theme": "Law, standards and accountability",
+          "status": "partially_implemented",
+          "status_label": "Partially implemented",
+          "latest_evidence_date": "2026-04-01",
+          "responsible_organizations": [
+            "Government of British Columbia (lead)",
+            "Indigenous peoples in British Columbia (consultation and cooperation partners)"
+          ],
+          "what_followed": [
+            {
+              "date": "2021-12 to 2023-11",
+              "description": "Several legislative changes were enacted or reported as part of the response.",
+              "depth": "policy adoption",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2026-04-01",
+              "description": "The Health Professions and Occupations Act framework replaced the prior Health Professions Act framework.",
+              "depth": "policy adoption",
+              "sources": [
+                {
+                  "title": "Health Professions and Occupations Act",
+                  "organization": "British Columbia Ministry of Health",
+                  "category": "implementation / follow-up",
+                  "url": "https://www2.gov.bc.ca/gov/content/health/practitioner-professional-resources/professional-regulation/health-professions-and-occupations-act",
+                  "publication_date": "2026-04-01"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "The current HPOA page expressly connects the reform to cultural safety, accountability and In Plain Sight."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Health Professions and Occupations Act",
+              "organization": "British Columbia Ministry of Health",
+              "category": "implementation / follow-up",
+              "url": "https://www2.gov.bc.ca/gov/content/health/practitioner-professional-resources/professional-regulation/health-professions-and-occupations-act",
+              "publication_date": "2026-04-01"
+            },
+            {
+              "title": "Declaration Act Action 3.07",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://declaration.gov.bc.ca/actions/3-07/"
+            }
+          ],
+          "source_availability": "4 public sources linked",
+          "reporting_limitation": "Multiple legislative elements are documented, but no authoritative source demonstrates that the full cross-system policy-and-law requirement is complete or operationally effective."
+        },
+        {
+          "number": 3,
+          "summary": "The Province, First Nations governing and representative bodies and Métis Nation British Columbia should jointly establish a legislatively recognized B.C. Indigenous Health Officer with a structured relationship to the Provincial Health Officer.",
+          "theme": "Governance and Indigenous leadership",
+          "status": "implementation_evidence_fragmentary",
+          "status_label": "Fragmentary implementation evidence",
+          "latest_evidence_date": "2023-11-30",
+          "responsible_organizations": [
+            "Government of British Columbia",
+            "First Nations governing bodies and representative organizations",
+            "Métis Nation British Columbia"
+          ],
+          "what_followed": [
+            {
+              "date": "2023-11-30",
+              "description": "Official reporting described discussions about establishing the position.",
+              "depth": "commitment",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "The latest recommendation-specific evidence located describes discussion, not establishment or legislative recognition."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            }
+          ],
+          "source_availability": "2 public sources linked",
+          "reporting_limitation": "No later authoritative public source located in this bounded search confirms creation, appointment, statutory authority or a structured PHO relationship."
+        },
+        {
+          "number": 4,
+          "summary": "The Province, First Nations governing and representative bodies and Métis Nation British Columbia should jointly establish a legislatively recognized, adequately funded Indigenous Health Representative and Advocate office for navigation, early intervention and dispute resolution.",
+          "theme": "Complaints, advocacy and oversight",
+          "status": "implementation_evidence_fragmentary",
+          "status_label": "Fragmentary implementation evidence",
+          "latest_evidence_date": "2023-11-30",
+          "responsible_organizations": [
+            "Government of British Columbia",
+            "First Nations governing bodies and representative organizations",
+            "Métis Nation British Columbia"
+          ],
+          "what_followed": [
+            {
+              "date": "2023-11-30",
+              "description": "A complaints working group reviewed models and was informing an options paper.",
+              "depth": "commitment",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "The public record located shows preparatory work but does not establish that the specified office, authority and funding exist."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Indigenous engagement: patient care quality review",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://engage.gov.bc.ca/patientcarequality/indigenous-engagement/"
+            }
+          ],
+          "source_availability": "3 public sources linked",
+          "reporting_limitation": "Complaint-process improvements are not equivalent to the legislatively recognized office described in the recommendation."
+        },
+        {
+          "number": 5,
+          "summary": "The Province, First Nations governing and representative bodies and Métis Nation British Columbia should jointly improve patient complaint processes for individual and systemic Indigenous-specific racism.",
+          "theme": "Complaints, advocacy and oversight",
+          "status": "partially_implemented",
+          "status_label": "Partially implemented",
+          "latest_evidence_date": "2026-09-06",
+          "responsible_organizations": [
+            "Government of British Columbia",
+            "First Nations governing bodies and representative organizations",
+            "Métis Nation British Columbia"
+          ],
+          "what_followed": [
+            {
+              "date": "2023-11-30",
+              "description": "Complaint pathways, navigator roles and regulator reviews were reported.",
+              "depth": "operational implementation",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2024",
+              "description": "Health Quality BC published an updated Sharing Concerns resource informed by evaluation.",
+              "depth": "policy adoption",
+              "sources": [
+                {
+                  "title": "Sharing Concerns: Principles to Guide the Development of an Indigenous Patient Feedback Process",
+                  "organization": "Health Quality BC",
+                  "category": "health system",
+                  "url": "https://healthqualitybc.ca/resources/sharing-concerns-principles-to-guide-the-development-of-an-indigenous-patient-feedback-process/",
+                  "publication_date": "2024"
+                }
+              ]
+            },
+            {
+              "date": "2025-2027",
+              "description": "The provincial patient-care-quality engagement program identified Indigenous engagement and policy development priorities.",
+              "depth": "commitment",
+              "sources": [
+                {
+                  "title": "Indigenous engagement: patient care quality review",
+                  "organization": "Government of British Columbia",
+                  "category": "government",
+                  "url": "https://engage.gov.bc.ca/patientcarequality/indigenous-engagement/"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "Concrete guidance and operational complaint-support activities exist, while a final uniform system strategy remains in development."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Sharing Concerns: Principles to Guide the Development of an Indigenous Patient Feedback Process",
+              "organization": "Health Quality BC",
+              "category": "health system",
+              "url": "https://healthqualitybc.ca/resources/sharing-concerns-principles-to-guide-the-development-of-an-indigenous-patient-feedback-process/",
+              "publication_date": "2024"
+            },
+            {
+              "title": "Indigenous engagement: patient care quality review",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://engage.gov.bc.ca/patientcarequality/indigenous-engagement/"
+            }
+          ],
+          "source_availability": "4 public sources linked",
+          "reporting_limitation": "The sources demonstrate mechanisms and continuing design work, not provincewide consistency or complaint outcomes."
+        },
+        {
+          "number": 6,
+          "summary": "Parties to bilateral and tripartite First Nations health agreements should address unmet commitments through renewed structures and agreements consistent with the Declaration Act.",
+          "theme": "Governance and Indigenous leadership",
+          "status": "implementation_underway",
+          "status_label": "Implementation underway",
+          "latest_evidence_date": "2024-12-31",
+          "responsible_organizations": [
+            "Government of British Columbia",
+            "Government of Canada",
+            "First Nations Health Authority",
+            "First Nations Health Council",
+            "B.C. First Nations"
+          ],
+          "what_followed": [
+            {
+              "date": "2023-03-02",
+              "description": "Chiefs approved the 10-Year Strategy and partners committed to an implementation model.",
+              "depth": "policy adoption",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2024",
+              "description": "A First Nations-led evaluation documented implementation activity and outstanding sustainability and accountability work.",
+              "depth": "evaluation",
+              "sources": [
+                {
+                  "title": "Evaluation of the BC Tripartite Framework Agreement on First Nations Health Governance, 2018–2024",
+                  "organization": "First Nations Health Authority",
+                  "category": "Indigenous organization",
+                  "url": "https://www.fnha.ca/Documents/Evaluation-of-the-BC-Tripartite-Framework-Agreement-on-First-Nations-Health-Governance-Final-Report-2018-2024.pdf",
+                  "publication_date": "2024"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "The strategy and evaluation demonstrate active governance implementation, but the broad set of previously unmet commitments is not presented as closed."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Evaluation of the BC Tripartite Framework Agreement on First Nations Health Governance, 2018–2024",
+              "organization": "First Nations Health Authority",
+              "category": "Indigenous organization",
+              "url": "https://www.fnha.ca/Documents/Evaluation-of-the-BC-Tripartite-Framework-Agreement-on-First-Nations-Health-Governance-Final-Report-2018-2024.pdf",
+              "publication_date": "2024"
+            }
+          ],
+          "source_availability": "3 public sources linked",
+          "reporting_limitation": "The recommendation covers multiple agreements and unmet commitments; public sources do not provide one commitment-by-commitment completion ledger."
+        },
+        {
+          "number": 7,
+          "summary": "The Ministry should establish a senior Métis health relationship table and direct health authorities to enter measurable Letters of Understanding with Métis Nation British Columbia and Métis Chartered Communities.",
+          "theme": "Governance and Indigenous leadership",
+          "status": "substantially_implemented",
+          "status_label": "Substantially implemented",
+          "latest_evidence_date": "2024-06-30",
+          "responsible_organizations": [
+            "British Columbia Ministry of Health",
+            "regional health authorities",
+            "PHSA",
+            "Métis Nation British Columbia",
+            "Métis Chartered Communities"
+          ],
+          "what_followed": [
+            {
+              "date": "2023-11-30",
+              "description": "A bilateral table and LOUs with all five regional health authorities were reported, with PHSA work then under development.",
+              "depth": "office or program creation",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2024-06-30",
+              "description": "Cross-government reporting described LOUs and implementation tables continuing.",
+              "depth": "reporting",
+              "sources": [
+                {
+                  "title": "Responding to MMIWG: Status Update 2024",
+                  "organization": "Government of British Columbia",
+                  "category": "government",
+                  "url": "https://www2.gov.bc.ca/assets/gov/law-crime-and-justice/about-bc-justice-system/inquiries/mmiw/mmiwg-status-update-2024.pdf",
+                  "publication_date": "2024-06-30"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "Formal tables and agreements are evidenced; ongoing outcome measurement is not comprehensively reported in one place."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Responding to MMIWG: Status Update 2024",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://www2.gov.bc.ca/assets/gov/law-crime-and-justice/about-bc-justice-system/inquiries/mmiw/mmiwg-status-update-2024.pdf",
+              "publication_date": "2024-06-30"
+            }
+          ],
+          "source_availability": "3 public sources linked",
+          "reporting_limitation": "The existence of tables and agreements is clear; consistent measurable outcomes across every agreement are not established by this ledger."
+        },
+        {
+          "number": 8,
+          "summary": "Health-system policymakers, authorities, regulators, facilities, review boards and education programs should adopt an Indigenous cultural-safety and humility accreditation standard developed with Indigenous peoples.",
+          "theme": "Law, standards and accountability",
+          "status": "partially_implemented",
+          "status_label": "Partially implemented",
+          "latest_evidence_date": "2025-12-31",
+          "responsible_organizations": [
+            "health policymakers",
+            "health authorities",
+            "health regulators",
+            "health organizations and facilities",
+            "patient care quality review boards",
+            "health education programs"
+          ],
+          "what_followed": [
+            {
+              "date": "2022-11-29",
+              "description": "FNHA and HSO released the B.C. Cultural Safety and Humility Standard.",
+              "depth": "policy adoption",
+              "sources": [
+                {
+                  "title": "FNHA and HSO release B.C. Cultural Safety and Humility Standard",
+                  "organization": "First Nations Health Authority",
+                  "category": "Indigenous organization",
+                  "url": "https://fnha.ca/fnha-and-hso-release-bc-cultural-safety-and-humility-standard/",
+                  "publication_date": "2022-11-29"
+                }
+              ]
+            },
+            {
+              "date": "2023-11-30 onward",
+              "description": "Official reporting described funded conversion to an assessment standard and Ministry implementation planning.",
+              "depth": "commitment",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "The standard exists as a concrete output; universal adoption and accreditation use are not yet demonstrated."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "FNHA and HSO release B.C. Cultural Safety and Humility Standard",
+              "organization": "First Nations Health Authority",
+              "category": "Indigenous organization",
+              "url": "https://fnha.ca/fnha-and-hso-release-bc-cultural-safety-and-humility-standard/",
+              "publication_date": "2022-11-29"
+            },
+            {
+              "title": "Declaration Act Action 3.07",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://declaration.gov.bc.ca/actions/3-07/"
+            }
+          ],
+          "source_availability": "4 public sources linked",
+          "reporting_limitation": "Publication of a standard is not the same as adoption by every named institution or use in accreditation."
+        },
+        {
+          "number": 9,
+          "summary": "The Province should establish a system-wide Indigenous cultural-safety, health-rights and anti-racism measurement framework with appropriate Indigenous data governance.",
+          "theme": "Data, measurement and public reporting",
+          "status": "implementation_underway",
+          "status_label": "Implementation underway",
+          "latest_evidence_date": "2024-06-30",
+          "responsible_organizations": [
+            "Government of British Columbia",
+            "First Nations governing bodies and representative organizations",
+            "Métis Nation British Columbia",
+            "Indigenous Health Officer",
+            "Indigenous Health Representative and Advocate"
+          ],
+          "what_followed": [
+            {
+              "date": "2022-06 to 2023-11",
+              "description": "NCCIH published measurement work and a B.C. working group began framework and dashboard development.",
+              "depth": "commitment",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2024-06-30",
+              "description": "Cross-government reporting continued to describe measurement and dashboard development.",
+              "depth": "reporting",
+              "sources": [
+                {
+                  "title": "Responding to MMIWG: Status Update 2024",
+                  "organization": "Government of British Columbia",
+                  "category": "government",
+                  "url": "https://www2.gov.bc.ca/assets/gov/law-crime-and-justice/about-bc-justice-system/inquiries/mmiw/mmiwg-status-update-2024.pdf",
+                  "publication_date": "2024-06-30"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "The working mechanism is documented, but no public system-wide dashboard or completed framework was located."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Responding to MMIWG: Status Update 2024",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://www2.gov.bc.ca/assets/gov/law-crime-and-justice/about-bc-justice-system/inquiries/mmiw/mmiwg-status-update-2024.pdf",
+              "publication_date": "2024-06-30"
+            }
+          ],
+          "source_availability": "3 public sources linked",
+          "reporting_limitation": "Working-group activity does not establish a completed framework, public dashboard or full Indigenous data-governance implementation."
+        },
+        {
+          "number": 10,
+          "summary": "Hospital design should be undertaken with local Indigenous peoples and host Nations and include culturally appropriate ceremonial spaces, art, signage and territorial acknowledgement.",
+          "theme": "Facilities, access and services",
+          "status": "partially_implemented",
+          "status_label": "Partially implemented",
+          "latest_evidence_date": "2025-10-17",
+          "responsible_organizations": [
+            "regional health authorities",
+            "PHSA",
+            "hospital project authorities",
+            "local Indigenous peoples and host Nations"
+          ],
+          "what_followed": [
+            {
+              "date": "2023-11-30",
+              "description": "Regional implementation through art, signage, acknowledgements and cultural spaces was reported.",
+              "depth": "operational implementation",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2025-10-17",
+              "description": "The Quw’utsun Valley Hospital update documented culturally safe spaces and dedicated Indigenous program space.",
+              "depth": "operational implementation",
+              "sources": [
+                {
+                  "title": "New Quw’utsun Valley Hospital reaches 75% completion",
+                  "organization": "Government of British Columbia",
+                  "category": "health system",
+                  "url": "https://archive.news.gov.bc.ca/releases/news_releases_2024-2028/2025INF0055-001108.htm",
+                  "publication_date": "2025-10-17"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "Concrete facility examples are public; no provincewide capital-project compliance inventory was located."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "New Quw’utsun Valley Hospital reaches 75% completion",
+              "organization": "Government of British Columbia",
+              "category": "health system",
+              "url": "https://archive.news.gov.bc.ca/releases/news_releases_2024-2028/2025INF0055-001108.htm",
+              "publication_date": "2025-10-17"
+            }
+          ],
+          "source_availability": "3 public sources linked",
+          "reporting_limitation": "Examples do not establish consistent adoption across all existing and future hospitals."
+        },
+        {
+          "number": 11,
+          "summary": "The Province should extend Public Interest Disclosure Act protections across health-sector employees to strengthen safe disclosure of wrongdoing, including Indigenous-specific racism.",
+          "theme": "Complaints, advocacy and oversight",
+          "status": "implemented",
+          "status_label": "Implemented",
+          "latest_evidence_date": "2026-09-06",
+          "responsible_organizations": [
+            "Government of British Columbia",
+            "Office of the Ombudsperson",
+            "health authorities"
+          ],
+          "what_followed": [
+            {
+              "date": "2023-06-01",
+              "description": "Health-authority employees came within the PIDA coverage described by the official response.",
+              "depth": "policy adoption",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2026-09-06",
+              "description": "The current Action 3.07 page continues to report this legislative implementation, although it mislabels the recommendation number.",
+              "depth": "reporting",
+              "sources": [
+                {
+                  "title": "Declaration Act Action 3.07",
+                  "organization": "Government of British Columbia",
+                  "category": "government",
+                  "url": "https://declaration.gov.bc.ca/actions/3-07/"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "The central statutory extension requested by the recommendation is documented as in force for health-authority employees."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Declaration Act Action 3.07",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://declaration.gov.bc.ca/actions/3-07/"
+            }
+          ],
+          "source_availability": "3 public sources linked",
+          "reporting_limitation": "The statutory change is evidenced; this status does not claim that speak-up culture or reporting outcomes are fully achieved.",
+          "source_note": "Current provincial reporting appears to use a different recommendation number. Miller North follows the numbering in the original In Plain Sight report."
+        },
+        {
+          "number": 12,
+          "summary": "The B.C. Ombudsperson should prioritize Indigenous-specific racism in health care, seek partner input, improve fairness-related activities and report publicly on progress.",
+          "theme": "Complaints, advocacy and oversight",
+          "status": "partially_implemented",
+          "status_label": "Partially implemented",
+          "latest_evidence_date": "2026-09-06",
+          "responsible_organizations": [
+            "Office of the Ombudsperson of British Columbia"
+          ],
+          "what_followed": [
+            {
+              "date": "2023-11-30",
+              "description": "The office reported the dedicated line, community-services planning and regional pathfinders.",
+              "depth": "office or program creation",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2026-09-06",
+              "description": "The current Indigenous initiatives page documents continuing relationship and access work.",
+              "depth": "operational implementation",
+              "sources": [
+                {
+                  "title": "Indigenous initiatives",
+                  "organization": "Office of the Ombudsperson of British Columbia",
+                  "category": "regulator / oversight",
+                  "url": "https://bcombudsperson.ca/about-us/indigenous-initiatives/"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "An operational Indigenous initiatives program is public; a recommendation-specific outcome ledger is not."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Indigenous initiatives",
+              "organization": "Office of the Ombudsperson of British Columbia",
+              "category": "regulator / oversight",
+              "url": "https://bcombudsperson.ca/about-us/indigenous-initiatives/"
+            }
+          ],
+          "source_availability": "3 public sources linked",
+          "reporting_limitation": "The program is visible, but public reporting does not map all current activities and outcomes specifically to recommendation 12."
+        },
+        {
+          "number": 13,
+          "summary": "The Province should create an Associate Deputy Minister for Indigenous Health with authority to support Ministry leadership in implementing the recommendations.",
+          "theme": "Governance and Indigenous leadership",
+          "status": "implemented",
+          "status_label": "Implemented",
+          "latest_evidence_date": "2023-11-30",
+          "responsible_organizations": [
+            "Government of British Columbia",
+            "British Columbia Ministry of Health"
+          ],
+          "what_followed": [
+            {
+              "date": "2021",
+              "description": "The Associate Deputy Minister position was created and filled.",
+              "depth": "office or program creation",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "The 24-month official report states that the recommended role was created and filled."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            }
+          ],
+          "source_availability": "2 public sources linked",
+          "reporting_limitation": "This status concerns creation of the role, not an evaluation of its authority, continuity or effectiveness."
+        },
+        {
+          "number": 14,
+          "summary": "Government, health authorities, post-secondary institutions, regulators and health-service organizations should recruit Indigenous people into senior roles capable of leading system change.",
+          "theme": "Workforce and leadership",
+          "status": "partially_implemented",
+          "status_label": "Partially implemented",
+          "latest_evidence_date": "2025-06-30",
+          "responsible_organizations": [
+            "Government of British Columbia",
+            "PHSA and regional health authorities",
+            "post-secondary health programs",
+            "health regulators",
+            "health-service organizations, providers and facilities"
+          ],
+          "what_followed": [
+            {
+              "date": "2023-11-30",
+              "description": "All provincial health authorities reported Indigenous Health vice-presidents and minimum Indigenous board representation.",
+              "depth": "workforce or training activity",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2025-06-30",
+              "description": "Camosun's accountability report documented Indigenous leadership and governance participation.",
+              "depth": "reporting",
+              "sources": [
+                {
+                  "title": "Camosun College Accountability Report 2024–2025",
+                  "organization": "Camosun College / Government of British Columbia",
+                  "category": "government",
+                  "url": "https://www2.gov.bc.ca/assets/gov/education/post-secondary-education/institution-resources-administration/accountability-framework/iapr/cam_iapr.pdf",
+                  "publication_date": "2025-06-30"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "Strong health-authority examples exist; comprehensive coverage across every named organization class is not public in one source."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Camosun College Accountability Report 2024–2025",
+              "organization": "Camosun College / Government of British Columbia",
+              "category": "government",
+              "url": "https://www2.gov.bc.ca/assets/gov/education/post-secondary-education/institution-resources-administration/accountability-framework/iapr/cam_iapr.pdf",
+              "publication_date": "2025-06-30"
+            }
+          ],
+          "source_availability": "3 public sources linked",
+          "reporting_limitation": "No complete cross-sector roster or retention/outcome measure was located."
+        },
+        {
+          "number": 15,
+          "summary": "The Province, Indigenous governing and representative bodies, Métis Nation British Columbia, the PHO and Indigenous Health Officer should create a robust Indigenous pandemic-response structure that resolves jurisdictional issues and upholds the UN Declaration.",
+          "theme": "Governance and Indigenous leadership",
+          "status": "implementation_evidence_fragmentary",
+          "status_label": "Fragmentary implementation evidence",
+          "latest_evidence_date": "2023-11-30",
+          "responsible_organizations": [
+            "Government of British Columbia",
+            "First Nations governing bodies and representative organizations",
+            "Métis Nation British Columbia",
+            "Provincial Health Officer",
+            "Indigenous Health Officer"
+          ],
+          "what_followed": [
+            {
+              "date": "2023-11-30",
+              "description": "Regional capacity-building and a PHO policy review were reported.",
+              "depth": "commitment",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "Activity is documented, but the jointly governed provincial structure described by the recommendation is not clearly identified in public reporting."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            }
+          ],
+          "source_availability": "2 public sources linked",
+          "reporting_limitation": "Regional practices and a policy review do not by themselves prove establishment of the recommended joint structure."
+        },
+        {
+          "number": 16,
+          "summary": "The Province should take immediate measures responding to the MMIWG Calls for Justice and the specific health-care experiences and needs of Indigenous women identified by the review.",
+          "theme": "Gender-specific response",
+          "status": "partially_implemented",
+          "status_label": "Partially implemented",
+          "latest_evidence_date": "2024-06-30",
+          "responsible_organizations": [
+            "Government of British Columbia"
+          ],
+          "what_followed": [
+            {
+              "date": "2022-07 to 2023-04",
+              "description": "A refreshed health-sector course and universal prescription contraception were implemented among broader initiatives.",
+              "depth": "operational implementation",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2024-06-30",
+              "description": "The Province issued a later MMIWG implementation status update.",
+              "depth": "reporting",
+              "sources": [
+                {
+                  "title": "Responding to MMIWG: Status Update 2024",
+                  "organization": "Government of British Columbia",
+                  "category": "government",
+                  "url": "https://www2.gov.bc.ca/assets/gov/law-crime-and-justice/about-bc-justice-system/inquiries/mmiw/mmiwg-status-update-2024.pdf",
+                  "publication_date": "2024-06-30"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "Specific measures are established, while the recommendation's full Calls-for-Justice scope remains broader than those outputs."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Responding to MMIWG: Status Update 2024",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://www2.gov.bc.ca/assets/gov/law-crime-and-justice/about-bc-justice-system/inquiries/mmiw/mmiwg-status-update-2024.pdf",
+              "publication_date": "2024-06-30"
+            }
+          ],
+          "source_availability": "3 public sources linked",
+          "reporting_limitation": "The public sources report a portfolio of measures, not a completion determination for all health-related Calls for Justice or review findings."
+        },
+        {
+          "number": 17,
+          "summary": "The Province and FNHA should demonstrate progress in expanding access to culturally safe mental-health, wellness and substance-use services.",
+          "theme": "Facilities, access and services",
+          "status": "partially_implemented",
+          "status_label": "Partially implemented",
+          "latest_evidence_date": "2025-03-31",
+          "responsible_organizations": [
+            "Government of British Columbia",
+            "First Nations Health Authority"
+          ],
+          "what_followed": [
+            {
+              "date": "2023-11-30",
+              "description": "The Province reported additional adult beds and youth programs, with Indigenous clients prioritized or Indigenous partners involved.",
+              "depth": "operational implementation",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2024-04-01 to 2025-03-31",
+              "description": "Federal reporting identified $171.8 million in program-level Indigenous health and cultural-safety funding connected to the recommendation.",
+              "depth": "funding",
+              "sources": [
+                {
+                  "title": "Canada Health Act Annual Report 2024–2025",
+                  "organization": "Health Canada",
+                  "category": "government",
+                  "url": "https://www.canada.ca/en/health-canada/services/publications/health-system-services/canada-health-act-annual-report-2024-2025.html",
+                  "publication_date": "2025"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "Services and funding are evidenced, but the public record does not provide a complete access, geographic coverage or outcome assessment."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Canada Health Act Annual Report 2024–2025",
+              "organization": "Health Canada",
+              "category": "government",
+              "url": "https://www.canada.ca/en/health-canada/services/publications/health-system-services/canada-health-act-annual-report-2024-2025.html",
+              "publication_date": "2025"
+            },
+            {
+              "title": "Evaluation of the BC Tripartite Framework Agreement on First Nations Health Governance, 2018–2024",
+              "organization": "First Nations Health Authority",
+              "category": "Indigenous organization",
+              "url": "https://www.fnha.ca/Documents/Evaluation-of-the-BC-Tripartite-Framework-Agreement-on-First-Nations-Health-Governance-Final-Report-2018-2024.pdf",
+              "publication_date": "2024"
+            }
+          ],
+          "source_availability": "4 public sources linked",
+          "reporting_limitation": "Program funding and service examples do not demonstrate provincewide access or outcomes; the federal amount is not attributable to every activity."
+        },
+        {
+          "number": 18,
+          "summary": "All B.C. post-secondary health-profession programs should have mandatory strategies and targets for Indigenous recruitment, enrolment, graduation and safer learning environments.",
+          "theme": "Workforce and leadership",
+          "status": "partially_implemented",
+          "status_label": "Partially implemented",
+          "latest_evidence_date": "2025-06-30",
+          "responsible_organizations": [
+            "Government of British Columbia",
+            "B.C. universities and colleges with health-profession programs"
+          ],
+          "what_followed": [
+            {
+              "date": "2023-11-30",
+              "description": "Health Career Access pathways, dedicated seats and Indigenous student supports were reported.",
+              "depth": "operational implementation",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2025-06-30",
+              "description": "Camosun reported recruitment strategies, targets and culturally safe supports for relevant programs.",
+              "depth": "reporting",
+              "sources": [
+                {
+                  "title": "Camosun College Accountability Report 2024–2025",
+                  "organization": "Camosun College / Government of British Columbia",
+                  "category": "government",
+                  "url": "https://www2.gov.bc.ca/assets/gov/education/post-secondary-education/institution-resources-administration/accountability-framework/iapr/cam_iapr.pdf",
+                  "publication_date": "2025-06-30"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "Institution-level implementation exists, but universal program coverage and provincewide target attainment are not demonstrated."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Camosun College Accountability Report 2024–2025",
+              "organization": "Camosun College / Government of British Columbia",
+              "category": "government",
+              "url": "https://www2.gov.bc.ca/assets/gov/education/post-secondary-education/institution-resources-administration/accountability-framework/iapr/cam_iapr.pdf",
+              "publication_date": "2025-06-30"
+            }
+          ],
+          "source_availability": "3 public sources linked",
+          "reporting_limitation": "A sample institutional report cannot establish compliance across every health-profession degree and diploma program."
+        },
+        {
+          "number": 19,
+          "summary": "A centre should provide open access to anti-racism, cultural-safety and trauma-informed standards, evidence, tools, policy expertise and collaborative capacity.",
+          "theme": "Education, training and institutional capacity",
+          "status": "implementation_underway",
+          "status_label": "Implementation underway",
+          "latest_evidence_date": "2024-06-30",
+          "responsible_organizations": [
+            "Government of British Columbia and health-system partners"
+          ],
+          "what_followed": [
+            {
+              "date": "2023-11-30",
+              "description": "NCCIH and FNHDA initiatives were described as under development.",
+              "depth": "commitment",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2024-06-30",
+              "description": "Cross-government reporting described continuing tool development and Indigenous-health teams.",
+              "depth": "reporting",
+              "sources": [
+                {
+                  "title": "Responding to MMIWG: Status Update 2024",
+                  "organization": "Government of British Columbia",
+                  "category": "government",
+                  "url": "https://www2.gov.bc.ca/assets/gov/law-crime-and-justice/about-bc-justice-system/inquiries/mmiw/mmiwg-status-update-2024.pdf",
+                  "publication_date": "2024-06-30"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "Tools and institutional activity exist; no single centre matching the complete recommended mandate was confirmed."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Responding to MMIWG: Status Update 2024",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://www2.gov.bc.ca/assets/gov/law-crime-and-justice/about-bc-justice-system/inquiries/mmiw/mmiwg-status-update-2024.pdf",
+              "publication_date": "2024-06-30"
+            }
+          ],
+          "source_availability": "3 public sources linked",
+          "reporting_limitation": "Related organizations and tools should not be treated as proof that the recommended single centre and governance structure were established."
+        },
+        {
+          "number": 20,
+          "summary": "The health system should implement a refreshed, co-developed, standardized and mandatory anti-racism, cultural-humility and trauma-informed training approach that absorbs existing San'yas training.",
+          "theme": "Education, training and institutional capacity",
+          "status": "partially_implemented",
+          "status_label": "Partially implemented",
+          "latest_evidence_date": "2026-09-06",
+          "responsible_organizations": [
+            "Government of British Columbia",
+            "First Nations governing and representative bodies",
+            "Métis Nation British Columbia",
+            "health authorities",
+            "health education institutions"
+          ],
+          "what_followed": [
+            {
+              "date": "2023-11-30",
+              "description": "Multiple health organizations reported mandatory training and provincial guidance development.",
+              "depth": "workforce or training activity",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2024-05-31",
+              "description": "The Nursing Policy Secretariat reported expansion of cultural-safety and humility training tied to recommendation 20.",
+              "depth": "workforce or training activity",
+              "sources": [
+                {
+                  "title": "Nursing Policy Secretariat Newsletter, May 2024",
+                  "organization": "British Columbia Ministry of Health",
+                  "category": "implementation / follow-up",
+                  "url": "https://www2.gov.bc.ca/assets/gov/health/about-bc-s-health-care-system/heath-care-partners/health-newsletter/nps_newsletter_may_2024.pdf",
+                  "publication_date": "2024-05-31"
+                }
+              ]
+            },
+            {
+              "date": "2025-2026",
+              "description": "The PHO published a mandatory Foundational Commitments learning series covering In Plain Sight and related frameworks.",
+              "depth": "workforce or training activity",
+              "sources": [
+                {
+                  "title": "Evolving Unlearning & Undoing Project tools",
+                  "organization": "Office of the Provincial Health Officer",
+                  "category": "government",
+                  "url": "https://www2.gov.bc.ca/gov/content/health/about-bc-s-health-care-system/office-of-the-provincial-health-officer/unlearning-undoing-project/evolving-unlearning-undoing-project-tools"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "Mandatory training activity is demonstrable, but no single source proves a standardized co-developed approach for all health workers or its effectiveness."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Nursing Policy Secretariat Newsletter, May 2024",
+              "organization": "British Columbia Ministry of Health",
+              "category": "implementation / follow-up",
+              "url": "https://www2.gov.bc.ca/assets/gov/health/about-bc-s-health-care-system/heath-care-partners/health-newsletter/nps_newsletter_may_2024.pdf",
+              "publication_date": "2024-05-31"
+            },
+            {
+              "title": "Evolving Unlearning & Undoing Project tools",
+              "organization": "Office of the Provincial Health Officer",
+              "category": "government",
+              "url": "https://www2.gov.bc.ca/gov/content/health/about-bc-s-health-care-system/office-of-the-provincial-health-officer/unlearning-undoing-project/evolving-unlearning-undoing-project-tools"
+            },
+            {
+              "title": "Responding to MMIWG: Status Update 2024",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://www2.gov.bc.ca/assets/gov/law-crime-and-justice/about-bc-justice-system/inquiries/mmiw/mmiwg-status-update-2024.pdf",
+              "publication_date": "2024-06-30"
+            }
+          ],
+          "source_availability": "5 public sources linked",
+          "reporting_limitation": "Training availability and mandates do not prove universal completion, standardized outcomes or training effectiveness."
+        },
+        {
+          "number": 21,
+          "summary": "All B.C. post-secondary health-practitioner programs should include mandatory teaching on Indigenous-specific racism, colonialism, trauma-informed care, Indigenous health and the UN Declaration standard.",
+          "theme": "Education, training and institutional capacity",
+          "status": "partially_implemented",
+          "status_label": "Partially implemented",
+          "latest_evidence_date": "2025-06-30",
+          "responsible_organizations": [
+            "B.C. universities and colleges with health-practitioner programs",
+            "Government of British Columbia"
+          ],
+          "what_followed": [
+            {
+              "date": "2023-11-30",
+              "description": "A provincial training-in-education strategy and guidance were under development.",
+              "depth": "commitment",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2025-06-30",
+              "description": "Selkirk reported mandatory Indigenous health, cultural-safety and trauma-informed curriculum components in specified programs.",
+              "depth": "operational implementation",
+              "sources": [
+                {
+                  "title": "Selkirk College Institutional Accountability Plan and Report 2024–2025",
+                  "organization": "Selkirk College / Government of British Columbia",
+                  "category": "government",
+                  "url": "https://www2.gov.bc.ca/assets/gov/education/post-secondary-education/institution-resources-administration/accountability-framework/iapr/sel_iapr.pdf",
+                  "publication_date": "2025-06-30"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "Program-level mandatory curriculum is documented; universal coverage across all institutions and programs is not."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Selkirk College Institutional Accountability Plan and Report 2024–2025",
+              "organization": "Selkirk College / Government of British Columbia",
+              "category": "government",
+              "url": "https://www2.gov.bc.ca/assets/gov/education/post-secondary-education/institution-resources-administration/accountability-framework/iapr/sel_iapr.pdf",
+              "publication_date": "2025-06-30"
+            },
+            {
+              "title": "Camosun College Accountability Report 2024–2025",
+              "organization": "Camosun College / Government of British Columbia",
+              "category": "government",
+              "url": "https://www2.gov.bc.ca/assets/gov/education/post-secondary-education/institution-resources-administration/accountability-framework/iapr/cam_iapr.pdf",
+              "publication_date": "2025-06-30"
+            }
+          ],
+          "source_availability": "4 public sources linked",
+          "reporting_limitation": "Institutional reports are heterogeneous and do not form a complete all-program compliance ledger."
+        },
+        {
+          "number": 22,
+          "summary": "The Province, with Indigenous peoples, should pursue truth-telling and public education, including age-appropriate resources on Indigenous health and wellness before and after European arrival.",
+          "theme": "Education, training and institutional capacity",
+          "status": "partially_implemented",
+          "status_label": "Partially implemented",
+          "latest_evidence_date": "2026-09-06",
+          "responsible_organizations": [
+            "Government of British Columbia",
+            "Indigenous peoples in British Columbia"
+          ],
+          "what_followed": [
+            {
+              "date": "2023-2024 school year",
+              "description": "An Indigenous-focused graduation requirement and teacher resources took effect.",
+              "depth": "policy adoption",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2023-2026",
+              "description": "Declaration Act reporting continues to identify these education measures as recommendation activity.",
+              "depth": "reporting",
+              "sources": [
+                {
+                  "title": "Declaration Act Action 3.07",
+                  "organization": "Government of British Columbia",
+                  "category": "government",
+                  "url": "https://declaration.gov.bc.ca/actions/3-07/"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "Concrete education measures are in place, while the broader health-history and all-ages public-education scope is not comprehensively assessed."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Declaration Act Action 3.07",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://declaration.gov.bc.ca/actions/3-07/"
+            }
+          ],
+          "source_availability": "3 public sources linked",
+          "reporting_limitation": "School requirements and teacher guidance do not by themselves satisfy or measure the recommendation's full public-education scope."
+        },
+        {
+          "number": 23,
+          "summary": "The Province and Indigenous partners should establish joint degrees in medicine and Indigenous medicine, and a comparable joint nursing degree.",
+          "theme": "Education, training and institutional capacity",
+          "status": "implementation_underway",
+          "status_label": "Implementation underway",
+          "latest_evidence_date": "2026-01-20",
+          "responsible_organizations": [
+            "Government of British Columbia",
+            "First Nations governing bodies and representative organizations",
+            "Métis Nation British Columbia",
+            "Indigenous physicians and nurses",
+            "post-secondary institutions"
+          ],
+          "what_followed": [
+            {
+              "date": "2023-11-30",
+              "description": "The Province reported development of the SFU medical school and a collaborative Indigenous nursing master's program.",
+              "depth": "commitment",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2026-01-20",
+              "description": "SFU and FNHA formalized collaboration on the medical school and described Indigenous leadership and knowledge in the program.",
+              "depth": "policy adoption",
+              "sources": [
+                {
+                  "title": "SFU and FNHA sign MOU to improve health and wellness of First Nations peoples in B.C.",
+                  "organization": "First Nations Health Authority",
+                  "category": "Indigenous organization",
+                  "url": "https://www.fnha.ca/about/news-and-events/news/sfu-and-fnha-sign-mou-to-improve-health-and-wellness-of-first-nations-peoples-in-bc",
+                  "publication_date": "2026-01-20"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "Program development and governance are evidenced, but the exact joint degrees described in the recommendation are not yet demonstrated as operating."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "SFU and FNHA sign MOU to improve health and wellness of First Nations peoples in B.C.",
+              "organization": "First Nations Health Authority",
+              "category": "Indigenous organization",
+              "url": "https://www.fnha.ca/about/news-and-events/news/sfu-and-fnha-sign-mou-to-improve-health-and-wellness-of-first-nations-peoples-in-bc",
+              "publication_date": "2026-01-20"
+            },
+            {
+              "title": "Declaration Act Action 3.07",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://declaration.gov.bc.ca/actions/3-07/"
+            }
+          ],
+          "source_availability": "4 public sources linked",
+          "reporting_limitation": "A new medical school with embedded Indigenous knowledge and a proposed nursing program are not equivalent to established joint degrees with the exact recommended form."
+        },
+        {
+          "number": 24,
+          "summary": "The Province should establish a task team for at least 24 months to propel implementation, work with senior Ministry leadership, uphold consultation and cooperation standards and report publicly.",
+          "theme": "Data, measurement and public reporting",
+          "status": "substantially_implemented",
+          "status_label": "Substantially implemented",
+          "latest_evidence_date": "2026-09-06",
+          "responsible_organizations": [
+            "Government of British Columbia",
+            "In Plain Sight Task Team",
+            "British Columbia Ministry of Health",
+            "Indigenous partners"
+          ],
+          "what_followed": [
+            {
+              "date": "2021-05 to 2023-06",
+              "description": "The task team operated for its 24-month mandate.",
+              "depth": "office or program creation",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2023-11-30",
+              "description": "The task team published a recommendation-by-recommendation report and transferred monitoring to Action 3.07.",
+              "depth": "reporting",
+              "sources": [
+                {
+                  "title": "In Plain Sight Task Team 24-Month Report",
+                  "organization": "In Plain Sight Task Team / Government of British Columbia",
+                  "category": "implementation / follow-up",
+                  "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+                  "publication_date": "2023-11-30"
+                }
+              ]
+            },
+            {
+              "date": "2026-09-06",
+              "description": "Action 3.07 continues annual updates but states its framework cannot fully capture progress across all 24 recommendations.",
+              "depth": "reporting",
+              "sources": [
+                {
+                  "title": "Declaration Act Action 3.07",
+                  "organization": "Government of British Columbia",
+                  "category": "government",
+                  "url": "https://declaration.gov.bc.ca/actions/3-07/"
+                }
+              ]
+            }
+          ],
+          "evidence_summary": [
+            "The time-limited task-team requirement was carried out; the continuing comprehensive-reporting function is only partially satisfied in the current public format."
+          ],
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Declaration Act Action 3.07",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://declaration.gov.bc.ca/actions/3-07/"
+            }
+          ],
+          "source_availability": "3 public sources linked",
+          "reporting_limitation": "The Province states that the current framework has limited capacity to capture the breadth and depth of progress across all 24 recommendations and identifies the 2023 report as the last comprehensive public report."
+        }
+      ],
+      "themes": [
+        {
+          "title": "Governance and Indigenous leadership",
+          "recommendation_numbers": [
+            1,
+            3,
+            6,
+            7,
+            13,
+            15
+          ],
+          "status_distribution": {
+            "undefined": 6
+          },
+          "strongest_evidence": "Formal senior roles, tables, agreements and task structures are publicly documented.",
+          "reporting_gap": "No single source measures how consistently these structures changed decision-making across the system."
+        },
+        {
+          "title": "Complaints, advocacy and oversight",
+          "recommendation_numbers": [
+            4,
+            5,
+            11,
+            12
+          ],
+          "status_distribution": {
+            "undefined": 4
+          },
+          "strongest_evidence": "PIDA coverage was extended to health-authority employees and complaint/oversight mechanisms are documented.",
+          "reporting_gap": "Complaint access and statutory coverage are not outcome measures for patient experience or speak-up culture."
+        },
+        {
+          "title": "Law, standards and accountability",
+          "recommendation_numbers": [
+            2,
+            8
+          ],
+          "status_distribution": {
+            "undefined": 2
+          },
+          "strongest_evidence": "New professional legislation and a First Nations-led cultural-safety standard are concrete outputs.",
+          "reporting_gap": "Universal adoption, operational compliance and accreditation use remain distributed or incomplete."
+        },
+        {
+          "title": "Data, measurement and public reporting",
+          "recommendation_numbers": [
+            9,
+            24
+          ],
+          "status_distribution": {
+            "undefined": 2
+          },
+          "strongest_evidence": "Measurement and reporting work has been publicly described.",
+          "reporting_gap": "A comprehensive current public recommendation-by-recommendation ledger and completed system dashboard were not located."
+        },
+        {
+          "title": "Facilities, access and services",
+          "recommendation_numbers": [
+            10,
+            17
+          ],
+          "status_distribution": {
+            "undefined": 2
+          },
+          "strongest_evidence": "Specific facilities and service changes show operational examples.",
+          "reporting_gap": "Project examples do not establish consistent provincewide implementation."
+        },
+        {
+          "title": "Gender-specific response",
+          "recommendation_numbers": [
+            16
+          ],
+          "status_distribution": {
+            "undefined": 1
+          },
+          "strongest_evidence": "Cross-government reporting identifies related work.",
+          "reporting_gap": "Recommendation-specific outcomes are not reported comprehensively."
+        },
+        {
+          "title": "Workforce and leadership",
+          "recommendation_numbers": [
+            14,
+            18
+          ],
+          "status_distribution": {
+            "undefined": 2
+          },
+          "strongest_evidence": "Indigenous leadership appointments and workforce initiatives are documented.",
+          "reporting_gap": "Cross-sector retention, representation and outcome measures are incomplete."
+        },
+        {
+          "title": "Education, training and institutional capacity",
+          "recommendation_numbers": [
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "status_distribution": {
+            "undefined": 5
+          },
+          "strongest_evidence": "Training tools, program changes and institutional initiatives are documented.",
+          "reporting_gap": "Participation does not establish effectiveness, universal reach or sustained behavioural change."
+        }
+      ],
+      "source_note": {
+        "canonical_recommendation_number": 11,
+        "text": "Source note: current provincial reporting appears to use a different recommendation number for the Public Interest Disclosure Act change. Miller North follows recommendation 11 in the original In Plain Sight report; no authoritative renumbering was found."
+      },
+      "timeline": [
+        {
+          "date": "2020-11-30",
+          "type": "review report",
+          "title": "In Plain Sight published",
+          "description": "The independent review reported systemic Indigenous-specific racism and issued 24 recommendations.",
+          "organization": "In Plain Sight independent review",
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            }
+          ]
+        },
+        {
+          "date": "2021-11-30",
+          "type": "implementation update",
+          "title": "First-anniversary response",
+          "description": "Government reported early structures and correctly associated planned health-sector PIDA coverage with recommendation 11.",
+          "organization": "Government of British Columbia",
+          "sources": [
+            {
+              "title": "B.C. marks first anniversary of In Plain Sight report",
+              "organization": "Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/releases/2021HLTH0075-002294",
+              "publication_date": "2021-11-30"
+            }
+          ]
+        },
+        {
+          "date": "2022-11-29",
+          "type": "professional standard",
+          "title": "Cultural Safety and Humility Standard released",
+          "description": "FNHA and HSO released a First Nations-led B.C. standard.",
+          "organization": "First Nations Health Authority and Health Standards Organization",
+          "sources": [
+            {
+              "title": "FNHA and HSO release B.C. Cultural Safety and Humility Standard",
+              "organization": "First Nations Health Authority",
+              "category": "Indigenous organization",
+              "url": "https://www.fnha.ca/about/news-and-events/news/fnha-and-hso-release-bc-cultural-safety-and-humility-standard",
+              "publication_date": "2022-11-29"
+            }
+          ]
+        },
+        {
+          "date": "2023-06",
+          "type": "legal change",
+          "title": "PIDA coverage extended",
+          "description": "Official reporting states that health-authority employees came within statutory disclosure protections.",
+          "organization": "Government of British Columbia and Office of the Ombudsperson",
+          "sources": [
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "B.C. marks first anniversary of In Plain Sight report",
+              "organization": "Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/releases/2021HLTH0075-002294",
+              "publication_date": "2021-11-30"
+            }
+          ]
+        },
+        {
+          "date": "2023-11-30",
+          "type": "progress report",
+          "title": "24-month implementation report",
+          "description": "The task team published the most complete official recommendation-level implementation baseline located.",
+          "organization": "In Plain Sight Task Team",
+          "sources": [
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            }
+          ]
+        },
+        {
+          "date": "2024",
+          "type": "evaluation",
+          "title": "Tripartite governance evaluation",
+          "description": "An Indigenous-led evaluation documented governance progress and remaining sustainability, clarity and accountability work.",
+          "organization": "First Nations Health Authority",
+          "sources": [
+            {
+              "title": "Evaluation of the B.C. Tripartite Framework Agreement on First Nations Health Governance, 2018–2024",
+              "organization": "First Nations Health Authority",
+              "category": "Indigenous organization",
+              "url": "https://www.fnha.ca/Documents/Evaluation-of-the-BC-Tripartite-Framework-Agreement-on-First-Nations-Health-Governance-Final-Report-2018-2024.pdf",
+              "publication_date": "2024"
+            }
+          ]
+        },
+        {
+          "date": "2026-09-06 accessed",
+          "type": "current reporting",
+          "title": "Distributed current reporting",
+          "description": "Action 3.07 reports activity but says capacity to report comprehensively across all 24 recommendations is limited.",
+          "organization": "Government of British Columbia",
+          "sources": [
+            {
+              "title": "Declaration Act Action 3.07",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://declaration.gov.bc.ca/actions/3-07/"
+            }
+          ]
+        },
+        {
+          "date": "2025-06",
+          "type": "follow-up",
+          "title": "Cross-government status update",
+          "description": "A later status report adds implementation examples, including patient-feedback work and a bilateral Métis health table.",
+          "organization": "Government of British Columbia",
+          "sources": [
+            {
+              "title": "A Path Forward: June 2025 Status Update",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://www2.gov.bc.ca/assets/gov/law-crime-and-justice/about-bc-justice-system/inquiries/mmiw/mmiwg-status-update-2025.pdf",
+              "publication_date": "2025-06"
+            }
+          ]
+        },
+        {
+          "date": "2025-12-10",
+          "type": "health-system response",
+          "title": "BCCDC apology and leadership commitments",
+          "description": "BCCDC issued a formal apology and leadership commitments linked to In Plain Sight and its own review of institutional practices.",
+          "organization": "BC Centre for Disease Control",
+          "sources": [
+            {
+              "title": "BCCDC apologizes for harms caused to Indigenous Peoples",
+              "organization": "BC Centre for Disease Control",
+              "category": "health system",
+              "url": "https://www.bccdc.ca/about/news-stories/stories/2025/apology",
+              "publication_date": "2025-12-18"
+            }
+          ]
+        }
+      ],
+      "evidence_path": [
+        {
+          "from": "Documented systemic concern",
+          "relationship": "examined by",
+          "to": "Independent In Plain Sight review",
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            }
+          ]
+        },
+        {
+          "from": "Independent review",
+          "relationship": "issued",
+          "to": "24 recommendations",
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            }
+          ]
+        },
+        {
+          "from": "Recommendation 11",
+          "relationship": "followed by",
+          "to": "Health-authority PIDA coverage",
+          "sources": [
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "B.C. marks first anniversary of In Plain Sight report",
+              "organization": "Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/releases/2021HLTH0075-002294",
+              "publication_date": "2021-11-30"
+            }
+          ]
+        },
+        {
+          "from": "Cultural-safety recommendations",
+          "relationship": "followed by",
+          "to": "B.C. Cultural Safety and Humility Standard",
+          "sources": [
+            {
+              "title": "FNHA and HSO release B.C. Cultural Safety and Humility Standard",
+              "organization": "First Nations Health Authority",
+              "category": "Indigenous organization",
+              "url": "https://www.fnha.ca/about/news-and-events/news/fnha-and-hso-release-bc-cultural-safety-and-humility-standard",
+              "publication_date": "2022-11-29"
+            }
+          ]
+        },
+        {
+          "from": "Implementation activity",
+          "relationship": "reported through",
+          "to": "24-month and Declaration Act updates",
+          "sources": [
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Declaration Act Action 3.07",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://declaration.gov.bc.ca/actions/3-07/"
+            }
+          ]
+        }
+      ],
+      "policy_and_government": [
+        {
+          "label": "legislation",
+          "title": "Public Interest Disclosure Act coverage",
+          "description": "Official reporting states that health-authority employees were brought within disclosure protections.",
+          "sources": [
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            }
+          ]
+        },
+        {
+          "label": "professional regulation",
+          "title": "Health Professions and Occupations Act",
+          "description": "Professional-regulation modernization is part of the response context; enactment does not demonstrate practice compliance.",
+          "sources": [
+            {
+              "title": "Health Professions and Occupations Act",
+              "organization": "British Columbia Ministry of Health",
+              "category": "implementation / follow-up",
+              "url": "https://www2.gov.bc.ca/gov/content/health/practitioner-professional-resources/professional-regulation/health-professions-and-occupations-act",
+              "publication_date": "2026-04-01"
+            }
+          ]
+        },
+        {
+          "label": "professional standard",
+          "title": "B.C. Cultural Safety and Humility Standard",
+          "description": "The First Nations-led standard is a concrete output; adoption and assessment remain separate evidence questions.",
+          "sources": [
+            {
+              "title": "FNHA and HSO release B.C. Cultural Safety and Humility Standard",
+              "organization": "First Nations Health Authority",
+              "category": "Indigenous organization",
+              "url": "https://www.fnha.ca/about/news-and-events/news/fnha-and-hso-release-bc-cultural-safety-and-humility-standard",
+              "publication_date": "2022-11-29"
+            }
+          ]
+        },
+        {
+          "label": "governance framework",
+          "title": "Tripartite First Nations health governance",
+          "description": "An Indigenous-led evaluation records progress and continuing governance work.",
+          "sources": [
+            {
+              "title": "Evaluation of the B.C. Tripartite Framework Agreement on First Nations Health Governance, 2018–2024",
+              "organization": "First Nations Health Authority",
+              "category": "Indigenous organization",
+              "url": "https://www.fnha.ca/Documents/Evaluation-of-the-BC-Tripartite-Framework-Agreement-on-First-Nations-Health-Governance-Final-Report-2018-2024.pdf",
+              "publication_date": "2024"
+            }
+          ]
+        }
+      ],
+      "what_public_evidence_shows": [
+        {
+          "text": "All 24 recommendations have an official public-evidence baseline.",
+          "sources": [
+            {
+              "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+              "organization": "In Plain Sight independent review / Government of British Columbia",
+              "category": "original report",
+              "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+              "publication_date": "2020-11-30"
+            },
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            }
+          ]
+        },
+        {
+          "text": "Health-sector disclosure protection, professional-regulation changes, a cultural-safety standard and complaint-related mechanisms are publicly documented.",
+          "sources": [
+            {
+              "title": "In Plain Sight Task Team 24-Month Report",
+              "organization": "In Plain Sight Task Team / Government of British Columbia",
+              "category": "implementation / follow-up",
+              "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+              "publication_date": "2023-11-30"
+            },
+            {
+              "title": "Health Professions and Occupations Act",
+              "organization": "British Columbia Ministry of Health",
+              "category": "implementation / follow-up",
+              "url": "https://www2.gov.bc.ca/gov/content/health/practitioner-professional-resources/professional-regulation/health-professions-and-occupations-act",
+              "publication_date": "2026-04-01"
+            },
+            {
+              "title": "FNHA and HSO release B.C. Cultural Safety and Humility Standard",
+              "organization": "First Nations Health Authority",
+              "category": "Indigenous organization",
+              "url": "https://www.fnha.ca/about/news-and-events/news/fnha-and-hso-release-bc-cultural-safety-and-humility-standard",
+              "publication_date": "2022-11-29"
+            },
+            {
+              "title": "Sharing Concerns",
+              "organization": "Health Quality BC",
+              "category": "health system",
+              "url": "https://healthqualitybc.ca/resources/sharing-concerns-principles-to-guide-the-development-of-an-indigenous-patient-feedback-process/",
+              "publication_date": "2024"
+            }
+          ]
+        },
+        {
+          "text": "Later reporting adds new health-system and governance actions, including a 2025 BCCDC apology and leadership commitments.",
+          "sources": [
+            {
+              "title": "A Path Forward: June 2025 Status Update",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://www2.gov.bc.ca/assets/gov/law-crime-and-justice/about-bc-justice-system/inquiries/mmiw/mmiwg-status-update-2025.pdf",
+              "publication_date": "2025-06"
+            },
+            {
+              "title": "BCCDC apologizes for harms caused to Indigenous Peoples",
+              "organization": "BC Centre for Disease Control",
+              "category": "health system",
+              "url": "https://www.bccdc.ca/about/news-stories/stories/2025/apology",
+              "publication_date": "2025-12-18"
+            }
+          ]
+        }
+      ],
+      "what_remains_unclear": [
+        {
+          "text": "No current comprehensive public status ledger covering every recommendation was located.",
+          "sources": [
+            {
+              "title": "Declaration Act Action 3.07",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://declaration.gov.bc.ca/actions/3-07/"
+            }
+          ]
+        },
+        {
+          "text": "Public reporting is stronger on activities than on consistent provincewide outcomes.",
+          "sources": [
+            {
+              "title": "Declaration Act Action 3.07",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://declaration.gov.bc.ca/actions/3-07/"
+            },
+            {
+              "title": "Evaluation of the B.C. Tripartite Framework Agreement on First Nations Health Governance, 2018–2024",
+              "organization": "First Nations Health Authority",
+              "category": "Indigenous organization",
+              "url": "https://www.fnha.ca/Documents/Evaluation-of-the-BC-Tripartite-Framework-Agreement-on-First-Nations-Health-Governance-Final-Report-2018-2024.pdf",
+              "publication_date": "2024"
+            }
+          ]
+        },
+        {
+          "text": "Responsibility and implementation evidence remain distributed across ministries, health authorities, regulators and Indigenous partners.",
+          "sources": [
+            {
+              "title": "Declaration Act Action 3.07",
+              "organization": "Government of British Columbia",
+              "category": "government",
+              "url": "https://declaration.gov.bc.ca/actions/3-07/"
+            }
+          ]
+        }
+      ],
+      "recommended_next_question": "Will the Ministry publish a current recommendation-by-recommendation status update for all 24 recommendations?",
+      "sources": [
+        {
+          "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+          "organization": "In Plain Sight independent review / Government of British Columbia",
+          "category": "original report",
+          "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+          "publication_date": "2020-11-30"
+        },
+        {
+          "title": "In Plain Sight Task Team 24-Month Report",
+          "organization": "In Plain Sight Task Team / Government of British Columbia",
+          "category": "implementation / follow-up",
+          "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+          "publication_date": "2023-11-30"
+        },
+        {
+          "title": "Declaration Act Action 3.07",
+          "organization": "Government of British Columbia",
+          "category": "government",
+          "url": "https://declaration.gov.bc.ca/actions/3-07/"
+        },
+        {
+          "title": "B.C. marks first anniversary of In Plain Sight report",
+          "organization": "Government of British Columbia",
+          "category": "implementation / follow-up",
+          "url": "https://news.gov.bc.ca/releases/2021HLTH0075-002294",
+          "publication_date": "2021-11-30"
+        },
+        {
+          "title": "Ministry of Health Transition Binder 2024",
+          "organization": "British Columbia Ministry of Health",
+          "category": "government",
+          "url": "https://docs.openinfo.gov.bc.ca/Ministry_of_Health_Transition_Binder_2024.pdf",
+          "publication_date": "2024"
+        },
+        {
+          "title": "Health Professions and Occupations Act",
+          "organization": "British Columbia Ministry of Health",
+          "category": "implementation / follow-up",
+          "url": "https://www2.gov.bc.ca/gov/content/health/practitioner-professional-resources/professional-regulation/health-professions-and-occupations-act",
+          "publication_date": "2026-04-01"
+        },
+        {
+          "title": "FNHA and HSO release B.C. Cultural Safety and Humility Standard",
+          "organization": "First Nations Health Authority",
+          "category": "Indigenous organization",
+          "url": "https://www.fnha.ca/about/news-and-events/news/fnha-and-hso-release-bc-cultural-safety-and-humility-standard",
+          "publication_date": "2022-11-29"
+        },
+        {
+          "title": "Sharing Concerns",
+          "organization": "Health Quality BC",
+          "category": "health system",
+          "url": "https://healthqualitybc.ca/resources/sharing-concerns-principles-to-guide-the-development-of-an-indigenous-patient-feedback-process/",
+          "publication_date": "2024"
+        },
+        {
+          "title": "Indigenous initiatives",
+          "organization": "Office of the Ombudsperson of British Columbia",
+          "category": "regulator / oversight",
+          "url": "https://bcombudsperson.ca/about-us/indigenous-initiatives/"
+        },
+        {
+          "title": "Evaluation of the B.C. Tripartite Framework Agreement on First Nations Health Governance, 2018–2024",
+          "organization": "First Nations Health Authority",
+          "category": "Indigenous organization",
+          "url": "https://www.fnha.ca/Documents/Evaluation-of-the-BC-Tripartite-Framework-Agreement-on-First-Nations-Health-Governance-Final-Report-2018-2024.pdf",
+          "publication_date": "2024"
+        },
+        {
+          "title": "A Path Forward: June 2025 Status Update",
+          "organization": "Government of British Columbia",
+          "category": "government",
+          "url": "https://www2.gov.bc.ca/assets/gov/law-crime-and-justice/about-bc-justice-system/inquiries/mmiw/mmiwg-status-update-2025.pdf",
+          "publication_date": "2025-06"
+        },
+        {
+          "title": "BCCDC apologizes for harms caused to Indigenous Peoples",
+          "organization": "BC Centre for Disease Control",
+          "category": "health system",
+          "url": "https://www.bccdc.ca/about/news-stories/stories/2025/apology",
+          "publication_date": "2025-12-18"
+        }
+      ]
+    },
+    {
+      "slug": "saskatoon-coerced-sterilization",
+      "province": "Saskatchewan",
+      "title": "Saskatoon coerced sterilization / tubal-ligation cohort",
+      "focus": "Reported experiences, external review, Calls to Action, a service response and later legal developments",
+      "what_happened": "A Saskatoon Health Region-commissioned review documented the reported experiences of seven Indigenous women who described pressure or coercion around tubal ligation. The review issued ten Calls to Action and was followed by an apology, a hospital-based Indigenous birth-support program and legal proceedings.",
+      "why_this_matters": [
+        "The case shows how anonymized lived experience can become a formal health-system accountability record without identifying patients.",
+        "It connects institutional findings to a concrete operational service while preserving that one program does not satisfy all ten Calls to Action.",
+        "Later litigation and federal legislation must be kept procedurally and temporally distinct from the 2017 review."
+      ],
+      "one_thing_to_remember": "A current birth-support service is documented, but one program should not be mistaken for completion of the review's wider structural recommendations.",
+      "metrics": [
+        {
+          "label": "Review interviews",
+          "value": "7 women"
+        },
+        {
+          "label": "Calls to Action",
+          "value": "10"
+        },
+        {
+          "label": "Program operating since",
+          "value": "2019"
+        },
+        {
+          "label": "Legal update",
+          "value": "2025"
+        }
+      ],
+      "timeline": [
+        {
+          "date": "2015-2016",
+          "type": "reported experiences",
+          "title": "Public concern emerges",
+          "description": "Reported patient experiences prompted scrutiny; the dossier preserves those experiences as anonymized cohort evidence.",
+          "organization": "Indigenous women and public advocates",
+          "sources": [
+            {
+              "title": "Tubal Ligation in the Saskatoon Health Region: The Lived Experience of Aboriginal Women",
+              "organization": "External reviewers Yvonne Boyer and Judith Bartlett / Saskatoon Health Region",
+              "category": "original report",
+              "url": "https://senatorboyer.ca/wp-content/uploads/2021/09/Tubal-Ligation-in-the-Saskatoon-Health-Region-the-Lived-Experience-of-Aboriginal-Women-Boyer-and-Bartlett-July-11-2017.pdf",
+              "publication_date": "2017-07"
+            },
+            {
+              "title": "Forced and Coerced Sterilization of Women in Canada",
+              "organization": "House of Commons Standing Committee on Health",
+              "category": "legal / human-rights",
+              "url": "https://www.ourcommons.ca/content/Committee/421/HESA/WebDoc/WD10596408/421_HESA_reldoc_PDF/MinisterOfHealth-Final-e.pdf",
+              "publication_date": "2019-06"
+            }
+          ]
+        },
+        {
+          "date": "2017-01 to 2017-07",
+          "type": "external review",
+          "title": "External review conducted",
+          "description": "The commissioned review interviewed seven women and nine health providers.",
+          "organization": "Saskatoon Health Region / external reviewers",
+          "sources": [
+            {
+              "title": "Tubal Ligation in the Saskatoon Health Region: The Lived Experience of Aboriginal Women",
+              "organization": "External reviewers Yvonne Boyer and Judith Bartlett / Saskatoon Health Region",
+              "category": "original report",
+              "url": "https://senatorboyer.ca/wp-content/uploads/2021/09/Tubal-Ligation-in-the-Saskatoon-Health-Region-the-Lived-Experience-of-Aboriginal-Women-Boyer-and-Bartlett-July-11-2017.pdf",
+              "publication_date": "2017-07"
+            }
+          ]
+        },
+        {
+          "date": "2017-07",
+          "type": "findings and recommendations",
+          "title": "Report issues ten Calls to Action",
+          "description": "The report documented themes of profiling, powerlessness and coercion and recommended structural reforms.",
+          "organization": "External reviewers Yvonne Boyer and Judith Bartlett",
+          "sources": [
+            {
+              "title": "Tubal Ligation in the Saskatoon Health Region: The Lived Experience of Aboriginal Women",
+              "organization": "External reviewers Yvonne Boyer and Judith Bartlett / Saskatoon Health Region",
+              "category": "original report",
+              "url": "https://senatorboyer.ca/wp-content/uploads/2021/09/Tubal-Ligation-in-the-Saskatoon-Health-Region-the-Lived-Experience-of-Aboriginal-Women-Boyer-and-Bartlett-July-11-2017.pdf",
+              "publication_date": "2017-07"
+            }
+          ]
+        },
+        {
+          "date": "2017-07",
+          "type": "institutional response",
+          "title": "Health-region apology reported",
+          "description": "The health region publicly apologized after release of the review.",
+          "organization": "Saskatoon Health Region",
+          "sources": [
+            {
+              "title": "Senator Boyer — Speech from the Throne",
+              "organization": "Senate of Canada",
+              "category": "legal / human-rights",
+              "url": "https://sencanada.ca/en/speeches/sen-boyer-speech-from-the-throne/",
+              "publication_date": "2021"
+            },
+            {
+              "title": "Forced and Coerced Sterilization of Women in Canada",
+              "organization": "House of Commons Standing Committee on Health",
+              "category": "legal / human-rights",
+              "url": "https://www.ourcommons.ca/content/Committee/421/HESA/WebDoc/WD10596408/421_HESA_reldoc_PDF/MinisterOfHealth-Final-e.pdf",
+              "publication_date": "2019-06"
+            }
+          ]
+        },
+        {
+          "date": "2017-2024",
+          "type": "legal process",
+          "title": "Proposed class proceeding develops",
+          "description": "Litigation proceeded through pleadings and interlocutory questions, including a 2024 intervention decision.",
+          "organization": "Court of King's Bench for Saskatchewan",
+          "sources": [
+            {
+              "title": "Popp v Canada (Attorney General), 2024 SKKB 122",
+              "organization": "Court of King's Bench for Saskatchewan / CanLII",
+              "category": "legal / human-rights",
+              "url": "https://www.canlii.org/en/sk/skkb/doc/2024/2024skkb122/2024skkb122.html",
+              "publication_date": "2024"
+            },
+            {
+              "title": "Forced and Coerced Sterilization of Women in Canada",
+              "organization": "House of Commons Standing Committee on Health",
+              "category": "legal / human-rights",
+              "url": "https://www.ourcommons.ca/content/Committee/421/HESA/WebDoc/WD10596408/421_HESA_reldoc_PDF/MinisterOfHealth-Final-e.pdf",
+              "publication_date": "2019-06"
+            }
+          ]
+        },
+        {
+          "date": "2019-06",
+          "type": "parliamentary review",
+          "title": "House health committee reports",
+          "description": "The federal committee reviewed coerced sterilization evidence and made federal recommendations.",
+          "organization": "House of Commons Standing Committee on Health",
+          "sources": [
+            {
+              "title": "Forced and Coerced Sterilization of Women in Canada",
+              "organization": "House of Commons Standing Committee on Health",
+              "category": "legal / human-rights",
+              "url": "https://www.ourcommons.ca/content/Committee/421/HESA/WebDoc/WD10596408/421_HESA_reldoc_PDF/MinisterOfHealth-Final-e.pdf",
+              "publication_date": "2019-06"
+            }
+          ]
+        },
+        {
+          "date": "2019-12",
+          "type": "operational response",
+          "title": "Indigenous Birth Support Worker Program begins",
+          "description": "SHA identifies the program as a response to the 2017 report.",
+          "organization": "Saskatchewan Health Authority",
+          "sources": [
+            {
+              "title": "Lessons learned from the Indigenous Birth Support Worker Program",
+              "organization": "Saskatchewan Health Authority",
+              "category": "health system",
+              "url": "https://www.saskhealthauthority.ca/our-organization/our-direction/research/who-we-are/exciting-discoveries/lessons-learned-indigenous-birth-support-worker-program"
+            }
+          ]
+        },
+        {
+          "date": "2019-12 to 2021-01",
+          "type": "evaluation",
+          "title": "Program evaluation documents use",
+          "description": "The evaluation reports operational learning and recommendations for continuation and scale.",
+          "organization": "Saskatchewan Health Authority",
+          "sources": [
+            {
+              "title": "Lessons learned from the Indigenous Birth Support Worker Program",
+              "organization": "Saskatchewan Health Authority",
+              "category": "health system",
+              "url": "https://www.saskhealthauthority.ca/our-organization/our-direction/research/who-we-are/exciting-discoveries/lessons-learned-indigenous-birth-support-worker-program"
+            }
+          ]
+        },
+        {
+          "date": "2025-06-24",
+          "type": "court decision",
+          "title": "Class certification dismissed",
+          "description": "The court dismissed certification; the procedural decision did not decide the truth of each alleged sterilization claim.",
+          "organization": "Court of King's Bench for Saskatchewan",
+          "sources": [
+            {
+              "title": "Popp v Canada (Attorney General), 2025 SKKB 89 — Case Mail digest",
+              "organization": "Law Society of Saskatchewan",
+              "category": "government",
+              "url": "https://www.lawsociety.sk.ca/wp-content/uploads/CM27-18.pdf",
+              "publication_date": "2025-06-24"
+            }
+          ]
+        },
+        {
+          "date": "2026-06-15",
+          "type": "later legislation",
+          "title": "Bill S-228 receives royal assent",
+          "description": "Federal Criminal Code clarification is later contextual legal development and is not treated as a retroactive case remedy.",
+          "organization": "Parliament of Canada",
+          "sources": [
+            {
+              "title": "An Act to amend the Criminal Code (sterilization procedures), S.C. 2026, c. 10",
+              "organization": "Parliament of Canada / Government of Canada Publications",
+              "category": "legal / human-rights",
+              "url": "https://publications.gc.ca/site/eng/9.963680/publication.html",
+              "publication_date": "2026-06-15"
+            }
+          ]
+        }
+      ],
+      "evidence_path": [
+        {
+          "from": "Reported experiences",
+          "relationship": "examined by",
+          "to": "2017 external review",
+          "sources": [
+            {
+              "title": "Tubal Ligation in the Saskatoon Health Region: The Lived Experience of Aboriginal Women",
+              "organization": "External reviewers Yvonne Boyer and Judith Bartlett / Saskatoon Health Region",
+              "category": "original report",
+              "url": "https://senatorboyer.ca/wp-content/uploads/2021/09/Tubal-Ligation-in-the-Saskatoon-Health-Region-the-Lived-Experience-of-Aboriginal-Women-Boyer-and-Bartlett-July-11-2017.pdf",
+              "publication_date": "2017-07"
+            }
+          ]
+        },
+        {
+          "from": "External review",
+          "relationship": "issued",
+          "to": "Ten Calls to Action",
+          "sources": [
+            {
+              "title": "Tubal Ligation in the Saskatoon Health Region: The Lived Experience of Aboriginal Women",
+              "organization": "External reviewers Yvonne Boyer and Judith Bartlett / Saskatoon Health Region",
+              "category": "original report",
+              "url": "https://senatorboyer.ca/wp-content/uploads/2021/09/Tubal-Ligation-in-the-Saskatoon-Health-Region-the-Lived-Experience-of-Aboriginal-Women-Boyer-and-Bartlett-July-11-2017.pdf",
+              "publication_date": "2017-07"
+            }
+          ]
+        },
+        {
+          "from": "Review",
+          "relationship": "followed by",
+          "to": "Health-region response and apology",
+          "sources": [
+            {
+              "title": "Forced and Coerced Sterilization of Women in Canada",
+              "organization": "House of Commons Standing Committee on Health",
+              "category": "legal / human-rights",
+              "url": "https://www.ourcommons.ca/content/Committee/421/HESA/WebDoc/WD10596408/421_HESA_reldoc_PDF/MinisterOfHealth-Final-e.pdf",
+              "publication_date": "2019-06"
+            }
+          ]
+        },
+        {
+          "from": "Review",
+          "relationship": "followed by",
+          "to": "Indigenous Birth Support Worker Program",
+          "sources": [
+            {
+              "title": "Lessons learned from the Indigenous Birth Support Worker Program",
+              "organization": "Saskatchewan Health Authority",
+              "category": "health system",
+              "url": "https://www.saskhealthauthority.ca/our-organization/our-direction/research/who-we-are/exciting-discoveries/lessons-learned-indigenous-birth-support-worker-program"
+            }
+          ]
+        },
+        {
+          "from": "Program",
+          "relationship": "confirmed by",
+          "to": "Current hospital service information and evaluation",
+          "sources": [
+            {
+              "title": "Lessons learned from the Indigenous Birth Support Worker Program",
+              "organization": "Saskatchewan Health Authority",
+              "category": "health system",
+              "url": "https://www.saskhealthauthority.ca/our-organization/our-direction/research/who-we-are/exciting-discoveries/lessons-learned-indigenous-birth-support-worker-program"
+            },
+            {
+              "title": "Maternal Care Centre Indigenous Birth Support Worker",
+              "organization": "Saskatchewan Health Authority",
+              "category": "health system",
+              "url": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/indigenous-health/maternal-care-centre-indigenous-birth-support-worker-jim-pattison-childrens-hospital"
+            }
+          ]
+        },
+        {
+          "from": "Related allegations",
+          "relationship": "considered in",
+          "to": "Popp v Canada class-certification process",
+          "sources": [
+            {
+              "title": "Popp v Canada (Attorney General), 2025 SKKB 89 — Case Mail digest",
+              "organization": "Law Society of Saskatchewan",
+              "category": "government",
+              "url": "https://www.lawsociety.sk.ca/wp-content/uploads/CM27-18.pdf",
+              "publication_date": "2025-06-24"
+            }
+          ]
+        }
+      ],
+      "policy_and_government": [
+        {
+          "label": "health-system review",
+          "title": "Ten Calls to Action",
+          "description": "The review called for rights-informed care, training, equal Indigenous partnership, workforce reform, support, reparation and revised consent policy.",
+          "sources": [
+            {
+              "title": "Tubal Ligation in the Saskatoon Health Region: The Lived Experience of Aboriginal Women",
+              "organization": "External reviewers Yvonne Boyer and Judith Bartlett / Saskatoon Health Region",
+              "category": "original report",
+              "url": "https://senatorboyer.ca/wp-content/uploads/2021/09/Tubal-Ligation-in-the-Saskatoon-Health-Region-the-Lived-Experience-of-Aboriginal-Women-Boyer-and-Bartlett-July-11-2017.pdf",
+              "publication_date": "2017-07"
+            }
+          ]
+        },
+        {
+          "label": "legal process",
+          "title": "Popp v Canada",
+          "description": "Class certification was dismissed in 2025. That procedural decision did not adjudicate the merits of individual allegations.",
+          "sources": [
+            {
+              "title": "Popp v Canada (Attorney General), 2025 SKKB 89 — Case Mail digest",
+              "organization": "Law Society of Saskatchewan",
+              "category": "government",
+              "url": "https://www.lawsociety.sk.ca/wp-content/uploads/CM27-18.pdf",
+              "publication_date": "2025-06-24"
+            }
+          ]
+        },
+        {
+          "label": "legislation",
+          "title": "Bill S-228 / S.C. 2026, c. 10",
+          "description": "The later Criminal Code amendment is national legal context only and is not presented as a retroactive case remedy.",
+          "sources": [
+            {
+              "title": "An Act to amend the Criminal Code (sterilization procedures), S.C. 2026, c. 10",
+              "organization": "Parliament of Canada / Government of Canada Publications",
+              "category": "legal / human-rights",
+              "url": "https://publications.gc.ca/site/eng/9.963680/publication.html",
+              "publication_date": "2026-06-15"
+            }
+          ]
+        },
+        {
+          "label": "territorial context",
+          "title": "Treaty 6 territory and Homeland of the Métis",
+          "description": "This identifies location and governance context; it does not by itself establish a legal-right conclusion.",
+          "sources": [
+            {
+              "title": "Treaty 6 Territory and the Homeland of the Métis",
+              "organization": "City of Saskatoon",
+              "category": "government",
+              "url": "https://www.saskatoon.ca/community-culture-heritage/cultural-diversity/indigenous-initiatives/treaty-6-metis-homeland"
+            }
+          ]
+        }
+      ],
+      "legal_note": "Class certification dismissed means the proposed class action did not proceed in that form at that stage. The decision did not adjudicate the merits of individual allegations or determine whether an individual legal claim would succeed.",
+      "what_public_evidence_shows": [
+        {
+          "text": "The commissioned review preserves seven anonymized reported experiences as cohort evidence and documents ten Calls to Action.",
+          "sources": [
+            {
+              "title": "Tubal Ligation in the Saskatoon Health Region: The Lived Experience of Aboriginal Women",
+              "organization": "External reviewers Yvonne Boyer and Judith Bartlett / Saskatoon Health Region",
+              "category": "original report",
+              "url": "https://senatorboyer.ca/wp-content/uploads/2021/09/Tubal-Ligation-in-the-Saskatoon-Health-Region-the-Lived-Experience-of-Aboriginal-Women-Boyer-and-Bartlett-July-11-2017.pdf",
+              "publication_date": "2017-07"
+            }
+          ]
+        },
+        {
+          "text": "The Indigenous Birth Support Worker Program was created as part of the response, began in December 2019 and remains represented in current SHA service information.",
+          "sources": [
+            {
+              "title": "Lessons learned from the Indigenous Birth Support Worker Program",
+              "organization": "Saskatchewan Health Authority",
+              "category": "health system",
+              "url": "https://www.saskhealthauthority.ca/our-organization/our-direction/research/who-we-are/exciting-discoveries/lessons-learned-indigenous-birth-support-worker-program"
+            },
+            {
+              "title": "Maternal Care Centre Indigenous Birth Support Worker",
+              "organization": "Saskatchewan Health Authority",
+              "category": "health system",
+              "url": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/indigenous-health/maternal-care-centre-indigenous-birth-support-worker-jim-pattison-childrens-hospital"
+            }
+          ]
+        },
+        {
+          "text": "The 2025 class-certification application was dismissed on procedural certification criteria rather than after adjudicating individual merits.",
+          "sources": [
+            {
+              "title": "Popp v Canada (Attorney General), 2025 SKKB 89 — Case Mail digest",
+              "organization": "Law Society of Saskatchewan",
+              "category": "government",
+              "url": "https://www.lawsociety.sk.ca/wp-content/uploads/CM27-18.pdf",
+              "publication_date": "2025-06-24"
+            }
+          ]
+        }
+      ],
+      "what_remains_unclear": [
+        {
+          "text": "A current public implementation ledger for all ten Calls to Action was not located.",
+          "sources": [
+            {
+              "title": "Tubal Ligation in the Saskatoon Health Region: The Lived Experience of Aboriginal Women",
+              "organization": "External reviewers Yvonne Boyer and Judith Bartlett / Saskatoon Health Region",
+              "category": "original report",
+              "url": "https://senatorboyer.ca/wp-content/uploads/2021/09/Tubal-Ligation-in-the-Saskatoon-Health-Region-the-Lived-Experience-of-Aboriginal-Women-Boyer-and-Bartlett-July-11-2017.pdf",
+              "publication_date": "2017-07"
+            },
+            {
+              "title": "Lessons learned from the Indigenous Birth Support Worker Program",
+              "organization": "Saskatchewan Health Authority",
+              "category": "health system",
+              "url": "https://www.saskhealthauthority.ca/our-organization/our-direction/research/who-we-are/exciting-discoveries/lessons-learned-indigenous-birth-support-worker-program"
+            }
+          ]
+        },
+        {
+          "text": "Public sources reviewed did not establish whether the 2025 decision was appealed or followed by a reconfigured proceeding.",
+          "sources": [
+            {
+              "title": "Popp v Canada (Attorney General), 2025 SKKB 89 — Case Mail digest",
+              "organization": "Law Society of Saskatchewan",
+              "category": "government",
+              "url": "https://www.lawsociety.sk.ca/wp-content/uploads/CM27-18.pdf",
+              "publication_date": "2025-06-24"
+            }
+          ]
+        },
+        {
+          "text": "Current provincewide consent-policy adoption and auditing could not be demonstrated from the located sources.",
+          "sources": [
+            {
+              "title": "Tubal Ligation in the Saskatoon Health Region: The Lived Experience of Aboriginal Women",
+              "organization": "External reviewers Yvonne Boyer and Judith Bartlett / Saskatoon Health Region",
+              "category": "original report",
+              "url": "https://senatorboyer.ca/wp-content/uploads/2021/09/Tubal-Ligation-in-the-Saskatoon-Health-Region-the-Lived-Experience-of-Aboriginal-Women-Boyer-and-Bartlett-July-11-2017.pdf",
+              "publication_date": "2017-07"
+            }
+          ]
+        }
+      ],
+      "recommended_next_question": "Can Saskatchewan Health Authority provide a current implementation table for the review's ten Calls to Action?",
+      "sources": [
+        {
+          "title": "Tubal Ligation in the Saskatoon Health Region: The Lived Experience of Aboriginal Women",
+          "organization": "External reviewers Yvonne Boyer and Judith Bartlett / Saskatoon Health Region",
+          "category": "original report",
+          "url": "https://senatorboyer.ca/wp-content/uploads/2021/09/Tubal-Ligation-in-the-Saskatoon-Health-Region-the-Lived-Experience-of-Aboriginal-Women-Boyer-and-Bartlett-July-11-2017.pdf",
+          "publication_date": "2017-07"
+        },
+        {
+          "title": "Lessons learned from the Indigenous Birth Support Worker Program",
+          "organization": "Saskatchewan Health Authority",
+          "category": "health system",
+          "url": "https://www.saskhealthauthority.ca/our-organization/our-direction/research/who-we-are/exciting-discoveries/lessons-learned-indigenous-birth-support-worker-program"
+        },
+        {
+          "title": "Maternal Care Centre Indigenous Birth Support Worker",
+          "organization": "Saskatchewan Health Authority",
+          "category": "health system",
+          "url": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/indigenous-health/maternal-care-centre-indigenous-birth-support-worker-jim-pattison-childrens-hospital"
+        },
+        {
+          "title": "Forced and Coerced Sterilization of Women in Canada",
+          "organization": "House of Commons Standing Committee on Health",
+          "category": "legal / human-rights",
+          "url": "https://www.ourcommons.ca/content/Committee/421/HESA/WebDoc/WD10596408/421_HESA_reldoc_PDF/MinisterOfHealth-Final-e.pdf",
+          "publication_date": "2019-06"
+        },
+        {
+          "title": "Popp v Canada (Attorney General), 2025 SKKB 89 — Case Mail digest",
+          "organization": "Law Society of Saskatchewan",
+          "category": "government",
+          "url": "https://www.lawsociety.sk.ca/wp-content/uploads/CM27-18.pdf",
+          "publication_date": "2025-06-24"
+        },
+        {
+          "title": "Popp v Canada (Attorney General), 2024 SKKB 122",
+          "organization": "Court of King's Bench for Saskatchewan / CanLII",
+          "category": "legal / human-rights",
+          "url": "https://www.canlii.org/en/sk/skkb/doc/2024/2024skkb122/2024skkb122.html",
+          "publication_date": "2024"
+        },
+        {
+          "title": "An Act to amend the Criminal Code (sterilization procedures), S.C. 2026, c. 10",
+          "organization": "Parliament of Canada / Government of Canada Publications",
+          "category": "legal / human-rights",
+          "url": "https://publications.gc.ca/site/eng/9.963680/publication.html",
+          "publication_date": "2026-06-15"
+        },
+        {
+          "title": "Senator Boyer — Speech from the Throne",
+          "organization": "Senate of Canada",
+          "category": "legal / human-rights",
+          "url": "https://sencanada.ca/en/speeches/sen-boyer-speech-from-the-throne/",
+          "publication_date": "2021"
+        },
+        {
+          "title": "Treaty 6 Territory and the Homeland of the Métis",
+          "organization": "City of Saskatoon",
+          "category": "government",
+          "url": "https://www.saskatoon.ca/community-culture-heritage/cultural-diversity/indigenous-initiatives/treaty-6-metis-homeland"
+        }
+      ]
+    },
+    {
+      "slug": "alberta-indigenous-primary-care",
+      "province": "Alberta",
+      "title": "Indigenous Primary Health Care Advisory Panel",
+      "focus": "Twenty-two recommendations and the structures created to respond",
+      "what_happened": "Alberta's Indigenous Primary Health Care Advisory Panel issued 22 recommendations for culturally safe, Indigenous-led and accountable primary health care. Government later published an implementation plan and created or funded a ministry division, navigation programs, an innovation fund and a patient-safety advocate.",
+      "why_this_matters": [
+        "It is Alberta's strongest defensible public chain from Indigenous-led advice to government commitments and operational mechanisms.",
+        "It shows why a program, funding stream and complaints office should remain separate evidence stages.",
+        "The Red Deer search still yielded useful local context, while avoiding a forced weak local case."
+      ],
+      "one_thing_to_remember": "Alberta publicly documents implementation machinery, but not one complete current account of every recommendation and its outcomes.",
+      "metrics": [
+        {
+          "label": "Recommendations",
+          "value": "22"
+        },
+        {
+          "label": "Implementation plan",
+          "value": "Published"
+        },
+        {
+          "label": "Oversight mechanism",
+          "value": "Operating"
+        },
+        {
+          "label": "Geographic scope",
+          "value": "Provincewide"
+        }
+      ],
+      "selection_note": "A Red Deer and Central Alberta search was completed first. It found relevant cultural-safety concerns and operational Indigenous support services, but not an equally deep local accountability chain. This provincewide case was selected because its recommendations, government response, funding and implementation mechanisms are more completely documented. Absence of a deep public record is not evidence that local problems do not exist.",
+      "timeline": [
+        {
+          "date": "2022-09-29",
+          "type": "local engagement",
+          "title": "Red Deer engagement identifies cultural-safety concerns",
+          "description": "Participants raised cultural safety, racism and bias as health-system concerns; this was consultation evidence, not a formal case finding.",
+          "organization": "Government of Alberta and Alberta Health Services",
+          "sources": [
+            {
+              "title": "Red Deer health-care action plan — What We Heard",
+              "organization": "Government of Alberta and Alberta Health Services",
+              "category": "government",
+              "url": "https://www.albertahealthservices.ca/assets/about/comm/ahs-comm-what-we-heard-red-deer.pdf",
+              "publication_date": "2022-09-29"
+            }
+          ]
+        },
+        {
+          "date": "2022-2023",
+          "type": "advisory panel",
+          "title": "Indigenous advisory panel convened",
+          "description": "Indigenous leaders and health-system participants developed recommendations for primary health-care reform.",
+          "organization": "Government of Alberta",
+          "sources": [
+            {
+              "title": "Modernizing Alberta's Primary Health Care System: Indigenous Primary Health Care Advisory Panel final report",
+              "organization": "Government of Alberta",
+              "category": "government",
+              "url": "https://open.alberta.ca/dataset/68717edd-5861-406e-b4ea-dd0e9051dadc/resource/da7c9aae-9cc1-48f4-bce5-6e71bd02a9c8/download/hlth-maps-indigenous-primary-health-care-advisory-panel-final-report.pdf",
+              "publication_date": "2023"
+            }
+          ]
+        },
+        {
+          "date": "2023",
+          "type": "recommendations",
+          "title": "Panel issues 22 recommendations",
+          "description": "The final report organizes recommendations around culturally safe, Indigenous-led and accountable care.",
+          "organization": "Indigenous Primary Health Care Advisory Panel",
+          "sources": [
+            {
+              "title": "Modernizing Alberta's Primary Health Care System: Indigenous Primary Health Care Advisory Panel final report",
+              "organization": "Government of Alberta",
+              "category": "government",
+              "url": "https://open.alberta.ca/dataset/68717edd-5861-406e-b4ea-dd0e9051dadc/resource/da7c9aae-9cc1-48f4-bce5-6e71bd02a9c8/download/hlth-maps-indigenous-primary-health-care-advisory-panel-final-report.pdf",
+              "publication_date": "2023"
+            }
+          ]
+        },
+        {
+          "date": "2023",
+          "type": "government response",
+          "title": "Early investment opportunities published",
+          "description": "Government identifies early commitments and implementation mechanisms.",
+          "organization": "Alberta Health",
+          "sources": [
+            {
+              "title": "Indigenous panel recommendations: opportunities for early investment",
+              "organization": "Government of Alberta",
+              "category": "government",
+              "url": "https://open.alberta.ca/dataset/e9016d69-8688-4e77-a565-82d461370bdc/resource/337df180-3cda-4cb7-9025-a7fa178aa0d6/download/hlth-maps-indigenous-panel-recommendations-opportunities-for-early-investment.pdf",
+              "publication_date": "2023"
+            }
+          ]
+        },
+        {
+          "date": "2024",
+          "type": "implementation plan",
+          "title": "The Way Forward published",
+          "description": "A separate Indigenous primary-health-care plan sets out implementation work.",
+          "organization": "Alberta Health",
+          "sources": [
+            {
+              "title": "The Way Forward: Indigenous primary health care implementation plan",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://open.alberta.ca/publications/way-forward-indigenous-primary-health-care-implementation-panel-plan-advance-recommendations",
+              "publication_date": "2024"
+            }
+          ]
+        },
+        {
+          "date": "2024-2026",
+          "type": "implementation",
+          "title": "Funding and oversight mechanisms operate",
+          "description": "Navigator grants, an innovation fund, an Indigenous Health Division and patient-safety advocate are publicly documented.",
+          "organization": "Government of Alberta / Office of Alberta Health Advocates",
+          "sources": [
+            {
+              "title": "Indigenous Patient Navigator Grant Program",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://www.alberta.ca/indigenous-patient-navigator-grant-program"
+            },
+            {
+              "title": "Indigenous Primary Health Care Innovation Fund",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://www.alberta.ca/indigenous-primary-health-care-funding-innovation-fund"
+            },
+            {
+              "title": "Indigenous Patient Safety Investigator and Advocate",
+              "organization": "Office of Alberta Health Advocates",
+              "category": "regulator / oversight",
+              "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate"
+            },
+            {
+              "title": "Improving Indigenous health care",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://www.alberta.ca/improving-indigenous-health-care"
+            }
+          ]
+        },
+        {
+          "date": "2024-10 to 2025-07",
+          "type": "follow up engagement",
+          "title": "Anti-racism engagement held",
+          "description": "Government gathered input and reported that results were under review; a final resulting strategy was not located.",
+          "organization": "Government of Alberta",
+          "sources": [
+            {
+              "title": "Addressing racism in Indigenous health care",
+              "organization": "Government of Alberta",
+              "category": "government",
+              "url": "https://www.alberta.ca/index.php/addressing-racism-in-indigenous-health-care",
+              "publication_date": "2025-07-24"
+            }
+          ]
+        }
+      ],
+      "evidence_path": [
+        {
+          "from": "Documented barriers and systemic concerns",
+          "relationship": "informed",
+          "to": "Indigenous advisory panel",
+          "sources": [
+            {
+              "title": "Modernizing Alberta's Primary Health Care System: Indigenous Primary Health Care Advisory Panel final report",
+              "organization": "Government of Alberta",
+              "category": "government",
+              "url": "https://open.alberta.ca/dataset/68717edd-5861-406e-b4ea-dd0e9051dadc/resource/da7c9aae-9cc1-48f4-bce5-6e71bd02a9c8/download/hlth-maps-indigenous-primary-health-care-advisory-panel-final-report.pdf",
+              "publication_date": "2023"
+            }
+          ]
+        },
+        {
+          "from": "Advisory panel",
+          "relationship": "issued",
+          "to": "22 recommendations",
+          "sources": [
+            {
+              "title": "Modernizing Alberta's Primary Health Care System: Indigenous Primary Health Care Advisory Panel final report",
+              "organization": "Government of Alberta",
+              "category": "government",
+              "url": "https://open.alberta.ca/dataset/68717edd-5861-406e-b4ea-dd0e9051dadc/resource/da7c9aae-9cc1-48f4-bce5-6e71bd02a9c8/download/hlth-maps-indigenous-primary-health-care-advisory-panel-final-report.pdf",
+              "publication_date": "2023"
+            }
+          ]
+        },
+        {
+          "from": "Recommendations",
+          "relationship": "followed by",
+          "to": "The Way Forward implementation plan",
+          "sources": [
+            {
+              "title": "The Way Forward: Indigenous primary health care implementation plan",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://open.alberta.ca/publications/way-forward-indigenous-primary-health-care-implementation-panel-plan-advance-recommendations",
+              "publication_date": "2024"
+            }
+          ]
+        },
+        {
+          "from": "Implementation plan",
+          "relationship": "supported by",
+          "to": "Navigator grants and innovation funding",
+          "sources": [
+            {
+              "title": "Indigenous Patient Navigator Grant Program",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://www.alberta.ca/indigenous-patient-navigator-grant-program"
+            },
+            {
+              "title": "Indigenous Primary Health Care Innovation Fund",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://www.alberta.ca/indigenous-primary-health-care-funding-innovation-fund"
+            }
+          ]
+        },
+        {
+          "from": "Recommendations",
+          "relationship": "followed by",
+          "to": "Indigenous Health Division and patient-safety advocate",
+          "sources": [
+            {
+              "title": "Improving Indigenous health care",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://www.alberta.ca/improving-indigenous-health-care"
+            },
+            {
+              "title": "Indigenous Patient Safety Investigator and Advocate",
+              "organization": "Office of Alberta Health Advocates",
+              "category": "regulator / oversight",
+              "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate"
+            }
+          ]
+        }
+      ],
+      "policy_and_government": [
+        {
+          "label": "government response",
+          "title": "The Way Forward",
+          "description": "The plan is the formal implementation framework associated with the panel recommendations.",
+          "sources": [
+            {
+              "title": "The Way Forward: Indigenous primary health care implementation plan",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://open.alberta.ca/publications/way-forward-indigenous-primary-health-care-implementation-panel-plan-advance-recommendations",
+              "publication_date": "2024"
+            }
+          ]
+        },
+        {
+          "label": "funding relationship",
+          "title": "Navigator and innovation funding",
+          "description": "The programs fund Indigenous communities and organizations; funding does not by itself establish provincewide service availability or outcomes.",
+          "sources": [
+            {
+              "title": "Indigenous Patient Navigator Grant Program",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://www.alberta.ca/indigenous-patient-navigator-grant-program"
+            },
+            {
+              "title": "Indigenous Primary Health Care Innovation Fund",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://www.alberta.ca/indigenous-primary-health-care-funding-innovation-fund"
+            }
+          ]
+        },
+        {
+          "label": "oversight mechanism",
+          "title": "Indigenous Patient Safety Investigator and Advocate",
+          "description": "The office supports complaints, can undertake delegated Health Charter reviews, and has explicit limits: it is not a court or disciplinary regulator.",
+          "sources": [
+            {
+              "title": "Indigenous Patient Safety Investigator and Advocate",
+              "organization": "Office of Alberta Health Advocates",
+              "category": "regulator / oversight",
+              "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate"
+            },
+            {
+              "title": "Alberta Health Charter",
+              "organization": "Government of Alberta",
+              "category": "government",
+              "url": "https://www.alberta.ca/alberta-health-charter.aspx",
+              "publication_date": "2014"
+            }
+          ]
+        },
+        {
+          "label": "governance context",
+          "title": "Indigenous Health Division and advisory structures",
+          "description": "Government reports a dedicated division, health tables and an advisory council; these are distinct from Indigenous governance authority.",
+          "sources": [
+            {
+              "title": "Improving Indigenous health care",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://www.alberta.ca/improving-indigenous-health-care"
+            },
+            {
+              "title": "Reconciliation in Alberta — health actions",
+              "organization": "Government of Alberta",
+              "category": "government",
+              "url": "https://www.alberta.ca/reconciliation-in-alberta"
+            }
+          ]
+        }
+      ],
+      "what_public_evidence_shows": [
+        {
+          "text": "The advisory panel produced 22 recommendations across five themes.",
+          "sources": [
+            {
+              "title": "Modernizing Alberta's Primary Health Care System: Indigenous Primary Health Care Advisory Panel final report",
+              "organization": "Government of Alberta",
+              "category": "government",
+              "url": "https://open.alberta.ca/dataset/68717edd-5861-406e-b4ea-dd0e9051dadc/resource/da7c9aae-9cc1-48f4-bce5-6e71bd02a9c8/download/hlth-maps-indigenous-primary-health-care-advisory-panel-final-report.pdf",
+              "publication_date": "2023"
+            },
+            {
+              "title": "Improving Indigenous health care",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://www.alberta.ca/improving-indigenous-health-care"
+            }
+          ]
+        },
+        {
+          "text": "A dedicated implementation plan, Indigenous Health Division, grant programs and patient-safety advocate are publicly documented.",
+          "sources": [
+            {
+              "title": "The Way Forward: Indigenous primary health care implementation plan",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://open.alberta.ca/publications/way-forward-indigenous-primary-health-care-implementation-panel-plan-advance-recommendations",
+              "publication_date": "2024"
+            },
+            {
+              "title": "Improving Indigenous health care",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://www.alberta.ca/improving-indigenous-health-care"
+            },
+            {
+              "title": "Indigenous Patient Navigator Grant Program",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://www.alberta.ca/indigenous-patient-navigator-grant-program"
+            },
+            {
+              "title": "Indigenous Patient Safety Investigator and Advocate",
+              "organization": "Office of Alberta Health Advocates",
+              "category": "regulator / oversight",
+              "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate"
+            }
+          ]
+        },
+        {
+          "text": "Current provincial reporting says implementation is continuing and describes an Indigenous Advisory Council and later anti-racism engagement.",
+          "sources": [
+            {
+              "title": "Reconciliation in Alberta — health actions",
+              "organization": "Government of Alberta",
+              "category": "government",
+              "url": "https://www.alberta.ca/reconciliation-in-alberta"
+            },
+            {
+              "title": "Addressing racism in Indigenous health care",
+              "organization": "Government of Alberta",
+              "category": "government",
+              "url": "https://www.alberta.ca/index.php/addressing-racism-in-indigenous-health-care",
+              "publication_date": "2025-07-24"
+            }
+          ]
+        }
+      ],
+      "what_remains_unclear": [
+        {
+          "text": "No comprehensive current public status ledger for all 22 recommendations was located.",
+          "sources": [
+            {
+              "title": "Improving Indigenous health care",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://www.alberta.ca/improving-indigenous-health-care"
+            },
+            {
+              "title": "The Way Forward: Indigenous primary health care implementation plan",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://open.alberta.ca/publications/way-forward-indigenous-primary-health-care-implementation-panel-plan-advance-recommendations",
+              "publication_date": "2024"
+            }
+          ]
+        },
+        {
+          "text": "Geographic reach and measured outcomes for funded initiatives are not reported in one place.",
+          "sources": [
+            {
+              "title": "Indigenous Patient Navigator Grant Program",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://www.alberta.ca/indigenous-patient-navigator-grant-program"
+            },
+            {
+              "title": "Indigenous Primary Health Care Innovation Fund",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://www.alberta.ca/indigenous-primary-health-care-funding-innovation-fund"
+            }
+          ]
+        },
+        {
+          "text": "A final action plan resulting from the later anti-racism engagement was not located in this bounded search.",
+          "sources": [
+            {
+              "title": "Addressing racism in Indigenous health care",
+              "organization": "Government of Alberta",
+              "category": "government",
+              "url": "https://www.alberta.ca/index.php/addressing-racism-in-indigenous-health-care",
+              "publication_date": "2025-07-24"
+            }
+          ]
+        }
+      ],
+      "recommended_next_question": "Will Alberta publish a current crosswalk showing the status of each of the 22 panel recommendations?",
+      "sources": [
+        {
+          "title": "Red Deer health-care action plan — What We Heard",
+          "organization": "Government of Alberta and Alberta Health Services",
+          "category": "government",
+          "url": "https://www.albertahealthservices.ca/assets/about/comm/ahs-comm-what-we-heard-red-deer.pdf",
+          "publication_date": "2022-09-29"
+        },
+        {
+          "title": "Indigenous Hospital Support Services at Red Deer Regional Hospital Centre",
+          "organization": "Alberta Health Services",
+          "category": "health system",
+          "url": "https://www.albertahealthservices.ca/findhealth/Service.aspx?id=1070602&serviceAtFacilityID=1109853"
+        },
+        {
+          "title": "Modernizing Alberta's Primary Health Care System: Indigenous Primary Health Care Advisory Panel final report",
+          "organization": "Government of Alberta",
+          "category": "government",
+          "url": "https://open.alberta.ca/dataset/68717edd-5861-406e-b4ea-dd0e9051dadc/resource/da7c9aae-9cc1-48f4-bce5-6e71bd02a9c8/download/hlth-maps-indigenous-primary-health-care-advisory-panel-final-report.pdf",
+          "publication_date": "2023"
+        },
+        {
+          "title": "Indigenous panel recommendations: opportunities for early investment",
+          "organization": "Government of Alberta",
+          "category": "government",
+          "url": "https://open.alberta.ca/dataset/e9016d69-8688-4e77-a565-82d461370bdc/resource/337df180-3cda-4cb7-9025-a7fa178aa0d6/download/hlth-maps-indigenous-panel-recommendations-opportunities-for-early-investment.pdf",
+          "publication_date": "2023"
+        },
+        {
+          "title": "The Way Forward: Indigenous primary health care implementation plan",
+          "organization": "Government of Alberta",
+          "category": "implementation / follow-up",
+          "url": "https://open.alberta.ca/publications/way-forward-indigenous-primary-health-care-implementation-panel-plan-advance-recommendations",
+          "publication_date": "2024"
+        },
+        {
+          "title": "Improving Indigenous health care",
+          "organization": "Government of Alberta",
+          "category": "implementation / follow-up",
+          "url": "https://www.alberta.ca/improving-indigenous-health-care"
+        },
+        {
+          "title": "Modernizing Alberta's primary health care system",
+          "organization": "Government of Alberta",
+          "category": "implementation / follow-up",
+          "url": "https://www.alberta.ca/modernizing-albertas-primary-health-care-system-maps"
+        },
+        {
+          "title": "Indigenous Patient Navigator Grant Program",
+          "organization": "Government of Alberta",
+          "category": "implementation / follow-up",
+          "url": "https://www.alberta.ca/indigenous-patient-navigator-grant-program"
+        },
+        {
+          "title": "Indigenous Primary Health Care Innovation Fund",
+          "organization": "Government of Alberta",
+          "category": "implementation / follow-up",
+          "url": "https://www.alberta.ca/indigenous-primary-health-care-funding-innovation-fund"
+        },
+        {
+          "title": "Indigenous Patient Safety Investigator and Advocate",
+          "organization": "Office of Alberta Health Advocates",
+          "category": "regulator / oversight",
+          "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate"
+        },
+        {
+          "title": "Alberta Health Charter",
+          "organization": "Government of Alberta",
+          "category": "government",
+          "url": "https://www.alberta.ca/alberta-health-charter.aspx",
+          "publication_date": "2014"
+        },
+        {
+          "title": "Addressing racism in Indigenous health care",
+          "organization": "Government of Alberta",
+          "category": "government",
+          "url": "https://www.alberta.ca/index.php/addressing-racism-in-indigenous-health-care",
+          "publication_date": "2025-07-24"
+        },
+        {
+          "title": "Reconciliation in Alberta — health actions",
+          "organization": "Government of Alberta",
+          "category": "government",
+          "url": "https://www.alberta.ca/reconciliation-in-alberta"
+        }
+      ]
+    }
+  ],
+  "bounded_discovery": {
+    "british_columbia": [
+      {
+        "text": "A June 2025 cross-government status update adds later implementation evidence, including an updated Indigenous patient-feedback process and a bilateral Métis health table.",
+        "sources": [
+          {
+            "title": "A Path Forward: June 2025 Status Update",
+            "organization": "Government of British Columbia",
+            "category": "government",
+            "url": "https://www2.gov.bc.ca/assets/gov/law-crime-and-justice/about-bc-justice-system/inquiries/mmiw/mmiwg-status-update-2025.pdf",
+            "publication_date": "2025-06"
+          }
+        ]
+      },
+      {
+        "text": "BCCDC issued a formal apology and leadership commitments in December 2025, explicitly connecting the action to In Plain Sight and an internal examination of institutional practices.",
+        "sources": [
+          {
+            "title": "BCCDC apologizes for harms caused to Indigenous Peoples",
+            "organization": "BC Centre for Disease Control",
+            "category": "health system",
+            "url": "https://www.bccdc.ca/about/news-stories/stories/2025/apology",
+            "publication_date": "2025-12-18"
+          }
+        ]
+      }
+    ],
+    "saskatchewan": [
+      {
+        "text": "Targeted current searches reinforced the existing operational birth-support evidence and the 2025 certification decision; they did not locate a new authoritative ten-action implementation ledger or appeal decision.",
+        "sources": [
+          {
+            "title": "Lessons learned from the Indigenous Birth Support Worker Program",
+            "organization": "Saskatchewan Health Authority",
+            "category": "health system",
+            "url": "https://www.saskhealthauthority.ca/our-organization/our-direction/research/who-we-are/exciting-discoveries/lessons-learned-indigenous-birth-support-worker-program"
+          },
+          {
+            "title": "Popp v Canada (Attorney General), 2025 SKKB 89 — Case Mail digest",
+            "organization": "Law Society of Saskatchewan",
+            "category": "government",
+            "url": "https://www.lawsociety.sk.ca/wp-content/uploads/CM27-18.pdf",
+            "publication_date": "2025-06-24"
+          }
+        ]
+      }
+    ],
+    "alberta": [
+      {
+        "text": "Current Alberta reporting now explicitly groups the Indigenous Health Division, navigator funding, innovation funding, advisory council and patient-safety advocate as continuing health-response mechanisms.",
+        "sources": [
+          {
+            "title": "Reconciliation in Alberta — health actions",
+            "organization": "Government of Alberta",
+            "category": "government",
+            "url": "https://www.alberta.ca/reconciliation-in-alberta"
+          },
+          {
+            "title": "Improving Indigenous health care",
+            "organization": "Government of Alberta",
+            "category": "implementation / follow-up",
+            "url": "https://www.alberta.ca/improving-indigenous-health-care"
+          }
+        ]
+      },
+      {
+        "text": "The navigator program lists 2026–2029 grants as a current funding round, adding implementation continuity but not yet a single provincewide outcome measure.",
+        "sources": [
+          {
+            "title": "Indigenous Patient Navigator Grant Program",
+            "organization": "Government of Alberta",
+            "category": "implementation / follow-up",
+            "url": "https://www.alberta.ca/indigenous-patient-navigator-grant-program"
+          }
+        ]
+      }
+    ]
+  }
+}
