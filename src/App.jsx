@@ -56,6 +56,10 @@ import MillerNorthLiveListening from "./site/MillerNorthLiveListening.jsx"
 import MillerNorthMethodology from "./site/MillerNorthMethodology.jsx"
 import MillerNorthResearchPolicy from "./site/MillerNorthResearchPolicy.jsx"
 import MillerNorthFirstNationsSupports from "./site/MillerNorthFirstNationsSupports.jsx"
+import EmailResultsDialog from "./site/EmailResultsDialog.jsx"
+import MillerPracticalSupports from "./site/MillerPracticalSupports.jsx"
+import MillerFundingAssistance from "./site/MillerFundingAssistance.jsx"
+import { isEmailResultEligible } from "./emailResultsApi.js"
 import { destinationBesideRenderedResult } from "./companion/millerCompanionAdapter.js"
 import { isMeaningfulCompanionInput, MILLER_PRESENTATION_INTENTS, presentationIntent } from "./companion/millerCompanionLifecycle.js"
 import { bubbleNeedsMillerReadingPosition, readingStageHeight, resolveMillerReadingOffset } from "./companion/millerSceneLayout.js"
@@ -710,6 +714,7 @@ function App() {
   const [handout, dispatchHandout] = useReducer(handoutReducer, undefined, createInitialHandoutState)
   const [isHandoutOpen, setIsHandoutOpen] = useState(false)
   const [isMapOpen, setIsMapOpen] = useState(false)
+  const [isEmailResultsOpen, setIsEmailResultsOpen] = useState(false)
   const [isListsOpen, setIsListsOpen] = useState(() => window.location.pathname === "/lists" || window.location.pathname.startsWith("/lists/"))
   const [mapResources, setMapResources] = useState([])
   const [navigationTarget, setNavigationTarget] = useState(null)
@@ -1599,8 +1604,20 @@ const millerImageStyle = {}
     return <MillerNorthFirstNationsSupports />
   }
 
+  if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence/funding-assistance") {
+    return <MillerFundingAssistance millerNorth />
+  }
+
   if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence") {
     return <IndigenousHealthcareEvidence />
+  }
+
+  if (typeof window !== "undefined" && window.location.pathname === "/practical-supports") {
+    return <MillerPracticalSupports />
+  }
+
+  if (typeof window !== "undefined" && window.location.pathname === "/funding-assistance") {
+    return <MillerFundingAssistance />
   }
 
   if (isAdminRoute) {
@@ -1642,6 +1659,8 @@ const millerImageStyle = {}
 />
       <div className="handout-toolbar">
         <div className="handout-toolbar-controls">
+          <a className="handout-indicator" href="/practical-supports">Practical Supports</a>
+          <a className="handout-indicator" href="/funding-assistance">Funding &amp; Assistance</a>
           <button type="button" className="handout-indicator" onClick={() => { window.history.pushState({}, "", "/lists"); setIsListsOpen(true) }}><span aria-hidden="true">☷</span>Pre-made Lists</button>
           <button type="button" className="handout-indicator" onClick={() => setIsMapOpen(true)}><span aria-hidden="true">⌖</span>Service Map</button>
           <button
@@ -1735,6 +1754,7 @@ const millerImageStyle = {}
                     {results.length} of {totalMatches}
                   </span>
                 </h2>
+                {results.some(isEmailResultEligible) ? <button type="button" className="ghost-button email-results-open" onClick={() => setIsEmailResultsOpen(true)}>Email these results</button> : null}
               </div>
               {searchContext.location.status !== "none" ? <p className="search-context-line">
                 {searchContext.location.status === "resolved" ? `Showing support options around ${searchContext.location.label}.` : null}
@@ -2088,6 +2108,7 @@ const millerImageStyle = {}
         </aside>
       </main>
       {navigationTarget ? <GetTherePanel resource={navigationTarget.resource} location={navigationTarget.location} initialOrigin={navigationTarget.origin} onClose={() => setNavigationTarget(null)}/> : null}
+      {isEmailResultsOpen ? <EmailResultsDialog results={results} city={selectedCity} onClose={() => setIsEmailResultsOpen(false)} /> : null}
       {openInfoModal === "private-counselling" ? <AccessibleModal title="Private Counselling" labelledBy="private-counselling-title" onClose={() => setOpenInfoModal(null)} className="private-counselling-modal">
         <div className="private-counselling-intro">
           <section className="private-counselling-profile" aria-label="About Justin Latos">

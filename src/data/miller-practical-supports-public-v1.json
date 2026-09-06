@@ -1,0 +1,331 @@
+{
+  "schema_version": "miller-practical-supports-public-v1",
+  "generated_at": "2026-09-06",
+  "scope": "Fraser North and adjacent Lower Mainland communities",
+  "caution": "Service availability and eligibility can change. Contact the service directly to confirm current information.",
+  "records": [
+    {
+      "id": "curated:1wfj0t6",
+      "kind": "service",
+      "name": "BC Housing Housing Registry and regional listings",
+      "organization": "BC Housing",
+      "area_served": "Lower Mainland, including Fraser North",
+      "category": "housing",
+      "description": "Apply for subsidized housing and review regional nonprofit and co-operative housing listings.",
+      "eligibility": "Eligibility depends on the Housing Registry or individual housing provider.",
+      "access": "Apply through the Housing Registry and review Zone 4 or Zone 5 listings.",
+      "phone": null,
+      "website": "https://www.bchousing.org/housing-assistance/rental-housing/housing-listings/housing-listings-pdfs",
+      "source": {
+        "title": "BC Housing Housing Registry and regional listings official information",
+        "authority": "BC Housing",
+        "url": "https://www.bchousing.org/housing-assistance/rental-housing/housing-listings/housing-listings-pdfs"
+      },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "curated:4sdrnc",
+      "kind": "service",
+      "name": "Burnaby Housing and Outreach Hub",
+      "organization": "Progressive Housing Society",
+      "area_served": "Burnaby",
+      "category": "housing",
+      "description": "Housing outreach, referrals and practical help for people experiencing or at risk of homelessness.",
+      "eligibility": "Contact the outreach team to discuss housing needs and program eligibility.",
+      "access": "Outreach referral, phone, or in-person contact at 7836 6th Street, Monday to Friday, 9 a.m.–4 p.m.",
+      "phone": "604-522-9669",
+      "website": "https://progressivehousing.net/services/outreach/",
+      "source": {
+        "title": "Burnaby Housing and Outreach Hub official information",
+        "authority": "Progressive Housing Society",
+        "url": "https://progressivehousing.net/services/outreach/"
+      },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "curated:rgor6n",
+      "kind": "service",
+      "name": "Douglas Road Emergency Shelter",
+      "organization": "Progressive Housing Society",
+      "area_served": "Burnaby",
+      "category": "housing",
+      "description": "A Burnaby emergency shelter generally operating on a first-come, first-served basis.",
+      "eligibility": "Confirm current intake and space directly with the shelter.",
+      "access": "First come, first served; confirm space directly with the shelter.",
+      "phone": "604-522-9669",
+      "website": "https://progressivehousing.net/services/shelters/emergency-shelter/",
+      "source": {
+        "title": "Douglas Road Emergency Shelter official information",
+        "authority": "Progressive Housing Society",
+        "url": "https://progressivehousing.net/services/shelters/emergency-shelter/"
+      },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "support:workbc-centre-burnaby-metrotown",
+      "kind": "service",
+      "name": "WorkBC Centre — Burnaby Metrotown",
+      "organization": "WorkBC",
+      "area_served": "Burnaby",
+      "category": "employment",
+      "description": "Free employment services, planning and job-search support through the local WorkBC centre.",
+      "eligibility": "Contact the centre; program-specific eligibility can vary.",
+      "access": "Free employment services; apply online or contact the centre.",
+      "phone": "778-357-0566",
+      "website": "https://www.workbc.ca/workbc-centres/workbc-centre-burnaby-metrotown",
+      "source": {
+        "title": "WorkBC Centre — Burnaby Metrotown official information",
+        "authority": "WorkBC",
+        "url": "https://www.workbc.ca/workbc-centres/workbc-centre-burnaby-metrotown"
+      },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "support:workbc-centre-new-westminster",
+      "kind": "service",
+      "name": "WorkBC Centre — New Westminster",
+      "organization": "WorkBC",
+      "area_served": "New Westminster",
+      "category": "employment",
+      "description": "Free employment services, planning and job-search support through the local WorkBC centre.",
+      "eligibility": "Contact the centre; program-specific eligibility can vary.",
+      "access": "Free employment services; apply online or contact the centre.",
+      "phone": "604-522-9701",
+      "website": "https://www.workbc.ca/workbc-centres/workbc-centre-new-westminster",
+      "source": {
+        "title": "WorkBC Centre — New Westminster official information",
+        "authority": "WorkBC",
+        "url": "https://www.workbc.ca/workbc-centres/workbc-centre-new-westminster"
+      },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "support:workbc-centre-coquitlam",
+      "kind": "service",
+      "name": "WorkBC Centre — Coquitlam",
+      "organization": "WorkBC",
+      "area_served": "Coquitlam and Tri-Cities",
+      "category": "employment",
+      "description": "Free employment services, planning and job-search support through the local WorkBC centre.",
+      "eligibility": "Contact the centre; program-specific eligibility can vary.",
+      "access": "Free employment services; apply online or contact the centre.",
+      "phone": "778-730-0174",
+      "website": "https://www.workbc.ca/workbc-centres/workbc-centre-coquitlam",
+      "source": {
+        "title": "WorkBC Centre — Coquitlam official information",
+        "authority": "WorkBC",
+        "url": "https://www.workbc.ca/workbc-centres/workbc-centre-coquitlam"
+      },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "support:workbc-centre-maple-ridge",
+      "kind": "service",
+      "name": "WorkBC Centre — Maple Ridge",
+      "organization": "WorkBC",
+      "area_served": "Maple Ridge and Pitt Meadows",
+      "category": "employment",
+      "description": "Free employment services, planning and job-search support for Maple Ridge and Pitt Meadows.",
+      "eligibility": "Contact the centre; program-specific eligibility can vary.",
+      "access": "Free employment services; apply online or contact the centre.",
+      "phone": "604-466-4600",
+      "website": "https://www.workbc.ca/workbc-centres/workbc-centre-maple-ridge",
+      "source": {
+        "title": "WorkBC Centre — Maple Ridge official information",
+        "authority": "WorkBC",
+        "url": "https://www.workbc.ca/workbc-centres/workbc-centre-maple-ridge"
+      },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "support:skills-training-for-employment-readiness-directory",
+      "kind": "service",
+      "name": "Skills Training for Employment Readiness directory",
+      "organization": "WorkBC",
+      "area_served": "British Columbia, with Lower Mainland programs",
+      "category": "training",
+      "description": "A directory of current employment-readiness training providers and programs.",
+      "eligibility": "Eligibility is set by each listed provider and program.",
+      "access": "Review current provider listings and contact the listed provider for program-specific eligibility.",
+      "phone": null,
+      "website": "https://www.workbc.ca/get-support/employment-readiness-services/skills-training",
+      "source": {
+        "title": "Skills Training for Employment Readiness directory official information",
+        "authority": "WorkBC",
+        "url": "https://www.workbc.ca/get-support/employment-readiness-services/skills-training"
+      },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "support:strongerbc-future-skills-grant",
+      "kind": "service",
+      "name": "StrongerBC Future Skills Grant",
+      "organization": "Government of British Columbia / WorkBC",
+      "area_served": "British Columbia",
+      "category": "training",
+      "description": "Funding for eligible short-term training at participating B.C. public post-secondary institutions.",
+      "eligibility": "Eligible B.C. residents meeting the current learner and program criteria.",
+      "access": "Check eligibility, select an eligible public post-secondary program, and apply through the official portal.",
+      "phone": null,
+      "website": "https://www.workbc.ca/develop-skills/funding-grants-learners/strongerbc-future-skills-grant/guidelines",
+      "source": {
+        "title": "StrongerBC Future Skills Grant official information",
+        "authority": "Government of British Columbia / WorkBC",
+        "url": "https://www.workbc.ca/develop-skills/funding-grants-learners/strongerbc-future-skills-grant/guidelines"
+      },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "support:identification-supplement",
+      "kind": "service",
+      "name": "Identification Supplement",
+      "organization": "Government of British Columbia",
+      "area_served": "British Columbia",
+      "category": "identification",
+      "description": "Help with eligible direct costs of obtaining identification documents for people receiving specified B.C. assistance.",
+      "eligibility": "Specified recipients of B.C. income, disability or hardship assistance.",
+      "access": "Eligible recipients can request help with direct identification-document costs through the assistance program.",
+      "phone": "1-866-866-0800",
+      "website": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/identification-supplement",
+      "source": {
+        "title": "Identification Supplement official information",
+        "authority": "Government of British Columbia",
+        "url": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/identification-supplement"
+      },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "support:my-self-serve-income-and-disability-assistance-access",
+      "kind": "service",
+      "name": "My Self Serve income and disability assistance access",
+      "organization": "Government of British Columbia",
+      "area_served": "British Columbia",
+      "category": "income_benefits",
+      "description": "Apply for or manage B.C. income and disability assistance online.",
+      "eligibility": "People applying for or managing B.C. income or disability assistance.",
+      "access": "Apply for or manage income and disability assistance online; phone help is available.",
+      "phone": "1-866-866-0800",
+      "website": "https://www.myselfserve.gov.bc.ca/",
+      "source": {
+        "title": "My Self Serve income and disability assistance access official information",
+        "authority": "Government of British Columbia",
+        "url": "https://www.myselfserve.gov.bc.ca/"
+      },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "support:handydart-and-handycard",
+      "kind": "service",
+      "name": "HandyDART and HandyCard",
+      "organization": "TransLink",
+      "area_served": "Metro Vancouver",
+      "category": "transportation",
+      "description": "Accessible transit programs for people whose disabilities affect use of conventional transit.",
+      "eligibility": "People whose physical, sensory or cognitive disability prevents independent use of conventional transit for some or all trips.",
+      "access": "Apply if a physical, sensory, or cognitive disability prevents independent use of conventional transit for some or all trips.",
+      "phone": "604-953-3680",
+      "website": "https://www.translink.ca/rider-guide/transit-accessibility/handydart",
+      "source": {
+        "title": "HandyDART and HandyCard official information",
+        "authority": "TransLink",
+        "url": "https://www.translink.ca/rider-guide/transit-accessibility/handydart"
+      },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "support:bc-bus-pass-program",
+      "kind": "service",
+      "name": "BC Bus Pass Program",
+      "organization": "Government of British Columbia",
+      "area_served": "British Columbia, including TransLink service areas",
+      "category": "transportation",
+      "description": "A reduced-cost annual transit pass for eligible low-income seniors and people receiving disability assistance.",
+      "eligibility": "Specified low-income seniors and people receiving disability assistance.",
+      "access": "Eligibility is limited to specified low-income seniors and people receiving disability assistance; use the official application path.",
+      "phone": "1-866-866-0800",
+      "website": "https://www2.gov.bc.ca/buspassprogram",
+      "source": {
+        "title": "BC Bus Pass Program official information",
+        "authority": "Government of British Columbia",
+        "url": "https://www2.gov.bc.ca/buspassprogram"
+      },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "curated:88k31t",
+      "kind": "service",
+      "name": "Fraser Health Indigenous Health Liaisons",
+      "organization": "Fraser Health",
+      "area_served": "Fraser Health region",
+      "category": "advocacy_navigation",
+      "description": "Health-system navigation, discharge support, cultural connections and care-planning support for Indigenous clients and families.",
+      "eligibility": "People who self-identify as Indigenous or Aboriginal and their families; referrals may also come from friends or health professionals.",
+      "access": "Self-, family-, friend-, or professional referral through the liaison line; available daily 8:30 a.m.–8 p.m.",
+      "phone": "1-866-766-6960",
+      "website": "https://www.fraserhealth.ca/health-topics-a-to-z/indigenous-health/indigenous-health-liaisons",
+      "source": {
+        "title": "Fraser Health Indigenous Health Liaisons official information",
+        "authority": "Fraser Health",
+        "url": "https://www.fraserhealth.ca/health-topics-a-to-z/indigenous-health/indigenous-health-liaisons"
+      },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "support:trac-tenant-infoline",
+      "kind": "service",
+      "name": "TRAC Tenant Infoline",
+      "organization": "Tenant Resource and Advisory Centre",
+      "area_served": "British Columbia",
+      "category": "advocacy_navigation",
+      "description": "Free legal information and referrals about residential tenancy matters in British Columbia.",
+      "eligibility": "B.C. residential tenants seeking legal information or referrals.",
+      "access": "Free tenancy legal information and referral by phone during posted hours.",
+      "phone": "604-255-0546 or 1-800-665-1185",
+      "website": "https://tenants.bc.ca/get-help/tenant-infoline/",
+      "source": {
+        "title": "TRAC Tenant Infoline official information",
+        "authority": "Tenant Resource and Advisory Centre",
+        "url": "https://tenants.bc.ca/get-help/tenant-infoline/"
+      },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "support:legal-aid-bc-new-westminster-access",
+      "kind": "service",
+      "name": "Legal Aid BC — New Westminster access",
+      "organization": "Legal Aid BC",
+      "area_served": "New Westminster and nearby communities",
+      "category": "advocacy_navigation",
+      "description": "Local access to Legal Aid BC application and service information.",
+      "eligibility": "Financial and legal-issue eligibility varies; call to apply or ask about service options.",
+      "access": "Call the local number to apply or ask about available in-person services.",
+      "phone": "604-498-2920",
+      "website": "https://legalaid.bc.ca/contact/call-us/local-phone-numbers",
+      "source": {
+        "title": "Legal Aid BC — New Westminster access official information",
+        "authority": "Legal Aid BC",
+        "url": "https://legalaid.bc.ca/contact/call-us/local-phone-numbers"
+      },
+      "last_verified_at": "2026-09-06"
+    },
+    {
+      "id": "support:burnaby-outreach-resource-centres",
+      "kind": "service",
+      "name": "Burnaby Outreach Resource Centres",
+      "organization": "Burnaby Society to End Homelessness",
+      "area_served": "Burnaby",
+      "category": "basic_needs",
+      "description": "Weekly outreach locations offering basic necessities and connections to social supports.",
+      "eligibility": "People seeking low-barrier practical necessities and social-service connections.",
+      "access": "Weekly Wednesday and Thursday outreach locations provide basic necessities and social-service connections; confirm the current schedule on the City page.",
+      "phone": "604-902-3071",
+      "website": "https://www.burnaby.ca/services-and-payments/seniors-and-family-support/homelessness/outreach-and-intervention",
+      "source": {
+        "title": "Burnaby Outreach Resource Centres official information",
+        "authority": "Burnaby Society to End Homelessness",
+        "url": "https://www.burnaby.ca/services-and-payments/seniors-and-family-support/homelessness/outreach-and-intervention"
+      },
+      "last_verified_at": "2026-09-06"
+    }
+  ]
+}

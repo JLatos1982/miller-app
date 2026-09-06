@@ -88,6 +88,19 @@ import { createSamwisePreparedPublicationTransport } from "./server/samwisePrepa
 import { readPreparedActionActorId, readPreparedActionTransportToken } from "./server/preparedActionRuntimeCredentials.js"
 import { IGOR_HANDOFF_CALLBACK_PATH, igorHandoffCallbackHeaders, renderIgorHandoffCallbackPage } from "./server/igorHandoffCallback.js"
 import { MAX_EVIDENCE_SEARCH_QUERY_LENGTH, searchIndigenousHealthcareEvidence } from "./server/indigenousHealthcareEvidenceSearch.js"
+import {
+  buildEmailResultIndex,
+  buildResultsEmail,
+  createEmailSender,
+  emailErrorMessage,
+  emailProviderStatus,
+  EMAIL_RESULTS_RATE_LIMIT,
+  resolveEmailResults,
+  validateEmailResultsRequest,
+} from "./server/millerEmailResults.js"
+import publicPracticalSupports from "./src/data/miller-practical-supports-public-v1.json" with { type: "json" }
+import publicMillerFunding from "./src/data/miller-funding-assistance-public-v1.json" with { type: "json" }
+import publicMillerNorthFunding from "./src/data/miller-north-funding-assistance-public-v1.json" with { type: "json" }
 
 dotenv.config()
 
@@ -217,6 +230,32 @@ function rateLimit({ windowMs, max }) {
     next()
   }
 }
+
+const publicEmailRecords = [
+  ...publicPracticalSupports.records.map(record => ({ ...record, region: record.area_served, accessType: record.access, source: "Miller practical supports", approved: true })),
+  ...publicMillerFunding.records.map(record => ({ id: record.id, kind: "funding", name: record.name, organization: record.funder, description: record.purpose, region: record.geography, eligibility: record.who_can_apply, accessType: `${record.status}${record.deadline ? ` · deadline ${record.deadline}` : ""}. ${record.application_method}`, website: record.application_url, source: record.source.authority, last_verified_at: record.last_verified_at, approved: true })),
+  ...publicMillerNorthFunding.records.map(record => ({ id: record.id, kind: "funding", name: record.name, organization: record.funder, description: record.purpose, region: record.geography, eligibility: record.who_can_apply, accessType: `${record.status}${record.deadline ? ` · deadline ${record.deadline}` : ""}. ${record.application_method}`, website: record.application_url, source: record.source.authority, last_verified_at: record.last_verified_at, approved: true })),
+]
+const emailResultIndex = buildEmailResultIndex([...curatedMapResources, ...publicEmailRecords])
+app.get("/api/email-results/status", (_req, res) => {
+  res.setHeader("Cache-Control", "no-store")
+  return res.json(emailProviderStatus())
+})
+app.post("/api/email-results", rateLimit(EMAIL_RESULTS_RATE_LIMIT), async (req, res) => {
+  try {
+    const request = validateEmailResultsRequest(req.body)
+    const resources = resolveEmailResults(request.resultIds, emailResultIndex)
+    const message = buildResultsEmail({ resources, city: request.city, categories: request.categories })
+    const send = createEmailSender(process.env, fetch)
+    if (!send) return res.status(503).json({ error: "Email sending is not configured yet. Your selected results are still here.", code: "email_not_configured" })
+    const result = await send({ recipient: request.recipient, ...message })
+    return res.status(202).json({ sent: true, message_id: result.message_id, result_count: resources.length })
+  } catch (error) {
+    const code = String(error?.message || "send_failed")
+    const status = ["confirmation_required", "invalid_email", "no_results_selected", "too_many_results"].includes(code) ? 400 : code === "unavailable_result" ? 409 : 503
+    return res.status(status).json({ error: emailErrorMessage(code), code })
+  }
+})
 
 function paidDailyLimit(req, res, next) {
   const day = new Date().toISOString().slice(0, 10)
