@@ -9,7 +9,6 @@ import MillerNorthStartHere from "./MillerNorthStartHere.jsx"
 import MillerNorthRecentlyChanged from "./MillerNorthRecentlyChanged.jsx"
 import "./IndigenousHealthcareEvidence.css"
 import "./IndigenousHealthcareEvidenceSearch.css"
-import "./IndigenousHealthcareEvidenceLibrarySearch.css"
 import "./IndigenousHealthcareEvidenceLaunch.css"
 
 const sourceText = (source) => [source.publisher, source.source_type, source.publication_date].filter(Boolean).join(" · ")
@@ -36,7 +35,6 @@ export default function IndigenousHealthcareEvidence() {
   const [view, setView] = useState("detailed")
   const [condensedSort, setCondensedSort] = useState("newest")
   const [ordering, setOrdering] = useState("added")
-  const [libraryQuery, setLibraryQuery] = useState("")
   const [searchQuery, setSearchQuery] = useState("")
   const [evidenceSearch, setEvidenceSearch] = useState(null)
   const [searchState, setSearchState] = useState("idle")
@@ -52,10 +50,7 @@ export default function IndigenousHealthcareEvidence() {
     sourceTypes: [...new Set(records.map(record => record.source.source_type || "Not specified"))].sort(),
     years: [...new Set(records.map(record => record.year).filter(Number.isInteger))].sort((a, b) => b - a),
   }), [records])
-  const filteredRecords = useMemo(() => {
-    const query = libraryQuery.trim().toLowerCase()
-    return filterEvidenceRecords(records, filters).filter(record => !query || [record.summary, record.evidence_type, record.source?.title, record.source?.publisher, record.source?.source_type, record.province, record.care_setting, record.evidence_status].filter(Boolean).join(' ').toLowerCase().includes(query))
-  }, [records, filters, libraryQuery])
+  const filteredRecords = useMemo(() => filterEvidenceRecords(records, filters), [records, filters])
   const displayedRecords = useMemo(() => {
     const ordered = [...filteredRecords].sort((a, b) => {
       const left = ordering === "source" ? (a.source?.publication_date || "") : approvedAt(a)
@@ -107,7 +102,6 @@ export default function IndigenousHealthcareEvidence() {
     <aside className="mn-public-note"><strong>Accountability Snapshot</strong><p>Compare how selected complaint and review routes are publicly described in B.C., Alberta and Saskatchewan—including what their public reporting still does not show.</p><a href="/indigenous-healthcare-evidence/accountability-snapshot">Open the three-province snapshot →</a></aside>
     <MillerNorthRecentlyChanged />
     <section className="ihe-layer-context" aria-label="Miller North evidence layers"><strong>Looking for recent reports?</strong><a href="/indigenous-healthcare-evidence/live-listening">Open Live Listening</a><span>Following a developing response?</span><a href="/indigenous-healthcare-evidence/watching-now">See Watching Now</a><span>Looking for mature accountability research?</span><a href="/indigenous-healthcare-evidence/research-policy">Open Research &amp; Policy</a><span>Looking for practical support?</span><a href="/indigenous-healthcare-evidence/first-nations-supports">Find First Nations Supports</a></section>
-    <section className="ihe-library-search" aria-label="Search the evidence"><label htmlFor="ihe-library-query">Search reviewed evidence</label><input id="ihe-library-query" type="search" value={libraryQuery} onChange={event => setLibraryQuery(event.target.value)} placeholder="Type here to search the evidence…" />{libraryQuery && <button type="button" onClick={() => setLibraryQuery("")}>Clear</button>}</section>
     <section className="ihe-search" aria-labelledby="ihe-search-title"><h2 id="ihe-search-title">Ask the evidence library</h2><form onSubmit={submitEvidenceSearch}><label className="ihe-search-label" htmlFor="ihe-evidence-query">Ask a question about the approved public evidence</label><div><input id="ihe-evidence-query" value={searchQuery} onChange={event => setSearchQuery(event.target.value)} maxLength="500" placeholder="Ask about patterns, sources, places, or evidence…" disabled={searchState === "loading"} /><button type="submit" disabled={!searchQuery.trim() || searchState === "loading"}>{searchState === "loading" ? "Searching…" : "Search"}</button>{evidenceSearch && <button className="ihe-clear-search" type="button" onClick={clearEvidenceSearch}>Clear search</button>}</div></form><div className="ihe-search-examples" aria-label="Example searches"><span>Examples:</span>{EVIDENCE_SEARCH_EXAMPLES.map(example => <button type="button" key={example} onClick={() => setSearchQuery(example)} disabled={searchState === "loading"}>{example}</button>)}</div>{evidenceSearch && <div className={`ihe-search-answer ${searchState === "error" || searchState === "fallback" ? "ihe-search-unavailable" : ""}`} aria-live="polite">{searchState !== "error" && evidenceSearch.match_count > 0 && <p className="ihe-search-match-count">{evidenceSearch.match_count} relevant record{evidenceSearch.match_count === 1 ? "" : "s"} found</p>}{evidenceSearch.answer.split(/\n{2,}/).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div>}</section>
     {newSinceLastVisit.size > 0 && <section className="ihe-new-since" aria-label="New since last visit"><h2>New Since Last Visit</h2><p>{newSinceLastVisit.size} reviewed evidence record{newSinceLastVisit.size === 1 ? "" : "s"} entered the public library since your previous visit.</p></section>}
     <section className="ihe-methodology" aria-labelledby="ihe-about"><h2 id="ihe-about">About this evidence library</h2><p>Miller North documents public sources while private research and public presentation remain separate. A publicly documented complaint can be shown as a complaint without treating its underlying allegation as proven. The library does not try to identify anonymized patients or determine wrongdoing by an individual.</p><p><a href="/indigenous-healthcare-evidence/methodology">Read how evidence, dates, duplicates and implementation labels are handled →</a></p></section>
