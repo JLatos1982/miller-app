@@ -6,13 +6,11 @@ import millerClassic from "./assets/miller_classic.png"
 import millerJade from "./assets/miller_jade.png"
 import millerViolet from "./assets/miller_violet.png"
 import millerRose from "./assets/miller_rose.png"
-import millerNorth from "./assets/miller_north.png"
 
 import titleClassic from "./assets/title.png"
 import titleJade from "./assets/title_jade.png"
 import titleViolet from "./assets/title_violet.png"
 import titleRose from "./assets/title_rose.png"
-import titleNorth from "./assets/title_north.png"
 
 import arrowLeft from "./assets/arrow_left.png";
 import arrowRight from "./assets/arrow_right.png";
@@ -20,7 +18,6 @@ import arrowRight from "./assets/arrow_right.png";
 import backgroundClassic from "./assets/background_classic.png"
 import backgroundViolet from "./assets/background_violet.png"
 import backgroundJade from "./assets/background_jade.png"
-import backgroundNorth from "./assets/background_north.png"
 import backgroundRose from "./assets/background_rose.png"
 import justinPortrait from "./assets/Justin.png"
 import AddToHandoutButton from "./handout/AddToHandoutButton.jsx"
@@ -58,6 +55,7 @@ import IndigenousHealthcareEvidence from "./site/IndigenousHealthcareEvidence.js
 import MillerNorthLiveListening from "./site/MillerNorthLiveListening.jsx"
 import MillerNorthMethodology from "./site/MillerNorthMethodology.jsx"
 import MillerNorthResearchPolicy from "./site/MillerNorthResearchPolicy.jsx"
+import MillerNorthFirstNationsSupports from "./site/MillerNorthFirstNationsSupports.jsx"
 import { destinationBesideRenderedResult } from "./companion/millerCompanionAdapter.js"
 import { isMeaningfulCompanionInput, MILLER_PRESENTATION_INTENTS, presentationIntent } from "./companion/millerCompanionLifecycle.js"
 import { bubbleNeedsMillerReadingPosition, readingStageHeight, resolveMillerReadingOffset } from "./companion/millerSceneLayout.js"
@@ -218,13 +216,6 @@ const MILLER_THEMES = [
     title: titleRose,
     background: backgroundRose,
     accent: "#ef91a8",
-  },
-  {
-    name: "North",
-    avatar: millerNorth,
-    title: titleNorth,
-    background: backgroundNorth,
-    accent: "#6fd4d7",
   },
 ]
 
@@ -1602,6 +1593,10 @@ const millerImageStyle = {}
 
   if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence/methodology") {
     return <MillerNorthMethodology />
+  }
+
+  if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence/first-nations-supports") {
+    return <MillerNorthFirstNationsSupports />
   }
 
   if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence") {

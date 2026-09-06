@@ -6,9 +6,10 @@ import {
   resolveMillerThemeIndex,
 } from '../src/millerThemePreference.js'
 
-test('Miller exposes the five supported non-Gold themes', () => {
-  assert.deepEqual(MILLER_THEME_NAMES, ['Classic', 'Jade', 'Violet', 'Rose', 'North'])
+test('quiet-sharing mode keeps Miller North out of the main theme switcher', () => {
+  assert.deepEqual(MILLER_THEME_NAMES, ['Classic', 'Jade', 'Violet', 'Rose'])
   assert.equal(MILLER_THEME_NAMES.includes('Gold'), false)
+  assert.equal(MILLER_THEME_NAMES.includes('North'), false)
 })
 
 test('retired Gold preferences fall back safely to Classic', () => {
@@ -20,6 +21,6 @@ test('retired Gold preferences fall back safely to Classic', () => {
 test('legacy theme indexes retain their original intended themes after Gold retirement', () => {
   assert.deepEqual(
     [0, 1, 2, 3, 4, 5].map((legacyIndex) => resolveMillerThemeIndex({ legacyIndex })),
-    [0, 1, 0, 2, 3, 4],
+    [0, 1, 0, 2, 3, 0],
   )
 })

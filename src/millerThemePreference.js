@@ -3,7 +3,6 @@ export const MILLER_THEME_NAMES = Object.freeze([
   "Jade",
   "Violet",
   "Rose",
-  "North",
 ])
 
 export const MILLER_THEME_NAME_STORAGE_KEY = "miller-theme-name"
@@ -15,7 +14,7 @@ const LEGACY_INDEX_TO_THEME_NAME = Object.freeze([
   "Classic", // Gold was retired; preserve a usable, neutral fallback.
   "Violet",
   "Rose",
-  "North",
+  "Classic", // North is not promoted from the main Miller experience in quiet-sharing mode.
 ])
 
 export function normalizeMillerThemeName(value) {

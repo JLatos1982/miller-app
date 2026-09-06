@@ -53,7 +53,7 @@ test("Live Listening validator rejects names, private notes, unsupported links a
   assert.throws(() => validateMillerNorthLiveListeningProjection(unknownLink, { evidenceGroupIds: grouped.groups.map(group => group.public_record_id) }), /unknown_evidence_group/)
 })
 
-test("Miller North exposes three distinct public layers and a methodology route", () => {
+test("Miller North exposes its distinct public layers, supports, and a methodology route", () => {
   const app = readFileSync(new URL("../src/App.jsx", import.meta.url), "utf8")
   const nav = readFileSync(new URL("../src/site/MillerNorthPublicNav.jsx", import.meta.url), "utf8")
   const evidence = readFileSync(new URL("../src/site/IndigenousHealthcareEvidence.jsx", import.meta.url), "utf8")
@@ -64,6 +64,7 @@ test("Miller North exposes three distinct public layers and a methodology route"
   assert.match(nav, /Evidence Library/)
   assert.match(nav, /Live Listening/)
   assert.match(nav, /Research & Policy/)
+  assert.match(nav, /First Nations Supports/)
   assert.match(evidence, /indigenous-healthcare-evidence-groups-public-v1/)
   assert.doesNotMatch(evidence, /recent-public-signals-v1/)
   assert.match(live, /Not every item will become an Evidence Library incident/)
