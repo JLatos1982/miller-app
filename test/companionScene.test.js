@@ -172,7 +172,7 @@ test('result-side overlay preserves its one left-rail destination through arriva
   assert.doesNotMatch(sheepdog, /right-side|target\.right|resultRect\.right/)
 })
 
-test('approved walking and result-point assets are true-alpha production cutouts', () => {
+test('approved companion and neutral assets are true-alpha production cutouts', () => {
   assert.equal(canPreviewClassicWalk(), true)
   assert.equal(canPreviewSheepdogResultPoint(), true)
   assert.equal(CLASSIC_WALK_POSE_SLOTS.stepLeft01.asset.endsWith('classic-miller-step-left-01.png'), true)
@@ -182,6 +182,7 @@ test('approved walking and result-point assets are true-alpha production cutouts
   assert.equal(pngHasRgbaColorType('../src/assets/miller/interaction/classic-miller-step-left-01.png'), true)
   assert.equal(pngHasRgbaColorType('../src/assets/miller/interaction/classic-miller-step-left-02.png'), true)
   assert.equal(pngHasRgbaColorType('../src/assets/companion/sheepdog-result-point.png'), true)
+  assert.equal(pngHasRgbaColorType('../src/assets/miller_jade.png'), true)
   assert.equal(pngHasRgbaColorType('../src/assets/miller/interaction/miller-north-notice-dog.png'), true)
   assert.equal(pngHasRgbaColorType('../src/assets/miller/interaction/miller-north-lean-reach.png'), true)
   assert.equal(pngHasRgbaColorType('../src/assets/miller/interaction/miller-north-pet-dog.png'), true)
