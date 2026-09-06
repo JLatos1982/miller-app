@@ -2041,6 +2041,38 @@
               "publication_date": "2025-12-18"
             }
           ]
+        },
+        {
+          "date": "2026-05 to 2026-07",
+          "type": "policy review",
+          "title": "Patient-care-quality review engagement",
+          "description": "The Ministry of Health reviewed two quality-review pathways, explicitly including Indigenous-specific racism and discrimination, with broader First Nations and Métis engagement planned through 2026.",
+          "organization": "B.C. Ministry of Health",
+          "sources": [
+            {
+              "title": "Patient Care Quality Review",
+              "organization": "B.C. Ministry of Health",
+              "category": "government",
+              "url": "https://engage.gov.bc.ca/govtogetherbc/engagement/patient-care-quality-review/",
+              "publication_date": "2026-05-14"
+            }
+          ]
+        },
+        {
+          "date": "2026-07-08",
+          "type": "program redesign",
+          "title": "Island Health pauses Indigenous self-identification in acute care",
+          "description": "After First Nations feedback, Island Health paused the program and committed to distinctions-based redesign, shared governance and stronger Indigenous data-governance safeguards.",
+          "organization": "Island Health",
+          "sources": [
+            {
+              "title": "Temporary Pause of the Indigenous Patient Self-Identification Program in Acute Care",
+              "organization": "Island Health",
+              "category": "health system",
+              "url": "https://medicalstaff.islandhealth.ca/news-events/paused-indgi-self-identi",
+              "publication_date": "2026-06-30"
+            }
+          ]
         }
       ],
       "evidence_path": [
@@ -2257,6 +2289,25 @@
               "publication_date": "2025-12-18"
             }
           ]
+        },
+        {
+          "text": "In 2026, the Ministry began a provincewide patient-care-quality review tied to In Plain Sight, while Island Health separately paused and began redesigning its Indigenous self-identification program after First Nations feedback.",
+          "sources": [
+            {
+              "title": "Patient Care Quality Review",
+              "organization": "B.C. Ministry of Health",
+              "category": "government",
+              "url": "https://engage.gov.bc.ca/govtogetherbc/engagement/patient-care-quality-review/",
+              "publication_date": "2026-05-14"
+            },
+            {
+              "title": "Temporary Pause of the Indigenous Patient Self-Identification Program in Acute Care",
+              "organization": "Island Health",
+              "category": "health system",
+              "url": "https://medicalstaff.islandhealth.ca/news-events/paused-indgi-self-identi",
+              "publication_date": "2026-06-30"
+            }
+          ]
         }
       ],
       "what_remains_unclear": [
@@ -2384,6 +2435,27 @@
           "category": "health system",
           "url": "https://www.bccdc.ca/about/news-stories/stories/2025/apology",
           "publication_date": "2025-12-18"
+        },
+        {
+          "title": "Patient Care Quality Review",
+          "organization": "B.C. Ministry of Health",
+          "category": "government",
+          "url": "https://engage.gov.bc.ca/govtogetherbc/engagement/patient-care-quality-review/",
+          "publication_date": "2026-05-14"
+        },
+        {
+          "title": "Temporary Pause of the Indigenous Patient Self-Identification Program in Acute Care",
+          "organization": "Island Health",
+          "category": "health system",
+          "url": "https://medicalstaff.islandhealth.ca/news-events/paused-indgi-self-identi",
+          "publication_date": "2026-06-30"
+        },
+        {
+          "title": "B.C. Anti-Racism Action Plan 2026–28",
+          "organization": "Government of British Columbia",
+          "category": "government",
+          "url": "https://news.gov.bc.ca/releases/2026AG0032-000635",
+          "publication_date": "2026-06-18"
         }
       ]
     },
@@ -2787,6 +2859,18 @@
               "publication_date": "2025-06-24"
             }
           ]
+        },
+        {
+          "text": "Later federal legislation clarified the Criminal Code treatment of non-consensual sterilization; it is contextual legal development, not a retroactive finding in the Saskatoon cohort.",
+          "sources": [
+            {
+              "title": "An Act to amend the Criminal Code (sterilization procedures), S.C. 2026, c. 10",
+              "organization": "Parliament of Canada / Government of Canada Publications",
+              "category": "legal / human-rights",
+              "url": "https://publications.gc.ca/site/eng/9.963680/publication.html",
+              "publication_date": "2026-06-15"
+            }
+          ]
         }
       ],
       "what_remains_unclear": [
@@ -2894,6 +2978,27 @@
           "organization": "City of Saskatoon",
           "category": "government",
           "url": "https://www.saskatoon.ca/community-culture-heritage/cultural-diversity/indigenous-initiatives/treaty-6-metis-homeland"
+        },
+        {
+          "title": "Inaugural Report, July 2023–March 2025",
+          "organization": "First Nations Health Ombudsperson Office",
+          "category": "Indigenous organization",
+          "url": "https://fnhoo.ca/annual-reports/",
+          "publication_date": "2025-10-27"
+        },
+        {
+          "title": "October 28, 2025 Hansard",
+          "organization": "Legislative Assembly of Saskatchewan",
+          "category": "government",
+          "url": "https://docs.legassembly.sk.ca/legdocs/Assembly/Debates/30L2S/20251028DebatesHTML.htm",
+          "publication_date": "2025-10-28"
+        },
+        {
+          "title": "UN Declaration Act Action Plan 2026 reporting — Shared Priority 8",
+          "organization": "Government of Canada",
+          "category": "government",
+          "url": "https://justice.canada.ca/eng/declaration/report-rapport/2026/b1.html",
+          "publication_date": "2026"
         }
       ]
     },
@@ -3281,6 +3386,18 @@
               "publication_date": "2025-07-24"
             }
           ]
+        },
+        {
+          "text": "The broader MAPS progress page reports 13 of 30 two-year-plan actions completed and 17 in progress, but it does not provide a recommendation-by-recommendation status for the Indigenous panel's 22 recommendations.",
+          "sources": [
+            {
+              "title": "Modernizing primary health care — progress on 2-year plan",
+              "organization": "Government of Alberta",
+              "category": "implementation / follow-up",
+              "url": "https://www.alberta.ca/modernizing-primary-health-care-progress-on-2-year-plan",
+              "publication_date": "2026-01-05"
+            }
+          ]
         }
       ],
       "what_remains_unclear": [
@@ -3417,6 +3534,20 @@
           "organization": "Government of Alberta",
           "category": "government",
           "url": "https://www.alberta.ca/reconciliation-in-alberta"
+        },
+        {
+          "title": "Modernizing primary health care — progress on 2-year plan",
+          "organization": "Government of Alberta",
+          "category": "implementation / follow-up",
+          "url": "https://www.alberta.ca/modernizing-primary-health-care-progress-on-2-year-plan",
+          "publication_date": "2026-01-05"
+        },
+        {
+          "title": "Addressing racism in Indigenous health care",
+          "organization": "Government of Alberta",
+          "category": "government",
+          "url": "https://www.alberta.ca/addressing-racism-in-indigenous-health-care",
+          "publication_date": "2025-07-24"
         }
       ]
     }
@@ -3424,53 +3555,83 @@
   "bounded_discovery": {
     "british_columbia": [
       {
-        "text": "A June 2025 cross-government status update adds later implementation evidence, including an updated Indigenous patient-feedback process and a bilateral Métis health table.",
+        "text": "A 2026 Ministry of Health review is examining internal patient-safety reviews and patient-initiated quality reviews, explicitly including Indigenous-specific racism and discrimination; engagement is intended to inform policy direction and possible legislative change.",
         "sources": [
           {
-            "title": "A Path Forward: June 2025 Status Update",
-            "organization": "Government of British Columbia",
+            "title": "Patient Care Quality Review",
+            "organization": "B.C. Ministry of Health",
             "category": "government",
-            "url": "https://www2.gov.bc.ca/assets/gov/law-crime-and-justice/about-bc-justice-system/inquiries/mmiw/mmiwg-status-update-2025.pdf",
-            "publication_date": "2025-06"
+            "url": "https://engage.gov.bc.ca/govtogetherbc/engagement/patient-care-quality-review/",
+            "publication_date": "2026-05-14"
           }
         ]
       },
       {
-        "text": "BCCDC issued a formal apology and leadership commitments in December 2025, explicitly connecting the action to In Plain Sight and an internal examination of institutional practices.",
+        "text": "Island Health paused its acute-care Indigenous self-identification program effective July 8, 2026 after First Nations feedback, separating the pause from a later redesign commitment centred on shared governance and Indigenous data sovereignty.",
         "sources": [
           {
-            "title": "BCCDC apologizes for harms caused to Indigenous Peoples",
-            "organization": "BC Centre for Disease Control",
+            "title": "Temporary Pause of the Indigenous Patient Self-Identification Program in Acute Care",
+            "organization": "Island Health",
             "category": "health system",
-            "url": "https://www.bccdc.ca/about/news-stories/stories/2025/apology",
-            "publication_date": "2025-12-18"
+            "url": "https://medicalstaff.islandhealth.ca/news-events/paused-indgi-self-identi",
+            "publication_date": "2026-06-30"
+          }
+        ]
+      },
+      {
+        "text": "B.C.'s 2026–28 Anti-Racism Action Plan commits to a Ministry of Health centre for anti-racism and cultural safety and says the first progress report is due in September 2027; this is an announced commitment, not implementation evidence.",
+        "sources": [
+          {
+            "title": "B.C. Anti-Racism Action Plan 2026–28",
+            "organization": "Government of British Columbia",
+            "category": "government",
+            "url": "https://news.gov.bc.ca/releases/2026AG0032-000635",
+            "publication_date": "2026-06-18"
           }
         ]
       }
     ],
     "saskatchewan": [
       {
-        "text": "Targeted current searches reinforced the existing operational birth-support evidence and the 2025 certification decision; they did not locate a new authoritative ten-action implementation ledger or appeal decision.",
+        "text": "The First Nations Health Ombudsperson Office published its inaugural July 2023–March 2025 report, creating a strong Indigenous-led accountability source family separate from the Saskatoon cohort.",
         "sources": [
           {
-            "title": "Lessons learned from the Indigenous Birth Support Worker Program",
-            "organization": "Saskatchewan Health Authority",
-            "category": "health system",
-            "url": "https://www.saskhealthauthority.ca/our-organization/our-direction/research/who-we-are/exciting-discoveries/lessons-learned-indigenous-birth-support-worker-program"
-          },
+            "title": "Inaugural Report, July 2023–March 2025",
+            "organization": "First Nations Health Ombudsperson Office",
+            "category": "Indigenous organization",
+            "url": "https://fnhoo.ca/annual-reports/",
+            "publication_date": "2025-10-27"
+          }
+        ]
+      },
+      {
+        "text": "The Saskatchewan legislature records the Health Minister saying both the Ministry and Saskatchewan Health Authority were reviewing the ombudsperson report and recommendations; no later formal response was located in this bounded pass.",
+        "sources": [
           {
-            "title": "Popp v Canada (Attorney General), 2025 SKKB 89 — Case Mail digest",
-            "organization": "Law Society of Saskatchewan",
+            "title": "October 28, 2025 Hansard",
+            "organization": "Legislative Assembly of Saskatchewan",
             "category": "government",
-            "url": "https://www.lawsociety.sk.ca/wp-content/uploads/CM27-18.pdf",
-            "publication_date": "2025-06-24"
+            "url": "https://docs.legassembly.sk.ca/legdocs/Assembly/Debates/30L2S/20251028DebatesHTML.htm",
+            "publication_date": "2025-10-28"
+          }
+        ]
+      },
+      {
+        "text": "Federal 2025–26 UN Declaration reporting confirms that the ISC Saskatchewan Region established an Anti-Indigenous Racism Navigator Network for First Nations-organization health navigators, but gives no named participant list or outcome report.",
+        "sources": [
+          {
+            "title": "UN Declaration Act Action Plan 2026 reporting — Shared Priority 8",
+            "organization": "Government of Canada",
+            "category": "government",
+            "url": "https://justice.canada.ca/eng/declaration/report-rapport/2026/b1.html",
+            "publication_date": "2026"
           }
         ]
       }
     ],
     "alberta": [
       {
-        "text": "Current Alberta reporting now explicitly groups the Indigenous Health Division, navigator funding, innovation funding, advisory council and patient-safety advocate as continuing health-response mechanisms.",
+        "text": "Current Alberta reporting groups the Indigenous Health Division, navigator and innovation funding, advisory council, and patient-safety advocate as continuing response mechanisms, while preserving their different governance and operational roles.",
         "sources": [
           {
             "title": "Reconciliation in Alberta — health actions",
@@ -3487,13 +3648,32 @@
         ]
       },
       {
-        "text": "The navigator program lists 2026–2029 grants as a current funding round, adding implementation continuity but not yet a single provincewide outcome measure.",
+        "text": "The broader MAPS two-year-plan page reports 13 of 30 actions completed and 17 in progress; those aggregate numbers should not be read as a status ledger for the Indigenous panel's 22 recommendations.",
         "sources": [
           {
-            "title": "Indigenous Patient Navigator Grant Program",
+            "title": "Modernizing primary health care — progress on 2-year plan",
             "organization": "Government of Alberta",
             "category": "implementation / follow-up",
-            "url": "https://www.alberta.ca/indigenous-patient-navigator-grant-program"
+            "url": "https://www.alberta.ca/modernizing-primary-health-care-progress-on-2-year-plan",
+            "publication_date": "2026-01-05"
+          }
+        ]
+      },
+      {
+        "text": "Alberta says 11 in-person and 27 virtual sessions informed a planned What We Heard report and Indigenous Anti-Racism Strategy. The engagement page still presents the outcome as drafting work, so the final strategy remains a bounded follow-up question.",
+        "sources": [
+          {
+            "title": "Reconciliation in Alberta — health actions",
+            "organization": "Government of Alberta",
+            "category": "government",
+            "url": "https://www.alberta.ca/reconciliation-in-alberta"
+          },
+          {
+            "title": "Addressing racism in Indigenous health care",
+            "organization": "Government of Alberta",
+            "category": "government",
+            "url": "https://www.alberta.ca/addressing-racism-in-indigenous-health-care",
+            "publication_date": "2025-07-24"
           }
         ]
       }
