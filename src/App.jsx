@@ -53,6 +53,7 @@ import MillerSheepdog from "./companion/MillerSheepdog.jsx"
 import DirectoryHealthAuditBackPage from "./owner/DirectoryHealthAuditBackPage.jsx"
 import IndigenousHealthcareEvidence from "./site/IndigenousHealthcareEvidence.jsx"
 import MillerNorthLiveListening from "./site/MillerNorthLiveListening.jsx"
+import MillerNorthEmergingCases from "./site/MillerNorthEmergingCases.jsx"
 import MillerNorthMethodology from "./site/MillerNorthMethodology.jsx"
 import MillerNorthResearchPolicy from "./site/MillerNorthResearchPolicy.jsx"
 import MillerNorthFirstNationsSupports from "./site/MillerNorthFirstNationsSupports.jsx"
@@ -1594,6 +1595,10 @@ const millerImageStyle = {}
 
   if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence/live-listening") {
     return <MillerNorthLiveListening />
+  }
+
+  if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence/watching-now") {
+    return <MillerNorthEmergingCases />
   }
 
   if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence/methodology") {

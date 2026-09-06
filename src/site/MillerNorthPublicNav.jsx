@@ -5,6 +5,7 @@ import "./MillerNorthPublicPages.css"
 const links = [
   ["evidence", "/indigenous-healthcare-evidence", "Evidence Library"],
   ["listening", "/indigenous-healthcare-evidence/live-listening", "Live Listening"],
+  ["emerging", "/indigenous-healthcare-evidence/watching-now", "Watching Now"],
   ["research", "/indigenous-healthcare-evidence/research-policy", "Research & Policy"],
   ["supports", "/indigenous-healthcare-evidence/first-nations-supports", "First Nations Supports"],
   ["funding", "/indigenous-healthcare-evidence/funding-assistance", "Funding & Assistance"],

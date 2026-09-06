@@ -1,0 +1,117 @@
+{
+  "schema_version": "miller-north-emerging-cases-public-v1",
+  "publication_scope": "publication_safe_public_sources",
+  "generated_at": "2026-09-06",
+  "introduction": "Developing accountability, policy and institutional stories with more public evidence than an initial signal, but not yet enough coverage for a full Research & Policy case.",
+  "lifecycle": [
+    { "stage": "lead", "label": "Lead", "description": "An initial public-source signal that still needs verification and context." },
+    { "stage": "emerging_case", "label": "Emerging case", "description": "Several meaningful public facts or a developing institutional response are available." },
+    { "stage": "dossier_candidate", "label": "Dossier candidate", "description": "The evidence is deep enough for structured research, but important dimensions remain open." },
+    { "stage": "research_policy_case", "label": "Research & Policy case", "description": "A mature, publication-safe case with strong source coverage and a clear evidence path." }
+  ],
+  "items": [
+    {
+      "emerging_case_id": "mne_5c11dce11ca19ad25786",
+      "title": "B.C. Patient Care Quality Review",
+      "province": "British Columbia",
+      "description": "The Ministry of Health is reviewing B.C.'s patient-care-quality system, including how it responds to Indigenous-specific racism and discrimination.",
+      "why_watching": "The review may lead to policy direction and legislative change, and it overlaps with accountability concerns raised in In Plain Sight.",
+      "stage": "emerging_case",
+      "display_state": "Policy change underway",
+      "latest_update_date": "2026-07-24",
+      "next_question": "What policy or legislative recommendations will the review publish, and how will Indigenous participation shape them?",
+      "related_href": "/indigenous-healthcare-evidence/research-policy?case=in-plain-sight",
+      "sources": [{ "title": "Patient Care Quality Review", "organization": "Government of British Columbia", "date": "2026-05-14", "url": "https://engage.gov.bc.ca/govtogetherbc/engagement/patient-care-quality-review/" }]
+    },
+    {
+      "emerging_case_id": "mne_b3b20f3a2c4167006ac0",
+      "title": "Island Health Indigenous Patient Self-Identification redesign",
+      "province": "British Columbia",
+      "description": "Island Health paused its Indigenous Patient Self-Identification Program after feedback from First Nations leaders and communities, and committed to a distinctions-based redesign with First Nations and Métis partners.",
+      "why_watching": "The next public evidence should clarify data-governance commitments, decision authority and conditions for resuming the program.",
+      "stage": "emerging_case",
+      "display_state": "Monitoring implementation",
+      "latest_update_date": "2026-07-08",
+      "next_question": "What redesign milestones, governance agreements and resumption conditions will Island Health publish?",
+      "sources": [{ "title": "Indigenous Patient Self-Identification Program paused", "organization": "Island Health", "date": "2026-07-08", "url": "https://medicalstaff.islandhealth.ca/news-events/paused-indgi-self-identi" }]
+    },
+    {
+      "emerging_case_id": "mne_2803c29b1e1b2feb3c92",
+      "title": "B.C. health anti-racism and cultural-safety centre",
+      "province": "British Columbia",
+      "description": "B.C.'s 2026–28 Anti-Racism Action Plan commits to a new Ministry of Health centre focused on anti-racism and cultural safety.",
+      "why_watching": "Creation, mandate and public reporting will show how a government commitment becomes an operating accountability mechanism.",
+      "stage": "emerging_case",
+      "display_state": "Implementation evidence pending",
+      "latest_update_date": "2026-07-20",
+      "next_question": "When will the centre begin operating, what authority will it have and how will Indigenous governance be represented?",
+      "sources": [{ "title": "B.C. releases Anti-Racism Action Plan for 2026–28", "organization": "Government of British Columbia", "date": "2026-07-20", "url": "https://news.gov.bc.ca/releases/2026AG0032-000635" }]
+    },
+    {
+      "emerging_case_id": "mne_de317d21f445280304b4",
+      "title": "Public response to FNHO recommendations",
+      "province": "Saskatchewan",
+      "description": "Saskatchewan's Health Minister stated that the Ministry and Saskatchewan Health Authority were reviewing the First Nations Health Ombudsperson Office's inaugural report and recommendations.",
+      "why_watching": "A later comprehensive public response or recommendation-by-recommendation implementation account was not located in the bounded sources reviewed.",
+      "stage": "emerging_case",
+      "display_state": "Awaiting public response",
+      "latest_update_date": "2025-12-01",
+      "next_question": "Will the Ministry or health authority publish a formal response, action plan or progress account?",
+      "related_href": "/indigenous-healthcare-evidence/research-policy?case=first-nations-health-ombudsperson",
+      "sources": [
+        { "title": "First Nations Health Ombudsperson Office annual report", "organization": "First Nations Health Ombudsperson Office", "date": "2025", "url": "https://fnho.ca/wp-content/uploads/2025/11/FNHO-Annual-Report-2025.pdf" },
+        { "title": "Saskatchewan Legislative Assembly Debates and Proceedings", "organization": "Legislative Assembly of Saskatchewan", "date": "2025-12-01", "url": "https://docs.legassembly.sk.ca/legdocs/Legislative%20Assembly/Hansard/30L1S/20251201Debates.pdf" }
+      ]
+    },
+    {
+      "emerging_case_id": "mne_f5a8891c18cfc49592ec",
+      "title": "Anti-Indigenous Racism Navigator Network",
+      "province": "Saskatchewan",
+      "description": "Federal UN Declaration Act reporting describes a Saskatchewan network for navigators from First Nations organizations to collaborate and exchange resources.",
+      "why_watching": "The public description establishes the network's purpose, but not a participant list, governance terms, outcomes or a public reporting cycle.",
+      "stage": "emerging_case",
+      "display_state": "Follow-up evidence pending",
+      "latest_update_date": "2026-06-01",
+      "next_question": "Which organizations participate, how is the network governed and what implementation evidence will be reported?",
+      "sources": [{ "title": "UN Declaration Act Action Plan progress reporting", "organization": "Department of Justice Canada", "date": "2026", "url": "https://www.justice.gc.ca/eng/declaration/report-rapport/2026/b1.html?wbdisable=true" }]
+    },
+    {
+      "emerging_case_id": "mne_c9757cf6389c3ab09e3e",
+      "title": "Indigenous Patient Safety Investigator and Advocate",
+      "province": "Alberta",
+      "description": "Alberta's Indigenous Patient Safety Investigator and Advocate receives concerns, conducts delegated reviews under the Health Charter and provides advice and recommendations.",
+      "why_watching": "Public activity and follow-up reporting can show how this accountability mechanism operates in practice while preserving its stated remit and limits.",
+      "stage": "dossier_candidate",
+      "display_state": "Monitoring implementation",
+      "latest_update_date": "2026-09-06",
+      "next_question": "What aggregate activity, recommendations and health-system responses will be publicly reported?",
+      "related_href": "/indigenous-healthcare-evidence/research-policy?case=alberta-indigenous-primary-care",
+      "sources": [{ "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "date": "2026", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" }]
+    },
+    {
+      "emerging_case_id": "mne_6373d7f811a63eeee8ca",
+      "title": "Indigenous Cultural Safety evidence review",
+      "province": "Alberta",
+      "description": "Alberta lists a completed 2025 evidence review of interventions intended to reduce racism toward Indigenous peoples in healthcare.",
+      "why_watching": "The review may provide an evidence base for later policy and implementation choices, but its relationship to particular program decisions needs source-backed follow-up.",
+      "stage": "emerging_case",
+      "display_state": "Policy evidence available",
+      "latest_update_date": "2025-12-31",
+      "next_question": "Which current Alberta programs or policies explicitly rely on the review's findings?",
+      "sources": [{ "title": "Health evidence reviews", "organization": "Government of Alberta", "date": "2025", "url": "https://www.alberta.ca/health-evidence-reviews" }]
+    },
+    {
+      "emerging_case_id": "mne_14208038ce3f53cec148",
+      "title": "Alberta Indigenous health anti-racism strategy",
+      "province": "Alberta",
+      "description": "Alberta held 38 engagement sessions in 2024 and stated that a What We Heard report and Indigenous health anti-racism strategy would follow.",
+      "why_watching": "A final report or strategy was not located on the program page or in the bounded official-source search, so the next public milestone remains unclear.",
+      "stage": "emerging_case",
+      "display_state": "Awaiting public report",
+      "latest_update_date": "2025-07-24",
+      "next_question": "Will Alberta publish the engagement report, final strategy and an implementation timetable?",
+      "sources": [{ "title": "Addressing racism in Indigenous health care", "organization": "Government of Alberta", "date": "2025-07-24", "url": "https://www.alberta.ca/index.php/addressing-racism-in-indigenous-health-care" }]
+    }
+  ],
+  "caution": "Watching Now records what current public sources support. A missing public update does not establish that no action occurred, and developing cases are not findings of legal or institutional wrongdoing."
+}

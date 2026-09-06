@@ -2,6 +2,7 @@ import { useMemo, useState } from "react"
 
 import supports from "../data/miller-practical-supports-public-v1.json"
 import EmailResultsDialog from "./EmailResultsDialog.jsx"
+import MillerUtilityCompanion from "./MillerUtilityCompanion.jsx"
 import "./MillerPracticalSupports.css"
 
 const categoryLabels = {
@@ -57,7 +58,7 @@ export default function MillerPracticalSupports() {
 
   return <main className="practical-supports-page">
     <header className="practical-page-header"><a href="/">← Find treatment</a><nav aria-label="Miller practical navigation"><a aria-current="page" href="/practical-supports">Practical Supports</a><a href="/funding-assistance">Funding &amp; Assistance</a></nav></header>
-    <section className="practical-page-hero"><p className="practical-eyebrow">Miller · Practical Supports</p><h1>Practical help for the next step</h1><p>Housing, employment, training, identification, income, transportation and advocacy options for Fraser North and nearby Lower Mainland communities.</p></section>
+    <section className="practical-page-hero has-utility-companion"><div className="practical-hero-copy"><p className="practical-eyebrow">Miller · Practical Supports</p><h1>Practical help for the next step</h1><p>Housing, employment, training, identification, income, transportation and advocacy options for Fraser North and nearby Lower Mainland communities.</p></div><MillerUtilityCompanion /></section>
     <section className="practical-pathways" aria-labelledby="pathways-title"><h2 id="pathways-title">Start with what you need</h2><p>These are navigation links, not a prescribed care plan. A treatment search can lead naturally to housing, ID, income or work support.</p><div>{categories.map(value => <button key={value} type="button" aria-pressed={category === value} onClick={() => setCategory(category === value ? "all" : value)}>{categoryLabels[value]}</button>)}</div></section>
     <section className="practical-controls" aria-label="Practical support filters"><label>Support type<select value={category} onChange={event => setCategory(event.target.value)}><option value="all">All support types</option>{categories.map(value => <option value={value} key={value}>{categoryLabels[value]}</option>)}</select></label><p aria-live="polite">{visible.length} support{visible.length === 1 ? "" : "s"}</p><button type="button" onClick={() => setEmailOpen(true)}>Email these supports</button></section>
     <aside className="practical-caution">{supports.caution}</aside>

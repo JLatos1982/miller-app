@@ -11,18 +11,18 @@ import { fundingFreshnessSummary, materialFundingChanges, nextFundingCheckDue, v
 
 const forbidden = /owner_review|private_notes|patient_name|client_name|username|medical_record/i
 
-test("practical supports projection publishes 17 reviewed records without private state or duplicate identities", () => {
+test("practical supports projection publishes 27 reviewed records without private state or duplicate identities", () => {
   assert.equal(practicalPublic.schema_version, "miller-practical-supports-public-v1")
-  assert.equal(practicalPublic.records.length, 17)
-  assert.equal(new Set(practicalPublic.records.map(record => record.id)).size, 17)
+  assert.equal(practicalPublic.records.length, 27)
+  assert.equal(new Set(practicalPublic.records.map(record => record.id)).size, 27)
   assert.equal(practicalPublic.records.every(record => /^https:\/\//.test(record.website) && record.last_verified_at === "2026-09-06"), true)
   assert.doesNotMatch(JSON.stringify(practicalPublic), forbidden)
   assert.equal(practicalPublic.records.filter(record => record.id.startsWith("curated:")).length, 4)
-  assert.equal(practicalPublic.records.filter(record => record.id.startsWith("support:")).length, 13)
+  assert.equal(practicalPublic.records.filter(record => record.id.startsWith("support:")).length, 23)
 })
 
 test("public funding projections expose only validated fields and the high-confidence First Nations subset", () => {
-  assert.deepEqual(validatePublicFundingProjection(millerFunding), { records: 7, audience: "miller" })
+  assert.deepEqual(validatePublicFundingProjection(millerFunding), { records: 12, audience: "miller" })
   assert.deepEqual(validatePublicFundingProjection(millerNorthFunding), { records: 22, audience: "miller-north" })
   assert.doesNotMatch(JSON.stringify(millerFunding), forbidden)
   assert.doesNotMatch(JSON.stringify(millerNorthFunding), forbidden)
