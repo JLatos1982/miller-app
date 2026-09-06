@@ -61,8 +61,12 @@ export function isCompleteNumberedAddress(value) { return /\b\d+[A-Za-z]?\s+(?:\
 export function isSensitiveOrNonFixed(resource = {}) { return resource.virtual_service === true || resource.mobile_service === true || /\b(directory|online database|virtual|mobile|service area)\b/i.test(`${resource.service_type || resource.serviceType || ""} ${resource.accessType || ""}`) || sensitive.test(`${resource.name || ""} ${resource.service_type || resource.serviceType || ""} ${resource.address || ""}`) }
 
 export function extractNumberedAddresses(pageText = "") {
-  const pattern = /\b(?:Unit|Suite|#)?\s*[A-Za-z0-9-]*,?\s*\d{1,6}(?:-\d{1,6})?\s+(?:[A-Za-z][A-Za-z'.-]*\s+){0,5}(?:Street|St|Avenue|Ave|Road|Rd|Boulevard|Blvd|Drive|Dr|Way|Highway|Hwy|Lane|Ln|Crescent|Cres|Kingsway)\b/gi
-  return [...new Set((String(pageText).match(pattern) || []).map(normalizeAddress))]
+  // A numeric ordinal may begin a street name ("1755 East 11th Avenue"),
+  // but subsequent numeric tokens would be a second civic address, not part
+  // of the first match.
+  const pattern = /\b(?:(?:(?:Unit|Suite|#)\s*[A-Za-z0-9-]+\s*,?\s*|\d{1,6}\s*[-\u2012-\u2015]\s*))?\d{1,6}(?:-\d{1,6})?\s+(?:[A-Za-z][A-Za-z'.-]*\s+){0,4}?(?:\d+(?:st|nd|rd|th)?\s+)?(?:[A-Za-z][A-Za-z'.-]*\s+)?(?:Street|St|Avenue|Ave|Road|Rd|Boulevard|Blvd|Broadway|Drive|Dr|Way|Highway|Hwy|Lane|Ln|Crescent|Cres|Kingsway)\b/gi
+  const nonAddressNavigation = /\b(?:email|united way|privacy|copyright|all rights reserved)\b/i
+  return [...new Set((String(pageText).match(pattern) || []).filter((value) => !nonAddressNavigation.test(value)).map(normalizeAddress))]
 }
 
 export function pageSupportsProgram({ resource, pageText, address }) {
@@ -70,7 +74,9 @@ export function pageSupportsProgram({ resource, pageText, address }) {
   const number = normalizeAddress(address).match(/\b(\d+[A-Za-z]?)\b/)?.[1]?.toLowerCase()
   const identityTokens = normalizeIdentityText(`${resource.name || ""} ${resource.organization || ""}`).split(" ").filter((x) => x.length > 4)
   const numberAt = number ? text.search(new RegExp(`\\b${number}\\b`)) : -1
-  return Boolean(numberAt >= 0 && identityTokens.some((token) => { const at = text.indexOf(token); return at >= 0 && Math.abs(at - numberAt) <= 900 }))
+  const explicitlyPhysicalAddress = number ? new RegExp(`(?<!mailing\\s)\\baddress\\b[^]{0,240}\\b${number}\\b`, "i").test(pageText) : false
+  const mailingOnlyAddress = number ? new RegExp(`\\bmailing\\s+address\\b[^]{0,240}\\b${number}\\b`, "i").test(pageText) && !explicitlyPhysicalAddress : false
+  return Boolean(!mailingOnlyAddress && numberAt >= 0 && identityTokens.some((token) => { const at = text.indexOf(token); return at >= 0 && (Math.abs(at - numberAt) <= 900 || explicitlyPhysicalAddress) }))
 }
 
 export function classifyAddressEvidence({ resource, source, page = {}, conflicts = [] }) {

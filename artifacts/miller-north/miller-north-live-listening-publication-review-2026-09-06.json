@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-09-06T16:17:44.822Z",
+  "mode": "private_owner_review",
+  "leads_inspected": 22,
+  "publication_safe_items": 15,
+  "linked_to_existing_incidents": 1,
+  "duplicates_suppressed": [
+    {
+      "source_url": "https://www.reddit.com/r/alberta/comments/yu67k0",
+      "reason": "Non-independent social repost of an already represented candidate"
+    }
+  ],
+  "held_back": [
+    {
+      "candidate_id": "mnc_penny-kerrigan-mills-memorial-2020",
+      "reason": "Republished article lacked a stronger directly inspected source in the current set."
+    },
+    {
+      "candidate_id": "mnc_anne-ketlo-uhnbc",
+      "reason": "Multiple distinct accounts share one long-form source and require individual owner review before Live Listening publication."
+    },
+    {
+      "candidate_id": "mnc_geraldine-thomas-flurer-uhnbc-2019",
+      "reason": "Multiple distinct accounts share one long-form source and require individual owner review before Live Listening publication."
+    },
+    {
+      "candidate_id": "mnc_mona-johnson-prince-george-2017",
+      "reason": "Multiple distinct accounts share one long-form source and require individual owner review before Live Listening publication."
+    },
+    {
+      "candidate_id": "mnc_rene-whitstone-lloydminster-hospital",
+      "reason": "Direct source retrieval was unavailable; indexed excerpt alone was insufficient for browser publication."
+    },
+    {
+      "source_url": "https://www.reddit.com/r/saskatchewan/comments/17qk10u",
+      "reason": "Public discussion did not establish enough incident identity or authoritative follow-up."
+    }
+  ],
+  "owner_review_count": 6,
+  "public_projection_validation": {
+    "valid": true,
+    "items": 15,
+    "linked": 1,
+    "corroborated": 10,
+    "reviewing": 4
+  }
+}

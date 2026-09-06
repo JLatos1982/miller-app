@@ -1,0 +1,614 @@
+{
+  "schema_version": "miller-north-incident-proposals-v2",
+  "corpus_id": "miller-north-reconstructed-corpus-v2",
+  "incidents": [
+    {
+      "proposed_incident_id": "mni_dcfb80601dc9db799c841591",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "british_columbia",
+      "facility_or_location": "Mills Memorial Hospital, Terrace",
+      "timing": {
+        "event_date": "2020-10-19",
+        "event_year": 2020,
+        "approximate_event_year": null,
+        "publication_date": "2023-09-27"
+      },
+      "summary": "The source reports Kerrigan's allegation of anti-Indigenous discrimination during treatment at Mills Memorial Hospital and states that she was flown there on Oct. 19, 2020; it also reports a human-rights complaint and Northern Health's denial of discrimination.",
+      "evidence_status": "reported",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://bcruralhealth.org/haida-elder-in-extreme-appendicitis-pain-was-allegedly-released-from-b-c-hospital-without-treatment/"
+      ],
+      "supporting_sources": [],
+      "reconciliation_confidence": "strong",
+      "incident_fingerprint": "dcfb80601dc9db799c841591",
+      "created_from_candidate_id": "mnc_penny-kerrigan-mills-memorial-2020"
+    },
+    {
+      "proposed_incident_id": "mni_b0210408d621b33ea1afc876",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "british_columbia",
+      "facility_or_location": "Kitimat hospital and hospital in Terrace",
+      "timing": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2021-01-30"
+      },
+      "summary": "The source reports the Health Minister said a review was underway after an Indigenous woman was reportedly turned away from a Kitimat hospital before delivering a stillborn baby at another hospital; family members said she experienced racism. The source does not establish an event date.",
+      "evidence_status": "officially_reviewed",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://vancouver.citynews.ca/2021/01/30/b-c-minister-says-review-launched-after-stillbirth-leads-to-allegations-of-racism/",
+        "https://globalnews.ca/news/7690875/northern-health-responds-to-lawsuit-that-alleges-racism-played-a-part-in-babys-death/"
+      ],
+      "supporting_sources": [
+        {
+          "role": "litigation_reporting_and_institutional_response",
+          "organization": "Global News / The Canadian Press",
+          "url": "https://globalnews.ca/news/7690875/northern-health-responds-to-lawsuit-that-alleges-racism-played-a-part-in-babys-death/",
+          "publication_date": "2021-03-11"
+        }
+      ],
+      "reconciliation_confidence": "review_required",
+      "incident_fingerprint": "b0210408d621b33ea1afc876",
+      "created_from_candidate_id": "mnc_kitimat-pregnancy-review-2021"
+    },
+    {
+      "proposed_incident_id": "mni_305f2ff4ba63f029b89e62dc",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "british_columbia",
+      "facility_or_location": "Cowichan District Hospital and Royal Jubilee Hospital",
+      "timing": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": 2020,
+        "publication_date": "2020-08-21"
+      },
+      "summary": "The source reports Sutton's family said he received racist treatment and inappropriate care at two Vancouver Island hospitals; it includes Island Health's acknowledgment that systemic anti-Indigenous racism occurs within the authority. The publication and described events are in 2020, but the source does not support a precise incident date.",
+      "evidence_status": "reported",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://indiginews.com/news/connor-sutton-anti-indigenous-racism-needs-to-stop/",
+        "https://www.timescolonist.com/local-news/military-member-victim-of-anti-indigenous-racism-in-hospital-first-nations-council-says-4682869"
+      ],
+      "supporting_sources": [
+        {
+          "role": "corroborating_journalism",
+          "organization": "Times Colonist",
+          "title": "Military member victim of anti-Indigenous racism in hospital, First Nations council says",
+          "url": "https://www.timescolonist.com/local-news/military-member-victim-of-anti-indigenous-racism-in-hospital-first-nations-council-says-4682869",
+          "publication_date": "2020-07-23",
+          "source_type": "credible_journalism",
+          "is_independent": false
+        }
+      ],
+      "reconciliation_confidence": "bounded",
+      "incident_fingerprint": "305f2ff4ba63f029b89e62dc",
+      "created_from_candidate_id": "mnc_connor-sutton-vancouver-island-2020"
+    },
+    {
+      "proposed_incident_id": "mni_6ee2d23497a38c5e8bc6e095",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "alberta",
+      "facility_or_location": "Strathmore Hospital",
+      "timing": {
+        "event_date": null,
+        "event_year": 2022,
+        "approximate_event_year": null,
+        "publication_date": "2023-09-28"
+      },
+      "summary": "Siksika Nation reports that the Alberta Human Rights Commission accepted a complaint concerning alleged anti-Indigenous discrimination affecting Benedict and Myra Crow Chief at Strathmore Hospital. The source says Myra Crow Chief died in April 2022 after attending the hospital; the precise treatment date is not established.",
+      "evidence_status": "procedural_adjudicative_context",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://siksikanation.com/siksika-nation-member-brings-human-rights-complaint-in-response-to-systemic-anti-indigenous-discrimination-in-albertas-healthcare-sector/",
+        "https://www.aptnnews.ca/national-news/siksika-man-lodges-human-rights-complaint-against-alberta-hospital-after-wifes-death/"
+      ],
+      "supporting_sources": [
+        {
+          "role": "indigenous_journalism_and_institutional_response",
+          "organization": "APTN News",
+          "url": "https://www.aptnnews.ca/national-news/siksika-man-lodges-human-rights-complaint-against-alberta-hospital-after-wifes-death/",
+          "publication_date": "2023-09-28"
+        }
+      ],
+      "reconciliation_confidence": "review_required",
+      "incident_fingerprint": "6ee2d23497a38c5e8bc6e095",
+      "created_from_candidate_id": "mnc_myra-crow-chief-strathmore-2022"
+    },
+    {
+      "proposed_incident_id": "mni_1d5197e9dfe9f750e7cd5bb7",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "saskatchewan",
+      "facility_or_location": "Regina General Hospital emergency department",
+      "timing": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": 2021,
+        "publication_date": "2022-01-24"
+      },
+      "summary": "The source reports Janelle Orcherton's account of racist stereotyping and inadequate communication during an emergency visit at the end of November. Saskatchewan Health Authority apologized that she felt her emergency-department care was negatively influenced by her Aboriginal heritage and said it was following up. The article was published January 2022; the late-November event is derived as approximately 2021, not an exact date.",
+      "evidence_status": "corroborated",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://globalnews.ca/news/8533176/indigenous-woman-alleges-racist-treatment-at-regina-general-hospital-er/"
+      ],
+      "supporting_sources": [],
+      "reconciliation_confidence": "bounded",
+      "incident_fingerprint": "1d5197e9dfe9f750e7cd5bb7",
+      "created_from_candidate_id": "mnc_janelle-orcherton-regina-general-2021"
+    },
+    {
+      "proposed_incident_id": "mni_8c619ea15a3853519e795a3f",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "alberta",
+      "facility_or_location": "Misericordia Hospital, Edmonton",
+      "timing": {
+        "event_date": "2020-06-11",
+        "event_year": 2020,
+        "approximate_event_year": null,
+        "publication_date": "2023-04-11"
+      },
+      "summary": "An indexed excerpt identifies Pearl Gambler of Bigstone Cree Nation and says she entered Edmonton's Misericordia Hospital on June 11, 2020. Independent Global News reporting describes her lawsuit alleging that race affected the care received during a pre-term delivery, and reports complaints to professional bodies and a human-rights complaint. This private proposal records reported allegations and complaint activity, not a finding or determination.",
+      "evidence_status": "corroborated_private_review",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://www.nationalobserver.com/2023/04/11/investigations/anti-indigenous-racism-health-care",
+        "https://edmonton.citynews.ca/2022/11/03/hospital-denial-baby-death/",
+        "https://globalnews.ca/news/9249962/lawsuit-pearl-gambler-birth-indigenous-edmonton-hospital-racism"
+      ],
+      "supporting_sources": [
+        {
+          "role": "context",
+          "organization": "CityNews Edmonton",
+          "url": "https://edmonton.citynews.ca/2022/11/03/hospital-denial-baby-death/",
+          "publication_date": "2022-11-03",
+          "source_type": "credible_journalism",
+          "evidence_confidence": "context_only",
+          "is_independent": false
+        },
+        {
+          "role": "corroborating_journalism_and_human_rights_complaint",
+          "organization": "Global News",
+          "title": "Lawsuit filed after alleged 'inhumane' treatment of Indigenous woman at Edmonton hospital",
+          "url": "https://globalnews.ca/news/9249962/lawsuit-pearl-gambler-birth-indigenous-edmonton-hospital-racism",
+          "publication_date": "2022-11-03",
+          "source_type": "credible_journalism",
+          "evidence_confidence": "corroborating_private_review",
+          "is_independent": true
+        }
+      ],
+      "reconciliation_confidence": "strong",
+      "incident_fingerprint": "c95def130b86fb06d4bcd293",
+      "created_from_candidate_id": "mnc_pearl-gambler-misericordia-2020"
+    },
+    {
+      "proposed_incident_id": "mni_b690e0c1899d3952a3d347d4",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "alberta",
+      "facility_or_location": "Cardston Health Centre, Cardston",
+      "timing": {
+        "event_date": "2021-03-25",
+        "event_year": 2021,
+        "approximate_event_year": null,
+        "publication_date": "2021-04-14"
+      },
+      "summary": "Global News reports Marissa Smoke said that, after arriving by ambulance at Cardston Health Centre on March 25, 2021, staff treated her disrespectfully and stereotyped her as seeking medication. The report says she filed complaints and that Alberta Health Services said it had opened an investigation. This remains a private proposal reporting allegations, not a finding.",
+      "evidence_status": "reported_with_institutional_response",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://globalnews.ca/news/7758146/indigenous-woman-racist-encounter-alberta-hospital/"
+      ],
+      "supporting_sources": [],
+      "reconciliation_confidence": "strong",
+      "incident_fingerprint": "b690e0c1899d3952a3d347d4",
+      "created_from_candidate_id": "mnc_marissa-smoke-cardston-2021"
+    },
+    {
+      "proposed_incident_id": "mni_7dc99a5d862a140bd0417dff",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "saskatchewan",
+      "facility_or_location": "Regina General Hospital",
+      "timing": {
+        "event_date": "2022-09-30",
+        "event_year": 2022,
+        "approximate_event_year": null,
+        "publication_date": "2022-10-11"
+      },
+      "summary": "APTN News reports that Thomas Favel and his family filed a complaint with the FSIN health ombudsperson alleging racism and discrimination in his Regina General Hospital treatment. The report says he was restrained while being treated for bronchitis and pneumonia and his family described concerns about his care. This private proposal records allegations and a complaint, not a finding.",
+      "evidence_status": "reported_with_ombudsperson_complaint",
+      "source_evidence_record_ids": [
+        "ihe_58e20e17d74aaf9c5038"
+      ],
+      "source_urls": [
+        "https://www.aptnnews.ca/national-news/kawacatoose-elder-files-complaint-of-racism-discrimination-against-regina-hospital",
+        "https://globalnews.ca/news/9191847/indigenous-man-alleges-racism-assault-regina-general-hospital/",
+        "https://www.cbc.ca/news/canada/saskatchewan/family-of-elder-claims-he-was-abused-racially-discriminated-against-by-regina-general-hospital-staff-1.6612573"
+      ],
+      "supporting_sources": [
+        {
+          "role": "corroborating_journalism",
+          "organization": "Global News",
+          "url": "https://globalnews.ca/news/9191847/indigenous-man-alleges-racism-assault-regina-general-hospital/",
+          "publication_date": "2022-10-12"
+        },
+        {
+          "role": "corroborating_journalism_and_institutional_response",
+          "organization": "CBC News",
+          "url": "https://www.cbc.ca/news/canada/saskatchewan/family-of-elder-claims-he-was-abused-racially-discriminated-against-by-regina-general-hospital-staff-1.6612573"
+        }
+      ],
+      "reconciliation_confidence": "strong",
+      "incident_fingerprint": "7dc99a5d862a140bd0417dff",
+      "created_from_candidate_id": "mnc_thomas-favel-regina-general-2022"
+    },
+    {
+      "proposed_incident_id": "mni_d67fe98eb4feec0bca7c1b28",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "saskatchewan",
+      "facility_or_location": "Prince Albert Victoria Hospital emergency department",
+      "timing": {
+        "event_date": "2025-12-11",
+        "event_year": 2025,
+        "approximate_event_year": null,
+        "publication_date": "2025-12-19"
+      },
+      "summary": "The report identifies Brydon Lafavour as the First Nations man removed from the Prince Albert Victoria Hospital emergency department on Dec. 11, 2025. It reports video showed guards taking him outside, and says SHA's internal review found the guards' actions did not meet its standards; SHA publicly condemned Indigenous-specific racism while responding. The source also reports FSIN characterized the incident as symptomatic of systemic racism. This is a private proposal and does not treat that characterization as an adjudicated finding about individual intent.",
+      "evidence_status": "officially_reviewed_with_reported_racism_context",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://www.620ckrm.com/2025/12/19/sha-bans-security-guards-who-removed-indigenous-man-from-pa-hospital/",
+        "https://www.cbc.ca/news/canada/saskatchewan/saskatchewan-health-authority-bans-security-guards-who-evicted-indigenous-man-from-prince-albert-hospital-9.7023387"
+      ],
+      "supporting_sources": [
+        {
+          "role": "corroborating_journalism",
+          "organization": "CBC News",
+          "url": "https://www.cbc.ca/news/canada/saskatchewan/saskatchewan-health-authority-bans-security-guards-who-evicted-indigenous-man-from-prince-albert-hospital-9.7023387",
+          "publication_date": "2025-12-19"
+        }
+      ],
+      "reconciliation_confidence": "strong",
+      "incident_fingerprint": "d67fe98eb4feec0bca7c1b28",
+      "created_from_candidate_id": "mnc_brydon-lafavour-prince-albert-2025"
+    },
+    {
+      "proposed_incident_id": "mni_01565be6f2342067b4f735f9",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "british_columbia",
+      "facility_or_location": "Nanaimo General Hospital, Nanaimo",
+      "timing": {
+        "event_date": "2022-05-25",
+        "event_year": 2022,
+        "approximate_event_year": null,
+        "publication_date": "2022-06-16"
+      },
+      "summary": "Global News reports Leo Manson Sr.'s family alleged rough care and filed a First Nations Health Authority complaint after an incident at Nanaimo General Hospital on May 25, 2022. It reports Island Health acknowledged that he did not receive culturally safe care, while not attributing his treatment directly to heritage and separately acknowledging systemic Indigenous-specific racism occurs in the authority. This private proposal records reported allegations and the response, not a finding about individual intent.",
+      "evidence_status": "reported_with_institutional_response",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://globalnews.ca/news/8925793/indigenous-patient-complaint-nanaimo-regional-general-hospital/",
+        "https://cheknews.ca/indigenous-family-files-complaint-for-mistreatment-at-nanaimo-hospital-1041448/"
+      ],
+      "supporting_sources": [
+        {
+          "role": "corroborating_journalism",
+          "organization": "CHEK News",
+          "url": "https://cheknews.ca/indigenous-family-files-complaint-for-mistreatment-at-nanaimo-hospital-1041448/",
+          "publication_date": "2022-06-16"
+        }
+      ],
+      "reconciliation_confidence": "strong",
+      "incident_fingerprint": "01565be6f2342067b4f735f9",
+      "created_from_candidate_id": "mnc_leo-manson-nanaimo-2022"
+    },
+    {
+      "proposed_incident_id": "mni_9179900582f441ecc7570839",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "british_columbia",
+      "facility_or_location": "University Hospital of Northern British Columbia, Prince George",
+      "timing": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2021-05-17"
+      },
+      "summary": "The Tyee reports Anne Ketlo's account of knee-surgery care at the University Hospital of Northern British Columbia, including being denied further pain relief for 17 hours and calling 911 from her hospital bed. It says Ketlo later described the treatment to the Patient Care Quality Office as unhelpful, rude and racist. The source identifies only September, not a deterministically recoverable event year, so publication timing is retained without incident timing.",
+      "evidence_status": "reported_with_patient_care_quality_complaint",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://thetyee.ca/News/2021/05/17/Legacy-Mistrust-Indigenous-Health-Care-BC-North/"
+      ],
+      "supporting_sources": [],
+      "reconciliation_confidence": "review_required",
+      "incident_fingerprint": "9179900582f441ecc7570839",
+      "created_from_candidate_id": "mnc_anne-ketlo-uhnbc"
+    },
+    {
+      "proposed_incident_id": "mni_77e7e3774a42cfa102a92656",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "british_columbia",
+      "facility_or_location": "University Hospital of Northern British Columbia, Prince George",
+      "timing": {
+        "event_date": "2019-10-30",
+        "event_year": 2019,
+        "approximate_event_year": null,
+        "publication_date": "2021-05-17"
+      },
+      "summary": "The Tyee reports Geraldine Thomas-Flurer was admitted to the University Hospital of Northern British Columbia on Oct. 30, 2019, and describes her account of inadequate pain relief and a nurse laughing when she requested medication. The article reports her view that Indigenous patients are stereotyped as drug-seeking; this private proposal records her reported experience and perspective, not a finding about staff intent.",
+      "evidence_status": "reported",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://thetyee.ca/News/2021/05/17/Legacy-Mistrust-Indigenous-Health-Care-BC-North/"
+      ],
+      "supporting_sources": [],
+      "reconciliation_confidence": "strong",
+      "incident_fingerprint": "77e7e3774a42cfa102a92656",
+      "created_from_candidate_id": "mnc_geraldine-thomas-flurer-uhnbc-2019"
+    },
+    {
+      "proposed_incident_id": "mni_d8b28a633d6aaf176cde10f8",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "british_columbia",
+      "facility_or_location": "University Hospital of Northern British Columbia, Prince George",
+      "timing": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": 2017,
+        "publication_date": "2021-05-17"
+      },
+      "summary": "The Tyee reports Mona Johnson's account that four years before the May 2021 publication she spent 17 days in Prince George hospital after shattering her knee, was not helped to shower or use her wheelchair, and felt abandoned and disrespected. The report says she characterized the experience as racism and complained to the hospital. The event year is retained only as approximately 2017 from the source's relative timing.",
+      "evidence_status": "reported_with_complaint",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://thetyee.ca/News/2021/05/17/Legacy-Mistrust-Indigenous-Health-Care-BC-North/"
+      ],
+      "supporting_sources": [],
+      "reconciliation_confidence": "bounded",
+      "incident_fingerprint": "d8b28a633d6aaf176cde10f8",
+      "created_from_candidate_id": "mnc_mona-johnson-prince-george-2017"
+    },
+    {
+      "proposed_incident_id": "mni_532a7209eed992526a4a4273",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "saskatchewan",
+      "facility_or_location": "Jim Pattison Children's Hospital, Saskatoon",
+      "timing": {
+        "event_date": null,
+        "event_year": 2026,
+        "approximate_event_year": null,
+        "publication_date": "2026-05-25"
+      },
+      "summary": "CBC reports Jaali Sutherland-Weenie's family said the Indigenous woman died in the delivery room at Jim Pattison Children's Hospital following pregnancy complications. The family called for an independent investigation and said they believed she would have been treated differently had she not been Indigenous. This private proposal records reported family claims and a request for review, not a finding about the care or its cause.",
+      "evidence_status": "reported_with_call_for_independent_investigation",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://www.cbc.ca/news/canada/saskatoon/indigenous-woman-health-pregnancy-preeclampsia-death-9.7211641"
+      ],
+      "supporting_sources": [],
+      "reconciliation_confidence": "review_required",
+      "incident_fingerprint": "532a7209eed992526a4a4273",
+      "created_from_candidate_id": "mnc_jaali-sutherland-weenie-saskatoon-2026"
+    },
+    {
+      "proposed_incident_id": "mni_aaef63a9fff8500e055a560c",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "british_columbia",
+      "facility_or_location": "Port Alberni hospital, Port Alberni",
+      "timing": {
+        "event_date": null,
+        "event_year": 2018,
+        "approximate_event_year": null,
+        "publication_date": null
+      },
+      "summary": "CBC reports Yvonne Houssin's account of attending a Port Alberni hospital in 2018 while ill and being questioned about drugs and alcohol. A later account identifies her as Métis and says she believed she was singled out as an Indigenous patient. This private proposal records a reported account; it does not treat the account or the broader emergency-room allegations as an adjudicated finding.",
+      "evidence_status": "reported",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://www.cbc.ca/news/canada/british-columbia/indigenous-patients-nurses-on-alleged-racist-game-in-hospitals-1.5622448",
+        "https://martlet.ca/opinion-newsunsettled-racism-in-heatlhcare-indigenous-2020/"
+      ],
+      "supporting_sources": [
+        {
+          "role": "corroborating_journalism",
+          "organization": "The Martlet",
+          "url": "https://martlet.ca/opinion-newsunsettled-racism-in-heatlhcare-indigenous-2020/"
+        }
+      ],
+      "reconciliation_confidence": "review_required",
+      "incident_fingerprint": "aaef63a9fff8500e055a560c",
+      "created_from_candidate_id": "mnc_yvonne-houssin-port-alberni-2018"
+    },
+    {
+      "proposed_incident_id": "mni_ec3074163ed4b0cb43812922",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "alberta",
+      "facility_or_location": "Royal Alexandra Hospital, Edmonton",
+      "timing": {
+        "event_date": null,
+        "event_year": 2024,
+        "approximate_event_year": null,
+        "publication_date": "2024-12-10"
+      },
+      "summary": "Global News reports Dexter Adams's family said that, while he was a patient at Royal Alexandra Hospital in Edmonton in 2024, his braids were cut and discarded without family knowledge or consent. The report records the family's account of demeaning treatment in health care and AHS's description of the incident as deeply regrettable. This private proposal records reported events and institutional response, not a finding about motive or individual intent.",
+      "evidence_status": "reported_with_institutional_response",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://globalnews.ca/news/10911408/edmonton-hospital-indigenous-braids-alberta",
+        "https://www.aptnnews.ca/national-news/cree-doctor-from-alberta-says-nurse-who-cut-pasqua-first-nations-mans-braids-should-be-charged",
+        "https://edmonton.citynews.ca/2024/12/10/indigenous-man-braids-cut-edmonton-hospital",
+        "https://edmontonjournal.com/news/indigenous-elders-braids-cut-off-in-hospital"
+      ],
+      "supporting_sources": [
+        {
+          "role": "indigenous_organization_account",
+          "organization": "APTN News",
+          "title": "Family of Dexter Adams talks to police about hospital incident",
+          "url": "https://www.aptnnews.ca/national-news/cree-doctor-from-alberta-says-nurse-who-cut-pasqua-first-nations-mans-braids-should-be-charged",
+          "publication_date": "2024-12-10",
+          "source_type": "indigenous_journalism"
+        },
+        {
+          "role": "corroborating_journalism",
+          "organization": "CityNews Edmonton",
+          "title": "Family wants answers after Indigenous man's braids cut while in hospital",
+          "url": "https://edmonton.citynews.ca/2024/12/10/indigenous-man-braids-cut-edmonton-hospital",
+          "publication_date": "2024-12-10",
+          "source_type": "credible_journalism"
+        },
+        {
+          "role": "corroborating_journalism",
+          "organization": "Edmonton Journal",
+          "title": "Hospitalized Indigenous man's braids cut off without his consent: NDP",
+          "url": "https://edmontonjournal.com/news/indigenous-elders-braids-cut-off-in-hospital",
+          "publication_date": "2024-12-10",
+          "source_type": "credible_journalism",
+          "is_independent": false
+        }
+      ],
+      "reconciliation_confidence": "review_required",
+      "incident_fingerprint": "ec3074163ed4b0cb43812922",
+      "created_from_candidate_id": "mnc_dexter-adams-royal-alexandra-2024"
+    },
+    {
+      "proposed_incident_id": "mni_60e8b7c1490380c4d5583ba4",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "saskatchewan",
+      "facility_or_location": "Victoria Hospital emergency department, Prince Albert",
+      "timing": {
+        "event_date": "2020-06-30",
+        "event_year": 2020,
+        "approximate_event_year": null,
+        "publication_date": "2020-08-21"
+      },
+      "summary": "APTN reports Janette Sanderson's account that, during an emergency visit at Victoria Hospital in Prince Albert on June 30, 2020, an injection caused severe burning and swelling in her arm after she asked the nurse to stop. The report says FSIN characterized the event as an example of discrimination Indigenous people face in health care, and Saskatchewan Health Authority was investigating. This private proposal records reported events and responses, not a finding about clinical cause or individual intent.",
+      "evidence_status": "reported_with_institutional_response",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://www.aptnnews.ca/national-news/saskatchewan-health-authority-investigating-incident-cree-woman-describes-as-worst-pain-i-ever-had",
+        "https://www.cbc.ca/news/canada/saskatchewan/fsin-calls-upon-sha-for-investigation-negligence-1.5693131"
+      ],
+      "supporting_sources": [
+        {
+          "role": "institutional_response",
+          "organization": "CBC News",
+          "title": "FSIN calls upon SHA for investigation after woman suffers alleged burns",
+          "url": "https://www.cbc.ca/news/canada/saskatchewan/fsin-calls-upon-sha-for-investigation-negligence-1.5693131",
+          "publication_date": "2020-08-21",
+          "source_type": "credible_journalism"
+        }
+      ],
+      "reconciliation_confidence": "strong",
+      "incident_fingerprint": "60e8b7c1490380c4d5583ba4",
+      "created_from_candidate_id": "mnc_janette-sanderson-victoria-hospital-2020"
+    },
+    {
+      "proposed_incident_id": "mni_37cb1dbb2649424f38e0cc10",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "alberta",
+      "facility_or_location": "South Health Campus, Calgary",
+      "timing": {
+        "event_date": "2021-06-11",
+        "event_year": 2021,
+        "approximate_event_year": null,
+        "publication_date": "2021-06-29"
+      },
+      "summary": "CTV News reports Nathan Cushman and his family said that during his June 11–16, 2021 admission for acute pancreatitis at Calgary's South Health Campus, staff stereotyped him and failed to adequately address his care concerns. The family filed a complaint. The article says Alberta Health Services was reviewing the serious allegations and assigned a patient-concerns consultant. This private proposal records reported patient and family accounts plus the institutional response, not a finding about individual intent or the medical care.",
+      "evidence_status": "reported_with_institutional_response",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://www.ctvnews.ca/calgary/article/calgary-family-speaks-out-against-indigenous-racism-neglect-and-discrimination-in-healthcare-system"
+      ],
+      "supporting_sources": [],
+      "reconciliation_confidence": "strong",
+      "incident_fingerprint": "37cb1dbb2649424f38e0cc10",
+      "created_from_candidate_id": "mnc_nathan-cushman-south-health-campus-2021"
+    },
+    {
+      "proposed_incident_id": "mni_3e3c53e14aea923ee3e1a59b",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "british_columbia",
+      "facility_or_location": "Cowichan District Hospital and Victoria General Hospital, Island Health",
+      "timing": {
+        "event_date": "2025-11-20",
+        "event_year": 2025,
+        "approximate_event_year": null,
+        "publication_date": "2025-12-11"
+      },
+      "summary": "The Discourse reports Leonard (Lenny) Sylvester's family said he died at Victoria General Hospital on Nov. 20, 2025, 19 days after a gallstone procedure. The family said it viewed his experience and death in the context of systemic racism and sought accountability. Reporting says Island Health apologized directly, committed to a full review, and said the family would be included. This private proposal preserves the family's reported position and institutional response; it does not treat either as a finding on cause, care, or intent.",
+      "evidence_status": "reported_with_institutional_response_and_pending_review",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://thediscourse.ca/cowichan-valley/penelakut-family-calls-on-island-health-to-address-systemic-racism-after-lenny-sylvesters-death",
+        "https://www.cbc.ca/news/canada/british-columbia/first-nations-family-calls-for-answers-after-unexpected-death-9.7010556",
+        "https://cheknews.ca/family-left-in-the-dark-over-indigenous-mans-death-following-routine-procedure-in-b-c-hospital-1293637"
+      ],
+      "supporting_sources": [
+        {
+          "role": "corroborating_journalism",
+          "organization": "CBC News",
+          "title": "First Nations family demands answers after unexpected death just weeks after routine surgery",
+          "url": "https://www.cbc.ca/news/canada/british-columbia/first-nations-family-calls-for-answers-after-unexpected-death-9.7010556",
+          "publication_date": "2025-12-11",
+          "source_type": "credible_journalism",
+          "is_independent": true
+        },
+        {
+          "role": "corroborating_journalism_and_institutional_response",
+          "organization": "CHEK News",
+          "title": "Family left in the dark over Indigenous man's death following routine procedure in B.C. hospital",
+          "url": "https://cheknews.ca/family-left-in-the-dark-over-indigenous-mans-death-following-routine-procedure-in-b-c-hospital-1293637",
+          "publication_date": "2025-12-10",
+          "source_type": "credible_journalism",
+          "is_independent": true
+        }
+      ],
+      "reconciliation_confidence": "strong",
+      "incident_fingerprint": "3e3c53e14aea923ee3e1a59b",
+      "created_from_candidate_id": "mnc_leonard-lenny-sylvester-island-health-2025"
+    },
+    {
+      "proposed_incident_id": "mni_f932ef753cc339bc31a4b959",
+      "corpus_id": "miller-north-reconstructed-corpus-v2",
+      "proposal_state": "private_reconciliation_review",
+      "province": "saskatchewan",
+      "facility_or_location": "Lloydminster hospital, Lloydminster",
+      "timing": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null
+      },
+      "summary": "A durable Tavily excerpt from APTN News identifies Rene Whitstone and reports that his family said the 75-year-old Onion Lake Cree Nation man died at the Lloydminster hospital after staff initially did not provide immediate care while his expired health card was being validated. The excerpt reports family member Grant Whitstone characterized the delay as discrimination and said complaints had been or would be filed. Direct retrieval returned 403, so this remains indexed-excerpt/private-review evidence and is not a finding about the hospital, care, cause of death, or intent.",
+      "evidence_status": "indexed_excerpt_private_review",
+      "source_evidence_record_ids": [],
+      "source_urls": [
+        "https://www.aptnnews.ca/national-news/family-says-saskatchewan-hospitals-refusal-to-immediately-treat-deaf-mute-cree-man-hastened-death"
+      ],
+      "supporting_sources": [],
+      "reconciliation_confidence": "review_required",
+      "incident_fingerprint": "f932ef753cc339bc31a4b959",
+      "created_from_candidate_id": "mnc_rene-whitstone-lloydminster-hospital"
+    }
+  ]
+}

@@ -88,6 +88,7 @@ import { createSamwisePreparedPublicationTransport } from "./server/samwisePrepa
 import { readPreparedActionActorId, readPreparedActionTransportToken } from "./server/preparedActionRuntimeCredentials.js"
 import { IGOR_HANDOFF_CALLBACK_PATH, igorHandoffCallbackHeaders, renderIgorHandoffCallbackPage } from "./server/igorHandoffCallback.js"
 import { MAX_EVIDENCE_SEARCH_QUERY_LENGTH, searchIndigenousHealthcareEvidence } from "./server/indigenousHealthcareEvidenceSearch.js"
+import { readMillerNorthIncidentReview } from "./server/millerNorthIncidentStore.js"
 import {
   buildEmailResultIndex,
   buildResultsEmail,
@@ -101,6 +102,8 @@ import {
 import publicPracticalSupports from "./src/data/miller-practical-supports-public-v1.json" with { type: "json" }
 import publicMillerFunding from "./src/data/miller-funding-assistance-public-v1.json" with { type: "json" }
 import publicMillerNorthFunding from "./src/data/miller-north-funding-assistance-public-v1.json" with { type: "json" }
+import publicMillerNorthSupports from "./src/data/miller-north-first-nations-supports-public-v1.json" with { type: "json" }
+import { toMillerNorthSupportEmailResult } from "./src/millerNorthPublicSupportEmail.js"
 
 dotenv.config()
 
@@ -233,6 +236,7 @@ function rateLimit({ windowMs, max }) {
 
 const publicEmailRecords = [
   ...publicPracticalSupports.records.map(record => ({ ...record, region: record.area_served, accessType: record.access, source: "Miller practical supports", approved: true })),
+  ...publicMillerNorthSupports.records.map(toMillerNorthSupportEmailResult).filter(Boolean),
   ...publicMillerFunding.records.map(record => ({ id: record.id, kind: "funding", name: record.name, organization: record.funder, description: record.purpose, region: record.geography, eligibility: record.who_can_apply, accessType: `${record.status}${record.deadline ? ` · deadline ${record.deadline}` : ""}. ${record.application_method}`, website: record.application_url, source: record.source.authority, last_verified_at: record.last_verified_at, approved: true })),
   ...publicMillerNorthFunding.records.map(record => ({ id: record.id, kind: "funding", name: record.name, organization: record.funder, description: record.purpose, region: record.geography, eligibility: record.who_can_apply, accessType: `${record.status}${record.deadline ? ` · deadline ${record.deadline}` : ""}. ${record.application_method}`, website: record.application_url, source: record.source.authority, last_verified_at: record.last_verified_at, approved: true })),
 ]
@@ -379,7 +383,7 @@ const CATEGORY_ALIASES = {
 "walk in doctor",
 "walk-in doctor",
     "talk to someone",
-    
+
   ],
   "Crisis Support": [
     "crisis",
@@ -1204,6 +1208,9 @@ COMPANION MODE
 app.get("/api/admin/session", requireAdmin, (req, res) => {
   return res.json({ admin: true })
 })
+app.get("/api/admin/miller-north/incidents", requireAdmin, async (_req, res) => {
+  try { const incidents = await readMillerNorthIncidentReview({ supabase }); res.setHeader("Cache-Control", "private, no-store"); return res.json({ incidents, proposal_only: true }) } catch { return res.status(503).json({ error: "Private Miller North proposals are unavailable." }) }
+})
 app.get("/api/capabilities/next-support", rateLimit({ windowMs: 60 * 1000, max: 30 }), (req, res) => {
   const category = String(req.query?.category || "").replace(/[^a-z /-]/gi, "").trim().slice(0, 80)
   if (!category) return res.status(400).json({ error: "Choose a support category." })
@@ -1389,7 +1396,7 @@ async function controlRoomSnapshot() {
  const sensors=[{id:HEALTH_CANADA.id,label:"Health Canada",mode:(sensorCheckpoints.data||[]).find((item)=>item.sensor_id===HEALTH_CANADA.id)?.mode||"unknown",cadence:"event_driven",last_success:(sensorCheckpoints.data||[]).find((item)=>item.sensor_id===HEALTH_CANADA.id)?.last_success_at||null},...BC_PUBLIC_HEALTH_SENSORS], operations=operationsSnapshot({siteEvents:siteEvents.data||[]}), security=securityPosture(), heartbeat=evaluateOperationalHeartbeat({databaseReachable:true,security,operations,quietMaintenanceEnabled:quietMaintenanceEnabled(),workingMemory:quiet.data?.[0]?.carry_forward?.length||0,sensors,pulse:pulseRuns.data?.[0]||null}), security_review=buildSecurityReview({operations,posture:security})
  const operational_guidance=buildOperationalGuidance({pulse:pulseRuns.data?.[0]||null,securityFindings:securityFindings.data||[],sensors,healthUpdates:healthCanada.data||[],operations}),daily_review=buildDailyReview({pulse:pulseRuns.data?.[0]||null,securityFindings:securityFindings.data||[],sensors,healthUpdates:healthCanada.data||[],operations}),deep_review=buildDeepReview({pulseRuns:pulseRuns.data||[],securityFindings:securityFindings.data||[],sensorHistory:sensorCheckpoints.data||[]}),agreement=internalExternalAgreement({internal:securityFindings.data||[],external:externalObservations.data||[]}),securityDigest=buildSecurityPulseDigest({findings:securityFindings.data||[],outcomes:[],incidents:securityIncidents.data||[],agreement:[agreement],version:pulseRuns.data?.[0]?.summary?.version||{}})
  const buildVersion=securityVersionContext({profile:MILLER_SECURITY_PROFILE}),deployment=deploymentAlignment({profile:MILLER_SECURITY_PROFILE,version:buildVersion,schema:runtimeSchemaContract()})
- return { overview:{nightly_scheduling:"not_enabled",quiet_maintenance_enabled:quietMaintenanceEnabled(),human_needs_enabled:HUMAN_NEEDS.enabled(),active_attention:activeTopics.length,active_hypotheses:activeHypotheses.length,unresolved_questions:activeHypotheses.filter((item)=>item.status==="awaiting_evidence").length,unresolved_contradictions:(actions.data||[]).filter((item)=>item.action_type==="integrity_finding").length,active_directives:(directives.data||[]).filter((item)=>item.status==="active").length,working_memory_utilization:quiet.data?.[0]?.carry_forward?.length||0,last_quiet_run:quiet.data?.[0]||null}, attention:activeTopics.map((topic)=>({...topic,signal_families:[...new Set((signals.data||[]).filter((signal)=>signal.topic_id===topic.id).map((signal)=>signal.signal_family))]})), hypotheses:activeHypotheses, directives:directives.data||[], insights:insights.data||[], activity, operations, security, heartbeat, security_review, defensive_tools:DEFENSIVE_TOOLS, security_core:{target_id:MILLER_SECURITY_PROFILE.targetId,profile_version:MILLER_SECURITY_PROFILE.version,local_only:true,digest:securityDigest,agreement,incidents:securityIncidents.data||[],external_observations:externalObservations.data||[],deployment:{...deployment,build_identity:buildVersion.git_sha||buildVersion.build_id||"unknown",application_started_at:applicationStartedAt,latest_observation:deploymentObservations.data?.[0]||null},capabilities:Object.values(SECURITY_INSTRUMENTS).map(({id,version,category,execution_class,environment_scope,availability})=>({id,version,category,execution_class:execution_class||"passive",environment_scope:environment_scope||"local_only",availability}))}, capabilities:[{group:"Public navigation",label:"Search, lists, map, handout, suggestions",status:"active"},{group:"Evidence",label:"Claims, QC, geocoding, shelter reconciliation",status:"active"},{group:"Sensors",label:"Health Canada; BCCDC and Coroners contracts",status:"mixed_fixture_only"},{group:"Internal systems",label:"Attention, hypotheses, Insights, reflections, quiet maintenance",status:"local_only"},{group:"Operations",label:"Aggregate analytics and sanitized runtime observations",status:"local_only"},{group:"Security",label:"Posture checks, protective telemetry, quarantine",status:"local_only"}], sensors, runs:quiet.data||[], health_canada_observations:healthCanada.data||[], operational_guidance,daily_review,deep_review }
+ return { overview:{nightly_scheduling:"not_enabled",quiet_maintenance_enabled:quietMaintenanceEnabled(),human_needs_enabled:HUMAN_NEEDS.enabled(),active_attention:activeTopics.length,active_hypotheses:activeHypotheses.length,unresolved_questions:activeHypotheses.filter((item)=>item.status==="awaiting_evidence").length,unresolved_contradictions:(actions.data||[]).filter((item)=>item.action_type==="integrity_finding").length,active_directives:(directives.data||[]).filter((item)=>item.status==="active").length,working_memory_utilization:quiet.data?.[0]?.carry_forward?.length||0,last_quiet_run:quiet.data?.[0]||null}, attention:activeTopics.map((topic)=>({...topic,signal_families:[...new Set((signals.data||[]).filter((signal)=>signal.topic_id===topic.id).map((signal)=>signal.signal_family))]})), hypotheses:activeHypotheses, directives:directives.data||[], insights:insights.data||[], activity, operations, security, heartbeat, security_review, defensive_tools:DEFENSIVE_TOOLS, security_core:{target_id:MILLER_SECURITY_PROFILE.targetId,profile_version:MILLER_SECURITY_PROFILE.version,local_only:true,digest:securityDigest,agreement,incidents:securityIncidents.data||[],external_observations:externalObservations.data||[],deployment:{...deployment,build_identity:buildVersion.git_sha||buildVersion.build_id||"unknown",application_started_at:applicationStartedAt,latest_observation:deploymentObservations.data?.[0]||null},capabilities:Object.values(SECURITY_INSTRUMENTS).map(({id,version,category,execution_class,environment_scope,availability})=>({id,version,category,execution_class:execution_class||"passive",environment_scope:environment_scope||"local_only",availability}))}, capabilities:[{group:"Public navigation",label:"Search, lists, map, email results, suggestions",status:"active"},{group:"Evidence",label:"Claims, QC, geocoding, shelter reconciliation",status:"active"},{group:"Sensors",label:"Health Canada; BCCDC and Coroners contracts",status:"mixed_fixture_only"},{group:"Internal systems",label:"Attention, hypotheses, Insights, reflections, quiet maintenance",status:"local_only"},{group:"Operations",label:"Aggregate analytics and sanitized runtime observations",status:"local_only"},{group:"Security",label:"Posture checks, protective telemetry, quarantine",status:"local_only"}], sensors, runs:quiet.data||[], health_canada_observations:healthCanada.data||[], operational_guidance,daily_review,deep_review }
 }
 async function controlRoomSummarySnapshot() {
  const since=new Date(Date.now()-24*60*60*1000).toISOString()

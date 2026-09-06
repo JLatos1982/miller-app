@@ -1,0 +1,97 @@
+{
+  "schema_version": "miller-north-public-role-people-review-v1",
+  "publication_scope": "private_owner_review",
+  "people": [
+    {
+      "province": "british_columbia",
+      "case_id": "mnrpc_bc_in_plain_sight",
+      "public_name": "Mary Ellen Turpel-Lafond",
+      "role": "independent review lead and report author",
+      "organization": "In Plain Sight review",
+      "source_references": [
+        "mnpcs_bc_ips_report"
+      ]
+    },
+    {
+      "province": "british_columbia",
+      "case_id": "mnrpc_bc_in_plain_sight",
+      "public_name": "Dawn Thomas",
+      "role": "appointed Associate Deputy Minister, Indigenous Health and Reconciliation in the early response period",
+      "organization": "British Columbia Ministry of Health",
+      "source_references": [
+        "mnpcs_bc_2021_update"
+      ]
+    },
+    {
+      "province": "saskatchewan",
+      "case_id": "mnrpc_sk_saskatoon_coerced_sterilization",
+      "public_name": "Yvonne Boyer",
+      "role": "external review co-author",
+      "organization": "Saskatoon Health Region external review",
+      "source_references": [
+        "mnpcs_sk_review"
+      ]
+    },
+    {
+      "province": "saskatchewan",
+      "case_id": "mnrpc_sk_saskatoon_coerced_sterilization",
+      "public_name": "Judith Bartlett",
+      "role": "external review co-author",
+      "organization": "Saskatoon Health Region external review",
+      "source_references": [
+        "mnpcs_sk_review"
+      ]
+    },
+    {
+      "province": "saskatchewan",
+      "case_id": "mnrpc_sk_saskatoon_coerced_sterilization",
+      "public_name": "Mamata Pandey",
+      "role": "research scientist associated with the birth-support-program evaluation",
+      "organization": "Saskatchewan Health Authority",
+      "source_references": [
+        "mnpcs_sk_sha_research"
+      ]
+    },
+    {
+      "province": "alberta",
+      "case_id": "mnrpc_ab_indigenous_primary_care_panel",
+      "public_name": "Tyler White",
+      "role": "advisory panel co-chair/member and public Indigenous health leader",
+      "organization": "Siksika Health Services / advisory panel",
+      "source_references": [
+        "mnpcs_ab_panel_report"
+      ]
+    },
+    {
+      "province": "alberta",
+      "case_id": "mnrpc_ab_indigenous_primary_care_panel",
+      "public_name": "Kathy Lepine",
+      "role": "advisory panel member and public Indigenous health leader",
+      "organization": "Indigenous Primary Health Care Advisory Panel",
+      "source_references": [
+        "mnpcs_ab_panel_report"
+      ]
+    },
+    {
+      "province": "alberta",
+      "case_id": "mnrpc_ab_indigenous_primary_care_panel",
+      "public_name": "Trish Merrithew-Mercredi",
+      "role": "government co-chair/public health-system official",
+      "organization": "Alberta Health / advisory panel",
+      "source_references": [
+        "mnpcs_ab_panel_report"
+      ]
+    },
+    {
+      "province": "alberta",
+      "case_id": "mnrpc_ab_indigenous_primary_care_panel",
+      "public_name": "Tony Cardinal",
+      "role": "Indigenous Patient Safety Investigator and Advocate",
+      "organization": "Office of Alberta Health Advocates",
+      "source_references": [
+        "mnpcs_ab_advocate"
+      ]
+    }
+  ],
+  "privacy_notice": "Only public name, public role, organization, case relationship and sources are recorded. No public people database or private biographical data was created."
+}

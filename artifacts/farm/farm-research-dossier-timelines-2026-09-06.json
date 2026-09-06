@@ -1,0 +1,264 @@
+{
+  "schema_version": "farm-research-dossier-timelines-v1",
+  "research_date": "2026-09-06",
+  "publication_scope": "private_owner_review",
+  "production_mutations": 0,
+  "publication_mutations": 0,
+  "dossiers": [
+    {
+      "dossier_id": "farm_dossier_miller_new_roads_v1",
+      "domain": "miller_addictions",
+      "subject": "New Roads Therapeutic Recovery Community",
+      "timeline": [
+        {
+          "timeline_id": "fdtimeline_new_roads_funding_2023",
+          "date_or_range": "2023-10-17",
+          "event_type": "funding_announcement",
+          "title": "$4.39-million three-year support announced",
+          "short_description": "The Province named New Roads and estimated the support would reach 330 people over three years.",
+          "organization": "Government of British Columbia",
+          "relationship": "funded_by",
+          "source_references": [
+            "fdsource_new_roads_bc_funding"
+          ],
+          "confidence": "high"
+        },
+        {
+          "timeline_id": "fdtimeline_new_roads_current_listing",
+          "date_or_range": "current as inspected 2026-09-06",
+          "event_type": "operational_confirmation",
+          "title": "Island Health lists New Roads",
+          "short_description": "The health-authority service directory identifies New Roads among current community bed-based treatment and recovery options.",
+          "organization": "Island Health",
+          "relationship": "reports_on",
+          "source_references": [
+            "fdsource_new_roads_island_health"
+          ],
+          "confidence": "high"
+        },
+        {
+          "timeline_id": "fdtimeline_new_roads_women_opening_2025",
+          "date_or_range": "2025-03-14",
+          "event_type": "service_expansion",
+          "title": "20-bed women’s facility opens",
+          "short_description": "An official opening notice documents a distinct 20-bed women’s therapeutic-recovery facility connected to New Roads.",
+          "organization": "Government of British Columbia and Our Place Society",
+          "relationship": "expanded_by",
+          "source_references": [
+            "fdsource_new_roads_women_opening"
+          ],
+          "confidence": "high"
+        },
+        {
+          "timeline_id": "fdtimeline_new_roads_operator_current",
+          "date_or_range": "current as inspected 2026-09-06",
+          "event_type": "operator_confirmation",
+          "title": "Operator maintains current program information",
+          "short_description": "Our Place Society’s New Roads site provides current program and access information.",
+          "organization": "Our Place Society",
+          "relationship": "operated_by",
+          "source_references": [
+            "fdsource_new_roads_operator"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "dossier_id": "farm_dossier_miller_creekside_road_to_recovery_v1",
+      "domain": "miller_addictions",
+      "subject": "Creekside Withdrawal Management Centre — Road to Recovery expansion",
+      "timeline": [
+        {
+          "timeline_id": "fdtimeline_creekside_road_launch_2023",
+          "date_or_range": "2023-10-11",
+          "event_type": "program_launch",
+          "title": "Road to Recovery launched in Vancouver",
+          "short_description": "The Province described a standardized access-and-treatment model supported by $23.7 million in annual program funding.",
+          "organization": "Government of British Columbia",
+          "relationship": "created_by",
+          "source_references": [
+            "fdsource_creekside_road_launch"
+          ],
+          "confidence": "high"
+        },
+        {
+          "timeline_id": "fdtimeline_creekside_expansion_commitment_2024",
+          "date_or_range": "2024-07-22",
+          "event_type": "program_commitment",
+          "title": "Provincewide Road to Recovery expansion announced",
+          "short_description": "The Province announced nearly $154 million over three years for 100 beds, outpatient services and regional access lines.",
+          "organization": "Government of British Columbia",
+          "relationship": "announced_by",
+          "source_references": [
+            "fdsource_creekside_bc_expansion"
+          ],
+          "confidence": "high"
+        },
+        {
+          "timeline_id": "fdtimeline_creekside_utilization_2025",
+          "date_or_range": "2024-04-01 to 2025-03-31",
+          "event_type": "utilization_reporting",
+          "title": "Road to Recovery utilization reported",
+          "short_description": "The Ministry’s annual report provides call and bed-access measures for the wider model, not a Creekside-only outcome assessment.",
+          "organization": "British Columbia Ministry of Health",
+          "relationship": "evaluated_by",
+          "source_references": [
+            "fdsource_creekside_health_annual"
+          ],
+          "confidence": "high"
+        },
+        {
+          "timeline_id": "fdtimeline_creekside_ten_beds_2026",
+          "date_or_range": "2026-02-03",
+          "event_type": "service_expansion",
+          "title": "Ten added Creekside beds reported operational",
+          "short_description": "Fraser Health named Creekside, the added bed count and related implementation supports.",
+          "organization": "Fraser Health",
+          "relationship": "expanded_by",
+          "source_references": [
+            "fdsource_creekside_fraser_expansion",
+            "fdsource_creekside_current_service"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "dossier_id": "farm_dossier_miller_north_fnho_governance_funding_v1",
+      "domain": "miller_north_indigenous_healthcare",
+      "subject": "Saskatchewan First Nations Health Ombudsperson Office — governance and funding",
+      "timeline": [
+        {
+          "timeline_id": "fdtimeline_fnho_resolution_2017",
+          "date_or_range": "2017",
+          "event_type": "governance_authority",
+          "title": "Chiefs-in-Assembly resolution establishes mandate",
+          "short_description": "The office identifies FSIN Chiefs-in-Assembly Resolution 2046 as the basis for its First Nations governance authority.",
+          "organization": "Federation of Sovereign Indigenous Nations Chiefs-in-Assembly",
+          "relationship": "created_by",
+          "source_references": [
+            "fdsource_fnho_governance"
+          ],
+          "confidence": "high"
+        },
+        {
+          "timeline_id": "fdtimeline_fnho_launch_funding_2022",
+          "date_or_range": "2022-02-22",
+          "event_type": "establishment_funding",
+          "title": "$1.17-million first-year establishment funding announced",
+          "short_description": "Indigenous Services Canada announced contribution funding for FSIN to establish the office.",
+          "organization": "Indigenous Services Canada",
+          "relationship": "funded_by",
+          "source_references": [
+            "fdsource_fnho_isc_launch"
+          ],
+          "confidence": "high"
+        },
+        {
+          "timeline_id": "fdtimeline_fnho_later_agreement_2024",
+          "date_or_range": "2024-05-10 to 2026-03-31",
+          "event_type": "contribution_agreement",
+          "title": "$775,000 agreement disclosed",
+          "short_description": "Federal proactive disclosure identifies the recipient, value and term but not detailed activity-level spending.",
+          "organization": "Indigenous Services Canada and First Nations Health Ombudsperson Office",
+          "relationship": "received_by",
+          "source_references": [
+            "fdsource_fnho_open_grant"
+          ],
+          "confidence": "high"
+        },
+        {
+          "timeline_id": "fdtimeline_fnho_current_operation",
+          "date_or_range": "current as inspected 2026-09-06",
+          "event_type": "operational_confirmation",
+          "title": "Office and annual reporting remain available",
+          "short_description": "The FNHO site describes current operation and provides an annual-report registry.",
+          "organization": "First Nations Health Ombudsperson Office",
+          "relationship": "operationalizes",
+          "source_references": [
+            "fdsource_fnho_about",
+            "fdsource_fnho_annual_reports"
+          ],
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "dossier_id": "farm_dossier_miller_north_in_plain_sight_reporting_v1",
+      "domain": "miller_north_indigenous_healthcare",
+      "subject": "In Plain Sight — implementation and public-reporting accountability",
+      "timeline": [
+        {
+          "timeline_id": "fdtimeline_ips_report_2020",
+          "date_or_range": "2020-11-30",
+          "event_type": "final_report",
+          "title": "In Plain Sight final report and recommendations",
+          "short_description": "The independent review documented findings and issued 24 recommendations concerning Indigenous-specific racism in B.C. health care.",
+          "organization": "In Plain Sight independent review",
+          "relationship": "documents",
+          "source_references": [
+            "fdsource_ips_fnha_one_year"
+          ],
+          "confidence": "high"
+        },
+        {
+          "timeline_id": "fdtimeline_ips_fnha_one_year_2021",
+          "date_or_range": "2021-11-30",
+          "event_type": "indigenous_led_follow_up",
+          "title": "FNHA publishes one-year update",
+          "short_description": "FNHA reported anti-racism, cultural-safety and humility work one year after In Plain Sight.",
+          "organization": "First Nations Health Authority",
+          "relationship": "reports_on",
+          "source_references": [
+            "fdsource_ips_fnha_one_year"
+          ],
+          "confidence": "high"
+        },
+        {
+          "timeline_id": "fdtimeline_ips_twenty_four_month_2023",
+          "date_or_range": "2023-11-30",
+          "event_type": "government_progress_update",
+          "title": "Province issues 24-month update",
+          "short_description": "The official update described implementation activity connected to the recommendations.",
+          "organization": "Government of British Columbia",
+          "relationship": "evaluated_by",
+          "source_references": [
+            "fdsource_ips_24_month_update"
+          ],
+          "confidence": "high"
+        },
+        {
+          "timeline_id": "fdtimeline_ips_estimates_examples_2024",
+          "date_or_range": "2024",
+          "event_type": "recommendation_level_status_examples",
+          "title": "Estimates notes document specific implementation examples",
+          "short_description": "The official notes describe recommendation-level activity including governance, complaint, professional-standard, legislative and training work.",
+          "organization": "British Columbia Ministry of Health",
+          "relationship": "reports_on",
+          "source_references": [
+            "fdsource_ips_estimates_notes"
+          ],
+          "confidence": "high"
+        },
+        {
+          "timeline_id": "fdtimeline_ips_current_action_reporting",
+          "date_or_range": "current as inspected 2026-09-06",
+          "event_type": "current_action_status",
+          "title": "Action 3.07 reports progress and a coverage limitation",
+          "short_description": "The current action page identifies implementation activity while stating that the framework does not comprehensively report all 24 recommendations.",
+          "organization": "Government of British Columbia",
+          "relationship": "limits_reporting_for",
+          "source_references": [
+            "fdsource_ips_action_307"
+          ],
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "dossiers": 4,
+    "timeline_events": 17
+  }
+}

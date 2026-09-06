@@ -16,7 +16,7 @@ export function mayRunMillerIdlePet({
   interactionActive = false,
 } = {}) {
   return Boolean(
-    themeName === 'Classic' &&
+    ['Classic', 'North', 'Violet', 'Rose', 'Jade'].includes(themeName) &&
     dogOwner === 'scene' &&
     settled &&
     greetingComplete &&

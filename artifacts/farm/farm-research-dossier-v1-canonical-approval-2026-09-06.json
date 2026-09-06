@@ -1,0 +1,48 @@
+{
+  "schema_version": "farm-canonical-workflow-approval-v1",
+  "workflow_id": "farm-research-dossier-v1",
+  "status": "canonical_private_regression_workflow",
+  "approval_scope": "validation_fixture_only_not_publication",
+  "approved_on": "2026-09-06",
+  "fixture_ids": [
+    "farm_fixture_miller_creekside_backstory_v1",
+    "farm_fixture_miller_new_roads_money_v1",
+    "farm_fixture_north_fnhoo_governance_v1",
+    "farm_fixture_north_ips_reporting_limit_v1"
+  ],
+  "safeguards": [
+    "domain_separation",
+    "source_bearing_edges",
+    "private_owner_review",
+    "no_production_mutation",
+    "no_publication_mutation",
+    "uncertainty_preservation"
+  ],
+  "validation": {
+    "workflow_id": "farm-research-dossier-v1",
+    "status": "canonical_private_regression_workflow",
+    "fixtures": 4,
+    "domains": {
+      "miller_addictions": 2,
+      "miller_north_indigenous_healthcare": 2
+    },
+    "regression": {
+      "dossiers": 4,
+      "domains": {
+        "miller_addictions": 2,
+        "miller_north_indigenous_healthcare": 2
+      },
+      "sources": 19,
+      "edges": 24,
+      "timeline_events": 17,
+      "gaps": 9,
+      "foi_candidates": 4,
+      "quality_bands": {
+        "strong": 4,
+        "moderate": 0,
+        "incomplete": 0
+      },
+      "owner_review": 4
+    }
+  }
+}

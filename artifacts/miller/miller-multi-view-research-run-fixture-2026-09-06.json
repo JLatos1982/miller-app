@@ -1,0 +1,146 @@
+{
+  "schema_version": "farm-research-run-synthesis-v1",
+  "research_domain": "miller_addictions",
+  "publication_scope": "private_owner_review",
+  "title": "Miller addictions cross-chain and policy-to-service verification",
+  "what_changed": [
+    "All 21 policy/accountability chains were analyzed together.",
+    "All 15 policy-to-service candidates received an evidence-based verification result.",
+    "Five private resource candidates and 12 complete operational evidence paths are available for owner review."
+  ],
+  "why_it_matters": "Miller can now distinguish a government announcement from operational evidence and connect a verified service to a curated resource, private candidate, or unresolved identity.",
+  "strongest_evidence": [
+    "Twelve service relationships have official operational or current-service evidence.",
+    "Seven of those relationships connect to existing curated Miller resources: four exact services and three expansions.",
+    "Current operator pages corroborate service availability for the strongest matches."
+  ],
+  "uncertainty": [
+    "Old Massett's four beds were announced for a later opening and were not operationally verified in the inspected evidence.",
+    "Three First Nations service candidates lack enough public identity or intake detail for safe matching.",
+    "Funding amounts were generally not normalized in the first benchmark and must not be inferred from aggregate announcements."
+  ],
+  "recommended_next_move": "Run normal owner review on the five private resource candidates, beginning with reconciliation of the existing pending Red Fish record and the virtual-resource classification for the Opioid Treatment Access Line.",
+  "key_metrics": {
+    "chains_inspected": 21,
+    "structured_patterns": 12,
+    "service_links_inspected": 15,
+    "operationally_verified": 12,
+    "partially_verified": 1,
+    "announced_not_verified": 2,
+    "existing_resource_connections": 7,
+    "private_resource_candidates": 5
+  },
+  "executive_summary": "A private, source-grounded synthesis of Miller's addictions policy research found that official implementation evidence can be projected into client, research, and accountability views without duplicating records. Twelve of 15 policy-to-service candidates have operational evidence; unresolved identity and governance details remain review gates.",
+  "scope": "Twenty-one Miller addictions policy/accountability chains, 15 policy-to-service candidates, the curated resource bundle, private resource-candidate artifacts, and their cited public sources. Miller North records were used only for architecture comparison.",
+  "key_findings": [
+    "Aggregate policy announcements often omit resource-level identity even when services later become operational.",
+    "Health-authority service directories are the strongest bridge from policy activity to current service availability.",
+    "First Nations-led initiatives require explicit separation of funder, governance, operator, and provincial-service relationships.",
+    "Repeated recommendations and prolonged partial implementation are prioritization signals, not findings of failure."
+  ],
+  "evidence_highlights": [
+    "Fraser Health evidence supports Creekside, Hope RAAC, and Maple Ridge service changes.",
+    "Vancouver Coastal Health evidence supports Access Central, Oak Care withdrawal management, and DTES Connections.",
+    "Island Health and provincial evidence support Inlet Recovery Home.",
+    "Provincial current-service and utilization evidence supports the Opioid Treatment Access Line."
+  ],
+  "policy_service_relationships": [
+    "Four exact curated-resource matches.",
+    "Three expansions of existing curated resources.",
+    "Four direct new-resource candidates, three insufficient-identity services, and one planned unmatched service.",
+    "Red Road North was discovered during follow-up and remains a separate private candidate."
+  ],
+  "implementation_status": "Twelve candidates are operationally verified, one is partially verified, and two remain announcement-only. Operation is not treated as utilization or effectiveness unless a separate source supports those stages.",
+  "unresolved_questions": [
+    "Can public operator and intake details be confirmed for Adams Lake, Skidegate, and Old Massett services?",
+    "Did Old Massett's announced July opening occur?",
+    "Which Budget 2023 capacity commitments map to named facilities rather than aggregate totals?",
+    "Which public funding fields can be separated reliably into capital, operating, one-time, and recurring amounts?"
+  ],
+  "method": "Deterministic normalization, exact and bounded identity comparison, source-role separation, cross-chain counts, explicit-date interval calculation, and conservative owner-review gates. No model inferred implementation or causality.",
+  "sources": [
+    "https://www.fraserhealth.ca/news/2026/Feb/Expanding-addictions-care-in-Lower-Mainland",
+    "https://www.vch.ca/en/location-service/withdrawal-management-oak-care-centre",
+    "https://www.islandhealth.ca/services/mental-health-substance-use-services/community-bed-based-treatment-recovery/substance-use-treatment-recovery-beds",
+    "https://www2.gov.bc.ca/gov/content/health/mental-health-and-addictions/opioid-treatment-access-line",
+    "https://news.gov.bc.ca/releases/2026HLTH0060-000717"
+  ],
+  "limitations": "The local canonical registry was unseeded during the original comparison, some current service pages do not expose full identity or intake details, historical URLs may change, and this benchmark does not establish service adequacy or policy effectiveness.",
+  "findings": [
+    {
+      "finding_id": "frf_operational_service_bridge",
+      "finding_type": "major_new_connection",
+      "title": "Policy-to-service evidence bridge is reproducible",
+      "official_primary_source": true,
+      "independent_source_count": 0,
+      "linked_chain_count": 5,
+      "repeated_recommendation": false,
+      "prolonged_partial_implementation": false,
+      "real_world_service_impact": true,
+      "new_resource_discovery": true,
+      "legal_or_regulatory_significance": false,
+      "geographic_reach": "provincial",
+      "owner_review_flag": false
+    },
+    {
+      "finding_id": "frf_first_nations_governance",
+      "finding_type": "major_new_connection",
+      "title": "First Nations-led service backstories require distinct governance roles",
+      "official_primary_source": true,
+      "independent_source_count": 0,
+      "linked_chain_count": 2,
+      "repeated_recommendation": false,
+      "prolonged_partial_implementation": false,
+      "real_world_service_impact": true,
+      "new_resource_discovery": true,
+      "legal_or_regulatory_significance": true,
+      "geographic_reach": "regional",
+      "owner_review_flag": true
+    },
+    {
+      "finding_id": "frf_old_massett_status_correction",
+      "finding_type": "implementation_gap",
+      "title": "Old Massett announcement does not establish operation",
+      "official_primary_source": true,
+      "independent_source_count": 0,
+      "linked_chain_count": 1,
+      "repeated_recommendation": false,
+      "prolonged_partial_implementation": false,
+      "real_world_service_impact": true,
+      "new_resource_discovery": false,
+      "legal_or_regulatory_significance": false,
+      "geographic_reach": "local",
+      "owner_review_flag": true
+    },
+    {
+      "finding_id": "frf_system_oversight_repetition",
+      "finding_type": "repeated_recommendation",
+      "title": "Standards, oversight, and evaluation recur",
+      "official_primary_source": true,
+      "independent_source_count": 1,
+      "linked_chain_count": 5,
+      "repeated_recommendation": true,
+      "prolonged_partial_implementation": true,
+      "real_world_service_impact": false,
+      "new_resource_discovery": false,
+      "legal_or_regulatory_significance": true,
+      "geographic_reach": "provincial",
+      "owner_review_flag": true
+    },
+    {
+      "finding_id": "frf_resource_identity_gap",
+      "finding_type": "implementation_gap",
+      "title": "Aggregate implementation totals resist resource reconciliation",
+      "official_primary_source": true,
+      "independent_source_count": 0,
+      "linked_chain_count": 4,
+      "repeated_recommendation": false,
+      "prolonged_partial_implementation": true,
+      "real_world_service_impact": true,
+      "new_resource_discovery": false,
+      "legal_or_regulatory_significance": false,
+      "geographic_reach": "provincial",
+      "owner_review_flag": true
+    }
+  ]
+}

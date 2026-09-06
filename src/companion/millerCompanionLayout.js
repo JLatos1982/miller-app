@@ -6,7 +6,6 @@ import { MILLER_CHARACTER_INTERACTION, MILLER_COMPANION } from './millerCompanio
 export const MILLER_DESKTOP_COMPANION_LAYOUT = Object.freeze({
   frame: Object.freeze({ width: 300, height: 450 }),
   dog: Object.freeze({ width: 180, height: 175, left: -150, bottom: 8.25, entranceOffsetX: -60 }),
-  petPose: Object.freeze({ width: 320, height: 604, translateX: -106 }),
 })
 
 function normalizedPoint(anchor, width, height, x = 0, y = 0) {
@@ -16,11 +15,12 @@ function normalizedPoint(anchor, width, height, x = 0, y = 0) {
 // Resolves the named contact anchors at the production desktop scale. A small
 // vertical tolerance is intentional: the hand meets the upper neck rather
 // than a mathematically exact pixel in a painterly illustration.
-export function resolveDesktopPetContact(layout = MILLER_DESKTOP_COMPANION_LAYOUT) {
-  const miller = MILLER_CHARACTER_INTERACTION.classic.anchors
+export function resolveDesktopPetContact(layout = MILLER_DESKTOP_COMPANION_LAYOUT, character = 'classic') {
+  const interaction = MILLER_CHARACTER_INTERACTION[character] || MILLER_CHARACTER_INTERACTION.classic
+  const miller = interaction.anchors
   const dog = MILLER_COMPANION.anchors
-  const renderedPetWidth = layout.frame.height * layout.petPose.width / layout.petPose.height
-  const petLeft = (layout.frame.width - renderedPetWidth) / 2 + layout.petPose.translateX
+  const renderedPetWidth = layout.frame.height * interaction.petPose.width / interaction.petPose.height
+  const petLeft = (layout.frame.width - renderedPetWidth) / 2 + interaction.petPose.translateX
   const dogTop = layout.frame.height - layout.dog.bottom - layout.dog.height
   const petHand = normalizedPoint(miller.petHand, renderedPetWidth, layout.frame.height, petLeft)
   const petHead = normalizedPoint(dog.petHead, layout.dog.width, layout.dog.height, layout.dog.left, dogTop)

@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-09-06T01:23:15.112Z",
+  "corpus_id": "miller-north-reconstructed-corpus-v2",
+  "tavily_calls_attempted": 8,
+  "tavily_calls_succeeded": 0,
+  "tavily_result": "unavailable_in_this_execution_environment",
+  "fallback_source_discovery": "bounded_web_search_and_opened_source_pages",
+  "candidate_sources_examined": 3,
+  "incident_candidates_examined": 3,
+  "existing_incidents_matched": 0,
+  "probable_duplicates": 0,
+  "genuinely_new_incident_candidates": 20,
+  "new_candidates_staged": 20,
+  "province_breakdown": {
+    "british_columbia": 9,
+    "alberta": 0,
+    "saskatchewan": 0
+  },
+  "source_urls": [
+    "https://bcruralhealth.org/haida-elder-in-extreme-appendicitis-pain-was-allegedly-released-from-b-c-hospital-without-treatment/",
+    "https://vancouver.citynews.ca/2021/01/30/b-c-minister-says-review-launched-after-stillbirth-leads-to-allegations-of-racism/",
+    "https://indiginews.com/news/connor-sutton-anti-indigenous-racism-needs-to-stop/",
+    "https://siksikanation.com/siksika-nation-member-brings-human-rights-complaint-in-response-to-systemic-anti-indigenous-discrimination-in-albertas-healthcare-sector/",
+    "https://globalnews.ca/news/8533176/indigenous-woman-alleges-racist-treatment-at-regina-general-hospital-er/",
+    "https://www.nationalobserver.com/2023/04/11/investigations/anti-indigenous-racism-health-care",
+    "https://globalnews.ca/news/7758146/indigenous-woman-racist-encounter-alberta-hospital/",
+    "https://www.aptnnews.ca/national-news/kawacatoose-elder-files-complaint-of-racism-discrimination-against-regina-hospital",
+    "https://www.620ckrm.com/2025/12/19/sha-bans-security-guards-who-removed-indigenous-man-from-pa-hospital/",
+    "https://globalnews.ca/news/8925793/indigenous-patient-complaint-nanaimo-regional-general-hospital/",
+    "https://thetyee.ca/News/2021/05/17/Legacy-Mistrust-Indigenous-Health-Care-BC-North/",
+    "https://thetyee.ca/News/2021/05/17/Legacy-Mistrust-Indigenous-Health-Care-BC-North/",
+    "https://thetyee.ca/News/2021/05/17/Legacy-Mistrust-Indigenous-Health-Care-BC-North/",
+    "https://www.cbc.ca/news/canada/saskatoon/indigenous-woman-health-pregnancy-preeclampsia-death-9.7211641",
+    "https://www.cbc.ca/news/canada/british-columbia/indigenous-patients-nurses-on-alleged-racist-game-in-hospitals-1.5622448",
+    "https://globalnews.ca/news/10911408/edmonton-hospital-indigenous-braids-alberta",
+    "https://www.aptnnews.ca/national-news/saskatchewan-health-authority-investigating-incident-cree-woman-describes-as-worst-pain-i-ever-had",
+    "https://www.ctvnews.ca/calgary/article/calgary-family-speaks-out-against-indigenous-racism-neglect-and-discrimination-in-healthcare-system",
+    "https://thediscourse.ca/cowichan-valley/penelakut-family-calls-on-island-health-to-address-systemic-racism-after-lenny-sylvesters-death",
+    "https://www.aptnnews.ca/national-news/family-says-saskatchewan-hospitals-refusal-to-immediately-treat-deaf-mute-cree-man-hastened-death"
+  ]
+}

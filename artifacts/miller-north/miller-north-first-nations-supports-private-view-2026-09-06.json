@@ -1,0 +1,496 @@
+{
+  "schema_version": "miller-north-first-nations-supports-private-view-v1",
+  "visibility": "private_owner_review",
+  "title": "First Nations Supports",
+  "caution": "Service status and eligibility reflect public operator information checked on September 6, 2026. Confirm directly before relying on a service. Governance, funding and delivery are separate relationships.",
+  "filters": [
+    "province",
+    "community",
+    "support_type",
+    "first_nations_specific_or_broader_indigenous",
+    "delivery_mode",
+    "substance_use",
+    "patient_navigation",
+    "cultural_support",
+    "advocacy"
+  ],
+  "cards": [
+    {
+      "name": "Indigenous Health Liaison Program",
+      "operator": "Fraser Health",
+      "province": "British Columbia",
+      "community": "Fraser Health region",
+      "governance_label": "provincial_health_authority_indigenous_support_role",
+      "categories": [
+        "patient_navigation",
+        "cultural_support",
+        "discharge_navigation",
+        "family_support"
+      ],
+      "population": "People who self-identify as Indigenous or Aboriginal and their families",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-866-766-6960",
+      "website": "https://www.fraserhealth.ca/health-topics-a-to-z/indigenous-health/indigenous-health-liaisons",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "Indigenous Mental Health Liaison Program",
+      "operator": "Fraser Health",
+      "province": "British Columbia",
+      "community": "Surrey, Maple Ridge/Coquitlam, Abbotsford/Mission, Chilliwack, Hope/Agassiz",
+      "governance_label": "provincial_health_authority_indigenous_support_role",
+      "categories": [
+        "mental_health",
+        "substance_use",
+        "patient_navigation",
+        "cultural_support"
+      ],
+      "population": "Indigenous people in the Fraser Health region",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-833-866-6478",
+      "website": "https://www.fraserhealth.ca/Service-Directory/Services/mental-health-and-substance-use/mental-health---community-services/aboriginal-mental-health-liaisons",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "Indigenous Maternal Liaison",
+      "operator": "Fraser Health",
+      "province": "British Columbia",
+      "community": "Surrey",
+      "governance_label": "provincial_health_authority_indigenous_support_role",
+      "categories": [
+        "maternal_birth_support",
+        "patient_navigation",
+        "cultural_support",
+        "advocacy"
+      ],
+      "population": "People who self-identify as Indigenous or Aboriginal",
+      "access": "Contact the operator using the public service page.",
+      "phone": "236-332-7615",
+      "website": "https://www.fraserhealth.ca/health-topics-a-to-z/indigenous-health/Indigenous-maternal-liaison",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "Indigenous Primary Health and Wellness Clinic (FRAFCA)",
+      "operator": "Fraser Region Aboriginal Friendship Centre Association / Fraser Health",
+      "province": "British Columbia",
+      "community": "Surrey",
+      "governance_label": "indigenous_community_organization_health_authority_partnership",
+      "categories": [
+        "primary_care",
+        "traditional_wellness",
+        "cultural_support",
+        "patient_navigation"
+      ],
+      "population": "Métis, First Nations, Inuit and self-identifying Indigenous people",
+      "access": "Contact the operator using the public service page.",
+      "phone": "604-283-3293",
+      "website": "https://www.fraserhealth.ca/Service-Directory/Service-at-Location/A/5/indigenous-primary-health-and-wellness-home---indigenous-health",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "Katzie Health and Wellness",
+      "operator": "Katzie First Nation",
+      "province": "British Columbia",
+      "community": "Pitt Meadows",
+      "governance_label": "first_nations_governed_nation_health_program",
+      "categories": [
+        "primary_care",
+        "mental_health",
+        "substance_use",
+        "maternal_birth_support",
+        "traditional_wellness",
+        "family_support"
+      ],
+      "population": "Katzie First Nation members",
+      "access": "Contact the operator using the public service page.",
+      "phone": "604-465-8921",
+      "website": "https://katzie.ca/health/",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "kʷikʷəƛ̓əm Health and Wellness / Community-Based Health Clinic",
+      "operator": "kʷikʷəƛ̓əm First Nation",
+      "province": "British Columbia",
+      "community": "Coquitlam",
+      "governance_label": "first_nations_governed_nation_health_program",
+      "categories": [
+        "primary_care",
+        "mental_health",
+        "substance_use",
+        "traditional_wellness",
+        "cultural_support",
+        "patient_navigation"
+      ],
+      "population": "kʷikʷəƛ̓əm m̀əlstéyəxʷ (members)",
+      "access": "Contact the operator using the public service page.",
+      "phone": null,
+      "website": "https://kwikwetlem.com/health-and-wellness.htm",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "First Nations Virtual Doctor of the Day",
+      "operator": "First Nations Health Authority",
+      "province": "British Columbia",
+      "community": "Provincewide",
+      "governance_label": "first_nations_governed_health_authority",
+      "categories": [
+        "primary_care",
+        "patient_navigation",
+        "virtual_support"
+      ],
+      "population": "First Nations people and their families living in B.C.",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-855-344-3800",
+      "website": "https://fnha.ca/services-and-support/access-and-support/health-and-virtual-services/virtual-doctor-how-it-works/",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "First Nations Virtual Substance Use and Psychiatry Service",
+      "operator": "First Nations Health Authority",
+      "province": "British Columbia",
+      "community": "Provincewide",
+      "governance_label": "first_nations_governed_health_authority",
+      "categories": [
+        "substance_use",
+        "opioid_agonist_treatment",
+        "mental_health",
+        "virtual_support"
+      ],
+      "population": "First Nations people and their families living in B.C.",
+      "access": "Referral required",
+      "phone": "1-833-456-7655 (provider/referral support)",
+      "website": "https://fnha.ca/services-and-support/access-and-support/health-and-virtual-services/virtual-substance-use-and-psychiatry-service/",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "FNHA Mental Health and Wellness Supports",
+      "operator": "First Nations Health Authority",
+      "province": "British Columbia",
+      "community": "Provincewide",
+      "governance_label": "first_nations_governed_health_authority",
+      "categories": [
+        "mental_health",
+        "cultural_support",
+        "traditional_wellness"
+      ],
+      "population": "Eligible First Nations clients in B.C.; some listed crisis supports serve broader Indigenous populations",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-855-550-5454",
+      "website": "https://fnha.ca/services-and-support/preventative-care/mental-health-and-wellness/mental-health-and-wellness-supports/",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "Quality Care and Safety Office",
+      "operator": "First Nations Health Authority",
+      "province": "British Columbia",
+      "community": "Provincewide",
+      "governance_label": "first_nations_governed_health_authority",
+      "categories": [
+        "advocacy",
+        "patient_safety",
+        "complaints_resolution",
+        "patient_navigation"
+      ],
+      "population": "First Nations clients and families",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-844-935-1044",
+      "website": "https://fnha.ca/about/governance-and-accountability/compliments-and-complaints/",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "Jordan’s Principle Service Coordination Network and Hub",
+      "operator": "BC Aboriginal Child Care Society / regional First Nations service coordinators",
+      "province": "British Columbia",
+      "community": "Provincewide",
+      "governance_label": "indigenous_organization_service_coordination_with_federal_decision_authority",
+      "categories": [
+        "youth_support",
+        "family_support",
+        "patient_navigation"
+      ],
+      "population": "First Nations children and families",
+      "access": "Contact the operator using the public service page.",
+      "phone": null,
+      "website": "https://fnha.ca/services-and-support/for-you/maternal-child-and-family-health/jordans-principle/",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "KUU-US Crisis Response Service",
+      "operator": "KUU-US Crisis Line Society",
+      "province": "British Columbia",
+      "community": "Provincewide",
+      "governance_label": "indigenous_nonprofit_service_operator",
+      "categories": [
+        "crisis_support",
+        "youth_support",
+        "elder_support",
+        "mental_health"
+      ],
+      "population": "Indigenous people in B.C.",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-800-588-8717",
+      "website": "https://www.kuu-uscrisisline.com/",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "Alberta Indigenous Virtual Care Clinic",
+      "operator": "Alberta Indigenous Virtual Care Clinic",
+      "province": "Alberta",
+      "community": "Provincewide",
+      "governance_label": "indigenous_focused_independent_service_operator",
+      "categories": [
+        "primary_care",
+        "mental_health",
+        "patient_navigation",
+        "virtual_support"
+      ],
+      "population": "Self-identifying First Nations, Inuit and Métis people and their families in Alberta",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-888-342-4822",
+      "website": "https://aivcc.ca/",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "Indigenous Support Line",
+      "operator": "Alberta Health Services / current provincial health system",
+      "province": "Alberta",
+      "community": "Provincewide",
+      "governance_label": "provincial_health_system_indigenous_support_role",
+      "categories": [
+        "patient_navigation",
+        "cultural_support",
+        "advocacy",
+        "substance_use",
+        "mental_health"
+      ],
+      "population": "First Nations (status and non-status), Métis, Inuit and families",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-844-944-4744 or 811",
+      "website": "https://www.albertahealthservices.ca/findhealth/Service.aspx?id=1083567&serviceAtFacilityID=1138816",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "Indigenous Wellness Clinic",
+      "operator": "Alberta Health Services / current provincial health system",
+      "province": "Alberta",
+      "community": "Edmonton",
+      "governance_label": "provincial_health_system_indigenous_service",
+      "categories": [
+        "primary_care",
+        "mental_health",
+        "substance_use",
+        "patient_navigation",
+        "advocacy"
+      ],
+      "population": "Indigenous patients of all ages in Edmonton Zone and surrounding area",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-844-441-4512 or 780-735-4512",
+      "website": "https://www.albertahealthservices.ca/findhealth/service.aspx?id=4838",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "Indigenous Wellness Core — North Zone services",
+      "operator": "Alberta Health Services / current provincial health system",
+      "province": "Alberta",
+      "community": "Multiple northern and rural communities",
+      "governance_label": "provincial_health_system_indigenous_support_role",
+      "categories": [
+        "patient_navigation",
+        "cultural_support",
+        "mental_health",
+        "substance_use",
+        "outreach"
+      ],
+      "population": "First Nations, Métis and Inuit people",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-844-944-4744",
+      "website": "https://www.albertahealthservices.ca/findhealth/service.aspx?id=7805",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "Four Winds South Zone Indigenous Patient Navigation",
+      "operator": "Alberta Health Services / Four Winds team",
+      "province": "Alberta",
+      "community": "Lethbridge, Cardston, Pincher Creek and Fort Macleod",
+      "governance_label": "indigenous_led_team_within_provincial_health_system",
+      "categories": [
+        "patient_navigation",
+        "discharge_navigation",
+        "cultural_support",
+        "advocacy"
+      ],
+      "population": "Indigenous patients and families",
+      "access": "Contact the operator using the public service page.",
+      "phone": null,
+      "website": "https://www.albertahealthservices.ca/news/Page17093.aspx",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "Indigenous Cancer Patient Navigators and Indigenous Cultural Liaisons",
+      "operator": "Cancer Care Alberta",
+      "province": "Alberta",
+      "community": "Edmonton and Calgary cancer centres; provincial navigation context",
+      "governance_label": "provincial_health_system_indigenous_support_role",
+      "categories": [
+        "patient_navigation",
+        "cultural_support",
+        "advocacy"
+      ],
+      "population": "First Nations, Métis and Inuit people affected by cancer and their families",
+      "access": "Contact the operator using the public service page.",
+      "phone": null,
+      "website": "https://www.albertahealthservices.ca/assets/info/cca/if-cca-indigenous-navigator-cci.pdf",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "First Nations Health Ombudsperson Office",
+      "operator": "First Nations Health Ombudsperson Office",
+      "province": "Saskatchewan",
+      "community": "Provincewide",
+      "governance_label": "first_nations_governed_accountability_office",
+      "categories": [
+        "advocacy",
+        "patient_safety",
+        "complaints_resolution",
+        "patient_navigation"
+      ],
+      "population": "Saskatchewan First Nations individuals and communities",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-833-512-0651",
+      "website": "https://fnhoo.ca/faq/",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "First Nations and Métis Health Services",
+      "operator": "Saskatchewan Health Authority",
+      "province": "Saskatchewan",
+      "community": "Regina, Saskatoon, Prince Albert and Broadview",
+      "governance_label": "provincial_health_authority_indigenous_support_role",
+      "categories": [
+        "patient_navigation",
+        "cultural_support",
+        "elder_support",
+        "transportation",
+        "discharge_navigation",
+        "housing",
+        "family_support"
+      ],
+      "population": "First Nations and Métis patients and families",
+      "access": "Contact the operator using the public service page.",
+      "phone": null,
+      "website": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/indigenous-health/first-nations-and-metis-health-services",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "Indigenous Birth Support Worker Program",
+      "operator": "Saskatchewan Health Authority",
+      "province": "Saskatchewan",
+      "community": "Saskatoon",
+      "governance_label": "provincial_health_authority_indigenous_support_role",
+      "categories": [
+        "maternal_birth_support",
+        "advocacy",
+        "cultural_support",
+        "family_support"
+      ],
+      "population": "First Nations, Métis and Inuit women planning to give birth in Saskatoon",
+      "access": "Contact the operator using the public service page.",
+      "phone": "306-514-7978",
+      "website": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/indigenous-health/maternal-care-centre-indigenous-birth-support-worker-jim-pattison-childrens-hospital",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "Integrated Wellness",
+      "operator": "Saskatoon Tribal Council",
+      "province": "Saskatchewan",
+      "community": "STC member First Nations",
+      "governance_label": "first_nations_governed_tribal_council_program",
+      "categories": [
+        "mental_health",
+        "substance_use",
+        "crisis_support",
+        "traditional_wellness",
+        "family_support"
+      ],
+      "population": "STC member First Nations’ relatives across the lifespan",
+      "access": "Contact the operator using the public service page.",
+      "phone": "306-956-6100",
+      "website": "https://sktc.sk.ca/wellness/integrated-wellness/",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "STC Health Centre",
+      "operator": "Saskatoon Tribal Council",
+      "province": "Saskatchewan",
+      "community": "Saskatoon",
+      "governance_label": "first_nations_governed_tribal_council_service",
+      "categories": [
+        "substance_use",
+        "harm_reduction",
+        "mental_health",
+        "patient_navigation",
+        "elder_support",
+        "traditional_wellness"
+      ],
+      "population": "Community members using the STC Health Centre",
+      "access": "Contact the operator using the public service page.",
+      "phone": null,
+      "website": "https://sktc.sk.ca/wellness/stc-health-centre/",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "Wellness Wheel Clinic",
+      "operator": "Wellness Wheel Medical Clinic",
+      "province": "Saskatchewan",
+      "community": "Regina plus rural, remote and on-reserve outreach",
+      "governance_label": "community_driven_indigenous_health_partnership",
+      "categories": [
+        "primary_care",
+        "mental_health",
+        "outreach",
+        "traditional_wellness"
+      ],
+      "population": "Indigenous and vulnerable populations; community-specific outreach",
+      "access": "Contact the operator using the public service page.",
+      "phone": "306-757-9012",
+      "website": "https://www.wellnesswheelclinic.ca/clinicalServices.html",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "The Place of Hope / All Nations Hope Network",
+      "operator": "All Nations Hope Network",
+      "province": "Saskatchewan",
+      "community": "Regina and Fort Qu’Appelle",
+      "governance_label": "indigenous_nonprofit_service_operator",
+      "categories": [
+        "outreach",
+        "housing",
+        "mental_health",
+        "traditional_wellness",
+        "family_support"
+      ],
+      "population": "First Nations, Métis and Inuit people and families affected by HIV, AIDS or hepatitis C",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-877-210-7622 or 306-924-8424",
+      "website": "https://allnationshope.ca/outreach",
+      "last_verified_date": "2026-09-06"
+    },
+    {
+      "name": "Non-Insured Health Benefits Navigator",
+      "operator": "Prince Albert Grand Council",
+      "province": "Saskatchewan",
+      "community": "Prince Albert Grand Council member communities",
+      "governance_label": "first_nations_governed_tribal_council_program",
+      "categories": [
+        "patient_navigation",
+        "transportation",
+        "advocacy"
+      ],
+      "population": "Eligible First Nations and Inuit clients",
+      "access": "Contact the operator using the public service page.",
+      "phone": null,
+      "website": "https://pagc.sk.ca/wp-content/uploads/ar2025.pdf",
+      "last_verified_date": "2026-09-06"
+    }
+  ]
+}

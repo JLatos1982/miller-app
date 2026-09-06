@@ -1,0 +1,12 @@
+{
+  "approval_contract": "miller-owner-approved-location-recovery-v1",
+  "clean_batch_id": "a97af021-2613-4699-8b1d-e14343bb4cf7",
+  "clean_audit_hash": "0a5b5fb064c1ba369dabe177136311bef37fd862c2e8fb7377355a98ff80be1f",
+  "proposal_store_path": "/Users/admin/samwise-private/data/miller-uuid-location-proposals-batch2-tier1-20260905-r2.sqlite",
+  "final_report_path": "/Users/admin/samwise-private/data/miller-uuid-location-report-batch2-tier1-20260905-r2.json",
+  "approved": [
+    {"proposal_id":"miller_uuid_location_3a68b34c-6af3-449d-9d62-db4b1604a815","resource_id":"4311565a-7980-54be-9a6a-ba4f46a7c375","name":"Substance Use Services - Three Bridges Community Health Centre","street_address":"1128 Hornby Street","city":"Vancouver","province":"BC","evidence_hash":"b8778260419d395cd8308ec6107869eb62735263cd8452d9f76b81a139350032"},
+    {"proposal_id":"miller_uuid_location_39c2bf5f-88a2-4c5b-a45e-7dcf24cb9d14","resource_id":"83c0cbb1-323b-51fb-828a-3033b932d517","name":"Substance Use Services - Raven Song Community Health Centre","street_address":"2450 Ontario Street","city":"Vancouver","province":"BC","evidence_hash":"f17aad71ab97678878c82864362e89b196c3225c98614a122c8f151ee77793e3"},
+    {"proposal_id":"miller_uuid_location_71c2d6ab-e280-4006-86da-4b11d51d68ba","resource_id":"975eefeb-2c09-5c7b-abf0-a26308a47ec7","name":"Addiction Medicine - Raven Song Community Health Centre","street_address":"2450 Ontario Street","city":"Vancouver","province":"BC","evidence_hash":"a780c08ad78224ab166670422ea410212e5e0108b93272f1dcf0b7eeaa99f8e7"}
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "schema_version": "miller-north-legal-government-context-pilot-v1",
+  "research_date": "2026-09-06",
+  "research_domain": "miller_north_indigenous_healthcare",
+  "publication_scope": "private_owner_review",
+  "chains": [
+    {
+      "context_id": "mnlc_in_plain_sight",
+      "accountability_chain_id": "bc_in_plain_sight",
+      "title": "In Plain Sight — statutory, policy and implementation context",
+      "jurisdiction": "British Columbia",
+      "applicable_rules": ["Declaration on the Rights of Indigenous Peoples Act action-plan reporting", "Health Professions and Occupations Act reform", "B.C. Cultural Safety and Humility Standard"],
+      "government_and_governance_context": "B.C. reports implementation through Action 3.07 with First Nations Health Authority, First Nations Health Council, Métis Nation British Columbia and regional partners. The current page says the reporting framework does not yet capture all 24 recommendations and that modern-treaty nation participation requires further consideration.",
+      "implementation_evidence": "A 24-month update and the current Action 3.07 page document activity, but the Province itself describes comprehensive recommendation-level reporting as incomplete.",
+      "treaty_context": {"status": "not_established", "summary": "The official page flags modern-treaty participation as a governance-design issue; it does not establish a specific treaty-right conclusion."},
+      "confidence": "high",
+      "owner_review_flag": true,
+      "owner_review_reason": "Implementation is documented but comprehensive completion cannot be inferred from the available reporting framework.",
+      "publication_state": "private_owner_review",
+      "evidence_edges": [
+        {"edge_id":"fedge_ips_action_plan","from_object_id":"bc_in_plain_sight","to_object_id":"bc_drap_action_3_07","relationship_type":"responds_to","neutral_summary":"Declaration Act Action 3.07 is the Province's formal implementation vehicle for the In Plain Sight recommendations.","confidence":"high","owner_review_flag":false,"owner_review_reason":null,"source_references":[{"source_family_id":"fogs_bc_declaration_act_reporting","source_url":"https://declaration.gov.bc.ca/actions/3-07/","document_class":"action_plan_progress_page","source_role":"government_response_and_current_status","publication_date":null}]},
+        {"edge_id":"fedge_ips_24_month_update","from_object_id":"bc_drap_action_3_07","to_object_id":"bc_ips_24_month_update","relationship_type":"evaluated_by","neutral_summary":"The Province published a 24-month progress update describing implementation activity.","confidence":"high","owner_review_flag":false,"owner_review_reason":null,"source_references":[{"source_family_id":"fogs_bc_news_archive","source_url":"https://archive.news.gov.bc.ca/releases/news_releases_2020-2024/2023HLTH0123-001561.htm","document_class":"formal_progress_update","source_role":"implementation_progress","publication_date":"2023-11-30"}]},
+        {"edge_id":"fedge_ips_reporting_limit","from_object_id":"bc_drap_action_3_07","to_object_id":"bc_ips_reporting_gap","relationship_type":"partially_implements","neutral_summary":"The current action page says the framework has limited capacity to report comprehensively across all 24 recommendations.","confidence":"high","owner_review_flag":true,"owner_review_reason":"This supports a reporting limitation, not a conclusion that recommendations were ignored or ineffective.","source_references":[{"source_family_id":"fogs_bc_declaration_act_reporting","source_url":"https://declaration.gov.bc.ca/actions/3-07/","document_class":"action_plan_progress_page","source_role":"implementation_limitation","publication_date":null}]}
+      ]
+    },
+    {
+      "context_id": "mnlc_pcq_reform",
+      "accountability_chain_id": "bc_patient_care_quality_reform",
+      "title": "Patient care quality review reform",
+      "jurisdiction": "British Columbia",
+      "applicable_rules": ["Patient Care Quality Review Board Act"],
+      "government_and_governance_context": "The Act establishes the existing review-board framework. A current ministry engagement process is reviewing patient-care quality and Indigenous-specific racism processes through 2026 and states that future legislative changes may follow.",
+      "implementation_evidence": "The review is operational as an engagement process; legislative reform remains prospective.",
+      "treaty_context": {"status": "not_applicable", "summary": "No direct treaty relationship was established for this procedural reform."},
+      "confidence": "high",
+      "owner_review_flag": true,
+      "owner_review_reason": "The final legislative outcome and supersession path are not yet known.",
+      "publication_state": "private_owner_review",
+      "evidence_edges": [
+        {"edge_id":"fedge_pcq_governed","from_object_id":"bc_patient_care_quality_reform","to_object_id":"bc_pcq_review_board_act","relationship_type":"governed_by","neutral_summary":"The current complaint-review structure is established by the Patient Care Quality Review Board Act.","confidence":"high","owner_review_flag":false,"owner_review_reason":null,"source_references":[{"source_family_id":"fogs_bc_laws","source_url":"https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/08035_01","document_class":"statute","source_role":"current_legal_framework","publication_date":null}]},
+        {"edge_id":"fedge_pcq_review_response","from_object_id":"bc_pcq_process_review_2026","to_object_id":"bc_patient_care_quality_reform","relationship_type":"responds_to","neutral_summary":"The ministry review expressly includes Indigenous-specific racism and two patient-care quality processes.","confidence":"high","owner_review_flag":false,"owner_review_reason":null,"source_references":[{"source_family_id":"fogs_bc_health_ministry","source_url":"https://engage.gov.bc.ca/patientcarequality/about/","document_class":"formal_public_engagement","source_role":"reform_process","publication_date":null}]},
+        {"edge_id":"fedge_pcq_possible_amendment","from_object_id":"bc_pcq_review_board_act","to_object_id":"bc_pcq_process_review_2026","relationship_type":"evaluated_by","neutral_summary":"The current statutory process is being evaluated and the engagement page says possible future legislative changes may result; no enacted amendment was established.","confidence":"medium","owner_review_flag":true,"owner_review_reason":"This is a review relationship, not evidence that the Act has changed.","source_references":[{"source_family_id":"fogs_bc_health_ministry","source_url":"https://engage.gov.bc.ca/patientcarequality/about/","document_class":"formal_public_engagement","source_role":"possible_future_legislation","publication_date":null}]}
+      ]
+    },
+    {
+      "context_id": "mnlc_alberta_patient_advocate",
+      "accountability_chain_id": "ab_indigenous_patient_safety_advocate",
+      "title": "Alberta Indigenous Patient Safety Investigator and Advocate",
+      "jurisdiction": "Alberta",
+      "applicable_rules": ["Alberta Health Act", "Alberta Health Charter"],
+      "government_and_governance_context": "The provincial advocate receives concerns, supports complaint navigation and may examine Health Charter compliance where another process is unavailable. Its published mandate excludes discipline, reversal of clinical or administrative decisions, fines and court functions.",
+      "implementation_evidence": "A current provincial service page demonstrates that the mechanism exists and accepts contacts; the page also defines its legal and practical limits.",
+      "treaty_context": {"status": "not_established", "summary": "The inspected provincial pages did not establish a treaty-specific legal basis for this office."},
+      "confidence": "high",
+      "owner_review_flag": false,
+      "owner_review_reason": null,
+      "publication_state": "private_owner_review",
+      "evidence_edges": [
+        {"edge_id":"fedge_ab_advocate_created","from_object_id":"ab_indigenous_patient_safety_advocate","to_object_id":"ab_ipsia_service","relationship_type":"created_by","neutral_summary":"Alberta's current service page confirms the Indigenous Patient Safety Investigator and Advocate as an operating complaint-support mechanism.","confidence":"high","owner_review_flag":false,"owner_review_reason":null,"source_references":[{"source_family_id":"fogs_alberta_health_advocates","source_url":"https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate","document_class":"government_service_page","source_role":"current_operation","publication_date":null}]},
+        {"edge_id":"fedge_ab_advocate_charter","from_object_id":"ab_ipsia_service","to_object_id":"ab_health_charter","relationship_type":"governed_by","neutral_summary":"The advocate uses the Alberta Health Charter as a review lens where no other process is available.","confidence":"high","owner_review_flag":false,"owner_review_reason":null,"source_references":[{"source_family_id":"fogs_alberta_health_advocates","source_url":"https://www.alberta.ca/alberta-health-charter","document_class":"statutory_charter","source_role":"governing_framework","publication_date":null},{"source_family_id":"fogs_alberta_health_advocates","source_url":"https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate","document_class":"government_service_page","source_role":"mandate","publication_date":null}]},
+        {"edge_id":"fedge_ab_advocate_limits","from_object_id":"ab_health_charter","to_object_id":"ab_ipsia_service","relationship_type":"operationalizes","neutral_summary":"The published mandate operationalizes a Charter-focused navigation and review function while expressly excluding adjudicative and disciplinary powers.","confidence":"high","owner_review_flag":false,"owner_review_reason":null,"source_references":[{"source_family_id":"fogs_alberta_health_advocates","source_url":"https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate","document_class":"government_service_page","source_role":"scope_and_limits","publication_date":null}]}
+      ]
+    },
+    {
+      "context_id": "mnlc_cpsa_trc",
+      "accountability_chain_id": "ab_cpsa_truth_reconciliation",
+      "title": "CPSA Truth and Reconciliation and anti-racism guidance",
+      "jurisdiction": "Alberta",
+      "applicable_rules": ["CPSA Standards of Practice", "CPSA Code of Ethics and Professionalism", "Anti-Racism and Anti-Discrimination advice to the profession"],
+      "government_and_governance_context": "CPSA describes a reconciliation plan co-created with an Indigenous Advisory Circle. Its anti-racism document is advice, expressly not a standard of practice or legal advice, although it points physicians to binding legislation, the Code and standards.",
+      "implementation_evidence": "The action plan and published advice are demonstrable regulator outputs; evidence of system-wide practitioner outcomes was not located in this pilot.",
+      "treaty_context": {"status": "territorial_context_only", "summary": "CPSA situates its work across Treaty 6, 7 and 8 territories; this is territorial and engagement context, not a treaty-right holding."},
+      "confidence": "high",
+      "owner_review_flag": true,
+      "owner_review_reason": "Public materials prove publication and governance activity, not profession-wide implementation or outcomes.",
+      "publication_state": "private_owner_review",
+      "evidence_edges": [
+        {"edge_id":"fedge_cpsa_plan_created","from_object_id":"ab_cpsa_truth_reconciliation","to_object_id":"cpsa_path_to_trc","relationship_type":"created_by","neutral_summary":"CPSA's Path to Truth and Reconciliation is the regulator's formal action-plan response.","confidence":"high","owner_review_flag":false,"owner_review_reason":null,"source_references":[{"source_family_id":"fogs_cpsa","source_url":"https://cpsa.ca/about-cpsa/truth-and-reconciliation/cpsas-path-to-truth-and-reconciliation/","document_class":"regulatory_action_plan","source_role":"current_plan","publication_date":null}]},
+        {"edge_id":"fedge_cpsa_advice_implements","from_object_id":"cpsa_path_to_trc","to_object_id":"cpsa_anti_racism_advice","relationship_type":"implements","neutral_summary":"The published anti-racism advice is a concrete professional-education output related to the regulator's reconciliation work.","confidence":"medium","owner_review_flag":false,"owner_review_reason":null,"source_references":[{"source_family_id":"fogs_cpsa","source_url":"https://cpsa.ca/news/new-advice-to-the-profession-anti-racism-and-anti-discrimination/","document_class":"regulator_announcement","source_role":"publication","publication_date":null}]},
+        {"edge_id":"fedge_cpsa_advice_status","from_object_id":"cpsa_anti_racism_advice","to_object_id":"cpsa_standards_of_practice","relationship_type":"governed_by","neutral_summary":"The advice document states it is not itself a standard or legal advice and must be read with legislation, the Code and standards.","confidence":"high","owner_review_flag":true,"owner_review_reason":"The document must not be represented as a binding professional standard.","source_references":[{"source_family_id":"fogs_cpsa","source_url":"https://cpsa.ca/wp-content/uploads/2023/12/AP_Anti-Racism-Anti-Discrimination.pdf","document_class":"advice_to_profession","source_role":"binding_status","publication_date":"2023-12"}]}
+      ]
+    },
+    {
+      "context_id": "mnlc_sk_hrc_mediation",
+      "accountability_chain_id": "sk_hrc_hospital_mediation",
+      "title": "Saskatchewan human-rights hospital mediation",
+      "jurisdiction": "Saskatchewan",
+      "applicable_rules": ["The Saskatchewan Human Rights Code, section 12"],
+      "government_and_governance_context": "The Saskatchewan Human Rights Commission publicly describes an anonymized hospital-service complaint as having sufficient merit for directed mediation under section 12. The resolution included compensation, an apology and systemic-racism training for employees.",
+      "implementation_evidence": "The Commission records the mediated terms as a resolution, but the public summary does not independently measure completion or training outcomes.",
+      "treaty_context": {"status": "not_established", "summary": "No treaty-specific legal determination appears in the public anonymized summary."},
+      "confidence": "high",
+      "owner_review_flag": true,
+      "owner_review_reason": "The matter is anonymized and the public summary does not establish post-resolution implementation evidence.",
+      "publication_state": "private_owner_review",
+      "evidence_edges": [
+        {"edge_id":"fedge_sk_hrc_complaint_under","from_object_id":"sk_hrc_hospital_mediation","to_object_id":"sk_human_rights_code_s12","relationship_type":"governed_by","neutral_summary":"The Commission identifies section 12 as the legal basis for the hospital-service complaint.","confidence":"high","owner_review_flag":false,"owner_review_reason":null,"source_references":[{"source_family_id":"fogs_saskatchewan_human_rights","source_url":"https://saskhrc.ca/complaint-resolution/","document_class":"commission_case_summary","source_role":"legal_process_and_resolution","publication_date":null},{"source_family_id":"fogs_saskatchewan_publications","source_url":"https://publications.saskatchewan.ca/#/products/95339","document_class":"statute_registry","source_role":"official_code_source","publication_date":null}]},
+        {"edge_id":"fedge_sk_hrc_mediation_response","from_object_id":"sk_hrc_directed_mediation","to_object_id":"sk_hrc_hospital_mediation","relationship_type":"responds_to","neutral_summary":"Directed mediation followed a Commission assessment that the anonymized complaint had sufficient merit.","confidence":"high","owner_review_flag":true,"owner_review_reason":"The public source uses an anonymized name; no identity inference is permitted.","source_references":[{"source_family_id":"fogs_saskatchewan_human_rights","source_url":"https://saskhrc.ca/complaint-resolution/","document_class":"commission_case_summary","source_role":"mediation_process","publication_date":null}]},
+        {"edge_id":"fedge_sk_hrc_training_commitment","from_object_id":"sk_hrc_hospital_mediation","to_object_id":"sk_hrc_training_resolution","relationship_type":"linked_to_commitment","neutral_summary":"The mediated resolution included employee training on systemic racism alongside compensation and an apology.","confidence":"high","owner_review_flag":true,"owner_review_reason":"The source proves the resolution term, not later completion or effectiveness.","source_references":[{"source_family_id":"fogs_saskatchewan_human_rights","source_url":"https://saskhrc.ca/complaint-resolution/","document_class":"commission_case_summary","source_role":"resolution_terms","publication_date":null}]}
+      ]
+    },
+    {
+      "context_id": "mnlc_sk_tubal_ligation",
+      "accountability_chain_id": "sk_tubal_ligation_accountability",
+      "title": "Coerced sterilization review and later federal criminal-law response",
+      "jurisdiction": "Saskatchewan and federal Canada",
+      "applicable_rules": ["Saskatoon Health Region external review", "Criminal Code amendment enacted by Bill S-228"],
+      "government_and_governance_context": "The 2017 Saskatoon review documented Indigenous women's experiences and recommendations. Parliament records Bill S-228 as receiving royal assent on June 15, 2026 (Statutes of Canada 2026, chapter 10). Parliamentary evidence links the broader coerced-sterilization record to the legislative context, but does not make the statute retroactive or determine liability in the Saskatoon cases.",
+      "implementation_evidence": "Enactment is verified. Operational, enforcement and outcome evidence is too early or outside this pilot's scope.",
+      "treaty_context": {"status": "not_established", "summary": "The sources concern Indigenous rights and criminal law, but this pilot found no authoritative Treaty 6 holding specific to the chain."},
+      "confidence": "high",
+      "owner_review_flag": true,
+      "owner_review_reason": "The connection is contextual and temporal; it must not be described as a case-specific remedy or finding.",
+      "publication_state": "private_owner_review",
+      "evidence_edges": [
+        {"edge_id":"fedge_tubal_review_recommends","from_object_id":"sk_tubal_ligation_review_2017","to_object_id":"sk_tubal_ligation_accountability","relationship_type":"recommended_by","neutral_summary":"The 2017 external review is the primary documented recommendation stage for the Saskatoon cohort.","confidence":"high","owner_review_flag":false,"owner_review_reason":null,"source_references":[{"source_family_id":"fogs_open_government_canada","source_url":"https://senatorboyer.ca/wp-content/uploads/2021/09/Tubal-Ligation-in-the-Saskatoon-Health-Region-the-Lived-Experience-of-Aboriginal-Women-Boyer-and-Bartlett-July-11-2017.pdf","document_class":"commissioned_external_review","source_role":"findings_and_recommendations","publication_date":"2017-07-11"}]},
+        {"edge_id":"fedge_tubal_bill_enacted","from_object_id":"bill_s_228","to_object_id":"criminal_code_coerced_sterilization_2026","relationship_type":"amends","neutral_summary":"Parliament records Bill S-228 as enacted and amending the Criminal Code concerning coerced sterilization.","confidence":"high","owner_review_flag":false,"owner_review_reason":null,"source_references":[{"source_family_id":"fogs_parliament_canada","source_url":"https://www.parl.ca/legisinfo/en/bill/45-1/s-228","document_class":"enacted_bill_status","source_role":"royal_assent_and_statute_status","publication_date":"2026-06-15"}]},
+        {"edge_id":"fedge_tubal_legislative_context","from_object_id":"sk_tubal_ligation_accountability","to_object_id":"bill_s_228","relationship_type":"responds_to","neutral_summary":"Later parliamentary evidence places the Saskatoon review within the public record informing the federal legislative response; it is not a case disposition.","confidence":"medium","owner_review_flag":true,"owner_review_reason":"Do not infer causation, retroactivity or liability from the contextual link.","source_references":[{"source_family_id":"fogs_parliament_canada","source_url":"https://www.ourcommons.ca/committees/en/Redirects/EvidenceForWitness?CommitteeAcronym=INAN&IsJointCommittee=False&MeetingNumber=26&ParliamentNumber=45&SessionNumber=1&evidencePublicationId=13989657&organizationId=462","document_class":"parliamentary_committee_evidence","source_role":"legislative_context","publication_date":"2026"}]}
+      ]
+    },
+    {
+      "context_id": "mnlc_sk_fn_health_ombudsperson",
+      "accountability_chain_id": "sk_first_nations_health_ombudsperson",
+      "title": "Saskatchewan First Nations Health Ombudsperson governance and funding",
+      "jurisdiction": "Saskatchewan, First Nations governance and federal Canada",
+      "applicable_rules": ["FSIN Chiefs-in-Assembly Resolution 2046", "First Nations Health Ombudsperson governance framework", "federal contribution agreements"],
+      "government_and_governance_context": "The office states that its authority derives from a 2017 Chiefs-in-Assembly resolution and that it reports through a board appointed by Chiefs-in-Assembly, supported by a Knowledge Holders Council. Indigenous Services Canada funded establishment, while the office remains described as First Nations-designed and governed.",
+      "implementation_evidence": "Current office pages, annual-report access and subsequent federal grant disclosure demonstrate continuing institutional operation beyond the initial announcement.",
+      "treaty_context": {"status": "direct_governance_source", "summary": "The office's own governance page ties its mission to the spirit and intent of Treaty and inherent rights; the federal launch took place in Saskatoon on Treaty 6 territory. This is governance context, not a judicial treaty-right ruling."},
+      "confidence": "high",
+      "owner_review_flag": false,
+      "owner_review_reason": null,
+      "publication_state": "private_owner_review",
+      "evidence_edges": [
+        {"edge_id":"fedge_fnhoo_resolution","from_object_id":"fsin_resolution_2046","to_object_id":"sk_first_nations_health_ombudsperson","relationship_type":"created_by","neutral_summary":"The office identifies FSIN Chiefs-in-Assembly Resolution 2046 as the source of its governance authority.","confidence":"high","owner_review_flag":false,"owner_review_reason":null,"source_references":[{"source_family_id":"fogs_fnhoo","source_url":"https://fnhoo.ca/governance/","document_class":"indigenous_governance_page","source_role":"authority_and_governance","publication_date":null}]},
+        {"edge_id":"fedge_fnhoo_initial_funding","from_object_id":"sk_first_nations_health_ombudsperson","to_object_id":"isc_fnhoo_funding_2022","relationship_type":"funded_by","neutral_summary":"Indigenous Services Canada announced $1.17 million for the first year of office establishment.","confidence":"high","owner_review_flag":false,"owner_review_reason":null,"source_references":[{"source_family_id":"fogs_indigenous_services_canada","source_url":"https://www.canada.ca/en/indigenous-services-canada/news/2022/02/first-ever-first-nation-health-ombudspersons-office-to-be-created-in-saskatchewan.html","document_class":"funding_announcement","source_role":"initial_federal_funding","publication_date":"2022-02-22"}]},
+        {"edge_id":"fedge_fnhoo_continuing_operation","from_object_id":"isc_fnhoo_funding_2022","to_object_id":"sk_first_nations_health_ombudsperson","relationship_type":"operationalizes","neutral_summary":"Current office information and annual-report access demonstrate an operating First Nations-governed institution after the launch funding.","confidence":"high","owner_review_flag":false,"owner_review_reason":null,"source_references":[{"source_family_id":"fogs_fnhoo","source_url":"https://fnhoo.ca/about-us/","document_class":"institutional_page","source_role":"current_operation","publication_date":null},{"source_family_id":"fogs_fnhoo","source_url":"https://fnhoo.ca/annual-reports/","document_class":"annual_report_registry","source_role":"ongoing_reporting","publication_date":null},{"source_family_id":"fogs_open_government_canada","source_url":"https://search.open.canada.ca/grants/record/isc-sac%2C1910-2025-2026-Qrt1-0009110%2Ccurrent?amendments=undefined&wbdisable=true","document_class":"grant_disclosure","source_role":"subsequent_federal_funding","publication_date":"2024-05-10"}]}
+      ]
+    }
+  ],
+  "summary": {
+    "chains_analyzed": 7,
+    "evidence_edges": 21,
+    "legal_policy_governance_links": 21,
+    "treaty_context_direct": 1,
+    "treaty_context_territorial_only": 1,
+    "regulator_relationships": 1,
+    "human_rights_relationships": 1,
+    "federal_legislative_relationships": 1,
+    "owner_review_chains": 5,
+    "production_mutations": 0,
+    "publication_mutations": 0
+  }
+}

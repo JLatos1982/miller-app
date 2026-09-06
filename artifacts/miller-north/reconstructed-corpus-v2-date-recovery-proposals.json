@@ -1,0 +1,3340 @@
+{
+  "schema_version": "miller-north-date-recovery-proposals-v2",
+  "corpus_id": "miller-north-reconstructed-corpus-v2",
+  "proposals": [
+    {
+      "public_record_id": "ihe_0019697cf59819e22dcc",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://med-fom-osot-inclusive-campus.sites.olt.ubc.ca/files/2021/01/Racism-and-Oral-Health-Outcomes-among-Pregnant-Canadian-Aboriginal-Women.pdf",
+        "source_title": "Racism-and-Oral-Health-Outcomes-among-Pregnant- ...",
+        "source_publisher": "med-fom-osot-inclusive-campus.sites.olt.ubc.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_008afff9c6c2f7d60ae4",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
+        "source_title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
+        "source_publisher": "pampalmater.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_00b2e6b09b04051ba899",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2020,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination",
+        "source_title": "Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health",
+        "source_publisher": "www.fraserhealth.ca",
+        "source_type": "health_authority",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_00feb84cbbb69760143f",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2025-06-09",
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://www.nccih.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
+        "source_title": "Original Article",
+        "source_publisher": "www.nccih.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_0173de53145c8e4727d8",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://news.ubc.ca/2026/07/national-survey-indigenous-people-childbirth-mistreatment",
+        "source_title": "Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds",
+        "source_publisher": "news.ubc.ca",
+        "source_type": "indigenous_organization",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_03c596a4874680d3e99e",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-44-no-4-2024/indigenous-people-experiences-primary-health-care-canada-qualitative-systematic-review.html",
+        "source_title": "Indigenous people's experiences of primary health care in ...",
+        "source_publisher": "www.canada.ca",
+        "source_type": "indigenous_organization",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_04cdcba87a50da8e3458",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2023,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://circle.ubc.ca/files/gravity_forms/18-7e027fe2d357755f5b9702688fc4d736/2023/03/Towards-Developing-Standards-on-the-Intersection-of-Racism-and-Discrimination-Material-Hardship-and-Healthcare-Access_14Mar2023.pdf",
+        "source_title": "Towards-Developing-Standards-on-the-Intersection-of- ...",
+        "source_publisher": "circle.ubc.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_04d86ea10cf983f1fcc7",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.ufv.ca/media/assets/faculty-of-science-health-and-human-services/health-sciences/docs/Response-to-In-Plain-Sight-Report-March-2021---UFV-FHS-Indigenization-Committee.pdf",
+        "source_title": "Faculty of Health Sciences Indigenization Committee Response to In Plain Sight",
+        "source_publisher": "www.ufv.ca",
+        "source_type": "university_response",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_0569da34f0de8e1c4ec2",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
+        "source_title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
+        "source_publisher": "pampalmater.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_06dfe25aa65e5395cec9",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.ufv.ca/media/assets/faculty-of-science-health-and-human-services/health-sciences/docs/Response-to-In-Plain-Sight-Report-March-2021---UFV-FHS-Indigenization-Committee.pdf",
+        "source_title": "Faculty of Health Sciences Indigenization Committee Response to In Plain Sight",
+        "source_publisher": "www.ufv.ca",
+        "source_type": "university_response",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_0700f8788d26680346c8",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2024-03-04",
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://chcpbc.org/wp-content/uploads/2024/08/RPT_IndigenousCSHAR-2024-03-04.pdf",
+        "source_title": "[PDF] Indigenous Cultural Safety, Humility and Anti-Racism",
+        "source_publisher": "chcpbc.org",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_076d478f7c5ffe83c04c",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "source_title": "Birthing injustice: unmasking structural racism and the ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_0b1bfbc5a86ec92f66aa",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2026.1766047/full",
+        "source_title": "Denialism: repudiation of anti-Indigenous racism in ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_0cbf5f0cac896b99cc17",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2010,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://albertahumanrights.ab.ca/media/wjmbqth0/indigenous-initiatives-2010-11-to-2018-19.pdf",
+        "source_title": "indigenous-initiatives-2010-11-to-2018-19. ...",
+        "source_publisher": "albertahumanrights.ab.ca",
+        "source_type": "oversight_or_adjudicative",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_0e981a0b57a50aaa94cc",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://yellowheadinstitute.org/2025/a-love-letter-to-community-reflections-on-harm-reduction-being-bad",
+        "source_title": "A Love Letter to Community: Reflections on Harm ...",
+        "source_publisher": "yellowheadinstitute.org",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_12e170dd3e019079cd9a",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-44-no-4-2024/indigenous-people-experiences-primary-health-care-canada-qualitative-systematic-review.html",
+        "source_title": "Indigenous people's experiences of primary health care in ...",
+        "source_publisher": "www.canada.ca",
+        "source_type": "indigenous_organization",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_132913509d2ba9e1f0a2",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://nit.com.au/03-09-2025/20045/racism-in-healthcare-is-costing-lives-report",
+        "source_title": "Racism in healthcare is costing lives - report | National Indigenous Times",
+        "source_publisher": "nit.com.au",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_1418b3d9344aa08f2e4b",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2026.1766047/full",
+        "source_title": "Denialism: repudiation of anti-Indigenous racism in ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_1445978133ccf9996c36",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "source_title": "Birthing injustice: unmasking structural racism and the ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_146f5070cc77a752f2e4",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://afnigc.ca/wp-content/uploads/2024/10/IMPACT1.pdf",
+        "source_title": "Impacts of racism",
+        "source_publisher": "afnigc.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_159773eae4a7b639d7d9",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2025-06-09",
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://www.ccnsa.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
+        "source_title": "experiences of Indigenous rural British Columbians accessing ...",
+        "source_publisher": "www.ccnsa.ca",
+        "source_type": "peer_reviewed_research",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_1613c971d2d2f27e0a1c",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.interiorhealth.ca/sites/default/files/PDFS/ih-in-plain-sight-response-volume-5-november-2025.pdf",
+        "source_title": "In Plain Sight Response - Interior Health",
+        "source_publisher": "www.interiorhealth.ca",
+        "source_type": "health_authority_response",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_1737eb81f94eb5329214",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "source_title": "Birthing injustice: unmasking structural racism and the ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_1768b718da7cdd6485f7",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2023-04-11",
+        "source_publication_year": 2023,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://www.nationalobserver.com/2023/04/11/investigations/analysis-anti-indigenous-racism-hospitals-reveals-pattern-harm-no",
+        "source_title": "Analysis of anti-Indigenous racism in hospitals reveals pattern of harm ...",
+        "source_publisher": "www.nationalobserver.com",
+        "source_type": "indigenous_organization",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_1ddf751f8fb3289e452c",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://med-fom-osot-inclusive-campus.sites.olt.ubc.ca/files/2021/01/Racism-and-Oral-Health-Outcomes-among-Pregnant-Canadian-Aboriginal-Women.pdf",
+        "source_title": "Racism-and-Oral-Health-Outcomes-among-Pregnant- ...",
+        "source_publisher": "med-fom-osot-inclusive-campus.sites.olt.ubc.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_21c16bb65846fb9d132e",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://www.saskhealthauthority.ca/sites/default/files/2025-05/Framework-HR-BDI.pdf",
+        "source_title": "Belonging, Diversity and Inclusion Strategy",
+        "source_publisher": "www.saskhealthauthority.ca",
+        "source_type": "health_authority_response",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_23569ac9c93b12818bb8",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://news.ubc.ca/2026/07/national-survey-indigenous-people-childbirth-mistreatment",
+        "source_title": "Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds",
+        "source_publisher": "news.ubc.ca",
+        "source_type": "indigenous_organization",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_2470e4a38012fb5b4b23",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.ufv.ca/media/assets/faculty-of-science-health-and-human-services/health-sciences/docs/Response-to-In-Plain-Sight-Report-March-2021---UFV-FHS-Indigenization-Committee.pdf",
+        "source_title": "Faculty of Health Sciences Indigenization Committee Response to In Plain Sight",
+        "source_publisher": "www.ufv.ca",
+        "source_type": "university_response",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_29441943bcfc7048868b",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "source_title": "Birthing injustice: unmasking structural racism and the ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_2a57f3c2abfde74d6c9b",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.justice.gc.ca/eng/declaration/report-rapport/2026/b_s.html?wbdisable=true",
+        "source_title": "Annex B: Status of Action Plan measures - Justice Canada",
+        "source_publisher": "www.justice.gc.ca",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_2a60323006b014a30dc9",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2025-06-09",
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://www.nccih.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
+        "source_title": "Original Article",
+        "source_publisher": "www.nccih.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_3143f17223d2d9f424fc",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://med-fom-osot-inclusive-campus.sites.olt.ubc.ca/files/2021/01/Racism-and-Oral-Health-Outcomes-among-Pregnant-Canadian-Aboriginal-Women.pdf",
+        "source_title": "Racism-and-Oral-Health-Outcomes-among-Pregnant- ...",
+        "source_publisher": "med-fom-osot-inclusive-campus.sites.olt.ubc.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_33d8815660b2a2ceaaed",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2023,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.bccnm.ca/Documents/cultural_safety_humility/BCCNM_Redress_Plan_August_2023.pdf",
+        "source_title": "Untitled source",
+        "source_publisher": "www.bccnm.ca",
+        "source_type": "regulatory_adjudicative",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_34011a3e3294b0daa3db",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://nit.com.au/03-09-2025/20045/racism-in-healthcare-is-costing-lives-report",
+        "source_title": "Racism in healthcare is costing lives - report | National Indigenous Times",
+        "source_publisher": "nit.com.au",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_348c3675ea2d01516efc",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
+        "source_title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
+        "source_publisher": "pampalmater.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_3574abf328ec70a656d1",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.interiorhealth.ca/sites/default/files/PDFS/ih-in-plain-sight-response-volume-5-november-2025.pdf",
+        "source_title": "Untitled source",
+        "source_publisher": "www.interiorhealth.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_357d773904591d0ec3aa",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.ufv.ca/media/assets/faculty-of-science-health-and-human-services/health-sciences/docs/Response-to-In-Plain-Sight-Report-March-2021---UFV-FHS-Indigenization-Committee.pdf",
+        "source_title": "Faculty of Health Sciences Indigenization Committee Response to In Plain Sight",
+        "source_publisher": "www.ufv.ca",
+        "source_type": "university_response",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_3775097b4a75b956dfca",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://med-fom-osot-inclusive-campus.sites.olt.ubc.ca/files/2021/01/Racism-and-Oral-Health-Outcomes-among-Pregnant-Canadian-Aboriginal-Women.pdf",
+        "source_title": "Racism-and-Oral-Health-Outcomes-among-Pregnant- ...",
+        "source_publisher": "med-fom-osot-inclusive-campus.sites.olt.ubc.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_39f5374b255a261f6fe3",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
+        "source_title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
+        "source_publisher": "pampalmater.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_4152380615ae3555514b",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://afnigc.ca/wp-content/uploads/2024/10/First-Nations-emergency-care-in-Alberta-descriptive-results-of-a-retrospective-cohort-study.pdf",
+        "source_title": "First Nations emergency care in Alberta: descriptive results ...",
+        "source_publisher": "afnigc.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_419a727e7537adca36e9",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "source_title": "Birthing injustice: unmasking structural racism and the ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_42025e3c944afdc67c64",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2025-06-09",
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://www.ccnsa.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
+        "source_title": "experiences of Indigenous rural British Columbians accessing ...",
+        "source_publisher": "www.ccnsa.ca",
+        "source_type": "peer_reviewed_research",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_420576e01718d9a609bf",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2025-06-09",
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://www.nccih.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
+        "source_title": "Original Article",
+        "source_publisher": "www.nccih.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_44f4ffe96bf11b31f775",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2025-06-09",
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://www.nccih.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
+        "source_title": "Original Article",
+        "source_publisher": "www.nccih.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_46571d990ec103b19547",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2023,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.tandfonline.com/doi/full/10.1080/10376178.2023.2271576",
+        "source_title": "Healthcare professionals' cultural safety practices for ...",
+        "source_publisher": "www.tandfonline.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_47bab1b35f38801263d0",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://nit.com.au/03-09-2025/20045/racism-in-healthcare-is-costing-lives-report",
+        "source_title": "Racism in healthcare is costing lives - report | National Indigenous Times",
+        "source_publisher": "nit.com.au",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_4cf658eafccef66f5863",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://research.ucalgary.ca/opportunity/2025-alberta-anti-racism-grant-2025-2026",
+        "source_title": "Alberta Anti-Racism Grant 2025-2026 | Research at UCalgary | University of Calgary",
+        "source_publisher": "research.ucalgary.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_504bed49916cdf30f216",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2023-04-11",
+        "source_publication_year": 2023,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://www.nationalobserver.com/2023/04/11/investigations/analysis-anti-indigenous-racism-hospitals-reveals-pattern-harm-no",
+        "source_title": "Analysis of anti-Indigenous racism in hospitals reveals pattern of harm ...",
+        "source_publisher": "www.nationalobserver.com",
+        "source_type": "indigenous_organization",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_518702892dadc62d842f",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2024-12-13",
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://lethbridgenewsnow.com/2024/12/13/alberta-hires-indigenous-patient-advocate-to-address-unfair-treatment-in-health-care-settings",
+        "source_title": "Alberta hires Indigenous patient advocate to address unfair ...",
+        "source_publisher": "lethbridgenewsnow.com",
+        "source_type": "indigenous_organization",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_544ce0002abb7b83428b",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2020,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination",
+        "source_title": "Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health",
+        "source_publisher": "www.fraserhealth.ca",
+        "source_type": "health_authority",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_56a049ae07867a66fde2",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2026.1766047/full",
+        "source_title": "Denialism: repudiation of anti-Indigenous racism in ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_5708a0c9eef60f395d8e",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.interiorhealth.ca/sites/default/files/PDFS/ih-in-plain-sight-response-volume-5-november-2025.pdf",
+        "source_title": "In Plain Sight Response - Interior Health",
+        "source_publisher": "www.interiorhealth.ca",
+        "source_type": "health_authority_response",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_581630f83071859de49b",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2025-06-09",
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://www.nccih.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
+        "source_title": "Original Article",
+        "source_publisher": "www.nccih.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_5a8dce392a5646bd5ab3",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2024-03-04",
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://chcpbc.org/wp-content/uploads/2024/08/RPT_IndigenousCSHAR-2024-03-04.pdf",
+        "source_title": "[PDF] Indigenous Cultural Safety, Humility and Anti-Racism",
+        "source_publisher": "chcpbc.org",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_5b60cab5ad5541286aef",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://www.saskhealthauthority.ca/sites/default/files/2021-06/FSIN-cultural-responsiveness-framework.pdf",
+        "source_title": "FSIN-cultural-responsiveness-framework. ...",
+        "source_publisher": "www.saskhealthauthority.ca",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_5c5d4710acb9b0fccf8f",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2022,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://www.canada.ca/en/indigenous-services-canada/news/2022/02/first-ever-first-nation-health-ombudspersons-office-to-be-created-in-saskatchewan.html",
+        "source_title": "First ever First Nation Health Ombudsperson's Office to be created in Saskatchewan - Canada.ca",
+        "source_publisher": "www.canada.ca",
+        "source_type": "government_news_release",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_5cbf51c84d18edd2ab5a",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "source_title": "Birthing injustice: unmasking structural racism and the ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_5ce15f4d8a68a13fb19c",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2021-05-22",
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://www.ckom.com/2021/05/22/indigenous-professor-leaving-university-of-saskatchewan-over-racism-claims",
+        "source_title": "Indigenous professor leaving University of Saskatchewan over racism concerns | 650 CKOM",
+        "source_publisher": "www.ckom.com",
+        "source_type": "indigenous_organization",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_5de9746307410ec46489",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
+        "source_title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
+        "source_publisher": "pampalmater.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_6064e7086f3100a255e3",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2022,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://open.alberta.ca/dataset/2af836dc-ba21-48f2-8c07-a79416258101/resource/3e9aa322-344b-43f0-9ed4-07f6cfd10ac9/download/ir-mmiwg-roadmap-2022.pdf",
+        "source_title": "Alberta Missing and Murdered Indigenous Women and Girls ...",
+        "source_publisher": "open.alberta.ca",
+        "source_type": "government",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_6116bd1583a1582b83b2",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-44-no-4-2024/indigenous-people-experiences-primary-health-care-canada-qualitative-systematic-review.html",
+        "source_title": "Indigenous people's experiences of primary health care in ...",
+        "source_publisher": "www.canada.ca",
+        "source_type": "indigenous_organization",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_6192409bb3b61266d354",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.ufv.ca/media/assets/faculty-of-science-health-and-human-services/health-sciences/docs/Response-to-In-Plain-Sight-Report-March-2021---UFV-FHS-Indigenization-Committee.pdf",
+        "source_title": "Faculty of Health Sciences Indigenization Committee Response to In Plain Sight",
+        "source_publisher": "www.ufv.ca",
+        "source_type": "university_response",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_62e10f098d351aca7754",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2020,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination",
+        "source_title": "Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health",
+        "source_publisher": "www.fraserhealth.ca",
+        "source_type": "health_authority",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_62f9916c4f9f1408d89e",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2025-06-09",
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://www.ccnsa.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
+        "source_title": "experiences of Indigenous rural British Columbians accessing ...",
+        "source_publisher": "www.ccnsa.ca",
+        "source_type": "peer_reviewed_research",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_6465dd9c64f0c549b854",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
+        "source_title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
+        "source_publisher": "pampalmater.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_6730eb9123674b5da5a6",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.interiorhealth.ca/sites/default/files/PDFS/ih-in-plain-sight-response-volume-5-november-2025.pdf",
+        "source_title": "Untitled source",
+        "source_publisher": "www.interiorhealth.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_6a3c6eabd8cd89f1aaef",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://afnigc.ca/wp-content/uploads/2024/10/First-Nations-emergency-care-in-Alberta-descriptive-results-of-a-retrospective-cohort-study.pdf",
+        "source_title": "First Nations emergency care in Alberta: descriptive results ...",
+        "source_publisher": "afnigc.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_6a865cc1384f23ad3a84",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://www.ualberta.ca/en/folio/2024/04/racism-leads-first-nations-patients-to-leave-emergency.html",
+        "source_title": "Racism leads First Nations patients to leave emergency ...",
+        "source_publisher": "www.ualberta.ca",
+        "source_type": "government",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_6c0011849b19c6fdea43",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2023,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.bccnm.ca/Documents/cultural_safety_humility/BCCNM_Redress_Plan_August_2023.pdf",
+        "source_title": "Untitled source",
+        "source_publisher": "www.bccnm.ca",
+        "source_type": "regulatory_adjudicative",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_6c30494f8c4d8c38c871",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
+        "source_title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
+        "source_publisher": "pampalmater.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_6c45398af584ab376b73",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2026.1796719/full",
+        "source_title": "Harnessing the healing power of the land: culturally ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_6c8b191dc660d4cf2973",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2022,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.ucalgary.ca/network/aim-hi/student-funding/stipend-award-winners/2022-graduate-student-mentorship-stipend-winners",
+        "source_title": "2022 Graduate Student Mentorship Stipend Winners | Alberta Indigenous Mentorship in Health Innovation Network | University of Calgary",
+        "source_publisher": "www.ucalgary.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_6e1297d9c0e255e1a4a2",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2020,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://iphcprnetwork.squarespace.com/s/Racism-and-Indigenous-health-November-2020.pdf",
+        "source_title": "[PDF] Racism and Indigenous health - iphcpr",
+        "source_publisher": "iphcprnetwork.squarespace.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_6f10d5425c188dd41d41",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2025-06-09",
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://www.ccnsa.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
+        "source_title": "experiences of Indigenous rural British Columbians accessing ...",
+        "source_publisher": "www.ccnsa.ca",
+        "source_type": "peer_reviewed_research",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_6fbf9b42f2638023c3af",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://nit.com.au/03-09-2025/20045/racism-in-healthcare-is-costing-lives-report",
+        "source_title": "Racism in healthcare is costing lives - report | National Indigenous Times",
+        "source_publisher": "nit.com.au",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_71cc61ff7d16df6817a4",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2026.1766047/full",
+        "source_title": "Denialism: repudiation of anti-Indigenous racism in ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_72d3f72c38bceaf8f7b5",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.interiorhealth.ca/sites/default/files/PDFS/ih-in-plain-sight-response-volume-5-november-2025.pdf",
+        "source_title": "Untitled source",
+        "source_publisher": "www.interiorhealth.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_72d6b824dbda638af9e6",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://bcombudsperson.ca/wp-content/uploads/2025/08/ICSP-Phase-One.pdf",
+        "source_title": "Indigenous Communities Services Plan – Phase One",
+        "source_publisher": "bcombudsperson.ca",
+        "source_type": "oversight_or_adjudicative",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_745b042c37a851758908",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2022,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://www.ualberta.ca/en/folio/2022/01/first-nations-patients-triaged-as-less-urgent-than-others-in-alberta-emergency-departments.html",
+        "source_title": "First Nations patients triaged as less urgent than others in ...",
+        "source_publisher": "www.ualberta.ca",
+        "source_type": "government",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_7620e5d234cb2ac8b596",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://med-fom-osot-inclusive-campus.sites.olt.ubc.ca/files/2021/01/Racism-and-Oral-Health-Outcomes-among-Pregnant-Canadian-Aboriginal-Women.pdf",
+        "source_title": "Racism-and-Oral-Health-Outcomes-among-Pregnant- ...",
+        "source_publisher": "med-fom-osot-inclusive-campus.sites.olt.ubc.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_771a7b290239b6216043",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2021-05-22",
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://battlefordsnow.com/2021/05/22/indigenous-professor-leaving-university-of-saskatchewan-over-racism-concerns",
+        "source_title": "Indigenous professor leaving University of Saskatchewan over racism concerns | battlefordsNOW",
+        "source_publisher": "battlefordsnow.com",
+        "source_type": "indigenous_organization",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_780a4c7f22457b9fe78d",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://www.ualberta.ca/en/folio/2021/12/agreement-aims-to-train-more-indigenous-physicians.html",
+        "source_title": "Agreement aims to train more Indigenous physicians, improve health care for six northeastern Alberta First Nations | Folio",
+        "source_publisher": "www.ualberta.ca",
+        "source_type": "government",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_7f4220848b96ad12efc0",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.ufv.ca/media/assets/faculty-of-science-health-and-human-services/health-sciences/docs/Response-to-In-Plain-Sight-Report-March-2021---UFV-FHS-Indigenization-Committee.pdf",
+        "source_title": "Faculty of Health Sciences Indigenization Committee Response to In Plain Sight",
+        "source_publisher": "www.ufv.ca",
+        "source_type": "university_response",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_80ac3db7b9c36339ce87",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://news.ubc.ca/2026/07/national-survey-indigenous-people-childbirth-mistreatment",
+        "source_title": "Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds",
+        "source_publisher": "news.ubc.ca",
+        "source_type": "indigenous_organization",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_80e92d334011d416f879",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "source_title": "Birthing injustice: unmasking structural racism and the ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_80eda7f4e367e68a095d",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "source_title": "Birthing injustice: unmasking structural racism and the ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_827078598d871b47e78b",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://afnigc.ca/wp-content/uploads/2024/10/IMPACT1.pdf",
+        "source_title": "Impacts of racism",
+        "source_publisher": "afnigc.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_87d4bdc7290350eb7050",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "source_title": "Birthing injustice: unmasking structural racism and the ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_8a16c17a3287d42273c6",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
+        "source_title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
+        "source_publisher": "pampalmater.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_8d286dbca376a65093e8",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2026.1766047/full",
+        "source_title": "Denialism: repudiation of anti-Indigenous racism in ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_92ae176a69ad7d0f8c6b",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://afnigc.ca/wp-content/uploads/2024/10/IMPACT1.pdf",
+        "source_title": "Impacts of racism",
+        "source_publisher": "afnigc.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_961e0d16908839a9da0c",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2021-05-22",
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://larongenow.com/2021/05/22/indigenous-professor-leaving-university-of-saskatchewan-over-racism-concerns",
+        "source_title": "Indigenous professor leaving University of Saskatchewan over racism concerns | larongeNOW",
+        "source_publisher": "larongenow.com",
+        "source_type": "indigenous_organization",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_9944b82a8aa7af62a6ac",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "source_title": "Birthing injustice: unmasking structural racism and the ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_99866b1b0ea1e87bcaeb",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.bccnm.ca/Documents/cultural_safety_humility/BCCNM_Redress_Plan_2025.pdf",
+        "source_title": "Untitled source",
+        "source_publisher": "www.bccnm.ca",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_9d722666a1aa41a2bdbd",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2022,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://open.alberta.ca/dataset/2af836dc-ba21-48f2-8c07-a79416258101/resource/3e9aa322-344b-43f0-9ed4-07f6cfd10ac9/download/ir-mmiwg-roadmap-2022.pdf",
+        "source_title": "Alberta Missing and Murdered Indigenous Women and Girls ...",
+        "source_publisher": "open.alberta.ca",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_9e6762e6ee0cac3017c5",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://afnigc.ca/wp-content/uploads/2024/10/First-Nations-emergency-care-in-Alberta-descriptive-results-of-a-retrospective-cohort-study.pdf",
+        "source_title": "First Nations emergency care in Alberta: descriptive results ...",
+        "source_publisher": "afnigc.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_9ee291af1509b833a573",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://afnigc.ca/wp-content/uploads/2024/10/IMPACT1.pdf",
+        "source_title": "Impacts of racism",
+        "source_publisher": "afnigc.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_a08af4518cbce9e76ad6",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "source_title": "Birthing injustice: unmasking structural racism and the ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_a4897d8cee8159f85202",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2020,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination",
+        "source_title": "Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health",
+        "source_publisher": "www.fraserhealth.ca",
+        "source_type": "health_authority",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_a5375ce2058683de1312",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://afnigc.ca/wp-content/uploads/2024/10/IMPACT1.pdf",
+        "source_title": "Impacts of racism",
+        "source_publisher": "afnigc.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_a8d29856339e45c5eacd",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
+        "source_title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
+        "source_publisher": "pampalmater.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_a8dbfb70dcac3acf1d37",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2025-06-09",
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://www.ccnsa.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
+        "source_title": "experiences of Indigenous rural British Columbians accessing ...",
+        "source_publisher": "www.ccnsa.ca",
+        "source_type": "peer_reviewed_research",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_a8f620c1f10ba1ad463b",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2022,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.bccnm.ca/Documents/cultural_safety_humility/2022_One_Year_Update.pdf",
+        "source_title": "Untitled source",
+        "source_publisher": "www.bccnm.ca",
+        "source_type": "regulatory_adjudicative",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_aa22c2e176b6ca84ee09",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2022,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.canada.ca/en/health-canada/corporate/about-health-canada/funding/addressing-racism-discrimination-canada-health-systems-program/2022-program-recipients.html",
+        "source_title": "Addressing Racism and Discrimination in Canada's Health ...",
+        "source_publisher": "www.canada.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_aa8967c65419b99493cb",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
+        "source_title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
+        "source_publisher": "pampalmater.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_aa8ef1ef6b357bde3129",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
+        "source_title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
+        "source_publisher": "pampalmater.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_aa8f4b0bdcdf09b02af8",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2024-12-13",
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://rdnewsnow.com/2024/12/13/alberta-hires-indigenous-patient-advocate-to-address-unfair-treatment-in-health-care-settings",
+        "source_title": "Alberta hires Indigenous patient advocate to address unfair treatment in health care settings | rdnewsnow.com",
+        "source_publisher": "rdnewsnow.com",
+        "source_type": "indigenous_organization",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_ab56c88eb7c22ea4d835",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://afnigc.ca/wp-content/uploads/2024/10/IMPACT1.pdf",
+        "source_title": "Impacts of racism",
+        "source_publisher": "afnigc.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_ac42d9c5c4732b6f114f",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2026.1766047/full",
+        "source_title": "Denialism: repudiation of anti-Indigenous racism in ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_b196ae4993054b768c26",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://www.ualberta.ca/en/folio/2024/04/racism-leads-first-nations-patients-to-leave-emergency.html",
+        "source_title": "Racism leads First Nations patients to leave emergency ...",
+        "source_publisher": "www.ualberta.ca",
+        "source_type": "government",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_b266bd18b40c8722533a",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2020,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://iphcprnetwork.squarespace.com/s/Racism-and-Indigenous-health-November-2020.pdf",
+        "source_title": "[PDF] Racism and Indigenous health - iphcpr",
+        "source_publisher": "iphcprnetwork.squarespace.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_b2b2a813138ca23359b1",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.bccnm.ca/Documents/cultural_safety_humility/BCCNM_Redress_Plan_2025.pdf",
+        "source_title": "Untitled source",
+        "source_publisher": "www.bccnm.ca",
+        "source_type": "regulatory_adjudicative",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_b33081eef7e13234a08b",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2024-03-04",
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://chcpbc.org/wp-content/uploads/2024/08/RPT_IndigenousCSHAR-2024-03-04.pdf",
+        "source_title": "[PDF] Indigenous Cultural Safety, Humility and Anti-Racism",
+        "source_publisher": "chcpbc.org",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_b35a113cc1d38fbc5e39",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2010,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://albertahumanrights.ab.ca/media/wjmbqth0/indigenous-initiatives-2010-11-to-2018-19.pdf",
+        "source_title": "indigenous-initiatives-2010-11-to-2018-19. ...",
+        "source_publisher": "albertahumanrights.ab.ca",
+        "source_type": "oversight_or_adjudicative",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_b82b296103fed06ec88b",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "source_title": "Birthing injustice: unmasking structural racism and the ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_b85c9c14deeab7f16f34",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.justice.gc.ca/eng/declaration/report-rapport/2026/b_s.html?wbdisable=true",
+        "source_title": "Annex B: Status of Action Plan measures - Justice Canada",
+        "source_publisher": "www.justice.gc.ca",
+        "source_type": "government",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_b8924e7ffe3468f081b9",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.interiorhealth.ca/sites/default/files/PDFS/ih-in-plain-sight-response-volume-5-november-2025.pdf",
+        "source_title": "In Plain Sight Response - Interior Health",
+        "source_publisher": "www.interiorhealth.ca",
+        "source_type": "health_authority_response",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_b955f9dbc4b759afd52b",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
+        "source_title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
+        "source_publisher": "pampalmater.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_ba16517437eea7132310",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.justice.gc.ca/eng/declaration/report-rapport/2026/b1.html",
+        "source_title": "Annex B: Status of Action Plan measures - Shared Priorities",
+        "source_publisher": "www.justice.gc.ca",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_be7d37138f2c381815c8",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "source_title": "Birthing injustice: unmasking structural racism and the ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_c0537226e88f220e79ac",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.ufv.ca/media/assets/faculty-of-science-health-and-human-services/health-sciences/docs/Response-to-In-Plain-Sight-Report-March-2021---UFV-FHS-Indigenization-Committee.pdf",
+        "source_title": "Faculty of Health Sciences Indigenization Committee Response to In Plain Sight",
+        "source_publisher": "www.ufv.ca",
+        "source_type": "university_response",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_c0a2ad2eed634dc4b0dc",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.ufv.ca/media/assets/faculty-of-science-health-and-human-services/health-sciences/docs/Response-to-In-Plain-Sight-Report-March-2021---UFV-FHS-Indigenization-Committee.pdf",
+        "source_title": "Faculty of Health Sciences Indigenization Committee Response to In Plain Sight",
+        "source_publisher": "www.ufv.ca",
+        "source_type": "university_response",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_c27c3efd663be8140f15",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2024-03-04",
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://chcpbc.org/wp-content/uploads/2024/08/RPT_IndigenousCSHAR-2024-03-04.pdf",
+        "source_title": "[PDF] Indigenous Cultural Safety, Humility and Anti-Racism",
+        "source_publisher": "chcpbc.org",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_c49ad21334b319251245",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2023,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://search.open.canada.ca/qpnotes/record/isc-sac%2CISC-2023-QP-83434216",
+        "source_title": "Question Period Note: Addressing Anti-Indigenous Racism in ...",
+        "source_publisher": "search.open.canada.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_c5c955aa61a89075e1d8",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "source_title": "Birthing injustice: unmasking structural racism and the ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_c5f9f7ce73e982509cf2",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://news.ubc.ca/2026/07/national-survey-indigenous-people-childbirth-mistreatment",
+        "source_title": "Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds",
+        "source_publisher": "news.ubc.ca",
+        "source_type": "indigenous_organization",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_c87c115b700a301a4ff5",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://afnigc.ca/wp-content/uploads/2024/10/First-Nations-emergency-care-in-Alberta-descriptive-results-of-a-retrospective-cohort-study.pdf",
+        "source_title": "First Nations emergency care in Alberta: descriptive results ...",
+        "source_publisher": "afnigc.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_c88f5e7ac914aeea4184",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2022-08-02",
+        "source_publication_year": 2022,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://oralhealthbc.ca/wp-content/uploads/2022/08/02.01.24-In-Plain-Sight.pdf",
+        "source_title": "In Plain Sight",
+        "source_publisher": "oralhealthbc.ca",
+        "source_type": "official_review_mirror",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_cc00b80df1d23fe8bec8",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
+        "source_title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
+        "source_publisher": "pampalmater.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_cc24d7163c041a1b0b5c",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2023,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://circle.ubc.ca/files/gravity_forms/18-7e027fe2d357755f5b9702688fc4d736/2023/03/Towards-Developing-Standards-on-the-Intersection-of-Racism-and-Discrimination-Material-Hardship-and-Healthcare-Access_14Mar2023.pdf",
+        "source_title": "Towards-Developing-Standards-on-the-Intersection-of- ...",
+        "source_publisher": "circle.ubc.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_cd5a844d81687d8e4d87",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2022,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.bccnm.ca/Documents/cultural_safety_humility/2022_One_Year_Update.pdf",
+        "source_title": "Untitled source",
+        "source_publisher": "www.bccnm.ca",
+        "source_type": "regulatory_adjudicative",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_cdcf4779bc804d59471e",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://news.ubc.ca/2026/07/national-survey-indigenous-people-childbirth-mistreatment",
+        "source_title": "Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds",
+        "source_publisher": "news.ubc.ca",
+        "source_type": "indigenous_organization",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_d02da73c1bc173fc90e7",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2020,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://policyoptions.irpp.org/2020/11/excising-racism-from-health-care-requires-indigenous-collaboration",
+        "source_title": "Excising racism from health care requires Indigenous ...",
+        "source_publisher": "policyoptions.irpp.org",
+        "source_type": "indigenous_organization",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_d53e237eb85b132952e8",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2022-12-15",
+        "source_publication_year": 2022,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://hashilthsa.com/news/2022-12-15/cultural-safety-and-humility-standard-developed-end-racism-health-care",
+        "source_title": "Cultural Safety and Humility Standard developed to end ...",
+        "source_publisher": "hashilthsa.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_d680e72deb81ca5f2faa",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2025-06-09",
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://www.nccih.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
+        "source_title": "Original Article",
+        "source_publisher": "www.nccih.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_d8427ae4ed1133b6e3fa",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.ufv.ca/media/assets/faculty-of-science-health-and-human-services/health-sciences/docs/Response-to-In-Plain-Sight-Report-March-2021---UFV-FHS-Indigenization-Committee.pdf",
+        "source_title": "Faculty of Health Sciences Indigenization Committee Response to In Plain Sight",
+        "source_publisher": "www.ufv.ca",
+        "source_type": "university_response",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_d8e3b6c62e17fe621b99",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.interiorhealth.ca/sites/default/files/PDFS/ih-in-plain-sight-response-volume-5-november-2025.pdf",
+        "source_title": "In Plain Sight Response - Interior Health",
+        "source_publisher": "www.interiorhealth.ca",
+        "source_type": "health_authority_response",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_dbe6ab07ff815b00c93d",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "source_title": "Birthing injustice: unmasking structural racism and the ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_dca00301429737d31557",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.cihi.ca/en/taking-the-pulse-measuring-shared-priorities-for-canadian-health-care-2025/first-nations-inuit-and-metis-wellness-2025",
+        "source_title": "First Nations, Inuit and Métis wellness, 2025 | CIHI",
+        "source_publisher": "www.cihi.ca",
+        "source_type": "indigenous_organization",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_dd3608bb8f55bb6697b3",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "source_title": "Birthing injustice: unmasking structural racism and the ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_deeaf0e4a3459d24a8d2",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2025-06-09",
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://www.ccnsa.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
+        "source_title": "experiences of Indigenous rural British Columbians accessing ...",
+        "source_publisher": "www.ccnsa.ca",
+        "source_type": "peer_reviewed_research",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_e14ca65ab7a144e4802c",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/psychiatry/articles/10.3389/fpsyt.2026.1796719/full",
+        "source_title": "Harnessing the healing power of the land: culturally ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_e277435f66eefdebd170",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2020,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination",
+        "source_title": "Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health",
+        "source_publisher": "www.fraserhealth.ca",
+        "source_type": "health_authority",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_e3a95f9a5e32164a171a",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://nit.com.au/03-09-2025/20045/racism-in-healthcare-is-costing-lives-report",
+        "source_title": "Racism in healthcare is costing lives - report | National Indigenous Times",
+        "source_publisher": "nit.com.au",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_e4f41a5a9e55a9caf697",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2020,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination",
+        "source_title": "Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health",
+        "source_publisher": "www.fraserhealth.ca",
+        "source_type": "health_authority",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_e894a19e0a05145474b5",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "source_title": "Birthing injustice: unmasking structural racism and the ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_ebcd16c0c14fe4f5008b",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://open.alberta.ca/publications/alberta-opioid-response-surveillance-report-first-nations-people-2021",
+        "source_title": "Alberta opioid response surveillance report : First Nations People in Alberta [2021] - Open Government",
+        "source_publisher": "open.alberta.ca",
+        "source_type": "government",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_ed0070d3f001b2188898",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2020,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://iphcprnetwork.squarespace.com/s/Racism-and-Indigenous-health-November-2020.pdf",
+        "source_title": "[PDF] Racism and Indigenous health - iphcpr",
+        "source_publisher": "iphcprnetwork.squarespace.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_ed2b8ed374fae68bb3a6",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": "2024-03-04",
+        "source_publication_year": 2024,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_date"
+      },
+      "evidence": {
+        "source_url": "https://chcpbc.org/wp-content/uploads/2024/08/RPT_IndigenousCSHAR-2024-03-04.pdf",
+        "source_title": "[PDF] Indigenous Cultural Safety, Humility and Anti-Racism",
+        "source_publisher": "chcpbc.org",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_f12a901d22b86eeac2c9",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.interiorhealth.ca/sites/default/files/PDFS/ih-in-plain-sight-response-volume-5-november-2025.pdf",
+        "source_title": "In Plain Sight Response - Interior Health",
+        "source_publisher": "www.interiorhealth.ca",
+        "source_type": "health_authority_response",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_f14b12a9efaef7d3f61c",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://nit.com.au/03-09-2025/20045/racism-in-healthcare-is-costing-lives-report",
+        "source_title": "Racism in healthcare is costing lives - report | National Indigenous Times",
+        "source_publisher": "nit.com.au",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_f2629e8b02c1952a1ea4",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2026.1766047/full",
+        "source_title": "Denialism: repudiation of anti-Indigenous racism in ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_f2de9a75161002858780",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2022,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.bccnm.ca/Documents/cultural_safety_humility/2022_One_Year_Update.pdf",
+        "source_title": "Untitled source",
+        "source_publisher": "www.bccnm.ca",
+        "source_type": "regulatory_adjudicative",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_f3e379a43d5ad02ec432",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2025,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://bcombudsperson.ca/wp-content/uploads/2025/08/ICSP-Phase-One.pdf",
+        "source_title": "Indigenous Communities Services Plan – Phase One",
+        "source_publisher": "bcombudsperson.ca",
+        "source_type": "oversight_or_adjudicative",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_f8e2833147e3e8a4fc7f",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://med-fom-osot-inclusive-campus.sites.olt.ubc.ca/files/2021/01/Racism-and-Oral-Health-Outcomes-among-Pregnant-Canadian-Aboriginal-Women.pdf",
+        "source_title": "Racism-and-Oral-Health-Outcomes-among-Pregnant- ...",
+        "source_publisher": "med-fom-osot-inclusive-campus.sites.olt.ubc.ca",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_fab100506fc53c1d0c7c",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "source_title": "Birthing injustice: unmasking structural racism and the ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_fb341ee34817503c11bc",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year"
+      },
+      "evidence": {
+        "source_url": "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2026.1766047/full",
+        "source_title": "Denialism: repudiation of anti-Indigenous racism in ...",
+        "source_publisher": "www.frontiersin.org",
+        "source_type": "research_or_university",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_fefa9f7f088f69e52491",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2026,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://news.ubc.ca/2026/07/national-survey-indigenous-people-childbirth-mistreatment",
+        "source_title": "Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds",
+        "source_publisher": "news.ubc.ca",
+        "source_type": "indigenous_organization",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    },
+    {
+      "public_record_id": "ihe_ff34f1e420c173239a94",
+      "proposal_state": "staged_private_review",
+      "date_semantics": {
+        "event_date": null,
+        "event_year": null,
+        "approximate_event_year": null,
+        "publication_date": null,
+        "source_publication_year": 2021,
+        "confidence": "publication_only",
+        "derivation_method": "deterministic_url_year_month"
+      },
+      "evidence": {
+        "source_url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
+        "source_title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
+        "source_publisher": "pampalmater.com",
+        "source_type": "institutional_or_public",
+        "source_publication_date_existing": null
+      },
+      "note": "Source timing was deterministically recovered from existing source metadata/URL. It is not asserted to be an incident event date or year."
+    }
+  ]
+}

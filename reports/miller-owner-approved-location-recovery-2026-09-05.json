@@ -1,0 +1,25 @@
+{
+  "approval_contract": "miller-owner-approved-location-recovery-v1",
+  "clean_batch_id": "ce451197-bd5a-406c-8b31-2fcd373e6fe4",
+  "clean_audit_hash": "d3e11c911242424e067d9c6cdafcb7271b3d5eee380a55ca3d90799b1505511a",
+  "approved": [
+    {
+      "proposal_id": "miller_uuid_location_ec76e0e7-0448-479f-a6d5-498e9bd636a8",
+      "resource_id": "07b79b87-c82c-5e28-90eb-16bf56d8b1cb",
+      "name": "Mollie's Place",
+      "street_address": "825 Peardonville Road",
+      "city": "Abbotsford",
+      "province": "BC",
+      "evidence_hash": "6dae492743fc9f810417900f1b571feefd1238a0eb33718aab9162362bb6abf5"
+    },
+    {
+      "proposal_id": "miller_uuid_location_f5af92fe-c4ee-49f0-a53c-3f58c656b6d7",
+      "resource_id": "0daa0ce8-2135-5f8a-a90d-4aeb564e0544",
+      "name": "Oak Counselling",
+      "street_address": "949 West 49th Avenue",
+      "city": "Vancouver",
+      "province": "BC",
+      "evidence_hash": "7a874e7da030229c6de34076e1193053de9c1dcdcaa74b4fb1fc1e08110072b4"
+    }
+  ]
+}

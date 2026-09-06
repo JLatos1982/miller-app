@@ -1,0 +1,190 @@
+{
+  "schema_version": "miller-north-alberta-panel-crosswalk-v1",
+  "visibility": "private_owner_review",
+  "rows": [
+    {
+      "recommendation_id": "CS1",
+      "neutral_summary": "Address racism; create culturally safe complaint, ombudsperson/investigator and standards mechanisms.",
+      "current_mechanism": "Indigenous Patient Safety Investigator and Advocate; Office of Alberta Health Advocates.",
+      "crosswalk_status": "direct_implementation_evidence",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "CS2",
+      "neutral_summary": "Equip staff with Indigenous history, trauma- and violence-informed practice and cultural-safety learning.",
+      "current_mechanism": "Indigenous cultural training toolkit work is described in the anti-racism engagement page.",
+      "crosswalk_status": "partial_related_implementation",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "CS3",
+      "neutral_summary": "Provide safe spaces for ceremony, traditional medicine, language, navigation and culturally appropriate life-stage supports.",
+      "current_mechanism": "Elder/Knowledge Keeper support is available through the patient-safety advocate; navigator mechanisms exist.",
+      "crosswalk_status": "partial_related_implementation",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "A1",
+      "neutral_summary": "Advance equitable access, medical-home relationships and practical access supports.",
+      "current_mechanism": "Broad MAPS and Indigenous Health Division alignment; no recommendation-specific public measure located.",
+      "crosswalk_status": "broad_systemic_alignment_only",
+      "owner_review_required": true,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "A2",
+      "neutral_summary": "Support innovative, Indigenous-designed and delivered wholistic models.",
+      "current_mechanism": "$20-million Indigenous Primary Health Care Innovation Fund.",
+      "crosswalk_status": "direct_implementation_evidence",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "A3",
+      "neutral_summary": "Expand virtual and telehealth access.",
+      "current_mechanism": "Alberta Indigenous Virtual Care Clinic and other virtual mechanisms operate; no direct panel crosswalk located.",
+      "crosswalk_status": "partial_related_implementation",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "A4",
+      "neutral_summary": "Recruit and retain an Indigenous health workforce.",
+      "current_mechanism": "No recommendation-specific public progress measure located.",
+      "crosswalk_status": "no_clear_public_crosswalk",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "A5",
+      "neutral_summary": "Recruit and retain physicians in Indigenous communities and clinics.",
+      "current_mechanism": "No recommendation-specific public progress measure located.",
+      "crosswalk_status": "no_clear_public_crosswalk",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "A6",
+      "neutral_summary": "Improve flexible specialty access.",
+      "current_mechanism": "No recommendation-specific public progress measure located.",
+      "crosswalk_status": "no_clear_public_crosswalk",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "I1",
+      "neutral_summary": "Improve partnerships, data sharing and continuity across organizations.",
+      "current_mechanism": "Indigenous Health Division and advisory structures provide broad alignment; operational crosswalk unclear.",
+      "crosswalk_status": "broad_systemic_alignment_only",
+      "owner_review_required": true,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "I2",
+      "neutral_summary": "Build integrated multidisciplinary, culturally safe teams and extended access.",
+      "current_mechanism": "Innovation-funded projects may align, but no complete recommendation-level ledger was located.",
+      "crosswalk_status": "partial_related_implementation",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "I3",
+      "neutral_summary": "Provide navigation, health-literacy and outreach supports.",
+      "current_mechanism": "Indigenous Patient Navigator Grant Program and operating navigation services.",
+      "crosswalk_status": "direct_implementation_evidence",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "Q1",
+      "neutral_summary": "Develop Indigenous-driven data with data-sovereignty safeguards.",
+      "current_mechanism": "No recommendation-specific public progress measure located.",
+      "crosswalk_status": "no_clear_public_crosswalk",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "Q2",
+      "neutral_summary": "Create Indigenous-aligned performance indicators and benchmarks.",
+      "current_mechanism": "No public recommendation-specific indicators located.",
+      "crosswalk_status": "no_clear_public_crosswalk",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "Q3",
+      "neutral_summary": "Provide timely equipment and supply funding.",
+      "current_mechanism": "No recommendation-specific public crosswalk located.",
+      "crosswalk_status": "no_clear_public_crosswalk",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "Q4",
+      "neutral_summary": "Modernize the health-card process.",
+      "current_mechanism": "No recommendation-specific public completion evidence located.",
+      "crosswalk_status": "no_clear_public_crosswalk",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "Q5",
+      "neutral_summary": "Create an Office of Indigenous Primary Health Care.",
+      "current_mechanism": "Indigenous Health Division created within the responsible ministry structure.",
+      "crosswalk_status": "direct_implementation_evidence",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "P1",
+      "neutral_summary": "Include Indigenous partners in design, governance, planning and resource allocation.",
+      "current_mechanism": "Indigenous Advisory Council and Indigenous Health Division engagement mechanisms.",
+      "crosswalk_status": "partial_related_implementation",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "P2",
+      "neutral_summary": "Increase governance representation and funding autonomy.",
+      "current_mechanism": "Advisory structures exist; no full public crosswalk to autonomy outcomes located.",
+      "crosswalk_status": "broad_systemic_alignment_only",
+      "owner_review_required": true,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "P3",
+      "neutral_summary": "Include Elders, Knowledge Holders, youth and 2SLGBTQQIA+ people in planning.",
+      "current_mechanism": "Elder roster supports complaints; no complete planning-participation crosswalk located.",
+      "crosswalk_status": "partial_related_implementation",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "P4",
+      "neutral_summary": "Provide sustainable long-term funding for Indigenous programs.",
+      "current_mechanism": "Grant mechanisms exist; long-term funding status is not demonstrated for the recommendation as a whole.",
+      "crosswalk_status": "partial_related_implementation",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    },
+    {
+      "recommendation_id": "P5",
+      "neutral_summary": "Create an Indigenous Primary Health Care Innovation Fund.",
+      "current_mechanism": "$20-million fund created.",
+      "crosswalk_status": "direct_implementation_evidence",
+      "owner_review_required": false,
+      "caution": "Status describes public evidence linking a mechanism to the recommendation; it is not an effectiveness or completion rating."
+    }
+  ],
+  "counts": {
+    "direct_implementation_evidence": 5,
+    "partial_related_implementation": 7,
+    "broad_systemic_alignment_only": 3,
+    "no_clear_public_crosswalk": 7,
+    "owner_review": 0
+  },
+  "generated_at": "2026-09-06T12:00:00-07:00"
+}

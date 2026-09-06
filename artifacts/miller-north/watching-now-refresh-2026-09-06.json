@@ -1,0 +1,26 @@
+{
+  "artifact": "miller-north-watching-now-refresh-v1",
+  "private": true,
+  "review_date": "2026-09-06",
+  "stories_reviewed": 8,
+  "summary": {
+    "unchanged": 7,
+    "strengthened": 0,
+    "weakened": 0,
+    "moved_to_dossier_candidate": 0,
+    "moved_to_mature_case": 1,
+    "hold": 0,
+    "retire_archive": 0
+  },
+  "decisions": [
+    { "title": "B.C. Patient Care Quality Review", "classification": "unchanged", "reason": "The official engagement remains active; no final recommendations or policy/legislative output was located.", "next_check_due": "2026-10-01" },
+    { "title": "Island Health Indigenous Patient Self-Identification redesign", "classification": "unchanged", "reason": "The official pause and redesign commitment remain current; no resumption milestone or governance agreement was located.", "next_check_due": "2026-10-08" },
+    { "title": "B.C. health anti-racism and cultural-safety centre", "classification": "unchanged", "reason": "The creation commitment remains public; an operating mandate or launch update was not located.", "next_check_due": "2026-10-20" },
+    { "title": "Public response to FNHO recommendations", "classification": "unchanged", "reason": "No later comprehensive Ministry or Saskatchewan Health Authority response ledger was located in the bounded official-source check.", "next_check_due": "2026-10-06" },
+    { "title": "Anti-Indigenous Racism Navigator Network", "classification": "unchanged", "reason": "Current federal reporting still confirms the network but does not identify a full participant, governance or outcome account.", "next_check_due": "2026-12-01" },
+    { "title": "Indigenous Patient Safety Investigator and Advocate", "classification": "moved_to_mature_case", "reason": "Official mandate, authority, restrictions, institutional position, operational date and a First Nations-serving implementation source now support a bounded full dossier.", "next_check_due": "2026-12-06" },
+    { "title": "Indigenous Cultural Safety evidence review", "classification": "unchanged", "reason": "The review remains public, but a direct implementation crosswalk to current programs was not located.", "next_check_due": "2026-12-31" },
+    { "title": "Alberta Indigenous health anti-racism strategy", "classification": "unchanged", "reason": "The official page still describes a What We Heard report and strategy/action plan as future outputs; no final publication was located.", "next_check_due": "2026-10-24" }
+  ],
+  "stopping_rule": "Stopped after the official program, ministry, annual-report and named implementation-source avenues either confirmed the current state or yielded no newer material change. Missing reporting was not treated as missing action."
+}

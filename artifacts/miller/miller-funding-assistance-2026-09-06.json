@@ -1,0 +1,92 @@
+{
+  "schema_version": "miller-funding-assistance-v1",
+  "private": true,
+  "publication_state": "candidate_only",
+  "generated_at": "2026-09-06T12:00:00Z",
+  "records": [
+    {
+      "funding_assistance_id": "mfa_bc_id_supplement",
+      "id": "bc_id_supplement",
+      "name": "Identification Supplement",
+      "category": "identification",
+      "applicant": "Eligible recipients of B.C. income, disability, or hardship assistance",
+      "status": "recurring",
+      "url": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/identification-supplement",
+      "last_verified_at": "2026-09-06",
+      "verify_before_applying": true,
+      "source_type": "official_primary"
+    },
+    {
+      "funding_assistance_id": "mfa_canada_benefits_finder",
+      "id": "canada_benefits_finder",
+      "name": "Benefits Finder",
+      "category": "income_benefits",
+      "applicant": "People seeking federal benefit navigation",
+      "status": "recurring",
+      "url": "https://www.canada.ca/en/services/benefits/finder.html",
+      "last_verified_at": "2026-09-06",
+      "verify_before_applying": true,
+      "source_type": "official_primary"
+    },
+    {
+      "funding_assistance_id": "mfa_workbc_training",
+      "id": "workbc_training",
+      "name": "WorkBC employment and training supports",
+      "category": "employment_training",
+      "applicant": "Eligible B.C. job seekers; supports vary by stream",
+      "status": "recurring",
+      "url": "https://www.workbc.ca/workbc-centres/workbc-centre-new-westminster",
+      "last_verified_at": "2026-09-06",
+      "verify_before_applying": true,
+      "source_type": "official_primary"
+    },
+    {
+      "funding_assistance_id": "mfa_community_workforce",
+      "id": "community_workforce",
+      "name": "Community Workforce Response Grant participant supports",
+      "category": "training",
+      "applicant": "Participants in approved projects; applicants are eligible organizations",
+      "status": "periodic_intakes",
+      "url": "https://www.workbc.ca/find-loans-and-grants/community/community-workforce-response-grant/whats-new",
+      "last_verified_at": "2026-09-06",
+      "verify_before_applying": true,
+      "source_type": "official_primary"
+    },
+    {
+      "funding_assistance_id": "mfa_fnha_transport",
+      "id": "fnha_transport",
+      "name": "FNHA Medical Transportation Benefit",
+      "category": "transportation",
+      "applicant": "Eligible First Nations clients in B.C.",
+      "status": "recurring",
+      "url": "https://fnha.ca/benefits/benefits-guide/medical-transport-ambulance/",
+      "last_verified_at": "2026-09-06",
+      "verify_before_applying": true,
+      "source_type": "official_primary"
+    },
+    {
+      "funding_assistance_id": "mfa_psssp",
+      "id": "psssp",
+      "name": "Post-Secondary Student Support Program",
+      "category": "education",
+      "applicant": "Eligible registered First Nations post-secondary students",
+      "status": "annual_local_deadlines",
+      "url": "https://sac-isc.gc.ca/eng/1100100033682/1531933580211",
+      "last_verified_at": "2026-09-06",
+      "verify_before_applying": true,
+      "source_type": "official_primary"
+    },
+    {
+      "funding_assistance_id": "mfa_iset",
+      "id": "iset",
+      "name": "Indigenous Skills and Employment Training services",
+      "category": "employment_training",
+      "applicant": "Indigenous people through local service-delivery organizations",
+      "status": "recurring",
+      "url": "https://www.canada.ca/en/employment-social-development/programs/indigenous-skills-employment-training.html",
+      "last_verified_at": "2026-09-06",
+      "verify_before_applying": true,
+      "source_type": "official_primary"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": "miller-north-bounded-knowledge-gap-follow-up-v1",
+  "publication_scope": "private_owner_review",
+  "maximum_follow_ups": 3,
+  "follow_ups": [
+    {
+      "case_id": "mnrpc_bc_in_plain_sight",
+      "province": "british_columbia",
+      "question": "Which recommendation number correctly owns the health-authority PIDA implementation item?",
+      "outcome": "answered",
+      "answer": "Recommendation 11 is canonical; recommendation 2 on the current Action 3.07 page appears to be a reporting-label error.",
+      "source_references": [
+        "mnpcs_bc_ips_report",
+        "mnpcs_bc_2021_update",
+        "mnpcs_bc_24_month",
+        "mnpcs_bc_transition_binder",
+        "mnpcs_bc_action_307"
+      ],
+      "stopping_reason": "The original report plus three consistent official implementation sources resolve the numbering; no authoritative renumbering was found.",
+      "information_requests_sent": 0
+    },
+    {
+      "case_id": "mnrpc_sk_saskatoon_coerced_sterilization",
+      "province": "saskatchewan",
+      "question": "What is the current public procedural status of the proposed class action?",
+      "outcome": "partially_answered",
+      "answer": "The Court of King's Bench dismissed certification in Popp v Canada (Attorney General), 2025 SKKB 89. An appeal or successor collective proceeding was not located.",
+      "source_references": [
+        "mnpcs_sk_case_digest",
+        "mnpcs_sk_2024_intervention"
+      ],
+      "stopping_reason": "An authoritative case digest resolves the certification stage. Targeted official and case-law searches did not locate an appeal, and further open-web searching showed diminishing returns.",
+      "information_requests_sent": 0
+    },
+    {
+      "case_id": "mnrpc_ab_indigenous_primary_care_panel",
+      "province": "alberta",
+      "question": "Is there a current comprehensive public status ledger for all 22 Indigenous Primary Health Care Advisory Panel recommendations?",
+      "outcome": "partially_answered",
+      "answer": "Government sources document a dedicated implementation plan and multiple current mechanisms, but no comprehensive current recommendation-by-recommendation status ledger was located.",
+      "source_references": [
+        "mnpcs_ab_way_forward",
+        "mnpcs_ab_improving",
+        "mnpcs_ab_maps",
+        "mnpcs_ab_navigator",
+        "mnpcs_ab_innovation",
+        "mnpcs_ab_advocate"
+      ],
+      "stopping_reason": "The central official report, implementation plan and current program pages were inspected. Additional searches repeated the same sources and showed diminishing returns; organization-specific follow-up is the appropriate next step.",
+      "information_requests_sent": 0
+    }
+  ],
+  "information_requests_sent": 0
+}

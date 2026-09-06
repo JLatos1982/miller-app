@@ -1,0 +1,44 @@
+{
+  "schema_version": "miller-north-public-people-review-candidates-v1",
+  "scope": "local owner-review candidates only; no person or entity records were inserted",
+  "summary": {
+    "public_role_candidates_inspected": 4,
+    "matched_existing_miller_north_people_entities": 0,
+    "newly_added": 0,
+    "held_for_owner_review": 4
+  },
+  "candidates": [
+    {
+      "public_name": "Yvonne Boyer",
+      "public_role": "Senator and co-author of the commissioned external review on tubal-ligation experiences",
+      "organization": "Senate of Canada / commissioned review",
+      "relevant_relationship": "report author for iha_sk_001 and iha_sk_002",
+      "source_url": "https://senatorboyer.ca/wp-content/uploads/2021/09/Tubal-Ligation-in-the-Saskatoon-Health-Region-the-Lived-Experience-of-Aboriginal-Women-Boyer-and-Bartlett-July-11-2017.pdf",
+      "decision": "owner_review_candidate"
+    },
+    {
+      "public_name": "Judith Bartlett",
+      "public_role": "Co-author of the commissioned external review on tubal-ligation experiences",
+      "organization": "commissioned review",
+      "relevant_relationship": "report author for iha_sk_001 and iha_sk_002",
+      "source_url": "https://senatorboyer.ca/wp-content/uploads/2021/09/Tubal-Ligation-in-the-Saskatoon-Health-Region-the-Lived-Experience-of-Aboriginal-Women-Boyer-and-Bartlett-July-11-2017.pdf",
+      "decision": "owner_review_candidate"
+    },
+    {
+      "public_name": "Mary Ellen Turpel-Lafond",
+      "public_role": "Independent reviewer and author of In Plain Sight",
+      "organization": "Addressing Racism Review",
+      "relevant_relationship": "independent review author for iha_bc_001 and iha_bc_002",
+      "source_url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+      "decision": "owner_review_candidate"
+    },
+    {
+      "public_name": "Diane Lafond",
+      "public_role": "First Nations Health Ombudsperson in Saskatchewan",
+      "organization": "First Nations Health Ombudsperson Office",
+      "relevant_relationship": "public oversight role relevant to iha_sk_006, iha_sk_010, and iha_sk_011",
+      "source_url": "https://www.ckom.com/2026/01/26/call-for-independent-inquiry-into-first-nations-health-care-in-wake-of-trevor-dubois-death",
+      "decision": "owner_review_candidate"
+    }
+  ]
+}

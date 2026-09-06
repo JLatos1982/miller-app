@@ -1,0 +1,12 @@
+# Public people review — accountability benchmark
+
+The existing Miller North architecture has incident-level public case names but no standalone people/entity table or safe person-publication workflow. No people were inserted or published in this implementation pass. The machine-readable candidate set is [available here](indigenous-healthcare-accountability-public-people-review-2026-09-05.json).
+
+| Public person candidate | Public role relevant to the benchmark | Action/report connection | Source | Decision |
+| --- | --- | --- | --- | --- |
+| Senator Yvonne Boyer | Co-author of the commissioned external review on tubal-ligation experiences | `iha_sk_001` and `iha_sk_002` | [commissioned report](https://senatorboyer.ca/wp-content/uploads/2021/09/Tubal-Ligation-in-the-Saskatoon-Health-Region-the-Lived-Experience-of-Aboriginal-Women-Boyer-and-Bartlett-July-11-2017.pdf) | Hold as owner-review entity candidate; public professional role is clear, but there is no existing entity table to receive it. |
+| Dr. Judith Bartlett | Co-author of the commissioned external review | `iha_sk_001` and `iha_sk_002` | [commissioned report](https://senatorboyer.ca/wp-content/uploads/2021/09/Tubal-Ligation-in-the-Saskatoon-Health-Region-the-Lived-Experience-of-Aboriginal-Women-Boyer-and-Bartlett-July-11-2017.pdf) | Hold as owner-review entity candidate for the same reason. |
+| Mary Ellen Turpel-Lafond | Independent reviewer and author of *In Plain Sight* | `iha_bc_001` and `iha_bc_002` | [B.C. review report](https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf) | Hold as owner-review entity candidate; no patient or complainant data is involved. |
+| Dr. Diane Lafond | First Nations Health Ombudsperson in Saskatchewan | `iha_sk_006`, `iha_sk_010`, and `iha_sk_011`; related Saskatchewan review and complaint work | [650 CKOM reporting](https://www.ckom.com/2026/01/26/call-for-independent-inquiry-into-first-nations-health-care-in-wake-of-trevor-dubois-death) preserved in the linked Miller North source corpus | Hold as owner-review entity candidate; retain only the public professional role. |
+
+Inspection result: four materially relevant public-role candidates identified; zero matched against a separate Miller North person/entity record because no such table exists; zero added; four held for owner review. Names mentioned only as patients, complainants, family members, unnamed professionals, or anonymized participants were not extracted into this artifact.

@@ -1,0 +1,23 @@
+{
+  "schema_version": "farm-research-dossier-validation-v1",
+  "publication_scope": "private_validation_only",
+  "dossiers": 4,
+  "domains": {
+    "miller_addictions": 2,
+    "miller_north_indigenous_healthcare": 2
+  },
+  "sources": 19,
+  "edges": 24,
+  "timeline_events": 17,
+  "gaps": 9,
+  "foi_candidates": 4,
+  "quality_bands": {
+    "strong": 4,
+    "moderate": 0,
+    "incomplete": 0
+  },
+  "owner_review": 4,
+  "source_registry_families": 30,
+  "production_mutations": 0,
+  "publication_mutations": 0
+}

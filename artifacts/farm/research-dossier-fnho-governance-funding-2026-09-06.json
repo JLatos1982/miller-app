@@ -1,0 +1,330 @@
+{
+  "schema_version": "farm-research-dossier-v1",
+  "dossier_id": "farm_dossier_miller_north_fnho_governance_funding_v1",
+  "canonical_fixture_id": "farm_fixture_north_fnhoo_governance_v1",
+  "research_date": "2026-09-06",
+  "publication_scope": "private_owner_review",
+  "production_mutations": 0,
+  "publication_mutations": 0,
+  "owner_synthesis": {
+    "what_this_is": "The Saskatchewan First Nations Health Ombudsperson Office is a First Nations-designed and governed health-oversight mechanism. This dossier separates its Chiefs-in-Assembly governance authority from federal contribution funding and from evidence that the office became and remains operational.",
+    "what_we_learned": [
+      "The office identifies FSIN Chiefs-in-Assembly Resolution 2046 as the source of its governance authority.",
+      "Indigenous Services Canada announced $1.17 million for first-year establishment, but funding is not the source of the office’s First Nations governance mandate.",
+      "Current office information and annual-report access demonstrate operation beyond the launch announcement.",
+      "Federal proactive disclosure identifies a later $775,000 contribution agreement, while detailed activity-level allocation remains outside the disclosed record.",
+      "The office describes Treaty and inherent-rights context; this dossier does not convert that governance statement into a judicial treaty-right conclusion."
+    ],
+    "why_it_matters": "This is the strongest cross-domain fixture for proving that Farm relationships can preserve who governs, who funds, who operates and what evidence demonstrates implementation without collapsing those roles.",
+    "what_remains_unclear": [
+      "What activity-level outputs and outcomes are reported in the latest FNHO annual report?",
+      "How was the later $775,000 agreement allocated among office activities?"
+    ],
+    "recommended_next_move": "Review the latest annual report at activity level and keep all future summaries explicit that First Nations governance authority and federal funding are distinct relationships."
+  },
+  "identity": {
+    "canonical_name": "Saskatchewan First Nations Health Ombudsperson Office — governance and funding",
+    "domain": "miller_north_indigenous_healthcare",
+    "subject_type": "accountability_chain_and_oversight_mechanism",
+    "location_jurisdiction": "Saskatchewan First Nations; federal funding context",
+    "status": "operational_private_accountability_subject",
+    "identifiers": ["sk_first_nations_health_ombudsperson", "mnlc_sk_fn_health_ombudsperson", "fmoney_north_fnhoo_launch", "fmoney_north_fnhoo_775k"]
+  },
+  "timeline": [
+    {
+      "timeline_id": "fdtimeline_fnho_resolution_2017",
+      "date_or_range": "2017",
+      "event_type": "governance_authority",
+      "title": "Chiefs-in-Assembly resolution establishes mandate",
+      "short_description": "The office identifies FSIN Chiefs-in-Assembly Resolution 2046 as the basis for its First Nations governance authority.",
+      "organization": "Federation of Sovereign Indigenous Nations Chiefs-in-Assembly",
+      "relationship": "created_by",
+      "source_references": ["fdsource_fnho_governance"],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "fdtimeline_fnho_launch_funding_2022",
+      "date_or_range": "2022-02-22",
+      "event_type": "establishment_funding",
+      "title": "$1.17-million first-year establishment funding announced",
+      "short_description": "Indigenous Services Canada announced contribution funding for FSIN to establish the office.",
+      "organization": "Indigenous Services Canada",
+      "relationship": "funded_by",
+      "source_references": ["fdsource_fnho_isc_launch"],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "fdtimeline_fnho_later_agreement_2024",
+      "date_or_range": "2024-05-10 to 2026-03-31",
+      "event_type": "contribution_agreement",
+      "title": "$775,000 agreement disclosed",
+      "short_description": "Federal proactive disclosure identifies the recipient, value and term but not detailed activity-level spending.",
+      "organization": "Indigenous Services Canada and First Nations Health Ombudsperson Office",
+      "relationship": "received_by",
+      "source_references": ["fdsource_fnho_open_grant"],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "fdtimeline_fnho_current_operation",
+      "date_or_range": "current as inspected 2026-09-06",
+      "event_type": "operational_confirmation",
+      "title": "Office and annual reporting remain available",
+      "short_description": "The FNHO site describes current operation and provides an annual-report registry.",
+      "organization": "First Nations Health Ombudsperson Office",
+      "relationship": "operationalizes",
+      "source_references": ["fdsource_fnho_about", "fdsource_fnho_annual_reports"],
+      "confidence": "high"
+    }
+  ],
+  "organizations": [
+    {"name": "Federation of Sovereign Indigenous Nations Chiefs-in-Assembly", "role": "source of governance authority"},
+    {"name": "First Nations Health Ombudsperson Office", "role": "First Nations-governed oversight body and operator"},
+    {"name": "FNHO Board and Knowledge Holders Council", "role": "governance and guidance structures described by the office"},
+    {"name": "Indigenous Services Canada", "role": "federal contribution funder"}
+  ],
+  "policy_law_governance": [
+    {
+      "title": "FSIN Chiefs-in-Assembly Resolution 2046",
+      "context_scope": "directly_applicable",
+      "summary": "The office’s own governance page identifies the resolution as its source of authority.",
+      "source_references": ["fdsource_fnho_governance"]
+    },
+    {
+      "title": "First Nations health governance framework",
+      "context_scope": "governance_context",
+      "summary": "The office describes reporting through a Chiefs-appointed board and guidance from a Knowledge Holders Council, with a mission tied to the spirit and intent of Treaty and inherent rights.",
+      "source_references": ["fdsource_fnho_governance", "fdsource_fnho_about"]
+    }
+  ],
+  "accountability": [
+    {
+      "title": "First Nations health complaint and oversight mechanism",
+      "summary": "The office is a formal accountability response intended to support First Nations patients and address systemic health-service concerns.",
+      "source_references": ["fdsource_fnho_isc_launch", "fdsource_fnho_about"]
+    }
+  ],
+  "funding_public_money": [
+    {
+      "title": "$1.17-million establishment contribution",
+      "amount_cad": 1170000,
+      "funding_type": "contribution_agreement",
+      "attribution_scope": "recipient_level",
+      "recipient": "Federation of Sovereign Indigenous Nations / First Nations Health Ombudsperson Office",
+      "summary": "First-year establishment funding is confirmed at recipient/office level; it does not define the office’s governance authority.",
+      "source_references": ["fdsource_fnho_isc_launch"]
+    },
+    {
+      "title": "$775,000 later contribution agreement",
+      "amount_cad": 775000,
+      "funding_type": "contribution_agreement",
+      "attribution_scope": "recipient_level",
+      "recipient": "Saskatchewan First Nations Health Ombudsperson Office",
+      "summary": "The disclosed agreement confirms value, recipient and term, but not a detailed activity or expenditure breakdown.",
+      "source_references": ["fdsource_fnho_open_grant"]
+    }
+  ],
+  "service_real_world_implementation": [
+    {
+      "title": "Operating First Nations Health Ombudsperson Office",
+      "summary": "Current institutional pages and annual-report access demonstrate the office exists and operates after establishment funding.",
+      "source_references": ["fdsource_fnho_about", "fdsource_fnho_annual_reports"]
+    }
+  ],
+  "implementation_evidence": [
+    {
+      "state": "operational",
+      "date": "2026-09-06",
+      "summary": "Current office pages and reporting infrastructure demonstrate an operational oversight mechanism.",
+      "source_references": ["fdsource_fnho_about", "fdsource_fnho_annual_reports"]
+    }
+  ],
+  "audits_follow_up": [
+    {
+      "title": "FNHO annual-report registry",
+      "summary": "The office publishes annual-report access suitable for activity-level follow-up.",
+      "source_references": ["fdsource_fnho_annual_reports"]
+    },
+    {
+      "title": "Federal proactive disclosure",
+      "summary": "The later contribution record confirms continuing federal financial support at recipient level.",
+      "source_references": ["fdsource_fnho_open_grant"]
+    }
+  ],
+  "unresolved_questions": [
+    {
+      "gap_id": "fdgap_fnho_latest_activity_outcomes",
+      "question": "What complaint, resolution, systemic-recommendation and outcome measures are reported in the latest FNHO annual report?",
+      "gap_type": "official_source_follow_up",
+      "priority": "review_first",
+      "rationale": "Operation is established, but activity-level evidence would materially improve implementation and outcome understanding."
+    },
+    {
+      "gap_id": "fdgap_fnho_agreement_allocation",
+      "question": "How was the $775,000 contribution agreement allocated among office activities?",
+      "gap_type": "FOI_candidate",
+      "priority": "review_next",
+      "rationale": "The proactive-disclosure record stops at recipient level."
+    }
+  ],
+  "foi_candidates": [
+    {
+      "candidate_id": "fdfoi_fnho_contribution_scope",
+      "status": "draft_not_sent",
+      "organization": "Indigenous Services Canada",
+      "exact_missing_information": "Contribution-agreement schedule or public-facing results summary identifying funded activity categories for the $775,000 agreement.",
+      "bounded_date_range": "2024-05-10 to 2026-03-31",
+      "why_it_matters": "It would clarify the funding relationship without treating federal funding as governance authority or requesting individual complaint information.",
+      "public_sources_checked": ["fdsource_fnho_open_grant", "fdsource_fnho_annual_reports"],
+      "suggested_record_category": "contribution-agreement activity schedule or aggregate results summary",
+      "exclusions": ["private_patient_information", "individual_complaint_records", "personal_contact_information"]
+    }
+  ],
+  "evidence_graph": {
+    "nodes_are_domain_references": true,
+    "edges": [
+      {
+        "edge_id": "fdedge_fnho_resolution_authority",
+        "from_object_id": "fsin_resolution_2046",
+        "to_object_id": "sk_first_nations_health_ombudsperson",
+        "relationship_type": "created_by",
+        "date": "2017",
+        "context_scope": "directly_applicable",
+        "neutral_summary": "The office identifies Chiefs-in-Assembly Resolution 2046 as its governance authority.",
+        "confidence": "high",
+        "source_references": ["fdsource_fnho_governance"]
+      },
+      {
+        "edge_id": "fdedge_fnho_treaty_governance_context",
+        "from_object_id": "sk_first_nations_health_ombudsperson",
+        "to_object_id": "treaty_and_inherent_rights_context",
+        "relationship_type": "has_context",
+        "date": "2026-09-06",
+        "context_scope": "governance_context",
+        "neutral_summary": "The office frames its mission in the spirit and intent of Treaty and inherent rights; no judicial treaty-right determination is inferred.",
+        "confidence": "high",
+        "source_references": ["fdsource_fnho_governance"]
+      },
+      {
+        "edge_id": "fdedge_fnho_initial_federal_funding",
+        "from_object_id": "isc_fnho_funding_2022",
+        "to_object_id": "fsin_fnho",
+        "relationship_type": "funded_by",
+        "date": "2022-02-22",
+        "funding_scope": "recipient_level",
+        "neutral_summary": "Indigenous Services Canada announced $1.17 million for first-year establishment through FSIN.",
+        "confidence": "high",
+        "source_references": ["fdsource_fnho_isc_launch"]
+      },
+      {
+        "edge_id": "fdedge_fnho_establishment_operationalized",
+        "from_object_id": "isc_fnho_funding_2022",
+        "to_object_id": "sk_first_nations_health_ombudsperson",
+        "relationship_type": "operationalizes",
+        "date": "2026-09-06",
+        "funding_scope": "recipient_level",
+        "implementation_state": "operational",
+        "neutral_summary": "Current office information and annual-report access demonstrate operation after establishment funding.",
+        "confidence": "high",
+        "source_references": ["fdsource_fnho_isc_launch", "fdsource_fnho_about", "fdsource_fnho_annual_reports"]
+      },
+      {
+        "edge_id": "fdedge_fnho_later_contribution",
+        "from_object_id": "fmoney_north_fnhoo_775k",
+        "to_object_id": "sk_first_nations_health_ombudsperson",
+        "relationship_type": "received_by",
+        "date": "2024-05-10",
+        "funding_scope": "recipient_level",
+        "neutral_summary": "Federal proactive disclosure confirms a later $775,000 agreement at recipient level without itemized activity spending.",
+        "confidence": "high",
+        "source_references": ["fdsource_fnho_open_grant"]
+      },
+      {
+        "edge_id": "fdedge_fnho_annual_reporting",
+        "from_object_id": "sk_first_nations_health_ombudsperson",
+        "to_object_id": "fnho_annual_report_registry",
+        "relationship_type": "reported_by",
+        "date": "2026-09-06",
+        "context_scope": "governance_context",
+        "neutral_summary": "The office maintains an annual-report registry for continuing accountability follow-up.",
+        "confidence": "high",
+        "source_references": ["fdsource_fnho_annual_reports"]
+      }
+    ]
+  },
+  "owner_assessment": {
+    "significance": "review_first",
+    "confidence": "high",
+    "owner_review": true,
+    "owner_review_reason": "The architecture must continue to prevent federal funding relationships from being presented as the source of First Nations governance authority.",
+    "recommended_next_action": "Extract the latest annual report’s aggregate activity measures and validate them as follow-up evidence while preserving the governance/funding distinction."
+  },
+  "quality_assessment": {
+    "band": "strong",
+    "score": 15,
+    "maximum_score": 16,
+    "dimensions": {
+      "identity_confidence": 2,
+      "primary_source_coverage": 2,
+      "timeline_completeness": 2,
+      "policy_legal_coverage": 2,
+      "funding_traceability": 1,
+      "implementation_evidence": 2,
+      "follow_up_evidence": 2,
+      "unresolved_question_burden": 2
+    },
+    "notice": "Research completeness only; this is not a moral, effectiveness, compliance, or reputational score."
+  },
+  "limitations": "The dossier demonstrates governance authority, named federal contributions and operation. It does not determine legal treaty rights, audit expenditure, expose individual complaint information or attribute federal funding to particular complaint outcomes.",
+  "source_set": [
+    {
+      "source_id": "fdsource_fnho_governance",
+      "source_family_id": "fogs_fnhoo",
+      "url": "https://fnhoo.ca/governance/",
+      "title": "Governance",
+      "source_organization": "First Nations Health Ombudsperson Office",
+      "authority_class": "indigenous_government_or_organization",
+      "role": "governance authority and Treaty/inherent-rights context",
+      "publication_date": null
+    },
+    {
+      "source_id": "fdsource_fnho_about",
+      "source_family_id": "fogs_fnhoo",
+      "url": "https://fnhoo.ca/about-us/",
+      "title": "About Us",
+      "source_organization": "First Nations Health Ombudsperson Office",
+      "authority_class": "indigenous_government_or_organization",
+      "role": "current operation and mandate",
+      "publication_date": null
+    },
+    {
+      "source_id": "fdsource_fnho_annual_reports",
+      "source_family_id": "fogs_fnhoo",
+      "url": "https://fnhoo.ca/annual-reports/",
+      "title": "Annual Reports",
+      "source_organization": "First Nations Health Ombudsperson Office",
+      "authority_class": "indigenous_government_or_organization",
+      "role": "ongoing reporting registry",
+      "publication_date": null
+    },
+    {
+      "source_id": "fdsource_fnho_isc_launch",
+      "source_family_id": "fogs_indigenous_services_canada",
+      "url": "https://www.canada.ca/en/indigenous-services-canada/news/2022/02/first-ever-first-nation-health-ombudspersons-office-to-be-created-in-saskatchewan.html",
+      "title": "First-ever First Nation Health Ombudsperson’s Office to be created in Saskatchewan",
+      "source_organization": "Indigenous Services Canada",
+      "authority_class": "official_primary",
+      "role": "launch and first-year funding",
+      "publication_date": "2022-02-22"
+    },
+    {
+      "source_id": "fdsource_fnho_open_grant",
+      "source_family_id": "fogs_open_government_canada",
+      "url": "https://search.open.canada.ca/grants/record/isc-sac%2C1910-2025-2026-Qrt1-0009110%2Ccurrent?amendments=undefined&wbdisable=true",
+      "title": "Grant and contribution award disclosure — Saskatchewan First Nations Health Ombudsperson Office",
+      "source_organization": "Government of Canada Open Government",
+      "authority_class": "official_primary",
+      "role": "later recipient-level contribution disclosure",
+      "publication_date": "2024-05-10"
+    }
+  ]
+}

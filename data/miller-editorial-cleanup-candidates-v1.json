@@ -1,0 +1,121 @@
+{
+  "version": "miller-editorial-cleanup-candidates-v1",
+  "source_cohort": "miller-practical-discovery-cohort-v1",
+  "production_mutations": 0,
+  "candidates": [
+    {
+      "uuid": "15097b4a-4bf9-5c06-864f-8b81366d3b1b",
+      "name": "A Review of Prescribed Safer Supply Programs Across British Columbia",
+      "classification": "generic_directory_or_information",
+      "proposed_action": "editorial_review_for_first_class_resource_status"
+    },
+    {
+      "uuid": "02e8bb45-2e6e-5368-b50e-90e7ec5b0335",
+      "name": "AA Meetings",
+      "classification": "generic_directory_or_information",
+      "proposed_action": "editorial_review_for_first_class_resource_status"
+    },
+    {
+      "uuid": "6d410066-54ca-576a-bd59-f9c5e13dce3b",
+      "name": "Building better mental health and addictions care - Gov.bc.ca",
+      "classification": "generic_directory_or_information",
+      "proposed_action": "editorial_review_for_first_class_resource_status"
+    },
+    {
+      "uuid": "2cb1f674-15ed-57b1-a552-dcaf135ada2c",
+      "name": "BURNABY CENTRE CELEBRATES ONE-YEAR ANNIVERSARY",
+      "classification": "generic_directory_or_information",
+      "proposed_action": "editorial_review_for_first_class_resource_status"
+    },
+    {
+      "uuid": "18af3667-d527-5a0b-9971-8aa8528dea9b",
+      "name": "CA Meetings",
+      "classification": "generic_directory_or_information",
+      "proposed_action": "editorial_review_for_first_class_resource_status"
+    },
+    {
+      "uuid": "93383129-5c39-576c-99b3-f49372ac3a48",
+      "name": "Canadian Addiction Treatment Centres | Best-in-Class Care",
+      "classification": "commercial_referral_intermediary",
+      "proposed_action": "editorial_review_and_possible_resource_retirement"
+    },
+    {
+      "uuid": "d164777f-c9aa-5c82-b864-992f13f6f64c",
+      "name": "Fraser Health - Agency Details - 211 British Columbia",
+      "classification": "generic_directory_or_information",
+      "proposed_action": "editorial_review_for_first_class_resource_status"
+    },
+    {
+      "uuid": "99762eb4-6d09-5a9e-a9fa-c8c247fb44b0",
+      "name": "Free or Low-Cost Services in BC | HelpStartsHere",
+      "classification": "generic_directory_or_information",
+      "proposed_action": "editorial_review_for_first_class_resource_status"
+    },
+    {
+      "uuid": "7efb4144-7423-5af8-b72b-aef80e46141c",
+      "name": "Get help with substance use - Canada.ca",
+      "classification": "generic_directory_or_information",
+      "proposed_action": "editorial_review_for_first_class_resource_status"
+    },
+    {
+      "uuid": "39a2a654-affd-5c22-b1b2-6b4c6639871f",
+      "name": "HelpStartsHere",
+      "classification": "generic_directory_or_information",
+      "proposed_action": "editorial_review_for_first_class_resource_status"
+    },
+    {
+      "uuid": "87a02a09-aec0-51af-951a-a9eb473e6f23",
+      "name": "Interior Health - Agency Details - 211 British Columbia",
+      "classification": "generic_directory_or_information",
+      "proposed_action": "editorial_review_for_first_class_resource_status"
+    },
+    {
+      "uuid": "ca6184ad-9610-593b-a328-0fe85ca627ed",
+      "name": "Mental Health and Substance Use Information and Publications - Province of British Columbia",
+      "classification": "generic_directory_or_information",
+      "proposed_action": "editorial_review_for_first_class_resource_status"
+    },
+    {
+      "uuid": "639a22c4-71fd-5a9b-a46a-3a99e8193f18",
+      "name": "NA Meetings",
+      "classification": "generic_directory_or_information",
+      "proposed_action": "editorial_review_for_first_class_resource_status"
+    },
+    {
+      "uuid": "2d681588-9d7e-5c44-8d63-50bb1530d732",
+      "name": "Resources - BCCSU",
+      "classification": "generic_directory_or_information",
+      "proposed_action": "editorial_review_for_first_class_resource_status"
+    },
+    {
+      "uuid": "6374b756-f0b5-515c-bf6c-9454da3cf210",
+      "name": "Treatment Centres",
+      "classification": "generic_directory_or_information",
+      "proposed_action": "editorial_review_for_first_class_resource_status"
+    },
+    {
+      "uuid": "28b1de4e-2499-5880-b5cf-5e90eae6252f",
+      "name": "Victoria, BC Addiction Resource Map — Arbutus Therapy",
+      "classification": "generic_directory_or_information",
+      "proposed_action": "editorial_review_for_first_class_resource_status"
+    },
+    {
+      "uuid": "ed687700-d760-5424-8b38-5470a2b20997",
+      "name": "We're here to help | Here to Help",
+      "classification": "generic_directory_or_information",
+      "proposed_action": "editorial_review_for_first_class_resource_status"
+    },
+    {
+      "uuid": "8446753e-500a-5928-b766-6bbd5acc183d",
+      "name": "Where can I find substance use services for youth? | Kelty Mental Health",
+      "classification": "generic_directory_or_information",
+      "proposed_action": "editorial_review_for_first_class_resource_status"
+    },
+    {
+      "uuid": "0affd5ef-aa73-524c-a023-9bd3e28c50c6",
+      "name": "Youth substance use beds in B.C. - Province of British Columbia",
+      "classification": "generic_directory_or_information",
+      "proposed_action": "editorial_review_for_first_class_resource_status"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": "miller-north-provincial-timeline-v1",
+  "case_id": "mnrpc_bc_in_plain_sight",
+  "publication_scope": "private_owner_review",
+  "timeline": [
+    {
+      "timeline_id": "mnpct_bc_2020_report",
+      "date_or_range": "2020-11-30",
+      "event_type": "review_report",
+      "title": "In Plain Sight published",
+      "short_description": "The independent review reported systemic Indigenous-specific racism and issued 24 recommendations.",
+      "organization": "In Plain Sight independent review",
+      "source_references": [
+        "mnpcs_bc_ips_report"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_bc_2021_response",
+      "date_or_range": "2021-11-30",
+      "event_type": "implementation_update",
+      "title": "First-anniversary response",
+      "short_description": "Government reported early structures and correctly associated planned health-sector PIDA coverage with recommendation 11.",
+      "organization": "Government of British Columbia",
+      "source_references": [
+        "mnpcs_bc_2021_update"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_bc_2022_standard",
+      "date_or_range": "2022-11-29",
+      "event_type": "professional_standard",
+      "title": "Cultural Safety and Humility Standard released",
+      "short_description": "FNHA and HSO released a First Nations-led B.C. standard.",
+      "organization": "First Nations Health Authority and Health Standards Organization",
+      "source_references": [
+        "mnpcs_bc_csh_standard"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_bc_2023_pida",
+      "date_or_range": "2023-06",
+      "event_type": "legal_change",
+      "title": "PIDA coverage extended",
+      "short_description": "Official reporting states that health-authority employees came within statutory disclosure protections.",
+      "organization": "Government of British Columbia and Office of the Ombudsperson",
+      "source_references": [
+        "mnpcs_bc_24_month",
+        "mnpcs_bc_2021_update"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_bc_2023_report",
+      "date_or_range": "2023-11-30",
+      "event_type": "progress_report",
+      "title": "24-month implementation report",
+      "short_description": "The task team published the most complete official recommendation-level implementation baseline located.",
+      "organization": "In Plain Sight Task Team",
+      "source_references": [
+        "mnpcs_bc_24_month"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_bc_2024_governance",
+      "date_or_range": "2024",
+      "event_type": "evaluation",
+      "title": "Tripartite governance evaluation",
+      "short_description": "An Indigenous-led evaluation documented governance progress and remaining sustainability, clarity and accountability work.",
+      "organization": "First Nations Health Authority",
+      "source_references": [
+        "mnpcs_bc_tfa_eval"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_bc_current_reporting",
+      "date_or_range": "2026-09-06 accessed",
+      "event_type": "current_reporting",
+      "title": "Distributed current reporting",
+      "short_description": "Action 3.07 reports activity but says capacity to report comprehensively across all 24 recommendations is limited.",
+      "organization": "Government of British Columbia",
+      "source_references": [
+        "mnpcs_bc_action_307"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -5,6 +5,18 @@ const status = JSON.parse(execFileSync("npx", ["supabase", "status", "-o", "json
 const service = createClient(status.API_URL, status.SERVICE_ROLE_KEY, { auth: { persistSession: false, autoRefreshToken: false } })
 const email = `local-private-location-test-${process.pid}@miller.invalid`, password = "local-private-location-test-password", resourceId = "00000000-0000-4000-8000-000000000901"
 const cleanup = async () => { await service.from("resource_fact_evidence").delete().eq("claim_id", "00000000-0000-4000-8000-000000000902"); await service.from("resource_fact_claims").delete().eq("id", "00000000-0000-4000-8000-000000000902"); await service.from("location_qc_reviews").delete().eq("canonical_resource_id", resourceId); await service.from("resource_locations").delete().eq("resource_id", resourceId); await service.from("resource_registry").delete().eq("id", resourceId) }
+const waitForServer = async () => {
+  for (let attempt = 0; attempt < 30; attempt += 1) {
+    try {
+      const response = await fetch("http://127.0.0.1:3191/api/map/resources")
+      if (response.ok) return
+    } catch {
+      // The full parallel suite can delay Express startup beyond a fixed sleep.
+    }
+    await new Promise((resolve) => setTimeout(resolve, 200))
+  }
+  throw new Error("local private-location test server did not become ready")
+}
 await cleanup()
 const user = await service.auth.admin.createUser({ email, password, email_confirm: true }); if (user.error) throw user.error
 await service.from("resource_registry").insert({ id: resourceId, display_name: "Local private location test", lifecycle_state: "active", editorial_status: "approved" })
@@ -13,7 +25,7 @@ await service.from("resource_fact_evidence").insert({ claim_id: "00000000-0000-4
 await service.from("location_qc_reviews").insert({ canonical_resource_id: resourceId, policy_version: "local-test", classification_fingerprint: "local-test", decision: "pilot_eligible", decision_note: "local", review_snapshot: { submitted_address: "7155 Kingsway", returned_address: "7155 Kingsway, Burnaby, BC", locality: "Burnaby", score: 100, precision: "civic_number", location_descriptor: "parcelpoint", coordinates: { latitude: 49.219, longitude: -122.951 }, program_occupancy_confidence: "supported", sensitivity_flags: [], conflicts: [], source_url: "https://example.org/local-test" }, version: 1, reviewed_by: user.data.user.id })
 const child = spawn("node", ["server.js"], { env: { ...process.env, PORT: "3191", NODE_ENV: "test", SUPABASE_URL: status.API_URL, SUPABASE_SERVICE_ROLE_KEY: status.SERVICE_ROLE_KEY, ADMIN_EMAIL_ALLOWLIST: email }, stdio: "ignore" })
 try {
-  await new Promise((resolve) => setTimeout(resolve, 700))
+  await waitForServer()
   const login = await service.auth.signInWithPassword({ email, password }); if (login.error) throw login.error
   const headers = { Authorization: `Bearer ${login.data.session.access_token}`, "Content-Type": "application/json" }
   const before = await fetch("http://127.0.0.1:3191/api/map/resources").then((r) => r.json())

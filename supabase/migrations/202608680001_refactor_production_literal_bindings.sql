@@ -24,7 +24,9 @@ insert into public.miller_project_binding_v1 (binding_key, project_ref)
 values ('miller_project_binding_v1', 'wccagykzugrahwugefqt');
 
 insert into public.miller_resource_quality_reader_authorization_v1 (authorization_key, reader_id)
-values ('miller_resource_quality_reader_authorization_v1', 'f92a36ed-9af8-4fe5-be35-2fecb4d8e6a7');
+select 'miller_resource_quality_reader_authorization_v1', id
+from auth.users
+where id = 'f92a36ed-9af8-4fe5-be35-2fecb4d8e6a7'::uuid;
 
 alter table public.miller_project_binding_v1 enable row level security;
 alter table public.miller_project_binding_v1 force row level security;

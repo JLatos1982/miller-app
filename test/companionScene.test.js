@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
-import { destinationBesideRenderedResult, MILLER_CHARACTER_INTERACTION, MILLER_COMPANION, staticCompanionPresentation } from '../src/companion/millerCompanionAdapter.js'
+import { destinationBesideRenderedResult, MILLER_CHARACTER_INTERACTION, MILLER_COMPANION, staticCompanionPresentation, supportsMillerDogGreeting } from '../src/companion/millerCompanionAdapter.js'
 import { defineCompanionActor, resolveActorPose } from '../src/companion-core/index.js'
 import { MILLER_DOG_ARRIVAL, millerDogArrivalStep, millerDogIsTraveling, nextMillerDogArrivalIndex } from '../src/companion/millerCompanionSequence.js'
 import { MILLER_CLASSIC_GREETING, millerClassicGreetingStep, nextMillerClassicGreetingIndex } from '../src/companion/millerClassicGreeting.js'
@@ -52,11 +52,23 @@ test('dog arrival is bounded and settles without a continuing timer step', () =>
   assert.equal(MILLER_DOG_ARRIVAL.steps.at(-1).pose, 'sit')
 })
 
-test('Classic interaction artwork is registered while other themes retain the static companion tableau', () => {
+test('all selectable Miller themes register the shared dog interaction with named geometry', () => {
   assert.equal(MILLER_CHARACTER_INTERACTION.classic.supportsNotice, true)
   assert.equal(MILLER_CHARACTER_INTERACTION.classic.supportsPetting, true)
   assert.deepEqual(MILLER_CHARACTER_INTERACTION.classic.anchors.ground, { x: .5, y: .97 })
   assert.deepEqual(MILLER_CHARACTER_INTERACTION.classic.anchors.petHand, { x: .17, y: .71 })
+  assert.equal(MILLER_CHARACTER_INTERACTION.north.supportsNotice, true)
+  assert.equal(MILLER_CHARACTER_INTERACTION.north.supportsPetting, true)
+  assert.deepEqual(MILLER_CHARACTER_INTERACTION.north.anchors.petHand, { x: .15, y: .70 })
+  assert.equal(supportsMillerDogGreeting('North'), true)
+  for (const theme of ['violet', 'rose', 'jade']) {
+    assert.equal(MILLER_CHARACTER_INTERACTION[theme].supportsNotice, true)
+    assert.equal(MILLER_CHARACTER_INTERACTION[theme].supportsPetting, true)
+    assert.deepEqual(MILLER_CHARACTER_INTERACTION[theme].anchors.ground, { x: .5, y: .97 })
+    assert.equal(typeof MILLER_CHARACTER_INTERACTION[theme].anchors.petHand.x, 'number')
+    assert.equal(typeof MILLER_CHARACTER_INTERACTION[theme].poseOffsets.petDog, 'number')
+    assert.equal(supportsMillerDogGreeting(theme), true)
+  }
   assert.equal(MILLER_CHARACTER_INTERACTION.fallback, 'static-companion-tableau')
 })
 
@@ -67,6 +79,16 @@ test('desktop companion layout keeps a larger dog on the shared ground and withi
   assert.ok(Math.abs(contact.delta.x) < 1, `pet contact horizontal delta: ${contact.delta.x}`)
   assert.ok(Math.abs(contact.delta.y) < 5, `pet contact vertical delta: ${contact.delta.y}`)
   assert.ok(Math.abs(contact.groundDeltaY) < 1, `ground delta: ${contact.groundDeltaY}`)
+  const northContact = resolveDesktopPetContact(undefined, 'north')
+  assert.ok(Math.abs(northContact.delta.x) < 1, `North pet contact horizontal delta: ${northContact.delta.x}`)
+  assert.ok(Math.abs(northContact.delta.y) < 5, `North pet contact vertical delta: ${northContact.delta.y}`)
+  assert.ok(Math.abs(northContact.groundDeltaY) < 1, `North ground delta: ${northContact.groundDeltaY}`)
+  for (const theme of ['violet', 'rose', 'jade']) {
+    const themeContact = resolveDesktopPetContact(undefined, theme)
+    assert.ok(Math.abs(themeContact.delta.x) < 1, `${theme} pet contact horizontal delta: ${themeContact.delta.x}`)
+    assert.ok(Math.abs(themeContact.delta.y) < 5, `${theme} pet contact vertical delta: ${themeContact.delta.y}`)
+    assert.ok(Math.abs(themeContact.groundDeltaY) < 1, `${theme} ground delta: ${themeContact.groundDeltaY}`)
+  }
 })
 
 test('typing awareness is session-sized and carries no query text into the companion intent', () => {
@@ -160,13 +182,20 @@ test('approved walking and result-point assets are true-alpha production cutouts
   assert.equal(pngHasRgbaColorType('../src/assets/miller/interaction/classic-miller-step-left-01.png'), true)
   assert.equal(pngHasRgbaColorType('../src/assets/miller/interaction/classic-miller-step-left-02.png'), true)
   assert.equal(pngHasRgbaColorType('../src/assets/companion/sheepdog-result-point.png'), true)
+  assert.equal(pngHasRgbaColorType('../src/assets/miller/interaction/miller-north-notice-dog.png'), true)
+  assert.equal(pngHasRgbaColorType('../src/assets/miller/interaction/miller-north-lean-reach.png'), true)
+  assert.equal(pngHasRgbaColorType('../src/assets/miller/interaction/miller-north-pet-dog.png'), true)
+  assert.equal(pngHasRgbaColorType('../src/assets/miller/interaction/miller-north-rise.png'), true)
 })
 
-test('idle petting is sparse, Classic-only, and unavailable while the dog is away', () => {
+test('idle petting is sparse, enabled for every interactive theme, and unavailable while the dog is away', () => {
   assert.equal(nextMillerIdleDelay(0), 48_000)
   assert.equal(nextMillerIdleDelay(1), 62_000)
   assert.equal(mayRunMillerIdlePet({ themeName: 'Classic', dogOwner: 'scene', settled: true, greetingComplete: true, idleAllowed: true }), true)
-  assert.equal(mayRunMillerIdlePet({ themeName: 'Jade', dogOwner: 'scene', settled: true, greetingComplete: true, idleAllowed: true }), false)
+  assert.equal(mayRunMillerIdlePet({ themeName: 'North', dogOwner: 'scene', settled: true, greetingComplete: true, idleAllowed: true }), true)
+  for (const themeName of ['Violet', 'Rose', 'Jade']) {
+    assert.equal(mayRunMillerIdlePet({ themeName, dogOwner: 'scene', settled: true, greetingComplete: true, idleAllowed: true }), true)
+  }
   assert.equal(mayRunMillerIdlePet({ themeName: 'Classic', dogOwner: 'overlay', settled: true, greetingComplete: true, idleAllowed: true }), false)
   assert.equal(mayRunMillerIdlePet({ themeName: 'Classic', dogOwner: 'scene', settled: true, greetingComplete: true, idleAllowed: true, reducedMotion: true }), false)
 })
@@ -194,9 +223,27 @@ test('Classic greeting is bounded, uses the calm dog reaction only during pettin
   }
   assert.deepEqual(phases, ['seated-pause', 'notice-dog', 'lean-reach', 'pet-dog', 'rise', 'settled'])
   assert.equal(millerClassicGreetingStep(3).pose, 'petDog')
+  assert.equal(millerClassicGreetingStep(4).pose, 'rise')
   assert.equal(millerClassicGreetingStep(index).duration, 0)
   assert.equal(MILLER_CLASSIC_GREETING.steps.reduce((total, step) => total + step.duration, 0), 3760)
   assert.equal(millerClassicGreetingStep(0, { reducedMotion: true }).id, 'settled')
+})
+
+test('Violet, Rose, and Jade reuse the bounded greeting sequence and their own neutral fallback', () => {
+  const assetRegistry = fs.readFileSync(new URL('../src/companion/millerCharacterInteractionThemes.js', import.meta.url), 'utf8')
+  const app = fs.readFileSync(new URL('../src/App.jsx', import.meta.url), 'utf8')
+  for (const theme of ['Violet', 'Rose', 'Jade']) {
+    assert.match(assetRegistry, new RegExp(`${theme}: Object\\.freeze`))
+  }
+  for (const slug of ['violet', 'rose', 'jade']) {
+    for (const pose of ['notice-dog', 'lean-reach', 'pet-dog', 'rise']) {
+      assert.match(assetRegistry, new RegExp(`miller-${slug}-${pose}\\.png`))
+    }
+  }
+  assert.match(app, /millerCharacterPose\(currentTheme\.name, activeMillerPose, currentTheme\.avatar\)/)
+  assert.match(app, /event\.currentTarget\.src = currentTheme\.avatar/)
+  assert.match(app, /setMillerGreetingPose\("neutral"\)/)
+  assert.doesNotMatch(assetRegistry, /sheepdog|dog-sit|dog-walk/)
 })
 
 test('companion adapter remains outside Miller search and ranking authority', () => {
@@ -205,10 +252,10 @@ test('companion adapter remains outside Miller search and ranking authority', ()
   const app = fs.readFileSync(new URL('../src/App.jsx', import.meta.url), 'utf8')
   assert.doesNotMatch(adapter, /askMiller|buildMillerRequest|deterministicRelevance|trackEvent/)
   assert.doesNotMatch(sheepdog, /askMiller|buildMillerRequest|deterministicRelevance|resource-card/)
-  assert.match(app, /<MillerSheepdog\s+themeName=/)
+  assert.match(app, /<MillerSheepdog\s+key=\{currentTheme\.name\}\s+themeName=/)
   assert.match(app, /askMiller\(buildMillerRequest/)
   assert.match(app, /name: "Classic"/)
-  assert.doesNotMatch(app, /name: "North"/)
+  assert.match(app, /name: "North"/)
   assert.doesNotMatch(app, /name: "Gold"/)
   assert.doesNotMatch(app, /Classic Miller Interaction Pose Sheet\.png/)
 })

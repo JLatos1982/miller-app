@@ -1,0 +1,50 @@
+{
+  "schema_version": "miller-north-accountability-chain-candidate-v1",
+  "visibility": "private_owner_review",
+  "candidate_id": "mn_candidate_sk_fnhoo_inaugural_accountability_chain_2026",
+  "province": "Saskatchewan",
+  "title": "First Nations Health Ombudsperson inaugural reporting and response chain",
+  "chain_summary": "A First Nations-governed health ombudsperson office received and investigated health-care complaints, published an inaugural report, and prompted a recorded Ministry and Saskatchewan Health Authority review response. Federal reporting documents continued support for the office and a related navigator-network initiative.",
+  "stages": [
+    {
+      "stage": "governance_mechanism_operational",
+      "date_range": "2023-07 to 2025-03",
+      "summary": "The First Nations Health Ombudsperson Office operated complaint intake, advocacy, resolution, and investigation functions under authority derived from Chiefs-in-Assembly.",
+      "source_urls": [
+        "https://fnhoo.ca/governance/",
+        "https://fnhoo.ca/"
+      ]
+    },
+    {
+      "stage": "first_progress_report",
+      "date": "2025-10-27",
+      "summary": "The office published its inaugural report covering July 2023 through March 2025.",
+      "source_urls": [
+        "https://fnhoo.ca/annual-reports/"
+      ]
+    },
+    {
+      "stage": "government_health_system_response",
+      "date": "2025-10-28",
+      "summary": "The Health Minister stated that the Ministry of Health and Saskatchewan Health Authority were reviewing the report and its recommendations.",
+      "source_urls": [
+        "https://docs.legassembly.sk.ca/legdocs/Assembly/Debates/30L2S/20251028DebatesHTML.htm"
+      ]
+    },
+    {
+      "stage": "continued_federal_support_context",
+      "date_range": "2025-2026",
+      "summary": "Federal UN Declaration reporting records continued funding for the office and establishment of a Saskatchewan Anti-Indigenous Racism Navigator Network.",
+      "source_urls": [
+        "https://justice.canada.ca/eng/declaration/report-rapport/2026/b1.html"
+      ]
+    }
+  ],
+  "governance_note": "The office's authority from Chiefs-in-Assembly is distinct from federal funding or provincial health-system response.",
+  "relationship_to_existing_cases": "No case-specific link to the Saskatoon coerced-sterilization cohort is asserted. The candidate is a separate provincewide accountability chain.",
+  "evidence_classification": "official_plus_indigenous_led_primary_sources",
+  "confidence": "high",
+  "owner_review": true,
+  "owner_review_reason": "Confirm the inaugural report's recommendation structure and obtain the full report text before creating a developed dossier or publication-facing chain.",
+  "publication_status": "private_candidate"
+}

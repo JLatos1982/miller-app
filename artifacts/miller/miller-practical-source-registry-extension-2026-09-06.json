@@ -1,0 +1,87 @@
+{
+  "schema_version": "farm-source-registry-extension-v1",
+  "private": true,
+  "run_date": "2026-09-06",
+  "source_families": [
+    {
+      "source_family_id": "fogs_workbc",
+      "authority": "WorkBC",
+      "jurisdiction": "British Columbia",
+      "expected_document_class": "employment_training",
+      "usefulness_to_miller": "high",
+      "discovery_method": "official program index and bounded site search"
+    },
+    {
+      "source_family_id": "fogs_bc_housing",
+      "authority": "BC Housing",
+      "jurisdiction": "British Columbia",
+      "expected_document_class": "housing",
+      "usefulness_to_miller": "high",
+      "discovery_method": "official program index and bounded site search"
+    },
+    {
+      "source_family_id": "fogs_bc_social_development",
+      "authority": "B.C. Ministry of Social Development and Poverty Reduction",
+      "jurisdiction": "British Columbia",
+      "expected_document_class": "income_identification",
+      "usefulness_to_miller": "high",
+      "discovery_method": "official program index and bounded site search"
+    },
+    {
+      "source_family_id": "fogs_service_bc",
+      "authority": "Service BC",
+      "jurisdiction": "British Columbia",
+      "expected_document_class": "government_service_navigation",
+      "usefulness_to_miller": "high",
+      "discovery_method": "official program index and bounded site search"
+    },
+    {
+      "source_family_id": "fogs_legal_aid_bc",
+      "authority": "Legal Aid BC",
+      "jurisdiction": "British Columbia",
+      "expected_document_class": "legal_advocacy",
+      "usefulness_to_miller": "high",
+      "discovery_method": "official program index and bounded site search"
+    },
+    {
+      "source_family_id": "fogs_canada_benefits",
+      "authority": "Government of Canada Benefits Finder",
+      "jurisdiction": "Federal",
+      "expected_document_class": "benefit_navigation",
+      "usefulness_to_miller": "high",
+      "discovery_method": "official program index and bounded site search"
+    },
+    {
+      "source_family_id": "fogs_fnha_benefits",
+      "authority": "First Nations Health Authority Health Benefits",
+      "jurisdiction": "British Columbia",
+      "expected_document_class": "first_nations_health_benefits",
+      "usefulness_to_miller": "high",
+      "discovery_method": "official program index and bounded site search"
+    },
+    {
+      "source_family_id": "fogs_isc_programs",
+      "authority": "Indigenous Services Canada Programs",
+      "jurisdiction": "Federal",
+      "expected_document_class": "first_nations_program_funding",
+      "usefulness_to_miller": "high",
+      "discovery_method": "official program index and bounded site search"
+    },
+    {
+      "source_family_id": "fogs_alberta_indigenous_funding",
+      "authority": "Government of Alberta Indigenous Funding Resources",
+      "jurisdiction": "Alberta",
+      "expected_document_class": "indigenous_program_funding",
+      "usefulness_to_miller": "high",
+      "discovery_method": "official program index and bounded site search"
+    },
+    {
+      "source_family_id": "fogs_sask_indigenous_business",
+      "authority": "Government of Saskatchewan Indigenous Business Funding",
+      "jurisdiction": "Saskatchewan",
+      "expected_document_class": "indigenous_business_financing",
+      "usefulness_to_miller": "high",
+      "discovery_method": "official program index and bounded site search"
+    }
+  ]
+}

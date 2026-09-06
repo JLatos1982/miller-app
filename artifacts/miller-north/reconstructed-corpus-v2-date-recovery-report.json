@@ -1,0 +1,93 @@
+{
+  "generated_at": "2026-09-05T23:38:59.941Z",
+  "corpus_id": "miller-north-reconstructed-corpus-v2",
+  "mode": "private_staging_no_public_record_mutation",
+  "chunk_size": 20,
+  "records_needing_date_year_recovery": 695,
+  "records_processed": 59,
+  "exact_event_dates_recovered": 0,
+  "event_years_recovered": 0,
+  "approximate_event_years_recovered": 0,
+  "publication_only_dates_recovered": 59,
+  "unresolved_in_processed": 0,
+  "conflicts_discovered": 0,
+  "chunks": [
+    {
+      "chunk": 1,
+      "record_ids": [
+        "ihe_a8d29856339e45c5eacd",
+        "ihe_a8dbfb70dcac3acf1d37",
+        "ihe_a8f620c1f10ba1ad463b",
+        "ihe_aa22c2e176b6ca84ee09",
+        "ihe_aa8967c65419b99493cb",
+        "ihe_aa8ef1ef6b357bde3129",
+        "ihe_aa8f4b0bdcdf09b02af8",
+        "ihe_ab56c88eb7c22ea4d835",
+        "ihe_ac42d9c5c4732b6f114f",
+        "ihe_b196ae4993054b768c26",
+        "ihe_b266bd18b40c8722533a",
+        "ihe_b2b2a813138ca23359b1",
+        "ihe_b33081eef7e13234a08b",
+        "ihe_b35a113cc1d38fbc5e39",
+        "ihe_b82b296103fed06ec88b",
+        "ihe_b85c9c14deeab7f16f34",
+        "ihe_b8924e7ffe3468f081b9",
+        "ihe_b955f9dbc4b759afd52b",
+        "ihe_ba16517437eea7132310",
+        "ihe_be7d37138f2c381815c8"
+      ],
+      "status": "complete"
+    },
+    {
+      "chunk": 2,
+      "record_ids": [
+        "ihe_c0537226e88f220e79ac",
+        "ihe_c0a2ad2eed634dc4b0dc",
+        "ihe_c27c3efd663be8140f15",
+        "ihe_c49ad21334b319251245",
+        "ihe_c5c955aa61a89075e1d8",
+        "ihe_c5f9f7ce73e982509cf2",
+        "ihe_c87c115b700a301a4ff5",
+        "ihe_c88f5e7ac914aeea4184",
+        "ihe_cc00b80df1d23fe8bec8",
+        "ihe_cc24d7163c041a1b0b5c",
+        "ihe_cd5a844d81687d8e4d87",
+        "ihe_cdcf4779bc804d59471e",
+        "ihe_d02da73c1bc173fc90e7",
+        "ihe_d53e237eb85b132952e8",
+        "ihe_d680e72deb81ca5f2faa",
+        "ihe_d8427ae4ed1133b6e3fa",
+        "ihe_d8e3b6c62e17fe621b99",
+        "ihe_dbe6ab07ff815b00c93d",
+        "ihe_dca00301429737d31557",
+        "ihe_dd3608bb8f55bb6697b3"
+      ],
+      "status": "complete"
+    },
+    {
+      "chunk": 3,
+      "record_ids": [
+        "ihe_deeaf0e4a3459d24a8d2",
+        "ihe_e14ca65ab7a144e4802c",
+        "ihe_e277435f66eefdebd170",
+        "ihe_e3a95f9a5e32164a171a",
+        "ihe_e4f41a5a9e55a9caf697",
+        "ihe_e894a19e0a05145474b5",
+        "ihe_ebcd16c0c14fe4f5008b",
+        "ihe_ed0070d3f001b2188898",
+        "ihe_ed2b8ed374fae68bb3a6",
+        "ihe_f12a901d22b86eeac2c9",
+        "ihe_f14b12a9efaef7d3f61c",
+        "ihe_f2629e8b02c1952a1ea4",
+        "ihe_f2de9a75161002858780",
+        "ihe_f3e379a43d5ad02ec432",
+        "ihe_f8e2833147e3e8a4fc7f",
+        "ihe_fab100506fc53c1d0c7c",
+        "ihe_fb341ee34817503c11bc",
+        "ihe_fefa9f7f088f69e52491",
+        "ihe_ff34f1e420c173239a94"
+      ],
+      "status": "complete"
+    }
+  ]
+}

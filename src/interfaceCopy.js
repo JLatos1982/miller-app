@@ -9,8 +9,4 @@ export const MILLER_COPY = Object.freeze({
   temporaryLoading: "I’m gathering the public details already available.",
   temporaryFallback: "I found part of the information, but some details still need your review.",
   temporaryPartial: "I found the doorway, but not every detail behind it. I’ve added what I know so you can complete the rest.",
-  emptyHandoutTitle: "Your handout is ready for its first resource",
-  emptyHandoutBody: "Return to the search and add the services that feel useful.",
-  clearHandoutConfirm: "Clear the handout and all selected resources? This cannot be undone.",
-  handoutIntro: "Shape a clear, practical handout for the person or community you are supporting.",
 })

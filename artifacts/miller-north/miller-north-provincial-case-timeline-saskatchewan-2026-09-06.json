@@ -1,0 +1,130 @@
+{
+  "schema_version": "miller-north-provincial-timeline-v1",
+  "case_id": "mnrpc_sk_saskatoon_coerced_sterilization",
+  "publication_scope": "private_owner_review",
+  "timeline": [
+    {
+      "timeline_id": "mnpct_sk_2015_accounts",
+      "date_or_range": "2015-2016",
+      "event_type": "reported_experiences",
+      "title": "Public concern emerges",
+      "short_description": "Reported patient experiences prompted scrutiny; the dossier preserves those experiences as anonymized cohort evidence.",
+      "organization": "Indigenous women and public advocates",
+      "source_references": [
+        "mnpcs_sk_review",
+        "mnpcs_sk_hesa"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "timeline_id": "mnpct_sk_2017_review",
+      "date_or_range": "2017-01 to 2017-07",
+      "event_type": "external_review",
+      "title": "External review conducted",
+      "short_description": "The commissioned review interviewed seven women and nine health providers.",
+      "organization": "Saskatoon Health Region / external reviewers",
+      "source_references": [
+        "mnpcs_sk_review"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_sk_2017_report",
+      "date_or_range": "2017-07",
+      "event_type": "findings_and_recommendations",
+      "title": "Report issues ten Calls to Action",
+      "short_description": "The report documented themes of profiling, powerlessness and coercion and recommended structural reforms.",
+      "organization": "External reviewers Yvonne Boyer and Judith Bartlett",
+      "source_references": [
+        "mnpcs_sk_review"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_sk_2017_apology",
+      "date_or_range": "2017-07",
+      "event_type": "institutional_response",
+      "title": "Health-region apology reported",
+      "short_description": "The health region publicly apologized after release of the review.",
+      "organization": "Saskatoon Health Region",
+      "source_references": [
+        "mnpcs_sk_senate",
+        "mnpcs_sk_hesa"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "timeline_id": "mnpct_sk_2017_litigation",
+      "date_or_range": "2017-2024",
+      "event_type": "legal_process",
+      "title": "Proposed class proceeding develops",
+      "short_description": "Litigation proceeded through pleadings and interlocutory questions, including a 2024 intervention decision.",
+      "organization": "Court of King's Bench for Saskatchewan",
+      "source_references": [
+        "mnpcs_sk_2024_intervention",
+        "mnpcs_sk_hesa"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_sk_2019_hesa",
+      "date_or_range": "2019-06",
+      "event_type": "parliamentary_review",
+      "title": "House health committee reports",
+      "short_description": "The federal committee reviewed coerced sterilization evidence and made federal recommendations.",
+      "organization": "House of Commons Standing Committee on Health",
+      "source_references": [
+        "mnpcs_sk_hesa"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_sk_2019_birth_support",
+      "date_or_range": "2019-12",
+      "event_type": "operational_response",
+      "title": "Indigenous Birth Support Worker Program begins",
+      "short_description": "SHA identifies the program as a response to the 2017 report.",
+      "organization": "Saskatchewan Health Authority",
+      "source_references": [
+        "mnpcs_sk_sha_research"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_sk_2021_evaluation",
+      "date_or_range": "2019-12 to 2021-01",
+      "event_type": "evaluation",
+      "title": "Program evaluation documents use",
+      "short_description": "The evaluation reports operational learning and recommendations for continuation and scale.",
+      "organization": "Saskatchewan Health Authority",
+      "source_references": [
+        "mnpcs_sk_sha_research"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_sk_2025_certification",
+      "date_or_range": "2025-06-24",
+      "event_type": "court_decision",
+      "title": "Class certification dismissed",
+      "short_description": "The court dismissed certification; the procedural decision did not decide the truth of each alleged sterilization claim.",
+      "organization": "Court of King's Bench for Saskatchewan",
+      "source_references": [
+        "mnpcs_sk_case_digest"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_sk_2026_legislation",
+      "date_or_range": "2026-06-15",
+      "event_type": "later_legislation",
+      "title": "Bill S-228 receives royal assent",
+      "short_description": "Federal Criminal Code clarification is later contextual legal development and is not treated as a retroactive case remedy.",
+      "organization": "Parliament of Canada",
+      "source_references": [
+        "mnpcs_sk_s228"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": "farm-knowledge-gap-investigation-validation-v1",
+  "validated_on": "2026-09-06",
+  "canonical_workflow": {
+    "workflow_id": "farm-research-dossier-v1",
+    "status": "canonical_private_regression_workflow",
+    "fixtures": 4,
+    "domains": {
+      "miller_addictions": 2,
+      "miller_north_indigenous_healthcare": 2
+    },
+    "regression": {
+      "dossiers": 4,
+      "domains": {
+        "miller_addictions": 2,
+        "miller_north_indigenous_healthcare": 2
+      },
+      "sources": 19,
+      "edges": 24,
+      "timeline_events": 17,
+      "gaps": 9,
+      "foi_candidates": 4,
+      "quality_bands": {
+        "strong": 4,
+        "moderate": 0,
+        "incomplete": 0
+      },
+      "owner_review": 4
+    }
+  },
+  "recommendation_ledger": {
+    "recommendations": 24,
+    "sources": 17,
+    "status_counts": {
+      "implemented": 2,
+      "substantially_implemented": 3,
+      "partially_implemented": 12,
+      "implementation_underway": 4,
+      "implementation_evidence_fragmentary": 3
+    },
+    "coverage_counts": {
+      "direct_official_current": 12,
+      "direct_official_baseline_only": 4,
+      "organizational_current_with_official_baseline": 8
+    },
+    "owner_review": 18,
+    "recommendations_with_post_2023_evidence": 20,
+    "recommendations_with_follow_up_signals": 21
+  },
+  "dossier_projection": {
+    "projection_id": "farm_dossier_miller_north_in_plain_sight_reporting_v2",
+    "recommendations_assessed": 24,
+    "reporting_gap_preserved": true,
+    "production_mutations": 0,
+    "publication_mutations": 0
+  },
+  "artifacts_expected": 13,
+  "validation_runs": {
+    "focused_and_shared_farm_node_tests": {
+      "passed": 34,
+      "failed": 0
+    },
+    "canonical_dossier_and_investigator_tests": {
+      "passed": 13,
+      "failed": 0
+    },
+    "lint": "passed",
+    "production_build": "passed",
+    "json_artifacts_parsed": 15,
+    "git_diff_check": "passed"
+  },
+  "migrations_created": 0,
+  "migrations_applied": 0,
+  "production_mutations": 0,
+  "publication_mutations": 0,
+  "foi_requests_sent": 0,
+  "tavily_calls": 0,
+  "local_model_calls": 0,
+  "cloud_model_calls": 0,
+  "measurable_external_api_cost_usd": 0
+}

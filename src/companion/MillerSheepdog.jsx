@@ -5,7 +5,7 @@ import sheepdogWalk01 from '../assets/companion/sheepdog-walk-01.png'
 import sheepdogWalk02 from '../assets/companion/sheepdog-walk-02.png'
 import sheepdogPetReaction from '../assets/companion/sheepdog-pet-reaction.png'
 import sheepdogResultPoint from '../assets/companion/sheepdog-result-point.png'
-import { MILLER_COMPANION, staticCompanionPresentation } from './millerCompanionAdapter.js'
+import { MILLER_COMPANION, staticCompanionPresentation, supportsMillerDogGreeting } from './millerCompanionAdapter.js'
 import { millerDogIsTraveling } from './millerCompanionSequence.js'
 import { useMillerDogArrival } from './millerDogArrivalState.js'
 import { MILLER_CLASSIC_GREETING, millerClassicGreetingStep, nextMillerClassicGreetingIndex } from './millerClassicGreeting.js'
@@ -78,20 +78,21 @@ export default function MillerSheepdog({ themeName, scenePosition = 'home', redu
   const { step, motionReduced, settled } = useMillerDogArrival({ reducedMotion, animationEnabled })
   const [interaction, setInteraction] = useState(null)
   const [interactionIndex, setInteractionIndex] = useState(0)
-  const [greetingComplete, setGreetingComplete] = useState(themeName !== 'Classic')
+  const interactionSupported = supportsMillerDogGreeting(themeName)
+  const [greetingComplete, setGreetingComplete] = useState(!interactionSupported)
   const [sceneState, setSceneState] = useState('settled')
   const [travel, setTravel] = useState(null)
   const [followFrame, setFollowFrame] = useState('walk-1')
-  const classicInteraction = themeName === 'Classic' && settled && !motionReduced && interaction
+  const characterInteraction = interactionSupported && settled && !motionReduced && interaction
   const greetingStep = millerClassicGreetingStep(interactionIndex, { reducedMotion: motionReduced, animationEnabled })
   const shouldFollowMiller = dogOwner === MILLER_DOG_OWNERS.SCENE && settled && !motionReduced && animationEnabled !== false && ['walking', 'returning'].includes(scenePosition)
   const dogPose = travel?.pose || shouldFollowMiller
     ? (travel?.pose || followFrame)
     : sceneState === 'attentive' || sceneState === 'ready'
     ? 'pet-reaction'
-    : classicInteraction && greetingStep?.id === 'pet-dog'
+    : characterInteraction && greetingStep?.id === 'pet-dog'
     ? 'pet-reaction'
-    : classicInteraction ? 'sit' : step?.pose || presentation.pose
+    : characterInteraction ? 'sit' : step?.pose || presentation.pose
   const source = DOG_POSES[dogPose] || sheepdogSit
 
   const startInteraction = useCallback(kind => {
@@ -101,14 +102,14 @@ export default function MillerSheepdog({ themeName, scenePosition = 'home', redu
   }, [dogOwner, interaction])
 
   useEffect(() => {
-    if (themeName !== 'Classic' || !settled || motionReduced || greetingStartedRef.current) return undefined
+    if (!interactionSupported || !settled || motionReduced || greetingStartedRef.current) return undefined
     greetingStartedRef.current = true
     const timer = window.setTimeout(() => startInteraction('initial'), 0)
     return () => window.clearTimeout(timer)
-  }, [themeName, settled, motionReduced, startInteraction])
+  }, [interactionSupported, settled, motionReduced, startInteraction])
 
   useEffect(() => {
-    if (!classicInteraction) return undefined
+    if (!characterInteraction) return undefined
     let active = true
     let timer = null
     const advance = () => {
@@ -127,12 +128,12 @@ export default function MillerSheepdog({ themeName, scenePosition = 'home', redu
     }
     advance()
     return () => { active = false; if (timer) window.clearTimeout(timer) }
-  }, [classicInteraction, interaction, interactionIndex, onGreetingPhaseChange])
+  }, [characterInteraction, interaction, interactionIndex, onGreetingPhaseChange])
 
   useEffect(() => {
-    if (classicInteraction) return
+    if (characterInteraction) return
     onGreetingPhaseChange?.('neutral')
-  }, [classicInteraction, onGreetingPhaseChange])
+  }, [characterInteraction, onGreetingPhaseChange])
 
   useEffect(() => {
     if (!mayRunMillerIdlePet({ themeName, dogOwner, settled, greetingComplete, idleAllowed, reducedMotion: motionReduced, animationEnabled, interactionActive: Boolean(interaction) })) return undefined
@@ -230,6 +231,6 @@ export default function MillerSheepdog({ themeName, scenePosition = 'home', redu
   const travelOverlay = dogVisuals.overlay && travel && overlayHost ? createPortal(
   <div className={`miller-companion-travel ${travel.moving ? 'is-moving' : ''} ${travel.arrived ? 'is-settled' : ''}`} aria-hidden="true" data-companion="sheepdog" data-owner="overlay" data-presentation="destination_arrived" style={{ '--dog-start-x': `${travel.start.x}px`, '--dog-start-y': `${travel.start.y}px`, '--dog-target-x': `${travel.target.x}px`, '--dog-target-y': `${travel.target.y}px`, '--dog-travel-duration': `${travel.duration}ms` }}><DogCanvas source={DOG_POSES[travel.pose] || sheepdogSit} /></div>, overlayHost) : null
 
-  const sceneDog = dogVisuals.scene ? <div ref={actorRef} className={`miller-companion-actor ${millerDogIsTraveling(step) ? 'is-approaching' : ''} ${settled ? 'is-settled' : ''} ${sceneState === 'ready' ? 'is-ready' : ''} ${shouldFollowMiller ? 'is-following' : ''}`} aria-hidden="true" data-companion={presentation.actorId} data-owner="scene" data-pose={dogPose} data-arrival-step={step?.id || 'settled'} data-greeting-step={classicInteraction ? greetingStep?.id : 'static'} data-reduced-motion={motionReduced} data-ground-anchor={`${MILLER_COMPANION.anchors.ground.x},${MILLER_COMPANION.anchors.ground.y}`} data-pet-head-anchor={`${MILLER_COMPANION.anchors.petHead.x},${MILLER_COMPANION.anchors.petHead.y}`}><DogCanvas source={source} /></div> : null
+  const sceneDog = dogVisuals.scene ? <div ref={actorRef} className={`miller-companion-actor ${millerDogIsTraveling(step) ? 'is-approaching' : ''} ${settled ? 'is-settled' : ''} ${sceneState === 'ready' ? 'is-ready' : ''} ${shouldFollowMiller ? 'is-following' : ''}`} aria-hidden="true" data-companion={presentation.actorId} data-owner="scene" data-pose={dogPose} data-arrival-step={step?.id || 'settled'} data-greeting-step={characterInteraction ? greetingStep?.id : 'static'} data-reduced-motion={motionReduced} data-ground-anchor={`${MILLER_COMPANION.anchors.ground.x},${MILLER_COMPANION.anchors.ground.y}`} data-pet-head-anchor={`${MILLER_COMPANION.anchors.petHead.x},${MILLER_COMPANION.anchors.petHead.y}`}><DogCanvas source={source} /></div> : null
   return <>{sceneDog}{travelOverlay}</>
 }

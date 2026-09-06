@@ -1,0 +1,25 @@
+{
+  "incident_presentation": {
+    "valid": true,
+    "raw_source_records": 695,
+    "public_evidence_groups": 321,
+    "incident_like_groups": 111,
+    "exact_duplicate_rows_suppressed": 0,
+    "additional_source_rows_consolidated": 24,
+    "contextual_rows_consolidated": 350,
+    "cohort_or_systemic_groups": 210,
+    "related_not_duplicate_source_clusters": 16,
+    "probable_duplicate_owner_reviews": 4,
+    "unresolved_duplicate_reviews": 4,
+    "evidence_group_count": 321
+  },
+  "live_listening": {
+    "valid": true,
+    "items": 15,
+    "linked": 1,
+    "corroborated": 10,
+    "reviewing": 4
+  },
+  "production_records_changed": false,
+  "destructive_merges": 0
+}

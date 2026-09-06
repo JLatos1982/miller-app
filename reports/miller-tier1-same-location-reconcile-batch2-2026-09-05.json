@@ -1,0 +1,17 @@
+{
+  "approval_contract": "miller-tier1-same-location-reconcile-v1",
+  "clean_batch_id": "2fb6e09b-e62c-4007-ac25-e9130eb9e2e0",
+  "proposal_store_path": "/Users/admin/samwise-private/data/miller-uuid-location-proposals-batch2-policy-20260905-r1.sqlite",
+  "final_report_path": "/Users/admin/samwise-private/data/miller-uuid-location-report-batch2-policy-20260905-r1.json",
+  "clean_audit_hash": "cef2cbd5a34b453077fe8e911f659aebe94e9fe8233c9b313f759b4c45bfcd3f",
+  "approved": [
+    {
+      "proposal_id": "miller_uuid_location_9eaf87d6-20a2-4908-8c20-4b0b5311b26a",
+      "resource_id": "45f266df-1eff-556d-a4be-a9e038b01eb9",
+      "name": "Indigenous Outpatient Addiction Counselling Program (IOAC)",
+      "street_address": "520 Richards Street",
+      "city": "Vancouver",
+      "evidence_hash": "3a95c33aa37492d36cdd767356d655b07f0e56ee0c934c991ce6eafd35391440"
+    }
+  ]
+}

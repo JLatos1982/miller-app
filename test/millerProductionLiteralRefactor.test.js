@@ -22,6 +22,7 @@ test("production bindings are typed singleton tables with no client mutation gra
   assert.match(migration, /create table public\.miller_resource_quality_reader_authorization_v1/i)
   assert.match(migration, /authorization_key text primary key check \(authorization_key = 'miller_resource_quality_reader_authorization_v1'\)/i)
   assert.match(migration, /reader_id uuid not null unique references auth\.users\(id\) on delete restrict/i)
+  assert.match(migration, /from auth\.users\s+where id = 'f92a36ed-9af8-4fe5-be35-2fecb4d8e6a7'::uuid/i)
   for (const table of ["miller_project_binding_v1", "miller_resource_quality_reader_authorization_v1"]) {
     assert.match(migration, new RegExp(`alter table public\\.${table} enable row level security`, "i"))
     assert.match(migration, new RegExp(`alter table public\\.${table} force row level security`, "i"))

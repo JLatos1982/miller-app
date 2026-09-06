@@ -1,0 +1,609 @@
+{
+  "schema_version": "miller-north-provincial-research-case-v1",
+  "case_id": "mnrpc_sk_saskatoon_coerced_sterilization",
+  "province": "saskatchewan",
+  "research_date": "2026-09-06",
+  "publication_scope": "private_owner_review",
+  "production_mutations": 0,
+  "publication_mutations": 0,
+  "identity": {
+    "canonical_name": "Saskatoon coerced sterilization / tubal-ligation cohort",
+    "subject_type": "cohort_systemic_pattern",
+    "location": "Saskatoon, Saskatchewan",
+    "jurisdiction": "Saskatchewan health system with federal legal context",
+    "status": "private cohort and accountability case",
+    "identifiers": [
+      "sk_tubal_ligation_accountability",
+      "mnic_sk_001"
+    ]
+  },
+  "privacy": {
+    "anonymized_patients_preserved": true,
+    "patient_identifiers_collected": false,
+    "cohort_not_collapsed_to_single_incident": true
+  },
+  "owner_view": {
+    "what_happened": "A Saskatoon Health Region-commissioned external review documented the reported experiences of seven Indigenous women who described pressure or coercion around tubal ligation. The review treated those accounts as a cohort/systemic concern, issued ten Calls to Action, and was followed by an apology, legal proceedings and a hospital-based Indigenous birth-support response.",
+    "why_this_matters": [
+      "The case shows how anonymized lived experience can become a formal health-system accountability record without identifying patients.",
+      "It connects institutional findings to a concrete operational service while preserving that one program does not satisfy all ten Calls to Action.",
+      "Later litigation and federal legislation must be kept procedurally and temporally distinct from the 2017 review."
+    ],
+    "review_first": [
+      "The 2017 review's ten Calls to Action remain the canonical accountability baseline.",
+      "The Indigenous Birth Support Worker program is a verified operational response, but it is only a partial response to a broader set of recommended structural reforms.",
+      "Popp v Canada certification was dismissed in 2025 on class-definition/common-issue/preferability grounds; that is not a merits finding that the reported sterilizations did or did not occur."
+    ],
+    "review_next": [
+      "No current public ten-action implementation ledger was located.",
+      "Confirm whether an appeal followed the 2025 certification decision.",
+      "Seek policy-level evidence for the review's consent-policy and governance recommendations.",
+      "Keep Bill S-228 as later contextual federal law only."
+    ],
+    "reference": [
+      "Saskatoon is in Treaty 6 territory and the Homeland of the Métis; that is territorial context, not a legal-right conclusion in this dossier."
+    ],
+    "what_we_know": [
+      "The commissioned review records seven anonymized patient accounts and interviews with nine providers.",
+      "The report issued ten Calls to Action spanning rights, training, governance, workforce, supports, reparation, reproductive support and consent policy.",
+      "SHA states that the birth-support program was created in response and is operational at Jim Pattison Children's Hospital.",
+      "A 2025 court decision dismissed class certification at that procedural stage."
+    ],
+    "what_remains_uncertain": [
+      "Current implementation status for most of the ten Calls to Action.",
+      "Whether an appeal or successor collective proceeding followed the 2025 decision.",
+      "Whether consent-policy changes were adopted and audited across Saskatchewan.",
+      "How the legal claims will proceed, if at all, as individual actions."
+    ],
+    "next_questions": [
+      "Can SHA provide a current implementation table for all ten Calls to Action?",
+      "Was 2025 SKKB 89 appealed or followed by a reconfigured proceeding?"
+    ],
+    "recommended_next_move": "Request or locate a current SHA ten-Call-to-Action implementation ledger, with special focus on consent policy, Indigenous governance and workforce recommendations.",
+    "one_thing_to_remember": "A real, current birth-support service is documented, but it should not be mistaken for completion of the review's wider structural agenda."
+  },
+  "geographic_governance_context": {
+    "physical_geography": "Saskatoon and a hospital serving patients from across Saskatchewan",
+    "indigenous_context": "Treaty 6 territory and Homeland of the Métis",
+    "governance_authority": "Saskatchewan health bodies, federal Parliament/courts and Indigenous peoples or organizations hold distinct roles.",
+    "legal_boundary": "Territory is context only; this dossier does not infer a treaty-right or jurisdictional consequence."
+  },
+  "timeline": [
+    {
+      "timeline_id": "mnpct_sk_2015_accounts",
+      "date_or_range": "2015-2016",
+      "event_type": "reported_experiences",
+      "title": "Public concern emerges",
+      "short_description": "Reported patient experiences prompted scrutiny; the dossier preserves those experiences as anonymized cohort evidence.",
+      "organization": "Indigenous women and public advocates",
+      "source_references": [
+        "mnpcs_sk_review",
+        "mnpcs_sk_hesa"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "timeline_id": "mnpct_sk_2017_review",
+      "date_or_range": "2017-01 to 2017-07",
+      "event_type": "external_review",
+      "title": "External review conducted",
+      "short_description": "The commissioned review interviewed seven women and nine health providers.",
+      "organization": "Saskatoon Health Region / external reviewers",
+      "source_references": [
+        "mnpcs_sk_review"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_sk_2017_report",
+      "date_or_range": "2017-07",
+      "event_type": "findings_and_recommendations",
+      "title": "Report issues ten Calls to Action",
+      "short_description": "The report documented themes of profiling, powerlessness and coercion and recommended structural reforms.",
+      "organization": "External reviewers Yvonne Boyer and Judith Bartlett",
+      "source_references": [
+        "mnpcs_sk_review"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_sk_2017_apology",
+      "date_or_range": "2017-07",
+      "event_type": "institutional_response",
+      "title": "Health-region apology reported",
+      "short_description": "The health region publicly apologized after release of the review.",
+      "organization": "Saskatoon Health Region",
+      "source_references": [
+        "mnpcs_sk_senate",
+        "mnpcs_sk_hesa"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "timeline_id": "mnpct_sk_2017_litigation",
+      "date_or_range": "2017-2024",
+      "event_type": "legal_process",
+      "title": "Proposed class proceeding develops",
+      "short_description": "Litigation proceeded through pleadings and interlocutory questions, including a 2024 intervention decision.",
+      "organization": "Court of King's Bench for Saskatchewan",
+      "source_references": [
+        "mnpcs_sk_2024_intervention",
+        "mnpcs_sk_hesa"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_sk_2019_hesa",
+      "date_or_range": "2019-06",
+      "event_type": "parliamentary_review",
+      "title": "House health committee reports",
+      "short_description": "The federal committee reviewed coerced sterilization evidence and made federal recommendations.",
+      "organization": "House of Commons Standing Committee on Health",
+      "source_references": [
+        "mnpcs_sk_hesa"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_sk_2019_birth_support",
+      "date_or_range": "2019-12",
+      "event_type": "operational_response",
+      "title": "Indigenous Birth Support Worker Program begins",
+      "short_description": "SHA identifies the program as a response to the 2017 report.",
+      "organization": "Saskatchewan Health Authority",
+      "source_references": [
+        "mnpcs_sk_sha_research"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_sk_2021_evaluation",
+      "date_or_range": "2019-12 to 2021-01",
+      "event_type": "evaluation",
+      "title": "Program evaluation documents use",
+      "short_description": "The evaluation reports operational learning and recommendations for continuation and scale.",
+      "organization": "Saskatchewan Health Authority",
+      "source_references": [
+        "mnpcs_sk_sha_research"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_sk_2025_certification",
+      "date_or_range": "2025-06-24",
+      "event_type": "court_decision",
+      "title": "Class certification dismissed",
+      "short_description": "The court dismissed certification; the procedural decision did not decide the truth of each alleged sterilization claim.",
+      "organization": "Court of King's Bench for Saskatchewan",
+      "source_references": [
+        "mnpcs_sk_case_digest"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_sk_2026_legislation",
+      "date_or_range": "2026-06-15",
+      "event_type": "later_legislation",
+      "title": "Bill S-228 receives royal assent",
+      "short_description": "Federal Criminal Code clarification is later contextual legal development and is not treated as a retroactive case remedy.",
+      "organization": "Parliament of Canada",
+      "source_references": [
+        "mnpcs_sk_s228"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "organizations": [
+    {
+      "name": "Saskatoon Health Region",
+      "role": "commissioned the review and made the initial institutional response"
+    },
+    {
+      "name": "Saskatchewan Health Authority",
+      "role": "successor health system and operator of the birth-support program"
+    },
+    {
+      "name": "House of Commons Standing Committee on Health",
+      "role": "federal systemic review and recommendation body"
+    },
+    {
+      "name": "Court of King's Bench for Saskatchewan",
+      "role": "legal-proceeding forum"
+    },
+    {
+      "name": "Parliament of Canada",
+      "role": "later federal legislative body"
+    }
+  ],
+  "public_role_people": [
+    {
+      "public_name": "Yvonne Boyer",
+      "role": "external review co-author",
+      "organization": "Saskatoon Health Region external review",
+      "source_references": [
+        "mnpcs_sk_review"
+      ]
+    },
+    {
+      "public_name": "Judith Bartlett",
+      "role": "external review co-author",
+      "organization": "Saskatoon Health Region external review",
+      "source_references": [
+        "mnpcs_sk_review"
+      ]
+    },
+    {
+      "public_name": "Mamata Pandey",
+      "role": "research scientist associated with the birth-support-program evaluation",
+      "organization": "Saskatchewan Health Authority",
+      "source_references": [
+        "mnpcs_sk_sha_research"
+      ]
+    }
+  ],
+  "investigation_and_findings": [
+    {
+      "title": "Commissioned external review",
+      "summary": "Seven anonymized women and nine providers were interviewed; the review documented a cohort/systemic pattern and ten Calls to Action."
+    }
+  ],
+  "recommendations": [
+    {
+      "title": "Ten Calls to Action",
+      "summary": "Rights and UNDRIP-informed care; mandatory education; equal Indigenous governance partnership; advisory authority; representative workforce; coordinated supports; reparation; reproductive support; and revised, monitored consent policy."
+    }
+  ],
+  "legal_policy_context": [
+    {
+      "title": "Saskatchewan health-system consent and governance responsibilities",
+      "context_scope": "directly_applicable",
+      "summary": "The review directly called for revised tubal-ligation and consent policy and structural Indigenous partnership.",
+      "boundary": "The present dossier does not claim provincewide adoption without later authoritative policy evidence."
+    },
+    {
+      "title": "Popp v Canada legal process",
+      "context_scope": "response_context",
+      "summary": "The litigation is a legal accountability process related to alleged coerced sterilizations.",
+      "boundary": "The 2025 certification dismissal is procedural and not a merits ruling about individual allegations."
+    },
+    {
+      "title": "Bill S-228 / S.C. 2026, c. 10",
+      "context_scope": "response_context",
+      "summary": "The Criminal Code amendment is relevant to the national legal response to coerced sterilization.",
+      "boundary": "Later contextual legal development only; it is not retroactively applied and no direct case-specific remedy is inferred."
+    },
+    {
+      "title": "Treaty 6 and Métis Homeland",
+      "context_scope": "territorial_context_only",
+      "summary": "The location context is accurate and useful for governance research.",
+      "boundary": "No treaty-right or jurisdictional conclusion is inferred from geography."
+    }
+  ],
+  "funding": [
+    {
+      "title": "Indigenous Birth Support Worker Program",
+      "attribution_scope": "amount_unknown",
+      "summary": "The program's operation is documented; no service-level funding amount was located in this bounded pass."
+    }
+  ],
+  "implementation_evidence": [
+    {
+      "depth": "acknowledgement",
+      "summary": "The institutional apology is documented through official/parliamentary context but is not implementation of all Calls to Action.",
+      "source_references": [
+        "mnpcs_sk_senate",
+        "mnpcs_sk_hesa"
+      ]
+    },
+    {
+      "depth": "office_or_program_creation",
+      "summary": "SHA states that the Indigenous Birth Support Worker Program was created in response to the review.",
+      "source_references": [
+        "mnpcs_sk_sha_research"
+      ]
+    },
+    {
+      "depth": "operational_implementation",
+      "summary": "A current SHA page confirms the service remains accessible at Jim Pattison Children's Hospital.",
+      "source_references": [
+        "mnpcs_sk_sha_service"
+      ]
+    },
+    {
+      "depth": "evaluation",
+      "summary": "SHA reported evaluation findings and improvement/scale recommendations.",
+      "source_references": [
+        "mnpcs_sk_sha_research"
+      ]
+    }
+  ],
+  "follow_up_and_recurrence": [
+    {
+      "title": "Federal committee and later legislation",
+      "signal": "repeated_recommendation",
+      "summary": "Later federal scrutiny revisited consent, data, guidance and accountability concerns; repetition is a signal, not proof of non-implementation."
+    },
+    {
+      "title": "Class certification",
+      "signal": "legal_process_update",
+      "summary": "Certification was dismissed in 2025; individual merits were not adjudicated by that result."
+    }
+  ],
+  "evidence_graph": {
+    "edges": [
+      {
+        "edge_id": "mnpce_sk_accounts_review",
+        "from_object_id": "anonymized_reported_experiences",
+        "relationship_type": "documents",
+        "to_object_id": "saskatoon_external_review",
+        "neutral_summary": "The review documents the cohort accounts without identifying patients.",
+        "source_references": [
+          "mnpcs_sk_review"
+        ],
+        "confidence": "high"
+      },
+      {
+        "edge_id": "mnpce_sk_review_calls",
+        "from_object_id": "saskatoon_external_review",
+        "relationship_type": "recommends",
+        "to_object_id": "ten_calls_to_action",
+        "neutral_summary": "The review issues ten linked but materially distinct Calls to Action.",
+        "source_references": [
+          "mnpcs_sk_review"
+        ],
+        "confidence": "high"
+      },
+      {
+        "edge_id": "mnpce_sk_review_apology",
+        "from_object_id": "saskatoon_external_review",
+        "relationship_type": "responds_to",
+        "to_object_id": "health_region_apology",
+        "neutral_summary": "The health-region apology followed the report.",
+        "source_references": [
+          "mnpcs_sk_senate",
+          "mnpcs_sk_hesa"
+        ],
+        "confidence": "medium",
+        "context_scope": "response_context"
+      },
+      {
+        "edge_id": "mnpce_sk_review_program",
+        "from_object_id": "indigenous_birth_support_worker_program",
+        "relationship_type": "responds_to",
+        "to_object_id": "saskatoon_external_review",
+        "neutral_summary": "SHA identifies the program as created in response to the report.",
+        "source_references": [
+          "mnpcs_sk_sha_research"
+        ],
+        "confidence": "high",
+        "context_scope": "response_context"
+      },
+      {
+        "edge_id": "mnpce_sk_program_operation",
+        "from_object_id": "indigenous_birth_support_worker_program",
+        "relationship_type": "operationalizes",
+        "to_object_id": "maternal_care_centre_service",
+        "neutral_summary": "The current hospital service page confirms operational availability.",
+        "source_references": [
+          "mnpcs_sk_sha_service"
+        ],
+        "confidence": "high",
+        "context_scope": "directly_applicable"
+      },
+      {
+        "edge_id": "mnpce_sk_program_eval",
+        "from_object_id": "indigenous_birth_support_worker_program",
+        "relationship_type": "evaluated_by",
+        "to_object_id": "sha_program_evaluation",
+        "neutral_summary": "SHA evaluated use and implementation learning.",
+        "source_references": [
+          "mnpcs_sk_sha_research"
+        ],
+        "confidence": "high"
+      },
+      {
+        "edge_id": "mnpce_sk_case_process",
+        "from_object_id": "alleged_coerced_sterilization_claims",
+        "relationship_type": "linked_to_incident",
+        "to_object_id": "popp_v_canada",
+        "neutral_summary": "The proposed class proceeding is a related legal accountability process.",
+        "source_references": [
+          "mnpcs_sk_case_digest",
+          "mnpcs_sk_2024_intervention"
+        ],
+        "confidence": "high",
+        "context_scope": "response_context"
+      },
+      {
+        "edge_id": "mnpce_sk_certification",
+        "from_object_id": "popp_v_canada",
+        "relationship_type": "evaluated_by",
+        "to_object_id": "certification_decision_2025_skkb_89",
+        "neutral_summary": "The 2025 decision resolves certification at that stage, not individual merits.",
+        "source_references": [
+          "mnpcs_sk_case_digest"
+        ],
+        "confidence": "high"
+      },
+      {
+        "edge_id": "mnpce_sk_s228_context",
+        "from_object_id": "bill_s228_2026",
+        "relationship_type": "has_context",
+        "to_object_id": "saskatoon_cohort",
+        "neutral_summary": "The later Criminal Code amendment is national legal context only.",
+        "source_references": [
+          "mnpcs_sk_s228"
+        ],
+        "confidence": "high",
+        "context_scope": "response_context"
+      },
+      {
+        "edge_id": "mnpce_sk_treaty_context",
+        "from_object_id": "saskatoon_location",
+        "relationship_type": "has_context",
+        "to_object_id": "treaty_6_metis_homeland",
+        "neutral_summary": "The municipal source establishes territorial context only.",
+        "source_references": [
+          "mnpcs_sk_territory"
+        ],
+        "confidence": "high",
+        "context_scope": "territorial_context_only"
+      }
+    ]
+  },
+  "findings": [
+    {
+      "finding_id": "frf_sk_operational_response",
+      "finding_type": "verified_service_implementation",
+      "priority_band": "review_first",
+      "title": "A concrete service response is operational",
+      "summary": "SHA ties the birth-support program to the review and currently lists the service.",
+      "why_it_matters": "It demonstrates a real-world response beyond an announcement.",
+      "uncertainty": "It only addresses part of a much broader reform agenda.",
+      "recommended_action": "Preserve the source-backed link but do not label all Calls to Action implemented."
+    },
+    {
+      "finding_id": "frf_sk_legal_update",
+      "finding_type": "legal_or_policy_change",
+      "priority_band": "review_first",
+      "title": "Certification status is now known",
+      "summary": "2025 SKKB 89 dismissed class certification on procedural criteria.",
+      "why_it_matters": "It materially updates a stale legal-status gap.",
+      "uncertainty": "Appeal or successor proceeding status was not located.",
+      "recommended_action": "Confirm appellate/docket status before public use."
+    },
+    {
+      "finding_id": "frf_sk_implementation_gap",
+      "finding_type": "implementation_gap",
+      "priority_band": "review_first",
+      "title": "Most Calls to Action lack current disaggregated status",
+      "summary": "No current public ten-action ledger was located.",
+      "why_it_matters": "Consent policy and governance reforms are central, not incidental.",
+      "uncertainty": "Missing public evidence is not proof of non-implementation.",
+      "recommended_action": "Seek a bounded SHA implementation table."
+    },
+    {
+      "finding_id": "frf_sk_federal_context",
+      "finding_type": "legal_or_policy_change",
+      "priority_band": "review_next",
+      "title": "Later federal law must remain contextual",
+      "summary": "Bill S-228 became law in 2026.",
+      "why_it_matters": "It is important legal context without being a case-specific remedy.",
+      "uncertainty": "No retroactive effect is inferred.",
+      "recommended_action": "Keep a visible temporal/legal boundary in the dossier."
+    }
+  ],
+  "knowledge_gap_follow_ups": [
+    {
+      "question": "What is the current public procedural status of the proposed class action?",
+      "outcome": "partially_answered",
+      "answer": "The Court of King's Bench dismissed certification in Popp v Canada (Attorney General), 2025 SKKB 89. An appeal or successor collective proceeding was not located.",
+      "source_references": [
+        "mnpcs_sk_case_digest",
+        "mnpcs_sk_2024_intervention"
+      ],
+      "stopping_reason": "An authoritative case digest resolves the certification stage. Targeted official and case-law searches did not locate an appeal, and further open-web searching showed diminishing returns.",
+      "information_requests_sent": 0
+    }
+  ],
+  "owner_assessment": {
+    "significance": "review_first",
+    "confidence": "high",
+    "owner_review": true,
+    "owner_review_reason": "Current status for most Calls to Action and any post-2025 appeal require owner review.",
+    "recommended_next_action": "Prioritize an SHA recommendation-status follow-up and court-docket verification."
+  },
+  "limitations": "The dossier preserves anonymous cohort evidence and distinguishes allegation, review finding, institutional response, program operation, court procedure and later law. It does not identify patients, adjudicate individual claims or infer implementation from silence.",
+  "sources": [
+    {
+      "source_id": "mnpcs_sk_review",
+      "source_family_id": "fogs_saskatchewan_health_authority",
+      "url": "https://senatorboyer.ca/wp-content/uploads/2021/09/Tubal-Ligation-in-the-Saskatoon-Health-Region-the-Lived-Experience-of-Aboriginal-Women-Boyer-and-Bartlett-July-11-2017.pdf",
+      "title": "Tubal Ligation in the Saskatoon Health Region: The Lived Experience of Aboriginal Women",
+      "source_organization": "External reviewers Yvonne Boyer and Judith Bartlett / Saskatoon Health Region",
+      "source_type": "commissioned_external_review",
+      "publication_date": "2017-07",
+      "evidence_role": "cohort accounts, findings and ten Calls to Action"
+    },
+    {
+      "source_id": "mnpcs_sk_sha_research",
+      "source_family_id": "fogs_saskatchewan_health_authority",
+      "url": "https://www.saskhealthauthority.ca/our-organization/our-direction/research/who-we-are/exciting-discoveries/lessons-learned-indigenous-birth-support-worker-program",
+      "title": "Lessons learned from the Indigenous Birth Support Worker Program",
+      "source_organization": "Saskatchewan Health Authority",
+      "source_type": "official_program_evaluation",
+      "publication_date": null,
+      "evidence_role": "response relationship, operation and evaluation"
+    },
+    {
+      "source_id": "mnpcs_sk_sha_service",
+      "source_family_id": "fogs_saskatchewan_health_authority",
+      "url": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/indigenous-health/maternal-care-centre-indigenous-birth-support-worker-jim-pattison-childrens-hospital",
+      "title": "Maternal Care Centre Indigenous Birth Support Worker",
+      "source_organization": "Saskatchewan Health Authority",
+      "source_type": "official_current_service_page",
+      "publication_date": null,
+      "evidence_role": "current operational evidence"
+    },
+    {
+      "source_id": "mnpcs_sk_hesa",
+      "source_family_id": "fogs_parliament_canada",
+      "url": "https://www.ourcommons.ca/content/Committee/421/HESA/WebDoc/WD10596408/421_HESA_reldoc_PDF/MinisterOfHealth-Final-e.pdf",
+      "title": "Forced and Coerced Sterilization of Women in Canada",
+      "source_organization": "House of Commons Standing Committee on Health",
+      "source_type": "parliamentary_committee_report",
+      "publication_date": "2019-06",
+      "evidence_role": "federal accountability context and recommendations"
+    },
+    {
+      "source_id": "mnpcs_sk_case_digest",
+      "source_family_id": "fogs_saskatchewan_case_law",
+      "url": "https://www.lawsociety.sk.ca/wp-content/uploads/CM27-18.pdf",
+      "title": "Popp v Canada (Attorney General), 2025 SKKB 89 — Case Mail digest",
+      "source_organization": "Law Society of Saskatchewan",
+      "source_type": "authoritative_case_digest",
+      "publication_date": "2025-06-24",
+      "evidence_role": "current class-certification procedural status"
+    },
+    {
+      "source_id": "mnpcs_sk_2024_intervention",
+      "source_family_id": "fogs_saskatchewan_case_law",
+      "url": "https://www.canlii.org/en/sk/skkb/doc/2024/2024skkb122/2024skkb122.html",
+      "title": "Popp v Canada (Attorney General), 2024 SKKB 122",
+      "source_organization": "Court of King's Bench for Saskatchewan / CanLII",
+      "source_type": "court_judgment",
+      "publication_date": "2024",
+      "evidence_role": "interlocutory procedural history"
+    },
+    {
+      "source_id": "mnpcs_sk_s228",
+      "source_family_id": "fogs_government_canada_publications",
+      "url": "https://publications.gc.ca/site/eng/9.963680/publication.html",
+      "title": "An Act to amend the Criminal Code (sterilization procedures), S.C. 2026, c. 10",
+      "source_organization": "Parliament of Canada / Government of Canada Publications",
+      "source_type": "enacted_federal_legislation",
+      "publication_date": "2026-06-15",
+      "evidence_role": "later federal legal context"
+    },
+    {
+      "source_id": "mnpcs_sk_senate",
+      "source_family_id": "fogs_parliament_canada",
+      "url": "https://sencanada.ca/en/speeches/sen-boyer-speech-from-the-throne/",
+      "title": "Senator Boyer — Speech from the Throne",
+      "source_organization": "Senate of Canada",
+      "source_type": "parliamentary_record",
+      "publication_date": "2021",
+      "evidence_role": "public accountability and legal-process context"
+    },
+    {
+      "source_id": "mnpcs_sk_territory",
+      "source_family_id": "fogs_city_saskatoon",
+      "url": "https://www.saskatoon.ca/community-culture-heritage/cultural-diversity/indigenous-initiatives/treaty-6-metis-homeland",
+      "title": "Treaty 6 Territory and the Homeland of the Métis",
+      "source_organization": "City of Saskatoon",
+      "source_type": "official_territorial_context",
+      "publication_date": null,
+      "evidence_role": "territorial context only"
+    }
+  ]
+}

@@ -1,0 +1,337 @@
+{
+  "generated_at": "2026-09-06T00:03:25.727Z",
+  "region": "british_columbia",
+  "tavily_calls": 20,
+  "searches": [
+    {
+      "query": "Indigenous patient racism Vancouver Coastal Health hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient complaint Fraser Health Surrey racism",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient racism Island Health Victoria hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient discrimination Interior Health hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient racism Northern Health Terrace hospital",
+      "result_count": 5
+    },
+    {
+      "query": "First Nations patient denied treatment Vancouver hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous family alleges racism BC emergency department",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous pregnancy racism British Columbia hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient death racism BC hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient human rights complaint hospital BC",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient undertreated pain BC hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient stereotyping substance use BC healthcare",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient racism Nanaimo hospital complaint",
+      "result_count": 5
+    },
+    {
+      "query": "First Nations patient racism Prince George hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient discrimination Kamloops hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient racism Kelowna hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient mental health racism BC hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient maternity discrimination BC health authority",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous family hospital apology racism BC",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient human rights tribunal healthcare BC",
+      "result_count": 5
+    }
+  ],
+  "candidate_sources": 20,
+  "categories": {
+    "individual_incident_candidate": 16,
+    "multi_incident_source": 0,
+    "background_prevalence_source": 0,
+    "policy_or_review_source": 2,
+    "insufficient_incident_detail": 2
+  },
+  "inspected": [
+    {
+      "title": "Indigenous people not surprised by reports of racist game ...",
+      "url": "https://www.cbc.ca/news/canada/british-columbia/indigenous-patients-nurses-on-alleged-racist-game-in-hospitals-1.5622448",
+      "tavily_excerpt": "Skip to Main ContentAccessibility Help\n\nMenuCBC GemCBC Listen\n\nSearch\n\nIndigenous people not surprised by reports of racist game played in hospitals | CBC News Loaded\n\nBritish Columbia·Reconcile This\n\n# Indigenous people not surprised by reports of racist game played in hospitals\n\nSome Indigenous people say discrimination they've faced by doctors and nurses in British Columbia is so normal that they weren't surprised to hear about allegations of an emergency room \"game\" in which health-care staff guessed the intoxication levels of Indigenous patients.\n\n## Health-care staff guessed intoxication levels of concussed or dehydrated people\n\nAngela Sterritt  · CBC News  ·\n\nText to Speech Icon\n\nListen to this article\n\nEstimated 5 minutes [...] ## Social Sharing\n\nSome Indigenous people say discrimination they've faced by doctors and nurses in British Columbia is so common that they weren't surprised to hear about allegations of an emergency room \"game\" in which health-care staff guessed the intoxication levels of Indigenous patients.\n\nBut the allegations are still triggering, they say.\n\n\"It broke my heart. I wanted to scream and cry, [but] I wasn't surprised,\" said Tania Dick, a Dzawada̱ʼenux̱w nurse of 17 years.\n\n\"I'm an emergency nurse, and I was visualizing the nurses gathering in a little circle and throwing out their numbers,\" she said.\n\n\"Playing this game with someone's life … every second you're not actually providing care, you're withholding care,\" she said.",
+      "query_ids": [
+        "29578670d27169f04e959d77"
+      ],
+      "final_url": "https://www.cbc.ca/news/canada/british-columbia/indigenous-patients-nurses-on-alleged-racist-game-in-hospitals-1.5622448",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\"> <head> <title data-rh=\"true\">Indigenous people not surprised by reports of racist game played in hospitals | CBC News</title> <meta charset=\"utf-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /> <link rel=\"manifest\" href=\"/a/manifest.json\" /> <link rel=\"apple-touch-icon\" href=\"/a/apple-touch-icon.png\" /> <link rel=\"icon\" type=\"image/x-icon\" href=\"/a/favicon.ico\" /> <!-- Resource Hints --> <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" crossorigin> <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin> <link rel=\"preload\" href=\"https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap\" as=\"style\" crossorigin /> <link rel=\"preconnect\" href=\"https://i.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://thumbnails.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://liveimages.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://login.cbc.ca\" crossorigin /> <link rel=\"preconnect"
+    },
+    {
+      "title": "Four years later, IH's response on progress on In Plain Sight",
+      "url": "https://www.interiorhealth.ca/stories/four-years-later-ihs-response-progress-plain-sight",
+      "tavily_excerpt": "alert-icon\n\n### IH is responding to wildfire activity across the region\n\nLatest information here\n\nclose-icon\n\nShare Your Feedback\n\nLatest Alerts\n\nNew Temporary service interruption at Nicola Valley Hospital emergency department\n\nKelowna Drug Alert - Aug. 28, 2026\n\nHealth & Wellness\n\n# Four years later, IH’s response on progress on In Plain Sight\n\n \n\nThis week marks the fourth anniversary of the \"In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care\" report.\n\nThis week marks the fourth anniversary of the \"In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care\" (In Plain Sight/IPS) report. [...] Making tangible efforts to partner with Indigenous communities and incorporate Indigenous culture within our facilities through territory acknowledgements, signage, artwork and ceremony. Our approach includes engagement and collaboration with Interior region First Nations to ensure cultures are respected and reflected in the design of new capital projects and renovating existing spaces.\n  + Kelowna community dialysis unit opening in new location\n  + Smudging ceremony at the 100 Mile House District General Hospital\n  + Sacred space opens at Vernon Jubilee Hospital\n  + Sacred space at Cariboo Memorial Hospital receives a facelift\n Developing a brand new curriculum and providing Indigenous-specific Antiracism training and education opportunities to staff.",
+      "query_ids": [
+        "29565db6712bc56e14b00ec3"
+      ],
+      "final_url": "https://www.interiorhealth.ca/stories/four-years-later-ihs-response-progress-plain-sight",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\" dir=\"ltr\" prefix=\"content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema# schema: http://schema.org/ sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema# \" class=\"h-100\"> <head> <meta charset=\"utf-8\" /> <script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-211712381-1\"></script> <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments)};gtag(\"js\", new Date());gtag(\"set\", \"developer_id.dMDhkMT\", true);gtag(\"config\", \"UA-211712381-1\", {\"groups\":\"default\",\"anonymize_ip\":true,\"page_placeholder\":\"PLACEHOLDER_page_path\"});</script> <style>/* @see https://github.com/aFarkas/lazysizes#broken-image-symbol */.js img.lazyload:not([src]) { visibility: hidden; }/* @see https://github.com/aFarkas/lazysizes#au"
+    },
+    {
+      "title": "B.C. nurse disciplined for failing to care for Indigenous ...",
+      "url": "https://www.cbc.ca/news/canada/british-columbia/nurse-disciplined-indigenous-1.6730288",
+      "tavily_excerpt": "... Indigenous person at a hospital in Kelowna ... Indigenous people who have experienced racism and discrimination in the health-care system.",
+      "query_ids": [
+        "29565db6712bc56e14b00ec3"
+      ],
+      "final_url": "https://www.cbc.ca/news/canada/british-columbia/nurse-disciplined-indigenous-1.6730288",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\"> <head> <title data-rh=\"true\">B.C. nurse disciplined for failing to care for Indigenous person in emergency room | CBC News</title> <meta charset=\"utf-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /> <link rel=\"manifest\" href=\"/a/manifest.json\" /> <link rel=\"apple-touch-icon\" href=\"/a/apple-touch-icon.png\" /> <link rel=\"icon\" type=\"image/x-icon\" href=\"/a/favicon.ico\" /> <!-- Resource Hints --> <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" crossorigin> <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin> <link rel=\"preload\" href=\"https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap\" as=\"style\" crossorigin /> <link rel=\"preconnect\" href=\"https://i.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://thumbnails.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://liveimages.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://login.cbc.ca\" crossorigin /> <link rel=\"preco"
+    },
+    {
+      "title": "Investigation finds widespread racism against Indigenous ...",
+      "url": "https://www.cbc.ca/news/indigenous/bc-health-care-racism-report-1.5820306",
+      "tavily_excerpt": "November 30, 2020|\n\nDuration 2:03\n\nAn independent investigation has found clear evidence of widespread racism and discrimination against Indigenous patients and staff in the B.C. health-care system.\n\nTurpel-Lafond was asked to lead the investigation after it was revealed that hospital emergency staff were allegedly playing a \"game\" where they would guess the blood-alcohol content of Indigenous patients.\n\nShe was asked to look into those allegations but also to report more broadly on the range and extent of Indigenous-specific racism in the provincial health-care system.\n\nThe investigative team was not able to substantiate allegations about the \"game\" being played in emergency rooms.\n\n Reconcile This\n\n  Indigenous people not surprised by reports of racist game played in hospitals [...] \"I am afraid to go to any hospital. When I do have to, I dress up like I'm going to church,\" states a young Indigenous woman quoted in the report.\n\nAn Indigenous doctor is quoted as saying: \"I have been asked to look after my 'drunk relatives' in the ER or have had Indigenous patients [who were considered difficult patients] reassigned to me on the wards when I was a resident.\"\n\nThe report also sheds light on how current efforts in education and training are inadequate and why more Indigenous peoples are needed in health leadership and decision-making positions.\n\nWATCH | Probe finds evidence of widespread racism against Indigenous people in B.C. health system:\n\nEvidence of widespread racism against Indigenous peoples within B.C. health care: investigation\n\nNovember 30, 2020| [...] Skip to Main ContentAccessibility Help\n\nMenuCBC GemCBC Listen\n\nSearch\n\nInvestigation finds widespread racism and discrimination against Indigenous peoples in B.C. health-care system | CBC News Loaded\n\nIndigenous\n\n# Investigation finds widespread racism and discrimination against Indigenous peoples in B.C. health-care system\n\nRacism, stereotyping and discrimination against Indigenous peoples in the B.C. health-care system are widespread and can be deadly, according to the findings of an independent investigative report released Monday.\n\n## 84% of Indigenous people who took part in investigation reported discrimination in system\n\nChantelle Bellrichard  · CBC News  ·\n\nText to Speech Icon\n\nListen to this article\n\nEstimated 5 minutes",
+      "query_ids": [
+        "29565db6712bc56e14b00ec3"
+      ],
+      "final_url": "https://www.cbc.ca/news/indigenous/bc-health-care-racism-report-1.5820306",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\"> <head> <title data-rh=\"true\">Investigation finds widespread racism and discrimination against Indigenous peoples in B.C. health-care system | CBC News</title> <meta charset=\"utf-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /> <link rel=\"manifest\" href=\"/a/manifest.json\" /> <link rel=\"apple-touch-icon\" href=\"/a/apple-touch-icon.png\" /> <link rel=\"icon\" type=\"image/x-icon\" href=\"/a/favicon.ico\" /> <!-- Resource Hints --> <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" crossorigin> <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin> <link rel=\"preload\" href=\"https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap\" as=\"style\" crossorigin /> <link rel=\"preconnect\" href=\"https://i.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://thumbnails.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://liveimages.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://login.cbc.ca\" cro"
+    },
+    {
+      "title": "Majority of Indigenous Patients and Workers Say They Experienced Racism in BC Health Care: Report",
+      "url": "https://www.vice.com/en/article/majority-of-indigenous-patients-and-workers-say-they-experienced-racism-in-bc-healthcare-report",
+      "tavily_excerpt": "Eighty-four percent of Indigenous peoples engaged in the investigation said they experienced some form of discrimination at the hands of health care workers, including verbal and physical abuse.\n\n“I am afraid to go to any hospital. When I do have to, I dress up like I’m going to church (in order to receive proper treatment). It’s ridiculous,” read one Indigenous patient’s report, presented in the results of investigation.\n\n“I avoid the hospital at all costs because as an Indigenous person I feel unsafe and feel like they won’t bother treating me,” read another.\n\nAmong Indigenous healthcare workers, 52 per cent reported racist encounters at work, mostly in the form of discriminatory comments from their colleagues. [...] close\nVICE Logo\n\n# Subscribe to VICE\n\nGet unlimited access to everything VICE has to offer.\n\n## Digital Monthly\n\n## Digital Annual\n\n## Print & Digital\n\n## VICE Editions\n\nVICE\n\nSubscribe\n\nNewsletter\n\n# Majority of Indigenous Patients and Workers Say They Experienced Racism in BC Health Care: Report\n\nBy Brishti Basu\n\nThe majority of Indigenous peoples who access the healthcare system in British Columbia have reported experiencing racism in some form,  including Indigenous healthcare workers, a new government report says.\n\nIn July, the B.C. government launched an investigation of racial stereotyping by healthcare workers against Indigenous patients, after allegations surfaced of a racist guessing game played in emergency rooms.\n\n## Videos by VICE",
+      "query_ids": [
+        "29565db6712bc56e14b00ec3"
+      ],
+      "final_url": "https://www.vice.com/en/article/majority-of-indigenous-patients-and-workers-say-they-experienced-racism-in-bc-healthcare-report/",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en-US\"> <head> <meta charset=\"UTF-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /> <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' /> <!-- This site is optimized with the Yoast SEO Premium plugin v27.6 (Yoast SEO v27.6) - https://yoast.com/product/yoast-seo-premium-wordpress/ --> <link rel=\"canonical\" href=\"https://www.vice.com/en/article/majority-of-indigenous-patients-and-workers-say-they-experienced-racism-in-bc-healthcare-report/\" /> <meta property=\"og:locale\" content=\"en_US\" /> <meta property=\"og:type\" content=\"article\" /> <meta property=\"og:title\" content=\"Majority of Indigenous Patients and Workers Say They Experienced Racism in BC Health Care: Report\" /> <meta property=\"og:description\" content=\"In light of a new review into a racist game being played in emergency rooms, B.C. Health Minister Adrian Dix offered an apology to Indigenous peoples in the province.\" /> <m"
+    },
+    {
+      "title": "Canadian province investigates racist 'game' played by ...",
+      "url": "https://www.bbc.com/news/world-us-canada-53116593",
+      "tavily_excerpt": "# Canadian province investigates racist 'game' played by hospital staff\n\nGetty Images Adrian Dix\n\nA Canadian province is investigating claims that healthcare staff played a racist \"game\" by betting on the blood alcohol level of indigenous patients.\n\nThe claims, involving staff in at least one British Columbia hospital, came to light after a community leader filed a complaint on Thursday.\n\nHealth Minister Adrian Dix called the allegations \"abhorrent\" and has hired an independent investigator.\n\nHe would not say which hospital was named in the complaint.",
+      "query_ids": [
+        "29565db6712bc56e14b00ec3"
+      ],
+      "final_url": "https://www.bbc.com/news/world-us-canada-53116593",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html><html lang=\"en-GB\"><head><meta charSet=\"utf-8\" data-next-head=\"\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" data-next-head=\"\"/><title data-next-head=\"\">Canadian province investigates racist &#x27;game&#x27; played by hospital staff</title><meta name=\"description\" content=\"Staff in at least one hospital allegedly bet on the blood alcohol level of indigenous patients.\" data-next-head=\"\"/><link rel=\"canonical\" href=\"https://www.bbc.com/news/world-us-canada-53116593\" data-next-head=\"\"/><meta name=\"pagetype\" content=\"News Article\" data-next-head=\"\"/><meta name=\"page.section\" content=\"News\" data-next-head=\"\"/><meta name=\"page.subsection\" content=\"Us_and_canada\" data-next-head=\"\"/><meta property=\"og:title\" content=\"Canadian province investigates racist &#x27;game&#x27; played by hospital staff\" data-next-head=\"\"/><meta property=\"og:type\" content=\"article\" data-next-head=\"\"/><meta property=\"og:url\" content=\"https://www.bbc.com/news/world-us-canada-53116"
+    },
+    {
+      "title": "More evidence of failures in health system for BC's ...",
+      "url": "https://engage.gov.bc.ca/addressingracism/more-evidence-of-failures-in-health-system-for-b-c-s-indigenous-peoples-report",
+      "tavily_excerpt": "It also features a closer examination of health-system utilization and health outcome data analyzed by the review – data which reflects approximately 185,000 Indigenous individuals. These data focus on primary care and hospital services and health outcomes, including chronic conditions and mortality, as well as the association of racism with other self-reported health and wellness indicators. Data examining priority issues, such as the two current public health emergencies and mental health and wellness are included, as are data regarding patient complaints and comments from participants in San’yas Indigenous Cultural Safety training.",
+      "query_ids": [
+        "6db0f1b5911226fad3c36a07"
+      ],
+      "final_url": "https://engage.gov.bc.ca/addressingracism/more-evidence-of-failures-in-health-system-for-b-c-s-indigenous-peoples-report",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!doctype html> <html class=\"no-js\" dir=\"ltr\" lang=\"en-US\" prefix=\"og: https://ogp.me/ns#\" prefix=\"og: http://ogp.me/ns#\"> <head> <meta charset=\"utf-8\"> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <link rel=\"icon\" type=\"image/x-icon\" href=\"https://engage.gov.bc.ca/app/themes/bcgov-responsive-theme/favicon.ico\"> <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"https://engage.gov.bc.ca/app/themes/bcgov-responsive-theme/favicon.ico\"> <link rel=\"alternate\" type=\"application/rss+xml\" title=\"Addressing Racism Feed\" href=\"https://engage.gov.bc.ca/addressingracism/feed/\"> <title>More evidence of failures in health system for B.C.’s Indigenous peoples: report | Addressing Racism</title> <style>img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrinsic-size: 3000px 1500px }</style> <!-- All in One SEO 4.8.0 - aioseo.com --> <meta name=\"robots\" content=\"max-image-preview:large\" /> <meta name=\"author\" content=\""
+    },
+    {
+      "title": "Applying Gladue to Psychiatric Care: Systematic Safeguards for Indigenous Mental Health | Canadian Bar Association",
+      "url": "https://cba.org/sections/health-law/resources/essaywinnerhealth2025",
+      "tavily_excerpt": "Mental health law empowers practitioners with the discretion to collect relevant patient information and record it in their chart. For example, under the MHA, the OIC of a psychiatric facility is empowered to:\n\n> collect, use and disclose personal health information about a patient, with or without the patient’s consent, for the purposes of, (a) examining, assessing, observing or detaining the patient in accordance with [the MHA]; or (b) complying with Part XX.1 (Mental Disorder) of the Criminal Code (Canada) or an order or disposition made pursuant to that Part.95 [...] The CCB in M.T. (Re), 2004 CanLII 56536 (ON CCB), at 6-7, described “serious physical impairment” as: “unintentional harm to the Patient that includes the outcome of a range of potential risky activities that the Patient would likely undertake. These risky activities must occur as a result of the mental disorder and arise after discharge. The range of risky activities that could result in serious physical impairment to the Patient might include the outcome of failing to take medication where such conduct is predictable and physically harmful. Socially inappropriate conduct that would create hostility and violence in others towards the Patient might also be connected with the mental disorder and create serious physical impairment through fights or other unreasonably risky behavior”. [...] 1. transfer the patient to another psychiatric facility (if the patient does not object);\n2. place the patient on a leave of absence for a designated period on the advice of a physician;\n3. direct the OIC to provide the patient with a different security level or different privileges within or outside the psychiatric facility;\n4. direct the OIC to allow the patient to be provided with supervised or unsupervised access to the community; or\n5. direct the OIC to provide the patient with vocational, interpretation or rehabilitative services.80",
+      "query_ids": [
+        "6db0f1b5911226fad3c36a07"
+      ],
+      "final_url": "https://cba.org/sections/health-law/resources/essaywinnerhealth2025",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\"> <head> <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1.0\" /> <title>Applying Gladue to Psychiatric Care: Systematic Safeguards for Indigenous Mental Health | Canadian Bar Association</title> <link rel=\"shortcut icon\" type=\"image/png\" href=\"/favicon.png?v=mFyBXz5Romy1XfaJaia2vikkcoixG4M_aRD60Z4GqZ4\" /> <link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/CBA_Favicon-32px_national.png?v=mFyBXz5Romy1XfaJaia2vikkcoixG4M_aRD60Z4GqZ4\"> <link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/CBA_Favicon-16px_national.png?v=RPrxwU62M18kImeiDRgSJep2j1XujN1LYrvAPOsjOLA\"> <meta name=\"description\" content=\"The CBA Health Law Section is pleased to announce Matthew C. Tse as the winner of the 2025 Health Law Section Student Essay Contest, for his paper entitled &#x201C;Apply"
+    },
+    {
+      "title": "Indigenous Health & Cultural Safety",
+      "url": "https://www.bcmhsus.ca/about-us/what-we-do/indigenous-health-cultural-safety",
+      "tavily_excerpt": "BC Mental Health and Substance Use Services\n\n## Secondary Utility\n\n Make a Referral\n\n1. Home\n2. About Us\n3. What We Do\n\n# Our Commitment to Indigenous-Specific Anti-Racism & Cultural Safety\n\nIndigenous elder woman with hands held up in gratitude\n\nAt BC Mental Health and Substance Use Services (BCMHSUS), we are strongly committed to eliminating Indigenous-specific racism, embedding Indigenous cultural safety and humility in our programs and services, and improving Indigenous health and wellness. We serve clients, patients, and their families who identify as Indigenous (First Nations, Inuit, or Métis) and who are accessing services at BCMHSUS.\n\n How we support your care\n\n## About Us [...] Indigenous patient navigators work with Correctional Health Services and community transition teams, and support clients both within and outside of correctional centres.\n\n### Indigenous wellness helper\n\nAt the Forensic Psychiatric Hospital, Red Fish Healing Centre, and the Heartwood Centre for Women, Indigenous wellness helpers offer Indigenous wellness programming and services, such as:\n\n Indigenous wellness practices\n Indigenous medicines and bundles\n Healing and cleansing ceremonies such as smudging\n Group programming\n Indigenous art programming\n\nImage\n\npage-image-indigenous-ceremony.jpg\n\n## Indigenous-specific support at our facilities:\n\nHealth services for people in custody\n\nForensic Psychiatric Hospital\n\nForensic psychiatric regional clinics",
+      "query_ids": [
+        "6db0f1b5911226fad3c36a07"
+      ],
+      "final_url": "https://www.bcmhsus.ca/about-us/what-we-do/indigenous-health-cultural-safety",
+      "source_fetch": "tavily_excerpt_only",
+      "category": "policy_or_review_source",
+      "evidence_excerpt": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"> <HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\"> <TITLE>ERROR: The request could not be satisfied</TITLE> </HEAD><BODY> <H1>403 ERROR</H1> <H2>The request could not be satisfied.</H2> <HR noshade size=\"1px\"> Request blocked. We can't connect to the server for this app or website at this time. There might be too much traffic or a configuration error. Try again later, or contact the app or website owner. <BR clear=\"all\"> If you provide content to customers through CloudFront, you can find steps to troubleshoot and help prevent this error by reviewing the CloudFront documentation. <BR clear=\"all\"> <HR noshade size=\"1px\"> <PRE> Generated by cloudfront (CloudFront) Request ID: Ze_mcWZItqy6wNUcFMN0oRqv8vmI_ep8Qq_2qgDh4t_CEhekZkGChw== </PRE> <ADDRESS> </ADDRESS> </BODY></HTML>"
+    },
+    {
+      "title": "4.4 Discrimination and Oppression in Indigenous Healthcare – Getting Ready for Work-Integrated Learning",
+      "url": "https://opentextbc.ca/workintegratedlearning/chapter/discrimination-and-oppression-in-indigenous-healthcare",
+      "tavily_excerpt": "stereotyping, racism, and discrimination exist in the B.C. health care system” (Turpel-Laford, 2020, p.36). Northern Health (2017), the health authority for Northern BC, recently apologized for both their “actions and inaction in righting wrongs” in contributing to the stereotyping, racism, and discrimination in the healthcare system (n.p). [...] Cultural safety and humility graphic\n\nFigure 4.2 Leading a Framework for Cultural Safety and Humility for First Nations in BC© First Nations Health Authority, for personal, non-commercial use only\n\n# What is Cultural Humility? [...] These experiences don’t just hurt people’s feelings, they have real impacts on every aspect of a person’s health. The First Nations Health Authority (2016) write that “[a] Status First Nations person in BC is expected to live 7.5 fewer years than a non-Aboriginal BC resident born in the same period” (p. 11). Seven and a half years is an unacceptable disparity in life expectancy. Change needs to happen, and we should all be a part of it.\n\nCase study: Mikaela takes action",
+      "query_ids": [
+        "88501dbca7f008929ffe7e47"
+      ],
+      "final_url": "https://opentextbc.ca/workintegratedlearning/chapter/discrimination-and-oppression-in-indigenous-healthcare",
+      "source_fetch": "tavily_excerpt_only",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-lLTSk3Bm8U47tM4gfIAV7C&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font"
+    },
+    {
+      "title": "BC Women's Hospital and Health Centre hiring Indigenous Patient Navigator, Indigenous Health Program - BC Children’s and Women’s Hospital & Health Centre in Vancouver, British Columbia, Canada | LinkedIn",
+      "url": "https://ca.linkedin.com/jobs/view/indigenous-patient-navigator-indigenous-health-program-bc-children%E2%80%99s-and-women%E2%80%99s-hospital-health-centre-at-bc-women-s-hospital-and-health-centre-4348134034",
+      "tavily_excerpt": "### Indigenous Patient Navigator, Indigenous Health Program - BC Children’s and Women’s Hospital & Health Centre. BC Women's Hospital and Health Centre Vancouver, British Columbia, Canada. * Provide client support services within the hospital care system/community by initiating and maintaining working relationships with Indigenous clients to assess their needs and ability to access and receive culturally safe care. * Support the development of regional strategies to improve care for Indigenous patients by engaging Indigenous communities, organizations, and other health system partners within the region, and works in partnership with the Metis Nation of BC, BC Association of Aboriginal Centre, and the First Nation Health Authority as appropriate. * Provide a link between Indigenous communities and PHSA healthcare providers and supports Indigenous peoples’ understanding of the provincial healthcare system, the First Nations Health Authority, and federal healthcare systems where applicable. * Provide information to Indigenous clients, families, communities, and organizations within the designated region and provide outreach support to Indigenous communities and organizations to better understand health needs and improve access to PHSA services. * Demonstrated knowledge of the historic and ongoing impacts of settler colonialism on Indigenous Peoples in social and health contexts, including supported by significant knowledge of Indigenous-specific mandates, including clear understanding of and commitment to eradicate Indigenous-specific racism and discrimination and embed Indigenous Cultural Safety and Humility. * Demonstrated knowledge and understanding of legislative obligations and provincial commitments within BC Children’s and Women’s Hospital & Health Care Centre contexts found in the foundational documents including Truth & Reconciliation Commission’s Calls to Action (2015), In Plain Sight (2020), BC's Declaration on the Rights of Indigenous Peoples Act (2019), United Nations Declaration on the Rights of Indigenous Peoples (UNDRIP), Reclaiming Power and Place Missing and Murdered Indigenous Women & Girls Calls for Justice (2019), the Declaration Act Action Plan and Remembering Keegan: A First Nations Case Study - BC Human Rights Code, BC Anti-racism Act and how they intersect across the health care system. One of PHSA’s North Star priorities is to eradicate Indigenous-specific racism, which includes ongoing commitments to Indigenous recruitment and employee experience as well as dismantling barriers to health care employment at every level.",
+      "query_ids": [
+        "88501dbca7f008929ffe7e47"
+      ],
+      "final_url": "https://ca.linkedin.com/jobs/view/indigenous-patient-navigator-indigenous-health-program-bc-children%E2%80%99s-and-women%E2%80%99s-hospital-health-centre-at-bc-women-s-hospital-and-health-centre-4348134034",
+      "source_fetch": "tavily_excerpt_only",
+      "category": "insufficient_incident_detail",
+      "evidence_excerpt": "<!DOCTYPE html> <!--[if lt IE 7]> <html lang=\"en\" class=\"ie ie6 lte9 lte8 lte7\"> <![endif]--> <!--[if IE 7]> <html lang=\"en\" class=\"ie ie7 lte9 lte8 lte7\"> <![endif]--> <!--[if IE 8]> <html lang=\"en\" class=\"ie ie8 lte9 lte8\"> <![endif]--> <!--[if IE 9]> <html lang=\"en\" class=\"ie ie9 lte9\"> <![endif]--> <!--[if gt IE 9]> <html lang=\"en\"> <![endif]--> <!--[if !IE]><!--> <html lang=\"en\"> <!--<![endif]--> <head> <meta charset=\"UTF-8\"> <title>LinkedIn</title> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"> <!--[if lte IE 9]><link rel=\"icon\" href=\"/scds/common/u/images/logos/favicons/v1/favicon.ico\"><![endif]--> <!--[if !IE]><!--><link rel=\"icon\" href=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA6CAYAAADhu0ooAAAABGdBTUEAALGPC/xhBQAABr5JREFUaAXtW01vG1UUPePxZxySxm2aOB9NBa2QggR0AQuo1EpU/AMk2PADWNIFggWkYoFYwLJ7ViBRNkhULAC1El1QgZBQaVFBqG7rpKohThM79sQeD+c8Z1LHtTNp2iS2yW1frue9+2bemfvux3szY0E0MxPCbNrG/sl9qHo2aoiZ+m79E4KDsOXi31sLGJtzia8WBjwLiUtJpBaGAetthL1xAp2G1aVgPYIM4SqxZJEa/xSJZ3LAB"
+    },
+    {
+      "title": "Vancouver Island Health Authority Garners Two Excellence in BC Healthcare Awards - Indigenous Health Today! | Indigenous Health Today!",
+      "url": "https://ihtoday.ca/vancouver-island-health-authority-garners-two-excellence-in-bc-healthcare-awards",
+      "tavily_excerpt": "Title: Vancouver Island Health Authority Garners Two Excellence in BC Healthcare Awards - Indigenous Health Today! | Indigenous Health Today!\n# Vancouver Island Health Authority Garners Two Excellence in BC Healthcare Awards. ISLAND WIDE – The Vancouver Island Health Authority brought home two awards from the Health Employers Association of BC 2013 Excellence in BC Healthcare Awards presented in Vancouver this week. The Health Authority’s Violence Prevention Task Force was recognized for Workplace Health Innovation; this also marks the fourth year in a row the Health Authority has received recognition in workplace safety. Allison Cutler, Executive Director for Population and Community Health, earned an HEABC Gold Apple in the regional Health Care Hero category. “It is quite an achievement to be recognized by the Health Employers Association of BC’s Excellence in Healthcare Awards,” said Health Minister Terry Lake. “I would like to congratulate both the Vancouver Island Health Authority’s Violence Prevention Task Force on their out-of-the-box approach to policy-making, and Allison Cutler in receiving the Health Care Hero award for her dedication to improve population and community health across Vancouver Island.”. “We are very proud of the innovative work done by our Violence Prevention Task Force to protect all patients and staff, and the leadership of Allison Cutler whose passion for providing quality care at the community level continues to benefit patients in our region,” said Don Hubbard, Chair of Vancouver Island Health. The Violence Prevention Task Force received HEABC’s Award of Merit for Workplace Health Innovation. The Award of Merit is for a project or best practice that improves workplace and worker health and safety. Allison Cutler has been named HEABC’s Health Care Hero and awarded the Gold Apple for her outstanding leadership and contributions to population and community health services for the Island’s residents. Allison’s commitment for improving population and community health services inspires those around her, and her vision has helped establish many new programs and services. Some of her many accomplishments include leading integrated primary and community care across Vancouver Island, overseeing the development of the new Oceanside Health Centre, creating the Aboriginal Health Council that lead to the Vancouver Island Health Authority’s Aboriginal Health Plan, heading the development of the Nanaimo Regional General Hospital’s state-of-the-art Perinatal Unit, and establishing Youth Clinics across Central and North Vancouver Island.",
+      "query_ids": [
+        "88501dbca7f008929ffe7e47"
+      ],
+      "final_url": "https://ihtoday.ca/vancouver-island-health-authority-garners-two-excellence-in-bc-healthcare-awards",
+      "source_fetch": "tavily_excerpt_only",
+      "category": "policy_or_review_source",
+      "evidence_excerpt": "Title: Vancouver Island Health Authority Garners Two Excellence in BC Healthcare Awards - Indigenous Health Today! | Indigenous Health Today! # Vancouver Island Health Authority Garners Two Excellence in BC Healthcare Awards. ISLAND WIDE – The Vancouver Island Health Authority brought home two awards from the Health Employers Association of BC 2013 Excellence in BC Healthcare Awards presented in Vancouver this week. The Health Authority’s Violence Prevention Task Force was recognized for Workplace Health Innovation; this also marks the fourth year in a row the Health Authority has received recognition in workplace safety. Allison Cutler, Executive Director for Population and Community Health, earned an HEABC Gold Apple in the regional Health Care Hero category. “It is quite an achievement to be recognized by the Health Employers Association of BC’s Excellence in Healthcare Awards,” said Health Minister Terry Lake. “I would like to congratulate both the Vancouver Island Health Authority"
+    },
+    {
+      "title": "Indigenous people's experiences of primary health care in ...",
+      "url": "https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-44-no-4-2024/indigenous-people-experiences-primary-health-care-canada-qualitative-systematic-review.html",
+      "tavily_excerpt": "| Varcoe et al.Footnote 27 | To understand rural Indigenous women’s experiences of maternity care and factors shaping those experiences | Critical ethnographic approach and participatory framework | Participant observations, interviews and focus groups | First Nations women (125) and community leaders (9) | Remote, British Columbia | Participants explained their experiences with maternity care was linked with diminishing local maternity care choices, racism, and challenging economic circumstances |",
+      "query_ids": [
+        "88501dbca7f008929ffe7e47"
+      ],
+      "final_url": "https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-44-no-4-2024/indigenous-people-experiences-primary-health-care-canada-qualitative-systematic-review.html",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!doctype html> <html class=\"no-js\" dir=\"ltr\" lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\"> <head prefix=\"og: http://ogp.me/ns#\"> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"/> <meta charset=\"utf-8\"/> <title>Indigenous people’s experiences of primary health care in Canada: a qualitative systematic review, HPCDP: Vol 44(4), April 2024 - Canada.ca</title> <meta content=\"width=device-width,initial-scale=1\" name=\"viewport\"/> <meta name=\"content-page-ref\" content=\"qDXvbDLVz6dqE3VkUsNuOyHEoZWlgRtWBLxHR4dLXgbjsqqcMqih7bystOgmhSmswqKaJZhw8oNsmLdKvFqrtBlTXThNVRCehtxR9XnwAqm_6j6IvrHj2vVMrcNBtC_GXjHeEn3YWC8g9dGkdcV2Bp12HX0j_ZxWwinw2lEC1nQBozCZzLJTydPeQGyVj6Nhj0LdKWOKgWAlo6ErPVNHSbdpadl8LWMm3GcOanBbpjvFnfadXY27AXJblDOTsCgQYiKO8dUPpizFC7a3TWEwB0aCDR-bYUBmQrv_G3Daz9WTiDrwG9EDQKGCrOS4niBAFHWq0nJRnrIvmLFF3ZxctNMKpSUHSC29pU0w0gp7y6M\"> <link rel=\"schema.dcterms\" href=\"http://purl.org/dc/terms/\"/> <link rel=\"canonical\" href=\"https://www.canada.ca/en/public-health/services/reports-publications/h"
+    },
+    {
+      "title": "[PDF] An Apology and Commitment to Action",
+      "url": "https://chcpbc.org/wp-content/uploads/2024/09/Joint-Apology-and-Commitment-to-Action-Initiative.pdf",
+      "tavily_excerpt": "Indigenous Racism in BC Health Care: An Apology and Commitment to Action. As 11 Health Regulatory Colleges, we govern more than 21,000",
+      "query_ids": [
+        "ee1646880c437082da315b7b"
+      ],
+      "final_url": "https://chcpbc.org/wp-content/uploads/2024/09/Joint-Apology-and-Commitment-to-Action-Initiative.pdf",
+      "source_fetch": "fetched",
+      "category": "insufficient_incident_detail",
+      "evidence_excerpt": "Indigenous Racism in BC Health Care: An Apology and Commitment to Action. As 11 Health Regulatory Colleges, we govern more than 21,000"
+    },
+    {
+      "title": "The BC government apologizes for systemic racism ...",
+      "url": "https://globalnews.ca/news/7492581/racism-results-review-bc-healthcare-release",
+      "tavily_excerpt": "“Racism is toxic for people and it is toxic for care. I want to make an unequivocal apology as the Minister of Health to those who have experienced racism in accessing health care services now and in the past,” Minister of Health Adrian Dix said.\n\nStory continues below advertisement\n\n“Hospital and clinics must be places of trust and comfort. My apology today is an acknowledgment of the pain Indigenous people have born from racism.”\n\nClick to play video: 'Mary Ellen Turpel-Lafond ‘feels encouraged’ systemic racism in B.C. health care can be addressed' \n\nMary Ellen Turpel-Lafond ‘feels encouraged’ systemic racism in B.C. health care can be addressed [...] The apology comes after a months-long investigation found wide-spread racism in the health care system including fear from Indigenous people to access hospitals due to racism.\n\nThe investigation was brought forward to examine allegations of nurses and doctors guessing the blood alcohol level of Indigenous patients and perhaps others. Those claims were found to be “unsubstantiated.”\n\nThe investigation did find anecdotal reports similar to the original allegation but they were not found to be widespread nor targeted at Indigenous patients.\n\nRead more:   B.C. health workers allegedly bet on Indigenous patients’ blood alcohol levels [...] Former children’s commissioner Mary Ellen Turpel-Lafond was hired to investigate claims the so-called “Price is Right” game was being played in one B.C. hospital.\n\n“The review found no evidence to substantiate the allegation that the ‘Price is Right’ game was being played in B.C. hospital emergency departments, and if such a game did occur in the past, they are not occurring today,” Turpel-Lafond writes.\n\nRead more:   Investigator probing racism allegations in B.C. health-care system urges Indigenous people to come forward\n\nBut the report did discover the much larger problem of racism and fear from Indigenous people due to the treatment within the health-care system.\n\nStory continues below advertisement",
+      "query_ids": [
+        "ee1646880c437082da315b7b"
+      ],
+      "final_url": "https://globalnews.ca/news/7492581/racism-results-review-bc-healthcare-release/",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en-US\"> <head> <script type=\"text/javascript\"> function gnca_get_location_from_geo_data( geo_data ) { var loc_url = document.location.href.toLowerCase(); if( loc_url.indexOf('gref=') > -1 ) { if( loc_url.indexOf( 'gref=am980' ) > -1 ) { return 'gnca-london'; } else if( loc_url.indexOf( 'gref=900chml' ) > -1 ) { return 'gnca-hamilton'; } else if( loc_url.indexOf( 'gref=channel12' ) > -1 ) { return 'gnca-durham'; } else if( loc_url.indexOf( 'gref=chextv' ) > -1 ) { return 'gnca-peterborough'; } else if( loc_url.indexOf( 'gref=ckwstv' ) > -1 ) { return 'gnca-kingston'; } } // Handle regions that are \"misnamed\". For instance, the province of Ontario is in the \"Toronto\" region. if( geo_data.region ) { geo_data.region = geo_data.region.toUpperCase(); } else { return false; } switch (geo_data.region) { case 'ONTARIO': if( geo_data.city ) { var city = geo_data.city.toUpperCase(); if( 'LONDON' === city || 'WOODSTOCK' === city ) { return 'gnca-london'; } else if( 'GUE"
+    },
+    {
+      "title": "Pregnant Indigenous woman turned away from Kitimat ...",
+      "url": "https://globalnews.ca/news/7606997/kitimat-hospital-turnaway-stillborn-baby",
+      "tavily_excerpt": "By providing your email address, you have read and agree to Global News' Terms and Conditions and Privacy Policy.\n\nGaucher alleges when his niece phoned for an ambulance, it drove her around the block and back to the Kitimat hospital.\n\nRead more:   Investigator probing racism allegations in B.C. health-care system urges Indigenous people to come forward\n\nStory continues below advertisement\n\nBC Emergency Health Services confirmed an ambulance was called to the hospital for a maternity patient, but said it did not transport anyone.\n\nIt was not immediately clear what went wrong with the birth, and Gaucher said doctors have yet to offer an explanation to his niece.\n\nClick to play video: 'B.C. Health Minister Adrian Dix responds to Kitimat family tragedy' [...] Want to discuss? Please read our Commenting Policy first.\n\n### Write a comment\n\nVideo link\n\nHeadline link\n\nAdvertisement\n\nHealth\n\n# Pregnant Indigenous woman turned away from Kitimat hospital before stillbirth, family claims\n\nBy  Simon Little    Global News\n\nPosted January 29, 2021 8:29 pm\n\nUpdated January 29, 2021 10:57 pm\n\n3 min read\n\nIf you get Global News from Instagram or Facebook - that will be changing. Find out how you can still connect with us.\n\nThis article is more than 5 years old and some information may not be up to date.\n\nClick to play video: 'Northern B.C. Indigenous family alleges systemic racism at Kitimat hospital' \n\nNorthern B.C. Indigenous family alleges systemic racism at Kitimat hospital [...] Dustin Gaucher alleges his niece was turned away from the Kitimat General Hospital, and redirected to another hospital 60 kilometres away, where she delivered a stillborn baby. View image in full screen\n\nDustin Gaucher alleges his niece was turned away from the Kitimat General Hospital, and redirected to another hospital 60 kilometres away, where she delivered a stillborn baby.  Submitted\n\nGaucher said his niece, who was about two weeks overdue, went to Kitimat General Hospital Wednesday night with steady contractions, but was instead re-directed Mills Memorial Hospital in Terrace.\n\nStory continues below advertisement\n\nGaucher alleged that the hospital did not offer transport, leaving a family member to drive her the 60 km to the neighbouring community.",
+      "query_ids": [
+        "ee1646880c437082da315b7b"
+      ],
+      "final_url": "https://globalnews.ca/news/7606997/kitimat-hospital-turnaway-stillborn-baby/",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en-US\"> <head> <script type=\"text/javascript\"> function gnca_get_location_from_geo_data( geo_data ) { var loc_url = document.location.href.toLowerCase(); if( loc_url.indexOf('gref=') > -1 ) { if( loc_url.indexOf( 'gref=am980' ) > -1 ) { return 'gnca-london'; } else if( loc_url.indexOf( 'gref=900chml' ) > -1 ) { return 'gnca-hamilton'; } else if( loc_url.indexOf( 'gref=channel12' ) > -1 ) { return 'gnca-durham'; } else if( loc_url.indexOf( 'gref=chextv' ) > -1 ) { return 'gnca-peterborough'; } else if( loc_url.indexOf( 'gref=ckwstv' ) > -1 ) { return 'gnca-kingston'; } } // Handle regions that are \"misnamed\". For instance, the province of Ontario is in the \"Toronto\" region. if( geo_data.region ) { geo_data.region = geo_data.region.toUpperCase(); } else { return false; } switch (geo_data.region) { case 'ONTARIO': if( geo_data.city ) { var city = geo_data.city.toUpperCase(); if( 'LONDON' === city || 'WOODSTOCK' === city ) { return 'gnca-london'; } else if( 'GUE"
+    },
+    {
+      "title": "Sick Indigenous elder alleges racism at B.C. hospital - APTN News",
+      "url": "https://www.aptnnews.ca/national-news/sick-indigenous-elder-alleges-racism-interfered-with-diagnosis",
+      "tavily_excerpt": "Skip to content\n\nAPTN News\n\nAPTN News\n\nStories about First Nations, Métis and Inuit peoples\n\nTell us your story\n\nAdvertisement\n\n  Tell us your story\n\n Healthcare\n Natural Resources\n Truth & Politics\n Opioid Crisis\n ‘60s Scoop\n Child Welfare\n Policing in Canada\n Truth and Reconciliation\n Homelessness\n MMIWG\n 2SLGBTQ\n Climate Crisis\n Jordan's Principle\n\n National News\n\n# Sick Indigenous elder alleges racism interfered with diagnosis\n\n  By Tina House | Lee Wilson \n\nOct 23, 2020\n\nThe hospital administration called the next day to offer an apology for the mistreatment\n\nA First Nation Elder claims she was mistreated at a northern B.C. hospital.\n\nPenny Kerrigan told APTN News she was mistreated by staff after being medivaced to Terrace for treatment.",
+      "query_ids": [
+        "ee1646880c437082da315b7b"
+      ],
+      "final_url": "https://www.aptnnews.ca/national-news/sick-indigenous-elder-alleges-racism-interfered-with-diagnosis",
+      "source_fetch": "tavily_excerpt_only",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no-js ie8 oldie\" lang=\"en-US\"> <![endif]--> <!--[if gt IE 8]><!--> <html class=\"no-js\" lang=\"en-US\"> <!--<![endif]--> <head> <title>Attention Required! | Cloudflare</title> <meta charset=\"UTF-8\" /> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" /> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\" /> <meta name=\"robots\" content=\"noindex, nofollow\" /> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\" /> <link rel=\"stylesheet\" id=\"cf_styles-css\" href=\"/cdn-cgi/styles/cf.errors.css\" /> <!--[if lt IE 9]><link rel=\"stylesheet\" id='cf_styles-ie-css' href=\"/cdn-cgi/styles/cf.errors.ie.css\" /><![endif]--> <style>body{margin:0;padding:0}</style> <!--[if gte IE 10]><!--> <script type=\"fedb6d92c0b5b6d33c0d59af-text/javascript\"> if (!navigator.cookieEnabled) { window.addE"
+    },
+    {
+      "title": "In Plain Sight: Addressing Indigenous-specific Racism and ...",
+      "url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination",
+      "tavily_excerpt": "We appreciate that Minister Dix accepted Mary Ellen Turpel-Lafond's first recommendation that the B.C. government should offer an apology. We appreciate that the health minister made the apology but more importantly, Minister Dix promised prompt action to help eradicate racism. As Fraser Health Authority leaders, we also offer all of you who have suffered in our system our apology for your treatment. We pledge our commitment to work with the caucus, your leaders and other Indigenous partners, including the First Nation's Health Authority, to end racism in our health care system. It is not enough to offer words of regret. We must also take action to make it right with all of you, your families and communities. We will work in partnership with you to transform the health care system and",
+      "query_ids": [
+        "ee1646880c437082da315b7b"
+      ],
+      "final_url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js lt-ie9 lt-ie8 lt-ie7\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js lt-ie9 lt-ie8\"> <![endif]--> <!--[if IE 8]> <html class=\"no-js lt-ie9\"> <![endif]--> <!--[if gt IE 8]><!--> <html class=\"no-js\" lang=\"en\"> <!--<![endif]--> <head> <link href=\"https://www.fraserhealth.ca/-/media/Feature/XA-Extensions/iotaCSS/iotaCSS/Styles/optimized-min.css?t=20240318T030349Z\" rel=\"stylesheet\"><link href=\"https://www.fraserhealth.ca/-/media/Base-Themes/Core-Libraries/styles/optimized-min.css?t=20240318T150320Z\" rel=\"stylesheet\"><link href=\"https://www.fraserhealth.ca/-/media/Base-Themes/Main-Theme/styles/optimized-min.css?t=20240318T150320Z\" rel=\"stylesheet\"><link href=\"https://www.fraserhealth.ca/-/media/Themes/FraserHealth/FraserHealth/Site/styles/pre-optimized-min.css?t=20240811T193602Z\" rel=\"stylesheet\"> <title>Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health<"
+    },
+    {
+      "title": "Indigenous peoples and human rights - BC Human Rights Tribunal",
+      "url": "https://www.bchrt.bc.ca/indigenous",
+      "tavily_excerpt": "Important: Email to the Tribunal must be sent during our business hours of 8:30 a.m. to 4:30 p.m., Monday to Friday, except statutory holidays for B.C. government employees.\n\nBC Human Rights Tribunal\n\n# BC Human Rights Tribunal\n\nSkip to Main Content\n\nSkip to Navigation\n\nAccessibility Statement\n\n## Indigenous peoples\n\n## Indigenous peoples and human rights\n\nLast updated: July 4, 2025 [...] ### Where to file: Tribunal or Canadian Human Rights Commission\n\nUsually, you file your complaint with the Tribunal.\n\nIn some cases, you must file your complaint with the Canadian Human Rights Commission. Examples include complaints against:\n\n a First Nation or Band Council\n an airline\n a bank\n other federally-regulated industries and workplaces like the RCMP.\n\nIf you are not sure, you can file your complaint with both the Tribunal and Commission.\n\nNote: BC has an Office of the Human Rights Commissioner. The BC Commission is separate from the Tribunal and does not receive complaints\n\n### File within one year, if possible\n\nFile a complaint within one year of the discrimination, if possible. [...] Last updated: July 4, 2025\n\nOn January 15, 2020, the British Columbia Human Rights Tribunal released a report addressing serious access to justice concerns for Indigenous Peoples bringing human rights complaints to the Tribunal. The report, entitled Expanding Our Vision: Cultural Equality & Indigenous Peoples’ Human Rights, makes far-reaching recommendations that could transform human rights in this province. The Tribunal continues to work to implement those recommendations.\n\nThe BC Human Rights Code prohibits discrimination in areas of daily on lists grounds, including Indigenous identity. Indigenous means First Nation, Métis, or Inuit.",
+      "query_ids": [
+        "b1c9482d99bcd7a841ab7154"
+      ],
+      "final_url": "https://www.bchrt.bc.ca/indigenous",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html dir=\"ltr\" lang=\"en-US\" prefix=\"og: https://ogp.me/ns#\"> <head> <meta charset=\"UTF-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /> <style>img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrinsic-size: 3000px 1500px }</style> <!-- All in One SEO 4.8.0 - aioseo.com --> <title>Indigenous peoples and human rights - BC Human Rights Tribunal</title> <meta name=\"description\" content=\"The B.C. Human Rights Tribunal is an independent, quasi-judicial body created by the B.C. Human Rights Code.\" /> <meta name=\"robots\" content=\"max-image-preview:large\" /> <meta name=\"google-site-verification\" content=\"N7v54UwQc4BlpQU7BJXVSEy-m7QJdKHIKoALmH8OAxU\" /> <link rel=\"canonical\" href=\"https://www.bchrt.bc.ca/indigenous/\" /> <meta name=\"generator\" content=\"All in One SEO (AIOSEO) 4.8.0\" /> <meta property=\"og:locale\" content=\"en_US\" /> <meta property=\"og:site_name\" content=\"BC Human Rights Tribunal - We deal with human rights complaints in B.C.\" /> <m"
+    },
+    {
+      "title": "Expanding Our Vision: Cultural Equality & Indigenous Peoples Human Rights - BC Human Rights Tribunal",
+      "url": "https://www.bchrt.bc.ca/indigenous/eov",
+      "tavily_excerpt": "Important: Email to the Tribunal must be sent during our business hours of 8:30 a.m. to 4:30 p.m., Monday to Friday, except statutory holidays for B.C. government employees.\n\nBC Human Rights Tribunal\n\n# BC Human Rights Tribunal\n\nSkip to Main Content\n\nSkip to Navigation\n\nAccessibility Statement\n\n## Indigenous peoples\n\n## Expanding Our Vision: Cultural Equality & Indigenous Peoples Human Rights\n\nLast updated: May 21, 2025\n\n## Page contents\n\n Expanding Our Vision: Cultural Equality & Indigenous Peoples Human Rights\n What we are doing to implement the Report\n What others are doing to implement the Report\n  + Education resources for Indigenous People from the Human Rights Clinic\n  + Office of the Human Rights Commissioner\n Important documents [...] On January 15, 2020, the British Columbia Human Rights Tribunal released a report addressing serious access to justice concerns for Indigenous Peoples bringing human rights complaints to the Tribunal. The report, entitled Expanding Our Vision: Cultural Equality & Indigenous Peoples’ Human Rights, makes far-reaching recommendations that could transform human rights in this province. The Human Rights Tribunal is being joined by Indigenous, legal and human rights organizations in a shared commitment to transform human rights for Indigenous Peoples in the province. [...] Report author Ardith Walpetko We’dalx Walkem QC surveyed over 100 Indigenous People about their experiences with discrimination and the Human Rights Tribunal. Overwhelmingly those interviewed reported pervasive levels of discrimination. Many Indigenous People had no idea that the Human Rights Tribunal existed, or how to access it. Many said that their experiences of racism as Indigenous Peoples were so widespread that they did not believe it would make any difference to file a complaint with the Human Rights Tribunal.",
+      "query_ids": [
+        "b1c9482d99bcd7a841ab7154"
+      ],
+      "final_url": "https://www.bchrt.bc.ca/indigenous/eov",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html dir=\"ltr\" lang=\"en-US\" prefix=\"og: https://ogp.me/ns#\"> <head> <meta charset=\"UTF-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /> <style>img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrinsic-size: 3000px 1500px }</style> <!-- All in One SEO 4.8.0 - aioseo.com --> <title>Expanding Our Vision: Cultural Equality &amp; Indigenous Peoples Human Rights - BC Human Rights Tribunal</title> <meta name=\"description\" content=\"Indigenous peoples Expanding Our Vision: Cultural Equality &amp; Indigenous Peoples Human Rights Last updated: May 21, 2025 Page contents Expanding Our Vision: Cultural Equality &amp; Indigenous Peoples Human Rights What we are doing to implement the Report What others are doing to implement the Report Education resources for Indigenous People from the Human Rights Clinic Office of\" /> <meta name=\"robots\" content=\"max-image-preview:large\" /> <meta name=\"google-site-verification\" content=\"N7v54UwQc4BlpQU7BJXVSEy-m7Q"
+    }
+  ]
+}

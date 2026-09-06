@@ -1,0 +1,279 @@
+{
+  "generated_at": "2026-09-06T00:03:52.119Z",
+  "region": "alberta",
+  "tavily_calls": 20,
+  "searches": [
+    {
+      "query": "Indigenous patient racism hospital Alberta",
+      "result_count": 5
+    },
+    {
+      "query": "First Nations patient discrimination Alberta healthcare",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous racism emergency department Alberta",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient hospital complaint racism Alberta",
+      "result_count": 5
+    },
+    {
+      "query": "First Nations healthcare racist treatment Alberta",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous family racism Alberta hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient racism Calgary hospital complaint",
+      "result_count": 5
+    },
+    {
+      "query": "First Nations patient discrimination Edmonton emergency department",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient racism Red Deer hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient racism Lethbridge hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient death discrimination Alberta hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous human rights complaint Alberta hospital patient",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient racism Grande Prairie hospital",
+      "result_count": 5
+    },
+    {
+      "query": "First Nations patient delayed treatment Alberta hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous maternity racism Alberta hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous mental health racism Alberta healthcare",
+      "result_count": 5
+    },
+    {
+      "query": "Alberta Health Services Indigenous patient apology racism",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient undertreated pain Alberta hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous family complaint racism rural Alberta hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient human rights tribunal Alberta healthcare",
+      "result_count": 5
+    }
+  ],
+  "candidate_sources": 14,
+  "categories": {
+    "individual_incident_candidate": 11,
+    "multi_incident_source": 0,
+    "background_prevalence_source": 1,
+    "policy_or_review_source": 2,
+    "insufficient_incident_detail": 0
+  },
+  "inspected": [
+    {
+      "title": "Siksika Nation Member Brings Human Rights Complaint in ...",
+      "url": "https://siksikanation.com/siksika-nation-member-brings-human-rights-complaint-in-response-to-systemic-anti-indigenous-discrimination-in-albertas-healthcare-sector",
+      "tavily_excerpt": "On August 24, 2023, the Alberta Human Rights Commission accepted a complaint filed by Benedict Crow Chief, whose wife, Myra, passed away in April 2022 after attending at the Strathmore Hospital. The complaint describes how Benedict and Myra were subject to anti-Indigenous discrimination and racism at Strathmore, including negative stereotypes about Indigenous patients. [...] The complainant has suffered immeasurable and irreparable losses. He seeks justice for his family and fellow Siksika Nation members through structural change, not by way of a pay out. The complaint calls for broad systemic remedies, such as an equity audit to investigate the inequitable treatment of Indigenous peoples in Strathmore Hospital, and changes to hiring and retention practices and workplace anti-racism, cultural sensitivity, and trauma-informed trainings, among other remedies. [...] Despite Siksika Nation’s persistent efforts, the discriminatory treatment of Indigenous peoples in Alberta’s hospitals and other health centres remains. Not only is discrimination in the provision of health care to Indigenous peoples a violation of basic human rights, but also a violation of the sacred obligations laid out in signed Treaties across Canada, like Treaty 7, which include commitments to Indigenous people in relation to healthcare and medicines. To remedy the systemic anti-Indigenous discrimination in Alberta’s health care system, the complaint calls for broad systemic changes in respect of hospital policy and procedure.",
+      "query_ids": [
+        "63ca022676676b14d4962a03",
+        "23691d8d494add8557fd3acb",
+        "6d570df0cd98d9165a0891cf",
+        "a6593661f0733da88513b808"
+      ],
+      "final_url": "https://siksikanation.com/siksika-nation-member-brings-human-rights-complaint-in-response-to-systemic-anti-indigenous-discrimination-in-albertas-healthcare-sector/",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!doctype html> <html lang=\"en-US\"> <head> <meta charset=\"UTF-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <link rel=\"profile\" href=\"https://gmpg.org/xfn/11\"> <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' /> <!-- This site is optimized with the Yoast SEO plugin v28.3 - https://yoast.com/product/yoast-seo-wordpress/ --> <title>Siksika Nation Member Brings Human Rights Complaint in Response to Systemic Anti-Indigenous Discrimination in Alberta&#039;s Healthcare Sector - Siksika Nation</title> <link rel=\"canonical\" href=\"https://siksikanation.com/siksika-nation-member-brings-human-rights-complaint-in-response-to-systemic-anti-indigenous-discrimination-in-albertas-healthcare-sector/\" /> <meta property=\"og:locale\" content=\"en_US\" /> <meta property=\"og:type\" content=\"article\" /> <meta property=\"og:title\" content=\"Siksika Nation Member Brings Human Rights Complaint in Response to Systemic Anti-Indigenous "
+    },
+    {
+      "title": "Racism, discrimination may lead to First Nations patients ...",
+      "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342",
+      "tavily_excerpt": "Participants also noted other barriers to receiving care, such as long wait times, transportation availability and health-care professionals using medical jargon while speaking with patients.\n\n Study suggests Alberta First Nations people tend to get lower level of emergency care\n Siksika man files human rights complaint against Alberta Health Services, hospital\n\nSiksika Nation Coun. Samuel Crowfoot said the study reflects what members of his community southeast of Calgary have long been experiencing: misdiagnoses, being targeted by hospital security, and physicians assuming intoxication.\n\nThe First Nation has encouraged members to share stories related to racism and discrimination in health care and signed an agreement with Alberta physicians to address both problems. [...] Benedict Crow Chief, of Siksika Nation, filed a human rights complaint last year against Alberta Health Services (AHS) and a hospital, alleging anti-Indigenous discrimination led to the death of his wife, Myra Crow Chief.\n\nAt the time, AHS said it could not comment on the specific case but that racism and discrimination have no place within the organization.\n\nWATCH | Study says First Nations people may be leaving ERs due to racism:\n\nRacism, discrimination pushing First Nations patients out of Alberta ERs\n\nApril 22, 2024|\n\nDuration 1:56\n\nA study out of Alberta published in the Canadian Medical Association Journal showed that acts of racism and discrimination by hospital staff make First Nations patients more likely to leave an emergency room before being treated.",
+      "query_ids": [
+        "63ca022676676b14d4962a03",
+        "d8684e9f98a63688f80a30a6",
+        "1471b61e4f04cf4419b0a734",
+        "5d10a1e56b404246b8bb9d64"
+      ],
+      "final_url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\"> <head> <title data-rh=\"true\">Racism, discrimination may lead to First Nations patients leaving emergency rooms: Alberta study | CBC News</title> <meta charset=\"utf-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /> <link rel=\"manifest\" href=\"/a/manifest.json\" /> <link rel=\"apple-touch-icon\" href=\"/a/apple-touch-icon.png\" /> <link rel=\"icon\" type=\"image/x-icon\" href=\"/a/favicon.ico\" /> <!-- Resource Hints --> <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" crossorigin> <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin> <link rel=\"preload\" href=\"https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap\" as=\"style\" crossorigin /> <link rel=\"preconnect\" href=\"https://i.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://thumbnails.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://liveimages.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://login.cbc.ca\" crossorigin /> <l"
+    },
+    {
+      "title": "Leaving emergency departments without completing treatment ...",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11045230",
+      "tavily_excerpt": "attend to other responsibilities, and perceptions that the emergency department could not or would not address patient needs. Negative aspects of the emergency department’s environment (e.g., urgency of interactions, the environment not being conducive to rest) could also affect any patient. Other reasons were unique to Indigenous patients. Participants described providers relying on anti-Indigenous stereotypes in diagnostic questions or case management, anti-Indigenous discrimination in providers’ attitudes and quality of care, and patients overhearing anti-Indigenous racism expressed by providers. First Nations participants also expressed perceptions of being made to wait longer than White patients who appeared to be in less urgent need of care. [...] Wait times also affect leaving without being seen. Our previous research showed that First Nations patients received less-acute triage scores than comparable non–First Nations patients,65 and that providers made judgments about whether a patient deserved emergency care based on their perceptions of the patient’s place in society.60 Racial stereotyping, discrimination, and biased provider judgments may lead to under-triage, longer wait times, and abbreviated care for First Nations patients, and therefore increased motivation to leave the care environment. Furthermore, First Nations members have described how they cannot generally know whether a negative experience in the emergency department (such as a long wait) is related to racism or not, but that racism is always a stress-inducing [...] | Discrimination | “A lot is racism, in our area. And the lack of professionalism at times. We’ve had to have clients leave the hospital in [rural hospital 3] and [rural hospital 4] area and take off to a different hospital when they’ve had very sick children, because of the quality of care and attitude they were receiving. So we’ve had one that could’ve, well we’ve had a few that could’ve died if they didn’t go to a different hospital. And then they get flown out to Edmonton or Grande Prairie. And we’re dealing with the racism issue and the hospital is well aware of it and they are trying to fix that.” (HD19) |",
+      "query_ids": [
+        "d8684e9f98a63688f80a30a6",
+        "5a3b46119ec9efefddabf1f8",
+        "6b59cdaa3c5a63894634bb91",
+        "fce532dc82711ccf51c11304"
+      ],
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11045230/",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\" > <head > <meta charset=\"UTF-8\" /> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" /> <meta name=\"HandheldFriendly\" content=\"True\" /> <meta name=\"MobileOptimized\" content=\"320\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /> <link rel=\"stylesheet\" href=\"https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/9b1d9d87/var/data/static/assets/base_style-BxRs1iOp.css\" /> <script type=\"module\" crossorigin=\"\" src=\"https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/9b1d9d87/var/data/static/assets/base_style-D-jH62-1.js\"></script> <link rel=\"stylesheet\" href=\"https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/9b1d9d87/var/data/static/assets/article_style-B67IZFds.css\" /> <link rel=\"stylesheet\" href=\"https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/9b1d9d87/var/data/static/assets/style-D77LS1kY.css\" /> <script type=\"module\" crossorigin=\"\" src=\"https:/"
+    },
+    {
+      "title": "Impacts of racism on First Nations patients' emergency care",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9210059",
+      "tavily_excerpt": "Recognition of provider power was also evident in providers’ descriptions of determining how much care to offer first nations patients in the ED, and actions they might take to advocate for first nations patients to receive care. A physician described the case of a patient they recalled as “visibly First Nations” with a trimalleolar fracture as “a good example.” they describe that the patient needed surgery, but that the surgeon set eligibility criteria that the patient would likely be unable to meet due to their social determinants of health (housing and substance use). “I waited until we had a bed available on our hospital care team and asked them to admit the patient and do some social stabilization, get [an addiction team] involved and at least try to give them a chance to have this [...] admitted when follow up is difficult, or to be admitted to a hospital closer to their home, when this is the patient’s preference.(N2, N5, P17)Communication• Taking more time or having more conversations with First Nations patients.(N2, P3, P4, P6, P7, P9, N10, P15)• Updating contact information at each visit.(P13, P14)• Calling family members to leave messages if the patient has no phone.(P13)• Building relationships with clinics in First Nations communities. (N5, N8, N10)Resources• Writing notes for patients to access coverage for transportation costs.(P7)• Educating themselves on what resources are available for First Nations patients and referring patients to these resources.(P3, P7)Access to primary care• Communication about follow up care needs with staff at the First Nation Health [...] Providers also noted that racism can jeopardize clinical care. A provider described witnessing the following example of overt racism jeopardizing care during their residency:“I saw a girl who was First Nations who had abdominal pain and I was thoroughly convinced she had appendicitis…. And the physician who I was working with…was running her mouth about “Indians” like going on like a big racist rant. Like out loud at the nurses’ station in the emergency department. And the patient was in a bed that was just kitty corner to the desk and she can hear what was going on and she got up and she took the IV out of her arm and she was bleeding on the floor… And she left. And I said to her, ‘can you please go to another hospital? Like please, I understand why you’re leaving but please go somewhere",
+      "query_ids": [
+        "d4f257c262071d8fb8f93214",
+        "5d10a1e56b404246b8bb9d64"
+      ],
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9210059/",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\" > <head > <meta charset=\"UTF-8\" /> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" /> <meta name=\"HandheldFriendly\" content=\"True\" /> <meta name=\"MobileOptimized\" content=\"320\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /> <link rel=\"stylesheet\" href=\"https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/9b1d9d87/var/data/static/assets/base_style-BxRs1iOp.css\" /> <script type=\"module\" crossorigin=\"\" src=\"https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/9b1d9d87/var/data/static/assets/base_style-D-jH62-1.js\"></script> <link rel=\"stylesheet\" href=\"https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/9b1d9d87/var/data/static/assets/article_style-B67IZFds.css\" /> <link rel=\"stylesheet\" href=\"https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/9b1d9d87/var/data/static/assets/style-D77LS1kY.css\" /> <script type=\"module\" crossorigin=\"\" src=\"https:/"
+    },
+    {
+      "title": "Indigenous patients feel unsafe in B.C. health-care system: new Turpel-Lafond report | Lethbridge News Now",
+      "url": "https://lethbridgenewsnow.com/2021/02/04/indigenous-patients-feel-unsafe-in-b-c-health-care-system-new-turpel-lafond-report",
+      "tavily_excerpt": "In a separate incident, the uncle of an Indigenous woman said she was turned away from a Kitimat hospital when she was two weeks overdue to give birth and having contractions.\n\nHe said her father drove her to another hospital 45 minutes away in Terrace, where she gave birth to a stillborn baby.\n\nIn Ottawa, Indigenous Services Minister Marc Miller announced Thursday the federal government has launched consultations on a law meant to ensure Indigenous Peoples’ control over their health services and eliminate racism in health care.\n\nThis report by The Canadian Press was first published Feb. 4, 2021.\n\nLaura Dhillon Kane, The Canadian Press\n\n### What's Happening\n\nlethbridgenewsNOW\n\nlethbridgenewsNOW\n\nSuite 220, 410-7th Street South  \nLethbridge, AB  \nT1J 2G6 [...] Lethbridge News Now\nLethbridge News Now\n\n# Indigenous patients feel unsafe in B.C. health-care system: new Turpel-Lafond report\n\nfacebook\nbluesky\ntwitter\n\nVANCOUVER — The author of a damning report that found widespread racism in British Columbia’s health system has released the results of surveys and data collection, revealing a massive gulf between the experiences of Indigenous and non-Indigenous patients.\n\nMary Ellen Turpel-Lafond released a supplemental data report Thursday that shows Indigenous people in B.C. are much more likely to feel unsafe in health-care settings, that they are never included in care decisions and they receive poorer service than others. [...] Dix said at the time his government would implement the recommendations, which included the creation of an Indigenous health officer and an associate deputy minister of Indigenous health.\n\nTurpel-Lafond and Dix held a news conference Thursday to release her supplemental report, which is based on results of surveys, submissions to her team and patient complaints, as well as hard data on how Indigenous people use health care and the outcomes they experience.\n\nAlmost 9,000 people directly shared their perspectives through surveys and submissions, while approximately 185,000 Indigenous individuals are reflected in the health sector data.",
+      "query_ids": [
+        "81885ddc19ba28a3f6950d6c"
+      ],
+      "final_url": "https://lethbridgenewsnow.com/2021/02/04/indigenous-patients-feel-unsafe-in-b-c-health-care-system-new-turpel-lafond-report/",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE HTML> <!--[if IEMobile 7 ]><html class=\"no-js iem7\" manifest=\"default.appcache?v=1\"><![endif]--> <!--[if lt IE 7 ]><html class=\"no-js ie6\" lang=\"en\"><![endif]--> <!--[if IE 7 ]><html class=\"no-js ie7\" lang=\"en\"><![endif]--> <!--[if IE 8 ]><html class=\"no-js ie8\" lang=\"en\">&nbsp;<![endif]--> <!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class=\"no-js\" lang=\"en\"><!--<![endif]--> <head> <title>Indigenous patients feel unsafe in B.C. health-care system: new Turpel-Lafond report | Lethbridge News Now</title> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\"> <meta charset=\"UTF-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=6.0\"> <meta name=\"description\" content=\"VANCOUVER - The author of a damning report that found widespread racism in British Columbia&#039;s health system ha...\" /> <meta property=\"og:type\" content=\"article\" /> <meta property=\"og:title\" content=\"Indigenous patients feel uns"
+    },
+    {
+      "title": "Indigenous woman alleges racist encounter at southern Alberta hospital | Globalnews.ca",
+      "url": "https://globalnews.ca/news/7758146/indigenous-woman-racist-encounter-alberta-hospital",
+      "tavily_excerpt": "“We are currently investigating this matter and will take any necessary actions once that investigation is complete. We will continue to be available to the patient involved to answer any questions or concerns brought forward,” the statement reads.\n\nIt goes on to say racism and discrimination have no place within the organization.\n\nClick to play video: 'Northern B.C. Indigenous family alleges systemic racism at Kitimat hospital' \n\nNorthern B.C. Indigenous family alleges systemic racism at Kitimat hospital [...] “Alberta Health Services (AHS) is focused on delivering patient and family-centered care through which patients feel their perspectives and concerns are listened to, they are treated with empathy and understanding, their values are respected, and their emotional needs (including fears and anxieties) are responded to,” it reads.\n\nStory continues below advertisement [...] Read more:   Death of Harlen Laboucan reveals ‘glaring disparities’ of Indigenous health care: doctors\n\nIngrid Hess, a Lethbridge-based lawyer, is representing Smoke. Upon viewing the video, she was disturbed by the conduct of the medical professionals involved.\n\n“To threaten to take somebody’s liberty away is a pretty serious matter,” Hess said. “To do so cavalierly like ‘I can just, with a stroke of a pen, take your rights away’ is quite a disturbing thing, from my perspective.”\n\n> “From a legal perspective, I don’t think he simply has the rights, there are standards that he would have to meet.”\n>\n> Share this on X Click to share quote on X: \"From a legal perspective, I don't think he simply has the rights, there are standards that he would have to meet.\"",
+      "query_ids": [
+        "81885ddc19ba28a3f6950d6c",
+        "6d570df0cd98d9165a0891cf"
+      ],
+      "final_url": "https://globalnews.ca/news/7758146/indigenous-woman-racist-encounter-alberta-hospital/",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en-US\"> <head> <script type=\"text/javascript\"> function gnca_get_location_from_geo_data( geo_data ) { var loc_url = document.location.href.toLowerCase(); if( loc_url.indexOf('gref=') > -1 ) { if( loc_url.indexOf( 'gref=am980' ) > -1 ) { return 'gnca-london'; } else if( loc_url.indexOf( 'gref=900chml' ) > -1 ) { return 'gnca-hamilton'; } else if( loc_url.indexOf( 'gref=channel12' ) > -1 ) { return 'gnca-durham'; } else if( loc_url.indexOf( 'gref=chextv' ) > -1 ) { return 'gnca-peterborough'; } else if( loc_url.indexOf( 'gref=ckwstv' ) > -1 ) { return 'gnca-kingston'; } } // Handle regions that are \"misnamed\". For instance, the province of Ontario is in the \"Toronto\" region. if( geo_data.region ) { geo_data.region = geo_data.region.toUpperCase(); } else { return false; } switch (geo_data.region) { case 'ONTARIO': if( geo_data.city ) { var city = geo_data.city.toUpperCase(); if( 'LONDON' === city || 'WOODSTOCK' === city ) { return 'gnca-london'; } else if( 'GUE"
+    },
+    {
+      "title": "Indigenous people not surprised by reports of racist game ...",
+      "url": "https://www.cbc.ca/news/canada/british-columbia/indigenous-patients-nurses-on-alleged-racist-game-in-hospitals-1.5622448",
+      "tavily_excerpt": "## Some feel too vulnerable to request liaison\n\nHospitals across Canada have what are called Aboriginal patient navigators, people acting as liaisons to refer Indigenous people to the right health-care resources. According to Interior Health, they also help make Indigenous patients feel emotionally and culturally safe while they are in the hospital.\n\nBut a number of Indigenous people have never heard of the role, and some say they feel too vulnerable when they are sick in the hospital to ask for a patient navigator.\n\nHoussin says she considered asking for an Indigenous advocate during her experience but said she didn't want to aggravate the staff. [...] \"It was an absolutely preventable death,\" Dick said.\n\nDebbie Coon, centre, was 48 when she died in a hospital from a head injury she suffered in a fall at her home. Health-care professionals in the hospital assumed she was intoxicated, but a toxicology report showed no alcohol or drugs in her blood. (Supplied by Tania Dick)\n\nAlthough Dick now wishes she had taken legal action over her aunt's death, it did propel her to become an advocate for better treatment of Indigenous people in the health-care system.\n\n## Patient wonders if she was part of game\n\nYvonne Houssin, who is Métis, remembers taking herself to a Victoria-area hospital during one of the hottest days of the summer in 2018, because she was feeling faint and suspected she had food poisoning.",
+      "query_ids": [
+        "81885ddc19ba28a3f6950d6c"
+      ],
+      "final_url": "https://www.cbc.ca/news/canada/british-columbia/indigenous-patients-nurses-on-alleged-racist-game-in-hospitals-1.5622448",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\"> <head> <title data-rh=\"true\">Indigenous people not surprised by reports of racist game played in hospitals | CBC News</title> <meta charset=\"utf-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /> <link rel=\"manifest\" href=\"/a/manifest.json\" /> <link rel=\"apple-touch-icon\" href=\"/a/apple-touch-icon.png\" /> <link rel=\"icon\" type=\"image/x-icon\" href=\"/a/favicon.ico\" /> <!-- Resource Hints --> <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" crossorigin> <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin> <link rel=\"preload\" href=\"https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap\" as=\"style\" crossorigin /> <link rel=\"preconnect\" href=\"https://i.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://thumbnails.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://liveimages.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://login.cbc.ca\" crossorigin /> <link rel=\"preconnect"
+    },
+    {
+      "title": "Alberta First Nation calls for inquiry after baby's hospital ...",
+      "url": "https://edmonton.citynews.ca/2022/11/03/hospital-denial-baby-death",
+      "tavily_excerpt": "An Indigenous mother is speaking out, two years after a traumatic hospital experience and the death of her newborn in Alberta.",
+      "query_ids": [
+        "1471b61e4f04cf4419b0a734"
+      ],
+      "final_url": "https://edmonton.citynews.ca/2022/11/03/hospital-denial-baby-death/",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html dir=\"ltr\" lang=\"en\"> <head> <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png?v=2\"> <link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/favicon-32x32.png?v=2\"> <link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/favicon-16x16.png?v=2\"> <link rel=\"manifest\" href=\"/site.webmanifest?v=2\"> <link rel=\"mask-icon\" href=\"/safari-pinned-tab.svg\" color=\"#5bbad5\"> <meta name=\"msapplication-TileColor\" content=\"#da532c\"> <meta name=\"theme-color\" content=\"#ffffff\"> <title>Alberta First Nation calls for inquiry after baby&#039;s hospital death - CityNews Edmonton</title> <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' /> <style>img:is([sizes=\"auto\" i], [sizes^=\"auto,\" i]) { contain-intrinsic-size: 3000px 1500px }</style> <!-- This site is optimized with the Yoast SEO plugin v25.5 - https://yoast.com/wo"
+    },
+    {
+      "title": "Health (18-24) - Exploring Theme: \"Systemic Racism\"",
+      "url": "https://www.indigenouswatchdog.org/current-problems/theme/systemic-racism/group/first-nations/health",
+      "tavily_excerpt": "Source: google.com\n\nMyra Crow Child, in an undated photo, died in an Alberta hospital in 2022.  APTN News: A member of Siksika Nation in southern Alberta has launched a human rights complaint against Alberta Health Services and Strathmore District Health Services. Ben Crow Chief claims “anti-Indigenous racism” played a role in the death of his wife, Myra...\n\n#### September 28, 2023\n\n#### Siksika Nation Member Brings Human Rights Complaint in Response to Systemic Anti-Indigenous Discrimination in Alberta’s Healthcare Sector\n\nSource: google.com [...] Source: google.com\n\nPenny Kerrigan says anti-Indigenous racism was behind her hasty discharge from hospital in Terrace This story is part of a series examining systemic discrimination against Indigenous patients within the nursing profession in B.C. To read Part 1 of the series, click here. CBC Indigenous: By the time Penny Kerrigan arrived at Mills Memorial Hospital in northern...\n\n#### September 26, 2023\n\n#### Indigenous man’s death after being left unattended in hospital spurs call for ‘culture change’ in nursing\n\nSource: google.com [...] Source: google.com\n\nFamily asks RCMP to review case at hospital in northern Alberta  APTN News: A Dene family from the Athabasca Chipewyan First Nation is unhappy with the treatment of their 80-year-old father, who has dementia, in a Fort McMurray hospital that resulted in an injury that required medical attention. The family complained to Alberta Health Services...\n\n#### April 22, 2024\n\n#### Racism, discrimination may lead to First Nations patients leaving emergency rooms: Alberta study\n\nSource: google.com",
+      "query_ids": [
+        "1471b61e4f04cf4419b0a734",
+        "23691d8d494add8557fd3acb",
+        "6b59cdaa3c5a63894634bb91"
+      ],
+      "final_url": "https://www.indigenouswatchdog.org/current-problems/theme/systemic-racism/group/first-nations/health/",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en-US\"> <head> <meta charset=\"UTF-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"> <link rel=\"profile\" href=\"http://gmpg.org/xfn/11\"> <meta name='robots' content='max-image-preview:large, index,follow' /> <!-- This site is optimized with the Yoast SEO plugin v28.3 - https://yoast.com/product/yoast-seo-wordpress/ --> <title>Current Problems: Health (18-24) - Exploring Theme: &quot;Systemic Racism&quot; - Indigenous Watchdog</title> <link rel=\"canonical\" href=\"https://www.indigenouswatchdog.org/current-problems/theme/systemic-racism/group/first-nations/health/\" /> <meta property=\"og:locale\" content=\"en_US\" /> <meta property=\"og:type\" content=\"article\" /> <meta property=\"og:title\" content=\"Current Problems - Indigenous Watchdog\" /> <meta property=\"og:url\" content=\"https://www.indigenouswatchdog.org/current-problems/theme/systemic-racism/group/first-nations/health/\" /> <meta property=\"og:site_name\" content=\"Indigenous Wa"
+    },
+    {
+      "title": "Indigenous bias among Albertan physicians: a cross- ...",
+      "url": "https://bmjopen.bmj.com/content/bmjopen/13/2/e063178.full.pdf",
+      "tavily_excerpt": "Indigenous bias, witnessed anti-­ Indigenous bias, ‘reverse discrimination’ and expressed discomfort with the survey questions about anti-­ Indigenous bias (table 1). It was possible that an individual response would be Table 1 Framework table of themes related to Indigenous participants’ experiences of racism and representative participant comments Code/theme Exemplar quotations Personal experiences of anti-­ Indigenous discrimination Systemic racism is the characteristic of (the) Alberta health system against visible minorit(ies) either as a worker or patient, specifically Indigenous (people). (P999, redacted) Witnessed experiences of anti-­ Indigenous discrimination I have heard comments from classmates about how one student may have gotten into medical school due to (I)ndigenous [...] emergency department experiences in Alberta: a qualitative study. CJEM 2021;23:63–74. 6 Allan B, Smylie J. First peoples, second class treatment: the role of racism in the health and well-­ being of indigenous people in canada. Toronto, Ontario: the Wellesley Institute, 2015. 7 Columbia MNCoB. In plain site: addressing indigenious-­ specific racism and discrimination in BC health care. British Columbia Ministry of Health, 2021. 8 Banerjee S. “I know I was mean and I apologize,” quebec nurse tells inquiry into death of joyce echaquan. CTV News, 2021. 9 Pimentel T. Investigation underway into how ojibway woman died while in care of alberta hospital. Aboriginal Peoples Television Network, 2021. 10 McLane P , Barnabe C, Mackey L, et al. First nations status and emergency department triage [...] ‘Reverse discrimination’ by Indigenous people In contrast, several white physicians, including those with leadership positions in medicine, reported experiencing ‘reverse discrimination’ from Indigenous patients; exam-ples included: “Surprisingly, I was discriminate(d) against by a First Nation(s) patient!!” (P410, cisgender man) and “The most common sort of racism I have seen is an Indigenous person being racist in words and actions against white people. This is 100× more common than the converse. Our Indigenous patients very commonly play the race card and treat white health care workers in a very racist manner” (P777, cisgender man). One participant felt that the focus on anti-­ Indigenous bias caused personal disadvantage: “I am depressed that because I have white skin, I am guilty of",
+      "query_ids": [
+        "1471b61e4f04cf4419b0a734"
+      ],
+      "final_url": "https://bmjopen.bmj.com/content/bmjopen/13/2/e063178.full.pdf",
+      "source_fetch": "tavily_excerpt_only",
+      "category": "policy_or_review_source",
+      "evidence_excerpt": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta http-equiv=\"content-security-policy\" content=\"default-src &#39;none&#39;; script-src &#39;nonce-MBabBLt7RTv0wlf0iys8Lk&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;\"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font"
+    },
+    {
+      "title": "Alberta orders fatality inquiry into death of man at Edmonton emergency room | CBC News",
+      "url": "https://www.cbc.ca/news/canada/edmonton/alberta-health-update-9.7046694",
+      "tavily_excerpt": "Alberta orders review after man dies waiting in Edmonton emergency department\n Alberta needs to call state of emergency over crowded hospitals, physicians say\n\nPhysicians have been calling for an urgent response to improve patient care as hospitals across the province contend with staffing and capacity issues.\n\nDr. Paul Parks, president-elect of the section of emergency medicine with the Alberta Medical Association, has called for the provincial government to declare a state of emergency  to ensure patient loads are better managed.\n\nDoctors have also called for better co-ordination and leadership within Alberta’s health-care system which has undergone sweeping restructuring. [...] ## Calls of a crisis\n\nAlberta health officials at the news conference said the strain has started to ease on the acute care system. Jones said hospitals, especially in Calgary and Edmonton, had experienced \"significant pressure\" in recent weeks.\n\nHe said officials believe the worst of the flu season is over and efforts to better manage elevated patient loads are working.\n\n“Hospital and emergency department pressures are very real,\" Jones said. \"Along with the seasonal rise in respiratory virus season, our high population growth, our aging and more medically complex population and even cold weather all exacerbate these pressures.\" [...] WATCH | Fatality inquiry to look into Edmonton ER death:\n\nAlberta gov't orders fatality inquiry after death in Edmonton ER\n\nJanuary 15|\n\nDuration 2:01\n\nThe province is responding after a man's family says he died while waiting to be seen by a doctor at an Edmonton hospital. The government says it is now looking into the death, and implement other changes to try to reduce hospital capacity and support patients waiting for care.\n\nCraig Gillespie, a Calgary-based lawyer representing Sreekumar's wife, said the inquiry may lead to change while providing Albertans — including the family — with answers.",
+      "query_ids": [
+        "1471b61e4f04cf4419b0a734"
+      ],
+      "final_url": "https://www.cbc.ca/news/canada/edmonton/alberta-health-update-9.7046694",
+      "source_fetch": "fetched",
+      "category": "policy_or_review_source",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\"> <head> <title data-rh=\"true\">Alberta orders fatality inquiry into death of man at Edmonton emergency room | CBC News</title> <meta charset=\"utf-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /> <link rel=\"manifest\" href=\"/a/manifest.json\" /> <link rel=\"apple-touch-icon\" href=\"/a/apple-touch-icon.png\" /> <link rel=\"icon\" type=\"image/x-icon\" href=\"/a/favicon.ico\" /> <!-- Resource Hints --> <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" crossorigin> <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin> <link rel=\"preload\" href=\"https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap\" as=\"style\" crossorigin /> <link rel=\"preconnect\" href=\"https://i.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://thumbnails.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://liveimages.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://login.cbc.ca\" crossorigin /> <link rel=\"preconnect\""
+    },
+    {
+      "title": "Siksika man files human rights complaint against Alberta Health ...",
+      "url": "https://www.youtube.com/watch?v=binqQXbrNsc",
+      "tavily_excerpt": "A Siksika man has filed a human rights complaint against AHS and a local hospital, alleging anti-Indigenous discrimination led to the death",
+      "query_ids": [
+        "23691d8d494add8557fd3acb"
+      ],
+      "final_url": "https://www.youtube.com/watch?v=binqQXbrNsc",
+      "source_fetch": "fetched",
+      "category": "background_prevalence_source",
+      "evidence_excerpt": "<!DOCTYPE html><html style=\"font-size: 62.5%;font-family: Roboto, Arial, sans-serif;\" lang=\"en-GB\" darker-dark-theme darker-dark-theme-deprecate system-icons color-version=\"v2_0\" typography typography-spacing><head><script data-id=\"_gd\" nonce=\"IuPShg5w5jfwbO1poF1d9Q\">window.WIZ_global_data = {\"AfY8Hf\":true,\"FL1an\":false,\"HiPsbb\":0,\"MUE6Ne\":\"youtube_web\",\"MuJWjd\":false,\"TSDtV\":\"%.@.]\",\"UUFaWc\":\"%.@.null,1000,2]\",\"cfb2h\":\"youtube.web-front-end-critical_20260902.07_p0\",\"hsFLT\":\"%.@.null,10,3]\",\"iCzhFc\":false,\"nQyAE\":{},\"oxN3nb\":{\"1\":false,\"0\":false,\"610401301\":false,\"899588437\":false,\"772657768\":true,\"513659523\":false,\"568333945\":true,\"1331761403\":true,\"651175828\":false,\"722764542\":false,\"748402145\":false,\"748402146\":false,\"748402147\":true,\"1602613185\":true,\"861377723\":false,\"861377724\":false,\"869336903\":false,\"882674507\":false,\"869336904\":false,\"869336905\":false,\"283953155\":false,\"919444824\":true,\"928875398\":true,\"683749201\":false},\"u4g7r\":\"%.@.null,1,3]\",\"xnI9P\":true,\"xwAfE\":true,\"yFnxr"
+    },
+    {
+      "title": "Indigenous human rights",
+      "url": "https://albertahumanrights.ab.ca/what-are-human-rights/about-human-rights/indigenous-human-rights",
+      "tavily_excerpt": "You may be able to make a human rights complaint if your issue falls under the Alberta Human Rights Act and the incident happened within the last year. While the Act does not have a ground for indigeneity, your complaint may relate to the protected grounds of ancestry, race, color, or religion (including Indigenous spirituality). For more information, read the Protection of Aboriginal Peoples under the Alberta Human Rights Act.\n\n### What cultural or spiritual practices may Indigenous people use during the complaint and Tribunal process? [...] Answers about making a complaint are at the bottom of this page.\n\nThe Commission has a long history of working with Indigenous communities in Alberta. The Commission’s recent work with Indigenous people includes launching our Indigenous Human Rights Strategy and Advisory Circle. We also have educational resources specifically for Indigenous people.\n\n## Indigenous Human Rights Strategy [...] Aboriginal People and the Alberta Human Rights Act\n\nInformation about the Alberta Human Rights Act and the Commission’s programs and services. Developed in consultation with the Calgary Urban Aboriginal Initiative, Aboriginal Council of Lethbridge, Native Counselling Services of Alberta, and Aboriginal Commission on Human Rights and Justice.\n\n### Finding our Voice: Aboriginal Human Rights\n\nInformation about the Alberta Human Rights Act and how to make a human rights complaint. Produced by Native Counselling Services of Alberta in cooperation with the Commission. Available in English, opens in new tab\"), Cree, opens in new tab\"), and Blackfoot, opens in new tab\").\n\n### Protection of Aboriginal Peoples under the Alberta Human Rights Act",
+      "query_ids": [
+        "23691d8d494add8557fd3acb",
+        "a6593661f0733da88513b808"
+      ],
+      "final_url": "https://albertahumanrights.ab.ca/what-are-human-rights/about-human-rights/indigenous-human-rights",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\"> <head> <!-- Google Tag Manager --> <!-- Move this code into the if statement below after testing is complete --> <script> (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-PLPSX48');</script> <!-- End Google Tag Manager --> <!-- Google tag (gtag.js) --> <script async src=\"https://www.googletagmanager.com/gtag/js?id=G-SR2SBK28HV\"></script> <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-SR2SBK28HV'); </script> <meta charset=\"UTF-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, minimum-scale=1\"> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"> <meta name=\"descr"
+    },
+    {
+      "title": "Making a complaint | Alberta Human Rights Commission",
+      "url": "https://albertahumanrights.ab.ca/complaints/making-a-complaint",
+      "tavily_excerpt": "### I submitted a complaint form to the Commission. What happens next?\n\nWhen the Commission receives a complaint form, it is assigned to a human rights officer who reviews and assesses it.\n\nSubmitting a complaint form does not mean the Commission will accept your complaint. Your complaint is assessed based on requirements in the Alberta Human Rights Act and the Commission’s Bylaws. The human rights officer may:\n\n ask you for more information\n accept your complaint or\n reject your complaint\n\nIf we ask you for more information, you must provide it in a timely manner or we may close your complaint.\n\nIf the Commission accepts your complaint, we will: [...] Retaliation occurs when someone is punished or receives negative treatment for making or assisting with a human rights complaint. An example of retaliation is firing or evicting someone for making a complaint against you or your organization. Retaliation against someone for being involved in a human rights complaint is not allowed under the Alberta Human Rights Act. If you retaliate against someone, they can make a Section 10 complaint against you.\n\nIf you believe someone is punishing you or you are receiving negative treatment because of your part in a complaint, you can also make a Section 10 complaint. This type of complaint must meet certain legal requirements.\n\nPlaying [...] If you are involved in the Tribunal process, read the Accommodations practice direction for more information, including how to request accommodation.\n\n### Do complainants have to complete the Personal Information step of the complaint form?\n\nNo. The Commission is asking complainants to voluntarily provide this data to help us better understand discrimination in Alberta and the barriers that exist within our organization. Complainants can choose whether to complete all, some, or none of the Personal Information step of the complaint form. Completing this section (or not) does not affect your complaint.\n\n## Resources\n\nSelf Assessment\n\nHuman Rights Complaint Guide\n\nForms\n\nAlberta Human Rights Commission's Bylaws\n\nAlberta Human Rights Act\n\nAll Resources",
+      "query_ids": [
+        "23691d8d494add8557fd3acb"
+      ],
+      "final_url": "https://albertahumanrights.ab.ca/complaints/making-a-complaint",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\"> <head> <!-- Google Tag Manager --> <!-- Move this code into the if statement below after testing is complete --> <script> (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-PLPSX48');</script> <!-- End Google Tag Manager --> <!-- Google tag (gtag.js) --> <script async src=\"https://www.googletagmanager.com/gtag/js?id=G-SR2SBK28HV\"></script> <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-SR2SBK28HV'); </script> <meta charset=\"UTF-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, minimum-scale=1\"> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"> <meta name=\"descr"
+    }
+  ]
+}

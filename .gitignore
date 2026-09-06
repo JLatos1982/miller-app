@@ -13,6 +13,8 @@ dist
 dist-ssr
 .cache
 *.local
+*.tmp
+tmp/
 supabase/.temp/
 
 # Editor directories and files

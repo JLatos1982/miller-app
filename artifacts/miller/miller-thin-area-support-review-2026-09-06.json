@@ -1,0 +1,39 @@
+{
+  "schema_version": "miller-thin-area-support-review-v1",
+  "private": true,
+  "review_date": "2026-09-06",
+  "scope": ["income_benefits", "training", "transportation"],
+  "searches_run": 12,
+  "new_publication_safe_records": 12,
+  "enriched_publication_safe_records": 3,
+  "canonical_database_mutations": 0,
+  "existing_curated_resources_in_projection": 4,
+  "matching_method": "Name, operator, URL and program-purpose comparison against the current publication-safe projection and the read-only 300-record Miller source catalogue.",
+  "category_outcomes": {
+    "income_benefits": { "before": 2, "after": 5, "new": 3, "enriched": 2 },
+    "training": { "before": 2, "after": 6, "new": 4, "enriched": 0 },
+    "transportation": { "before": 3, "after": 8, "new": 5, "enriched": 1 }
+  },
+  "decisions": [
+    { "record": "Disability Alliance BC Direct Services", "classification": "existing_resource_needs_enrichment", "decision": "Added direct phone, clearer PWD/CPP-D scope and waitlist caution; no second general benefits card created." },
+    { "record": "Sources Advocacy, Housing and Prevention Services", "classification": "existing_resource_needs_enrichment", "decision": "Expanded the verified Fraser service area and added current advocacy intake phone; no overlapping income-advocacy card created." },
+    { "record": "HandyDART and HandyCard", "classification": "existing_resource_needs_enrichment", "decision": "Added the related HandyCard/TaxiSaver benefit to the existing card; no duplicate TaxiSaver card created." },
+    { "record": "Tax AID DABC", "classification": "existing_org_new_program", "decision": "Published as a distinct year-round tax-filing program with its own eligibility and access route." },
+    { "record": "Admin and Accounting Works", "classification": "existing_org_new_program", "decision": "Published as a distinct current training program under Sources." },
+    { "record": "Volunteer Wheels", "classification": "existing_org_new_program", "decision": "Published as a distinct medical-appointment transport service under Sources." },
+    { "record": "Disability Planning Helpline", "classification": "new_publication_candidate", "decision": "Published from the current operator page." },
+    { "record": "Burnaby Neighbourhood House Volunteer Income Tax Program", "classification": "new_publication_candidate", "decision": "Published with current income, membership and tax-scope limits." },
+    { "record": "Active Generation for Employment", "classification": "new_publication_candidate", "decision": "Published with current Metro Vancouver and participant criteria." },
+    { "record": "BladeRunners", "classification": "new_publication_candidate", "decision": "Published without copying expired cohort dates; users are told to confirm the next intake." },
+    { "record": "Indigenous Skills and Employment Training provider directory", "classification": "new_publication_candidate", "decision": "Published as provider navigation; provider-specific eligibility is not inferred." },
+    { "record": "Travel Assistance Program", "classification": "new_publication_candidate", "decision": "Published with referral, MSP and pre-travel confirmation limits." },
+    { "record": "Medical transportation supplement", "classification": "new_publication_candidate", "decision": "Published for specified assistance recipients; eligibility is not inferred." },
+    { "record": "Hope Air travel support", "classification": "new_publication_candidate", "decision": "Published with confirmed specialist appointment and financial-need criteria." },
+    { "record": "FNHA Medical Transportation Benefit", "classification": "new_publication_candidate", "decision": "Published with source-defined First Nations eligibility and prior-approval caution." }
+  ],
+  "remaining_gaps": [
+    "Few direct human benefit-navigation programs were located in Tri-Cities and Maple Ridge/Pitt Meadows beyond regional or provincewide services.",
+    "Most current training programs are cohort-based, so dates and intake availability need periodic rechecking.",
+    "Medical transportation supports are eligibility-bound; no general treatment-transport program covering all Lower Mainland residents was located."
+  ]
+}

@@ -1,0 +1,2512 @@
+{
+  "version": "miller-practical-linkage-diagnostic-v1",
+  "generated_at": "2026-09-05T23:18:58.697Z",
+  "source_cohort": "miller-practical-discovery-cohort-v1",
+  "expected_records": 25,
+  "expected_legacy_candidates": 98,
+  "summary": {
+    "records": 25,
+    "legacy_candidates": 98,
+    "reconstructed_candidates": 52,
+    "analyzed_candidate_slots": 98,
+    "newly_exposed_structured_candidates": 11,
+    "sources_read": 28,
+    "sources_unavailable": 0,
+    "sources_no_longer_trusted": 13,
+    "old_supported": 3,
+    "refined_supported": 3,
+    "structural_recoveries": 0,
+    "reasons": [
+      {
+        "reason": "source_no_longer_trusted",
+        "count": 46
+      },
+      {
+        "reason": "multi_site_without_program_binding",
+        "count": 24
+      },
+      {
+        "reason": "global_footer_or_admin",
+        "count": 11
+      },
+      {
+        "reason": "title_distance_only",
+        "count": 7
+      },
+      {
+        "reason": "insufficient_context",
+        "count": 3
+      },
+      {
+        "reason": "previously_supported",
+        "count": 3
+      },
+      {
+        "reason": "organization_only_linkage",
+        "count": 2
+      },
+      {
+        "reason": "title_after_address",
+        "count": 2
+      }
+    ]
+  },
+  "records": [
+    {
+      "resource_id": "51986eec-367f-5c4b-83eb-ad5b8e3af539",
+      "name": "Canuck Place Bereavement Support",
+      "organization": "Canuck Place Children's Hospice",
+      "locality": "Vancouver",
+      "sources": [
+        {
+          "url": "https://www.canuckplace.org/family-overview/family-services/grief-and-bereavement-care",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "1690 Matthews Ave",
+              "context": "traditional, ancestral, and unceded lands of the First Nations Peoples, the Métis Chartered Communities and Métis Peoples, as well as the Inu it and urban Indigenous Peoples living across the province and the Yukon. We would like to express our gratitude to the keepers of the lands and waters who have nurtured, stewarded, and cared for all time. SEE OUR COMMITMENT TO INCLUSION AND DIVERSITY Our Accreditations Canuck Place Children&#039;s Hospice 1690 Matthews Ave Vancouver, BC Canada V6J 2T2 Phone 604.731.4847 Phone Toll Free: 1.877.882.2288 (within BC) Email [email&#160;protected] Contact Us News & Media FAQs Donor Portal &copy; 2026 Canuck Place Children&#039;s Hospice Sitemap Accessibility Privacy Policy Launched by Major Tom",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "global_footer_or_admin",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "global_footer_or_admin",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the exact address of the organization's location, which is 1690 Matthews Ave, Vancouver, BC, Canada.",
+                "evidence_phrase": "1690 Matthews Ave",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"Canuck Place Bereavement Support\" \"1690 Matthews Ave\"",
+                "status": "not_confirmed",
+                "confirmations": []
+              }
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "ac9ed4078b5c7508a7e65b7e",
+          "current_candidate_count": 1,
+          "structure_blocks": 115,
+          "new_structured_candidates": []
+        },
+        {
+          "url": "https://www.canuckplace.org/about-us",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "1690 Matthews Ave",
+              "context": "traditional, ancestral, and unceded lands of the First Nations Peoples, the Métis Chartered Communities and Métis Peoples, as well as the Inuit and urban Indigenous Peoples living across the province and the Yukon. We would like to express our gratitude to the keepers of the lands and waters who have nurtured, stewarded, and cared for all time. SEE OUR COMMITMENT TO INCLUSION AND DIVERSITY Our Accreditations Canuck Place Children&#039;s Hospice 1690 Matthews Ave Vancouver, BC Canada V6J 2T2 Phone 604.731.4847 Phone Toll Free: 1.877.882.2288 (within BC) Email [email&#160;protected] Contact Us News & Medi a FAQs Donor Portal &copy; 2026 Canuck Place Children&#039;s Hospice Sitemap Accessibility Privacy Policy Launched by Major Tom",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "global_footer_or_admin",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "global_footer_or_admin",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the exact address of the organization's location, 1690 Matthews Ave, Vancouver, BC, Canada, which is consistent with the target program 'Canuck Place Bereavement Support'.",
+                "evidence_phrase": "1690 Matthews Ave",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              }
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "03aa5136c7df06d72d046dbc",
+          "current_candidate_count": 1,
+          "structure_blocks": 94,
+          "new_structured_candidates": []
+        },
+        {
+          "url": "https://www.canuckplace.org/family-programs/bereavement-text-message-support-for-siblings-and-parents-caregivers",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "1690 Matthews Ave",
+              "context": "traditional, ancestral, and unceded lands of the First Nations Peoples, the Métis Chartered Communities and Métis Peoples, as well as the Inuit and urban Indigenous Peoples living across the province and the Yukon. We would like to express our gratitude to the keepers of the lands and waters who have nurtured, stewarded, and cared for all time. SEE OUR COMMITMENT TO INCLUSION AND DIVERSITY Our Accreditations Canuck Place Children&#039;s Hospice 1690 Matthews Ave Vancouver, BC Canada V6J 2T2 Phone 604.731.4847 Phone Toll Free: 1.877.882.2288 (within BC) Email [email&#160;protected] Contact Us News & Media FAQs Donor Portal &copy; 2026 Canuck Place Children&#039;s Hospice Sitemap Accessibility Privacy Policy Launched by Major Tom",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "global_footer_or_admin",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "global_footer_or_admin",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the address of the organization's location, 1690 Matthews Ave, Vancouver, BC, Canada, which is consistent with the target program, Canuck Place Children's Hospice.",
+                "evidence_phrase": "1690 Matthews Ave",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              }
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "0bb4a994aab987d56dff4b27",
+          "current_candidate_count": 1,
+          "structure_blocks": 86,
+          "new_structured_candidates": []
+        },
+        {
+          "url": "https://www.canuckplace.org/family-overview",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "1690 Matthews Ave",
+              "context": "traditional, ancestral, and unceded lands of the First Nations Peoples, the Métis Chartered Communities and Métis Peoples, as well as the Inuit and urban Indigenous Peoples living across the province and the Yukon. We would like to express our gratitude to the keepers of the lands and waters who have nurtured, stewarded, and cared for all time. SEE OUR COMMITMENT TO INCLUSION AND DIVERSITY Our Accreditations Canuck Place Children&#039;s Hospice 1690 Matthews Ave Vancouver, BC Canada V6J 2T2 Phone 604.731.4847 Phone Toll Free: 1.877.882.228 8 (within BC) Email [email&#160;protected] Contact Us News & Media FAQs Donor Portal &copy; 2026 Canuck Place Children&#039;s Hospice Sitemap Accessibility Privacy Policy Launched by Major Tom",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "global_footer_or_admin",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "global_footer_or_admin",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the address of the organization's location, 1690 Matthews Ave, Vancouver, BC, Canada, which is consistent with the target program, Canuck Place Children's Hospice.",
+                "evidence_phrase": "1690 Matthews Ave",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              }
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "66a9fdd290be2e4985d4426a",
+          "current_candidate_count": 1,
+          "structure_blocks": 105,
+          "new_structured_candidates": []
+        }
+      ]
+    },
+    {
+      "resource_id": "3b711e3a-d631-5abb-9cba-ac383eff29ec",
+      "name": "Chilliwack Hospice Society",
+      "organization": "Chilliwack Hospice Society",
+      "locality": "Chilliwack",
+      "sources": [
+        {
+          "url": "https://www.chilliwackhospice.org",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "7112 Vedder Road",
+              "context": "ort Group Pre-Teen Grief Support Group Pregnancy and Infant Loss Grief Support Relaxation Program Second Step Grief Support Group Sibling Grief Support Supportive Walking Group Teen Grief Support Group Traumatic Loss Grief Support Group Frequently Asked Questions What Is Hospice Palliative Care? Do Hospice Clients Have to Pay? How Are Clients And Families Supported? What About Counselling For Families? How Much Training Do Your Volunteers Have? 7112 Vedder Road, Chilliwack, B.C. V2R 3T6 Phone: 604.795.4660 Email: info@chilliwackhospice.org We acknowledge the financial support of the Province of British Columbia. Click the icon above to sign-up for Chilliwack Hospice Society news and information on upcoming programs, workshops and events. PRIVACY POLICY Copyright 2012 - 2026 | Chilliwack Hospice Society by Myriad Technologies | All Rights Reserved Facebook Instagram LinkedIn Tiktok Blues",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "global_footer_or_admin",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "global_footer_or_admin",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the address of the organization's main office, which is likely the location of the named target program.",
+                "evidence_phrase": "7112 Vedder Road, Chilliwack, B.C. V2R 3T6 Phone: 604.795.4660 Email: info@chilliwackhospice.org",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"Chilliwack Hospice Society\" \"7112 Vedder Road\"",
+                "status": "not_confirmed",
+                "confirmations": []
+              }
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "abd6b2b50c5d23471950e02a",
+          "current_candidate_count": 1,
+          "structure_blocks": 68,
+          "new_structured_candidates": []
+        },
+        {
+          "url": "https://www.canadahelps.org/en/charities/chilliwack-hospice-society",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "source_no_longer_trusted",
+          "candidates": [],
+          "error": "farm_source_not_approved",
+          "unreconstructed_candidates": [
+            {
+              "legacy_candidate_slot": 1,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource_id": "f1938167-46ba-59df-b90b-65de95783f13",
+      "name": "Deltassist Counselling Services",
+      "organization": "Deltassist",
+      "locality": "Delta",
+      "sources": [
+        {
+          "url": "https://bc.211.ca/agency-details/deltassist-family-and-community-services-society-9488539",
+          "legacy_candidate_count": 2,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "9097 120th Street",
+              "context": "and bus tickets to low-income residents in crisis situations. Runs income tax clinics for low-income families and persons receiving disability assistance during annual tax time. Hours are 9 am to 4:30 pm Monday to Friday. Nonprofit society, registered charity. Copy Text Print Share Website www.deltassist.com Contact Delta and Tsawwassen: 604-594-3455 Ladner: 604-946-9526 Fax: 604-594-3496 Email: inquiry@deltassist.com Address North Delta Office, 9097 120th Street Delta, BC, V4C 6R7 Mailing Address North Delta Office, 9097 120th Street Delta, BC, V4C 6R7 Open in Google Maps 9 services offered by: Deltassist Family and Community Services Society Alternatives to Violence Program Add to List Provided by Deltassist Family and Community Services Society 8 other services offered by this agency Offers free counselling to adult survivors of family violence, sexual assault, or historical sexual a",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "multi_site_without_program_binding",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the address of the organization's main office, which is consistent with the target program's services and operations.",
+                "evidence_phrase": "Address North Delta Office, 9097 120th Street Delta, BC, V4C 6R7",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"Deltassist Counselling Services\" \"9097 120th Street\"",
+                "status": "not_confirmed",
+                "confirmations": []
+              }
+            },
+            {
+              "address": "Unit 202, 5000 Bridge Street",
+              "context": "ed five to seven days in advance preferably; booking hours can be made direct during office hours or by voice mail. Multiple appointments may be booked in one trip. 24 hours notice is required to cancel a trip. Preregistration is required; apply throug h the agency. Cost to client is on a sliding scale based on income with subsidy available, and clients are responsible for parking; clients are invoiced monthly. Website www.deltassist.com Address 202-5000 Bridge Street Delta, BC, V4K 2K4 Show Details Services include light housekeeping, grocery shopping, minor home repair, basic yard work, and rides to medical appointments (details below). Fees for service are on a sliding scale based on income. Office hours are 9 am to 12 noon and 1 pm to 4:30 pm Monday to Friday. Funded by the Province of BC and managed by United Way BC. Provides transportation to medical appointments for seniors and in",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 1,
+              "old_rule_failure_reason": "multi_site_without_program_binding",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the exact address of the target program, Unit 202, 5000 Bridge Street, Delta, BC, V4K 2K4.",
+                "evidence_phrase": "Address 202-5000 Bridge Street Delta, BC, V4K 2K4",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"Deltassist Counselling Services\" \"Unit 202, 5000 Bridge Street\"",
+                "status": "not_confirmed",
+                "confirmations": []
+              }
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "c16a58378957a6784a64255e",
+          "current_candidate_count": 2,
+          "structure_blocks": 157,
+          "new_structured_candidates": []
+        }
+      ]
+    },
+    {
+      "resource_id": "fe34d302-2ed3-56f6-b48e-09b272f0e3d4",
+      "name": "DIVERSEcity Counselling Services",
+      "organization": "DIVERSEcity",
+      "locality": "Surrey",
+      "sources": [
+        {
+          "url": "https://bc.211.ca/result/family-counselling-program-9501959",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "13455 76th Avenue",
+              "context": ", child protection, depression, suicidal ideation, and family violence. Available in Arabic, Hindi, Korean, Mandarin, Punjabi, Spanish, and Urdu. No fees are charged. Funded by Ministry of Children and Family Development (MCFD) and Fraser Health. Copy Text Print Share Add to List Website www.dcrs.ca/our-services/mental-health-and-substance-use-services/family-counselling Contact Phone: 604-547-1202 Fax: 604-597-0488 Email: intake@dcrs.ca Address 13455 76th Avenue Surrey, BC, V3W 2W3 Mailing Address 13455 76th Avenue Surrey, BC, V3W 2W3 Open in Google Maps Back to Top Contact Us Terms of Service Privacy Policy Talk to a two one one 211 Navigator 9am-9pm Weekdays (excl. Holidays) Call 2-1-1 Live Chat Text (SMS) to 2-1-1 Email United Way British Columbia acknowledges the homelands of the Indigenous Peoples of this place we now call British Columbia, and honours the many territorial keepers",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "insufficient_context",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "insufficient_context",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the address of the organization's location, which is consistent with the target program's services being available in the area.",
+                "evidence_phrase": "Address 13455 76th Avenue Surrey, BC, V3W 2W3",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"DIVERSEcity Counselling Services\" \"13455 76th Avenue\"",
+                "status": "not_confirmed",
+                "confirmations": [
+                  {
+                    "url": "https://www.fraserhealth.ca/Service-Directory/Locations/Surrey/diversecity-community-resources-society",
+                    "title": "DIVERSEcity Community Resources Society",
+                    "matched_address": "13455 76th Avenue",
+                    "disposition": "site_context_unknown",
+                    "linkage_reason": "insufficient_context",
+                    "source_quality": "authoritative_primary",
+                    "context": "DIVERSEcity Community Resources Society - Fraser Health DIVERSEcity Community Resources Society - Fraser Health Current outbreaks News Careers Medical staff Employees Research Capital projects Ask Fraser Menu Search Health topics Patients and visitors Locations and services Your community Search Home &gt; Locations and services &gt; Locations &gt; DIVERSEcity &gt; DIVERSEcity Community Resources Society 13455 76th Avenue Surrey , B.C. V3W 2W3 Phone: 604-597-0205 Fax: 604-597-0488 counsellingservices@dcrs.ca http://www.dcrs.ca/services/family-services/substance-use-counselling/ Service(s) at this location Community Substance Use Services Clinics Community Youth Substance Use Services Seniors&#39; Community Connector Text Size A A Back to top The of health care We recognize that Fraser Health provides care on the traditional, ancestral and unceded"
+                  },
+                  {
+                    "url": "https://www.healthlinkbc.ca/find-care/find-health-services/agency/diversecity-community-resources-society",
+                    "title": "DIVERSEcity Community Resources Society | HealthLink BC",
+                    "matched_address": "13455 76th Avenue",
+                    "disposition": "site_context_unknown",
+                    "linkage_reason": "insufficient_context",
+                    "source_quality": "authoritative_primary",
+                    "context": "Search Search DIVERSEcity Community Resources Society DIVERSEcity Community Resources Society Breadcrumb Home Find care Find health services Print Share page A charitable organization that helps immigrants and newcomers to Canada with integration into their new community. The society is client-centered and offers specialized programs and services to residents of Surrey, Langley, Delta and White Rock. Business Line: 604-597-0205 Fax: 604-597-4299 13455 76th Avenue Surrey , BC V3W 2W3 https://www.dcrs.ca/ info@dcrs.ca Programs offered Showing 1 - 10 of 13 Child and Youth Mental Health Counselling DIVERSEcity Community Resources Society Provides confidential, professional cross-cultural counselling services to children and youth from immigrant and refugee families experiencing mental health issues through individu... In Person 13455 76th Avenue , Surrey , BC V3W 2W3 15025 Family Counsellin"
+                  }
+                ]
+              }
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "4f76ec08bfcce39d0b4aed67",
+          "current_candidate_count": 1,
+          "structure_blocks": 48,
+          "new_structured_candidates": []
+        },
+        {
+          "url": "https://helpstartshere.gov.bc.ca/resource/diversecity-community-resources-society",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "13455 76 Avenue",
+              "context": "an Overdose Naloxone Drug Checking Image Know the Risks During the Toxic Drug Crisis Toxic drugs are circulating. Learn about the ways to stay safer and take care. Learn more Articles Top Navigation Our Partners Contact About Us DIVERSEcity Community Resources Society Multilingual settlement, language, employment, and counselling programs and services for newcomers in Surrey, Langley, Delta and White Rock. DIVERSEcity Surrey Community Campus - 13455 76 Avenue, Surrey, BC Learn More About About Us Accessibility Contact Copyright Disclaimer Privacy Emergency Contact Information Call 9-1-1 if you are in an emergency. For mental health support, call one of the numbers below. Crisis Line Call 1-800-784-2433 or dial 9-8-8 if you are experiencing feelings of distress or despair, including thoughts of suicide Mental Health Support Line 310-6789 (no area code needed) View in other languages Dis",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "insufficient_context",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "organization_only_linkage",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the address of the organization's location, which is consistent with the target program being supported by the organization.",
+                "evidence_phrase": "13455 76 Avenue, Surrey, BC",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"DIVERSEcity Counselling Services\" \"13455 76 Avenue\"",
+                "status": "not_confirmed",
+                "confirmations": [
+                  {
+                    "url": "https://www.healthlinkbc.ca/find-care/find-health-services/agency/diversecity-community-resources-society",
+                    "title": "DIVERSEcity Community Resources Society",
+                    "matched_address": "13455 76th Avenue",
+                    "disposition": "site_context_unknown",
+                    "linkage_reason": "insufficient_context",
+                    "source_quality": "authoritative_primary",
+                    "context": "Search Search DIVERSEcity Community Resources Society DIVERSEcity Community Resources Society Breadcrumb Home Find care Find health services Print Share page A charitable organization that helps immigrants and newcomers to Canada with integration into their new community. The society is client-centered and offers specialized programs and services to residents of Surrey, Langley, Delta and White Rock. Business Line: 604-597-0205 Fax: 604-597-4299 13455 76th Avenue Surrey , BC V3W 2W3 https://www.dcrs.ca/ info@dcrs.ca Programs offered Showing 1 - 10 of 13 Child and Youth Mental Health Counselling DIVERSEcity Community Resources Society Provides confidential, professional cross-cultural counselling services to children and youth from immigrant and refugee families experiencing mental health issues through individu... In Person 13455 76th Avenue , Surrey , BC V3W 2W3 15025 Family Counsellin"
+                  }
+                ]
+              }
+            }
+          ],
+          "source_quality": "authoritative_primary",
+          "source_fingerprint": "a3e515ba9286ac02c8db5c83",
+          "current_candidate_count": 1,
+          "structure_blocks": 121,
+          "new_structured_candidates": []
+        }
+      ]
+    },
+    {
+      "resource_id": "4701cdb5-d3ff-5ad5-b5b9-ced57bb9e208",
+      "name": "Fraser River Counselling",
+      "organization": "Fraser River Counselling",
+      "locality": "Langley",
+      "sources": [
+        {
+          "url": "https://bc.211.ca/result/counselling-program-79650908",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "9046 Young Road",
+              "context": "en Chat &times; Close Chat Service Counselling Program Provided by Ann Davis Transition Society 6 other services offered by this agency. Counselling Program Offers individual counselling for women, children, and families. Counselling is offered in person or virtually. Office hours are 9 am to 5 pm Monday to Friday. Copy Text Print Share Add to List Website www.anndavis.org/counselling Contact Phone: 604-792-2760 Email: info@anndavis.org Address 9046 Young Road Chilliwack, BC, V2P 4R6 Mailing Address 9046 Young Road Chilliwack, BC, V2P 4R6 Open in Google Maps Back to Top Contact Us Terms of Service Privacy Policy Talk to a two one one 211 Navigator 9am-9pm Weekdays (excl. Holidays) Call 2-1-1 Live Chat Text (SMS) to 2-1-1 Email United Way British Columbia acknowledges the homelands of the Indigenous Peoples of this place we now call British Columbia, and honours the many territorial keep",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "global_footer_or_admin",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "global_footer_or_admin",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the address of the organization's office, which is consistent with the target program's location.",
+                "evidence_phrase": "Address 9046 Young Road Chilliwack, BC, V2P 4R6",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"Fraser River Counselling\" \"9046 Young Road\"",
+                "status": "not_confirmed",
+                "confirmations": []
+              }
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "2b088d5cebaa0521ea81932d",
+          "current_candidate_count": 1,
+          "structure_blocks": 47,
+          "new_structured_candidates": []
+        }
+      ]
+    },
+    {
+      "resource_id": "d43d35c8-fc96-5c81-b5a0-46b334518238",
+      "name": "Free Counselling and Substance Use Services for Youth | HelpStartsHere",
+      "organization": "Web Search",
+      "locality": "All Cities",
+      "sources": [
+        {
+          "url": "https://helpstartshere.gov.bc.ca/free-counselling-and-substance-use-services-youth",
+          "legacy_candidate_count": 2,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "1148 7th Avenue",
+              "context": "listen to concerns, find out what supports are needed, and then assist the caller in finding relevant, local community resources. Learn More Youth Community Outpatient Service Northern Health Provides assessment, counselling, and case management for youth and young adults with both mental health concerns and substance use issues. The program includes individual and group therapy, life-skills training, recreational activities and family support. 1148 7th Avenue, Prince George, BC Learn More Tertiary Mental Health and Substance Use Services Vancouver Coastal Health Provides inpatient specialized care to meet the nee ds of individuals with complex, mental illness and addiction who have not been successfully treated by other programs. The program helps individuals improve their daily functioning and quality of life through assessment, rehabilitation and treatment services. Multiple Location",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "title_distance_only",
+              "title_distance": 2385,
+              "title_direction": "before",
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "title_distance_only",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text mentions the address '1148 7th Avenue, Prince George, BC' which is consistent with the candidate address provided.",
+                "evidence_phrase": "1148 7th Avenue, Prince George, BC",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"Free Counselling and Substance Use Services for Youth | HelpStartsHere\" \"1148 7th Avenue\"",
+                "status": "not_confirmed",
+                "confirmations": [
+                  {
+                    "url": "https://helpstartshere.gov.bc.ca/resource/youth-community-outpatient-service",
+                    "title": "Youth Community Outpatient Service | HelpStartsHere",
+                    "matched_address": "1148 7th Avenue",
+                    "disposition": "site_context_unknown",
+                    "linkage_reason": "title_distance_only",
+                    "source_quality": "authoritative_primary",
+                    "context": "ic drugs are circulating. Learn about the ways to stay safer and take care. Learn more Articles Top Navigation Our Partners Contact About Us Yo uth Community Outpatient Service Northern Health Provides assessment, counselling, and case management for youth and young adults with both mental health concerns and substance use issues. The program includes individual and group therapy, life-skills training, recreational activities and family support. 1148 7th Avenue, Prince George, BC Learn More About About Us Accessibility Contact Copyright Disclaimer Privacy Emergency Contact Information Call 9-1-1 if you are in an emergency. For mental health support, call one of the numbers below. Crisis Line Call 1-800-784-2433 or dial 9-8-8 if you are experiencing feelings of distress or despair, including thoughts of suicide Mental Health Support Line 310-6789 (no area code needed) View in other langua"
+                  }
+                ]
+              }
+            },
+            {
+              "address": "1795 Willingdon Avenue",
+              "context": "ized addiction treat ment in a supported home-like setting for adults in BC who need help with severe substance use. The program is approximately three months long and includes after-care support for up to a year following treatment. The program includes assessment and stabilization, counselling, supportive treatment, medication therapy, peer support, life skills development, family programs, and education about mental illness and substance use. 1795 Willingdon Avenue, Burnaby, BC Learn More Search for more supports and services for you or youth in your life, quickly and easily. About About Us Accessibility Contact Copyright Disclaimer Privacy Emergency Contact Information Call 9-1-1 if you are in an emergency. For mental health support, call one of the numbers below. Crisis Line Call 1-800-784-2433 or dial 9-8-8 if you are experiencing feelings of distress or despair, including thoughts",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "title_distance_only",
+              "title_distance": 3888,
+              "title_direction": "before",
+              "structural_context": null,
+              "order": 1,
+              "old_rule_failure_reason": "title_distance_only",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text mentions a specific address, 1795 Willingdon Avenue, Burnaby, BC, which is likely the location of the program.",
+                "evidence_phrase": "1795 Willingdon Avenue, Burnaby, BC Learn More Search for more supports and services for you or youth in your life, quickly and easily.",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"Free Counselling and Substance Use Services for Youth | HelpStartsHere\" \"1795 Willingdon Avenue\"",
+                "status": "not_confirmed",
+                "confirmations": []
+              }
+            }
+          ],
+          "source_quality": "authoritative_primary",
+          "source_fingerprint": "7a2eade53901b9befd125134",
+          "current_candidate_count": 2,
+          "structure_blocks": 155,
+          "new_structured_candidates": []
+        },
+        {
+          "url": "https://www.startherestl.org/mental-health.html",
+          "legacy_candidate_count": 22,
+          "legacy_supported_count": 0,
+          "fetch_status": "source_no_longer_trusted",
+          "candidates": [],
+          "error": "farm_source_not_approved",
+          "unreconstructed_candidates": [
+            {
+              "legacy_candidate_slot": 1,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 2,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 3,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 4,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 5,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 6,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 7,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 8,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 9,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 10,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 11,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 12,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 13,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 14,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 15,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 16,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 17,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 18,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 19,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 20,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 21,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 22,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            }
+          ]
+        },
+        {
+          "url": "https://www.cap4kids.org/philadelphia/parent-handouts/behavior-counseling-addiction",
+          "legacy_candidate_count": 7,
+          "legacy_supported_count": 0,
+          "fetch_status": "source_no_longer_trusted",
+          "candidates": [],
+          "error": "farm_source_not_approved",
+          "unreconstructed_candidates": [
+            {
+              "legacy_candidate_slot": 1,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 2,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 3,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 4,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 5,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 6,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 7,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource_id": "fff2466e-b12e-5734-b4cd-74d9a8b24785",
+      "name": "Harm Reduction – Recovery Research Institute",
+      "organization": "Web Search",
+      "locality": "vancouver",
+      "sources": [
+        {
+          "url": "https://www.bccsu.ca/resources",
+          "legacy_candidate_count": 4,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "922 3rd Ave",
+              "context": "or inpatient and outpatient detox 1 (866) 658-1221 Directions Youth Detox 1 (866) 658-1221 After hours and weekends: 1 (877) 872-4349 Vancouver Coastal Health Central Addiction Intake Team (604) 714-3487 (604) 714-3489 Interior Interior Health Youth Services Interior Community Services 1 (877) 376-3660 or (250) 554-3134 Withdrawal Management Interior Health Region Community Substance Use Service Locations Directory Phoenix Centre Detox Services 922 3rd Ave., Kamloops 1 (877) 318-1177 or (250) 374-4634 Vancouver Island Vancouver Island Health Youth Services Discovery Youth and Family Services Withdrawal Management Vancouver Island Health Authority Withdrawal Management North Northern Health Youth Services Withdrawal Management Adult Withdrawal Management Unit 1308 Alward St., Prince George (250) 565-2175 Fraser Valley Fraser Health Youth Services Withdrawal Management Creekside Withdrawa",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "title_after_address",
+              "title_distance": 902,
+              "title_direction": "after",
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "title_after_address",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the address 922 3rd Ave, which is consistent with the candidate address for the Harm Reduction – Recovery Research Institute.",
+                "evidence_phrase": "922 3rd Ave",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"Harm Reduction – Recovery Research Institute\" \"922 3rd Ave\"",
+                "status": "not_confirmed",
+                "confirmations": []
+              }
+            },
+            {
+              "address": "Unit 1308, Alward St, Alward St",
+              "context": "34 Withdrawal Management Interior Health Region Community Substance Use Service Locations Directory Phoenix Centre Detox Services 922 3rd Ave., Kamloops 1 (877) 318-1177 or (250) 374-4634 Vancouver Island Vancouver Island Health Youth Services Discovery Youth and Family Services Withdrawal Management Vancouver Island Health Authority Withdrawal Management North Northern Health Youth Services Withdrawal Management Adult Withdrawal Management Unit 1308 Alward St., Prince George (250) 565-2175 Fraser Valley Fraser Health Youth Services Withdrawal Management Creekside Withdrawal Management Centre 13740 94th Ave. A, Surrey (604) 587-3755 Fraser Health Substance Use Services Province-Wide Resources Find a Peer Recovery Support Group BC Alcohol and Drug Referral Service 1 (800) 663-1441 or (604) 660-9382 The Red Book Online Provincial Services BC Housing Child and Teen Mental Health First Nati",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "global_footer_or_admin",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 1,
+              "old_rule_failure_reason": "global_footer_or_admin",
+              "local_light": {
+                "classification": "insufficient_evidence",
+                "reason": "The text provides the address of a specific location where the Harm Reduction – Recovery Research Institute operates, namely Unit 1308, Alward St, Prince George, BC.",
+                "evidence_phrase": "Unit 1308, Alward St, Prince George",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              }
+            },
+            {
+              "address": "13740 94th Ave",
+              "context": "ps 1 (877) 318-1177 or (250) 374-4634 Vancouver Island Vancouver Island Health Youth Services Discovery Youth and Family Services Withdrawal Management Vancouver Island Health Authority Withdrawal Management North Northern Health Youth Services Withdrawal Management Adult Withdrawal Management Unit 1308 Alward St., Prince George (250) 565-2175 Fraser Valley Fraser Health Youth Services Withdrawal Management Creekside Withdrawal Management Centre 13740 94th Ave. A, Surrey (604) 587-3755 Fraser Health Substance Use Services Province-Wide Resources Find a Peer Recovery Support Group BC Alcohol and Drug Referral Service 1 (800) 663-1441 or (604) 660-9382 The Red Book Online Provincial Services BC Housing Child and Teen Mental Health First Nations Health Authority Methadone Clinics Accepting New Patients Provincial Health Services Authority Residential Treatment Provincial Harm Reduction Pro",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "title_after_address",
+              "title_distance": 432,
+              "title_direction": "after",
+              "structural_context": null,
+              "order": 2,
+              "old_rule_failure_reason": "title_after_address",
+              "local_light": {
+                "classification": "insufficient_evidence",
+                "reason": "The text provides the address of a specific location where the Harm Reduction – Recovery Research Institute operates, namely 13740 94th Ave, Surrey, BC.",
+                "evidence_phrase": "13740 94th Ave, Surrey, BC",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              }
+            },
+            {
+              "address": "1190 Hornby Street",
+              "context": "urces for Families &amp; Caregivers Please check out our Families & Caregivers resource section here . Share In This Section What We Do About Vision, Mission, and Values Funding Our Team Staff CRISM About CRISM BC CRISM BC Research CRISM Clinical Resources CRISM Across Canada Events BC Substance Use Care Update What’s New Lectures Research &amp; Dialogue Speaker Series Resources Career Opportunities Co ntact BC Centre on Substance Use 4th Floor, 1190 Hornby Street, Vancouver BC, V6Z 2K5 E: [email&#160;protected] | T: (778) 945-7616 24/7 Addiction Clinician Support Line: (778) 945-7619 ACTOC and POATSP: [email&#160;protected] Copyright © 2026, BC Centre on Substance Use Login Login Username or Email Address Password Remember Me",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "title_distance_only",
+              "title_distance": 1684,
+              "title_direction": "before",
+              "structural_context": null,
+              "order": 3,
+              "old_rule_failure_reason": "title_distance_only",
+              "local_light": {
+                "classification": "insufficient_evidence",
+                "reason": "The text provides a specific address (1190 Hornby Street, Vancouver BC, Canada) that is consistent with the target program (Harm Reduction – Recovery Research Institute). The organization is described as ",
+                "evidence_phrase": ", and the text is sourced from a trusted public source, which supports the classification as a location of the named target program.",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              }
+            }
+          ],
+          "source_quality": "authoritative_primary",
+          "source_fingerprint": "f8594bd863f71eb55d107d4c",
+          "current_candidate_count": 4,
+          "structure_blocks": 148,
+          "new_structured_candidates": []
+        }
+      ]
+    },
+    {
+      "resource_id": "e9345301-1543-514a-afb1-d9e2ac411a20",
+      "name": "Harm reduction | Vancouver Coastal Health",
+      "organization": "Web Search",
+      "locality": "vancouver",
+      "sources": [
+        {
+          "url": "https://bc.211.ca/result/harm-reduction-services-vancouver-robert-and-lily-lee-family-community-health-centre-9508425",
+          "legacy_candidate_count": 2,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "1669 East Broadway",
+              "context": "where people who inject drugs can be safely monitored and treated immediately if they overdose. Provides safer sex supplies, including condoms. Serves Vancouver. Hours are 10 am to 4:30 pm Monday to Friday. Copy Text Print Share Add to List Website www.vch.ca/en/location-service/harm-reduction-supplies-needle-distribution-site-robert-and-lily-lee-family-chc Contact Phone: 604-675-3980 Address Robert and Lily Lee Family Community Health Centre, 1669 East Broadway Vancouver, BC, V5N 1V9 Mailing Address Robert and Lily Lee Family Community Health Centre, 310-1669 East Broadway Vancouver, BC, V5N 1V9 Open in Google Maps Back to Top Contact Us Terms of Service Privacy Policy Talk to a two one one 211 Navigator 9am-9pm Weekdays (excl. Holidays) Call 2-1-1 Live Chat Text (SMS) to 2-1-1 Email United Way British Columbia acknowledges the homelands of the Indigenous Peoples of this place we now",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "global_footer_or_admin",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "global_footer_or_admin",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the address of the Robert and Lily Lee Family Community Health Centre, which is the location of the named target program, Harm reduction.",
+                "evidence_phrase": "1669 East Broadway Vancouver, BC, V5N 1V9",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"Harm reduction | Vancouver Coastal Health\" \"1669 East Broadway\"",
+                "status": "not_confirmed",
+                "confirmations": []
+              }
+            },
+            {
+              "address": "Unit 310, 1669 East Broadway",
+              "context": "er sex supplies, including condoms. Serves Vancouver. Hours are 10 am to 4:30 pm Monday to Friday. Copy Text Print Share Add to List Website www.vch.ca/en/location-service/harm-reduction-supplies-needle-distribution-site-robert-and-lily-lee-family-chc Contact Phone: 604-675-3980 Address Robert and Lily Lee Family Community Health Centre, 1669 East Broadway Vancouver, BC, V5N 1V9 Mailing Address Robert and Lily Lee Family Community Health Centre, 310-1669 East Broadway Vancouver, BC, V5N 1V9 Open in Google Maps Back to Top Contact Us Terms of Service Privacy Policy Talk to a two one one 211 Navigator 9am-9pm Weekdays (excl. Holidays) Call 2-1-1 Live Chat Text (SMS) to 2-1-1 Email United Way British Columbia acknowledges the homelands of the Indigenous Peoples of this place we now call British C olumbia, and honours the many territorial keepers of the Lands on which we work. United for Sup",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "global_footer_or_admin",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 1,
+              "old_rule_failure_reason": "global_footer_or_admin",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides an address for the location of the named target program, Robert and Lily Lee Family Community Health Centre, 1669 East Broadway, Vancouver, BC, V5N 1V9. The organization recognized as the parent is Vancouver Coastal Health",
+                "evidence_phrase": "Address Robert and Lily Lee Family Community Health Centre, 1669 East Broadway Vancouver, BC, V5N 1V9",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"Harm reduction | Vancouver Coastal Health\" \"Unit 310, 1669 East Broadway\"",
+                "status": "not_confirmed",
+                "confirmations": []
+              }
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "421233ed5eaab6e80b85e013",
+          "current_candidate_count": 2,
+          "structure_blocks": 46,
+          "new_structured_candidates": []
+        }
+      ]
+    },
+    {
+      "resource_id": "da018f86-d269-5553-85a8-b98d846f0249",
+      "name": "Harm Reduction for Substance Use | Island Health",
+      "organization": "",
+      "locality": "victoria",
+      "sources": [
+        {
+          "url": "https://avi.org/service/harm-reduction",
+          "legacy_candidate_count": 4,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "713 Johnson St",
+              "context": "upport from Ministry of Social Development and Poverty Reduction Public Health Nurse on site weekly Hours: 9:00am-4:00pm (closure from 12:00-1:00pm) Monday-Thursday, 11:00am-3:00pm Friday Closed Saturday and Sunday. For more information on accessing harm reduction services in Campbell River, please contact the Campbell River office . Get Help You can access Harm Reduction Services at these AVI locations Victoria 3rd Floor - Access Health Centre 713 Johnson St, Victoria BC V8W 1M8 Nanaimo 102-55 Victoria Road, Nanaimo, BC, V9R 5N9 Comox Valley 355 6th St., Courtenay, BC, V9N 1M2 Campbell River 1371 C Cedar Street, Campbell River BC, V9W 2W6 Questions? Let's Talk Support AVI ❤️ Learn about how you can help us offer our services to people in need on Vancouver Island Learn More Donate Now Services Harm Reduction Services Indigenous Wellness Program HIV Testing Crisis Response, Community Led",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "insufficient_context",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            },
+            {
+              "address": "Unit 102, 55 Victoria Road",
+              "context": "and Poverty Reduction Public Health Nurse on site weekly Hours: 9:00am-4:00pm (closure from 12:00-1:00pm) Monday-Thursday, 11:00am-3:00pm Friday Closed Saturday and Sunday. For more information on accessing harm reduction services in Campbell River, please contact the Campbell River office . Get Help You can access Harm Reduction Services at these AVI locations Victoria 3rd Floor - Access Health Centre 713 Johnson St, Victoria BC V8W 1M8 Nanaimo 102-55 Victoria Road, Nanaimo, BC, V9R 5N9 Comox Valley 355 6th St., Courtenay, BC, V9N 1M2 Campbell River 1371 C Cedar Street, Campbell River BC, V9W 2W6 Questions? Let's Talk Support AVI ❤️ Learn about how you can help us offer our services to people in need on Vancouver Island Learn More Donate Now Services Harm Reduction Services Indigenous Wellness Program HIV Testing Crisis Response, Community Led (CRCL) Prescribed Alternatives Services fo",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "insufficient_context",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 1,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            },
+            {
+              "address": "355 6th St",
+              "context": "Hours: 9:00am-4:00pm (closure from 12:00-1:00pm) Monday-Thursday, 11:00am-3:00pm Friday Closed Saturday and Sunday. For more information on accessing harm reduction services in Campbell River, please contact the Campbell River office . Get Help You can access Harm Reduction Services at these AVI locations Victoria 3rd Floor - Access Health Centre 713 Johnson St, Victoria BC V8W 1M8 Nanaimo 102-55 Victoria Road, Nanaimo, BC, V9R 5N9 Comox Valley 355 6th St., Courtenay, BC, V9N 1M2 Campbell River 1371 C Cedar Street, Campbell River BC, V9W 2W6 Questions? Let's Talk Support AVI ❤️ Learn about how you can help us offer our services to people in need on Vancouver Island Learn More Donate Now Services Harm Reduction Services Indigenous Wellness Program HIV Testing Crisis Response, Community Led (CRCL) Prescribed Alternatives Services for People with HIV/AIDS or Hepatitis C Community Health C",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "insufficient_context",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 2,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            },
+            {
+              "address": "1371 C Cedar Street",
+              "context": "onday-Thursday, 11:00am-3:00pm Friday Closed Saturday and Sunday. For more information on accessing harm reduction services in Campbell River, please contact the Campbell River office . Get Help You can access Harm Reduction Services at these AVI locations Victoria 3rd Floor - Access Health Centre 713 Johnson St, Victoria BC V8W 1M8 Nanaimo 102-55 Victoria Road, Nanaimo, BC, V9R 5N9 Comox Valley 355 6th St., Courtenay, BC, V9N 1M2 Campbell River 1371 C Cedar Street, Campbell River BC, V9W 2W6 Questions? Let's Talk Support AVI ❤️ Learn about how you can help us offer our services to people in need on Vancouver Island Learn More Donate Now Services Harm Reduction Services Indigenous Wellness Program HIV Testing Crisis Response, Community Led (CRCL) Prescribed Alternatives Services for People with HIV/AIDS or Hepatitis C Community Health Centre Health Promotion and Community Development Pr",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "insufficient_context",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 3,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "fd457bc3fe1034423a8037ba",
+          "current_candidate_count": 4,
+          "structure_blocks": 174,
+          "new_structured_candidates": []
+        }
+      ]
+    },
+    {
+      "resource_id": "bbb675ef-b7bd-5bda-9c8e-56e6603bb803",
+      "name": "Harm Reduction Services on Vancouver Island - AVI Health",
+      "organization": "",
+      "locality": "victoria",
+      "sources": [
+        {
+          "url": "https://avi.org/location/victoria",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "713 Johnson St",
+              "context": "iver About What We Do Board Of Directors Our Staff Our Funders Publications Resources Our History Work at AVI News Support Donate Become A Member Partner With Us Volunteer Annual Newsletter Careers Contact Menu Menu Home Services Locations About Us News &#038; Blog Support Us Contact Comox Valley CRCL CRCL Feedback Careers Need Help? Call 1-800-665-2437 Emergency? Call 911 AVI Health & Community Services Victoria 3rd Floor - Access Health Centre 713 Johnson St, Vi ctoria BC V8W 1M8 Call 250-384-2366 Find Us Services Available at AVI Victoria Take advantage of the following services available at AVI's Victoria location Crisis Response, Community Led (CRCL) AVI's mobile crisis response teams in Victoria and Comox Valley Prescribed Alternatives Prescribed alternatives to the unregulated drug supply to reduce risk of overdoses Health Promotion and Community Development Supporting knowledge s",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "insufficient_context",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "insufficient_context",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the exact address of the organization, which is the location of the named target program.",
+                "evidence_phrase": "713 Johnson St",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"Harm Reduction Services on Vancouver Island - AVI Health\" \"713 Johnson St\"",
+                "status": "not_confirmed",
+                "confirmations": [
+                  {
+                    "url": "https://avi.org/",
+                    "title": "AVI Health & Community Services - Vancouver Island",
+                    "matched_address": "713 Johnson St",
+                    "disposition": "site_context_unknown",
+                    "linkage_reason": "insufficient_context",
+                    "source_quality": "credible_primary",
+                    "context": "es Prism Wellness Supporting queer and trans health Support What Matters Featured fundraising campaigns Overdose Education Help us fight the toxic drug poisoning crisis through free public education. Find Us Our Locations AVI Health and Community Services has locations in Victoria , Nanaimo , Comox Valley and Campbell River . A range of services are available at each location. View All Locations Victoria Victoria 3rd Floor - Access Health Centre 713 Johnson St, Victoria BC V8W 1M8 Nanaimo Nanaimo 102-55 Victoria Road, Nanaimo, BC, V9R 5N9 Comox Valley Comox Valley 355 6th St., Courtenay, BC, V9N 1M2 Campbell River Campbell River 1371 C Cedar Street, Campbell River BC, V9W 2W6 The Lates t News from AVI Stories, articles and announcements. Read More News AGM, News Join a Board of Directors That&#8217;s Driving Community-Led Change September 2, 2026 Announcements, Fundraiser, News Annual ne"
+                  }
+                ]
+              }
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "be9d80836e0fc5c15cf06a0b",
+          "current_candidate_count": 1,
+          "structure_blocks": 164,
+          "new_structured_candidates": []
+        },
+        {
+          "url": "https://avi.org/service/harm-reduction",
+          "legacy_candidate_count": 4,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "713 Johnson St",
+              "context": "upport from Ministry of Social Development and Poverty Reduction Public Health Nurse on site weekly Hours: 9:00am-4:00pm (closure from 12:00-1:00pm) Monday-Thursday, 11:00am-3:00pm Friday Closed Saturday and Sunday. For more information on accessing harm reduction services in Campbell River, please contact the Campbell River office . Get Help You can access Harm Reduction Services at these AVI locations Victoria 3rd Floor - Access Health Centre 713 Johnson St, Victoria BC V8W 1M8 Nanaimo 102-55 Victoria Road, Nanaimo, BC, V9R 5N9 Comox Valley 355 6th St., Courtenay, BC, V9N 1M2 Campbell River 1371 C Cedar Street, Campbell River BC, V9W 2W6 Questions? Let's Talk Support AVI ❤️ Learn about how you can help us offer our services to people in need on Vancouver Island Learn More Donate Now Services Harm Reduction Services Indigenous Wellness Program HIV Testing Crisis Response, Community Led",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "title_distance_only",
+              "title_distance": 3121,
+              "title_direction": "before",
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "title_distance_only",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides information about the location of the Harm Reduction Services on Vancouver Island, specifically mentioning the address 713 Johnson St, Victoria BC V8W 1M8.",
+                "evidence_phrase": "713 Johnson St, Victoria BC V8W 1M8",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              }
+            },
+            {
+              "address": "Unit 102, 55 Victoria Road",
+              "context": "and Poverty Reduction Public Health Nurse on site weekly Hours: 9:00am-4:00pm (closure from 12:00-1:00pm) Monday-Thursday, 11:00am-3:00pm Friday Closed Saturday and Sunday. For more information on accessing harm reduction services in Campbell River, please contact the Campbell River office . Get Help You can access Harm Reduction Services at these AVI locations Victoria 3rd Floor - Access Health Centre 713 Johnson St, Victoria BC V8W 1M8 Nanaimo 102-55 Victoria Road, Nanaimo, BC, V9R 5N9 Comox Valley 355 6th St., Courtenay, BC, V9N 1M2 Campbell River 1371 C Cedar Street, Campbell River BC, V9W 2W6 Questions? Let's Talk Support AVI ❤️ Learn about how you can help us offer our services to people in need on Vancouver Island Learn More Donate Now Services Harm Reduction Services Indigenous Wellness Program HIV Testing Crisis Response, Community Led (CRCL) Prescribed Alternatives Services fo",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "title_distance_only",
+              "title_distance": 3165,
+              "title_direction": "before",
+              "structural_context": null,
+              "order": 1,
+              "old_rule_failure_reason": "title_distance_only",
+              "local_light": {
+                "classification": "insufficient_evidence",
+                "reason": "The text provides specific information about the location of the target program, including the unit number and address of the 55 Victoria Road location in Nanaimo, BC, which is one of the locations for Harm Reduction Services on Vancouver-1",
+                "evidence_phrase": "Unit 102, 55 Victoria Road",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              }
+            },
+            {
+              "address": "355 6th St",
+              "context": "Hours: 9:00am-4:00pm (closure from 12:00-1:00pm) Monday-Thursday, 11:00am-3:00pm Friday Closed Saturday and Sunday. For more information on accessing harm reduction services in Campbell River, please contact the Campbell River office . Get Help You can access Harm Reduction Services at these AVI locations Victoria 3rd Floor - Access Health Centre 713 Johnson St, Victoria BC V8W 1M8 Nanaimo 102-55 Victoria Road, Nanaimo, BC, V9R 5N9 Comox Valley 355 6th St., Courtenay, BC, V9N 1M2 Campbell River 1371 C Cedar Street, Campbell River BC, V9W 2W6 Questions? Let's Talk Support AVI ❤️ Learn about how you can help us offer our services to people in need on Vancouver Island Learn More Donate Now Services Harm Reduction Services Indigenous Wellness Program HIV Testing Crisis Response, Community Led (CRCL) Prescribed Alternatives Services for People with HIV/AIDS or Hepatitis C Community Health C",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "title_distance_only",
+              "title_distance": 3221,
+              "title_direction": "before",
+              "structural_context": null,
+              "order": 2,
+              "old_rule_failure_reason": "title_distance_only",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the address of the program site, which is 355 6th St, Campbell River, BC, Canada.",
+                "evidence_phrase": "Questions? Let's Talk Support AVI ❤️ Learn about how you can help us offer our services to people in need on Vancouver Island Learn More Donate Now Services Harm Reduction Services Indigenous Wellness Program HIV Testing Crisis Response, ",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"Harm Reduction Services on Vancouver Island - AVI Health\" \"355 6th St\"",
+                "status": "not_confirmed",
+                "confirmations": [
+                  {
+                    "url": "https://www.islandhealth.ca/news/news-releases/aids-vancouver-island-and-island-health-implementing-overdose-prevention-services-comox-valley",
+                    "title": "AIDS Vancouver Island and Island Health implementing overdose prevention services in the Comox Valley | Island Health",
+                    "matched_address": "355 6th Street",
+                    "disposition": "site_context_unknown",
+                    "linkage_reason": "insufficient_context",
+                    "source_quality": "authoritative_primary",
+                    "context": "h Entire Site Search Home News News Releases News News Releases #MyIslandHealth Stories For the Record Archive: Island Health Magazine Archive: Currents Back to News AIDS Vancouver Island and Island Health implementing overdose prevention services in the Comox Valley March 30, 2017 COURTENAY—As part of the Province’s response to the overdose emergency, AIDS Vancouver Island (AVI) and Island Health have impleme nted an overdose prevention site at 355 6th Street in Courtenay. The Courtenay-based overdose prevention service began operating on March 27. The service is being operated by AVI with funding from Island Health. AVI is adding the overdose prevention service to existing services already in place at 355 6th Street, including a range of health and harm reduction services. The overdose prevention service provides a place where people who use illicit opioid drugs can be safely monitored"
+                  }
+                ]
+              }
+            },
+            {
+              "address": "1371 C Cedar Street",
+              "context": "onday-Thursday, 11:00am-3:00pm Friday Closed Saturday and Sunday. For more information on accessing harm reduction services in Campbell River, please contact the Campbell River office . Get Help You can access Harm Reduction Services at these AVI locations Victoria 3rd Floor - Access Health Centre 713 Johnson St, Victoria BC V8W 1M8 Nanaimo 102-55 Victoria Road, Nanaimo, BC, V9R 5N9 Comox Valley 355 6th St., Courtenay, BC, V9N 1M2 Campbell River 1371 C Cedar Street, Campbell River BC, V9W 2W6 Questions? Let's Talk Support AVI ❤️ Learn about how you can help us offer our services to people in need on Vancouver Island Learn More Donate Now Services Harm Reduction Services Indigenous Wellness Program HIV Testing Crisis Response, Community Led (CRCL) Prescribed Alternatives Services for People with HIV/AIDS or Hepatitis C Community Health Centre Health Promotion and Community Development Pr",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "title_distance_only",
+              "title_distance": 3272,
+              "title_direction": "before",
+              "structural_context": null,
+              "order": 3,
+              "old_rule_failure_reason": "title_distance_only",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the address of the program site, which is 1371 C Cedar Street, Campbell River, BC, V9W 2W6.",
+                "evidence_phrase": "1371 C Cedar Street",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"Harm Reduction Services on Vancouver Island - AVI Health\" \"1371 C Cedar Street\"",
+                "status": "not_confirmed",
+                "confirmations": [
+                  {
+                    "url": "https://avi.org/location/campbell-river/",
+                    "title": "Campbell River - AVI Health & Community Services",
+                    "matched_address": "1371 C Cedar Street",
+                    "disposition": "site_context_unknown",
+                    "linkage_reason": "insufficient_context",
+                    "source_quality": "credible_primary",
+                    "context": "imo Comox Valley Campbell River About What We Do Board Of Directors Our Staff Our Funders Publications Resources Our History Work at AVI News Support Donate Become A Member Partner With Us Volunteer Annual Newsletter Careers Contact Menu Menu Home Services Locations About Us News &#038; Blog Support Us Contact Comox Valley CRCL CRCL Feedback Careers Need Help? Call 1-800-665-2437 Emergency? Call 911 AVI Health & Community Services Campbell River 1371 C Cedar Street, Campbell River BC, V9W 2W6 Call 250-830-0787 Find Us Services Available at AVI Campbell River Take advantage of the following services available at AVI's Campbell River location Harm Reduction Services Supplies &amp; info to reduce risks to people who use drugs Services for People with HIV/AIDS or Hepatitis C Testing, counseling, and support accessing services Prescribed Alternatives Prescribed alternatives to the unregulate"
+                  }
+                ]
+              }
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "fd457bc3fe1034423a8037ba",
+          "current_candidate_count": 4,
+          "structure_blocks": 174,
+          "new_structured_candidates": []
+        },
+        {
+          "url": "https://bc.211.ca/agency-details/avi-health-and-community-services-society-9489610",
+          "legacy_candidate_count": 4,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "713 Johnson Street",
+              "context": "V, support groups, and harm reduction supply distribution and education. Reception hours are 10 am to 2 pm Monday to Friday. Centre hours are 10 am to 9 pm Monday to Thursday, and 2 pm to 9 pm Friday to Sunday, and holidays. Serves Victoria and surrounding area. Nonprofit society, registered charity. Copy Text Print Share Website www.avi.org Contact Phone: 250-384-2366 Phone: 1-800-665-2437 Fax: 250-380-9411 Email: info@avi.org Address 3rd Floor-713 Johnson Street Victoria, BC, V8W 1M8 Mailing Address 3rd Floor-713 Johnson Street Victoria, BC, V8W 1M8 Open in Google Maps 9 services offered by: AVI Health and Community Services Society AVI Courtenay/Comox Office Add to List Provided by AVI Health and Community Services Society 8 other services offered by this agency Provides on-site and outreach services and support for people who are at risk of, infected with, or affected by HIV, AIDS,",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            },
+            {
+              "address": "355 6th Street",
+              "context": "with, or affected by HIV, AIDS, or hepatitis C. Provides on-site and outreach services and support for people who are at risk of, infected with, or affected by HIV, AIDS, or hepatitis C. Services include education, counselling, advocacy, nutritional support, and health care referrals. Hours are 9 am to 12 noon and 1 pm to 4 pm Monday to Thursday, and 11 am to 3 pm on Fridays. Serves Comox Valley. Website www.avi.org/location/comox-valley Address 355 6th Street Courtenay, BC, V9N 1M2 Show Details Services include education, counselling, a dvocacy, nutritional support, and health care referrals. Hours are 9 am to 12 noon and 1 pm to 4 pm Monday to Thursday, and 11 am to 3 pm on Fridays. Serves Comox Valley. Copy Text Print Share Open in New Tab Open in Google Maps Mailing Address 355 6th Street Courtenay, BC, V9N 1M2 Contact Phone: 250-338-7400 Phone: 1-800-665-2437 Fax: 250-334-8224 Email",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 1,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            },
+            {
+              "address": "Unit 102, 55 Victoria Road",
+              "context": "tion, he alth care referrals, counselling, advocacy, and snacks. Medical clinic provides opioid substitution therapy, HIV primary care, pre- and post-exposure prophylaxis, STI testing and treatment, and HIV point-of-care testing. Office hours are 9 am to 5 pm Monday to Thursday. Serves Nanaimo and outlying communities; some services can be provided for communities from Duncan to Tofino. Website www.avi.org/service/community-health-centre Address 102-55 Victoria Road Nanaimo, BC, V9R 5N9 Show Details Services include education, health care referrals, counselling, advocacy, and snacks. Medical clinic provides opioid substitution therapy, HIV primary care, pre- and post-exposure prophylaxis, STI testing and treatment, and HIV point-of-care testing. Office hours are 9 am to 5 pm Monday to Thursday. Serves Nanaimo and outlying communities; some services can be provided for communities from Du",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 2,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            },
+            {
+              "address": "1371 Cedar Street",
+              "context": "confirm service availability. Provides opioid users with free Take Home Naloxone Kits (Narcan) that can be used to reverse the effects of overdoses from opioids like fentanyl, heroin, methadone, morphine, and oxycodone; training can be provided. Hours are 9 am to 12 noon and 1 pm to 4 pm Monday to Thursday, and from 11 am to 3 pm on Fridays. Serves Campbell River, Quadra Island, and Sayward. Website www.avi.org/location/campbell-river Address C-1371 Cedar Street Campbell River, BC, V9W 2W6 Show Details",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 3,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "2f6267d00a8cd96327609407",
+          "current_candidate_count": 4,
+          "structure_blocks": 158,
+          "new_structured_candidates": []
+        }
+      ]
+    },
+    {
+      "resource_id": "83b39ac5-4c13-5ddf-bc86-28aa3fd8baa2",
+      "name": "Hope RAAC / Anderson Clinic",
+      "organization": "Fraser Health",
+      "locality": "Hope",
+      "sources": [
+        {
+          "url": "https://bc.211.ca/result/rapid-access-to-addiction-care-raac-clinic-fraser-east-abbotsford-79839764",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "Unit 240, 31935 South Fraser Way",
+              "context": "connects them to care providers in the community for ongoing treatment, monitoring, and support. Referral accepted from self or other. Call to book appointment; walk-ins welcome before 2 pm. Office hours are 9 am to 5 pm Monday to Friday. Copy Text Print Share Add to List Website www.fraserhealth.ca/Service-Directory/Service-At-Location/C/D/abbotsford---rapid-access-to-addiction-care-clinic Con tact Phone: 604-851-3752 Fax: 604-851-1636 Address 240-31935 South Fraser Way Abbotsford, BC, V2T 5N7 Mailing Address 240-31935 South Fraser Way Abbotsford, BC, V2T 5N7 Open in Google Maps Back to Top Contact Us Terms of Service Privacy Policy Talk to a two one one 211 Navigator 9am-9pm Weekdays (excl. Holidays) Call 2-1-1 Live Chat Text (SMS) to 2-1-1 Email United Way British Columbia acknowledges the homelands of the Indigenous Peoples of this place we now call British Columbia, and honours the",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "global_footer_or_admin",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "global_footer_or_admin",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the address of the Hope RAAC / Anderson Clinic, which is the target program, located at Unit 240, 31935 South Fraser Way, Abbotsford, BC, V2T 5N7.",
+                "evidence_phrase": "Address 240-31935 South Fraser Way Abbotsford, BC, V2T 5N7",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"Hope RAAC / Anderson Clinic\" \"Unit 240, 31935 South Fraser Way\"",
+                "status": "not_confirmed",
+                "confirmations": [
+                  {
+                    "url": "https://www.fraserhealth.ca/Service-Directory/Services/mental-health-and-substance-use/rapid-access-to-addiction-care-clinic",
+                    "title": "Rapid Access to Addiction Care (RAAC) Clinic - Fraser Health",
+                    "matched_address": "Unit 240, 31935 South Fraser Way",
+                    "disposition": "site_context_unknown",
+                    "linkage_reason": "insufficient_context",
+                    "source_quality": "authoritative_primary",
+                    "context": "s . During these times: Individuals will receive a nursing assessment Based on need and capacity, they may: Be seen by a physician the same day, or Be booked for the next available weekday medical appointment Weekend and stat holiday services are intended to support urgent assessment and stabilization needs . Referral No referral required. Location(s) offering this service Location Address City Location Abbotsford Opioid Agonist Treatment Clinic 240-31935 South Fraser Way Abbotsford Location Chilliwack General Hospital 45600 Menholm Road Chilliwack Location Hope Mental Health and Substance Use Centre 1275A 7th Avenue Hope Location Mission Mental Health and Substance Use Centre 7298 Hurd Street Mission Location Mental Health and Substance Use Wellness Centre 330 East Columbia Street New Westminster Location Creekside Withdrawal Management Centre 13740 94A Avenue Surrey Text Size A A Back"
+                  }
+                ]
+              }
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "1bdccc792e15d4afc502ba23",
+          "current_candidate_count": 1,
+          "structure_blocks": 47,
+          "new_structured_candidates": []
+        }
+      ]
+    },
+    {
+      "resource_id": "e647712a-32dd-5284-931d-b8d31ca6cae4",
+      "name": "Housing, Healthcare & Harm Reduction | PHS Community Services Society, Non Profit Organization Vancouver",
+      "organization": "Web Search",
+      "locality": "All Cities",
+      "sources": [
+        {
+          "url": "https://causes.benevity.org/causes/124-891413791RR0001",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "source_no_longer_trusted",
+          "candidates": [],
+          "error": "farm_source_not_approved",
+          "unreconstructed_candidates": [
+            {
+              "legacy_candidate_slot": 1,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            }
+          ]
+        },
+        {
+          "url": "https://bc.211.ca/agency-details/phs-community-services-society-9488912",
+          "legacy_candidate_count": 6,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "Unit 90, 425 Carrall Street",
+              "context": "or homelessness. Provides supportive housing for people who are homeless, at risk of becoming homeless, or are marginally housed; application through BC Housing Supportive Housing Registration Service. Serves Vancouver (primarily the Downtown Eastside) and Victoria. Office hours are 9 am to 5 pm Monday to Friday. Nonprofit society, registered charity. Copy Text Print Share Website www.phs.ca Contact Phone: 604-683-0073 Email: info@phs.ca Address 90-425 Carrall Street Vancouver, BC Mailing Address 90-425 Carrall Street Vancouver, BC Open in Google Maps 16 services offered by: PHS Community Services Society Beacon Hotel Add to List Provid ed by PHS Community Services Society 15 other services offered by this agency Provides single room occupancy (SRO) social housing for individuals living with concurrent disorders. Provides single room occupancy (SRO) social housing for individuals living",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            },
+            {
+              "address": "7 West Hastings Street",
+              "context": "e Maps 16 services offered by: PHS Community Services Society Beacon Hotel Add to List Provid ed by PHS Community Services Society 15 other services offered by this agency Provides single room occupancy (SRO) social housing for individuals living with concurrent disorders. Provides single room occupancy (SRO) social housing for individuals living with concurrent disorders. Services and support include meals, PHS mental health workers (on-site 24/7), home support, and life skills sessions. Website www.phs.ca/locations/beacon-hotel Address 7 West Hastings Street Vancouver, BC, V6B 1G4 Show Details Services and support include meals, PHS mental health workers (on-site 24/7), home support, and life skills sessions. Copy Text Print Share Open in New Tab Open in Google Maps Mailing Address 7 West Hastings Street Vancouver, BC, V6B 1G4 Contact Phone: 604-669-3287 Email: info@phs.ca Submit an up",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 1,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            },
+            {
+              "address": "2915 Douglas Street",
+              "context": "o-ed and women's-only (trans-inclusive) sections. Low-barrier, 24-hour shelter with 40 beds in both co-ed and women's-only (trans-inclusive) sections. Provides three meals a day, shower facilities, and limited secure storage for personal items including bikes and shopping carts. Wheelchair accessible. Pets are welcome. Intake is from 5 pm; waitlist opens at 8 am. Funded by BC Housing. Website www.phs.ca/locations/arbutus-shelter Address Basement-2915 Douglas Street Victoria, BC, V8T 4M8 Show Details Provides three meals a day, shower facilities, and limited secure storage for personal items including bikes and shopping carts. Wheelchair accessible. Pets are welcome. Intake is from 5 pm; waitlist opens at 8 am. Funded by BC Housing. Copy Text Print Share Open in New Tab Open in Google Maps Mailing Address 2915 Douglas Street Victoria, BC, V8T 4M8 Contact Shelter (24-hour): 250-360-0093 A",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 2,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            },
+            {
+              "address": "561 East 16th Avenue",
+              "context": "h issue. Offers a variety of on-site supports, including access to mental heal th workers, medication administration, help with financial planning, and therapeutic programs. Referrals are through VCH Mental Health Housing Services or the BC Housing Supportive Housing Registry. Owned and property-managed by Sanford Housing Society; care is provided by PHS Community Services Society. Website www.phs.ca/locations/enhanced-living-support-els Address 561 East 16th Avenue Vancouver, BC, V5T 2V1 Show Details Offers a variety of on-site supports, including access to mental health workers, medication administration, help with financial planning, and therapeutic programs. Referrals are through VCH Mental Health Housing Services or the BC Housing Supportive Housing Registry. Owned and property-managed by Sanford Housing Society; care is provided by PHS Community Services Society. Copy Text Print Sh",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 3,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            },
+            {
+              "address": "101 East Hastings Street",
+              "context": "e housing to people with substance dependencies and a concurrent physical or mental health issue. Priority is given to people who are homeless or precariously housed. Units have access to laundry and shower facilities. Residents are supported by PHS mental health workers. Referrals are through VCH Mental Health Housing Services or the BC Housing Supportive Housing Registry. Wheelchair accessible. Website www.phs.ca/locations/irving-hotel Address 101 East Hastings Street Vanc ouver, BC, V6A 4J1 Show Details Priority is given to people who are homeless or precariously housed. Units have access to laundry and shower facilities. Residents are supported by PHS mental health workers. Referrals are through VCH Mental Health Housing Services or the BC Housing Supportive Housing Registry. Wheelchair accessible. Copy Text Print Share Open in New Tab Open in Google Maps Mailing Address 101 East Has",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 4,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            },
+            {
+              "address": "177 East Hastings Street",
+              "context": "practices. Provides safer drug use supplies such as crack pipe mouthpiece and screens, and injection supplies. Provides safer sex supplies, including condoms. Provides opioid users with free Take Home Naloxone Kits (Narcan) that can be used to reverse the effects of overdoses from opioids like fentanyl, heroin, methadone, morphine, and oxycodone. Open 24 hours a day, seven days per week. Website www.phs.ca/index.php/project/needle-depot Address 177 East Hastings Street Vancouver, BC, V6A 1N5 Show Details Needle exchange services include distribution of clean needles, sterile water, and alcohol wipes; disposal of us",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 5,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "8b93d7c8bf32240a5d646c66",
+          "current_candidate_count": 6,
+          "structure_blocks": 180,
+          "new_structured_candidates": [
+            {
+              "address": "356 East Hastings Street",
+              "context": "",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0
+            },
+            {
+              "address": "9 East Hastings Street",
+              "context": "l, Vi tal Resources Learn more about who we are, what we do, and how to get in touch. About Us Team Frequently Asked Questions Contact Us Are you a service provider? Get started with 211 Looking for services? Get free help from 211 Your List Languages English français Yкраїнська Pосійський عربي 中文简体 中文繁體 Tagalog فارسی Dari Pashtu ਪੰਜਾਬੀ español Talk to a two one one 211 Navigator 9am-9pm Weekdays (excl. Holidays) Call 2-1-1 For emergencies, call 9-1-1 instead. Live Chat Text (SMS) to 2-1-1 Email Search All Resources Other Ways to Get Help Talk to a two one one 211 Navigator 9am-9pm Weekdays (excl. Holidays) Call Chat Text Email Search For emergencies, call 9-1-1 instead. Live Chat Close Talk to a two one one 211 Navigator 9am-9pm Weekdays (excl. Holidays) Ad blockers and mobile devices may not be fully compatible. Open Chat &times; Close Chat Service Provider PHS Community Services Socie",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 1
+            },
+            {
+              "address": "350 Columbia Street",
+              "context": "",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 2
+            },
+            {
+              "address": "1005 Station Street",
+              "context": "",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 3
+            },
+            {
+              "address": "12 East Hastings Street",
+              "context": "",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 4
+            },
+            {
+              "address": "309 Carrall Street",
+              "context": "",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 5
+            },
+            {
+              "address": "144 West Hastings Street",
+              "context": "",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 6
+            },
+            {
+              "address": "103 East Hastings Street",
+              "context": "",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 7
+            },
+            {
+              "address": "27 West Hastings Street",
+              "context": "",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource_id": "4a845e4d-d1f3-5a51-9c1f-96c5adb03906",
+      "name": "Live-in Substance Use Treatment for Youth | HelpStartsHere",
+      "organization": "",
+      "locality": "vancouver",
+      "sources": [
+        {
+          "url": "https://www.nationwidechildrens.org/specialties/substance-use-treatment-and-recovery-program",
+          "legacy_candidate_count": 2,
+          "legacy_supported_count": 0,
+          "fetch_status": "source_no_longer_trusted",
+          "candidates": [],
+          "error": "farm_source_not_approved",
+          "unreconstructed_candidates": [
+            {
+              "legacy_candidate_slot": 1,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 2,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource_id": "ef2e986e-813c-5cc9-a4b9-a1dc28988751",
+      "name": "Mental health and substance use | Northern Health",
+      "organization": "",
+      "locality": "All Cities",
+      "sources": [
+        {
+          "url": "https://www.meritresources.org",
+          "legacy_candidate_count": 5,
+          "legacy_supported_count": 0,
+          "fetch_status": "source_no_longer_trusted",
+          "candidates": [],
+          "error": "farm_source_not_approved",
+          "unreconstructed_candidates": [
+            {
+              "legacy_candidate_slot": 1,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 2,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 3,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 4,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 5,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource_id": "893c0000-10ec-5544-815c-f36863532a8e",
+      "name": "Mental Health Support Services | Canadian Mental Health Association Kelowna",
+      "organization": "Web Search",
+      "locality": "All Cities",
+      "sources": [
+        {
+          "url": "https://bc.211.ca/agency-details/canadian-mental-health-association-cmha-kelowna-branch-9490963",
+          "legacy_candidate_count": 2,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "504 Sutherland Avenue",
+              "context": "ntal health, support recovery, and eliminate barriers that prevent people from thriving. Also offers permanent supportive housing; intake is through the BC Housing Supportive Housing Registry. Serves the Central Okanagan. Office hours are 9 am to 4 pm Monday to Friday. Nonprofit society, registered charity. Copy Text Print Share Website www.cmhakelowna.com Contact Phone: 250-861-3644 Fax: 250-763-4827 Email: mental.health@cmhakelowna.org Address 504 Sutherland Kelowna, BC, V1Y 5X1 Mailing Address 504 Sutherland Kelowna, BC, V1Y 5X1 Open in Google Maps 8 services offered by: Canadian Mental Health Association (CMHA) - Kelowna Branch Central Okan agan Rent Bank Add to List Provided by Canadian Mental Health Association (CMHA) - Kelowna Branch 7 other services offered by this agency Housing stabilization program for low-income residents age 19 and over in Central Okanagan (Kelowna, West Kel",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            },
+            {
+              "address": "Unit 100, 1815 Kirschner Road",
+              "context": "years of age; van stops at various locations in Lake Country, Westbank First Nation, and West Kelowna; see website for schedule. Serves Kelowna and surrounding area. Office hours are 9 am to 5 pm Monday, Tuesday, Wednesday, and Friday; with extended hours of 9 am to 7 pm Thursdays. Drop-in counselling is available from 10 am to 5 pm Monday, Tuesday, Wednesday, and Friday, and from 10 am to 7 pm Thursdays. Website www.foundrybc.ca/kelowna Address 100-1815 Kirschner Road Kelowna, BC, V1Y 6G 3 Show Details Mental health care, substance use services, primary health care, youth and family peer supports, and social services are accessible under one roof. Other services include youth outreach, housing support, independent living transition support, LGBTQ and mental health support groups, sexually transmitted disease testing and treatment, and family conflict resolution. Accepts referral from se",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 1,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "118b6ba9b714846478dde9cc",
+          "current_candidate_count": 2,
+          "structure_blocks": 143,
+          "new_structured_candidates": [
+            {
+              "address": "130 McCurdy Road",
+              "context": "",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource_id": "1f8b36ee-f455-5e67-8381-bf15d9fe286f",
+      "name": "Mission Fraser House",
+      "organization": "Fraser House",
+      "locality": "Mission",
+      "sources": [
+        {
+          "url": "https://fraserhouse.org/adult-counselling",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "33063 4th Ave",
+              "context": "page for more information about the groups we are facilitating. 2026 Adult Program Calendar Mondays 1:15 - 3:15pm Wednesdays 1:15 - 3:00pm Thursdays 4:00 - 6:00pm Drop in Consultations in person or by phone Drop in Consultations in person or by phone Drop in Consultations in person or by phone Last consult at 2:45pm. Last consult at 2:30pm. Last consult at 5:30pm. Please note that Fraser House is closed on Statutory Holidays Fraser House Society 33063 4th Ave Mission, BC, Canada V2V 1S6 Fraser House Society lies within the traditional, ancestral, unceded and shared territories of the Leq’á:mel, Matheqwí, Qwó:ltl’el, Semá:th and Sq’éwlets peoples. (c) 2020 Fraser House Society About Who We Are Donate Programs Adult Counselling Youth and Family Counselling School-Based Prevention Rural Connections Funded in part by",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "insufficient_context",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "organization_only_linkage",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the address of the Mission Fraser House program, which is consistent with the target program 'Mission Fraser House' mentioned in the question.",
+                "evidence_phrase": "Fraser House Society 33063 4th Ave Mission, BC, Canada V2V 1S6 Fraser House Society lies within the traditional, ancestral, unceded and shared territories of the Leq’á:mel, Matheqwí, Qwó:ltl’el, Semá:th and Sq’éwlets peoples. (c) 2020",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"Mission Fraser House\" \"33063 4th Ave\"",
+                "status": "not_confirmed",
+                "confirmations": []
+              }
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "09b2bec4d72ac8045b3108c9",
+          "current_candidate_count": 1,
+          "structure_blocks": 10,
+          "new_structured_candidates": [
+            {
+              "address": "33063 4 Avenue",
+              "context": "page for more information about the groups we are facilitating. 2026 Adult Program Calendar Mondays 1:15 - 3:15pm Wednesdays 1:15 - 3:00pm Thursdays 4:00 - 6:00pm Drop in Consultations in person or by phone Drop in Consultations in person or by phone Drop in Consultations in person or by phone Last consult at 2:45pm. Last consult at 2:30pm. Last consult at 5:30pm. Please note that Fraser House is closed on Statutory Holidays Fraser House Society 33063 4th Ave Mission, BC, Canada V2V 1S6 Fraser House Society lies within the traditional, ancestral, unceded and shared territories of the Leq’á:mel, Matheqwí, Qwó:ltl’el, Semá:th and Sq’éwlets peoples. (c) 2020 Fraser House Society About Who We Are Donate Programs Adult Counselling Youth and Family Counselling School-Based Prevention Rural Connections Funded in part by",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "insufficient_context",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0
+            }
+          ]
+        },
+        {
+          "url": "https://www.bchousing.org/housing-assistance/women-fleeing-violence/transition-houses-safe-homes",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "source_no_longer_trusted",
+          "candidates": [],
+          "error": "farm_source_not_approved",
+          "unreconstructed_candidates": [
+            {
+              "legacy_candidate_slot": 1,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource_id": "2fc0cdd4-bb64-523b-96b2-47a696bc85dd",
+      "name": "Parents Forever Group",
+      "organization": "Parents Forever",
+      "locality": "Surrey",
+      "sources": [
+        {
+          "url": "https://www.projectoz.org/parents-forever",
+          "legacy_candidate_count": 2,
+          "legacy_supported_count": 0,
+          "fetch_status": "source_no_longer_trusted",
+          "candidates": [],
+          "error": "farm_source_not_approved",
+          "unreconstructed_candidates": [
+            {
+              "legacy_candidate_slot": 1,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            },
+            {
+              "legacy_candidate_slot": 2,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            }
+          ]
+        },
+        {
+          "url": "https://www.jocogov.org/department/mental-health/education-outreach/parents-forever",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "source_no_longer_trusted",
+          "candidates": [],
+          "error": "farm_source_not_approved",
+          "unreconstructed_candidates": [
+            {
+              "legacy_candidate_slot": 1,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource_id": "ce75dbf8-3194-523f-bd3e-fa0aaa7985cd",
+      "name": "SFU Surrey Counselling Centre",
+      "organization": "Simon Fraser University",
+      "locality": "Surrey",
+      "sources": [
+        {
+          "url": "https://bc.211.ca/result/sfu-surrey-counselling-centre-9491395",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "Unit 250, 13450 102 Avenue",
+              "context": "counselling to SFU students; instead refer to SFU's Health and Counselling Centre. Call to arrange an appointment; appointments are available Wednesdays and Thursdays. Closed during the summer from May until mid-August. Offered in partnership with Surrey School District. Copy Text Print Share Add to List Website www.sfu.ca/education/centres-offices/sfu-surrey-counselling-centre.html Contact Reception: 778-782-4913 Email: scc_admin@sfu.ca Address 250-13450 102 Avenue, Room 4350 Surrey, BC, V3T 0A3 Mailing Address 250-13450 102 Avenue, Room 4350 Surrey, BC, V3T 0A3 Open in Google Maps Back to Top Contact Us Terms of Service Privacy Policy Talk to a two one one 211 Navigator 9am-9pm Weekd ays (excl. Holidays) Call 2-1-1 Live Chat Text (SMS) to 2-1-1 Email United Way British Columbia acknowledges the homelands of the Indigenous Peoples of this place we now call British Columbia, and honours",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "insufficient_context",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "insufficient_context",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the address of the SFU Surrey Counselling Centre, which is the target program. The address is given in the format of a physical location, which is consistent with the evidence provided.",
+                "evidence_phrase": "Address 250-13450 102 Avenue, Room 4350 Surrey, BC, V3T 0A3",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"SFU Surrey Counselling Centre\" \"Unit 250, 13450 102 Avenue\"",
+                "status": "not_confirmed",
+                "confirmations": [
+                  {
+                    "url": "https://www.sfu.ca/education/community-engagement/surrey-community-counselling/contact.html",
+                    "title": "Contact Us - SFU Surrey Community Counselling - Simon Fraser University",
+                    "matched_address": "Unit 250, 13450 102 Avenue",
+                    "disposition": "site_context_unknown",
+                    "linkage_reason": "insufficient_context",
+                    "source_quality": "credible_primary",
+                    "context": "Contact Us - SFU Surrey Community Counselling - Simon Fraser University Skip to content Skip to main navigation sfu.ca F T I MENU Faculty of Education SFU Surrey Community Counselling Sign In SFU Mail go SFU Canvas Search This Site SFU.ca About Contact Us Resources Contact CONTACT US SFU Community Counselling Surrey Campus 4th Floor, Room 4350 250-13450 102 Avenue Surrey, BC, V3T 0A3 Email: scc_admin@sfu.ca Clinic Reception: 778-782-4913 Before Scheduling Your Initial Appointment We will arrange a time to talk with you on the telephone about your counselling needs so that we can ensure our services are a good fit. If our services do not match your needs, we will assist you in finding other mental health resources. We wish to help you with your counselling needs and will be happy to ans"
+                  }
+                ]
+              }
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "8935e23e85a3d5357e069d4c",
+          "current_candidate_count": 1,
+          "structure_blocks": 47,
+          "new_structured_candidates": []
+        },
+        {
+          "url": "https://bc.211.ca/agency-details/simon-fraser-university-sfu-9488034",
+          "legacy_candidate_count": 4,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "8888 University Drive",
+              "context": "students, including tutoring services and writing support. Offers Indigenous student services and student financial aid to support Indigenous students. Also offers cultural workshops, social events, and Elders-in-Residence. The main campus is in Burnaby, and also has campuses in Vancouver and Surrey. Copy Text Print Share Website www.sfu.ca Contact Phone: 778-782-3111 Student Services: 778-782-6930 Security: 778-782-7991 Address Burnaby Campus, 8888 University D rive Burnaby, BC, V5A 1S6 Mailing Address Burnaby Campus, 8888 University Drive Burnaby, BC, V5A 1S6 Open in Google Maps 2 services offered by: Simon Fraser University (SFU) SFU Clinical Psychology Centre Add to List Provided by Simon Fraser University (SFU) 1 other services offered by this agency Assesses and treats psychological and behavioural problems in adults, adolescents, children, couples, and families. Assesses and trea",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "multi_site_without_program_binding",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the address of the SFU Surrey Counselling Centre, which is the target program. The organization is Simon Fraser University, and the address is 8888 University Drive, Burnaby, BC, V5A 1S6. This directly supports the target.",
+                "evidence_phrase": "Address Burnaby Campus, 8888 University Drive Burnaby, BC, V5A 1S6",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"SFU Surrey Counselling Centre\" \"8888 University Drive\"",
+                "status": "not_confirmed",
+                "confirmations": [
+                  {
+                    "url": "https://www.sfu.ca/education/community-engagement/surrey-community-counselling/contact.html",
+                    "title": "Contact Us - SFU Surrey Community Counselling",
+                    "matched_address": "8888 University Drive",
+                    "disposition": "site_context_unknown",
+                    "linkage_reason": "insufficient_context",
+                    "source_quality": "credible_primary",
+                    "context": "owing criteria: Be comfortable working with a supervised master's level graduate student Consent to video recording of sessions (all video recordings are deleted at the end of the school year) Not currently involved in any legal proceedings (e.g. custody, criminal, ICBC claims etc.) No current active substance m isuse Able to attend sessions at the same time and day each week SFU Surrey Community Counselling About Contact Us Resources Contact us 8888 University Drive Burnaby, B.C. Canada V5A 1S6 Safety &amp; Risk SFU Maps &amp; Directions SFU Admissions Road Report Give to SFU Emergency Information A-Z Directory Simon Fraser University respectfully acknowledges the xʷməθkʷəy̓əm (Musqueam), Sḵwx̱wú7mesh Úxwumixw (Squamish), səlilwətaɬ (Tsleil-Waututh), q̓íc̓əy̓ (Katzie), kʷikʷəƛ̓əm (Kwikwetlem), Qayqayt, Kwantlen, Semiahmoo and Tsawwassen peoples on whose unceded traditional territories o"
+                  },
+                  {
+                    "url": "https://www.sfu.ca/education/community-engagement/surrey-community-counselling.html",
+                    "title": "SFU Surrey Community Counselling - Simon Fraser University",
+                    "matched_address": "8888 University Drive",
+                    "disposition": "site_context_unknown",
+                    "linkage_reason": "insufficient_context",
+                    "source_quality": "credible_primary",
+                    "context": "ounselling services for Fall 2026 and Spring 2027, with free individual counselling sessions being offered three afternoons per week. See our information sheet for additional details. To make a request for service, please leave a phone message at 778-782-4913 or email us at scc_admin@sfu.ca including your name and contact information. Download the 2026-2027 Information Sheet SFU Surrey Community Counselling About Contact Us Resour ces Contact us 8888 University Drive Burnaby, B.C. Canada V5A 1S6 Safety &amp; Risk SFU Maps &amp; Directions SFU Admissions Road Report Give to SFU Emergency Information A-Z Directory Simon Fraser University respectfully acknowledges the xʷməθkʷəy̓əm (Musqueam), Sḵwx̱wú7mesh Úxwumixw (Squamish), səlilwətaɬ (Tsleil-Waututh), q̓íc̓əy̓ (Katzie), kʷikʷəƛ̓əm (Kwikwetlem), Qayqayt, Kwantlen, Semiahmoo and Tsawwassen peoples on whose unceded traditional territories o"
+                  },
+                  {
+                    "url": "https://www.healthlinkbc.ca/find-care/find-health-services/program/student-counselling-services",
+                    "title": "Student Counselling Services",
+                    "matched_address": "8888 University Drive",
+                    "disposition": "site_context_unknown",
+                    "linkage_reason": "insufficient_context",
+                    "source_quality": "authoritative_primary",
+                    "context": "nselling services for all Simon Fraser University students. Services include individual and group counselling, suicide prevention training, mental health information and resources, violence support, and help with depression, anxiety, trauma, stress and student life. Agency Simon Fraser University Proximity Distance &gt; Units: Kilometers Origin Coordinates Latitude Longitude Value in decimal degrees. Use dot (.) as decimal separator. Location ID 8888 University Drive , Burnaby , BC V5A 1S6 Simon Fraser University - Burnaby Campus Located in the Maggie Benston Centre, room 0101 Proximity Distance &gt; Units: Kilometers Origin Coordinates Latitude L ongitude Value in decimal degrees. Use dot (.) as decimal separator. Other sites Surrey 13450 102A Avenue , Surrey , BC V3T 0A3 Simon Fraser University - Surrey Campus Vancouver 515 W Hastings Street , Vancouver , BC V6B 5K3 Simon Fraser Univer"
+                  }
+                ]
+              }
+            },
+            {
+              "address": "Unit 9044, 88 88 University Drive",
+              "context": "nefits plan. Referring physicians should not fax patient file documents to the clinic unless it has been requested by the CPC. Patients should call the Centre directly to inquire about available services. Referrals are only required for neuropsychological assessments. No access to interpretation service. Daytime and evening appointments are available Monday to Friday. Website www.sfu.ca/psychology/clinical-psychology-centre Address Saywell Hall, 9044-88 88 University Drive Burnaby, BC, V5A 1S6 Show Details Services are provided by graduate students in the Clinical Psychology Program. Student clinicians are supervised by clinical faculty and community associates who are typically registered psychologists. Fees are on a sliding scale based on the service requested and gross family income. Does not offer service to individuals who are in acute crisis, are currently involved in legal proceed",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 1,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            },
+            {
+              "address": "Unit 9044, 8888 University Drive",
+              "context": "nefits plan. Referring physicians should not fax patient file documents to the clinic unless it has been requested by the CPC. Patients should call the Centre directly to inquire about available services. Referrals are only required for neuropsychological assessments. No access to interpretation service. Daytime and evening appointments are available Monday to Friday. Website www.sfu.ca/psychology/clinical-psychology-centre Address Saywell Hall, 9044-88 88 University Drive Burnaby, BC, V5A 1S6 Show Details Services are provided by graduate students in the Clinical Psychology Program. Student clinicians are supervised by clinical faculty and community associates who are typically registered psychologists. Fees are on a sliding scale based on the service requested and gross family income. Does not offer service to individuals who are in acute crisis, are currently involved in legal proceed",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 2,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            },
+            {
+              "address": "Unit 250, 13450 102 Avenue",
+              "context": "students offer free individual counselling to those who l ive in Surrey. Does not provide counselling to SFU students; instead refer to SFU's Health and Counselling Centre. Call to arrange an appointment; appointments are available Wednesdays and Thursdays. Closed during the summer from May until mid-August. Offered in partnership with Surrey School District. Website www.sfu.ca/education/centres-offices/sfu-surrey-counselling-centre.html Address 250-13450 102 Avenue, Room 4350 Surrey, BC, V3T 0A3 Show Details Does not provide counselling to SFU students; instead refer to SFU's Health and Counselling Centre. Call to arrange an appointment; appointments are available Wednesdays and Thursdays. Closed during the summer from May until mid-August. Offered in partnership with Surrey School District. Copy Text Print Share Open in New Tab Open in Google Maps Mailing Address 250-13450 102 Avenue,",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 3,
+              "old_rule_failure_reason": "multi_site_without_program_binding"
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "1c4584204c7a9ee58069c349",
+          "current_candidate_count": 4,
+          "structure_blocks": 71,
+          "new_structured_candidates": []
+        }
+      ]
+    },
+    {
+      "resource_id": "3298ffbd-a95c-54e5-b0d1-12181a972d52",
+      "name": "SMART Recovery",
+      "organization": "SMART Recovery",
+      "locality": "Multiple",
+      "sources": [
+        {
+          "url": "https://smartrecovery.org/multiple-pathways-partner-program",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "source_no_longer_trusted",
+          "candidates": [],
+          "error": "farm_source_not_approved",
+          "unreconstructed_candidates": [
+            {
+              "legacy_candidate_slot": 1,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            }
+          ]
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/SMART_Recovery",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 1,
+          "fetch_status": "source_no_longer_trusted",
+          "candidates": [],
+          "error": "farm_source_not_approved",
+          "unreconstructed_candidates": [
+            {
+              "legacy_candidate_slot": 1,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource_id": "73dc0db8-bc90-5dbb-97da-6a4f10310378",
+      "name": "Stó:lō Service Agency - Service Navigator",
+      "organization": "Stó:lō Service Agency",
+      "locality": "Chilliwack",
+      "sources": [
+        {
+          "url": "https://bc.211.ca/result/stolo-primary-health-care-centre-93593008",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "Unit 7, 7201 Vedder Road",
+              "context": "maternal health clinics. Also offers pharmacy services and allied health services, including acupuncture, physiotherapy, and massage therapy. Services are by appointment only. Clinic hours are 8 am to 4 pm Monday to Thursday. Copy Text Print Share Add to List Website www.stolonation.bc.ca/programs-and-services/primary-care Contact Phone: 604-824-3219 Phone: 1-844-827-2473 Allied Health Services: 604-824-3200 Email: info@stolonation.bc.ca Address 7-7201 Vedder Road Chilliwack, BC, V2R 4G5 Mailing Address 7-7201 Vedder Road Chilliwack, BC, V2R 4G5 Open in Google Maps Back to Top Contact Us Terms of Service Privacy Policy Talk to a two one one 211 Navigator 9am-9pm Weekdays (excl. Ho lidays) Call 2-1-1 Live Chat Text (SMS) to 2-1-1 Email United Way British Columbia acknowledges the homelands of the Indigenous Peoples of this place we now call British Columbia, and honours the many territori",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "global_footer_or_admin",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "global_footer_or_admin",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the address of the Stó:lō Service Agency's program, which is the target program in the question.",
+                "evidence_phrase": "Address 7-7201 Vedder Road Chilliwack, BC, V2R 4G5",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"Stó:lō Service Agency - Service Navigator\" \"Unit 7, 7201 Vedder Road\"",
+                "status": "not_confirmed",
+                "confirmations": []
+              }
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "66cf31522f6a41fae13bbcf0",
+          "current_candidate_count": 1,
+          "structure_blocks": 49,
+          "new_structured_candidates": []
+        }
+      ]
+    },
+    {
+      "resource_id": "5a38b5c7-bd0e-5b9e-8e8c-acf612b93d85",
+      "name": "The CORE (VCH)",
+      "organization": "Vancouver Coastal Health",
+      "locality": "Vancouver",
+      "sources": [
+        {
+          "url": "https://bc.211.ca/result/the-core-community-outpatient-recovery-experience-63201516",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 1,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "1669 East Broadway",
+              "context": "ugh Access Central (hours are 9 am to 9 pm daily) or walk-in to the Robert and Lily Lee Family Community Healt h Centre during business hours (8:30 am to 4:30 pm Monday to Friday). Copy Text Print Share Add to List Website www.vch.ca/en/location-service/core-community-outpatient-recovery-experience Contact Access Central Detox Referral Line: 1-866-658-1221 Phone: 604-675-2455 Local 3 Address Robert and Lily Lee Community Health Centre, 3rd Floor-1669 East Broadway Vancouver, BC, V5N 1V9 Mailing Address Robert and Lily Lee Community Health Centre, 1669 East Broadway Vancouver, BC, V5N 1V9 Open in Google Maps Back to Top Contact Us Terms of Service Privacy Policy Talk to a two one one 211 Navigator 9am-9pm Weekdays (excl. Holidays) Call 2-1-1 Live Chat Text (SMS) to 2-1-1 Email United Way British Columbia acknowledges the homelands of the Indigenous Peoples of this place we now call Britis",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "program_site_supported",
+              "current_rule_supported": true,
+              "structural_linkage_supported": false,
+              "linkage_reason": "reader_chunk_boundary",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "previously_supported"
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "343626cb3b7df7070159ffeb",
+          "current_candidate_count": 1,
+          "structure_blocks": 47,
+          "new_structured_candidates": []
+        }
+      ]
+    },
+    {
+      "resource_id": "c7458796-9b74-59d3-be05-5e00ed112065",
+      "name": "Tri-Cities Opioid Agonist Treatment (OAT) Clinic - Result - 211 British Columbia",
+      "organization": "Web Search",
+      "locality": "All Cities",
+      "sources": [
+        {
+          "url": "https://bc.211.ca/result/tri-cities-opioid-agonist-treatment-oat-clinic-59980630",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 1,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "Unit 1, 2232 Elgin Avenue",
+              "context": "s Connecting You to H elpful, Vital Resources Learn more about who we are, what we do, and how to get in touch. About Us Team Frequently Asked Questions Contact Us Are you a service provider? Get started with 211 Looking for services? Get free help from 211 Your List Languages English français Yкраїнська Pосійський عربي 中文简体 中文繁體 Tagalog فارسی Dari Pashtu ਪੰਜਾਬੀ español Talk to a two one one 211 Navigator 9am-9pm Weekdays (excl. Holidays) Call 2-1-1 For emergencies, call 9-1-1 instead. Live Chat Text (SMS) to 2-1-1 Email Search All Resources Other Ways to Get Help Talk to a two one one 211 Navigator 9am-9pm Weekdays (excl. Holidays) Call Chat Text Email Search For emergencies, call 9-1-1 instead. Live Chat Close Talk to a two one one 211 Navigator 9am-9pm Weekdays (excl. Holidays) Ad blockers and mobile devices may not be fully compatible. Open Chat &times; Close Chat Service Tri-Cities",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "program_site_supported",
+              "current_rule_supported": true,
+              "structural_linkage_supported": false,
+              "linkage_reason": "reader_chunk_boundary",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "previously_supported"
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "5efe60d12ed588dd37c8e118",
+          "current_candidate_count": 1,
+          "structure_blocks": 47,
+          "new_structured_candidates": []
+        }
+      ]
+    },
+    {
+      "resource_id": "6aea60bf-ec24-5ddc-a997-621c58becf47",
+      "name": "Vancouver Addictions Matrix Program - HelpStartsHere",
+      "organization": "Web Search",
+      "locality": "All Cities",
+      "sources": [
+        {
+          "url": "https://bc.211.ca/result/vamp-vancouver-addictions-matrix-program-9508833",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 1,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "1128 Hornby Street",
+              "context": "am operates mainly on Tuesday and Friday afternoons. Both streams offer online and in person options; call for details. Free interpretation service in available for various languages. Serves residents of Vancouver. Copy Text Print Share Add to List Website www.vch.ca/en/service/vancouver-addiction-matrix-program-vamp Contact VAMP: 604-331-8905 Three Bridges Reception: 604-331-8900 Fax: 604-714-6264 Address Three Bridges Community Heal th Centre, 1128 Hornby Street Vancouver, BC, V6Z 2L4 Mailing Address Three Bridges Community Health Centre, 1128 Hornby Street Vancouver, BC, V6Z 2L4 Open in Google Maps Back to Top Contact Us Terms of Service Privacy Policy Talk to a two one one 211 Navigator 9am-9pm Weekdays (excl. Holidays) Call 2-1-1 Live Chat Text (SMS) to 2-1-1 Email United Way British Columbia acknowledges the homelands of the Indigenous Peoples of this place we now call British Colu",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "program_site_supported",
+              "current_rule_supported": true,
+              "structural_linkage_supported": false,
+              "linkage_reason": "reader_chunk_boundary",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "previously_supported"
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "4d4a5685443f09a8962c9794",
+          "current_candidate_count": 1,
+          "structure_blocks": 48,
+          "new_structured_candidates": []
+        }
+      ]
+    },
+    {
+      "resource_id": "0b45e543-bdc5-5948-bad9-83e1530ccd28",
+      "name": "Watari",
+      "organization": "Watari",
+      "locality": "Vancouver",
+      "sources": [
+        {
+          "url": "https://bc.211.ca/agency-details/watari-counselling-and-support-services-9488186",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "Unit 200, 678 East Hastings Street",
+              "context": "eekdays (excl. Holidays) Ad blockers and mobile devices may not be fully compatible. Open Chat &times; Close Chat Service Provider Watari Counselling and Su pport Services See all services offered here. Provides services to the Downtown Eastside community, as well as youth-focused programs. Operates the Watari Wellness Centre. Nonprofit society. Copy Text Print Share Website www.watari.ca Contact Phone: 604-254-6995 Email: info@watari.ca Address 200-678 East Hastings Street Vancouver, BC, V6A 1R1 Mailing Address 200-678 East Hastings Street Vancouver, BC, V6A 1R1 Open in Google Maps 4 services offered by: Watari Counselling and Support Services Community Counselling Add to List Provided by Watari Counselling and Support Services 3 other services offered by this agency Provides counselling to individuals, couples, and families, in Vancouver's Downtown Eastside and other areas of Vancouver",
+              "extraction_method": "trusted_source_civic_context_v1",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": false,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": null,
+              "order": 0,
+              "old_rule_failure_reason": "multi_site_without_program_binding",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the exact address of the target program, Unit 200, 678 East Hastings Street, Vancouver, BC, Canada.",
+                "evidence_phrase": "Address 200-678 East Hastings Street Vancouver, BC, V6A 1R1",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"Watari\" \"Unit 200, 678 East Hastings Street\"",
+                "status": "not_confirmed",
+                "confirmations": []
+              }
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "9f18337cd50a26c94be93d58",
+          "current_candidate_count": 1,
+          "structure_blocks": 93,
+          "new_structured_candidates": []
+        },
+        {
+          "url": "https://causes.benevity.org/causes/124-119288900RR0001",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "source_no_longer_trusted",
+          "candidates": [],
+          "error": "farm_source_not_approved",
+          "unreconstructed_candidates": [
+            {
+              "legacy_candidate_slot": 1,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "resource_id": "b6462e3f-47b3-57bd-9333-e26bafcf1ead",
+      "name": "Watari Counselling and Support Services",
+      "organization": "Watari",
+      "locality": "Vancouver",
+      "sources": [
+        {
+          "url": "https://bc.211.ca/agency-details/watari-counselling-and-support-services-9488186",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "read",
+          "candidates": [
+            {
+              "address": "Unit 200, 678 East Hastings Street",
+              "context": "eekdays (excl. Holidays) Ad blockers and mobile devices may not be fully compatible. Open Chat &times; Close Chat Service Provider Watari Counselling and Su pport Services See all services offered here. Provides services to the Downtown Eastside community, as well as youth-focused programs. Operates the Watari Wellness Centre. Nonprofit society. Copy Text Print Share Website www.watari.ca Contact Phone: 604-254-6995 Email: info@watari.ca Address 200-678 East Hastings Street Vancouver, BC, V6A 1R1 Mailing Address 200-678 East Hastings Street Vancouver, BC, V6A 1R1 Open in Google Maps 4 services offered by: Watari Counselling and Support Services Community Counselling Add to List Provided by Watari Counselling and Support Services 3 other services offered by this agency Provides counselling to individuals, couples, and families, in Vancouver's Downtown Eastside and other areas of Vancouver",
+              "extraction_method": "trusted_source_section_block_v2",
+              "program_site_disposition": "site_context_unknown",
+              "current_rule_supported": false,
+              "structural_linkage_supported": true,
+              "linkage_reason": "multi_site_without_program_binding",
+              "title_distance": null,
+              "title_direction": null,
+              "structural_context": {
+                "structure_id": "structure_032",
+                "kind": "section_block",
+                "heading": "4 services offered by: Watari Counselling and Support Services",
+                "text": "4 services offered by: Watari Counselling and Support Services Community Counselling Add to List Provided by Watari Counselling and Support Services 3 other services offered by this agency Provides counselling to individuals, couples, and families, in Vancouver's Downtown Eastside and other areas of Vancouver. Provides counselling to individuals, couples, and families, in Vancouver's Downtown Eastside and other areas of Vancouver. Addresses mental health, social, and emotional challenges. Services also offered in Dari, Farsi, Hindi, Punjabi, Spanish, and Vietnamese. Website www.watari.ca Address 200-678 East Hastings Street Vancouver, BC, V6A 1R1 Show Details Addresses mental health, social, and emotional challenges. Services also offered in Dari, Farsi, Hindi, Punjabi, Spanish, and Vietnamese. Copy Text Print Share Open in New Tab Open in Google Maps Mailing Address 200-678 East Hastings Street Vancouver, BC, V6A 1R1 Contact Phone: 604-254-6995 Email: info@watari.ca Submit an update about this service Copy Text Print Share Open in New Tab Add to List Integrated Youth Outreach Team Add to List Provided by Watari Counselling and Support Services 3 other services offered by this agency Works with youth ages 12 to 24, providing outreach, housing support, and community connections. Works with youth ages 12 to 24, providing outreach, housing support, and community connections. Offers housing subsidies, essential supplies, lay counselling, family reconnection services, and referrals to other community services. Holds weekly drop-in and community kitchen, life skills programming, ",
+                "attributes": "class=\"services content content--wide\" id=\"services\""
+              },
+              "order": 0,
+              "old_rule_failure_reason": "multi_site_without_program_binding",
+              "local_light": {
+                "classification": "program_site_supported",
+                "reason": "The text provides the address of the organization's main office, which is consistent with the target program's services and operations.",
+                "evidence_phrase": "Address 200-678 East Hastings Street Vancouver, BC, V6A 1R1",
+                "model": "qwen2.5:1.5b",
+                "advisory_only": true,
+                "mutation_authority": false
+              },
+              "targeted_verification": {
+                "query": "\"Watari Counselling and Support Services\" \"Unit 200, 678 East Hastings Street\"",
+                "status": "not_confirmed",
+                "confirmations": []
+              }
+            }
+          ],
+          "source_quality": "credible_primary",
+          "source_fingerprint": "9f18337cd50a26c94be93d58",
+          "current_candidate_count": 1,
+          "structure_blocks": 93,
+          "new_structured_candidates": []
+        },
+        {
+          "url": "https://causes.benevity.org/causes/124-119288900RR0001",
+          "legacy_candidate_count": 1,
+          "legacy_supported_count": 0,
+          "fetch_status": "source_no_longer_trusted",
+          "candidates": [],
+          "error": "farm_source_not_approved",
+          "unreconstructed_candidates": [
+            {
+              "legacy_candidate_slot": 1,
+              "old_rule_failure_reason": "source_no_longer_trusted",
+              "program_site_disposition": "unrelated_site",
+              "diagnostic_detail_available": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "local_light_summary": {
+    "calls": 30,
+    "reviewed": 30,
+    "classifications": [
+      {
+        "classification": "program_site_supported",
+        "count": 26
+      },
+      {
+        "classification": "insufficient_evidence",
+        "count": 4
+      }
+    ],
+    "advisory_promotions": 0
+  },
+  "targeted_verification_summary": {
+    "calls": 22,
+    "trusted_fetch_attempts": 49,
+    "deterministically_confirmed": 0
+  },
+  "production_validation": {
+    "mode": "publish",
+    "completed_at": "2026-09-05T23:15:50.314Z",
+    "results": [
+      {
+        "resourceId": "5a38b5c7-bd0e-5b9e-8e8c-acf612b93d85",
+        "name": "The CORE (VCH)",
+        "source": {
+          "url": "https://bc.211.ca/result/the-core-community-outpatient-recovery-experience-63201516",
+          "locality": "Vancouver",
+          "title": "The CORE - BC 211"
+        },
+        "outcome": "probable_existing_match",
+        "existing_resource": {
+          "id": "57f04dc9-110b-5cb1-aff2-e13fb6e7904c",
+          "display_name": "The CORE (Community Outpatient Recovery Experience)",
+          "overlap": 1
+        },
+        "publication_attempted": false
+      },
+      {
+        "resourceId": "c7458796-9b74-59d3-be05-5e00ed112065",
+        "name": "Tri-Cities Opioid Agonist Treatment (OAT) Clinic - Result - 211 British Columbia",
+        "source": {
+          "url": "https://bc.211.ca/result/tri-cities-opioid-agonist-treatment-oat-clinic-59980630",
+          "locality": "Port Coquitlam",
+          "title": "Tri-Cities OAT Clinic - BC 211"
+        },
+        "outcome": "single_location_supported",
+        "publication_attempted": false,
+        "candidates": [
+          {
+            "address": "Unit 1, 2232 Elgin Avenue",
+            "disposition": "program_site_supported",
+            "linkage_reason": "reader_chunk_boundary"
+          }
+        ],
+        "publications": [
+          {
+            "outcome": "geocoder_ambiguous"
+          }
+        ]
+      },
+      {
+        "resourceId": "6aea60bf-ec24-5ddc-a997-621c58becf47",
+        "name": "Vancouver Addictions Matrix Program - HelpStartsHere",
+        "source": {
+          "url": "https://bc.211.ca/result/vamp-vancouver-addictions-matrix-program-9508833",
+          "locality": "Vancouver",
+          "title": "VAMP - BC 211"
+        },
+        "outcome": "single_location_supported",
+        "publication_attempted": true,
+        "candidates": [
+          {
+            "address": "1128 Hornby Street",
+            "disposition": "program_site_supported",
+            "linkage_reason": "reader_chunk_boundary"
+          }
+        ],
+        "publications": [
+          {
+            "outcome": "published",
+            "preflight": {
+              "status": "eligible_publicly_listed_location",
+              "decision": "eligible_publicly_listed_location",
+              "locality": "Vancouver",
+              "coordinates": {
+                "latitude": 49.2789284,
+                "longitude": -123.1268463
+              },
+              "shared_site": "allowed",
+              "evidence_tier": "publicly_listed_location",
+              "geocoder_type": "parcelpoint",
+              "geocoder_score": 100,
+              "policy_version": "practical_public_location_v1",
+              "canonical_address": "1128 Hornby St, Vancouver, BC",
+              "existing_location_mode": "new_location"
+            },
+            "publication": {
+              "status": "published",
+              "claim_id": "0f83e27c-0f83-400a-a5b6-6db7814ba44c",
+              "receipt_id": "d576906d-4fa9-4525-b661-09e0a32d91b8",
+              "location_id": "c7e02ee9-d3b4-49c6-b1b2-57284232984e",
+              "evidence_tier": "publicly_listed_location",
+              "publication_result": "published",
+              "source_evidence_id": "d2878e73-3c86-469d-bb42-fc9dc1b0c35e",
+              "geocoder_evidence_id": "4571d8da-b0d4-4757-ae70-d2dfd492310f"
+            },
+            "geocoder": {
+              "provider": "bc_address_geocoder",
+              "standardized_address": "1128 Hornby St, Vancouver, BC",
+              "returned_address": "1128 Hornby St, Vancouver, BC",
+              "locality": "Vancouver",
+              "score": 100,
+              "precision": "civic_number",
+              "precision_points": 100,
+              "location_descriptor": "parcelpoint",
+              "site_id": "6da9630b-337f-48e0-86e9-e3522a96dfa2",
+              "municipality_match": true,
+              "province_match": true,
+              "civic_number_match": true,
+              "street_match": true,
+              "valid_coordinate": true,
+              "materially_faulted": false,
+              "result_count": 5,
+              "candidate_identity_clear": true,
+              "materially_competing_candidate": false,
+              "coordinates": {
+                "latitude": 49.2789284,
+                "longitude": -123.1268463
+              }
+            },
+            "canonical_address": "1128 Hornby Street"
+          }
+        ]
+      }
+    ]
+  }
+}

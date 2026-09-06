@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react"
 
 import listening from "../data/miller-north-live-listening-public-v1.json"
-import MillerNorthPublicNav from "./MillerNorthPublicNav.jsx"
+import MillerNorthPublicNav, { MillerNorthHomeLink } from "./MillerNorthPublicNav.jsx"
 import "./MillerNorthLiveListening.css"
 
 const provinceLabels = { british_columbia: "British Columbia", alberta: "Alberta", saskatchewan: "Saskatchewan" }
@@ -14,7 +14,7 @@ export default function MillerNorthLiveListening() {
   const years = useMemo(() => [...new Set(listening.items.map(item => item.event_year || Number(item.source_publication_date?.slice(0, 4))).filter(Boolean))].sort((a, b) => b - a), [])
   const items = useMemo(() => listening.items.filter(item => (province === "all" || item.province === province) && (state === "all" || item.evidence_state === state) && (year === "all" || String(item.event_year || item.source_publication_date?.slice(0, 4)) === year)), [province, state, year])
   return <main className="mn-public-page mn-listening-page">
-    <header className="mn-public-header"><a href="/">← Miller resource finder</a><MillerNorthPublicNav current="listening" /></header>
+    <header className="mn-public-header"><MillerNorthHomeLink/><MillerNorthPublicNav current="listening" /></header>
     <section className="mn-public-hero"><p className="mn-public-eyebrow">Miller North · Live Listening</p><h1>What is being publicly reported now?</h1><p>Recent public-source reports Miller North is reviewing. These items are less developed than records in the Evidence Library and should not be read as findings simply because they appear here.</p></section>
     <ol className="mn-layer-flow" aria-label="How evidence can mature"><li><strong>Live Listening</strong><span>A public incident-like report or signal is identified.</span></li><li><strong>Verification and reconciliation</strong><span>Sources, dates and incident identity are checked.</span></li><li><strong>Evidence Library</strong><span>A developed record may be published after review—or retained only as context.</span></li></ol>
     <aside className="mn-public-note"><strong>Following an institutional response?</strong> <a href="/indigenous-healthcare-evidence/watching-now">Watching Now</a> follows developing accountability and policy stories that are deeper than a single signal but not yet mature Research &amp; Policy cases.</aside>

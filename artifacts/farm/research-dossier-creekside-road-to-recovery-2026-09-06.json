@@ -1,0 +1,326 @@
+{
+  "schema_version": "farm-research-dossier-v1",
+  "dossier_id": "farm_dossier_miller_creekside_road_to_recovery_v1",
+  "canonical_fixture_id": "farm_fixture_miller_creekside_backstory_v1",
+  "research_date": "2026-09-06",
+  "publication_scope": "private_owner_review",
+  "production_mutations": 0,
+  "publication_mutations": 0,
+  "owner_synthesis": {
+    "what_this_is": "Creekside Withdrawal Management Centre is a current Fraser Health service and a named implementation site within British Columbia’s Road to Recovery expansion. This dossier connects the provincewide commitment to a ten-bed local expansion, current service identity and later utilization reporting.",
+    "what_we_learned": [
+      "The Province announced nearly $154 million over three years for the provincewide Road to Recovery expansion, including 100 beds and regional access pathways.",
+      "Fraser Health later identified Creekside as the site of ten additional withdrawal-management beds, with staffing and transportation support.",
+      "The current Fraser Health directory corroborates Creekside’s continued operation and its Miller curated-resource identity.",
+      "Ministry reporting provides broader Road to Recovery utilization evidence, but the public sources do not allocate a share of the provincewide envelope to Creekside."
+    ],
+    "why_it_matters": "This case shows how Miller can connect a broad policy-and-funding commitment to a verified local resource without incorrectly converting a program envelope into a site-level amount.",
+    "what_remains_unclear": [
+      "What portion, if any, of the nearly $154-million provincewide envelope was allocated to Creekside?",
+      "Are Creekside-specific utilization and capacity measures published after the ten-bed expansion?"
+    ],
+    "recommended_next_move": "Keep the Creekside backstory private while seeking a narrow official allocation or implementation record; do not display the provincewide amount as Creekside funding."
+  },
+  "identity": {
+    "canonical_name": "Creekside Withdrawal Management Centre — Road to Recovery expansion",
+    "domain": "miller_addictions",
+    "subject_type": "curated_resource_backstory",
+    "location_jurisdiction": "Surrey, British Columbia",
+    "status": "operationally_verified_private_backstory",
+    "identifiers": ["curated:1ldala", "mrbp_creekside_withdrawal", "fmoney_miller_road_expansion_154m"]
+  },
+  "timeline": [
+    {
+      "timeline_id": "fdtimeline_creekside_road_launch_2023",
+      "date_or_range": "2023-10-11",
+      "event_type": "program_launch",
+      "title": "Road to Recovery launched in Vancouver",
+      "short_description": "The Province described a standardized access-and-treatment model supported by $23.7 million in annual program funding.",
+      "organization": "Government of British Columbia",
+      "relationship": "created_by",
+      "source_references": ["fdsource_creekside_road_launch"],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "fdtimeline_creekside_expansion_commitment_2024",
+      "date_or_range": "2024-07-22",
+      "event_type": "program_commitment",
+      "title": "Provincewide Road to Recovery expansion announced",
+      "short_description": "The Province announced nearly $154 million over three years for 100 beds, outpatient services and regional access lines.",
+      "organization": "Government of British Columbia",
+      "relationship": "announced_by",
+      "source_references": ["fdsource_creekside_bc_expansion"],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "fdtimeline_creekside_utilization_2025",
+      "date_or_range": "2024-04-01 to 2025-03-31",
+      "event_type": "utilization_reporting",
+      "title": "Road to Recovery utilization reported",
+      "short_description": "The Ministry’s annual report provides call and bed-access measures for the wider model, not a Creekside-only outcome assessment.",
+      "organization": "British Columbia Ministry of Health",
+      "relationship": "evaluated_by",
+      "source_references": ["fdsource_creekside_health_annual"],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "fdtimeline_creekside_ten_beds_2026",
+      "date_or_range": "2026-02-03",
+      "event_type": "service_expansion",
+      "title": "Ten added Creekside beds reported operational",
+      "short_description": "Fraser Health named Creekside, the added bed count and related implementation supports.",
+      "organization": "Fraser Health",
+      "relationship": "expanded_by",
+      "source_references": ["fdsource_creekside_fraser_expansion", "fdsource_creekside_current_service"],
+      "confidence": "high"
+    }
+  ],
+  "organizations": [
+    {"name": "Government of British Columbia", "role": "program and funding authority"},
+    {"name": "British Columbia Ministry of Health", "role": "program reporting"},
+    {"name": "Fraser Health", "role": "operator and regional implementation authority"},
+    {"name": "Creekside Withdrawal Management Centre", "role": "named operational service and Miller resource"}
+  ],
+  "policy_law_governance": [
+    {
+      "title": "Road to Recovery service model",
+      "context_scope": "directly_applicable",
+      "summary": "A formal provincial program model established standardized access, withdrawal management and transition pathways; this is policy/program context, not legislation.",
+      "source_references": ["fdsource_creekside_road_launch", "fdsource_creekside_bc_expansion"]
+    },
+    {
+      "title": "Regional implementation by Fraser Health",
+      "context_scope": "governance_context",
+      "summary": "Fraser Health is the operational authority that identified Creekside as a named expansion site.",
+      "source_references": ["fdsource_creekside_fraser_expansion", "fdsource_creekside_current_service"]
+    }
+  ],
+  "accountability": [
+    {
+      "title": "Road to Recovery access-and-capacity commitment",
+      "summary": "The policy chain tracks a government commitment to expand access and capacity and later evidence of a named local implementation.",
+      "source_references": ["fdsource_creekside_bc_expansion", "fdsource_creekside_fraser_expansion"]
+    }
+  ],
+  "funding_public_money": [
+    {
+      "title": "Nearly $154-million provincewide envelope",
+      "amount_cad": 154000000,
+      "funding_type": "program_envelope",
+      "attribution_scope": "program_level",
+      "recipient": "regional health authorities and participating providers",
+      "summary": "The amount supports the wider three-year expansion and cannot be allocated to Creekside from the assembled public sources.",
+      "source_references": ["fdsource_creekside_bc_expansion"]
+    }
+  ],
+  "service_real_world_implementation": [
+    {
+      "title": "Creekside ten-bed expansion",
+      "summary": "Fraser Health reported ten added withdrawal-management beds at Creekside, along with implementation supports.",
+      "source_references": ["fdsource_creekside_fraser_expansion"]
+    },
+    {
+      "title": "Current Creekside resource",
+      "summary": "The current service page corroborates identity, location and ongoing operation for Miller curated resource curated:1ldala.",
+      "source_references": ["fdsource_creekside_current_service"]
+    }
+  ],
+  "implementation_evidence": [
+    {
+      "state": "operational",
+      "date": "2026-02-03",
+      "summary": "A health-authority implementation update identifies ten added beds at the named facility.",
+      "source_references": ["fdsource_creekside_fraser_expansion"]
+    },
+    {
+      "state": "operational",
+      "date": "2026-09-06",
+      "summary": "The current facility directory confirms continued service availability.",
+      "source_references": ["fdsource_creekside_current_service"]
+    }
+  ],
+  "audits_follow_up": [
+    {
+      "title": "Wider-program utilization reporting",
+      "summary": "The 2024/25 Ministry annual report documents use of Road to Recovery pathways, but does not isolate Creekside-specific outcomes or expenditure.",
+      "source_references": ["fdsource_creekside_health_annual"]
+    }
+  ],
+  "unresolved_questions": [
+    {
+      "gap_id": "fdgap_creekside_site_allocation",
+      "question": "What share, if any, of the nearly $154-million Road to Recovery envelope was allocated to the Creekside expansion?",
+      "gap_type": "FOI_candidate",
+      "priority": "review_next",
+      "rationale": "The public chain establishes program funding and a named service result but not resource-level attribution."
+    },
+    {
+      "gap_id": "fdgap_creekside_site_metrics",
+      "question": "Are Creekside-specific post-expansion utilization or capacity measures publicly reported?",
+      "gap_type": "official_source_follow_up",
+      "priority": "review_next",
+      "rationale": "Wider-program utilization should not be presented as Creekside-specific performance."
+    }
+  ],
+  "foi_candidates": [
+    {
+      "candidate_id": "fdfoi_creekside_allocation",
+      "status": "draft_not_sent",
+      "organization": "Fraser Health",
+      "exact_missing_information": "Approved budget, funding transfer or implementation record that identifies the amount and funded components for the ten-bed Creekside expansion.",
+      "bounded_date_range": "2024-07-22 to 2026-03-31",
+      "why_it_matters": "It would determine whether the provincewide funding envelope can be narrowed to a resource-level amount.",
+      "public_sources_checked": ["fdsource_creekside_bc_expansion", "fdsource_creekside_fraser_expansion", "fdsource_creekside_health_annual"],
+      "suggested_record_category": "approved project budget, funding-transfer schedule or implementation summary for the Creekside ten-bed expansion",
+      "exclusions": ["private_patient_information", "individual_case_records", "staff_personnel_records"]
+    }
+  ],
+  "evidence_graph": {
+    "nodes_are_domain_references": true,
+    "edges": [
+      {
+        "edge_id": "fdedge_creekside_need_program_response",
+        "from_object_id": "bc_treatment_access_and_capacity_need",
+        "to_object_id": "map_road_to_recovery_launch_2023",
+        "relationship_type": "responds_to",
+        "date": "2023-10-11",
+        "context_scope": "response_context",
+        "neutral_summary": "The Province presented Road to Recovery as a response to treatment-access and continuity needs.",
+        "confidence": "high",
+        "source_references": ["fdsource_creekside_road_launch"]
+      },
+      {
+        "edge_id": "fdedge_creekside_program_funding",
+        "from_object_id": "map_road_to_recovery_expansion_2024",
+        "to_object_id": "fmoney_miller_road_expansion_154m",
+        "relationship_type": "announced_by",
+        "date": "2024-07-22",
+        "funding_scope": "program_level",
+        "neutral_summary": "The Province announced nearly $154 million over three years for the wider expansion.",
+        "confidence": "high",
+        "source_references": ["fdsource_creekside_bc_expansion"]
+      },
+      {
+        "edge_id": "fdedge_creekside_commitment_to_expansion",
+        "from_object_id": "madc_road_100_beds",
+        "to_object_id": "map_creekside_expansion_2026",
+        "relationship_type": "implements",
+        "date": "2026-02-03",
+        "implementation_state": "implemented",
+        "neutral_summary": "Fraser Health’s reported Creekside expansion is a named implementation stage within the wider 100-bed commitment.",
+        "confidence": "high",
+        "source_references": ["fdsource_creekside_bc_expansion", "fdsource_creekside_fraser_expansion"]
+      },
+      {
+        "edge_id": "fdedge_creekside_resource_expanded",
+        "from_object_id": "curated:1ldala",
+        "to_object_id": "map_creekside_expansion_2026",
+        "relationship_type": "expanded_by",
+        "date": "2026-02-03",
+        "funding_scope": "program_level",
+        "implementation_state": "operational",
+        "neutral_summary": "The health authority names Creekside as the facility where ten beds were added, without providing a site-level funding amount.",
+        "confidence": "high",
+        "source_references": ["fdsource_creekside_fraser_expansion"]
+      },
+      {
+        "edge_id": "fdedge_creekside_current_resource",
+        "from_object_id": "map_creekside_expansion_2026",
+        "to_object_id": "curated:1ldala",
+        "relationship_type": "linked_to_resource",
+        "date": "2026-09-06",
+        "implementation_state": "operational",
+        "neutral_summary": "The current Fraser Health directory corroborates the expanded service’s canonical resource identity and operation.",
+        "confidence": "high",
+        "source_references": ["fdsource_creekside_current_service"]
+      },
+      {
+        "edge_id": "fdedge_creekside_wider_utilization",
+        "from_object_id": "map_road_to_recovery_launch_2023",
+        "to_object_id": "bc_health_annual_report_2024_25",
+        "relationship_type": "evaluated_by",
+        "date": "2025",
+        "context_scope": "response_context",
+        "neutral_summary": "The ministry annual report supplies wider-program utilization evidence, not Creekside-specific outcome evidence.",
+        "confidence": "high",
+        "source_references": ["fdsource_creekside_health_annual"]
+      }
+    ]
+  },
+  "owner_assessment": {
+    "significance": "review_first",
+    "confidence": "high",
+    "owner_review": true,
+    "owner_review_reason": "The implementation link is strong, but the public funding amount is program-level and must not be represented as a Creekside allocation.",
+    "recommended_next_action": "Approve the scope-safe backstory and commission one narrow allocation follow-up before any public-facing funding statement."
+  },
+  "quality_assessment": {
+    "band": "strong",
+    "score": 14,
+    "maximum_score": 16,
+    "dimensions": {
+      "identity_confidence": 2,
+      "primary_source_coverage": 2,
+      "timeline_completeness": 2,
+      "policy_legal_coverage": 2,
+      "funding_traceability": 1,
+      "implementation_evidence": 2,
+      "follow_up_evidence": 1,
+      "unresolved_question_burden": 2
+    },
+    "notice": "Research completeness only; this is not a moral, effectiveness, compliance, or reputational score."
+  },
+  "limitations": "The dossier can verify a provincewide commitment, a named Creekside expansion and continued operation. It cannot assign a portion of the wider funding envelope to Creekside or use wider-program utilization as a site-level effectiveness measure.",
+  "source_set": [
+    {
+      "source_id": "fdsource_creekside_road_launch",
+      "source_family_id": "fogs_bc_news_archive",
+      "url": "https://news.gov.bc.ca/releases/2023PREM0069-001909",
+      "title": "New model of addictions care launches in Vancouver",
+      "source_organization": "Government of British Columbia",
+      "authority_class": "official_primary",
+      "role": "program launch and annual funding context",
+      "publication_date": "2023-10-11"
+    },
+    {
+      "source_id": "fdsource_creekside_bc_expansion",
+      "source_family_id": "fogs_bc_news_archive",
+      "url": "https://news.gov.bc.ca/releases/2024MMHA0038-001175",
+      "title": "Road to Recovery expands throughout B.C.",
+      "source_organization": "Government of British Columbia",
+      "authority_class": "official_primary",
+      "role": "program commitment, scope and funding envelope",
+      "publication_date": "2024-07-22"
+    },
+    {
+      "source_id": "fdsource_creekside_fraser_expansion",
+      "source_family_id": "fogs_bc_health_authorities",
+      "url": "https://www.fraserhealth.ca/news/2026/Feb/Expanding-addictions-care-in-Lower-Mainland",
+      "title": "Expanding addictions care in the Lower Mainland",
+      "source_organization": "Fraser Health",
+      "authority_class": "official_primary",
+      "role": "named local implementation",
+      "publication_date": "2026-02-03"
+    },
+    {
+      "source_id": "fdsource_creekside_current_service",
+      "source_family_id": "fogs_bc_health_authorities",
+      "url": "https://www.fraserhealth.ca/Service-Directory/Locations/Surrey/creekside-withdrawal-management-centre",
+      "title": "Creekside Withdrawal Management Centre",
+      "source_organization": "Fraser Health",
+      "authority_class": "official_primary",
+      "role": "current operation and resource identity",
+      "publication_date": null
+    },
+    {
+      "source_id": "fdsource_creekside_health_annual",
+      "source_family_id": "fogs_bc_budget_estimates",
+      "url": "https://www.bcbudget.gov.bc.ca/Annual_Reports/2024_2025/pdf/ministry/hlth.pdf",
+      "title": "Ministry of Health 2024/25 Annual Service Plan Report",
+      "source_organization": "British Columbia Ministry of Health",
+      "authority_class": "official_primary",
+      "role": "wider-program utilization follow-up",
+      "publication_date": "2025"
+    }
+  ]
+}

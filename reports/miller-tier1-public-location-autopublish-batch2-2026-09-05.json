@@ -1,0 +1,10 @@
+{
+  "approval_contract": "miller-tier1-public-location-autopublish-v1",
+  "clean_batch_id": "2fb6e09b-e62c-4007-ac25-e9130eb9e2e0",
+  "clean_audit_hash": "cef2cbd5a34b453077fe8e911f659aebe94e9fe8233c9b313f759b4c45bfcd3f",
+  "proposal_store_path": "/Users/admin/samwise-private/data/miller-uuid-location-proposals-batch2-policy-20260905-r1.sqlite",
+  "final_report_path": "/Users/admin/samwise-private/data/miller-uuid-location-report-batch2-policy-20260905-r1.json",
+  "approved": [
+    {"proposal_id":"miller_uuid_location_8653f17d-1fb7-4fd8-8b8d-d9f39d6fb1eb","resource_id":"7693579c-4fd3-568f-b473-231928dd6e93","name":"Downtown Eastside Connections Clinic","street_address":"623 Powell Street","city":"Vancouver","province":"BC","evidence_hash":"2b60d228eb8318a7a5b857990e7cbcb41a87011062bb26a6ae0772fd8ca99971"}
+  ]
+}

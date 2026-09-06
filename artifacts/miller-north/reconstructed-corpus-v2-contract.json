@@ -1,0 +1,19 @@
+{
+  "contract_version": "miller-north-corpus-contract-v2",
+  "corpus_id": "miller-north-reconstructed-corpus-v2",
+  "created_at": "2026-09-05T23:30:51.482Z",
+  "source_artifact_path": "./src/data/indigenous-healthcare-evidence-public-v1.json",
+  "record_count": 695,
+  "corpus_fingerprint": "fe44723ae68c79eb673c22ef2a00cb14c913ab1ad0ce2c7077fe8b2bce04c744",
+  "provenance_note": "Reconstructed working corpus registered as a new version. It is not the missing original registered Miller North private-corpus checkpoint and must not be represented as continuous with it.",
+  "relationship_to_missing_checkpoint": "successor_reconstruction_without_historical_checkpoint_continuity",
+  "authority": {
+    "read": "miller_north_local_tools",
+    "proposal": "miller_north_private_staging_only",
+    "public_or_production_mutation": "not_authorized"
+  },
+  "schema": [
+    "care_setting,caution,evidence_status,evidence_type,methodology,organization,province,public_record_id,recommendation_action,source,summary,year",
+    "care_setting,evidence_status,evidence_type,methodology,organization,province,public_record_id,recommendation_action,source,summary,year"
+  ]
+}

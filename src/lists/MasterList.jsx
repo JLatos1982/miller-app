@@ -1,9 +1,15 @@
 import { useMemo, useState } from "react"
 import rawResources from "../vancouver_resources_merged_updated.json"
+import practicalSupports from "../data/miller-practical-supports-public-v1.json"
+import millerFunding from "../data/miller-funding-assistance-public-v1.json"
 import { normalizedResourceRows } from "../resourceData.js"
 import { safeHttpUrl } from "../safeLinks.js"
+import { buildMillerSpecializedSearchResources, mergeMillerSearchResources } from "../millerPublicSearchResources.js"
 
-const allResources = normalizedResourceRows(rawResources).filter((item) => item.approved && !item.hidden)
+const allResources = mergeMillerSearchResources(
+  normalizedResourceRows(rawResources).filter(item => item.approved && !item.hidden),
+  buildMillerSpecializedSearchResources(practicalSupports.records, millerFunding.records),
+)
 const text = (value) => String(value || "").toLowerCase()
 function filterMasterListResources(resources, { query = "", city = "", category = "" } = {}) { return resources.filter((item) => { const haystack = text([item.name, item.organization, item.city, item.region, item.category, item.serviceType, item.description, item.population].join(" ")); return (!query || haystack.includes(text(query))) && (!city || item.city === city || item.region === city) && (!category || item.category === category || item.serviceType === category) }).sort((a, b) => a.name.localeCompare(b.name)) }
 

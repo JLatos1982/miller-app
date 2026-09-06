@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-09-05T23:52:06.062Z",
+  "corpus_id": "miller-north-reconstructed-corpus-v2",
+  "records_or_incidents_examined": 6,
+  "exact_event_dates_recovered": 2,
+  "event_years_recovered": 1,
+  "approximate_event_years_recovered": 2,
+  "publication_only_retained": 1,
+  "unresolved": 0,
+  "conflicting_timing_evidence": 0,
+  "fixture_results": [
+    {
+      "candidate_id": "mnc_penny-kerrigan-mills-memorial-2020",
+      "event_date": "2020-10-19",
+      "event_year": 2020,
+      "approximate_event_year": null,
+      "publication_date": "2023-09-27"
+    },
+    {
+      "candidate_id": "mnc_kitimat-pregnancy-review-2021",
+      "event_date": null,
+      "event_year": null,
+      "approximate_event_year": null,
+      "publication_date": "2021-01-30"
+    },
+    {
+      "candidate_id": "mnc_connor-sutton-vancouver-island-2020",
+      "event_date": null,
+      "event_year": null,
+      "approximate_event_year": 2020,
+      "publication_date": "2020-08-21"
+    },
+    {
+      "candidate_id": "mnc_myra-crow-chief-strathmore-2022",
+      "event_date": null,
+      "event_year": 2022,
+      "approximate_event_year": null,
+      "publication_date": "2023-09-28"
+    },
+    {
+      "candidate_id": "mnc_janelle-orcherton-regina-general-2021",
+      "event_date": null,
+      "event_year": null,
+      "approximate_event_year": 2021,
+      "publication_date": "2022-01-24"
+    },
+    {
+      "candidate_id": "mnc_pearl-gambler-misericordia-2020",
+      "event_date": "2020-06-11",
+      "event_year": 2020,
+      "approximate_event_year": null,
+      "publication_date": "2023-04-11"
+    }
+  ]
+}

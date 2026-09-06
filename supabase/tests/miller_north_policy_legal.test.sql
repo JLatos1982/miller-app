@@ -1,0 +1,37 @@
+begin;
+select plan(31);
+
+select ok(to_regclass('public.miller_north_accountability_commitments') is not null, 'private commitments table exists');
+select ok(to_regclass('public.miller_north_accountability_commitment_sources') is not null, 'commitment sources table exists');
+select ok(to_regclass('public.miller_north_policy_legal_instruments') is not null, 'private policy/legal instruments table exists');
+select ok(to_regclass('public.miller_north_policy_legal_instrument_sources') is not null, 'instrument sources table exists');
+select ok(to_regclass('public.miller_north_policy_legal_instrument_incident_links') is not null, 'instrument incident links exist');
+select ok(to_regclass('public.miller_north_policy_legal_instrument_cohort_links') is not null, 'instrument cohort links exist');
+select ok(to_regclass('public.miller_north_policy_legal_instrument_action_links') is not null, 'instrument action links exist');
+select ok(to_regclass('public.miller_north_policy_legal_instrument_commitment_links') is not null, 'instrument commitment links exist');
+select ok(to_regclass('public.miller_north_policy_legal_instrument_relations') is not null, 'instrument self-relations exist');
+select ok((select relrowsecurity from pg_class where oid = 'public.miller_north_accountability_commitments'::regclass), 'commitment RLS enabled');
+select ok((select relforcerowsecurity from pg_class where oid = 'public.miller_north_accountability_commitments'::regclass), 'commitment RLS forced');
+select ok((select relrowsecurity from pg_class where oid = 'public.miller_north_policy_legal_instruments'::regclass), 'instrument RLS enabled');
+select ok((select relforcerowsecurity from pg_class where oid = 'public.miller_north_policy_legal_instruments'::regclass), 'instrument RLS forced');
+select ok(not has_table_privilege('anon', 'public.miller_north_accountability_commitments', 'select'), 'anonymous cannot read commitments');
+select ok(not has_table_privilege('authenticated', 'public.miller_north_accountability_commitments', 'insert'), 'ordinary authenticated users cannot write commitments');
+select ok(not has_table_privilege('anon', 'public.miller_north_policy_legal_instruments', 'select'), 'anonymous cannot read instruments');
+select ok(not has_table_privilege('authenticated', 'public.miller_north_policy_legal_instrument_sources', 'insert'), 'ordinary authenticated users cannot write sources');
+select ok(has_table_privilege('service_role', 'public.miller_north_accountability_commitments', 'select,insert,update,delete'), 'service role can manage commitments');
+select ok(has_table_privilege('service_role', 'public.miller_north_policy_legal_instruments', 'select,insert,update,delete'), 'service role can manage instruments');
+select is((select count(*)::integer from pg_policies where schemaname = 'public' and tablename in ('miller_north_accountability_commitments','miller_north_accountability_commitment_sources','miller_north_policy_legal_instruments','miller_north_policy_legal_instrument_sources','miller_north_policy_legal_instrument_incident_links','miller_north_policy_legal_instrument_cohort_links','miller_north_policy_legal_instrument_action_links','miller_north_policy_legal_instrument_commitment_links','miller_north_policy_legal_instrument_relations')), 0, 'no browser RLS policies exist');
+select ok(exists(select 1 from pg_constraint where conrelid='public.miller_north_accountability_commitments'::regclass and pg_get_constraintdef(oid) like '%owner_review_reason%'), 'commitment owner review reason constrained');
+select ok(exists(select 1 from pg_constraint where conrelid='public.miller_north_accountability_commitments'::regclass and pg_get_constraintdef(oid) like '%approved_for_publication%'), 'commitment review gate blocks approval');
+select ok(exists(select 1 from pg_constraint where conrelid='public.miller_north_policy_legal_instruments'::regclass and pg_get_constraintdef(oid) like '%binding_status%'), 'binding status constrained');
+select ok(exists(select 1 from pg_constraint where conrelid='public.miller_north_policy_legal_instruments'::regclass and pg_get_constraintdef(oid) like '%instrument_type%'), 'instrument type constrained');
+select ok(exists(select 1 from pg_constraint where conrelid='public.miller_north_policy_legal_instruments'::regclass and pg_get_constraintdef(oid) like '%owner_review_reason%'), 'instrument owner review reason constrained');
+select ok(exists(select 1 from pg_constraint where conrelid='public.miller_north_policy_legal_instruments'::regclass and pg_get_constraintdef(oid) like '%approved_for_publication%'), 'instrument review gate blocks approval');
+select is((select count(*)::integer from public.miller_north_accountability_commitments), 0, 'migration imports no commitments');
+select is((select count(*)::integer from public.miller_north_policy_legal_instruments), 0, 'migration imports no instruments');
+select is((select count(*)::integer from information_schema.table_constraints where table_schema='public' and table_name='miller_north_accountability_commitment_sources' and constraint_type='UNIQUE'), 1, 'commitment source deduplication exists');
+select is((select count(*)::integer from information_schema.table_constraints where table_schema='public' and table_name='miller_north_policy_legal_instrument_sources' and constraint_type='UNIQUE'), 1, 'instrument source deduplication exists');
+select ok(exists(select 1 from pg_constraint where conrelid='public.miller_north_policy_legal_instrument_relations'::regclass and pg_get_constraintdef(oid) like '%source_instrument_id <> target_instrument_id%'), 'self-relations cannot self-link');
+
+select * from finish();
+rollback;

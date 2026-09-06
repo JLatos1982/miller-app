@@ -1,0 +1,65 @@
+{
+  "schema_version": "miller-north-accountability-underlying-incident-candidates-v1",
+  "scope": "local owner-review artifacts only; no database import or publication",
+  "candidates": [
+    {
+      "candidate_id": "mnac_sk_tubal_ligation_cohort_2017",
+      "candidate_kind": "cohort_systemic_pattern",
+      "proposed_accountability_cohort_id": "mac_ed397ec618702ad987c6ad23",
+      "working_title": "Saskatoon Indigenous women reporting coercion toward tubal ligation",
+      "province": "saskatchewan",
+      "community_location": "Saskatoon and surrounding health-region catchment",
+      "healthcare_organization": "Saskatoon Health Region; later Saskatchewan Health Authority follow-up",
+      "population_or_cohort": "Indigenous/Aboriginal women who reported pressure or coercion concerning tubal ligation around childbirth",
+      "what_happened": "The commissioned external review documented accounts of coercion or pressure toward tubal ligation, including in vulnerable perinatal settings, and described resulting distrust and avoidance of care. This artifact does not name participants or create one incident per participant.",
+      "date_or_date_range": "procedures and reports preceding the July 2017 external review",
+      "institution_known": true,
+      "represents": "multiple incidents and a systemic cohort, not one separable patient incident",
+      "evidence_sources": [
+        "https://senatorboyer.ca/wp-content/uploads/2021/09/Tubal-Ligation-in-the-Saskatoon-Health-Region-the-Lived-Experience-of-Aboriginal-Women-Boyer-and-Bartlett-July-11-2017.pdf",
+        "https://iportal.usask.ca/record/63588",
+        "https://www.saskhealthauthority.ca/our-organization/our-direction/research/who-we-are/exciting-discoveries/lessons-learned-indigenous-birth-support-worker-program"
+      ],
+      "evidence_classification": "official_plus_independent_corroboration",
+      "confidence": "high",
+      "owner_review_flag": true,
+      "owner_review_reason": "Current Miller North incident identity classes represent a named individual or an unnamed but specific event; neither may safely represent a multi-participant coercion cohort. Stage as an accountability cohort only until the owner approves a cohort workflow.",
+      "existing_incident_proposal_compatibility": "not_compatible_without_cohort_extension",
+      "proposed_accountability_relationships": [
+        "iha_sk_001: underlying_cohort / external review commissioned",
+        "iha_sk_002: direct_cohort_follow_up / final report and calls to action",
+        "iha_sk_003: direct_cohort_follow_up / reported apology",
+        "iha_sk_004: direct_cohort_follow_up / Indigenous Birth Support Worker Program",
+        "iha_sk_005: direct_cohort_follow_up / proposed class action"
+      ],
+      "privacy_decision": "Do not extract participant names, procedure dates, family details, or individual hospitals beyond what the public systemic review supports."
+    },
+    {
+      "candidate_id": "mnac_sk_hrc_anonymized_hospital_case_2022_2023",
+      "candidate_kind": "anonymized_specific_incident",
+      "proposed_accountability_cohort_id": "mac_f3830bf218bc8d281d89028a",
+      "working_title": "Anonymized Saskatchewan Human Rights Commission hospital mediation case",
+      "province": "saskatchewan",
+      "community_location": "not publicly identified",
+      "healthcare_organization": "unidentified Saskatchewan hospital",
+      "population_or_cohort": "one anonymized Indigenous patient",
+      "what_happened": "The Saskatchewan Human Rights Commission summarized an anonymized matter in which an Indigenous patient alleged being stereotyped as a drug seeker while in severe pain. The Commission reported sufficient merit for a hearing, directed mediation, and a hospital agreement involving compensation, an apology, and employee training commitments.",
+      "date_or_date_range": "reported in the 2022-2023 annual-report period; underlying encounter date not published",
+      "institution_known": false,
+      "represents": "one publicly described but intentionally anonymized incident; it is not a cohort and must not be re-identified",
+      "evidence_sources": [
+        "https://saskhrc.ca/complaint-resolution/",
+        "https://saskhrc.ca/wp-content/uploads/2023/07/SHRC-Annual-Report-2022-2023-FOR-WEB.pdf"
+      ],
+      "evidence_classification": "official_primary_source",
+      "confidence": "high",
+      "owner_review_flag": true,
+      "owner_review_reason": "The current unnamed-specific incident schema requires a facility, municipality, and event year. These were deliberately not published, so creating an incident row would either fail validation or invite re-identification.",
+      "existing_incident_proposal_compatibility": "not_compatible_without_privacy-preserving_unknown-location_variant",
+      "proposed_accountability_relationships": [
+        "iha_sk_007: underlying_incident / directed mediation and settlement commitments"
+      ],
+      "privacy_decision": "Keep the hospital and patient unnamed; do not search for linkage clues, infer location, or convert the account into a named Miller North incident."
+    }
+  ]
+}

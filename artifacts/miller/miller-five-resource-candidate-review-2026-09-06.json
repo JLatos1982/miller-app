@@ -1,0 +1,76 @@
+{
+  "schema_version": "miller-private-resource-candidate-review-v1",
+  "research_date": "2026-09-06",
+  "publication_scope": "private_owner_review",
+  "candidates": [
+    {
+      "source_record_id": "marc_oak_care_withdrawal",
+      "name": "Withdrawal Management at Oak Care Centre",
+      "evidence_quality": "two_official_vch_sources",
+      "identity_confidence": "high",
+      "duplicate_assessment": "existing_private_discovery_lead_not_canonical_resource",
+      "operational_status": "operationally_verified",
+      "policy_funding_relationship": "VCH relocation and capacity-change announcement directly names the program",
+      "readiness": "ready_for_owner_review_after_address_reconciliation",
+      "owner_review_reason": "The 2024 opening notice and current service page use different street-number representations for the same Oak Care campus/program.",
+      "production_action": "none"
+    },
+    {
+      "source_record_id": "marc_inlet_recovery_home",
+      "name": "Inlet Recovery Home",
+      "evidence_quality": "official_island_health_directory_plus_provincial_opening_source",
+      "identity_confidence": "high",
+      "duplicate_assessment": "no_existing_miller_match_found",
+      "operational_status": "operationally_verified",
+      "policy_funding_relationship": "Named implementation of the Road to Recovery bed commitment",
+      "readiness": "ready_for_owner_review_after_location_confirmation",
+      "owner_review_reason": "The precise public-facing facility address and first patient-acceptance date were not established.",
+      "production_action": "none"
+    },
+    {
+      "source_record_id": "marc_opioid_treatment_access_line",
+      "name": "Opioid Treatment Access Line",
+      "evidence_quality": "official_current_service_page_plus_official_utilization_evidence",
+      "identity_confidence": "high",
+      "duplicate_assessment": "no_exact_service_record; broader_pending_directory_pages_mention_the_line",
+      "operational_status": "operationally_verified_with_utilization",
+      "policy_funding_relationship": "The service announcement and implementation portal directly document launch and use",
+      "readiness": "ready_for_virtual_resource_owner_review",
+      "owner_review_reason": "Apply Miller's virtual/provincewide resource taxonomy and distinguish the service from pages that merely mention it.",
+      "production_action": "none"
+    },
+    {
+      "source_record_id": "marc_red_fish_healing_centre",
+      "name": "Red Fish Healing Centre for Mental Health and Addiction",
+      "evidence_quality": "official_phsa_program_source_plus_official_client_handbook",
+      "identity_confidence": "high",
+      "duplicate_assessment": "exact_existing_private_pending_registry_record",
+      "existing_canonical_uuid": "2277b951-738d-5236-ac20-a3133dc26803",
+      "operational_status": "operationally_verified; policy_expansion_relationship_partially_verified",
+      "policy_funding_relationship": "Existing Red Fish operation does not by itself prove the later Budget 2023 Red Fish-model expansion",
+      "readiness": "reconcile_with_existing_private_record_do_not_create_duplicate",
+      "owner_review_reason": "Bind new backstory evidence to the existing pending record and keep the Budget relationship qualified.",
+      "production_action": "none"
+    },
+    {
+      "source_record_id": "marc_red_road_north",
+      "name": "Red Road North",
+      "evidence_quality": "provincial_update_plus_first_nations_led_project_source_plus_regulatory_registry",
+      "identity_confidence": "high",
+      "duplicate_assessment": "no_existing_miller_match_found",
+      "operational_status": "operationally_verified_as_registered_residential_program",
+      "policy_funding_relationship": "Linked to the northwest expansion while retaining Northern First Nations Alliance governance and operator distinctions",
+      "readiness": "ready_for_owner_review_after_governance_and_access_confirmation",
+      "owner_review_reason": "Confirm public eligibility, referral pathway, governance-approved contact details, and public/private bed allocation.",
+      "production_action": "none"
+    }
+  ],
+  "summary": {
+    "inspected": 5,
+    "ready_for_normal_owner_review": 3,
+    "reconcile_existing_private_record": 1,
+    "needs_additional_identity_or_governance_check": 1,
+    "production_resources_modified": 0,
+    "published": 0
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "schema_version": "miller-north-research-policy-case-prototype-v1",
+  "visibility": "private_browser_ready_not_wired",
+  "title": "First Nations Health Ombudsperson Office",
+  "province": "Saskatchewan",
+  "focus": "First Nations governance, health-care complaints, recommendations and public response",
+  "what_it_is": "A First Nations-governed Saskatchewan office that receives health-care complaints, supports resolution and advocacy, investigates concerns and makes recommendations.",
+  "why_it_matters": [
+    "It creates a culturally grounded complaint and accountability route for Saskatchewan First Nations people and communities.",
+    "Its inaugural report supplies rare aggregate evidence about where complaints arise and what systemic changes the office is calling for.",
+    "It is a clear test of keeping First Nations governance authority separate from federal funding and provincial health-system response."
+  ],
+  "metrics": [
+    {
+      "label": "Complaints in inaugural period",
+      "value": "391"
+    },
+    {
+      "label": "Closed or resolved",
+      "value": "224"
+    },
+    {
+      "label": "Active",
+      "value": "167"
+    },
+    {
+      "label": "Recommendation themes",
+      "value": "4"
+    }
+  ],
+  "governance": "FNHO identifies FSIN Chiefs-in-Assembly Resolution 2046 as the source of its mandate. Federal contribution funding is shown separately and is not described as governance or operational control.",
+  "report_findings": [
+    "Sixty-four percent of cases in the inaugural reporting period were related to the Saskatchewan Health Authority.",
+    "The most frequently reported settings or provider categories included physicians, emergency rooms and hospitals.",
+    "The report documents complaint resolution, investigation, advocacy, escalation and case-specific recommendations."
+  ],
+  "recommendations": [
+    {
+      "summary": "Provide more extensive cultural-awareness and sensitivity training, including advanced trauma-informed care, communication strategies and emotional-intelligence development.",
+      "public_evidence_status": "public_evidence_fragmentary",
+      "reporting_limitation": "The report does not identify one named recipient or system-wide completion measure for this theme.",
+      "source": {
+        "title": "Inaugural Report, July 1, 2023–March 31, 2025",
+        "organization": "First Nations Health Ombudsperson Office",
+        "url": "https://fnhoo.ca/wp-content/uploads/2025/10/Inaugural-Report-2023-2025.pdf",
+        "source_type": "indigenous_governance_primary_source",
+        "publication_date": "2025"
+      }
+    },
+    {
+      "summary": "Prioritize patient confidentiality and ensure patients understand medical information.",
+      "public_evidence_status": "partial_implementation_evidence",
+      "reporting_limitation": "Case-level resolution is not evidence of province-wide operational implementation.",
+      "source": {
+        "title": "Inaugural Report, July 1, 2023–March 31, 2025",
+        "organization": "First Nations Health Ombudsperson Office",
+        "url": "https://fnhoo.ca/wp-content/uploads/2025/10/Inaugural-Report-2023-2025.pdf",
+        "source_type": "indigenous_governance_primary_source",
+        "publication_date": "2025"
+      }
+    },
+    {
+      "summary": "Increase health-care resources in northern regions, reduce transfers far from home and support systems, and improve education for informed decisions.",
+      "public_evidence_status": "no_formal_response_located",
+      "reporting_limitation": "Related programs cannot be treated as implementation without a sourced relationship.",
+      "source": {
+        "title": "Inaugural Report, July 1, 2023–March 31, 2025",
+        "organization": "First Nations Health Ombudsperson Office",
+        "url": "https://fnhoo.ca/wp-content/uploads/2025/10/Inaugural-Report-2023-2025.pdf",
+        "source_type": "indigenous_governance_primary_source",
+        "publication_date": "2025"
+      }
+    },
+    {
+      "summary": "Create clear support and navigation pathways for First Nations people navigating complex health systems.",
+      "public_evidence_status": "public_evidence_fragmentary",
+      "reporting_limitation": "The public record does not provide an FNHO-to-program implementation crosswalk.",
+      "source": {
+        "title": "Inaugural Report, July 1, 2023–March 31, 2025",
+        "organization": "First Nations Health Ombudsperson Office",
+        "url": "https://fnhoo.ca/wp-content/uploads/2025/10/Inaugural-Report-2023-2025.pdf",
+        "source_type": "indigenous_governance_primary_source",
+        "publication_date": "2025"
+      }
+    }
+  ],
+  "response": "The Saskatchewan Minister of Health stated in October 2025 that the Ministry and Saskatchewan Health Authority were reviewing the report and recommendations. A later comprehensive public response was not located in the official sources searched.",
+  "timeline": [
+    {
+      "date": "2017-05",
+      "type": "governance",
+      "title": "Chiefs-in-Assembly resolution",
+      "description": "FNHO identifies Resolution 2046 as the source of its mandate and governance authority.",
+      "sources": [
+        {
+          "title": "Governance",
+          "organization": "First Nations Health Ombudsperson Office",
+          "url": "https://fnhoo.ca/governance/",
+          "source_type": "indigenous_governance_primary_source",
+          "publication_date": null
+        },
+        {
+          "title": "Inaugural Report, July 1, 2023–March 31, 2025",
+          "organization": "First Nations Health Ombudsperson Office",
+          "url": "https://fnhoo.ca/wp-content/uploads/2025/10/Inaugural-Report-2023-2025.pdf",
+          "source_type": "indigenous_governance_primary_source",
+          "publication_date": "2025"
+        }
+      ]
+    },
+    {
+      "date": "2022-02-22",
+      "type": "funding",
+      "title": "First-year establishment funding announced",
+      "description": "Indigenous Services Canada announced $1.17 million through FSIN to establish the office.",
+      "sources": [
+        {
+          "title": "First-ever First Nation Health Ombudsperson’s Office to be created in Saskatchewan",
+          "organization": "Indigenous Services Canada",
+          "url": "https://www.canada.ca/en/indigenous-services-canada/news/2022/02/first-ever-first-nation-health-ombudspersons-office-to-be-created-in-saskatchewan.html",
+          "source_type": "official_primary_source",
+          "publication_date": "2022-02-22"
+        }
+      ]
+    },
+    {
+      "date": "2023-07-01",
+      "type": "operations",
+      "title": "Office begins operating",
+      "description": "The inaugural report measures complaint activity from July 1, 2023.",
+      "sources": [
+        {
+          "title": "Inaugural Report, July 1, 2023–March 31, 2025",
+          "organization": "First Nations Health Ombudsperson Office",
+          "url": "https://fnhoo.ca/wp-content/uploads/2025/10/Inaugural-Report-2023-2025.pdf",
+          "source_type": "indigenous_governance_primary_source",
+          "publication_date": "2025"
+        }
+      ]
+    },
+    {
+      "date": "2023-07-01 to 2025-03-31",
+      "type": "reporting",
+      "title": "Inaugural reporting period",
+      "description": "FNHO records 391 complaints, 224 closed/resolved and 167 active.",
+      "sources": [
+        {
+          "title": "Inaugural Report, July 1, 2023–March 31, 2025",
+          "organization": "First Nations Health Ombudsperson Office",
+          "url": "https://fnhoo.ca/wp-content/uploads/2025/10/Inaugural-Report-2023-2025.pdf",
+          "source_type": "indigenous_governance_primary_source",
+          "publication_date": "2025"
+        }
+      ]
+    },
+    {
+      "date": "2025",
+      "type": "recommendations",
+      "title": "Inaugural report publishes systemic recommendation themes",
+      "description": "The report identifies training, confidentiality/communication, capacity and support/navigation themes.",
+      "sources": [
+        {
+          "title": "Inaugural Report, July 1, 2023–March 31, 2025",
+          "organization": "First Nations Health Ombudsperson Office",
+          "url": "https://fnhoo.ca/wp-content/uploads/2025/10/Inaugural-Report-2023-2025.pdf",
+          "source_type": "indigenous_governance_primary_source",
+          "publication_date": "2025"
+        }
+      ]
+    },
+    {
+      "date": "2025-10-28",
+      "type": "government_response",
+      "title": "Ministry and SHA review acknowledged",
+      "description": "The Health Minister said the Ministry and SHA were reviewing the report and recommendations.",
+      "sources": [
+        {
+          "title": "Saskatchewan Hansard, October 28, 2025",
+          "organization": "Legislative Assembly of Saskatchewan",
+          "url": "https://docs.legassembly.sk.ca/legdocs/Assembly/Debates/30L2S/20251028DebatesHTML.htm",
+          "source_type": "official_legislative_record",
+          "publication_date": "2025-10-28"
+        }
+      ]
+    }
+  ],
+  "what_remains_unclear": [
+    "Whether the Ministry or SHA issued a later formal response or implementation plan.",
+    "Which recommendations have province-wide implementation measures, owners and timelines.",
+    "Whether FNHO will publish a follow-up ledger showing response and implementation status.",
+    "How federal contributions are allocated among office activities beyond recipient-level financial reporting."
+  ],
+  "caution": "These classifications describe available public evidence. Missing public evidence does not prove that an action did not occur. Reported complaints, investigation findings, recommendations, responses and implementation are distinct stages. Legal material is context, not legal advice.",
+  "sources": [
+    {
+      "title": "Inaugural Report, July 1, 2023–March 31, 2025",
+      "organization": "First Nations Health Ombudsperson Office",
+      "url": "https://fnhoo.ca/wp-content/uploads/2025/10/Inaugural-Report-2023-2025.pdf",
+      "source_type": "indigenous_governance_primary_source",
+      "publication_date": "2025"
+    },
+    {
+      "title": "Annual Reports",
+      "organization": "First Nations Health Ombudsperson Office",
+      "url": "https://fnhoo.ca/annual-reports/",
+      "source_type": "indigenous_governance_primary_source",
+      "publication_date": null
+    },
+    {
+      "title": "Governance",
+      "organization": "First Nations Health Ombudsperson Office",
+      "url": "https://fnhoo.ca/governance/",
+      "source_type": "indigenous_governance_primary_source",
+      "publication_date": null
+    },
+    {
+      "title": "Frequently Asked Questions",
+      "organization": "First Nations Health Ombudsperson Office",
+      "url": "https://fnhoo.ca/faq/",
+      "source_type": "indigenous_governance_primary_source",
+      "publication_date": null
+    },
+    {
+      "title": "Services",
+      "organization": "First Nations Health Ombudsperson Office",
+      "url": "https://fnhoo.ca/services/",
+      "source_type": "indigenous_governance_primary_source",
+      "publication_date": null
+    },
+    {
+      "title": "First-ever First Nation Health Ombudsperson’s Office to be created in Saskatchewan",
+      "organization": "Indigenous Services Canada",
+      "url": "https://www.canada.ca/en/indigenous-services-canada/news/2022/02/first-ever-first-nation-health-ombudspersons-office-to-be-created-in-saskatchewan.html",
+      "source_type": "official_primary_source",
+      "publication_date": "2022-02-22"
+    },
+    {
+      "title": "Saskatchewan Hansard, October 28, 2025",
+      "organization": "Legislative Assembly of Saskatchewan",
+      "url": "https://docs.legassembly.sk.ca/legdocs/Assembly/Debates/30L2S/20251028DebatesHTML.htm",
+      "source_type": "official_legislative_record",
+      "publication_date": "2025-10-28"
+    },
+    {
+      "title": "UN Declaration Act Action Plan reporting — Saskatchewan Anti-Indigenous Racism Navigator Network",
+      "organization": "Justice Canada / Indigenous Services Canada",
+      "url": "https://justice.canada.ca/eng/declaration/report-rapport/2026/b1.html",
+      "source_type": "official_primary_source",
+      "publication_date": "2026"
+    }
+  ]
+}

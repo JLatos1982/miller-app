@@ -2,6 +2,8 @@ import { useEffect } from "react"
 
 import "./MillerNorthPublicPages.css"
 
+export const MILLER_NORTH_HOME_HREF = "/indigenous-healthcare-evidence"
+
 const links = [
   ["evidence", "/indigenous-healthcare-evidence", "Evidence Library"],
   ["listening", "/indigenous-healthcare-evidence/live-listening", "Live Listening"],
@@ -11,6 +13,10 @@ const links = [
   ["funding", "/indigenous-healthcare-evidence/funding-assistance", "Funding & Assistance"],
   ["methodology", "/indigenous-healthcare-evidence/methodology", "How evidence works"],
 ]
+
+export function MillerNorthHomeLink({ className }) {
+  return <a href={MILLER_NORTH_HOME_HREF} className={className}>← Miller North Home</a>
+}
 
 export default function MillerNorthPublicNav({ current }) {
   useEffect(() => {

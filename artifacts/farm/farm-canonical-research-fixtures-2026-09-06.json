@@ -1,0 +1,65 @@
+{
+  "schema_version":"farm-canonical-research-fixtures-v1",
+  "research_date":"2026-09-06",
+  "publication_scope":"private_validation_only",
+  "publication_decision":"none",
+  "fixtures":[
+    {
+      "fixture_id":"farm_fixture_miller_creekside_backstory_v1",
+      "fixture_type":"miller_policy_to_resource",
+      "domain":"miller_addictions",
+      "subject":{"kind":"curated_resource","id":"curated:1ldala","name":"Creekside Withdrawal Management Centre"},
+      "source_set":[
+        {"source_family_id":"fogs_bc_news_archive","url":"https://news.gov.bc.ca/releases/2024MMHA0038-001175","role":"program_commitment"},
+        {"source_family_id":"fogs_bc_health_authorities","url":"https://www.fraserhealth.ca/news/2026/Feb/Expanding-addictions-care-in-Lower-Mainland","role":"named_implementation"},
+        {"source_family_id":"fogs_bc_health_authorities","url":"https://www.fraserhealth.ca/Service-Directory/Locations/Surrey/creekside-withdrawal-management-centre","role":"current_operation"}
+      ],
+      "evidence_edges":["fedge_creekside_commitment_implementation","fedge_creekside_resource_expansion","fedge_creekside_current_service"],
+      "relationship_types":["implements","expanded_by","linked_to_resource"],
+      "confidence":"high","unresolved_questions":["What portion, if any, of the provincewide Road to Recovery envelope is attributable to Creekside?"],"owner_review_notes":"Trusted validation fixture; program funding must remain unallocated at resource level.","significance_classification":"review_next","validation_value":"Tests stable resource identity, policy-to-service implementation, current-operation corroboration and program-versus-site funding scope."
+    },
+    {
+      "fixture_id":"farm_fixture_miller_new_roads_money_v1",
+      "fixture_type":"miller_funding_to_service",
+      "domain":"miller_addictions",
+      "subject":{"kind":"service_program","id":"new_roads_therapeutic_recovery_community","name":"New Roads Therapeutic Recovery Community"},
+      "source_set":[
+        {"source_family_id":"fogs_bc_news_archive","url":"https://news.gov.bc.ca/releases/2023MMHA0060-001606","role":"service_level_funding"},
+        {"source_family_id":"fogs_bc_health_authorities","url":"https://www.islandhealth.ca/services/mental-health-substance-use-services/community-bed-based-treatment-recovery/substance-use-treatment-recovery-beds","role":"current_operation"},
+        {"source_family_id":"fogs_bc_news_archive","url":"https://archive.news.gov.bc.ca/releases/news_releases_2024-2028/2025HLTH0017-000230.htm","role":"later_expansion"}
+      ],
+      "evidence_edges":["fmedge_new_roads_recipient","fmedge_new_roads_operational"],
+      "relationship_types":["received_by","operationalized_as"],
+      "confidence":"high","unresolved_questions":["How should the men's and women's programs map to canonical Miller resources?"],"owner_review_notes":"Financial relationship is review-ready; resource identity/granularity remains a normal Miller decision.","significance_classification":"review_first","validation_value":"Tests a named amount, recipient, intended service, current operation and later expansion without relying on a broad envelope."
+    },
+    {
+      "fixture_id":"farm_fixture_north_fnhoo_governance_v1",
+      "fixture_type":"miller_north_governance",
+      "domain":"miller_north_indigenous_healthcare",
+      "subject":{"kind":"accountability_chain","id":"sk_first_nations_health_ombudsperson","name":"Saskatchewan First Nations Health Ombudsperson"},
+      "source_set":[
+        {"source_family_id":"fogs_fnhoo","url":"https://fnhoo.ca/governance/","role":"first_nations_governance_authority"},
+        {"source_family_id":"fogs_indigenous_services_canada","url":"https://www.canada.ca/en/indigenous-services-canada/news/2022/02/first-ever-first-nation-health-ombudspersons-office-to-be-created-in-saskatchewan.html","role":"federal_launch_funding"},
+        {"source_family_id":"fogs_fnhoo","url":"https://fnhoo.ca/annual-reports/","role":"ongoing_operation_and_reporting"}
+      ],
+      "evidence_edges":["fedge_fnhoo_resolution","fedge_fnhoo_initial_funding","fedge_fnhoo_continuing_operation"],
+      "relationship_types":["created_by","funded_by","operationalizes"],
+      "confidence":"high","unresolved_questions":["What activity-level outcomes are reported in the latest annual report?"],"owner_review_notes":"Preserve First Nations governance authority separately from federal contribution relationships.","significance_classification":"review_first","validation_value":"Tests Indigenous governance, federal funding and operational evidence without collapsing funder, governor and operator."
+    },
+    {
+      "fixture_id":"farm_fixture_north_ips_reporting_limit_v1",
+      "fixture_type":"miller_north_accountability_reporting",
+      "domain":"miller_north_indigenous_healthcare",
+      "subject":{"kind":"accountability_chain","id":"bc_in_plain_sight","name":"In Plain Sight implementation reporting"},
+      "source_set":[
+        {"source_family_id":"fogs_bc_declaration_act_reporting","url":"https://declaration.gov.bc.ca/actions/3-07/","role":"current_progress_and_reporting_limitation"},
+        {"source_family_id":"fogs_bc_news_archive","url":"https://news.gov.bc.ca/releases/2023HLTH0123-001561","role":"24_month_progress_release"},
+        {"source_family_id":"fogs_bc_open_information","url":"https://docs.openinfo.gov.bc.ca/Health_Estimates_Notes_2024.pdf","role":"recommendation_level_status_examples"}
+      ],
+      "evidence_edges":["fedge_ips_action_plan","fedge_ips_24_month_update","fedge_ips_reporting_limit"],
+      "relationship_types":["responds_to","evaluated_by","partially_implements"],
+      "confidence":"high","unresolved_questions":["When will a comprehensive current status covering all 24 recommendations be published?","Which recommendation elements have independently verified operational or outcome evidence?"],"owner_review_notes":"The limitation is itself an accountability finding; it is not a finding of failure or noncompliance.","significance_classification":"review_first","validation_value":"Tests whether one official source can support both documented progress and a bounded reporting-gap finding without contradiction."
+    }
+  ],
+  "summary":{"fixtures":4,"miller":2,"miller_north":2,"production_mutations":0,"publication_mutations":0}
+}

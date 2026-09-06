@@ -1,0 +1,17 @@
+{
+  "approval_contract": "miller-tier1-public-location-autopublish-v1",
+  "clean_batch_id": "7d6323f1-86dd-491c-8937-a4b5deca2556",
+  "proposal_store_path": "/Users/admin/samwise-private/data/miller-uuid-location-proposals-batch2-extraction-20260905-r1.sqlite",
+  "final_report_path": "/Users/admin/samwise-private/data/miller-uuid-location-report-batch2-extraction-20260905-r1.json",
+  "clean_audit_hash": "f13c7f3385bdb698360f5d760a9a095b88e10cef18cd0f622ed9aa6ac3c15a2e",
+  "approved": [
+    {
+      "proposal_id": "miller_uuid_location_263680ec-47e1-4473-88da-50653a760ccd",
+      "resource_id": "ec31329f-dcab-5844-9fd9-6f904839b866",
+      "name": "Adler Centre Counselling Clinic",
+      "street_address": "440-2184 W Broadway",
+      "city": "Vancouver",
+      "evidence_hash": "bb5a3ddeac21cdcec3d738d753f3134205b8b81ed0beebe86e427d602356fe04"
+    }
+  ]
+}

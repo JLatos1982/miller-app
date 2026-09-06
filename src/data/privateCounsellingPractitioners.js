@@ -1,0 +1,66 @@
+export const privateCounsellingPractitioners = Object.freeze([
+  Object.freeze({
+    id: "justin-latos",
+    name: "Justin Latos",
+    credentials: "MSc, CCC",
+    practice: "Private practice",
+    summary: "Counselling support for adults, including substance use, life transitions, stress and anxiety.",
+    href: "#justin-counselling-details",
+    action: "View details",
+    sourceType: "existing_miller_profile",
+  }),
+  Object.freeze({
+    id: "dale-wagner",
+    name: "Dale Wagner",
+    credentials: "RCC",
+    practice: "BCG Counselling Group",
+    summary: "In-person counselling in Burnaby and Vancouver, plus online sessions, with substance use and addictions among the listed focus areas.",
+    href: "https://counsellinggroup.org/team/dale-wagner/",
+    action: "Visit practice",
+    sourceType: "current_group_practice_profile",
+  }),
+  Object.freeze({
+    id: "vicky-kaler",
+    name: "Vicky Kaler",
+    credentials: "MSW, RSW",
+    practice: "Abbotsford Valley Counselling",
+    summary: "Private counselling in Abbotsford, informed by more than a decade of social-work experience in healthcare settings.",
+    href: "https://abbotsfordvalleycounselling.com/meet-us/",
+    action: "Visit practice",
+    sourceType: "current_group_practice_profile",
+  }),
+  Object.freeze({
+    id: "ravi-teja",
+    name: "Ravi Teja",
+    credentials: "RCC",
+    practice: "RT Counselling & Consulting",
+    summary: "In-person counselling in Surrey and online sessions across British Columbia, with trauma, substance use and relationship concerns among the practice’s listed areas of support.",
+    href: "https://www.rtcounselling.ca/team",
+    action: "Visit practice",
+    sourceType: "current_practitioner_practice_profile",
+  }),
+  Object.freeze({
+    id: "ariel-dumais",
+    name: "Ariel Dumais",
+    credentials: "RCC",
+    practice: "Solid Ground Wellness",
+    summary: "In-person counselling in Chilliwack and online counselling across B.C., with addictions, substance use, trauma and other mental-health concerns among the listed areas of practice.",
+    href: "https://bcacc.ca/counsellors/ariel-dumais/",
+    action: "View professional profile",
+    sourceType: "current_professional_registry_profile",
+  }),
+  Object.freeze({
+    id: "zahra-lakhdhir",
+    name: "Zahra Lakhdhir",
+    credentials: "MACP, RCC",
+    practice: "Serenity Counselling",
+    summary: "In-person counselling in Port Coquitlam and virtual counselling across B.C., with support focused on concerns including perfectionism, guilt, shame and life pressures.",
+    href: "https://www.serenitycounsellingbc.com/zahra-lakhdhir",
+    action: "Visit practice",
+    sourceType: "current_group_practice_profile",
+  }),
+])
+
+export function publicCounsellingPractitioners() {
+  return privateCounsellingPractitioners.filter(practitioner => practitioner.name && practitioner.credentials && practitioner.practice && /^#|^https:\/\//.test(practitioner.href))
+}

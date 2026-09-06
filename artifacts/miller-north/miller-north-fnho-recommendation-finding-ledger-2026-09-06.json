@@ -1,0 +1,220 @@
+{
+  "schema_version": "miller-north-fnho-ledger-v1",
+  "visibility": "private_owner_review",
+  "report_findings": {
+    "reporting_period": "2023-07-01 to 2025-03-31",
+    "complaint_volume": {
+      "total": 391,
+      "active": 167,
+      "closed_or_resolved": 224,
+      "adults_percent": 80,
+      "children_percent": 20
+    },
+    "sha_related_percent": 64,
+    "top_reported_categories_note": "Percentages are the report’s top categories and are not inclusive of all complaints.",
+    "top_reported_categories": [
+      {
+        "category": "physician",
+        "percent": 29
+      },
+      {
+        "category": "emergency_rooms",
+        "percent": 29
+      },
+      {
+        "category": "hospitals",
+        "percent": 22
+      },
+      {
+        "category": "nursing",
+        "percent": 10
+      },
+      {
+        "category": "accessing_health_care_services",
+        "percent": 10
+      }
+    ],
+    "regional_distribution": {
+      "2023": {
+        "north": 34,
+        "central": 26,
+        "west": 16,
+        "south": 21,
+        "out_of_province": 3
+      },
+      "2024": {
+        "north": 26,
+        "central": 31,
+        "west": 9,
+        "south": 29,
+        "out_of_province": 5
+      }
+    },
+    "systemic_themes": [
+      "discrimination and racial bias",
+      "communication and confidentiality",
+      "patient safety and quality of care",
+      "access and regional capacity",
+      "cultural safety and respect",
+      "support and navigation"
+    ],
+    "privacy_note": "The report’s featured cases use changed names. This extraction retains only aggregate statistics and systemic themes."
+  },
+  "recommendations": [
+    {
+      "recommendation_id": "fnho_rec_training",
+      "neutral_summary": "Provide more extensive cultural-awareness and sensitivity training, including advanced trauma-informed care, communication strategies and emotional-intelligence development.",
+      "responsible_organizations": [
+        "Health-care providers and health-system organizations in Saskatchewan"
+      ],
+      "date": "2025",
+      "recommendation_type": "training_and_practice_change",
+      "intended_change": "More culturally responsive and trauma-informed interactions and care.",
+      "source": {
+        "title": "Inaugural Report, July 1, 2023–March 31, 2025",
+        "organization": "First Nations Health Ombudsperson Office",
+        "url": "https://fnhoo.ca/wp-content/uploads/2025/10/Inaugural-Report-2023-2025.pdf",
+        "source_type": "indigenous_governance_primary_source",
+        "publication_date": "2025"
+      },
+      "response_located": "The Minister of Health stated that the Ministry and Saskatchewan Health Authority were reviewing the report and recommendations.",
+      "implementation_evidence_located": "Case-specific training recommendations and one professional-regulator Letter of Concern are documented, but a system-wide implementation response tied to this recommendation was not located.",
+      "current_public_evidence_status": "public_evidence_fragmentary",
+      "confidence": "high",
+      "owner_review_required": false,
+      "reporting_limitation": "The report does not identify one named recipient or system-wide completion measure for this theme."
+    },
+    {
+      "recommendation_id": "fnho_rec_confidentiality_communication",
+      "neutral_summary": "Prioritize patient confidentiality and ensure patients understand medical information.",
+      "responsible_organizations": [
+        "Health-care providers and health-system organizations in Saskatchewan"
+      ],
+      "date": "2025",
+      "recommendation_type": "policy_and_practice_change",
+      "intended_change": "Private communication and informed understanding during care.",
+      "source": {
+        "title": "Inaugural Report, July 1, 2023–March 31, 2025",
+        "organization": "First Nations Health Ombudsperson Office",
+        "url": "https://fnhoo.ca/wp-content/uploads/2025/10/Inaugural-Report-2023-2025.pdf",
+        "source_type": "indigenous_governance_primary_source",
+        "publication_date": "2025"
+      },
+      "response_located": "The Minister of Health stated that the Ministry and Saskatchewan Health Authority were reviewing the report and recommendations.",
+      "implementation_evidence_located": "The report describes a case-specific escalation to the College of Physicians and Surgeons of Saskatchewan and a Letter of Concern endorsing FNHO recommendations; no broader response ledger was located.",
+      "current_public_evidence_status": "partial_implementation_evidence",
+      "confidence": "high",
+      "owner_review_required": false,
+      "reporting_limitation": "Case-level resolution is not evidence of province-wide operational implementation."
+    },
+    {
+      "recommendation_id": "fnho_rec_capacity",
+      "neutral_summary": "Increase health-care resources in northern regions, reduce transfers far from home and support systems, and improve education for informed decisions.",
+      "responsible_organizations": [
+        "Saskatchewan Ministry of Health",
+        "Saskatchewan Health Authority"
+      ],
+      "date": "2025",
+      "recommendation_type": "capacity_and_access_change",
+      "intended_change": "More care nearer home and better supported transfer and treatment decisions.",
+      "source": {
+        "title": "Inaugural Report, July 1, 2023–March 31, 2025",
+        "organization": "First Nations Health Ombudsperson Office",
+        "url": "https://fnhoo.ca/wp-content/uploads/2025/10/Inaugural-Report-2023-2025.pdf",
+        "source_type": "indigenous_governance_primary_source",
+        "publication_date": "2025"
+      },
+      "response_located": "The Minister referred to virtual physician and point-of-care testing initiatives while confirming that the report was under review.",
+      "implementation_evidence_located": "No recommendation-specific public crosswalk, target, timeline or completion report was located.",
+      "current_public_evidence_status": "no_formal_response_located",
+      "confidence": "medium",
+      "owner_review_required": true,
+      "owner_review_reason": "The cited rural and virtual-care initiatives may be relevant, but no authoritative source located explicitly attributes them to this recommendation.",
+      "reporting_limitation": "Related programs cannot be treated as implementation without a sourced relationship."
+    },
+    {
+      "recommendation_id": "fnho_rec_support_navigation",
+      "neutral_summary": "Create clear support and navigation pathways for First Nations people navigating complex health systems.",
+      "responsible_organizations": [
+        "Saskatchewan Ministry of Health",
+        "Saskatchewan Health Authority",
+        "Health-system organizations"
+      ],
+      "date": "2025",
+      "recommendation_type": "navigation_and_advocacy",
+      "intended_change": "Accessible support through unfamiliar and complex health systems.",
+      "source": {
+        "title": "Inaugural Report, July 1, 2023–March 31, 2025",
+        "organization": "First Nations Health Ombudsperson Office",
+        "url": "https://fnhoo.ca/wp-content/uploads/2025/10/Inaugural-Report-2023-2025.pdf",
+        "source_type": "indigenous_governance_primary_source",
+        "publication_date": "2025"
+      },
+      "response_located": "The Minister stated that the Ministry and Saskatchewan Health Authority were reviewing the report and recommendations.",
+      "implementation_evidence_located": "Existing SHA First Nations and Métis Health Services and the separate federal navigator network provide relevant context, but no source located establishes that they implement this FNHO recommendation.",
+      "current_public_evidence_status": "public_evidence_fragmentary",
+      "confidence": "high",
+      "owner_review_required": false,
+      "reporting_limitation": "The public record does not provide an FNHO-to-program implementation crosswalk."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Inaugural Report, July 1, 2023–March 31, 2025",
+      "organization": "First Nations Health Ombudsperson Office",
+      "url": "https://fnhoo.ca/wp-content/uploads/2025/10/Inaugural-Report-2023-2025.pdf",
+      "source_type": "indigenous_governance_primary_source",
+      "publication_date": "2025"
+    },
+    {
+      "title": "Annual Reports",
+      "organization": "First Nations Health Ombudsperson Office",
+      "url": "https://fnhoo.ca/annual-reports/",
+      "source_type": "indigenous_governance_primary_source",
+      "publication_date": null
+    },
+    {
+      "title": "Governance",
+      "organization": "First Nations Health Ombudsperson Office",
+      "url": "https://fnhoo.ca/governance/",
+      "source_type": "indigenous_governance_primary_source",
+      "publication_date": null
+    },
+    {
+      "title": "Frequently Asked Questions",
+      "organization": "First Nations Health Ombudsperson Office",
+      "url": "https://fnhoo.ca/faq/",
+      "source_type": "indigenous_governance_primary_source",
+      "publication_date": null
+    },
+    {
+      "title": "Services",
+      "organization": "First Nations Health Ombudsperson Office",
+      "url": "https://fnhoo.ca/services/",
+      "source_type": "indigenous_governance_primary_source",
+      "publication_date": null
+    },
+    {
+      "title": "First-ever First Nation Health Ombudsperson’s Office to be created in Saskatchewan",
+      "organization": "Indigenous Services Canada",
+      "url": "https://www.canada.ca/en/indigenous-services-canada/news/2022/02/first-ever-first-nation-health-ombudspersons-office-to-be-created-in-saskatchewan.html",
+      "source_type": "official_primary_source",
+      "publication_date": "2022-02-22"
+    },
+    {
+      "title": "Saskatchewan Hansard, October 28, 2025",
+      "organization": "Legislative Assembly of Saskatchewan",
+      "url": "https://docs.legassembly.sk.ca/legdocs/Assembly/Debates/30L2S/20251028DebatesHTML.htm",
+      "source_type": "official_legislative_record",
+      "publication_date": "2025-10-28"
+    },
+    {
+      "title": "UN Declaration Act Action Plan reporting — Saskatchewan Anti-Indigenous Racism Navigator Network",
+      "organization": "Justice Canada / Indigenous Services Canada",
+      "url": "https://justice.canada.ca/eng/declaration/report-rapport/2026/b1.html",
+      "source_type": "official_primary_source",
+      "publication_date": "2026"
+    }
+  ],
+  "generated_at": "2026-09-06T12:00:00-07:00"
+}

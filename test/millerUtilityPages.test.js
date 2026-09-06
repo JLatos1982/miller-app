@@ -14,6 +14,10 @@ test("new Miller utility pages reuse the one-pass companion and yield on constra
   assert.match(companionCss, /max-height:700px/)
   assert.match(companionCss, /prefers-reduced-motion:reduce/)
   assert.match(companionCss, /pointer-events:none/)
+  assert.match(companionCss, /transform 3\.15s linear/)
+  assert.match(companionCss, /miller-utility-dog-settle/)
+  assert.match(companionCss, /scaleX\(-1\)/)
+  assert.doesNotMatch(companionCss, /infinite/)
 })
 
 test("Practical Supports and Funding share the established light Miller visual vocabulary", () => {

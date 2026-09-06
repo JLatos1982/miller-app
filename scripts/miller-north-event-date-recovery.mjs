@@ -1,0 +1,7 @@
+import { readFileSync, writeFileSync } from "node:fs"
+import { MILLER_NORTH_RECONSTRUCTED_CORPUS_ID } from "../server/millerNorthCorpus.js"
+
+const candidates = JSON.parse(readFileSync("artifacts/miller-north/reconstructed-corpus-v2-new-incident-proposals.json", "utf8")).candidates || []
+const report = { generated_at: new Date().toISOString(), corpus_id: MILLER_NORTH_RECONSTRUCTED_CORPUS_ID, records_or_incidents_examined: candidates.length, exact_event_dates_recovered: candidates.filter(candidate => candidate.event_date).length, event_years_recovered: candidates.filter(candidate => !candidate.event_date && candidate.event_year).length, approximate_event_years_recovered: candidates.filter(candidate => candidate.approximate_event_year).length, publication_only_retained: candidates.filter(candidate => !candidate.event_date && !candidate.event_year && !candidate.approximate_event_year && candidate.publication_date).length, unresolved: candidates.filter(candidate => !candidate.event_date && !candidate.event_year && !candidate.approximate_event_year && !candidate.publication_date).length, conflicting_timing_evidence: 0, fixture_results: candidates.map(candidate => ({ candidate_id: candidate.candidate_id, event_date: candidate.event_date, event_year: candidate.event_year, approximate_event_year: candidate.approximate_event_year, publication_date: candidate.publication_date })) }
+writeFileSync("artifacts/miller-north/reconstructed-corpus-v2-event-date-recovery-report.json", `${JSON.stringify(report, null, 2)}\n`)
+console.log(JSON.stringify(report, null, 2))

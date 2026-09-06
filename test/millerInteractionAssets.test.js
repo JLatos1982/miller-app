@@ -49,3 +49,18 @@ test('Classic interaction production poses are independently bounded RGBA cutout
     assert.deepEqual(stats.corners, [0, 0, 0, 0], `${asset} must not retain a source-sheet matte at its bounds`)
   }
 })
+
+test('Violet, Rose, and Jade interaction poses are actor-only transparent production frames', () => {
+  const directory = path.resolve('src/assets/miller/interaction')
+  for (const theme of ['violet', 'rose', 'jade']) {
+    for (const pose of ['notice-dog', 'lean-reach', 'pet-dog', 'rise']) {
+      const asset = `miller-${theme}-${pose}.png`
+      const stats = alphaStats(path.join(directory, asset))
+      assert.equal(stats.width, 640, `${asset} must use the common grounded frame width`)
+      assert.equal(stats.height, 960, `${asset} must use the common grounded frame height`)
+      assert.ok(stats.transparent > stats.visible, `${asset} must remain a sparse actor cutout, not a full sheet or matte`)
+      assert.ok(stats.visible > 0, `${asset} must contain character pixels`)
+      assert.deepEqual(stats.corners, [0, 0, 0, 0], `${asset} must preserve true alpha at every corner`)
+    }
+  }
+})

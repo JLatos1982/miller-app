@@ -1,0 +1,1767 @@
+{
+  "schema_version": "farm-knowledge-gap-recommendation-ledger-v1",
+  "ledger_id": "ips_24_recommendation_public_evidence_ledger_v1",
+  "research_date": "2026-09-06",
+  "publication_scope": "private_owner_review",
+  "production_mutations": 0,
+  "publication_mutations": 0,
+  "foi_requests_sent": 0,
+  "investigation": {
+    "target_dossier_id": "farm_dossier_miller_north_in_plain_sight_reporting_v1",
+    "canonical_workflow_id": "farm-research-dossier-v1",
+    "bounded_question": "What is the strongest defensible current public-evidence status for each of the 24 In Plain Sight recommendations?",
+    "method": "Original-report numbering and responsible parties were used as anchors; the 2023 official 24-month report supplied a common baseline; later authoritative sources were searched by recommendation subject, responsible organization and named implementation mechanism.",
+    "stopping_rule": "Stop when authoritative evidence answers the bounded status question, official avenues are exhausted, remaining evidence appears non-public, an information-request candidate is reached, or returns sharply diminish."
+  },
+  "status_taxonomy_notice": "Statuses describe the strength and depth of located public implementation evidence. Missing or aggregated reporting is not classified as non-implementation.",
+  "public_reporting_finding": {
+    "comprehensive_current_24_row_ledger_located": false,
+    "last_comprehensive_public_report_located": "2023-11-30",
+    "current_reporting_mode": "distributed_across_action_plan_ministries_health_system_and_indigenous_organizations",
+    "official_limitation_statement": "The current Action 3.07 page says the present framework has limited capacity to fully capture the breadth and depth of progress across all 24 recommendations and that the Ministry is exploring a more comprehensive update."
+  },
+  "source_catalog": [
+    {
+      "source_id": "ips_source_original_report",
+      "source_family_id": "fogs_bc_health_ministry",
+      "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf",
+      "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care",
+      "source_organization": "In Plain Sight independent review / Government of British Columbia",
+      "source_type": "official_review_report",
+      "publication_date": "2020-11-30"
+    },
+    {
+      "source_id": "ips_source_24_month_report",
+      "source_family_id": "fogs_bc_news_archive",
+      "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf",
+      "title": "In Plain Sight Task Team 24-Month Report",
+      "source_organization": "In Plain Sight Task Team / Government of British Columbia",
+      "source_type": "official_progress_report",
+      "publication_date": "2023-11-30"
+    },
+    {
+      "source_id": "ips_source_action_307",
+      "source_family_id": "fogs_bc_declaration_act_reporting",
+      "url": "https://declaration.gov.bc.ca/actions/3-07/",
+      "title": "Declaration Act Action 3.07",
+      "source_organization": "Government of British Columbia",
+      "source_type": "official_action_plan_reporting",
+      "publication_date": null
+    },
+    {
+      "source_id": "ips_source_hpoa_current",
+      "source_family_id": "fogs_bc_health_ministry",
+      "url": "https://www2.gov.bc.ca/gov/content/health/practitioner-professional-resources/professional-regulation/health-professions-and-occupations-act",
+      "title": "Health Professions and Occupations Act",
+      "source_organization": "British Columbia Ministry of Health",
+      "source_type": "official_legislative_implementation_page",
+      "publication_date": "2026-04-01"
+    },
+    {
+      "source_id": "ips_source_patient_quality_engagement",
+      "source_family_id": "fogs_bc_health_ministry",
+      "url": "https://engage.gov.bc.ca/patientcarequality/indigenous-engagement/",
+      "title": "Indigenous engagement: patient care quality review",
+      "source_organization": "Government of British Columbia",
+      "source_type": "official_policy_engagement_page",
+      "publication_date": null
+    },
+    {
+      "source_id": "ips_source_sharing_concerns",
+      "source_family_id": "fogs_bc_health_authorities",
+      "url": "https://healthqualitybc.ca/resources/sharing-concerns-principles-to-guide-the-development-of-an-indigenous-patient-feedback-process/",
+      "title": "Sharing Concerns: Principles to Guide the Development of an Indigenous Patient Feedback Process",
+      "source_organization": "Health Quality BC",
+      "source_type": "official_health_system_guidance",
+      "publication_date": "2024"
+    },
+    {
+      "source_id": "ips_source_tfa_evaluation",
+      "source_family_id": "fogs_fnha",
+      "url": "https://www.fnha.ca/Documents/Evaluation-of-the-BC-Tripartite-Framework-Agreement-on-First-Nations-Health-Governance-Final-Report-2018-2024.pdf",
+      "title": "Evaluation of the BC Tripartite Framework Agreement on First Nations Health Governance, 2018–2024",
+      "source_organization": "First Nations Health Authority",
+      "source_type": "indigenous_led_evaluation",
+      "publication_date": "2024"
+    },
+    {
+      "source_id": "ips_source_mmiwg_status_2024",
+      "source_family_id": "fogs_bc_open_information",
+      "url": "https://www2.gov.bc.ca/assets/gov/law-crime-and-justice/about-bc-justice-system/inquiries/mmiw/mmiwg-status-update-2024.pdf",
+      "title": "Responding to MMIWG: Status Update 2024",
+      "source_organization": "Government of British Columbia",
+      "source_type": "official_cross_government_status_report",
+      "publication_date": "2024-06-30"
+    },
+    {
+      "source_id": "ips_source_csh_standard",
+      "source_family_id": "fogs_fnha",
+      "url": "https://fnha.ca/fnha-and-hso-release-bc-cultural-safety-and-humility-standard/",
+      "title": "FNHA and HSO release B.C. Cultural Safety and Humility Standard",
+      "source_organization": "First Nations Health Authority",
+      "source_type": "indigenous_led_standard_release",
+      "publication_date": "2022-11-29"
+    },
+    {
+      "source_id": "ips_source_cowichan_hospital",
+      "source_family_id": "fogs_bc_news_archive",
+      "url": "https://archive.news.gov.bc.ca/releases/news_releases_2024-2028/2025INF0055-001108.htm",
+      "title": "New Quw’utsun Valley Hospital reaches 75% completion",
+      "source_organization": "Government of British Columbia",
+      "source_type": "official_capital_project_update",
+      "publication_date": "2025-10-17"
+    },
+    {
+      "source_id": "ips_source_ombudsperson_indigenous",
+      "source_family_id": "fogs_bc_ombudsperson",
+      "url": "https://bcombudsperson.ca/about-us/indigenous-initiatives/",
+      "title": "Indigenous initiatives",
+      "source_organization": "Office of the Ombudsperson of British Columbia",
+      "source_type": "official_oversight_program_page",
+      "publication_date": null
+    },
+    {
+      "source_id": "ips_source_camosun_iapr",
+      "source_family_id": "fogs_bc_open_information",
+      "url": "https://www2.gov.bc.ca/assets/gov/education/post-secondary-education/institution-resources-administration/accountability-framework/iapr/cam_iapr.pdf",
+      "title": "Camosun College Accountability Report 2024–2025",
+      "source_organization": "Camosun College / Government of British Columbia",
+      "source_type": "official_institutional_accountability_report",
+      "publication_date": "2025-06-30"
+    },
+    {
+      "source_id": "ips_source_selkirk_iapr",
+      "source_family_id": "fogs_bc_open_information",
+      "url": "https://www2.gov.bc.ca/assets/gov/education/post-secondary-education/institution-resources-administration/accountability-framework/iapr/sel_iapr.pdf",
+      "title": "Selkirk College Institutional Accountability Plan and Report 2024–2025",
+      "source_organization": "Selkirk College / Government of British Columbia",
+      "source_type": "official_institutional_accountability_report",
+      "publication_date": "2025-06-30"
+    },
+    {
+      "source_id": "ips_source_nursing_newsletter",
+      "source_family_id": "fogs_bc_health_ministry",
+      "url": "https://www2.gov.bc.ca/assets/gov/health/about-bc-s-health-care-system/heath-care-partners/health-newsletter/nps_newsletter_may_2024.pdf",
+      "title": "Nursing Policy Secretariat Newsletter, May 2024",
+      "source_organization": "British Columbia Ministry of Health",
+      "source_type": "official_program_update",
+      "publication_date": "2024-05-31"
+    },
+    {
+      "source_id": "ips_source_pho_learning_tools",
+      "source_family_id": "fogs_bc_health_ministry",
+      "url": "https://www2.gov.bc.ca/gov/content/health/about-bc-s-health-care-system/office-of-the-provincial-health-officer/unlearning-undoing-project/evolving-unlearning-undoing-project-tools",
+      "title": "Evolving Unlearning & Undoing Project tools",
+      "source_organization": "Office of the Provincial Health Officer",
+      "source_type": "official_training_resource",
+      "publication_date": null
+    },
+    {
+      "source_id": "ips_source_canada_health_act",
+      "source_family_id": "fogs_health_canada",
+      "url": "https://www.canada.ca/en/health-canada/services/publications/health-system-services/canada-health-act-annual-report-2024-2025.html",
+      "title": "Canada Health Act Annual Report 2024–2025",
+      "source_organization": "Health Canada",
+      "source_type": "official_annual_report",
+      "publication_date": "2025"
+    },
+    {
+      "source_id": "ips_source_sfu_fnha_mou",
+      "source_family_id": "fogs_fnha",
+      "url": "https://www.fnha.ca/about/news-and-events/news/sfu-and-fnha-sign-mou-to-improve-health-and-wellness-of-first-nations-peoples-in-bc",
+      "title": "SFU and FNHA sign MOU to improve health and wellness of First Nations peoples in B.C.",
+      "source_organization": "First Nations Health Authority",
+      "source_type": "indigenous_organization_partnership_update",
+      "publication_date": "2026-01-20"
+    }
+  ],
+  "recommendations": [
+    {
+      "recommendation_id": "ips_recommendation_01",
+      "recommendation_number": 1,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "The Province should apologize, prompt comparable health-system apologies and lead a comprehensive system-wide anti-racism response with common language and clear institutional responsibilities.",
+      "original_responsible_parties": [
+        "Government of British Columbia (lead)",
+        "health authorities",
+        "health regulators",
+        "health-sector associations and unions",
+        "health education institutions"
+      ],
+      "relevant_organizations": [
+        "British Columbia Ministry of Health",
+        "regional health authorities",
+        "PHSA",
+        "health regulatory colleges",
+        "health-sector bargaining parties"
+      ],
+      "government_or_institutional_response": "The Province, health authorities, PHSA and regulatory bodies issued apologies; later collective agreements and the Physician Master Agreement added anti-racism, cultural-safety, leave and workforce provisions.",
+      "commitments_made": [
+        "Lead a coordinated system response",
+        "embed common responsibilities across health-sector institutions"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2020-11-30 to 2023-11-30",
+          "summary": "Provincial and health-system apologies were issued and 2022–25 agreements added relevant provisions.",
+          "depth": "policy_adoption",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2023-2024",
+          "summary": "Declaration Act reporting continued to identify agreement provisions as implementation activity.",
+          "depth": "reporting",
+          "source_references": [
+            "ips_source_action_307"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "Official reporting documents apologies and concrete agreement provisions, while describing the provisions as an early step in longer system change.",
+          "source_references": [
+            "ips_source_24_month_report",
+            "ips_source_action_307"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2026-09-06",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_action_307"
+      ],
+      "evidence_classification": "official_primary_source",
+      "public_evidence_coverage": "direct_official_current",
+      "current_defensible_status": "substantially_implemented",
+      "confidence": "high",
+      "reporting_limitation": "The public record does not provide one system-wide outcome measure showing the broader transformation is complete.",
+      "owner_review_flag": false,
+      "owner_review_reason": null,
+      "remaining_gap_category": "organization_specific_follow_up",
+      "stopping_reason": "The apology and agreement outputs are established; system-wide outcome evidence is distributed and beyond this bounded ledger.",
+      "follow_up_signals": [
+        "Later reporting continues to describe the agreement provisions as a first step rather than a completed system transformation."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_02",
+      "recommendation_number": 2,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "The Province, working with Indigenous peoples, should establish policy foundations and legislative changes that require anti-racism and embed cultural safety consistently with the Declaration Act and UN Declaration.",
+      "original_responsible_parties": [
+        "Government of British Columbia (lead)",
+        "Indigenous peoples in British Columbia (consultation and cooperation partners)"
+      ],
+      "relevant_organizations": [
+        "British Columbia Ministry of Health",
+        "Government of British Columbia",
+        "Office of the Superintendent of Health Profession and Occupation Oversight"
+      ],
+      "government_or_institutional_response": "Government reported Human Rights Code, Health Professions and Occupations Act, Anti-Racism Data Act and Interpretation Act changes and later brought the HPOA framework into force.",
+      "commitments_made": [
+        "Legislate anti-racism and cultural-safety foundations",
+        "align implementation with the Declaration Act"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2021-12 to 2023-11",
+          "summary": "Several legislative changes were enacted or reported as part of the response.",
+          "depth": "policy_adoption",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2026-04-01",
+          "summary": "The Health Professions and Occupations Act framework replaced the prior Health Professions Act framework.",
+          "depth": "policy_adoption",
+          "source_references": [
+            "ips_source_hpoa_current"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "The current HPOA page expressly connects the reform to cultural safety, accountability and In Plain Sight.",
+          "source_references": [
+            "ips_source_hpoa_current"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2026-04-01",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_hpoa_current",
+        "ips_source_action_307"
+      ],
+      "evidence_classification": "official_primary_source",
+      "public_evidence_coverage": "direct_official_current",
+      "current_defensible_status": "partially_implemented",
+      "confidence": "high",
+      "reporting_limitation": "Multiple legislative elements are documented, but no authoritative source demonstrates that the full cross-system policy-and-law requirement is complete or operationally effective.",
+      "owner_review_flag": true,
+      "owner_review_reason": "Completion depends on the breadth and operational effect of multiple laws, policies and practices, not enactment alone.",
+      "remaining_gap_category": "owner_review",
+      "stopping_reason": "Authoritative enactment evidence is sufficient for partial status; effectiveness and full scope require legal/policy review.",
+      "follow_up_signals": [
+        "The current Action 3.07 page carries forward a numbering mismatch by associating the PIDA expansion with recommendation 2; the original report assigns PIDA to recommendation 11."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_03",
+      "recommendation_number": 3,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "The Province, First Nations governing and representative bodies and Métis Nation British Columbia should jointly establish a legislatively recognized B.C. Indigenous Health Officer with a structured relationship to the Provincial Health Officer.",
+      "original_responsible_parties": [
+        "Government of British Columbia",
+        "First Nations governing bodies and representative organizations",
+        "Métis Nation British Columbia"
+      ],
+      "relevant_organizations": [
+        "British Columbia Ministry of Health",
+        "Office of the Provincial Health Officer",
+        "First Nations leadership organizations",
+        "Métis Nation British Columbia"
+      ],
+      "government_or_institutional_response": "The 2023 report described continuing discussions with the Provincial Health Officer and Indigenous leaders.",
+      "commitments_made": [
+        "Continue joint discussion on the position and its authority"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2023-11-30",
+          "summary": "Official reporting described discussions about establishing the position.",
+          "depth": "commitment",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "The latest recommendation-specific evidence located describes discussion, not establishment or legislative recognition.",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2023-11-30",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report"
+      ],
+      "evidence_classification": "official_primary_source",
+      "public_evidence_coverage": "direct_official_baseline_only",
+      "current_defensible_status": "implementation_evidence_fragmentary",
+      "confidence": "medium",
+      "reporting_limitation": "No later authoritative public source located in this bounded search confirms creation, appointment, statutory authority or a structured PHO relationship.",
+      "owner_review_flag": true,
+      "owner_review_reason": "The public evidence stops at discussions and cannot resolve present institutional status.",
+      "remaining_gap_category": "FOI_candidate",
+      "stopping_reason": "Exact-title and responsible-organization searches returned the originating and 2023 reports but no later establishment record; the remaining question likely requires a ministry status record.",
+      "follow_up_signals": []
+    },
+    {
+      "recommendation_id": "ips_recommendation_04",
+      "recommendation_number": 4,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "The Province, First Nations governing and representative bodies and Métis Nation British Columbia should jointly establish a legislatively recognized, adequately funded Indigenous Health Representative and Advocate office for navigation, early intervention and dispute resolution.",
+      "original_responsible_parties": [
+        "Government of British Columbia",
+        "First Nations governing bodies and representative organizations",
+        "Métis Nation British Columbia"
+      ],
+      "relevant_organizations": [
+        "British Columbia Ministry of Health",
+        "Office of the Ombudsperson",
+        "health-system quality and safety leaders"
+      ],
+      "government_or_institutional_response": "The 2023 report described consultations, comparative research and an options paper; related complaint-support mechanisms have advanced separately.",
+      "commitments_made": [
+        "Develop options for the representative-and-advocate functions"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2023-11-30",
+          "summary": "A complaints working group reviewed models and was informing an options paper.",
+          "depth": "commitment",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "The public record located shows preparatory work but does not establish that the specified office, authority and funding exist.",
+          "source_references": [
+            "ips_source_24_month_report",
+            "ips_source_patient_quality_engagement"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2023-11-30",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_patient_quality_engagement"
+      ],
+      "evidence_classification": "official_primary_source",
+      "public_evidence_coverage": "direct_official_baseline_only",
+      "current_defensible_status": "implementation_evidence_fragmentary",
+      "confidence": "medium",
+      "reporting_limitation": "Complaint-process improvements are not equivalent to the legislatively recognized office described in the recommendation.",
+      "owner_review_flag": true,
+      "owner_review_reason": "Current establishment, authority and funding of the proposed office remain unresolved.",
+      "remaining_gap_category": "FOI_candidate",
+      "stopping_reason": "Official web avenues did not produce a later office-establishment or legislative record; a bounded request for the status/options paper is the next proportionate step.",
+      "follow_up_signals": [
+        "Later complaint-process work addresses adjacent functions but does not publicly resolve whether the recommended office was created."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_05",
+      "recommendation_number": 5,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "The Province, First Nations governing and representative bodies and Métis Nation British Columbia should jointly improve patient complaint processes for individual and systemic Indigenous-specific racism.",
+      "original_responsible_parties": [
+        "Government of British Columbia",
+        "First Nations governing bodies and representative organizations",
+        "Métis Nation British Columbia"
+      ],
+      "relevant_organizations": [
+        "British Columbia Ministry of Health",
+        "Health Quality BC",
+        "patient care quality offices",
+        "FNHA",
+        "health regulatory colleges"
+      ],
+      "government_or_institutional_response": "A draft guide, working groups, navigator roles, regulator reviews and regional complaint-process changes were reported; the current engagement program is developing further policy.",
+      "commitments_made": [
+        "Co-develop a culturally safe patient feedback and complaint strategy"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2023-11-30",
+          "summary": "Complaint pathways, navigator roles and regulator reviews were reported.",
+          "depth": "operational_implementation",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2024",
+          "summary": "Health Quality BC published an updated Sharing Concerns resource informed by evaluation.",
+          "depth": "policy_adoption",
+          "source_references": [
+            "ips_source_sharing_concerns"
+          ]
+        },
+        {
+          "date": "2025-2027",
+          "summary": "The provincial patient-care-quality engagement program identified Indigenous engagement and policy development priorities.",
+          "depth": "commitment",
+          "source_references": [
+            "ips_source_patient_quality_engagement"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "Concrete guidance and operational complaint-support activities exist, while a final uniform system strategy remains in development.",
+          "source_references": [
+            "ips_source_sharing_concerns",
+            "ips_source_patient_quality_engagement"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2026-09-06",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_sharing_concerns",
+        "ips_source_patient_quality_engagement"
+      ],
+      "evidence_classification": "official_plus_health_system_reporting",
+      "public_evidence_coverage": "direct_official_current",
+      "current_defensible_status": "partially_implemented",
+      "confidence": "high",
+      "reporting_limitation": "The sources demonstrate mechanisms and continuing design work, not provincewide consistency or complaint outcomes.",
+      "owner_review_flag": false,
+      "owner_review_reason": null,
+      "remaining_gap_category": "organization_specific_follow_up",
+      "stopping_reason": "Implementation mechanisms are established; a provincewide inventory and outcome evaluation would require organization-level data.",
+      "follow_up_signals": [
+        "The 2024 update to the principles and 2025–27 engagement priorities show that complaint-process work remains iterative."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_06",
+      "recommendation_number": 6,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "Parties to bilateral and tripartite First Nations health agreements should address unmet commitments through renewed structures and agreements consistent with the Declaration Act.",
+      "original_responsible_parties": [
+        "Government of British Columbia",
+        "Government of Canada",
+        "First Nations Health Authority",
+        "First Nations Health Council",
+        "B.C. First Nations"
+      ],
+      "relevant_organizations": [
+        "First Nations Health Council",
+        "First Nations Health Authority",
+        "British Columbia Ministry of Health",
+        "Indigenous Services Canada"
+      ],
+      "government_or_institutional_response": "Tripartite partners continued work under the governance agreement and supported a First Nations-led 10-Year Strategy on the Social Determinants of Health.",
+      "commitments_made": [
+        "Renew tripartite structures",
+        "implement the First Nations-led 10-Year Strategy"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2023-03-02",
+          "summary": "Chiefs approved the 10-Year Strategy and partners committed to an implementation model.",
+          "depth": "policy_adoption",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2024",
+          "summary": "A First Nations-led evaluation documented implementation activity and outstanding sustainability and accountability work.",
+          "depth": "evaluation",
+          "source_references": [
+            "ips_source_tfa_evaluation"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "The strategy and evaluation demonstrate active governance implementation, but the broad set of previously unmet commitments is not presented as closed.",
+          "source_references": [
+            "ips_source_tfa_evaluation"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2024-12-31",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_tfa_evaluation"
+      ],
+      "evidence_classification": "official_plus_indigenous_led_evaluation",
+      "public_evidence_coverage": "organizational_current_with_official_baseline",
+      "current_defensible_status": "implementation_underway",
+      "confidence": "high",
+      "reporting_limitation": "The recommendation covers multiple agreements and unmet commitments; public sources do not provide one commitment-by-commitment completion ledger.",
+      "owner_review_flag": true,
+      "owner_review_reason": "Agreement-level scope and governance authority require careful review rather than a single completion label.",
+      "remaining_gap_category": "organization_specific_follow_up",
+      "stopping_reason": "The authoritative governance evaluation establishes current work and remaining issues; finer-grained status belongs with the agreement parties.",
+      "follow_up_signals": [
+        "The later evaluation continued to identify sustainability, clarity and accountability work within the tripartite arrangement."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_07",
+      "recommendation_number": 7,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "The Ministry should establish a senior Métis health relationship table and direct health authorities to enter measurable Letters of Understanding with Métis Nation British Columbia and Métis Chartered Communities.",
+      "original_responsible_parties": [
+        "British Columbia Ministry of Health",
+        "regional health authorities",
+        "PHSA",
+        "Métis Nation British Columbia",
+        "Métis Chartered Communities"
+      ],
+      "relevant_organizations": [
+        "Métis Nation British Columbia",
+        "British Columbia Ministry of Health",
+        "regional health authorities",
+        "PHSA"
+      ],
+      "government_or_institutional_response": "Monthly bilateral meetings, a cross-government Métis table and LOUs with regional health authorities were reported; later reporting describes continuing tables and joint planning.",
+      "commitments_made": [
+        "Maintain a structured senior table",
+        "operationalize measurable health-authority relationships"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2023-11-30",
+          "summary": "A bilateral table and LOUs with all five regional health authorities were reported, with PHSA work then under development.",
+          "depth": "office_or_program_creation",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2024-06-30",
+          "summary": "Cross-government reporting described LOUs and implementation tables continuing.",
+          "depth": "reporting",
+          "source_references": [
+            "ips_source_mmiwg_status_2024"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "Formal tables and agreements are evidenced; ongoing outcome measurement is not comprehensively reported in one place.",
+          "source_references": [
+            "ips_source_24_month_report",
+            "ips_source_mmiwg_status_2024"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2024-06-30",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_mmiwg_status_2024"
+      ],
+      "evidence_classification": "official_plus_metis_governance_reporting",
+      "public_evidence_coverage": "organizational_current_with_official_baseline",
+      "current_defensible_status": "substantially_implemented",
+      "confidence": "high",
+      "reporting_limitation": "The existence of tables and agreements is clear; consistent measurable outcomes across every agreement are not established by this ledger.",
+      "owner_review_flag": false,
+      "owner_review_reason": null,
+      "remaining_gap_category": "organization_specific_follow_up",
+      "stopping_reason": "Core governance mechanisms are confirmed; the remaining question is agreement-specific outcome reporting.",
+      "follow_up_signals": [
+        "Later reporting revisits the tables and LOUs as active implementation mechanisms."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_08",
+      "recommendation_number": 8,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "Health-system policymakers, authorities, regulators, facilities, review boards and education programs should adopt an Indigenous cultural-safety and humility accreditation standard developed with Indigenous peoples.",
+      "original_responsible_parties": [
+        "health policymakers",
+        "health authorities",
+        "health regulators",
+        "health organizations and facilities",
+        "patient care quality review boards",
+        "health education programs"
+      ],
+      "relevant_organizations": [
+        "First Nations Health Authority",
+        "Health Standards Organization",
+        "British Columbia Ministry of Health",
+        "health authorities",
+        "accreditation bodies"
+      ],
+      "government_or_institutional_response": "FNHA and HSO published a First Nations-led B.C. Cultural Safety and Humility Standard; later work is converting it into an assessment standard for accreditation and supporting organizational adoption.",
+      "commitments_made": [
+        "Move the standard from reference guidance to an assessable accreditation mechanism",
+        "develop Ministry adoption plans"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2022-11-29",
+          "summary": "FNHA and HSO released the B.C. Cultural Safety and Humility Standard.",
+          "depth": "policy_adoption",
+          "source_references": [
+            "ips_source_csh_standard"
+          ]
+        },
+        {
+          "date": "2023-11-30 onward",
+          "summary": "Official reporting described funded conversion to an assessment standard and Ministry implementation planning.",
+          "depth": "commitment",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "The standard exists as a concrete output; universal adoption and accreditation use are not yet demonstrated.",
+          "source_references": [
+            "ips_source_csh_standard",
+            "ips_source_action_307"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2025-12-31",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_csh_standard",
+        "ips_source_action_307"
+      ],
+      "evidence_classification": "official_plus_indigenous_led_source",
+      "public_evidence_coverage": "organizational_current_with_official_baseline",
+      "current_defensible_status": "partially_implemented",
+      "confidence": "high",
+      "reporting_limitation": "Publication of a standard is not the same as adoption by every named institution or use in accreditation.",
+      "owner_review_flag": true,
+      "owner_review_reason": "The recommendation's universal adoption scope is broader than the evidence of standard creation and assessment development.",
+      "remaining_gap_category": "organization_specific_follow_up",
+      "stopping_reason": "Standard creation is confirmed; adoption and accreditation status must be checked institution by institution.",
+      "follow_up_signals": [
+        "Later work to create an assessment standard indicates that accreditation operationalization remained underway after publication."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_09",
+      "recommendation_number": 9,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "The Province should establish a system-wide Indigenous cultural-safety, health-rights and anti-racism measurement framework with appropriate Indigenous data governance.",
+      "original_responsible_parties": [
+        "Government of British Columbia",
+        "First Nations governing bodies and representative organizations",
+        "Métis Nation British Columbia",
+        "Indigenous Health Officer",
+        "Indigenous Health Representative and Advocate"
+      ],
+      "relevant_organizations": [
+        "PHSA",
+        "Providence Health Care",
+        "British Columbia Ministry of Health",
+        "regional health authorities",
+        "NCCIH"
+      ],
+      "government_or_institutional_response": "A measurement working group was developing indicators, data-sharing arrangements and a dashboard, informed by NCCIH work.",
+      "commitments_made": [
+        "Develop a balanced indicator set and performance dashboard",
+        "apply Indigenous data-governance processes"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2022-06 to 2023-11",
+          "summary": "NCCIH published measurement work and a B.C. working group began framework and dashboard development.",
+          "depth": "commitment",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2024-06-30",
+          "summary": "Cross-government reporting continued to describe measurement and dashboard development.",
+          "depth": "reporting",
+          "source_references": [
+            "ips_source_mmiwg_status_2024"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "The working mechanism is documented, but no public system-wide dashboard or completed framework was located.",
+          "source_references": [
+            "ips_source_24_month_report",
+            "ips_source_mmiwg_status_2024"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2024-06-30",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_mmiwg_status_2024"
+      ],
+      "evidence_classification": "official_primary_source",
+      "public_evidence_coverage": "direct_official_current",
+      "current_defensible_status": "implementation_underway",
+      "confidence": "medium",
+      "reporting_limitation": "Working-group activity does not establish a completed framework, public dashboard or full Indigenous data-governance implementation.",
+      "owner_review_flag": true,
+      "owner_review_reason": "No completed public framework or dashboard was located.",
+      "remaining_gap_category": "organization_specific_follow_up",
+      "stopping_reason": "Official sources establish development activity; current deliverables need confirmation from the Ministry/working-group leads.",
+      "follow_up_signals": [
+        "The later status update continued to describe development rather than a completed measurement system."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_10",
+      "recommendation_number": 10,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "Hospital design should be undertaken with local Indigenous peoples and host Nations and include culturally appropriate ceremonial spaces, art, signage and territorial acknowledgement.",
+      "original_responsible_parties": [
+        "regional health authorities",
+        "PHSA",
+        "hospital project authorities",
+        "local Indigenous peoples and host Nations"
+      ],
+      "relevant_organizations": [
+        "regional health authorities",
+        "British Columbia Ministry of Health",
+        "Infrastructure BC",
+        "local First Nations"
+      ],
+      "government_or_institutional_response": "Health authorities reported integration of Indigenous design elements in existing and new facilities; later capital reporting documents specific examples developed with local Nations.",
+      "commitments_made": [
+        "Apply partnership-based Indigenous design practices to health facilities"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2023-11-30",
+          "summary": "Regional implementation through art, signage, acknowledgements and cultural spaces was reported.",
+          "depth": "operational_implementation",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2025-10-17",
+          "summary": "The Quw’utsun Valley Hospital update documented culturally safe spaces and dedicated Indigenous program space.",
+          "depth": "operational_implementation",
+          "source_references": [
+            "ips_source_cowichan_hospital"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "Concrete facility examples are public; no provincewide capital-project compliance inventory was located.",
+          "source_references": [
+            "ips_source_cowichan_hospital"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2025-10-17",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_cowichan_hospital"
+      ],
+      "evidence_classification": "official_primary_source",
+      "public_evidence_coverage": "direct_official_current",
+      "current_defensible_status": "partially_implemented",
+      "confidence": "high",
+      "reporting_limitation": "Examples do not establish consistent adoption across all existing and future hospitals.",
+      "owner_review_flag": true,
+      "owner_review_reason": "The recommendation is system-wide, while accessible evidence is project-specific.",
+      "remaining_gap_category": "organization_specific_follow_up",
+      "stopping_reason": "Multiple official project examples confirm implementation; full coverage would require health-authority capital-program records.",
+      "follow_up_signals": [
+        "Later hospital-project reporting provides operational examples but not a system-wide assessment."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_11",
+      "recommendation_number": 11,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "The Province should extend Public Interest Disclosure Act protections across health-sector employees to strengthen safe disclosure of wrongdoing, including Indigenous-specific racism.",
+      "original_responsible_parties": [
+        "Government of British Columbia",
+        "Office of the Ombudsperson",
+        "health authorities"
+      ],
+      "relevant_organizations": [
+        "Office of the Ombudsperson",
+        "regional health authorities",
+        "PHSA",
+        "British Columbia Ministry of Health"
+      ],
+      "government_or_institutional_response": "PIDA coverage was extended to health-authority employees effective June 2023, with Ombudsperson implementation support.",
+      "commitments_made": [
+        "Extend statutory disclosure protections to health-authority employees"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2023-06-01",
+          "summary": "Health-authority employees came within the PIDA coverage described by the official response.",
+          "depth": "policy_adoption",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2026-09-06",
+          "summary": "The current Action 3.07 page continues to report this legislative implementation, although it mislabels the recommendation number.",
+          "depth": "reporting",
+          "source_references": [
+            "ips_source_action_307"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "The central statutory extension requested by the recommendation is documented as in force for health-authority employees.",
+          "source_references": [
+            "ips_source_24_month_report",
+            "ips_source_action_307"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2026-09-06",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_action_307"
+      ],
+      "evidence_classification": "official_primary_source",
+      "public_evidence_coverage": "direct_official_current",
+      "current_defensible_status": "implemented",
+      "confidence": "high",
+      "reporting_limitation": "The statutory change is evidenced; this status does not claim that speak-up culture or reporting outcomes are fully achieved.",
+      "owner_review_flag": false,
+      "owner_review_reason": null,
+      "remaining_gap_category": "owner_review",
+      "stopping_reason": "The requested legal coverage is established; culture and outcome questions are separate evaluation questions.",
+      "follow_up_signals": [
+        "The current Action 3.07 page appears to label the PIDA item as recommendation 2 rather than recommendation 11; original-report numbering controls this ledger."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_12",
+      "recommendation_number": 12,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "The B.C. Ombudsperson should prioritize Indigenous-specific racism in health care, seek partner input, improve fairness-related activities and report publicly on progress.",
+      "original_responsible_parties": [
+        "Office of the Ombudsperson of British Columbia"
+      ],
+      "relevant_organizations": [
+        "Office of the Ombudsperson",
+        "Indigenous communities and organizations"
+      ],
+      "government_or_institutional_response": "The Ombudsperson maintained the racism-reporting line, developed Indigenous community services and appointed regional pathfinders; its current Indigenous initiatives page describes ongoing access and relationship work.",
+      "commitments_made": [
+        "Strengthen culturally appropriate complaint access and Indigenous engagement"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2023-11-30",
+          "summary": "The office reported the dedicated line, community-services planning and regional pathfinders.",
+          "depth": "office_or_program_creation",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2026-09-06",
+          "summary": "The current Indigenous initiatives page documents continuing relationship and access work.",
+          "depth": "operational_implementation",
+          "source_references": [
+            "ips_source_ombudsperson_indigenous"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "An operational Indigenous initiatives program is public; a recommendation-specific outcome ledger is not.",
+          "source_references": [
+            "ips_source_ombudsperson_indigenous"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2026-09-06",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_ombudsperson_indigenous"
+      ],
+      "evidence_classification": "official_oversight_source",
+      "public_evidence_coverage": "organizational_current_with_official_baseline",
+      "current_defensible_status": "partially_implemented",
+      "confidence": "high",
+      "reporting_limitation": "The program is visible, but public reporting does not map all current activities and outcomes specifically to recommendation 12.",
+      "owner_review_flag": false,
+      "owner_review_reason": null,
+      "remaining_gap_category": "organization_specific_follow_up",
+      "stopping_reason": "The office's public materials establish ongoing implementation; recommendation-specific outcomes would require office-level follow-up.",
+      "follow_up_signals": [
+        "The current program continues the recommendation's access and engagement functions beyond the 24-month report."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_13",
+      "recommendation_number": 13,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "The Province should create an Associate Deputy Minister for Indigenous Health with authority to support Ministry leadership in implementing the recommendations.",
+      "original_responsible_parties": [
+        "Government of British Columbia",
+        "British Columbia Ministry of Health"
+      ],
+      "relevant_organizations": [
+        "British Columbia Ministry of Health"
+      ],
+      "government_or_institutional_response": "The Ministry created and filled the Associate Deputy Minister, Indigenous Health and Reconciliation position in 2021.",
+      "commitments_made": [
+        "Create and staff the senior ministry role"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2021",
+          "summary": "The Associate Deputy Minister position was created and filled.",
+          "depth": "office_or_program_creation",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "The 24-month official report states that the recommended role was created and filled.",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2023-11-30",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report"
+      ],
+      "evidence_classification": "official_primary_source",
+      "public_evidence_coverage": "direct_official_baseline_only",
+      "current_defensible_status": "implemented",
+      "confidence": "high",
+      "reporting_limitation": "This status concerns creation of the role, not an evaluation of its authority, continuity or effectiveness.",
+      "owner_review_flag": false,
+      "owner_review_reason": null,
+      "remaining_gap_category": "owner_review",
+      "stopping_reason": "The bounded recommendation requirement is directly answered by the official report; tenure and effectiveness are separate questions.",
+      "follow_up_signals": []
+    },
+    {
+      "recommendation_id": "ips_recommendation_14",
+      "recommendation_number": 14,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "Government, health authorities, post-secondary institutions, regulators and health-service organizations should recruit Indigenous people into senior roles capable of leading system change.",
+      "original_responsible_parties": [
+        "Government of British Columbia",
+        "PHSA and regional health authorities",
+        "post-secondary health programs",
+        "health regulators",
+        "health-service organizations, providers and facilities"
+      ],
+      "relevant_organizations": [
+        "health authorities",
+        "FNHA",
+        "public post-secondary institutions",
+        "health regulatory colleges"
+      ],
+      "government_or_institutional_response": "The 2023 report documented Indigenous vice-presidents in all provincial health authorities, board appointments and post-secondary recruitment policies; later institutional accountability reports provide selected examples.",
+      "commitments_made": [
+        "Recruit Indigenous senior leaders across the named sectors"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2023-11-30",
+          "summary": "All provincial health authorities reported Indigenous Health vice-presidents and minimum Indigenous board representation.",
+          "depth": "workforce_or_training_activity",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2025-06-30",
+          "summary": "Camosun's accountability report documented Indigenous leadership and governance participation.",
+          "depth": "reporting",
+          "source_references": [
+            "ips_source_camosun_iapr"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "Strong health-authority examples exist; comprehensive coverage across every named organization class is not public in one source.",
+          "source_references": [
+            "ips_source_24_month_report",
+            "ips_source_camosun_iapr"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2025-06-30",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_camosun_iapr"
+      ],
+      "evidence_classification": "official_plus_institutional_reporting",
+      "public_evidence_coverage": "direct_official_current",
+      "current_defensible_status": "partially_implemented",
+      "confidence": "high",
+      "reporting_limitation": "No complete cross-sector roster or retention/outcome measure was located.",
+      "owner_review_flag": true,
+      "owner_review_reason": "The recommendation spans a much broader institutional set than the health-authority evidence alone.",
+      "remaining_gap_category": "organization_specific_follow_up",
+      "stopping_reason": "The cross-sector scope requires institution-specific workforce reporting; examples are sufficient for partial status only.",
+      "follow_up_signals": [
+        "Post-secondary accountability reporting continues to document institution-specific leadership measures rather than a system-wide roll-up."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_15",
+      "recommendation_number": 15,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "The Province, Indigenous governing and representative bodies, Métis Nation British Columbia, the PHO and Indigenous Health Officer should create a robust Indigenous pandemic-response structure that resolves jurisdictional issues and upholds the UN Declaration.",
+      "original_responsible_parties": [
+        "Government of British Columbia",
+        "First Nations governing bodies and representative organizations",
+        "Métis Nation British Columbia",
+        "Provincial Health Officer",
+        "Indigenous Health Officer"
+      ],
+      "relevant_organizations": [
+        "Office of the Provincial Health Officer",
+        "regional health authorities",
+        "First Nations partners",
+        "Métis Nation British Columbia"
+      ],
+      "government_or_institutional_response": "Regional health authorities reported strengthening response capacity and supply chains; the PHO was reviewing policies through an anti-racism lens.",
+      "commitments_made": [
+        "Strengthen emergency supply chains",
+        "develop anti-racist pandemic-planning approaches"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2023-11-30",
+          "summary": "Regional capacity-building and a PHO policy review were reported.",
+          "depth": "commitment",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "Activity is documented, but the jointly governed provincial structure described by the recommendation is not clearly identified in public reporting.",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2023-11-30",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report"
+      ],
+      "evidence_classification": "official_primary_source",
+      "public_evidence_coverage": "direct_official_baseline_only",
+      "current_defensible_status": "implementation_evidence_fragmentary",
+      "confidence": "medium",
+      "reporting_limitation": "Regional practices and a policy review do not by themselves prove establishment of the recommended joint structure.",
+      "owner_review_flag": true,
+      "owner_review_reason": "The named Indigenous Health Officer role is itself unresolved and the joint governance structure is not public.",
+      "remaining_gap_category": "FOI_candidate",
+      "stopping_reason": "Broad official-source searches found emergency-response activity but no current terms of reference or governance record for the recommended structure.",
+      "follow_up_signals": []
+    },
+    {
+      "recommendation_id": "ips_recommendation_16",
+      "recommendation_number": 16,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "The Province should take immediate measures responding to the MMIWG Calls for Justice and the specific health-care experiences and needs of Indigenous women identified by the review.",
+      "original_responsible_parties": [
+        "Government of British Columbia"
+      ],
+      "relevant_organizations": [
+        "Ministry of Public Safety and Solicitor General",
+        "Ministry of Health",
+        "Office of Gender Equity",
+        "BC Women's Hospital",
+        "Indigenous partners"
+      ],
+      "government_or_institutional_response": "The Province connected Path Forward work, a gender-based violence action plan, universal contraception and training resources to this response.",
+      "commitments_made": [
+        "Advance the Path Forward priorities and MMIWG Calls for Justice",
+        "support culturally safe gender-based violence response"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2022-07 to 2023-04",
+          "summary": "A refreshed health-sector course and universal prescription contraception were implemented among broader initiatives.",
+          "depth": "operational_implementation",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2024-06-30",
+          "summary": "The Province issued a later MMIWG implementation status update.",
+          "depth": "reporting",
+          "source_references": [
+            "ips_source_mmiwg_status_2024"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "Specific measures are established, while the recommendation's full Calls-for-Justice scope remains broader than those outputs.",
+          "source_references": [
+            "ips_source_mmiwg_status_2024"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2024-06-30",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_mmiwg_status_2024"
+      ],
+      "evidence_classification": "official_primary_source",
+      "public_evidence_coverage": "direct_official_current",
+      "current_defensible_status": "partially_implemented",
+      "confidence": "high",
+      "reporting_limitation": "The public sources report a portfolio of measures, not a completion determination for all health-related Calls for Justice or review findings.",
+      "owner_review_flag": true,
+      "owner_review_reason": "The recommendation is broad and cross-government; selected measures cannot stand for the entire obligation.",
+      "remaining_gap_category": "organization_specific_follow_up",
+      "stopping_reason": "The dedicated status report is authoritative but remains multi-action rather than a completion ledger.",
+      "follow_up_signals": [
+        "Later MMIWG reporting continued to describe active implementation and outstanding work."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_17",
+      "recommendation_number": 17,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "The Province and FNHA should demonstrate progress in expanding access to culturally safe mental-health, wellness and substance-use services.",
+      "original_responsible_parties": [
+        "Government of British Columbia",
+        "First Nations Health Authority"
+      ],
+      "relevant_organizations": [
+        "British Columbia Ministry of Health",
+        "First Nations Health Authority",
+        "Ministry responsible for mental health and addictions",
+        "Health Canada"
+      ],
+      "government_or_institutional_response": "Government reported adult and youth treatment capacity, community programs and culturally safe service investments; federal reporting later described an Indigenous Health and Cultural Safety Fund linked to the recommendation.",
+      "commitments_made": [
+        "Expand culturally safe mental-health, wellness, substance-use and harm-reduction access"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2023-11-30",
+          "summary": "The Province reported additional adult beds and youth programs, with Indigenous clients prioritized or Indigenous partners involved.",
+          "depth": "operational_implementation",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2024-04-01 to 2025-03-31",
+          "summary": "Federal reporting identified $171.8 million in program-level Indigenous health and cultural-safety funding connected to the recommendation.",
+          "depth": "funding",
+          "source_references": [
+            "ips_source_canada_health_act"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "Services and funding are evidenced, but the public record does not provide a complete access, geographic coverage or outcome assessment.",
+          "source_references": [
+            "ips_source_24_month_report",
+            "ips_source_canada_health_act",
+            "ips_source_tfa_evaluation"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2025-03-31",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_canada_health_act",
+        "ips_source_tfa_evaluation"
+      ],
+      "evidence_classification": "official_plus_indigenous_led_evaluation",
+      "public_evidence_coverage": "direct_official_current",
+      "current_defensible_status": "partially_implemented",
+      "confidence": "high",
+      "reporting_limitation": "Program funding and service examples do not demonstrate provincewide access or outcomes; the federal amount is not attributable to every activity.",
+      "owner_review_flag": true,
+      "owner_review_reason": "Access progress and program-level funding require careful scope control.",
+      "remaining_gap_category": "organization_specific_follow_up",
+      "stopping_reason": "Operational examples are sufficient for partial implementation; comprehensive access evidence requires program and regional datasets.",
+      "follow_up_signals": [
+        "Later evaluation and annual reporting document continued investment while retaining system-access and sustainability questions."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_18",
+      "recommendation_number": 18,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "All B.C. post-secondary health-profession programs should have mandatory strategies and targets for Indigenous recruitment, enrolment, graduation and safer learning environments.",
+      "original_responsible_parties": [
+        "Government of British Columbia",
+        "B.C. universities and colleges with health-profession programs"
+      ],
+      "relevant_organizations": [
+        "Ministry of Post-Secondary Education and Future Skills",
+        "public post-secondary institutions",
+        "FNHA"
+      ],
+      "government_or_institutional_response": "The Province reported career pathways, dedicated seats and student supports; later institutional accountability reports document program-level recruitment, targets and learning-environment measures.",
+      "commitments_made": [
+        "Require mandatory recruitment and completion strategies across health programs"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2023-11-30",
+          "summary": "Health Career Access pathways, dedicated seats and Indigenous student supports were reported.",
+          "depth": "operational_implementation",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2025-06-30",
+          "summary": "Camosun reported recruitment strategies, targets and culturally safe supports for relevant programs.",
+          "depth": "reporting",
+          "source_references": [
+            "ips_source_camosun_iapr"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "Institution-level implementation exists, but universal program coverage and provincewide target attainment are not demonstrated.",
+          "source_references": [
+            "ips_source_camosun_iapr"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2025-06-30",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_camosun_iapr"
+      ],
+      "evidence_classification": "official_institutional_reporting",
+      "public_evidence_coverage": "organizational_current_with_official_baseline",
+      "current_defensible_status": "partially_implemented",
+      "confidence": "medium",
+      "reporting_limitation": "A sample institutional report cannot establish compliance across every health-profession degree and diploma program.",
+      "owner_review_flag": true,
+      "owner_review_reason": "The evidence is institution-specific and outcome language may not be consistently measured.",
+      "remaining_gap_category": "organization_specific_follow_up",
+      "stopping_reason": "The Province's institutional accountability mechanism yields examples; a complete roll-up would require all program reports and standardized metrics.",
+      "follow_up_signals": [
+        "2024–25 accountability reporting continues to ask institutions to report recommendation-specific activity, showing ongoing rather than closed implementation."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_19",
+      "recommendation_number": 19,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "A centre should provide open access to anti-racism, cultural-safety and trauma-informed standards, evidence, tools, policy expertise and collaborative capacity.",
+      "original_responsible_parties": [
+        "Government of British Columbia and health-system partners"
+      ],
+      "relevant_organizations": [
+        "National Collaborating Centre for Indigenous Health",
+        "First Nations Health Directors Association",
+        "British Columbia health-system partners"
+      ],
+      "government_or_institutional_response": "The 2023 report described NCCIH tool development and a separate FNHDA training-centre initiative; later cross-government reporting continued to describe tools and health-authority teams.",
+      "commitments_made": [
+        "Develop open-access tools and expertise",
+        "create training-centre capacity"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2023-11-30",
+          "summary": "NCCIH and FNHDA initiatives were described as under development.",
+          "depth": "commitment",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2024-06-30",
+          "summary": "Cross-government reporting described continuing tool development and Indigenous-health teams.",
+          "depth": "reporting",
+          "source_references": [
+            "ips_source_mmiwg_status_2024"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "Tools and institutional activity exist; no single centre matching the complete recommended mandate was confirmed.",
+          "source_references": [
+            "ips_source_24_month_report",
+            "ips_source_mmiwg_status_2024"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2024-06-30",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_mmiwg_status_2024"
+      ],
+      "evidence_classification": "official_plus_indigenous_organization_reporting",
+      "public_evidence_coverage": "organizational_current_with_official_baseline",
+      "current_defensible_status": "implementation_underway",
+      "confidence": "medium",
+      "reporting_limitation": "Related organizations and tools should not be treated as proof that the recommended single centre and governance structure were established.",
+      "owner_review_flag": true,
+      "owner_review_reason": "The identity and mandate of any completed centre remain ambiguous.",
+      "remaining_gap_category": "organization_specific_follow_up",
+      "stopping_reason": "Official sources identify candidate mechanisms but not a completed centre; direct follow-up with NCCIH/FNHDA is the bounded next step.",
+      "follow_up_signals": [
+        "Later reporting repeats tool and team development without clearly identifying a completed centre."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_20",
+      "recommendation_number": 20,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "The health system should implement a refreshed, co-developed, standardized and mandatory anti-racism, cultural-humility and trauma-informed training approach that absorbs existing San'yas training.",
+      "original_responsible_parties": [
+        "Government of British Columbia",
+        "First Nations governing and representative bodies",
+        "Métis Nation British Columbia",
+        "health authorities",
+        "health education institutions"
+      ],
+      "relevant_organizations": [
+        "British Columbia Ministry of Health",
+        "regional health authorities",
+        "Health Quality BC",
+        "Office of the Provincial Health Officer",
+        "health professional regulators"
+      ],
+      "government_or_institutional_response": "Many organizations mandated training, government funded training activity, and provincial guidance and mandatory PHO learning tools were developed.",
+      "commitments_made": [
+        "Develop standardized learning expectations",
+        "make low-barrier components mandatory"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2023-11-30",
+          "summary": "Multiple health organizations reported mandatory training and provincial guidance development.",
+          "depth": "workforce_or_training_activity",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2024-05-31",
+          "summary": "The Nursing Policy Secretariat reported expansion of cultural-safety and humility training tied to recommendation 20.",
+          "depth": "workforce_or_training_activity",
+          "source_references": [
+            "ips_source_nursing_newsletter"
+          ]
+        },
+        {
+          "date": "2025-2026",
+          "summary": "The PHO published a mandatory Foundational Commitments learning series covering In Plain Sight and related frameworks.",
+          "depth": "workforce_or_training_activity",
+          "source_references": [
+            "ips_source_pho_learning_tools"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "Mandatory training activity is demonstrable, but no single source proves a standardized co-developed approach for all health workers or its effectiveness.",
+          "source_references": [
+            "ips_source_nursing_newsletter",
+            "ips_source_pho_learning_tools"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2026-09-06",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_nursing_newsletter",
+        "ips_source_pho_learning_tools",
+        "ips_source_mmiwg_status_2024"
+      ],
+      "evidence_classification": "official_primary_source",
+      "public_evidence_coverage": "direct_official_current",
+      "current_defensible_status": "partially_implemented",
+      "confidence": "high",
+      "reporting_limitation": "Training availability and mandates do not prove universal completion, standardized outcomes or training effectiveness.",
+      "owner_review_flag": true,
+      "owner_review_reason": "The recommendation's standardization, co-development and system-wide reach exceed the available activity evidence.",
+      "remaining_gap_category": "organization_specific_follow_up",
+      "stopping_reason": "Current official tools and program reporting establish activity; system-wide completion and evaluation require workforce data.",
+      "follow_up_signals": [
+        "Later sources revisit training expansion and guidance, suggesting continuing implementation rather than a closed task."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_21",
+      "recommendation_number": 21,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "All B.C. post-secondary health-practitioner programs should include mandatory teaching on Indigenous-specific racism, colonialism, trauma-informed care, Indigenous health and the UN Declaration standard.",
+      "original_responsible_parties": [
+        "B.C. universities and colleges with health-practitioner programs",
+        "Government of British Columbia"
+      ],
+      "relevant_organizations": [
+        "Ministry of Post-Secondary Education and Future Skills",
+        "public post-secondary institutions",
+        "health-program accreditors"
+      ],
+      "government_or_institutional_response": "Provincial partners developed training guidance; later institutional accountability reports document mandatory components within particular health programs.",
+      "commitments_made": [
+        "Develop guidance supporting mandatory post-secondary curriculum"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2023-11-30",
+          "summary": "A provincial training-in-education strategy and guidance were under development.",
+          "depth": "commitment",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2025-06-30",
+          "summary": "Selkirk reported mandatory Indigenous health, cultural-safety and trauma-informed curriculum components in specified programs.",
+          "depth": "operational_implementation",
+          "source_references": [
+            "ips_source_selkirk_iapr"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "Program-level mandatory curriculum is documented; universal coverage across all institutions and programs is not.",
+          "source_references": [
+            "ips_source_selkirk_iapr",
+            "ips_source_camosun_iapr"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2025-06-30",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_selkirk_iapr",
+        "ips_source_camosun_iapr"
+      ],
+      "evidence_classification": "official_institutional_reporting",
+      "public_evidence_coverage": "organizational_current_with_official_baseline",
+      "current_defensible_status": "partially_implemented",
+      "confidence": "medium",
+      "reporting_limitation": "Institutional reports are heterogeneous and do not form a complete all-program compliance ledger.",
+      "owner_review_flag": true,
+      "owner_review_reason": "The evidence demonstrates examples, not universal implementation.",
+      "remaining_gap_category": "organization_specific_follow_up",
+      "stopping_reason": "Selected official reports establish partial implementation; a comprehensive determination requires systematic review of all health-program reports.",
+      "follow_up_signals": [
+        "The 2024–25 institutional reports continue to label several curriculum changes as ongoing or new."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_22",
+      "recommendation_number": 22,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "The Province, with Indigenous peoples, should pursue truth-telling and public education, including age-appropriate resources on Indigenous health and wellness before and after European arrival.",
+      "original_responsible_parties": [
+        "Government of British Columbia",
+        "Indigenous peoples in British Columbia"
+      ],
+      "relevant_organizations": [
+        "Ministry of Education and Child Care",
+        "British Columbia Ministry of Health",
+        "schools and public education partners"
+      ],
+      "government_or_institutional_response": "Government launched an education anti-racism strategy, introduced an Indigenous-focused graduation requirement and produced teacher resources.",
+      "commitments_made": [
+        "Expand public and classroom truth-telling resources"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2023-2024 school year",
+          "summary": "An Indigenous-focused graduation requirement and teacher resources took effect.",
+          "depth": "policy_adoption",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2023-2026",
+          "summary": "Declaration Act reporting continues to identify these education measures as recommendation activity.",
+          "depth": "reporting",
+          "source_references": [
+            "ips_source_action_307"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "Concrete education measures are in place, while the broader health-history and all-ages public-education scope is not comprehensively assessed.",
+          "source_references": [
+            "ips_source_24_month_report",
+            "ips_source_action_307"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2026-09-06",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_action_307"
+      ],
+      "evidence_classification": "official_primary_source",
+      "public_evidence_coverage": "direct_official_current",
+      "current_defensible_status": "partially_implemented",
+      "confidence": "high",
+      "reporting_limitation": "School requirements and teacher guidance do not by themselves satisfy or measure the recommendation's full public-education scope.",
+      "owner_review_flag": true,
+      "owner_review_reason": "The evidence is strong for specified elements but not for the whole recommendation.",
+      "remaining_gap_category": "organization_specific_follow_up",
+      "stopping_reason": "Implemented school elements are clear; a cross-government inventory is needed for broader public education.",
+      "follow_up_signals": [
+        "Later Action 3.07 reporting repeats the same school measures without a full recommendation-wide evaluation."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_23",
+      "recommendation_number": 23,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "The Province and Indigenous partners should establish joint degrees in medicine and Indigenous medicine, and a comparable joint nursing degree.",
+      "original_responsible_parties": [
+        "Government of British Columbia",
+        "First Nations governing bodies and representative organizations",
+        "Métis Nation British Columbia",
+        "Indigenous physicians and nurses",
+        "post-secondary institutions"
+      ],
+      "relevant_organizations": [
+        "Simon Fraser University",
+        "First Nations Health Authority",
+        "University of British Columbia",
+        "Thompson Rivers University",
+        "University of Victoria",
+        "Trinity Western University"
+      ],
+      "government_or_institutional_response": "Government linked the future SFU medical school and a collaborative Master of Nursing in Indigenous Health to the recommendation; a 2026 SFU–FNHA MOU documents First Nations involvement in the medical school.",
+      "commitments_made": [
+        "Embed Indigenous knowledge systems in the new medical school",
+        "develop a collaborative Indigenous nursing graduate program"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2023-11-30",
+          "summary": "The Province reported development of the SFU medical school and a collaborative Indigenous nursing master's program.",
+          "depth": "commitment",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2026-01-20",
+          "summary": "SFU and FNHA formalized collaboration on the medical school and described Indigenous leadership and knowledge in the program.",
+          "depth": "policy_adoption",
+          "source_references": [
+            "ips_source_sfu_fnha_mou"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "Program development and governance are evidenced, but the exact joint degrees described in the recommendation are not yet demonstrated as operating.",
+          "source_references": [
+            "ips_source_sfu_fnha_mou",
+            "ips_source_action_307"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2026-01-20",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_sfu_fnha_mou",
+        "ips_source_action_307"
+      ],
+      "evidence_classification": "official_plus_indigenous_organization_reporting",
+      "public_evidence_coverage": "organizational_current_with_official_baseline",
+      "current_defensible_status": "implementation_underway",
+      "confidence": "high",
+      "reporting_limitation": "A new medical school with embedded Indigenous knowledge and a proposed nursing program are not equivalent to established joint degrees with the exact recommended form.",
+      "owner_review_flag": true,
+      "owner_review_reason": "The relationship between the current programs and the report's specific joint-degree design requires owner judgment.",
+      "remaining_gap_category": "further_web_research",
+      "stopping_reason": "Current partnership and development evidence is sufficient; the next meaningful check is program approval/enrolment or launch, not more contemporaneous searching.",
+      "follow_up_signals": [
+        "The 2026 MOU confirms continued development and Indigenous partnership but not an operating joint degree."
+      ]
+    },
+    {
+      "recommendation_id": "ips_recommendation_24",
+      "recommendation_number": 24,
+      "original_recommendation_date": "2020-11-30",
+      "neutral_recommendation_summary": "The Province should establish a task team for at least 24 months to propel implementation, work with senior Ministry leadership, uphold consultation and cooperation standards and report publicly.",
+      "original_responsible_parties": [
+        "Government of British Columbia",
+        "In Plain Sight Task Team",
+        "British Columbia Ministry of Health",
+        "Indigenous partners"
+      ],
+      "relevant_organizations": [
+        "In Plain Sight Task Team",
+        "British Columbia Ministry of Health",
+        "FNHA",
+        "First Nations Health Council",
+        "Métis Nation British Columbia"
+      ],
+      "government_or_institutional_response": "A 31-member task team operated from May 2021 to June 2023, issued a 24-month report and transferred ongoing monitoring to Declaration Act Action 3.07.",
+      "commitments_made": [
+        "Operate the task team for 24 months",
+        "continue annual public progress reporting through Action 3.07"
+      ],
+      "implementation_actions": [
+        {
+          "date": "2021-05 to 2023-06",
+          "summary": "The task team operated for its 24-month mandate.",
+          "depth": "office_or_program_creation",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2023-11-30",
+          "summary": "The task team published a recommendation-by-recommendation report and transferred monitoring to Action 3.07.",
+          "depth": "reporting",
+          "source_references": [
+            "ips_source_24_month_report"
+          ]
+        },
+        {
+          "date": "2026-09-06",
+          "summary": "Action 3.07 continues annual updates but states its framework cannot fully capture progress across all 24 recommendations.",
+          "depth": "reporting",
+          "source_references": [
+            "ips_source_action_307"
+          ]
+        }
+      ],
+      "implementation_evidence": [
+        {
+          "summary": "The time-limited task-team requirement was carried out; the continuing comprehensive-reporting function is only partially satisfied in the current public format.",
+          "source_references": [
+            "ips_source_24_month_report",
+            "ips_source_action_307"
+          ]
+        }
+      ],
+      "latest_evidence_date": "2026-09-06",
+      "source_references": [
+        "ips_source_original_report",
+        "ips_source_24_month_report",
+        "ips_source_action_307"
+      ],
+      "evidence_classification": "official_primary_source",
+      "public_evidence_coverage": "direct_official_current",
+      "current_defensible_status": "substantially_implemented",
+      "confidence": "high",
+      "reporting_limitation": "The Province states that the current framework has limited capacity to capture the breadth and depth of progress across all 24 recommendations and identifies the 2023 report as the last comprehensive public report.",
+      "owner_review_flag": true,
+      "owner_review_reason": "Task-team completion is clear, but the ongoing public-accountability component has a documented coverage limitation.",
+      "remaining_gap_category": "FOI_candidate",
+      "stopping_reason": "The responsible official page expressly identifies the reporting limitation and says a more comprehensive update is being explored; further web searching has sharply diminishing returns.",
+      "follow_up_signals": [
+        "The latest official page acknowledges that current reporting does not comprehensively represent all 24 recommendations.",
+        "No newer comprehensive official 24-row status ledger was located."
+      ]
+    }
+  ]
+}

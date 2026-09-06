@@ -1,0 +1,219 @@
+{
+  "schema_version": "miller-north-support-resource-match-v1",
+  "comparison_mode": "read_only",
+  "canonical_registry_snapshot": {
+    "bundled_rows": 333,
+    "approved_tavily_rows": 181
+  },
+  "records": [
+    {
+      "support_id": "fns_bc_fraser_indigenous_health_liaisons",
+      "support_name": "Indigenous Health Liaison Program",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Route through normal Miller resource owner review; do not publish automatically."
+    },
+    {
+      "support_id": "fns_bc_fraser_indigenous_mental_health_liaisons",
+      "support_name": "Indigenous Mental Health Liaison Program",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Route through normal Miller resource owner review; do not publish automatically."
+    },
+    {
+      "support_id": "fns_bc_surrey_indigenous_maternal_liaison",
+      "support_name": "Indigenous Maternal Liaison",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Route through normal Miller resource owner review; do not publish automatically."
+    },
+    {
+      "support_id": "fns_bc_surrey_indigenous_primary_health_clinic",
+      "support_name": "Indigenous Primary Health and Wellness Clinic (FRAFCA)",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Route through normal Miller resource owner review; do not publish automatically."
+    },
+    {
+      "support_id": "fns_bc_katzie_health_wellness",
+      "support_name": "Katzie Health and Wellness",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Route through normal Miller resource owner review; do not publish automatically."
+    },
+    {
+      "support_id": "fns_bc_kwikwetlem_health_wellness",
+      "support_name": "kʷikʷəƛ̓əm Health and Wellness / Community-Based Health Clinic",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Route through normal Miller resource owner review; do not publish automatically."
+    },
+    {
+      "support_id": "fns_bc_fnha_virtual_doctor",
+      "support_name": "First Nations Virtual Doctor of the Day",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Route through normal Miller resource owner review; do not publish automatically."
+    },
+    {
+      "support_id": "fns_bc_fnha_virtual_substance_use",
+      "support_name": "First Nations Virtual Substance Use and Psychiatry Service",
+      "outcome": "exact_existing_miller_resource",
+      "matched_resource_name": "FNHA Virtual Substance Use & Psychiatry Service",
+      "confidence": "high",
+      "action": "Retain one canonical resource and consider adding the verified governance/support metadata through normal owner review."
+    },
+    {
+      "support_id": "fns_bc_fnha_mental_wellness_counselling",
+      "support_name": "FNHA Mental Health and Wellness Supports",
+      "outcome": "exact_existing_miller_resource",
+      "matched_resource_name": "FNHA Mental Wellness & Counselling",
+      "confidence": "high",
+      "action": "Retain one canonical resource and consider adding the verified governance/support metadata through normal owner review."
+    },
+    {
+      "support_id": "fns_bc_fnha_quality_care_safety",
+      "support_name": "Quality Care and Safety Office",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Route through normal Miller resource owner review; do not publish automatically."
+    },
+    {
+      "support_id": "fns_bc_jordans_principle_coordination",
+      "support_name": "Jordan’s Principle Service Coordination Network and Hub",
+      "outcome": "exact_existing_miller_resource",
+      "matched_resource_name": "Jordan's Principle Child & Youth Systems Navigators",
+      "confidence": "high",
+      "action": "Retain one canonical resource and consider adding the verified governance/support metadata through normal owner review."
+    },
+    {
+      "support_id": "fns_bc_kuu_us_crisis",
+      "support_name": "KUU-US Crisis Response Service",
+      "outcome": "exact_existing_miller_resource",
+      "matched_resource_name": "KUU-US Crisis Response Service",
+      "confidence": "high",
+      "action": "Retain one canonical resource and consider adding the verified governance/support metadata through normal owner review."
+    },
+    {
+      "support_id": "fns_ab_aivcc",
+      "support_name": "Alberta Indigenous Virtual Care Clinic",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Retain as a Miller North support candidate; the current Miller registry is B.C.-centred and should not be broadened automatically."
+    },
+    {
+      "support_id": "fns_ab_indigenous_support_line",
+      "support_name": "Indigenous Support Line",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Retain as a Miller North support candidate; the current Miller registry is B.C.-centred and should not be broadened automatically."
+    },
+    {
+      "support_id": "fns_ab_indigenous_wellness_clinic",
+      "support_name": "Indigenous Wellness Clinic",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Retain as a Miller North support candidate; the current Miller registry is B.C.-centred and should not be broadened automatically."
+    },
+    {
+      "support_id": "fns_ab_indigenous_wellness_core_north",
+      "support_name": "Indigenous Wellness Core — North Zone services",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Retain as a Miller North support candidate; the current Miller registry is B.C.-centred and should not be broadened automatically."
+    },
+    {
+      "support_id": "fns_ab_four_winds_navigation",
+      "support_name": "Four Winds South Zone Indigenous Patient Navigation",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Retain as a Miller North support candidate; the current Miller registry is B.C.-centred and should not be broadened automatically."
+    },
+    {
+      "support_id": "fns_ab_indigenous_cancer_navigation",
+      "support_name": "Indigenous Cancer Patient Navigators and Indigenous Cultural Liaisons",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Retain as a Miller North support candidate; the current Miller registry is B.C.-centred and should not be broadened automatically."
+    },
+    {
+      "support_id": "fns_sk_fnho",
+      "support_name": "First Nations Health Ombudsperson Office",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Retain as a Miller North support candidate; the current Miller registry is B.C.-centred and should not be broadened automatically."
+    },
+    {
+      "support_id": "fns_sk_sha_fnm_health_services",
+      "support_name": "First Nations and Métis Health Services",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Retain as a Miller North support candidate; the current Miller registry is B.C.-centred and should not be broadened automatically."
+    },
+    {
+      "support_id": "fns_sk_indigenous_birth_support",
+      "support_name": "Indigenous Birth Support Worker Program",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Retain as a Miller North support candidate; the current Miller registry is B.C.-centred and should not be broadened automatically."
+    },
+    {
+      "support_id": "fns_sk_stc_integrated_wellness",
+      "support_name": "Integrated Wellness",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Retain as a Miller North support candidate; the current Miller registry is B.C.-centred and should not be broadened automatically."
+    },
+    {
+      "support_id": "fns_sk_stc_health_centre",
+      "support_name": "STC Health Centre",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Retain as a Miller North support candidate; the current Miller registry is B.C.-centred and should not be broadened automatically."
+    },
+    {
+      "support_id": "fns_sk_wellness_wheel",
+      "support_name": "Wellness Wheel Clinic",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Retain as a Miller North support candidate; the current Miller registry is B.C.-centred and should not be broadened automatically."
+    },
+    {
+      "support_id": "fns_sk_all_nations_hope",
+      "support_name": "The Place of Hope / All Nations Hope Network",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Retain as a Miller North support candidate; the current Miller registry is B.C.-centred and should not be broadened automatically."
+    },
+    {
+      "support_id": "fns_sk_pagc_nihb_navigator",
+      "support_name": "Non-Insured Health Benefits Navigator",
+      "outcome": "new_first_nations_support_candidate",
+      "matched_resource_name": null,
+      "confidence": "high",
+      "action": "Retain as a Miller North support candidate; the current Miller registry is B.C.-centred and should not be broadened automatically."
+    }
+  ],
+  "generated_at": "2026-09-06T12:00:00-07:00"
+}

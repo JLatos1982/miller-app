@@ -2,9 +2,11 @@ import test from "node:test"
 import assert from "node:assert/strict"
 import fs from "node:fs"
 
-test("Master List exposes only approved visible canonical resources", () => {
+test("Master List exposes approved canonical resources plus publication-safe specialized projections", () => {
   const source = fs.readFileSync(new URL("../src/lists/MasterList.jsx", import.meta.url), "utf8")
-  assert.match(source, /normalizedResourceRows\(rawResources\)\.filter\(\(item\) => item\.approved && !item\.hidden\)/)
+  assert.match(source, /normalizedResourceRows\(rawResources\)\.filter\(item => item\.approved && !item\.hidden\)/)
+  assert.match(source, /buildMillerSpecializedSearchResources\(practicalSupports\.records, millerFunding\.records\)/)
+  assert.match(source, /mergeMillerSearchResources/)
   assert.match(fs.readFileSync(new URL("../src/lists/PreMadeLists.jsx", import.meta.url), "utf8"), /Master List/)
   assert.match(fs.readFileSync(new URL("../src/lists/PreMadeLists.jsx", import.meta.url), "utf8"), /slug === "master-list"/)
 })

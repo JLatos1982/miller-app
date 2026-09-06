@@ -1,0 +1,26 @@
+{
+  "schema_version": "miller-north-fnho-supports-validation-v1",
+  "generated_at": "2026-09-06T12:00:00-07:00",
+  "fnho_recommendations": 4,
+  "support_records": 26,
+  "support_records_by_province": {
+    "British Columbia": 12,
+    "Alberta": 6,
+    "Saskatchewan": 8
+  },
+  "fraser_north_records": 9,
+  "exact_existing_miller_matches": 4,
+  "new_support_candidates": 22,
+  "alberta_crosswalk_rows": 22,
+  "source_url_failures": 0,
+  "duplicate_support_ids": 0,
+  "privacy_scan_terms": {
+    "patient_names_collected": 0,
+    "private_contacts_collected": 0,
+    "changed_case_names_collected": 0
+  },
+  "production_mutations": 0,
+  "publication_mutations": 0,
+  "fnho_navigation_changes": 0,
+  "decision": "valid_private_candidate_set"
+}

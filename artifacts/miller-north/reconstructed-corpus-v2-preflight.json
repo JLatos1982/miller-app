@@ -1,0 +1,715 @@
+{
+  "generated_at": "2026-09-05T23:30:51.482Z",
+  "corpus_id": "miller-north-reconstructed-corpus-v2",
+  "source_artifact_path": "./src/data/indigenous-healthcare-evidence-public-v1.json",
+  "record_count": 695,
+  "fingerprint": "fe44723ae68c79eb673c22ef2a00cb14c913ab1ad0ce2c7077fe8b2bce04c744",
+  "schema": [
+    "care_setting,caution,evidence_status,evidence_type,methodology,organization,province,public_record_id,recommendation_action,source,summary,year",
+    "care_setting,evidence_status,evidence_type,methodology,organization,province,public_record_id,recommendation_action,source,summary,year"
+  ],
+  "duplicate_source_record_count": 552,
+  "duplicate_source_group_count": 122,
+  "duplicate_source_groups": [
+    {
+      "source_url": "https://med-fom-osot-inclusive-campus.sites.olt.ubc.ca/files/2021/01/Racism-and-Oral-Health-Outcomes-among-Pregnant-Canadian-Aboriginal-Women.pdf",
+      "public_record_ids": [
+        "ihe_0019697cf59819e22dcc",
+        "ihe_1ddf751f8fb3289e452c",
+        "ihe_3143f17223d2d9f424fc",
+        "ihe_3775097b4a75b956dfca",
+        "ihe_7620e5d234cb2ac8b596",
+        "ihe_f8e2833147e3e8a4fc7f"
+      ]
+    },
+    {
+      "source_url": "https://www.cbc.ca/news/canada/british-columbia/bc-health-care-racism-report-one-year-later-1.6268316",
+      "public_record_ids": [
+        "ihe_007c763b4aa6f9a114b6",
+        "ihe_5ab4e8ce6fd98a500aa2",
+        "ihe_6c9eb80a701defccf2e8",
+        "ihe_89b1d8d6cecd85923066",
+        "ihe_8a5a031e7c3ccf9b36cf",
+        "ihe_a5e7e182513da99ad485",
+        "ihe_b0c1327ded5343af56bd",
+        "ihe_b148ce3d491d53642b1a",
+        "ihe_c7c9cd5b9b64b2801ee2",
+        "ihe_f700033c56579f900590"
+      ]
+    },
+    {
+      "source_url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
+      "public_record_ids": [
+        "ihe_008afff9c6c2f7d60ae4",
+        "ihe_0569da34f0de8e1c4ec2",
+        "ihe_348c3675ea2d01516efc",
+        "ihe_39f5374b255a261f6fe3",
+        "ihe_5de9746307410ec46489",
+        "ihe_6465dd9c64f0c549b854",
+        "ihe_6c30494f8c4d8c38c871",
+        "ihe_8a16c17a3287d42273c6",
+        "ihe_a8d29856339e45c5eacd",
+        "ihe_aa8967c65419b99493cb",
+        "ihe_aa8ef1ef6b357bde3129",
+        "ihe_b955f9dbc4b759afd52b",
+        "ihe_cc00b80df1d23fe8bec8",
+        "ihe_ff34f1e420c173239a94"
+      ]
+    },
+    {
+      "source_url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination",
+      "public_record_ids": [
+        "ihe_00b2e6b09b04051ba899",
+        "ihe_544ce0002abb7b83428b",
+        "ihe_62e10f098d351aca7754",
+        "ihe_a4897d8cee8159f85202",
+        "ihe_e277435f66eefdebd170",
+        "ihe_e4f41a5a9e55a9caf697"
+      ]
+    },
+    {
+      "source_url": "https://www.nccih.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
+      "public_record_ids": [
+        "ihe_00feb84cbbb69760143f",
+        "ihe_2a60323006b014a30dc9",
+        "ihe_420576e01718d9a609bf",
+        "ihe_44f4ffe96bf11b31f775",
+        "ihe_581630f83071859de49b",
+        "ihe_d680e72deb81ca5f2faa"
+      ]
+    },
+    {
+      "source_url": "https://news.ubc.ca/2026/07/national-survey-indigenous-people-childbirth-mistreatment",
+      "public_record_ids": [
+        "ihe_0173de53145c8e4727d8",
+        "ihe_23569ac9c93b12818bb8",
+        "ihe_80ac3db7b9c36339ce87",
+        "ihe_c5f9f7ce73e982509cf2",
+        "ihe_cdcf4779bc804d59471e",
+        "ihe_fefa9f7f088f69e52491"
+      ]
+    },
+    {
+      "source_url": "https://spph.ubc.ca/in-plain-sight",
+      "public_record_ids": [
+        "ihe_01cb332bd883a5b24745",
+        "ihe_10a3086436e8fc6d1b40",
+        "ihe_146f2e4a9d999dd01065",
+        "ihe_1bcf0751fe6859350cc0",
+        "ihe_7a02568a8c171749ab63",
+        "ihe_9ccc9694a3d872dca37c",
+        "ihe_b3d3f75d5d00ce307ade",
+        "ihe_b45672d35ca1d44624a1",
+        "ihe_cf553a6da866e36f50ff"
+      ]
+    },
+    {
+      "source_url": "https://www.bccnm.ca/Documents/cultural_safety_humility/BCCNM_Redress_Update_September2024.pdf",
+      "public_record_ids": [
+        "ihe_01e9996597e14f9078e6",
+        "ihe_14c429ffb7dc3f15d0b9",
+        "ihe_311af17690cf883a9900",
+        "ihe_f44ad5f0305a946c01fc"
+      ]
+    },
+    {
+      "source_url": "https://bcpharmacists.org/readlinks/plain-sight-addressing-indigenous-specific-racism-and-discrimination-bc-health-care",
+      "public_record_ids": [
+        "ihe_01fee2cd2df21872a966",
+        "ihe_a7ee6d688ce8f2f8cbde"
+      ]
+    },
+    {
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11097747",
+      "public_record_ids": [
+        "ihe_0229d8158ac458c0b1ad",
+        "ihe_dd89b4d12f10e51a5870"
+      ]
+    },
+    {
+      "source_url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342",
+      "public_record_ids": [
+        "ihe_0253f603031e96de8a66",
+        "ihe_03fe15d11fc0fd7bc1d7",
+        "ihe_0d9ac06b375d91c2e494",
+        "ihe_1ae9da6be2b1941b9709",
+        "ihe_2d31d815400de31f2394",
+        "ihe_49f5a447bac47272f559",
+        "ihe_55dc3ca02847504f7e36",
+        "ihe_6ab00330e189c1c990b5",
+        "ihe_8292b8ec0b9f61337e2b",
+        "ihe_9251b310443149febcf3",
+        "ihe_a679a0e2b74ecf98781c",
+        "ihe_c73c0ea8e2ceb4093bdd",
+        "ihe_d6c9903d9b2451497c64",
+        "ihe_e6ef737bbdf0689678a1"
+      ]
+    },
+    {
+      "source_url": "https://rccbc.ca/media-release-new-study-reveals-ongoing-anti-indigenous-racism-in-rural-bc-health",
+      "public_record_ids": [
+        "ihe_027841d8e7709ae6c6d5",
+        "ihe_b081daa768f09dd8a752",
+        "ihe_b65646c7e95cbed98308"
+      ]
+    },
+    {
+      "source_url": "https://www.bcafn.ca/news/no-time-wait-fnlc-calls-horgan-government-take-immediate-steps-implement-all-recommendations",
+      "public_record_ids": [
+        "ihe_029dcb55252ae88aa2f9",
+        "ihe_0df84b5ae8cb25e4a128",
+        "ihe_10781d27f0a892c92acc",
+        "ihe_b7fb7386ba5678b5f45d",
+        "ihe_ce7cd580e1ff7a5b1794",
+        "ihe_fb7ef24a5ca14cdfb5ee"
+      ]
+    },
+    {
+      "source_url": "https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-44-no-4-2024/indigenous-people-experiences-primary-health-care-canada-qualitative-systematic-review.html",
+      "public_record_ids": [
+        "ihe_03c596a4874680d3e99e",
+        "ihe_12e170dd3e019079cd9a",
+        "ihe_6116bd1583a1582b83b2"
+      ]
+    },
+    {
+      "source_url": "https://circle.ubc.ca/files/gravity_forms/18-7e027fe2d357755f5b9702688fc4d736/2023/03/Towards-Developing-Standards-on-the-Intersection-of-Racism-and-Discrimination-Material-Hardship-and-Healthcare-Access_14Mar2023.pdf",
+      "public_record_ids": [
+        "ihe_04cdcba87a50da8e3458",
+        "ihe_cc24d7163c041a1b0b5c"
+      ]
+    },
+    {
+      "source_url": "https://www.ufv.ca/media/assets/faculty-of-science-health-and-human-services/health-sciences/docs/Response-to-In-Plain-Sight-Report-March-2021---UFV-FHS-Indigenization-Committee.pdf",
+      "public_record_ids": [
+        "ihe_04d86ea10cf983f1fcc7",
+        "ihe_06dfe25aa65e5395cec9",
+        "ihe_2470e4a38012fb5b4b23",
+        "ihe_357d773904591d0ec3aa",
+        "ihe_6192409bb3b61266d354",
+        "ihe_7f4220848b96ad12efc0",
+        "ihe_c0537226e88f220e79ac",
+        "ihe_c0a2ad2eed634dc4b0dc",
+        "ihe_d8427ae4ed1133b6e3fa"
+      ]
+    },
+    {
+      "source_url": "https://www.saskhealthauthority.ca/our-organization/our-direction/anti-racism-foundation-and-strategy",
+      "public_record_ids": [
+        "ihe_052e02d2fb427e23d0d6",
+        "ihe_16564bb6559fcb79ffcd"
+      ]
+    },
+    {
+      "source_url": "https://ca.news.yahoo.com/nearly-two-thirds-indigenous-people-134041266.html",
+      "public_record_ids": [
+        "ihe_060852ba38407dcf26d2",
+        "ihe_0987e94b3b85dc02da4d",
+        "ihe_145a340e7295fd7eecac",
+        "ihe_1519e033d0e9b6ab03b7",
+        "ihe_28694d07bda70ca4a721",
+        "ihe_3826b9fb304375896327",
+        "ihe_50980e5c3932d9bbc3ff",
+        "ihe_5aab7fdc8475aa767a14",
+        "ihe_5b5c5b49f9715d3eafeb",
+        "ihe_68f9cebe689a0c12ac4a",
+        "ihe_6f852e6401853b83aa61",
+        "ihe_81e7b39348b663e219c6",
+        "ihe_a41ec23004bffcd44ac8",
+        "ihe_c6b112f9d0062f9fbcea",
+        "ihe_ce41925286bdd0dc9a3f",
+        "ihe_d1ba3121686c2d054167",
+        "ihe_e11d8e9ce6ca290b7463",
+        "ihe_f63bc5b4ce49247a2b14"
+      ]
+    },
+    {
+      "source_url": "https://chcpbc.org/wp-content/uploads/2024/08/RPT_IndigenousCSHAR-2024-03-04.pdf",
+      "public_record_ids": [
+        "ihe_0700f8788d26680346c8",
+        "ihe_5a8dce392a5646bd5ab3",
+        "ihe_b33081eef7e13234a08b",
+        "ihe_c27c3efd663be8140f15",
+        "ihe_ed2b8ed374fae68bb3a6"
+      ]
+    },
+    {
+      "source_url": "https://www.opendemocracy.net/en/5050/indigenous-women-racism-covid-19-canada-childbirth",
+      "public_record_ids": [
+        "ihe_0743220788c676c9d832",
+        "ihe_d932c5d164b074c72684"
+      ]
+    },
+    {
+      "source_url": "https://nursing.usask.ca/documents/research-initiatives/anti-racism-resources/cpr-racism-article.pdf",
+      "public_record_ids": [
+        "ihe_0756d29598e76e8395e9",
+        "ihe_2161541c80738e25556f",
+        "ihe_2a7ca2b237bc58d20e9a",
+        "ihe_566ef58e5a8ff8d24e79",
+        "ihe_81dfa4eddcbb3065ea63",
+        "ihe_825cc4e2deb1d0644352",
+        "ihe_85a3a43fb6516d5f3702",
+        "ihe_a6c6bf9481fc89cc2b1e",
+        "ihe_c54c3ab95f287d969209"
+      ]
+    },
+    {
+      "source_url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+      "public_record_ids": [
+        "ihe_076d478f7c5ffe83c04c",
+        "ihe_1445978133ccf9996c36",
+        "ihe_1737eb81f94eb5329214",
+        "ihe_29441943bcfc7048868b",
+        "ihe_419a727e7537adca36e9",
+        "ihe_5cbf51c84d18edd2ab5a",
+        "ihe_80e92d334011d416f879",
+        "ihe_80eda7f4e367e68a095d",
+        "ihe_87d4bdc7290350eb7050",
+        "ihe_9944b82a8aa7af62a6ac",
+        "ihe_a08af4518cbce9e76ad6",
+        "ihe_b82b296103fed06ec88b",
+        "ihe_be7d37138f2c381815c8",
+        "ihe_c5c955aa61a89075e1d8",
+        "ihe_dbe6ab07ff815b00c93d",
+        "ihe_dd3608bb8f55bb6697b3",
+        "ihe_e894a19e0a05145474b5",
+        "ihe_fab100506fc53c1d0c7c"
+      ]
+    },
+    {
+      "source_url": "https://www.npwomenshealthcare.com/structural-racism-and-implicit-bias-in-womens-healthcare",
+      "public_record_ids": [
+        "ihe_0931dee7b688b23228fc",
+        "ihe_9ff87bfcfa791b8cdcc8"
+      ]
+    },
+    {
+      "source_url": "https://open.alberta.ca/dataset/8f12adcd-9c93-45de-a7d4-fa94d9d11b26/resource/1d176742-5236-4526-8fc5-13c16851786a/download/hlth-way-forward-indigenous-primary-health-care-implementation-panel-plan-advance-recommendation.pdf",
+      "public_record_ids": [
+        "ihe_0b1548b4a358de3154b8",
+        "ihe_1f564745b927c83033b9",
+        "ihe_603bfb4c11772e31f933",
+        "ihe_77381a2c188c6df040a4",
+        "ihe_9a5940f75577ce74acc9",
+        "ihe_c7d3931a3c34cd010ac2",
+        "ihe_e5aa3c6ad0f08f0432dc",
+        "ihe_eb571798197db7378bbc",
+        "ihe_f84005b7da048be08afd"
+      ]
+    },
+    {
+      "source_url": "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2026.1766047/full",
+      "public_record_ids": [
+        "ihe_0b1bfbc5a86ec92f66aa",
+        "ihe_1418b3d9344aa08f2e4b",
+        "ihe_56a049ae07867a66fde2",
+        "ihe_71cc61ff7d16df6817a4",
+        "ihe_8d286dbca376a65093e8",
+        "ihe_ac42d9c5c4732b6f114f",
+        "ihe_f2629e8b02c1952a1ea4",
+        "ihe_fb341ee34817503c11bc"
+      ]
+    },
+    {
+      "source_url": "https://baseline.bchumanrights.ca/report/in-plain-sight-addressing-indigenous-specific-racism-and-discrimination-in-b-c-health-care",
+      "public_record_ids": [
+        "ihe_0badb1abb2489ab8b965",
+        "ihe_18d936f093a0d662cd47",
+        "ihe_474d9d126e46639b61e1",
+        "ihe_513196f07f479dd3d74b",
+        "ihe_60c5466e8e43fc21d09f"
+      ]
+    },
+    {
+      "source_url": "https://albertahumanrights.ab.ca/media/wjmbqth0/indigenous-initiatives-2010-11-to-2018-19.pdf",
+      "public_record_ids": [
+        "ihe_0cbf5f0cac896b99cc17",
+        "ihe_b35a113cc1d38fbc5e39"
+      ]
+    },
+    {
+      "source_url": "https://bcmj.org/special-feature/plain-sight-elaboration-review",
+      "public_record_ids": [
+        "ihe_0ea59aee8481b3e991bd",
+        "ihe_3003b1134cdbf8d1fc2e",
+        "ihe_46460fc993d928912c55",
+        "ihe_6ac47dd22ee153c33712",
+        "ihe_9d3ff6a087a40b89e8ef",
+        "ihe_e18cae51b5e8e97e9e82",
+        "ihe_e8cec3c13741153e7d1d"
+      ]
+    },
+    {
+      "source_url": "https://www.ons.org/publications-research/cjon/26/4/culturally-safe-cancer-care-indigenous-people-nursing-practice",
+      "public_record_ids": [
+        "ihe_0eba8728e68642d8aa69",
+        "ihe_6097bf1b6933ccae5dc4"
+      ]
+    },
+    {
+      "source_url": "https://www.indigenouswatchdog.org/current-problems/theme/systemic-racism/group/first-nations/health",
+      "public_record_ids": [
+        "ihe_0eebda74852f12d01ac6",
+        "ihe_26d5b2493402f67424ad",
+        "ihe_b669cdee9c81b361d7d2"
+      ]
+    },
+    {
+      "source_url": "https://engage.gov.bc.ca/addressingracism",
+      "public_record_ids": [
+        "ihe_107a2b4974b822206d7f",
+        "ihe_37102adf519ed249deb8",
+        "ihe_b74f4362a35c783d93c6"
+      ]
+    },
+    {
+      "source_url": "https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-022-08129-5",
+      "public_record_ids": [
+        "ihe_112b0e91bd20e27c612f",
+        "ihe_3e2bb79377af7076adeb",
+        "ihe_8e221f89a7bdbbd214d7"
+      ]
+    },
+    {
+      "source_url": "https://engage.gov.bc.ca/addressingracism/more-evidence-of-failures-in-health-system-for-b-c-s-indigenous-peoples-report",
+      "public_record_ids": [
+        "ihe_116e55af660f854df791",
+        "ihe_130b8bad12e38870b5ed",
+        "ihe_145615efb832deeee62b",
+        "ihe_72befc64830f27335c66",
+        "ihe_7733b252bf0d5242b675",
+        "ihe_831a23bff63d7db82085",
+        "ihe_b11e4db1a315354df6de",
+        "ihe_eb75da4d728817b07532",
+        "ihe_f0ca324fd30aef12a5cf",
+        "ihe_f9a01c43dee420e37ad2"
+      ]
+    },
+    {
+      "source_url": "https://www.canada.ca/en/health-canada/services/publications/health-system-services/chief-public-health-officer-health-professional-forum-common-definitions-cultural-safety.html",
+      "public_record_ids": [
+        "ihe_11a1aada2b5d3481a165",
+        "ihe_da19c13c31f59aafcfd4"
+      ]
+    },
+    {
+      "source_url": "https://www.princegeorgecitizen.com/local-news/carrier-sekani-tribal-council-calls-for-definitive-change-in-bcs-healthcare-following-report-on-racism-3141063",
+      "public_record_ids": [
+        "ihe_12474acd8437272f823e",
+        "ihe_3599f3cc4de78c814cfc",
+        "ihe_7fa44a84c36a9a933ce4",
+        "ihe_943766330cc594be0549"
+      ]
+    },
+    {
+      "source_url": "https://www.fnha.ca/Documents/FNHA-Remembering-Keegan.pdf",
+      "public_record_ids": [
+        "ihe_12f152448fdab9c8a57a",
+        "ihe_9c9bd3f63377eb7b3524",
+        "ihe_e8d730e95a39f30beaca"
+      ]
+    },
+    {
+      "source_url": "https://nit.com.au/03-09-2025/20045/racism-in-healthcare-is-costing-lives-report",
+      "public_record_ids": [
+        "ihe_132913509d2ba9e1f0a2",
+        "ihe_34011a3e3294b0daa3db",
+        "ihe_47bab1b35f38801263d0",
+        "ihe_6fbf9b42f2638023c3af",
+        "ihe_e3a95f9a5e32164a171a",
+        "ihe_f14b12a9efaef7d3f61c"
+      ]
+    },
+    {
+      "source_url": "https://afnigc.ca/wp-content/uploads/2024/10/IMPACT1.pdf",
+      "public_record_ids": [
+        "ihe_146f5070cc77a752f2e4",
+        "ihe_827078598d871b47e78b",
+        "ihe_92ae176a69ad7d0f8c6b",
+        "ihe_9ee291af1509b833a573",
+        "ihe_a5375ce2058683de1312",
+        "ihe_ab56c88eb7c22ea4d835"
+      ]
+    },
+    {
+      "source_url": "https://www.cbc.ca/news/canada/british-columbia/ubc-study-on-indigenous-people-mistreatment-during-childbirth-9.7267757",
+      "public_record_ids": [
+        "ihe_14a6fbd4a27531e8532a",
+        "ihe_26b54ee2baaf9d463307",
+        "ihe_59423c0f5f1ee1a48245",
+        "ihe_635489f759ac742e293b",
+        "ihe_9f2ef97f2ccec312db1e",
+        "ihe_a5421698929fc60f1d7b",
+        "ihe_b4a7977cd2e9201cad4b",
+        "ihe_b6757e755de985266cdf",
+        "ihe_b69c56411edebaef8916",
+        "ihe_b71f517c45bebee5df17",
+        "ihe_b8a65aa522007027953a",
+        "ihe_d78b0dbec0fff0f9e2d7",
+        "ihe_d79bdec2c08d7568ac24",
+        "ihe_e774d10e6751d02fc0ce",
+        "ihe_ec188a0276cea7ddfcab"
+      ]
+    },
+    {
+      "source_url": "https://doi.org/10.9778/cmajo.20230039",
+      "public_record_ids": [
+        "ihe_150f3b527c26c24dd6ff",
+        "ihe_220ea7cc3831aa3197ab",
+        "ihe_6553166b6d95b650b89a"
+      ]
+    },
+    {
+      "source_url": "https://www.bcafn.ca/sites/default/files/docs/news/2020Nov30_FNLC%20release%20re%20METL%20report%20on%20racism%20in%20BC%20Healthcare%20system%20-%20FINAL.pdf",
+      "public_record_ids": [
+        "ihe_153a8a0f194315dd0dd1",
+        "ihe_16ba0b2be61ca468d88c",
+        "ihe_20d3f406b9fd23acf1e2",
+        "ihe_68f9f16af7acd5f44edf",
+        "ihe_964d10e0b7f409e1d139",
+        "ihe_b04613b02bd281abd19d",
+        "ihe_b7f6e94266f1cdf6e632"
+      ]
+    },
+    {
+      "source_url": "https://www.ccnsa.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
+      "public_record_ids": [
+        "ihe_159773eae4a7b639d7d9",
+        "ihe_42025e3c944afdc67c64",
+        "ihe_62f9916c4f9f1408d89e",
+        "ihe_6f10d5425c188dd41d41",
+        "ihe_a8dbfb70dcac3acf1d37",
+        "ihe_deeaf0e4a3459d24a8d2"
+      ]
+    },
+    {
+      "source_url": "https://www.interiorhealth.ca/sites/default/files/PDFS/ih-in-plain-sight-response-volume-5-november-2025.pdf",
+      "public_record_ids": [
+        "ihe_1613c971d2d2f27e0a1c",
+        "ihe_3574abf328ec70a656d1",
+        "ihe_5708a0c9eef60f395d8e",
+        "ihe_6730eb9123674b5da5a6",
+        "ihe_72d3f72c38bceaf8f7b5",
+        "ihe_b8924e7ffe3468f081b9",
+        "ihe_d8e3b6c62e17fe621b99",
+        "ihe_f12a901d22b86eeac2c9"
+      ]
+    },
+    {
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9210059",
+      "public_record_ids": [
+        "ihe_1712074c1616b53b1cee",
+        "ihe_32371725e8a49f5f2830",
+        "ihe_4387c3155fbed725c229",
+        "ihe_b04cf81e72d3f197a277"
+      ]
+    },
+    {
+      "source_url": "https://www.nationalobserver.com/2023/04/11/investigations/analysis-anti-indigenous-racism-hospitals-reveals-pattern-harm-no",
+      "public_record_ids": [
+        "ihe_1768b718da7cdd6485f7",
+        "ihe_504bed49916cdf30f216"
+      ]
+    },
+    {
+      "source_url": "https://bmjopen.bmj.com/content/bmjopen/13/2/e063178.full.pdf",
+      "public_record_ids": [
+        "ihe_177ba35a6b4314245038",
+        "ihe_2f8166056e632041cf6b",
+        "ihe_3158d0dac8997d5275bb",
+        "ihe_3a0493c5f4c258f0d13e",
+        "ihe_3e617553760c416870b3",
+        "ihe_42c0860f7b99aa7d4329",
+        "ihe_6a482ab3baaeae4332ae",
+        "ihe_6b8768c0d57631b12aa2",
+        "ihe_89b4058008ea8543b63c",
+        "ihe_97c79db7c98141e2e2be",
+        "ihe_9e1a54c0a0b9d24c4b58",
+        "ihe_a6443d5f20c3fac0daee",
+        "ihe_d2cd9a590550083c5ec9",
+        "ihe_eb60419f4ca4f6e607fc",
+        "ihe_ef651f6e30fc2f07ff01"
+      ]
+    },
+    {
+      "source_url": "https://www.arthritisresearch.ca/research/access-and-utilization-of-healthcare-for-rheumatoid-arthritis-in-indigenous-people-in-alberta-2",
+      "public_record_ids": [
+        "ihe_1826f6325470b7105f8d",
+        "ihe_7d127e3c527e47abbc28",
+        "ihe_9c4624dd8fa29befcc56"
+      ]
+    },
+    {
+      "source_url": "https://www.bccnm.ca/Documents/cultural_safety_humility/Constructive_Disruption_BCCNM_Commitment_to_Action.pdf",
+      "public_record_ids": [
+        "ihe_18feba02689240b3244c",
+        "ihe_55fbfc2080a49d791774",
+        "ihe_685ec01bb46ade3dc838",
+        "ihe_8786dfdac7cd8a1c45df",
+        "ihe_a21be2d344596d78ac8e"
+      ]
+    },
+    {
+      "source_url": "https://www.semanticscholar.org/paper/Anti-Indigenous-racism-in-Canadian-healthcare%3A-a-of-Cooke-Shields/626145f193b42fcd772505a968244378a57b6e02",
+      "public_record_ids": [
+        "ihe_193b7d16dbb9de1a33bb",
+        "ihe_37cc379da6c8f35a3e83",
+        "ihe_9bace6ae18f4373c6503",
+        "ihe_ed103cc985c1bc0b285b"
+      ]
+    },
+    {
+      "source_url": "https://www.verywellmind.com/mental-health-effects-of-racism-on-indigenous-communities-5089079",
+      "public_record_ids": [
+        "ihe_193fd0231911eee2e902",
+        "ihe_4604c996e2730257621d"
+      ]
+    }
+  ],
+  "obvious_duplicate_groups": [
+    [
+      "ihe_029dcb55252ae88aa2f9",
+      "ihe_16ba0b2be61ca468d88c"
+    ],
+    [
+      "ihe_060852ba38407dcf26d2",
+      "ihe_b69c56411edebaef8916"
+    ],
+    [
+      "ihe_0931dee7b688b23228fc",
+      "ihe_75141abc8251d7d9fca3"
+    ],
+    [
+      "ihe_0987e94b3b85dc02da4d",
+      "ihe_b71f517c45bebee5df17"
+    ],
+    [
+      "ihe_0df84b5ae8cb25e4a128",
+      "ihe_20d3f406b9fd23acf1e2"
+    ],
+    [
+      "ihe_14a6fbd4a27531e8532a",
+      "ihe_5b5c5b49f9715d3eafeb"
+    ],
+    [
+      "ihe_150f3b527c26c24dd6ff",
+      "ihe_d3bfe144dfe145ebcf45"
+    ],
+    [
+      "ihe_159773eae4a7b639d7d9",
+      "ihe_581630f83071859de49b"
+    ],
+    [
+      "ihe_1b00476a53c86bf6f92e",
+      "ihe_8a5a031e7c3ccf9b36cf"
+    ],
+    [
+      "ihe_1fb3346d078f71d43dba",
+      "ihe_ac57e3785c891db0145b"
+    ],
+    [
+      "ihe_220ea7cc3831aa3197ab",
+      "ihe_73972d439652e959197f"
+    ],
+    [
+      "ihe_26b54ee2baaf9d463307",
+      "ihe_f041ce03c9f9c43167ee",
+      "ihe_f63bc5b4ce49247a2b14"
+    ],
+    [
+      "ihe_3a817893c5524654c2e7",
+      "ihe_9ff87bfcfa791b8cdcc8"
+    ],
+    [
+      "ihe_3dab1362474dea826b3e",
+      "ihe_ac9ce5934bd7da4255ae"
+    ],
+    [
+      "ihe_42025e3c944afdc67c64",
+      "ihe_d680e72deb81ca5f2faa"
+    ],
+    [
+      "ihe_420576e01718d9a609bf",
+      "ihe_deeaf0e4a3459d24a8d2"
+    ],
+    [
+      "ihe_44f4ffe96bf11b31f775",
+      "ihe_a8dbfb70dcac3acf1d37"
+    ],
+    [
+      "ihe_5aab7fdc8475aa767a14",
+      "ihe_839f605fa75fa5d6658e",
+      "ihe_a5421698929fc60f1d7b"
+    ],
+    [
+      "ihe_89b1d8d6cecd85923066",
+      "ihe_ff46a03e3dbcb8342e06"
+    ],
+    [
+      "ihe_aa189c503be97d163ad0",
+      "ihe_d2bfba0782f8d2b68962"
+    ],
+    [
+      "ihe_b4a7977cd2e9201cad4b",
+      "ihe_ce41925286bdd0dc9a3f"
+    ]
+  ],
+  "date_coverage": {
+    "exact_event_date": 0,
+    "event_year_only": 0,
+    "publication_date_only": 159,
+    "approximate_event_year": 0,
+    "conflicting_dates": 0,
+    "no_useful_date": 536
+  },
+  "province_coverage": {
+    "alberta": 201,
+    "british_columbia": 269,
+    "saskatchewan": 225
+  },
+  "evidence_status_coverage": {
+    "systemic_evidence": 534,
+    "official_investigation": 108,
+    "reported_account": 45,
+    "procedural_adjudicative_context": 5,
+    "formal_finding": 3
+  },
+  "source_type_coverage": {
+    "institutional_or_public": 170,
+    "credible_journalism": 75,
+    "health_authority": 11,
+    "indigenous_organization": 123,
+    "institutional_analysis": 9,
+    "regulatory_adjudicative": 17,
+    "government": 79,
+    "indigenous_governance_release": 15,
+    "university_response": 16,
+    "health_authority_response": 15,
+    "research_or_university": 61,
+    "oversight_or_adjudicative": 20,
+    "government_information": 4,
+    "unknown": 26,
+    "professional_journal_analysis": 7,
+    "indigenous_health_authority_report": 2,
+    "peer_reviewed_research": 24,
+    "government_report": 8,
+    "indigenous_health_authority_statement": 3,
+    "government_news_release": 2,
+    "human_rights_systemic_investigation": 1,
+    "professional_regulator_response": 4,
+    "human_rights_commission_information": 1,
+    "secondary_journalism": 1,
+    "official_review_mirror": 1
+  },
+  "provenance_fields": [
+    "public_record_id",
+    "source.title",
+    "source.publisher",
+    "source.url",
+    "source.publication_date",
+    "source.source_type",
+    "methodology",
+    "caution"
+  ]
+}

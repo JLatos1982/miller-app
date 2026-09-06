@@ -1,0 +1,296 @@
+{
+  "schema_version": "farm-research-dossier-v1",
+  "dossier_id": "farm_dossier_miller_new_roads_v1",
+  "canonical_fixture_id": "farm_fixture_miller_new_roads_money_v1",
+  "research_date": "2026-09-06",
+  "publication_scope": "private_owner_review",
+  "production_mutations": 0,
+  "publication_mutations": 0,
+  "owner_synthesis": {
+    "what_this_is": "New Roads Therapeutic Recovery Community is an operating, nonprofit-run residential recovery program in the Victoria area. This dossier connects a named provincial funding commitment to its recipient, continuing service evidence and a later women’s-program expansion.",
+    "what_we_learned": [
+      "The Province named New Roads and announced $4.39 million over three years to support an estimated 330 participants.",
+      "Our Place Society is the named operator and recipient relationship; Island Health currently lists the program within its treatment-and-recovery directory.",
+      "A separate 20-bed women’s facility opened in March 2025, demonstrating a later expansion of the New Roads model.",
+      "The funding-to-service path reaches service level, but Miller still needs an owner decision about whether the men’s and women’s programs are one resource or related resources."
+    ],
+    "why_it_matters": "This is the clearest canonical example of public money moving from a named government announcement to a named operator and an observable service, while preserving a remaining resource-identity decision.",
+    "what_remains_unclear": [
+      "How should the men’s and women’s New Roads programs map to canonical Miller resource records?",
+      "Is there a public post-award report comparing actual participation with the estimated 330 people over three years?"
+    ],
+    "recommended_next_move": "Send the two-program identity question through normal Miller owner review before considering either resource record or backstory for publication."
+  },
+  "identity": {
+    "canonical_name": "New Roads Therapeutic Recovery Community",
+    "domain": "miller_addictions",
+    "subject_type": "service_program",
+    "location_jurisdiction": "View Royal / Victoria, British Columbia",
+    "status": "operationally_verified_private_research_subject",
+    "identifiers": [
+      "new_roads_therapeutic_recovery_community",
+      "farm_fixture_miller_new_roads_money_v1",
+      "fmoney_miller_new_roads_439m"
+    ]
+  },
+  "timeline": [
+    {
+      "timeline_id": "fdtimeline_new_roads_funding_2023",
+      "date_or_range": "2023-10-17",
+      "event_type": "funding_announcement",
+      "title": "$4.39-million three-year support announced",
+      "short_description": "The Province named New Roads and estimated the support would reach 330 people over three years.",
+      "organization": "Government of British Columbia",
+      "relationship": "funded_by",
+      "source_references": ["fdsource_new_roads_bc_funding"],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "fdtimeline_new_roads_current_listing",
+      "date_or_range": "current as inspected 2026-09-06",
+      "event_type": "operational_confirmation",
+      "title": "Island Health lists New Roads",
+      "short_description": "The health-authority service directory identifies New Roads among current community bed-based treatment and recovery options.",
+      "organization": "Island Health",
+      "relationship": "reports_on",
+      "source_references": ["fdsource_new_roads_island_health"],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "fdtimeline_new_roads_women_opening_2025",
+      "date_or_range": "2025-03-14",
+      "event_type": "service_expansion",
+      "title": "20-bed women’s facility opens",
+      "short_description": "An official opening notice documents a distinct 20-bed women’s therapeutic-recovery facility connected to New Roads.",
+      "organization": "Government of British Columbia and Our Place Society",
+      "relationship": "expanded_by",
+      "source_references": ["fdsource_new_roads_women_opening"],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "fdtimeline_new_roads_operator_current",
+      "date_or_range": "current as inspected 2026-09-06",
+      "event_type": "operator_confirmation",
+      "title": "Operator maintains current program information",
+      "short_description": "Our Place Society’s New Roads site provides current program and access information.",
+      "organization": "Our Place Society",
+      "relationship": "operated_by",
+      "source_references": ["fdsource_new_roads_operator"],
+      "confidence": "high"
+    }
+  ],
+  "organizations": [
+    {"name": "Government of British Columbia", "role": "funding authority and public announcer"},
+    {"name": "Our Place Society", "role": "named nonprofit operator and funding recipient"},
+    {"name": "Island Health", "role": "health-authority directory and referral context"}
+  ],
+  "policy_law_governance": [
+    {
+      "title": "New Roads Therapeutic Recovery Community support",
+      "context_scope": "response_context",
+      "summary": "The 2023 provincial announcement is a formal program-and-funding response, not a statute, regulation or proof of outcomes.",
+      "source_references": ["fdsource_new_roads_bc_funding"]
+    }
+  ],
+  "accountability": [],
+  "funding_public_money": [
+    {
+      "title": "$4.39-million New Roads support",
+      "amount_cad": 4390000,
+      "funding_type": "operating_grant",
+      "attribution_scope": "service_level",
+      "recipient": "Our Place Society",
+      "summary": "A named three-year service-level commitment; this does not establish detailed expenditure or outcome allocation within the program.",
+      "source_references": ["fdsource_new_roads_bc_funding"]
+    }
+  ],
+  "service_real_world_implementation": [
+    {
+      "title": "New Roads program",
+      "summary": "Current health-authority and operator pages corroborate continued operation of the named therapeutic-recovery program.",
+      "source_references": ["fdsource_new_roads_island_health", "fdsource_new_roads_operator"]
+    },
+    {
+      "title": "New Roads women’s facility",
+      "summary": "The 2025 opening notice documents a 20-bed expansion; its final Miller resource granularity remains owner-gated.",
+      "source_references": ["fdsource_new_roads_women_opening"]
+    }
+  ],
+  "implementation_evidence": [
+    {
+      "state": "operational",
+      "date": "2026-09-06",
+      "summary": "Authoritative service and operator pages were current when inspected.",
+      "source_references": ["fdsource_new_roads_island_health", "fdsource_new_roads_operator"]
+    },
+    {
+      "state": "implemented",
+      "date": "2025-03-14",
+      "summary": "The later 20-bed women’s facility is documented as opened, rather than merely funded or announced.",
+      "source_references": ["fdsource_new_roads_women_opening"]
+    }
+  ],
+  "audits_follow_up": [
+    {
+      "title": "Later expansion confirmation",
+      "summary": "The 2025 opening notice is later implementation evidence, but no audited service-level expenditure or outcome report was located in the assembled fixture sources.",
+      "source_references": ["fdsource_new_roads_women_opening"]
+    }
+  ],
+  "unresolved_questions": [
+    {
+      "gap_id": "fdgap_new_roads_resource_granularity",
+      "question": "Should the men’s and women’s New Roads programs be represented as one Miller resource, two resources or a parent with two programs?",
+      "gap_type": "owner_review",
+      "priority": "review_first",
+      "rationale": "The choice affects user-facing service identity and deduplication, not the underlying evidence."
+    },
+    {
+      "gap_id": "fdgap_new_roads_participant_reporting",
+      "question": "Is there an official report comparing actual participation with the announced estimate of 330 people over three years?",
+      "gap_type": "official_source_follow_up",
+      "priority": "review_next",
+      "rationale": "Operation is established, but current assembled sources do not measure performance against the announced participation estimate."
+    }
+  ],
+  "foi_candidates": [
+    {
+      "candidate_id": "fdfoi_new_roads_participant_results",
+      "status": "draft_not_sent",
+      "organization": "British Columbia Ministry of Health",
+      "exact_missing_information": "Program-level participant counts and any final reporting tied to the $4.39-million New Roads contribution.",
+      "bounded_date_range": "2023-10-17 to 2026-10-17",
+      "why_it_matters": "It would distinguish an announced participation estimate from documented delivery without seeking individual-level information.",
+      "public_sources_checked": ["fdsource_new_roads_bc_funding", "fdsource_new_roads_island_health", "fdsource_new_roads_operator"],
+      "suggested_record_category": "final grant results, aggregate program reporting or contribution-agreement performance summary",
+      "exclusions": ["private_patient_information", "individual_case_records", "personal_contact_information"]
+    }
+  ],
+  "evidence_graph": {
+    "nodes_are_domain_references": true,
+    "edges": [
+      {
+        "edge_id": "fdedge_new_roads_government_funding",
+        "from_object_id": "government_of_british_columbia",
+        "to_object_id": "fmoney_miller_new_roads_439m",
+        "relationship_type": "announced_by",
+        "date": "2023-10-17",
+        "funding_scope": "service_level",
+        "neutral_summary": "The Province announced a named $4.39-million, three-year funding commitment for New Roads.",
+        "confidence": "high",
+        "source_references": ["fdsource_new_roads_bc_funding"]
+      },
+      {
+        "edge_id": "fdedge_new_roads_recipient",
+        "from_object_id": "fmoney_miller_new_roads_439m",
+        "to_object_id": "our_place_society",
+        "relationship_type": "received_by",
+        "date": "2023-10-17",
+        "funding_scope": "recipient_level",
+        "neutral_summary": "The official announcement associates the funding with the Our Place Society-operated New Roads program.",
+        "confidence": "high",
+        "source_references": ["fdsource_new_roads_bc_funding"]
+      },
+      {
+        "edge_id": "fdedge_new_roads_service_operation",
+        "from_object_id": "our_place_society",
+        "to_object_id": "new_roads_therapeutic_recovery_community",
+        "relationship_type": "operated_by",
+        "date": "2026-09-06",
+        "implementation_state": "operational",
+        "neutral_summary": "The operator and health-authority pages identify New Roads as a current service.",
+        "confidence": "high",
+        "source_references": ["fdsource_new_roads_island_health", "fdsource_new_roads_operator"]
+      },
+      {
+        "edge_id": "fdedge_new_roads_money_operationalized",
+        "from_object_id": "fmoney_miller_new_roads_439m",
+        "to_object_id": "new_roads_therapeutic_recovery_community",
+        "relationship_type": "operationalized_as",
+        "date": "2026-09-06",
+        "funding_scope": "service_level",
+        "implementation_state": "operational",
+        "neutral_summary": "Current service evidence supports a service-level funding-to-operation path; it does not provide detailed expenditure attribution.",
+        "confidence": "high",
+        "source_references": ["fdsource_new_roads_bc_funding", "fdsource_new_roads_island_health"]
+      },
+      {
+        "edge_id": "fdedge_new_roads_women_expansion",
+        "from_object_id": "new_roads_therapeutic_recovery_community",
+        "to_object_id": "new_roads_womens_twenty_bed_program",
+        "relationship_type": "expanded_by",
+        "date": "2025-03-14",
+        "implementation_state": "implemented",
+        "neutral_summary": "An official opening notice documents the later 20-bed women’s facility as an expansion of the New Roads model.",
+        "confidence": "high",
+        "source_references": ["fdsource_new_roads_women_opening"]
+      }
+    ]
+  },
+  "owner_assessment": {
+    "significance": "review_first",
+    "confidence": "high",
+    "owner_review": true,
+    "owner_review_reason": "The evidence chain is strong, but resource identity and program granularity require a normal Miller editorial decision.",
+    "recommended_next_action": "Resolve the one-versus-two-resource representation and then test the dossier projection against that private candidate mapping."
+  },
+  "quality_assessment": {
+    "band": "strong",
+    "score": 14,
+    "maximum_score": 16,
+    "dimensions": {
+      "identity_confidence": 2,
+      "primary_source_coverage": 2,
+      "timeline_completeness": 2,
+      "policy_legal_coverage": 1,
+      "funding_traceability": 2,
+      "implementation_evidence": 2,
+      "follow_up_evidence": 1,
+      "unresolved_question_burden": 2
+    },
+    "notice": "Research completeness only; this is not a moral, effectiveness, compliance, or reputational score."
+  },
+  "limitations": "The dossier establishes a named funding-to-operation path but does not audit expenditure, evaluate effectiveness or allocate costs among program components. It also leaves the final Miller resource granularity to owner review.",
+  "source_set": [
+    {
+      "source_id": "fdsource_new_roads_bc_funding",
+      "source_family_id": "fogs_bc_news_archive",
+      "url": "https://news.gov.bc.ca/releases/2023MMHA0060-001606",
+      "title": "Recovery community supported to help more people",
+      "source_organization": "Government of British Columbia",
+      "authority_class": "official_primary",
+      "role": "service-level funding and purpose",
+      "publication_date": "2023-10-17"
+    },
+    {
+      "source_id": "fdsource_new_roads_island_health",
+      "source_family_id": "fogs_bc_health_authorities",
+      "url": "https://www.islandhealth.ca/services/mental-health-substance-use-services/community-bed-based-treatment-recovery/substance-use-treatment-recovery-beds",
+      "title": "Substance Use Treatment & Recovery Beds",
+      "source_organization": "Island Health",
+      "authority_class": "official_primary",
+      "role": "current health-authority service listing",
+      "publication_date": null
+    },
+    {
+      "source_id": "fdsource_new_roads_women_opening",
+      "source_family_id": "fogs_bc_news_archive",
+      "url": "https://archive.news.gov.bc.ca/releases/news_releases_2024-2028/2025HLTH0017-000230.htm",
+      "title": "New recovery facility for women opens on Vancouver Island",
+      "source_organization": "Government of British Columbia",
+      "authority_class": "official_primary",
+      "role": "later expansion and opening",
+      "publication_date": "2025-03-14"
+    },
+    {
+      "source_id": "fdsource_new_roads_operator",
+      "source_family_id": "fogs_our_place_society",
+      "url": "https://newroads.ourplacesociety.com/faq/",
+      "title": "New Roads frequently asked questions",
+      "source_organization": "Our Place Society",
+      "authority_class": "official_primary",
+      "role": "operator and current program context",
+      "publication_date": null
+    }
+  ]
+}

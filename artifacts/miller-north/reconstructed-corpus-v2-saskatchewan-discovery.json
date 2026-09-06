@@ -1,0 +1,411 @@
+{
+  "generated_at": "2026-09-06T00:06:11.231Z",
+  "region": "saskatchewan",
+  "tavily_calls": 20,
+  "searches": [
+    {
+      "query": "Indigenous patient racism hospital Saskatchewan",
+      "result_count": 5
+    },
+    {
+      "query": "First Nations patient discrimination Saskatchewan healthcare",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous racism emergency department Saskatchewan",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient hospital complaint racism Saskatchewan",
+      "result_count": 5
+    },
+    {
+      "query": "First Nations healthcare racist treatment Saskatchewan",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous family racism Saskatchewan hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient racism Regina hospital complaint",
+      "result_count": 5
+    },
+    {
+      "query": "First Nations patient discrimination Saskatoon emergency department",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient racism Prince Albert hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient racism North Battleford hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient death discrimination Saskatchewan hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous human rights complaint Saskatchewan hospital patient",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient delayed treatment Saskatchewan hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous maternity racism Saskatchewan hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous mental health racism Saskatchewan healthcare",
+      "result_count": 5
+    },
+    {
+      "query": "Saskatchewan Health Authority Indigenous patient apology racism",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient undertreated pain Saskatchewan hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous family complaint racism northern Saskatchewan hospital",
+      "result_count": 5
+    },
+    {
+      "query": "First Nations patient racism rural Saskatchewan hospital",
+      "result_count": 5
+    },
+    {
+      "query": "Indigenous patient human rights tribunal Saskatchewan healthcare",
+      "result_count": 5
+    }
+  ],
+  "candidate_sources": 26,
+  "categories": {
+    "individual_incident_candidate": 19,
+    "multi_incident_source": 0,
+    "background_prevalence_source": 3,
+    "policy_or_review_source": 3,
+    "insufficient_incident_detail": 1
+  },
+  "inspected": [
+    {
+      "title": "Settlement for Survivors of Indian Hospitals",
+      "url": "https://paherald.sk.ca/settlement-for-survivors-of-indian-hospitals",
+      "tavily_excerpt": "Two such hospitals operated in Saskatchewan at Fort Qu'Appelle and in North Battleford ... racism has led Indigenous people today to distrust",
+      "query_ids": [
+        "5b85bc7f5c1d91dee043424e"
+      ],
+      "final_url": "https://paherald.sk.ca/settlement-for-survivors-of-indian-hospitals/",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!doctype html > <html dir=\"ltr\" lang=\"en-CA\" prefix=\"og: https://ogp.me/ns#\"> <head> <meta charset=\"UTF-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"> <link rel=\"preload\" href=\"https://paherald.sk.ca/wp-content/cache/fvm/min/1788548144-cssb750f931edf6b202fd4d6ae62210b25020ae7c717ac4ded2def5c54a51423.css\" as=\"style\" media=\"all\" /> <link rel=\"preload\" href=\"https://paherald.sk.ca/wp-content/cache/fvm/min/1788548144-css1b59616bf51663d7e5110e9c0978cbc8649327f04155a61e691d95114ed50.css\" as=\"style\" media=\"all\" /> <link rel=\"preload\" href=\"https://paherald.sk.ca/wp-content/cache/fvm/min/1788548144-cssb78c6a55fdb070bfe91570f2b33ca98a1f34200bb747f621747512bdc61bb.css\" as=\"style\" media=\"all\" /> <link rel=\"preload\" href=\"https://paherald.sk.ca/wp-content/cache/fvm/min/1788548144-css7d6a0011feb3d5ea2f748113d6d96d90cfbef20a3be26b2c4b06f468141b4.css\" as=\"style\" media=\"only screen and (max-width: 768px)\" /> <link rel=\"preload\" href=\"https://paherald.sk.ca/wp-content/cac"
+    },
+    {
+      "title": "Racism leads First Nations patients to leave emergency ...",
+      "url": "https://www.ualberta.ca/en/folio/2024/04/racism-leads-first-nations-patients-to-leave-emergency.html",
+      "tavily_excerpt": "systemic-rascism-in-er\n\nAnti-Indigenous racism is leading First Nations patients in Alberta to leave emergency departments without receiving treatment more often than non-First Nations patients, according to new research published today in the Canadian Medical Association Journal.\n\nThe study was co-led by Lea Bill, a registered nurse and the director of The Alberta First Nations Information Governance Centre and Patrick McLane, adjunct associate professor of emergency medicine at the University of Alberta, and was supported by seven Alberta First Nations and funded by the Canadian Institutes of Health Research.\n\n“There are multiple factors that influence the decision to leave the emergency department without being seen,” says Bill. [...] Search Within\n\nQuick Links\n\n Email + Apps\n Bear Tracks\n Canvas\n Find a Person\n Maps\n Library\n\nNews + Events\n\n Folio\n The Quad\n New Trail\n YouAlberta\n Events\n\n Prospective Students\n Current Students\n Associations\n Alumni + Friends\n\n Give to the U of A\n Careers\n\n Indigenous Initiatives\n Access, Community + Belonging\n Support During a Crisis\n\nFolio\n\nHealth And Wellness, Research\n\n# Racism leads First Nations patients to leave emergency departments without completing care, study finds\n\nFirst Nations patients face anti-Indigenous stereotypes and language, U of A researchers say.\n\nApril 22, 2024 By Gillian Rutherford\n\nsystemic-rascism-in-er [...] Other reasons for leaving were specific to First Nations patients. Participants described providers relying on anti-Indigenous stereotypes and language, as well as feeling that they were being made to wait longer than non-First Nations patients who seemed to be in less urgent need of care.\n\n“This doctor didn’t even know me,” said one patient. “First thing he asked me was how much have you had to drink? What? I got up and walked out.”\n\nThe new findings aligned with the team’s previous publication of interviews with health-care providers, who reported that First Nations patients are \"exposed to disrespect through tone and body language, experience overt racism, and may be neglected or not taken seriously.”",
+      "query_ids": [
+        "5b85bc7f5c1d91dee043424e"
+      ],
+      "final_url": "https://www.ualberta.ca/en/folio/2024/04/racism-leads-first-nations-patients-to-leave-emergency.html",
+      "source_fetch": "tavily_excerpt_only",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"> <HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\"> <TITLE>ERROR: The request could not be satisfied</TITLE> </HEAD><BODY> <H1>403 ERROR</H1> <H2>The request could not be satisfied.</H2> <HR noshade size=\"1px\"> Request blocked. We can't connect to the server for this app or website at this time. There might be too much traffic or a configuration error. Try again later, or contact the app or website owner. <BR clear=\"all\"> If you provide content to customers through CloudFront, you can find steps to troubleshoot and help prevent this error by reviewing the CloudFront documentation. <BR clear=\"all\"> <HR noshade size=\"1px\"> <PRE> Generated by cloudfront (CloudFront) Request ID: Wm1u_BMjELHAYTwgF_J4900ywizKGsVMm-aA0U6CoU7nbsSGLXcung== </PRE> <ADDRESS> </ADDRESS> </BODY></HTML>"
+    },
+    {
+      "title": "Mistreated",
+      "url": "http://www.cbc.ca/news2/interactives/sh/jTCWPYgkNH/mistreated",
+      "tavily_excerpt": "Leon recalled being the only non-Indigenous child there for most of her short stay. Soon after her arrival, she noticed staff members treated her differently than the Inuit and First Nations children. While the Indigenous kids were given daily needles for tuberculosis treatment, Leon was given pills. When she asked a nurse why, she was told it was because the other children couldn’t be trusted to take their medication.\n\nLeon, who is now 59 and living in Mexico, also witnessed multiple instances of mistreatment, including an uncomfortable tuberculosis test that involved slowly pushing a tube down children's throats and into their lungs. She believes hospital staff allowed student nurses to practice this method on Indigenous patients. [...] Dawn Martin-Hill, one of the founders of McMaster University’s Indigenous studies program, said structural barriers are tied to the health outcomes among First Nations and Inuit people, while systemic racism has led Indigenous people today to distrust modern, western health care.\n\nShe added that researchers are documenting stories of Indigenous patients receiving biased or “substandard” care in the Canadian health-care system — such as stroke patients being left on the floor because hospital staff believe they’re inebriated, and Cree-speaking women in Alberta who say health workers encourage them to have their “tubes cut.”\n\nWhile tuberculosis sanatoriums, along with most “Indian hospitals,” have long shut their doors, Martin-Hill believes the problems of the past are still present today. [...] When she arrived, hospital staff cut Michael’s long, dark hair into a shaggy bob. She met stern nurses who enforced a strict dress code — tunics and crisp, white blouses — and slapped young patients with rulers for punishment. Michael struggled to process the strange sights and sounds of the bustling sanatorium, and was only allowed to speak to her parents by phone once a month, for 10 minutes.\n\n> \"They wanted us to dress like the white people, eat like the white people. We were savages to them.\"\n\nEven her name was different: The English-speaking staff called her Annie E7-1261, her government-supplied “Eskimo” identification number.\n\n“They wanted us to dress like the white people, eat like the white people,” Michael, now 63, recalled. “We were savages to them.”",
+      "query_ids": [
+        "5b85bc7f5c1d91dee043424e"
+      ],
+      "final_url": "https://www.cbc.ca/news2/interactives/sh/jTCWPYgkNH/mistreated/",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\"> <head> <meta charset=\"utf-8\"> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\"> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,viewport-fit=cover\"> <title>Mistreated</title> <link rel=\"stylesheet\" href=\"./static/story.6490.min.css\"> <link rel=\"stylesheet\" href=\"./theme.min.css\" class=\"Theme-Styles\"> <style> @media (min-width: 620px) { .Theme-Layer-BodyText-Heading-Large { font-size: 220%; margin: 0; line-height: 30px; } } @media (max-width: 322px) { .Theme-Layer-TextBlock.Layer--one { margin-top: 100px; } } </style> <link type=\"shortcut icon\" rel=\"image/x-icon\" href=\"//www.cbc.ca/news/favicon.ico\"> <link type=\"text/css\" rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i\"> <script> (function(i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s."
+    },
+    {
+      "title": "Indian Hospitals in Canada",
+      "url": "https://thecanadianencyclopedia.ca/en/article/indian-hospitals-in-canada",
+      "tavily_excerpt": "However, activists argued that government funds that were meant for their health care should be used to improve the underfunded Indian hospitals, not given to settler community hospitals. In the 1960s, First Nations organizers at North Battleford Indian Hospital in Saskatchewan refused to pay provincial hospital and health taxes, arguing that the medicine chest clause meant that they had a treaty right to health care. It was not about the money but the larger principle about treaty rights. The government took them to court, where the local magistrate agreed that the treaty right existed for all Indians under the Indian Act. The government appealed the decision, and on appeal, the court decided that the medicine chest clause could be ignored. After decades of First Nations resistance, in [...] On 18 September 2024, the Canadian Medical Association (CMA) formally apologized for the experiences of Indigenous peoples in Canada’s health systems. The CMA began their apology by acknowledging the specific harms done to Indigenous peoples in Indian hospitals and the ways in which the medical profession did not uphold its fundamental standards of practice. In the account of mistreatments, the CMA acknowledged medical experimentation that was done to Indigenous children and adults, which were present at Indian hospitals and in residential schools. The CMA also recognized ongoing harms faced by Indigenous peoples in the health system, including racism and discrimination. In the apology, the CMA stated,",
+      "query_ids": [
+        "5b85bc7f5c1d91dee043424e",
+        "81b2ac02bfb601ec28237e1b"
+      ],
+      "final_url": "https://thecanadianencyclopedia.ca/en/article/indian-hospitals-in-canada",
+      "source_fetch": "tavily_excerpt_only",
+      "category": "policy_or_review_source",
+      "evidence_excerpt": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\"> <HTML><HEAD><META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=iso-8859-1\"> <TITLE>ERROR: The request could not be satisfied</TITLE> </HEAD><BODY> <H1>403 ERROR</H1> <H2>The request could not be satisfied.</H2> <HR noshade size=\"1px\"> Request blocked. We can't connect to the server for this app or website at this time. There might be too much traffic or a configuration error. Try again later, or contact the app or website owner. <BR clear=\"all\"> If you provide content to customers through CloudFront, you can find steps to troubleshoot and help prevent this error by reviewing the CloudFront documentation. <BR clear=\"all\"> <HR noshade size=\"1px\"> <PRE> Generated by cloudfront (CloudFront) Request ID: 4ctEjAXzR7YCSKMqr3dDdUOVTGQDGshLgqPVONk6blfrmheLzi7e7g== </PRE> <ADDRESS> </ADDRESS> </BODY></HTML>"
+    },
+    {
+      "title": "Anti-Indigenous racism in Canadian healthcare - PMC - NIH",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11414646",
+      "tavily_excerpt": "The results of this review indicate that the majority of the empirical evidence on anti-Indigenous racism in Canadian healthcare is qualitative in nature and presents accounts of Indigenous peoples feeling as though they had been, or were likely to be, treated less well than non-Indigenous patients. Several themes were clear. Indigenous patients reported feeling ignored or not listened to and believed they were subject to stereotyping by clinical staff. Stereotypes included Indigenous peoples as potentially violent, poor patients or poor caregivers of children, and likely to misuse substances. Some studies included reports from healthcare personnel who had also observed the stereotyping of Indigenous peoples. Although there were no studies reviewed, which produced quantitative [...] In the Canadian context, Indigenous peoples’ health is a major concern. As in other colonial nations, the average health of Indigenous peoples (First Nations, Inuit, and Métis) is poorer than that of non-Indigenous citizens . At least some of this inequity is likely to be related to experiences with clinical healthcare, including a lack of access, a lack of cultural appropriateness of the healthcare provided, and poorer treatment provided to Indigenous peoples [5, 6]. Two prominent cases have brought public attention to importance of anti-Indigenous racism in Canadian healthcare. In 2008, Brian Sinclair died in a Manitoba emergency room while waiting for care  and, in 2020, Joyce Echaquan passed away in a Quebec hospital having filmed herself being verbally abused by hospital staff . [...] We find that most of the existing literature on anti-Indigenous racism in Canadian healthcare is qualitative and reports patient experiences that include dismissal and the application of stereotypes, similar to those identified in other jurisdictions. From an intersectionality perspective, it appears as though Indigenous peoples facing multiple dimensions of structural disadvantage, including on dimensions of gender and social class, might be the most likely to experience racism, and it is likely that the experience of racism in healthcare has implications for Indigenous peoples’ health, mainly by reducing healthcare access. Continuing to study the experience of Indigenous peoples with Canadian healthcare is important for identifying measures to reduce racism and potentially measuring",
+      "query_ids": [
+        "5b85bc7f5c1d91dee043424e"
+      ],
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11414646/",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\" > <head > <meta charset=\"UTF-8\" /> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" /> <meta name=\"HandheldFriendly\" content=\"True\" /> <meta name=\"MobileOptimized\" content=\"320\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /> <link rel=\"stylesheet\" href=\"https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/9b1d9d87/var/data/static/assets/base_style-BxRs1iOp.css\" /> <script type=\"module\" crossorigin=\"\" src=\"https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/9b1d9d87/var/data/static/assets/base_style-D-jH62-1.js\"></script> <link rel=\"stylesheet\" href=\"https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/9b1d9d87/var/data/static/assets/article_style-B67IZFds.css\" /> <link rel=\"stylesheet\" href=\"https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/9b1d9d87/var/data/static/assets/style-D77LS1kY.css\" /> <script type=\"module\" crossorigin=\"\" src=\"https:/"
+    },
+    {
+      "title": "Family left with questions in death of First Nations cancer patient",
+      "url": "https://www.aptnnews.ca/national-news/family-left-with-questions-after-death-of-first-nations-cancer-patient-at-saskatoon-hospital",
+      "tavily_excerpt": "“All Saskatchewan hospital security should have or should be able to prevent violence, calm situations, call police, get help-rather than attacking, hurting, or killing people like my brother who are there for help or may have underlying sickness or be vulnerable.”\n\nDubois also spoke about the disparity in how Indigenous people are viewed versus non-Indigenous people in incidents like this one.\n\n“Indigenous people who die in Saskatchewan hospitals, jails, or on the streets in situations like this often have to be seen as respectable, wealthy, or prominent for the deaths to be cared about at all. Where’s the answers for the average family like mine who are now without my brother Trevor? I must say this: no security should have the right to kill or murder anyone,” Dubois said. [...] Family members of Trevor Dubois joined Saskatoon Tribal Council Chief Mark Arcand at a news conference Monday, Jan. 12, 2026. Dubois died at a Saskatoon hospital after an altercation with a security guard. Photo: Leanne Sanders/APTN News.\n\nThe head of the Saskatoon Tribal Council (STC) is calling out the police service for issuing a news release Monday that blindsided the family of a man who died at Royal University hospital after an altercation with security guards.\n\nTribal Chief Mark Arcand joined the family of Trevor Dubois, 36, from Muskoday First Nation, in calling for change in how the health system treats Indigenous patients and their families. [...] The news release from police confirms that its investigators and the office of the chief coroner are looking into the death.\n\nThe Saskatchewan Health Authority (SHA) issued an update on the incident Monday.\n\n“The SHA takes the circumstances surrounding Mr. Dubois’ death at Royal University Hospital extremely seriously,” the statement said. “Internally, the SHA has deemed this a Critical Incident, which initiates a legislated process for review and reporting, including a formal internal review. In any situation where force is used by Protective Services Officers, a use-of-force review is also initiated.",
+      "query_ids": [
+        "7e3907b38f4db936011c82d4"
+      ],
+      "final_url": "https://www.aptnnews.ca/national-news/family-left-with-questions-after-death-of-first-nations-cancer-patient-at-saskatoon-hospital",
+      "source_fetch": "tavily_excerpt_only",
+      "category": "insufficient_incident_detail",
+      "evidence_excerpt": "<!DOCTYPE html> <!--[if lt IE 7]> <html class=\"no-js ie6 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 7]> <html class=\"no-js ie7 oldie\" lang=\"en-US\"> <![endif]--> <!--[if IE 8]> <html class=\"no-js ie8 oldie\" lang=\"en-US\"> <![endif]--> <!--[if gt IE 8]><!--> <html class=\"no-js\" lang=\"en-US\"> <!--<![endif]--> <head> <title>Attention Required! | Cloudflare</title> <meta charset=\"UTF-8\" /> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" /> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\" /> <meta name=\"robots\" content=\"noindex, nofollow\" /> <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\" /> <link rel=\"stylesheet\" id=\"cf_styles-css\" href=\"/cdn-cgi/styles/cf.errors.css\" /> <!--[if lt IE 9]><link rel=\"stylesheet\" id='cf_styles-ie-css' href=\"/cdn-cgi/styles/cf.errors.ie.css\" /><![endif]--> <style>body{margin:0;padding:0}</style> <!--[if gte IE 10]><!--> <script type=\"0411436c573cd3fc1a4f31a5-text/javascript\"> if (!navigator.cookieEnabled) { window.addE"
+    },
+    {
+      "title": "Call for independent inquiry into First Nations health care in wake of Trevor Dubois death | 650 CKOM",
+      "url": "https://www.ckom.com/2026/01/26/call-for-independent-inquiry-into-first-nations-health-care-in-wake-of-trevor-dubois-death",
+      "tavily_excerpt": "Lafond, alongside Federation of Sovereign Indigenous Nations (FSIN) first vice chief, David Pratt, and Heather Bear, First Nations Health Ombudsperson Office board chair, called on the Government of Saskatchewan and the Saskatchewan Health Authority (SHA) for a thorough inquiry, independent of the SHA and Saskatoon Police Service.\n\nWhile the health authority and the province had announced an independent inquiry into hospital safety and security in Saskatchewan last week, Lafond explained the call on Monday is for an inquiry that is completely independent.\n\nLafond said the inquiry needs to include First Nations consultation and engagement, with her office and victims and their families who have suffered as a result of what they say is mistreatment in Saskatchewan’s health-care system. [...] 650 CKOM\ntwitter\napp store\ngoogle play store\nalexa\nFirst Nations Health Ombudsperson Diane Lafond.\n\n# Call for independent inquiry into First Nations health care in wake of Trevor Dubois death\n\nThe Saskatchewan man who was receiving treatment for a brain tumour and died in a struggle with security at Royal University Hospital earlier this month had already experienced concerns during his time as a health-care patient in the province.\n\nTrevor Dubois had filed a complaint with the First Nations health ombudsperson for Saskatchewan in the fall before his death about the treatment he was receiving while being involved in the health-care system.\n\nRead more: [...] Read more:\n\n“That’s appalling. That’s concerning,” said Diane Lafond, First Nations health ombudsperson in Saskatchewan, who shared her office has opened about 550 files to investigate since it began in July 2023.\n\nThough she wouldn’t share further details, citing patient privacy, Lafond did say Trevor’s complaint was “very serious.”\n\nLafond repeatedly referenced other recent and severe cases that she said represent the mistreatment of First Nations people in the province, including that of Brydon Lafavour, who was reportedly evicted from a hospital in Prince Albert and left outside in a snowbank in December.",
+      "query_ids": [
+        "7e3907b38f4db936011c82d4"
+      ],
+      "final_url": "https://www.ckom.com/2026/01/26/call-for-independent-inquiry-into-first-nations-health-care-in-wake-of-trevor-dubois-death/",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE HTML> <!--[if IEMobile 7 ]><html class=\"no-js iem7\" manifest=\"default.appcache?v=1\"><![endif]--> <!--[if lt IE 7 ]><html class=\"no-js ie6\" lang=\"en\"><![endif]--> <!--[if IE 7 ]><html class=\"no-js ie7\" lang=\"en\"><![endif]--> <!--[if IE 8 ]><html class=\"no-js ie8\" lang=\"en\">&nbsp;<![endif]--> <!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class=\"no-js\" lang=\"en\"><!--<![endif]--> <head> <!-- Begin : Custom Head HTML --> <!-- Google tag (gtag.js) --> <script async src=\"https://www.googletagmanager.com/gtag/js?id=G-9GLN0FC3L0\"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-9GLN0FC3L0'); </script> <!-- End : Custom Head HTML --> <title>Call for independent inquiry into First Nations health care in wake of Trevor Dubois death | 650 CKOM</title> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\"> <meta charset=\"UTF-8\" /> <meta name=\"viewport\" content=\"widt"
+    },
+    {
+      "title": "Regina hospital allegations point to an epidemic of bullying and discrimination in health care",
+      "url": "https://theconversation.com/regina-hospital-allegations-point-to-an-epidemic-of-bullying-and-discrimination-in-health-care-217050",
+      "tavily_excerpt": "Ten physicians trained in Africa and Asia filed a complaint with the Saskatchewan Human Rights Commission alleging they have faced bullying, harassment and racial discrimination. They claim that since a new director for the division of internal medicine was hired, white physicians have been given more favoured shifts.\n\nWhen the physicians brought their concerns to hospital administrators, they said their complaints were dismissed. A Saskatchewan Health Authority (SHA) spokesperson said the health authority was committed to having a representative workforce and would not comment on legal matters. Saskatchewan’s health minister said the SHA has launched a third-party investigation into the circumstances.\n\n## Physicians in distress",
+      "query_ids": [
+        "3fd56415bad8bae7364ca0bd"
+      ],
+      "final_url": "https://theconversation.com/regina-hospital-allegations-point-to-an-epidemic-of-bullying-and-discrimination-in-health-care-217050",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en-CA\" class=\"no-js\"> <head> <meta name=\"turbo-visit-control\" content=\"reload\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <meta name=\"theme-color\" content=\"#d8352a\"> <meta name=\"msapplication-navbutton-color\" content=\"#d8352a\"> <meta charset=\"utf-8\"> <meta property=\"fb:app_id\" content=\"127105130696839\"> <meta name=\"current-region\" content=\"ca\"> <meta http-equiv=\"Content-Language\" content=\"en-CA\"> <meta name=\"description\" content=\"Internal reviews are insufficient to investigate discrimination by hospital administrators and external frameworks are needed to protect employees who face bullying and harassment.\" /> <meta name=\"pubdate\" content=\"20231112\" /> <meta name=\"commissioning-region\" content=\"ca\" /> <meta name=\"searchtype\" content=\"analysis\" /> <meta name=\"original-source\" content=\"https://theconversation.com/regina-hospital-allegations-point-to-an-epidemic-of-bullying-and-discrimination-in-health-care-217050\" /> <meta name=\"new"
+    },
+    {
+      "title": "Acute health care among Indigenous patients in Canada - PMC",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8330756",
+      "tavily_excerpt": "HospitalisationIndigenous people (Gr 1)Saskatchewan’s population (Gr 2)All agesF/MTime from admission to surgery, h, median (p=0.20)\n\nProportion of surgical management (%)Gr 1: 20.0\n\nGr 2: 15.0\n\nGr 1: 71%\n\nGr 2: 85%16/22Blackmer (1999, Brain injury) (122)SaskatchewanRetrospectiveTraumatic brain injury\n\nHospitalisationIndigenous people (Gr 1)Non-Indigenous people (Gr 2)All agesF/MAcute care length of stay (days)\n\nTime to follow-up (days) (p <0.0001)Gr 1: 33.33; Gr 2: 35.23 (p = 0.734)\n\nGr 1: 56.50; Gr 2: 28.1015/22Jetté (2008, Epilepsia) (78)AlbertaRetrospectiveEpilepsy\n\nHospitalisation,\n\nED visitsFirst Nations people (Gr 1)Non-Indigenous people (Gr 2)All agesF/MOdds ratio for hospitalisation (95% CI)\n\nOdds ratio for ED visits (95% CI)\n\nMean hospital length of stayGr 1: 2.8 (1.49-5.13) [...] For Indigenous patients with pneumonia or COPD, three studies revealed an increased length of hospital stay [55,56,114], two studies found no difference [54,115] and five studies showed decreased length of stay when compared to non-Indigenous patients [22,49,50,92,93]. Two articles mentioned longer hospitalisations for burn injuries [58,116]. For articles discussing multiple acute health problems, two studies showed a longer length of stay for Indigenous patients [42,46], one study reported a shorter length of stay  and four studies showed no difference [26,27,45,104]. Although no statistically significant difference was noted, Laupland found that over 17% of Indigenous patients were delayed in their discharge because of transportation issues or lack of resources in their community . For [...] HospitalisationFirst Nations people (Gr 1)Non-First Nations people (Gr 2)<15 y.o.F/MRisk ratios for hospital admission days for treatment complications for Gr 1 (95% CI; p)Low risk: 0.853 (0.27-1.55; p= 0.371)\n\nIntermediate/High risk: 1.140 (0.52-2.48; p=0.748)18/22Thanh (2015, J Pediatr) (125)AlbertaRetrospectiveHealth care utilisation for low birth-weight populationIndigenous people (Gr 1)Alberta’s population (Gr 2)<1 y.o.F/MHealth services use cost coefficientGr 1: 1560 (1359-1762; p <0.001)18/22Thomson (1994, Can Fam Physician) (86)Saskatchewan, OntarioRetrospectiveAcute otitis media\n\nHospitalisationFirst Nations people (Gr 1)Ontario and Saskatchewan’s general population (Gr 2)<5 y.o.F/MHospitalisation rates/100 for otitis media\n\n(Gr 1/Gr 2)",
+      "query_ids": [
+        "81b2ac02bfb601ec28237e1b"
+      ],
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8330756/",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\" > <head > <meta charset=\"UTF-8\" /> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" /> <meta name=\"HandheldFriendly\" content=\"True\" /> <meta name=\"MobileOptimized\" content=\"320\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /> <link rel=\"stylesheet\" href=\"https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/9b1d9d87/var/data/static/assets/base_style-BxRs1iOp.css\" /> <script type=\"module\" crossorigin=\"\" src=\"https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/9b1d9d87/var/data/static/assets/base_style-D-jH62-1.js\"></script> <link rel=\"stylesheet\" href=\"https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/9b1d9d87/var/data/static/assets/article_style-B67IZFds.css\" /> <link rel=\"stylesheet\" href=\"https://cdn.ncbi.nlm.nih.gov/pmc/pd-medc-pmc-cloudpmc-viewer/production/9b1d9d87/var/data/static/assets/style-D77LS1kY.css\" /> <script type=\"module\" crossorigin=\"\" src=\"https:/"
+    },
+    {
+      "title": "[PDF] Improving Culturally Appropriate Care for Indigenous Women and Their ...",
+      "url": "https://jps.library.utoronto.ca/index.php/ijih/article/download/43274/33991/126142",
+      "tavily_excerpt": "One participant shared the following regarding racism: “My birthing experience was great but [during] my two day stay at [a hospital in Saskatoon], I had the worst experience from a night shift nurse who treated me very poorly and could clearly tell it was about race” (Participant 4).\nFurther, the same participant commented: “Judgement is what I see from a lot of healthcare workers regarding Indigenous people.” Another participant described a similar experience: “[I] was sent home with birth control and was told not to have more kids and to take the pill” (Participant 6).\nSubtheme: Lack of knowledge. [...] Discrimination and Racism Access to non-discriminatory treatment has been identified as a human right in the Canadian Charter of Rights and Freedoms (Government of Canada, 1982), the Saskatchewan Human Rights Code (Government of Saskatchewan, 2018), and the United Nations Declaration on the Rights of Indigenous Peoples (Government of Canada, 2021). Despite legislation, Indigenous Peoples continue to face discrimination within the Canadian healthcare system (Allan & Smylie, 2015; Government of British Columbia, 2020). Many detailed reports highlight cases of Indigenous-specific racism in healthcare which affects the health of Indigenous Peoples across the country (Allan & Smylie, 2015; Government of British Columbia, 2020). The Canadian healthcare system is built upon colonialism and [...] Current literature highlights the positive impact of culturally appropriate healthcare but does not discuss how it can be implemented to promote culturally safe birthing experiences (Churchill et al., 2020). This study examines systemic racism, as defined by the institutions which uphold inequality for Indigenous Peoples (Government of British Columbia, 2020), and traumatic birthing experiences—those that cause distress or psychological disturbance (Watson et al., 2021).\nThese themes are explored through the birthing/delivery narratives of six Indigenous women living in Saskatchewan.",
+      "query_ids": [
+        "ec39c218f040e29a312dd73b"
+      ],
+      "final_url": "https://jps.library.utoronto.ca/index.php/ijih/article/download/43274/33991/126142",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "One participant shared the following regarding racism: “My birthing experience was great but [during] my two day stay at [a hospital in Saskatoon], I had the worst experience from a night shift nurse who treated me very poorly and could clearly tell it was about race” (Participant 4). Further, the same participant commented: “Judgement is what I see from a lot of healthcare workers regarding Indigenous people.” Another participant described a similar experience: “[I] was sent home with birth control and was told not to have more kids and to take the pill” (Participant 6). Subtheme: Lack of knowledge. [...] Discrimination and Racism Access to non-discriminatory treatment has been identified as a human right in the Canadian Charter of Rights and Freedoms (Government of Canada, 1982), the Saskatchewan Human Rights Code (Government of Saskatchewan, 2018), and the United Nations Declaration on the Rights of Indigenous Peoples (Government of Canada, 2021). Despite legislation, Indigenous Peo"
+    },
+    {
+      "title": "Family seeks answers after Indigenous mother dies in delivery room at Saskatoon hospital",
+      "url": "https://www.cbc.ca/news/canada/saskatoon/indigenous-woman-health-pregnancy-preeclampsia-death-9.7211641",
+      "tavily_excerpt": "Blayne Morin, Sutherland-Weenie's partner, said she worked hard to finish university and did just that, completing her bachelor's degree in Indigenous social work at the First Nations University of Canada.\n\nHer family will be accepting the diploma on her behalf at convocation next month, he said.\n\nWATCH | Family of Sutherland-Weenie speaks at a news conference:\n\nFamily wants answers after young Indigenous woman dies in childbirth\n\nMay 25|\n\nDuration 1:45\n\nJaali Sutherland-Weenie's family blames racism in the health-care system after the 24-year-old Indigenous woman, who was experiencing pregnancy-related complications, died in the delivery room at Jim Pattison Children's Hospital in Saskatoon. [...] Cameron said they are calling for a full, independent and transparent investigation into what happened.\n\nShe said the family believes Sutherland-Weenie would have been treated differently if she were not Indigenous, but declined to explain further.\n\n\"The family wants everybody to understand this is not an isolated tragedy,\" Cameron said.\n\n\"Indigenous women continue to face systematic barriers in health care, where they should be feeling safe.\"\n\n Life-threatening complications overlooked in weeks after childbirth, researchers say\n Canada significantly undercounts maternal deaths, and doctors are sounding the alarm [...] Listen to this article\n\nEstimated 3 minutes\n\nThe audio version of this article is generated by AI-based technology. Mispronunciations can occur. We are working with our partners to continually review and improve the results.\n\nJaali Sutherland-Weenie's partner Blayne Morin, left, and members of her family are calling for answers after the 24-year-old woman died in hospital. (Chanss Lagaden/CBC)\n\n## Social Sharing\n\nFamily and friends of Jaali Sutherland-Weenie are calling for accountability from the health-care system after the young Indigenous woman died in hospital following a severe pregnancy complication.\n\n\"The family is obviously devastated, but they are also resolute,\" family spokesperson Jaye Cameron said at a news conference Monday.",
+      "query_ids": [
+        "ec39c218f040e29a312dd73b"
+      ],
+      "final_url": "https://www.cbc.ca/news/canada/saskatoon/indigenous-woman-health-pregnancy-preeclampsia-death-9.7211641",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\"> <head> <title data-rh=\"true\">Family seeks answers after Indigenous mother dies in delivery room at Saskatoon hospital | CBC News</title> <meta charset=\"utf-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /> <link rel=\"manifest\" href=\"/a/manifest.json\" /> <link rel=\"apple-touch-icon\" href=\"/a/apple-touch-icon.png\" /> <link rel=\"icon\" type=\"image/x-icon\" href=\"/a/favicon.ico\" /> <!-- Resource Hints --> <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" crossorigin> <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin> <link rel=\"preload\" href=\"https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap\" as=\"style\" crossorigin /> <link rel=\"preconnect\" href=\"https://i.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://thumbnails.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://liveimages.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://login.cbc.ca\" crossorigin /> <link rel="
+    },
+    {
+      "title": "Addressing Racism and Discrimination in Canada's Health ...",
+      "url": "https://www.canada.ca/en/health-canada/corporate/about-health-canada/funding/addressing-racism-discrimination-canada-health-systems-program/2022-program-recipients.html",
+      "tavily_excerpt": "Together with their partners in the health system, File Hills Qu'Appelle Tribal Council Inc. will create an Indigenous cultural wellness clinic that will deliver a range of primary health care services to Indigenous clients in Fort Qu'Appelle, Saskatchewan. | Fort Qu'Appelle, SK | $770,000 | [...] This project aims to implement a 1-day cultural humility training course for health services providers in Saskatchewan where member friendship centres currently reside, with plans to expand training to all of Saskatchewan. The focus is on helping staff at Saskatchewan Health Authority (SHA) acute care facilities bridge the gap between the Indigenous community and SHA. The goal is to deliver at least 10 in-person training courses in each participating friendship centre community, develop lessons learned, reports, data, and provide recommendations on future training. [...] cultural wellness clinic that will deliver a range of primary health care services to Indigenous clients in Fort Qu'Appelle, Saskatchewan.",
+      "query_ids": [
+        "c00331550907cf6f739a247b"
+      ],
+      "final_url": "https://www.canada.ca/en/health-canada/corporate/about-health-canada/funding/addressing-racism-discrimination-canada-health-systems-program/2022-program-recipients.html",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!doctype html> <html class=\"no-js\" dir=\"ltr\" lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\"> <head prefix=\"og: http://ogp.me/ns#\"> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"/> <meta charset=\"utf-8\"/> <title>Addressing Racism and Discrimination in Canada’s Health Systems Program – 2022 program recipients - Canada.ca</title> <meta content=\"width=device-width,initial-scale=1\" name=\"viewport\"/> <meta name=\"content-page-ref\" content=\"qDXvbDLVz6dqE3VkUsNuO28x7jPtUruWjzRI47_e4fQL0Rg_dCfH-mAIy5u7rvv_V0rK-WV34eqyKoN6asjugKRtLjk8Iwsl4BPSy7_Kav2so41i1EME-j6inAaWndY44pVL9HhTVj4K0-LGfKQbYk8zlp03lG7teaq-V9jqBo97SoAA89-q2G45lChDmTWlGdH9pMhSUID5HqRMsGMM-RUCfU3aHnx6hAJ2AnfdO0u5fkMsAQs3yRw5uh1Ba125\"> <link rel=\"schema.dcterms\" href=\"http://purl.org/dc/terms/\"/> <link rel=\"canonical\" href=\"https://www.canada.ca/en/health-canada/corporate/about-health-canada/funding/addressing-racism-discrimination-canada-health-systems-program/2022-program-recipients.html\"/> <link rel=\"alternate\" hreflang=\"en\""
+    },
+    {
+      "title": "A Critical Discourse Analysis of Indigenization in Saskatchewan's Undergraduate Nursing Programs",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12879278",
+      "tavily_excerpt": "According to Lavallee and Harding (2022), too often Indigenous‐specific education in healthcare focuses on cultural differences instead of racism, which alone risks creating and reasserting stereotypes. In contrast, antiracism education produces a representation of Indigenous People as human beings who have been subjected to socially constructed inferiority and holds those that perpetuate colonialism accountable to learn and do better (Hantke2022). Nurses must consciously build antiracism into their practices by unlearning biases that render Indigenous Peoples—and other racialized people—as inferior. Antiracism education needs to be accompanied by the historical and colonial contexts and allow for reflection on a person's positionality in relation to historical and ongoing colonial [...] Colonization has been identified as a foundational determinant of Indigenous health (Allan and Smylie2015; McCallum2017) and is interrelated with racism. Canada's practice of race‐based legislation has had a lasting effect on Indigenous identity, health, and well‐being. This is evidenced by lower life expectancy and higher incidences of diabetes and co‐morbidities, infant mortality, depression, and suicide in Indigenous Peoples in comparison to non‐Indigenous peoples in Canada (Allan and Smylie2015; Browne et al.2016; Swidrovich2022; Truth and Reconciliation Commission of Canada2015a). Contemporary scholarship reveals that Indigenous Peoples became the target of genocidal practices backed by policies such as, but not limited to, the Indian Act, the Indian hospitals, the Indian Residential [...] ### Addressing Racism in the Nursing Education Programs\n\n4.3\nAlthough not reported by every participant, instances of racism were identified by at least one participant in each of the three undergraduate nursing programs in Saskatchewan. Notably, there was only one participant who expressed negative views of Indigenous People. However, research has shown that people who hold views that might be considered racist or bigoted by others very seldom speak up for fear of appearing racist (McLean2022). The comments and lived experiences of racism that surfaced during the interviews suggest that Indigenous‐specific racism exists in the undergraduate nursing programs, and sheds light on some of the barriers to implementing Indigenization within the programs.",
+      "query_ids": [
+        "c00331550907cf6f739a247b"
+      ],
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12879278",
+      "source_fetch": "fetched",
+      "category": "policy_or_review_source",
+      "evidence_excerpt": "<!doctype html><html lang=\"en-US\" dir=\"ltr\"><head><base href=\"https://www.google.com/recaptcha/challengepage/\"><link rel=\"preconnect\" href=\"//www.gstatic.com\"><meta name=\"referrer\" content=\"origin\"><script nonce=\"wli7JdibgbRlYLDkXNL-Pg\">window['ppConfig'] = {productName: 'RecaptchaChallengePageUi', deleteIsEnforced: true , sealIsEnforced: true , heartbeatRate: 0.5 , periodicReportingRateMillis: 60000.0 , disableAllReporting: false };(function(){'use strict';function k(a){var b=0;return function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}}}function l(a){var b=typeof Symbol!=\"undefined\"&&Symbol.iterator&&a[Symbol.iterator];if(b)return b.call(a);if(typeof a.length==\"number\")return{next:k(a)};throw Error(String(a)+\" is not an iterable or ArrayLike\");}var m=typeof Object.defineProperties==\"function\"?Object.defineProperty:function(a,b,c){if(a==Array.prototype||a==Object.prototype)return a;a[b]=c.value;return a}; function n(a){a=[\"object\"==typeof globalThis&&globalThis,a,\"object\"==ty"
+    },
+    {
+      "title": "Projects addressing anti-Indigenous racism in health systems",
+      "url": "https://www.sac-isc.gc.ca/eng/1702414423830/1702414440389",
+      "tavily_excerpt": "### Safer health systems through the Saskatchewan Indian Institute of Technologies and Sturgeon Lake First Nation\n\nConstruction of a standalone birthing centre at Sturgeon Lake First Nation, to expand the community's existing Indigenous midwifery demonstration project. Construction will cost $2 million over several years. In a separate initiative, funding will be provided to the Saskatchewan Indian Institute of Technologies to support the expansion of the Indigenous Practical Nursing Diploma for Rural and Remote Locations. This ground-breaking program marks the first dedicated Indigenous Practical Nursing program in Canada.\n\n## May 11, 2022\n\n### Traditional births in First Nation communities within Atlantic Canada [...] The transfer of Environmental Public Health Services (EPHS) puts decision-making power in the hands of Indigenous governments and organizations, who can then make their own choices about how to deliver programs and services in their communities. Fort Frances Tribal Area Health Services has assumed responsibility for food safety, safe drinking water, healthy housing, public facility inspections, waste and wastewater management, communicable disease control and emergency preparedness.\n\n## May 17, 2022\n\n### Indigenous Dental Therapy program launching at University of Saskatchewan",
+      "query_ids": [
+        "c00331550907cf6f739a247b"
+      ],
+      "final_url": "https://www.sac-isc.gc.ca/eng/1702414423830/1702414440389",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <!--[if lt IE 9]><html class=\"no-js lt-ie9\" lang=\"en\" dir=\"ltr\"><![endif] --> <!--[if gt IE 8]><! --> <html class=\"no-js\" lang=\"en\" dir=\"ltr\"><!--<![endif] --> <head> <meta charset=\"utf-8\"> <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html --> <title>Projects addressing anti-Indigenous racism in health systems </title> <meta content=\"width=device-width,initial-scale=1\" name=\"viewport\"> <!-- analytics part A start --> <!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-NLBMCJ3');</script> <!-- End Google Tag Manager --> <!-- analytics part A end "
+    },
+    {
+      "title": "Building trust through everyday actions | SaskHealthAuthority",
+      "url": "https://www.saskhealthauthority.ca/news-events/news/building-trust-through-everyday-actions",
+      "tavily_excerpt": "For many Indigenous patients, trust has been broken by experiences of racism and discrimination in the health system, and the SHA has an important role in repairing that trust. By remaining accoutable and providing culturally inclusive care, we are part of this repair every day, not just on September 30.\n\nBuilding trust includes small actions that can make a big difference in ensuring culturally inclusive care. Offering Indigenous patients, the opportunity to connect with cultural supports and services available within our acute care settings, learning a greeting in their language, listening without judgment, and making sure patients feel included in decisions about their care, helps to build trust and connection.",
+      "query_ids": [
+        "60c296b68c75189f69e97c3e"
+      ],
+      "final_url": "https://www.saskhealthauthority.ca/news-events/news/building-trust-through-everyday-actions",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\" dir=\"ltr\" prefix=\"og: https://ogp.me/ns#\"> <head> <meta charset=\"utf-8\" /> <meta name=\"description\" content=\"As part of the\" /> <link rel=\"canonical\" href=\"https://www.saskhealthauthority.ca/news-events/news/building-trust-through-everyday-actions\" /> <link rel=\"image_src\" href=\"/sites/default/files/2025-09/Image-CEC-CARES-New-Logo.png\" /> <link rel=\"icon\" href=\"/favicon.ico\" /> <link rel=\"mask-icon\" href=\"/themes/custom/duchess/dist/site-icons/safari-pinned-tab.svg\" color=\"#ffffff\" /> <link rel=\"icon\" sizes=\"16x16\" href=\"/themes/custom/duchess/dist/site-icons/favicon-16x16.png\" /> <link rel=\"icon\" sizes=\"32x32\" href=\"/themes/custom/duchess/dist/site-icons/favicon-32x32.png\" /> <link rel=\"icon\" sizes=\"192x192\" href=\"/themes/custom/duchess/dist/site-icons/android-chrome-192x192.png\" /> <link rel=\"apple-touch-icon\" href=\"/apple-touch-icon.png\" /> <meta property=\"og:site_name\" content=\"SaskHealthAuthority\" /> <meta property=\"og:type\" content=\"website\" /> <m"
+    },
+    {
+      "title": "Saskatchewan Health Authority apologizes for Samwel Uko's care",
+      "url": "https://www.facebook.com/SaskHealthAuthority/posts/saskatchewan-health-authority-apologizes-to-the-family-and-friends-of-samwel-uko/2722959081307741",
+      "tavily_excerpt": "Provide cultural diversity training, including but not limited to institutional racism, interpersonal racism, internalized racism, unconscious",
+      "query_ids": [
+        "60c296b68c75189f69e97c3e"
+      ],
+      "final_url": "https://www.facebook.com/SaskHealthAuthority/posts/saskatchewan-health-authority-apologizes-to-the-family-and-friends-of-samwel-uko/2722959081307741",
+      "source_fetch": "fetched",
+      "category": "background_prevalence_source",
+      "evidence_excerpt": "<!DOCTYPE html><html id=\"facebook\" class=\"_9dls __fb-light-mode\" lang=\"en\" dir=\"ltr\"><head><link data-default-icon=\"https://static.xx.fbcdn.net/rsrc.php/y1/r/ay1hV6OlegS.ico\" data-badged-icon=\"https://static.xx.fbcdn.net/rsrc.php/yD/r/UJj0tgk-RrT.ico\" rel=\"shortcut icon\" href=\"https://static.xx.fbcdn.net/rsrc.php/y1/r/ay1hV6OlegS.ico\" /><meta name=\"bingbot\" content=\"noarchive\" /><meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=2,shrink-to-fit=no\" /><meta property=\"og:type\" content=\"video.other\" /><meta property=\"og:title\" content=\"Saskatchewan Health Authority\" /><meta property=\"og:description\" content=\"Saskatchewan Health Authority Apologizes to the Family and Friends of Samwel Uko A statement has been issued on behalf of Scott Livingst&#x200b;one, CEO. Read the full news release:...\" /><meta property=\"og:url\" content=\"https://www.facebook.com/SaskHealthAuthority/posts/saskatchewan-health-authority-apologizes-to-the-family-and-friends-of-samwel-uko/27229"
+    },
+    {
+      "title": "Canadian Medical Association apologizes for harm to ...",
+      "url": "https://www.facebook.com/firstnationshealthauthority/posts/on-sept-18-the-canadian-medical-association-will-publicly-apologize-for-its-role/949518320552207",
+      "tavily_excerpt": "” In its apology, the CMA said it was “deeply ashamed” of the racism and discrimination that Indigenous patients and health care providers face.",
+      "query_ids": [
+        "60c296b68c75189f69e97c3e"
+      ],
+      "final_url": "https://www.facebook.com/firstnationshealthauthority/posts/on-sept-18-the-canadian-medical-association-will-publicly-apologize-for-its-role/949518320552207",
+      "source_fetch": "fetched",
+      "category": "background_prevalence_source",
+      "evidence_excerpt": "<!DOCTYPE html><html id=\"facebook\" class=\"_9dls __fb-light-mode\" lang=\"en\" dir=\"ltr\"><head><link data-default-icon=\"https://static.xx.fbcdn.net/rsrc.php/y1/r/ay1hV6OlegS.ico\" data-badged-icon=\"https://static.xx.fbcdn.net/rsrc.php/yD/r/UJj0tgk-RrT.ico\" rel=\"shortcut icon\" href=\"https://static.xx.fbcdn.net/rsrc.php/y1/r/ay1hV6OlegS.ico\" /><meta name=\"bingbot\" content=\"noarchive\" /><meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=2,shrink-to-fit=no\" /><meta property=\"og:type\" content=\"video.other\" /><meta property=\"og:title\" content=\"First Nations Health Authority\" /><meta property=\"og:description\" content=\"On Sept. 18, the Canadian Medical Association will publicly apologize for its role, and the role of the medical profession, in the past and ongoing harms to First Nations, Inuit and M&#xe9;tis Peoples in...\" /><meta property=\"og:url\" content=\"https://www.facebook.com/firstnationshealthauthority/posts/on-sept-18-the-canadian-medical-association-will-public"
+    },
+    {
+      "title": "Living with Pain | Saskatchewan Pain Society Inc.",
+      "url": "https://saskpain.ca/living-with-pain",
+      "tavily_excerpt": "We provide treatment and support that may include interventional pain … traditional Indigenous medicine. Phone: 306-766-6370",
+      "query_ids": [
+        "b18fb06b718211e4080ec8ec"
+      ],
+      "final_url": "https://saskpain.ca/living-with-pain/",
+      "source_fetch": "fetched",
+      "category": "policy_or_review_source",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en-US\" class=\"html_stretched responsive av-preloader-disabled html_header_top html_logo_left html_main_nav_header html_menu_right html_large html_header_sticky html_header_shrinking html_header_topbar_active html_mobile_menu_tablet html_header_searchicon html_content_align_center html_header_unstick_top_disabled html_header_stretch_disabled html_elegant-blog html_modern-blog html_av-submenu-hidden html_av-submenu-display-click html_av-overlay-side html_av-overlay-side-minimal html_av-submenu-clone html_entry_id_765 av-cookies-no-cookie-consent av-no-preview av-default-lightbox html_text_menu_active av-mobile-menu-switch-default\"> <head> <meta charset=\"UTF-8\" /> <!-- mobile setting --> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <!-- Scripts/CSS and wp_head hook --> <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' /> <!-- This site is optimized with the Yoast SEO plugin v28.4 -"
+    },
+    {
+      "title": "Chronic Pain Clinics – Saskatchewan | SaskHealthAuthority",
+      "url": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/all-z/opioid-stewardship-program/chronic-pain-clinics-saskatchewan",
+      "tavily_excerpt": "## Regina Chronic Pain Clinic\n\nThe Regina Chronic Pain Clinic is a multidisciplinary team caring for people living with chronic pain. The team includes physicians, nurse practitioners, a registered psychiatric nurse, a social worker, pharmacists, licensed practical nurses, exercise therapists and other health-care providers. The team works with a patient's family doctor or referring practitioner to provide treatment and support which may include interventional pain medicine, pain medication prescriptions or changes to prescriptions, mental health support, exercise therapy, and traditional Indigenous medicine. Once a safe care plan is in place, care is transferred to primary care provider(s). The clinic does not provide acute care for mental health or medical emergencies.",
+      "query_ids": [
+        "b18fb06b718211e4080ec8ec"
+      ],
+      "final_url": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/all-z/opioid-stewardship-program/chronic-pain-clinics-saskatchewan",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\" dir=\"ltr\" prefix=\"og: https://ogp.me/ns#\"> <head> <meta charset=\"utf-8\" /> <meta name=\"keywords\" content=\"Multidisciplinary Pain Clinics, Pain Management, Chronic Pain, Regina Chronic Pain Clinic, Children Pain, Pediatric, Complex Pain, Saskatchewan, Regina, Saskatoon, Interdisciplinary Pediatric Complex Pain Clinic, Jim Pattison Children’s Hospital\" /> <link rel=\"canonical\" href=\"https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/all-z/opioid-stewardship-program/chronic-pain-clinics-saskatchewan\" /> <meta name=\"author\" content=\"Angela Quebec\" /> <link rel=\"icon\" href=\"/favicon.ico\" /> <link rel=\"mask-icon\" href=\"/themes/custom/duchess/dist/site-icons/safari-pinned-tab.svg\" color=\"#ffffff\" /> <link rel=\"icon\" sizes=\"16x16\" href=\"/themes/custom/duchess/dist/site-icons/favicon-16x16.png\" /> <link rel=\"icon\" sizes=\"32x32\" href=\"/themes/custom/duchess/dist/site-icons/favicon-32x32.png\" /> <link rel=\"icon\" sizes=\"192x192\" hr"
+    },
+    {
+      "title": "First Nations health watchdog alarmed at treatment of Indigenous patients",
+      "url": "https://www.youtube.com/watch?v=PpvMjba_KMA",
+      "tavily_excerpt": "Saskatchewan's First Nations health ombudsperson is sounding the alarm over what they call the worsening treatment of Indigenous patients,",
+      "query_ids": [
+        "b18fb06b718211e4080ec8ec"
+      ],
+      "final_url": "https://www.youtube.com/watch?v=PpvMjba_KMA",
+      "source_fetch": "fetched",
+      "category": "background_prevalence_source",
+      "evidence_excerpt": "<!DOCTYPE html><html style=\"font-size: 62.5%;font-family: Roboto, Arial, sans-serif;\" lang=\"en-GB\" darker-dark-theme darker-dark-theme-deprecate system-icons color-version=\"v2_0\" typography typography-spacing><head><script data-id=\"_gd\" nonce=\"LJfQP7TbTR8aw_hSie8MDA\">window.WIZ_global_data = {\"AfY8Hf\":true,\"FL1an\":false,\"HiPsbb\":0,\"MUE6Ne\":\"youtube_web\",\"MuJWjd\":false,\"TSDtV\":\"%.@.]\",\"UUFaWc\":\"%.@.null,1000,2]\",\"cfb2h\":\"youtube.web-front-end-critical_20260902.07_p0\",\"hsFLT\":\"%.@.null,10,3]\",\"iCzhFc\":false,\"nQyAE\":{},\"oxN3nb\":{\"1\":false,\"0\":false,\"610401301\":false,\"899588437\":false,\"772657768\":true,\"513659523\":false,\"568333945\":true,\"1331761403\":true,\"651175828\":false,\"722764542\":false,\"748402145\":false,\"748402146\":false,\"748402147\":true,\"1602613185\":true,\"861377723\":false,\"861377724\":false,\"869336903\":false,\"882674507\":false,\"869336904\":false,\"869336905\":false,\"283953155\":false,\"919444824\":true,\"928875398\":true,\"683749201\":false},\"u4g7r\":\"%.@.null,1,3]\",\"xnI9P\":true,\"xwAfE\":true,\"yFnxr"
+    },
+    {
+      "title": "Northern Health responds to lawsuit that alleges racism ...",
+      "url": "https://globalnews.ca/news/7690875/northern-health-responds-to-lawsuit-that-alleges-racism-played-a-part-in-babys-death",
+      "tavily_excerpt": "Northern Health, Mills Memorial Hospital in Terrace and Kitimat General Hospital dispute allegations in a civil lawsuit filed in B.C. Supreme Court last month by Sarah Morrison and her partner Ronald Luft, alleging negligence and “deliberate racial indifference.”\n\nClick to play video: 'Northern B.C. Indigenous family alleges systemic racism at Kitimat hospital' \n\nNorthern B.C. Indigenous family alleges systemic racism at Kitimat hospital\n\nIn its response, the health authority says Morrison was past her due date and in the early stages of labour when she arrived at Kitimat General Hospital, which the health authority says is not equipped to handle complicated deliveries.\n\nStory continues below advertisement [...] Want to discuss? Please read our Commenting Policy first.\n\n### Write a comment\n\nVideo link\n\nHeadline link\n\nAdvertisement\n\nHealth\n\n# Northern Health responds to lawsuit that alleges racism played a part in baby’s death\n\nBy Staff  The Canadian Press\n\nPosted March 11, 2021 2:54 pm\n\nUpdated March 12, 2021 6:03 pm\n\n2 min read\n\nIf you get Global News from Instagram or Facebook - that will be changing. Find out how you can still connect with us.\n\nThis article is more than 5 years old and some information may not be up to date.\n\nClick to play video: 'Northern B.C. Indigenous family alleges systemic racism at Kitimat hospital' \n\nNorthern B.C. Indigenous family alleges systemic racism at Kitimat hospital [...] Click to play video: 'B.C. healthcare a ‘much different experience’ for Indigenous people: report author' \n\nB.C. healthcare a ‘much different experience’ for Indigenous people: report author\n\nNorthern Health and the two hospitals are seeking a dismissal of all the claims and costs of the legal action.\n\nA provincial government review of the case is continuing after it was ordered at the end of January when the allegations were made.\n\nStory continues below advertisement\n\nRead more:   Report links racism, poor Indigenous health outcomes in B.C. healthcare\n\nA statement issued last month by the Northern Health board said it endorses the review of racism allegations regarding health care at its hospitals.",
+      "query_ids": [
+        "126494bc6c784faad0a7abe7"
+      ],
+      "final_url": "https://globalnews.ca/news/7690875/northern-health-responds-to-lawsuit-that-alleges-racism-played-a-part-in-babys-death/",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en-US\"> <head> <script type=\"text/javascript\"> function gnca_get_location_from_geo_data( geo_data ) { var loc_url = document.location.href.toLowerCase(); if( loc_url.indexOf('gref=') > -1 ) { if( loc_url.indexOf( 'gref=am980' ) > -1 ) { return 'gnca-london'; } else if( loc_url.indexOf( 'gref=900chml' ) > -1 ) { return 'gnca-hamilton'; } else if( loc_url.indexOf( 'gref=channel12' ) > -1 ) { return 'gnca-durham'; } else if( loc_url.indexOf( 'gref=chextv' ) > -1 ) { return 'gnca-peterborough'; } else if( loc_url.indexOf( 'gref=ckwstv' ) > -1 ) { return 'gnca-kingston'; } } // Handle regions that are \"misnamed\". For instance, the province of Ontario is in the \"Toronto\" region. if( geo_data.region ) { geo_data.region = geo_data.region.toUpperCase(); } else { return false; } switch (geo_data.region) { case 'ONTARIO': if( geo_data.city ) { var city = geo_data.city.toUpperCase(); if( 'LONDON' === city || 'WOODSTOCK' === city ) { return 'gnca-london'; } else if( 'GUE"
+    },
+    {
+      "title": "Family of Sask. elder claims he was abused, racially discriminated against by Regina General Hospital staff | CBC News",
+      "url": "https://www.cbc.ca/news/canada/saskatchewan/family-of-elder-claims-he-was-abused-racially-discriminated-against-by-regina-general-hospital-staff-1.6612573",
+      "tavily_excerpt": "Skip to Main ContentAccessibility Help\n\nMenuCBC GemCBC Listen\n\nSearch\n\nFamily of Sask. elder claims he was abused, racially discriminated against by Regina General Hospital staff | CBC News Loaded\n\nSaskatchewan\n\n# Family of Sask. elder claims he was abused, racially discriminated against by Regina General Hospital staff\n\nThe family of a Kawacatoose First Nation Elder is claiming he was abused by Regina General Hospital staff on Sept. 30 and that the 77-year-old has endured ongoing racism and mistreatment at the hospital for the last 14 years.\n\n## Health authority says it will cooperate with police investigation, speak with family\n\nLaura Sciarpelletti  · CBC News  ·\n\nText to Speech Icon\n\nListen to this article\n\nEstimated 4 minutes [...] His family said that time and time again, Favel has been treated inappropriately or not been given the quality of care he deserves, and attribute the treatment to his race.\n\nEwenin described her father and other Indigenous men sitting outside the renal unit waiting for treatment.\n\n\"[Staff] make a joke that it is a chief and council meeting or a powwow, and all the natives sit outside the renal unit waiting while other people are coming or going. They make them wait because of the colour of their skin,\" Ewenin said.\n\n 'Some heroes wear moccasins:' Saskatchewan stabbing victims died helping others\n\nFavel is still travelling to Regina General Hospital three days a week for dialysis, but his family said he lives in fear of the hospital. [...] In an emailed statement to CBC, the Saskatchewan Health Authority said it is sorry to hear about the concerns being raised by this family. It said it will investigate any medical and safety issues and speak to the family.\n\nThe health authority also said it plans to cooperate with the Regina Police Service investigation.\n\n## Family alleges pattern of mistreatment\n\nFavel's family said the quality of the 77-year-old's health care has deteriorated since May. They said he is no longer permitted to see his long-time specialist doctor, due to a hospital policy change.\n\n\"I don't think the hospital has the right to choose my doctor,\" Favel said.",
+      "query_ids": [
+        "126494bc6c784faad0a7abe7",
+        "c7b48b29c1acbf3ff39a3dbd"
+      ],
+      "final_url": "https://www.cbc.ca/news/canada/saskatchewan/family-of-elder-claims-he-was-abused-racially-discriminated-against-by-regina-general-hospital-staff-1.6612573",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en\"> <head> <title data-rh=\"true\">Family of Sask. elder claims he was abused, racially discriminated against by Regina General Hospital staff | CBC News</title> <meta charset=\"utf-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /> <link rel=\"manifest\" href=\"/a/manifest.json\" /> <link rel=\"apple-touch-icon\" href=\"/a/apple-touch-icon.png\" /> <link rel=\"icon\" type=\"image/x-icon\" href=\"/a/favicon.ico\" /> <!-- Resource Hints --> <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" crossorigin> <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin> <link rel=\"preload\" href=\"https://fonts.googleapis.com/css2?family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap\" as=\"style\" crossorigin /> <link rel=\"preconnect\" href=\"https://i.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://thumbnails.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://liveimages.cbc.ca\" /> <link rel=\"preconnect\" href=\"https://login.cbc.ca\" crosso"
+    },
+    {
+      "title": "First Nations health ombudsman heard around 500 ...",
+      "url": "https://thestarphoenix.com/news/saskatchewan-news/first-nations-health-ombudsperson-heard-over-500-complaints-report",
+      "tavily_excerpt": "Many complaints were also related to emergency-room care in Saskatoon and rural hospitals being closed without notice, including several about the facility in Shellbrook, Lafond said.\n\n“We’re seeing trends. We’re seeing complaints happening in the same spots over and over and over again,” said Lafond, adding that her office has also been approached by victims who experienced alleged abuse inside health facilities, as well as “whistleblowers that have come in.”\n\n 'A violation of cultural safety': Family moving forward with formal complaint after Indigenous woman's hair cut without consent\n How those working within and outside of Sask.'s health-care system are fighting systemic racism\n\n## ‘We can’t implement change without partners’ [...] ## ‘We can’t implement change without partners’\n\nThe First Nations health ombudsman is a first of its kind in Canada. It was established by the Federation of Sovereign Indigenous Nations (FSIN) to hear patients’ issues with health-care systems and providers for investigation, mediation and advocacy.\n\nThe office fields complaints related to racism, poor quality of care, violations to patient privacy or rights, unequal access to health services, and other concerns.\n\n“This office is intended to keep both Saskatchewan and the federal government accountable, especially when health is one of the most meaningful and important aspects of our lives,” said Heather Bear, chair of the office’s board of directors.",
+      "query_ids": [
+        "126494bc6c784faad0a7abe7"
+      ],
+      "final_url": "https://thestarphoenix.com/news/saskatchewan-news/first-nations-health-ombudsperson-heard-over-500-complaints-report/",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!doctype html> <html lang=\"en-CA\"> <head> <meta charset=\"UTF-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <link rel=\"profile\" href=\"https://gmpg.org/xfn/11\"> <!-- Google Tag Manager --> <script>window.dataLayer = window.dataLayer || []; window.dataLayer.push({'gtm.start': new Date().getTime(), event:'gtm.js'});</script> <script async src=\"https://www.googletagmanager.com/gtm.js?id=GTM-WJMBSJJC\"></script> <!-- End Google Tag Manager --> <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' /> <link rel=\"preconnect\" href=\"https://securepubads.g.doubleclick.net\" crossorigin> <link rel=\"preconnect\" href=\"https://c.amazon-adsystem.com\" crossorigin> <link rel=\"preconnect\" href=\"https://imasdk.googleapis.com\" crossorigin> <link rel=\"preconnect\" href=\"https://cdn.amplitude.com\" crossorigin> <link rel=\"preconnect\" href=\"https://pagead2.googlesyndication.com\" crossorigin> <link rel=\"preconnect\" href=\"https://micro."
+    },
+    {
+      "title": "First Nation health ombudsperson’s office created in Saskatchewan | Globalnews.ca",
+      "url": "https://globalnews.ca/news/8637915/first-nation-health-ombudsperson-saskatchewan",
+      "tavily_excerpt": "## Share\n\nShare this item on Facebook facebook Share this item on X x Send this page to someone via email email Share this item via WhatsApp whatsapp Share this item via Telegram telegram Share this item on Reddit reddit Share this item on BlueSky bluesky\n\nAn ombudsperson’s office being created in Saskatchewan will be the first in Canada to help address racism against Indigenous people trying to get healthcare services.\n\n“There has been a long history of negative, and sometimes tragic, interactions between First Nations people and health-care providers or hospitals,” Chief Bobby Cameron of the Federation of Sovereign Indigenous Nations said in a news release Tuesday. The federation represents 74 First Nations in Saskatchewan. [...] International Overdose Awareness Day\n \n\n  Rally for overdose awareness day\n\nFederal Indigenous Services Minister Patty Hajdu said in the news release that the Saskatchewan office will ensure First Nations people have a voice in any services they receive and a venue to formally address concerns.\n\n“This is just one important step of many needed in addressing anti-Indigenous racism and discrimination in health care.”\n\nStory continues below advertisement\n\nClick to play video: 'Indigenous woman says she had startling, racist experience at Regina General Hospital' \n\nIndigenous woman says she had startling, racist experience at Regina General Hospital\n\nStick to the Facts\n\nAdd Global News as a Preferred Source on Google to see more of our stories in your search results. [...] ## Get weekly health news\n\nReceive the latest medical news and health information delivered to you every Sunday.\n\nBy providing your email address, you have read and agree to Global News' Terms and Conditions and Privacy Policy.\n\nAddressing racism in health care needs to be done across the country, the release said.\n\nSuch racism was thrust into the spotlight by Joyce Echaquan, a 37-year-old Indigenous mother who used her phone to video mistreatment she received in a Quebec hospital before her 2020 death. The images were streamed online. A coroner’s inquiry later found that racism and prejudice contributed to her death.\n\nRead more:   Little progress made to combat anti-Indigenous racism in B.C. health care, says report",
+      "query_ids": [
+        "c7b48b29c1acbf3ff39a3dbd"
+      ],
+      "final_url": "https://globalnews.ca/news/8637915/first-nation-health-ombudsperson-saskatchewan/",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html> <html lang=\"en-US\"> <head> <script type=\"text/javascript\"> function gnca_get_location_from_geo_data( geo_data ) { var loc_url = document.location.href.toLowerCase(); if( loc_url.indexOf('gref=') > -1 ) { if( loc_url.indexOf( 'gref=am980' ) > -1 ) { return 'gnca-london'; } else if( loc_url.indexOf( 'gref=900chml' ) > -1 ) { return 'gnca-hamilton'; } else if( loc_url.indexOf( 'gref=channel12' ) > -1 ) { return 'gnca-durham'; } else if( loc_url.indexOf( 'gref=chextv' ) > -1 ) { return 'gnca-peterborough'; } else if( loc_url.indexOf( 'gref=ckwstv' ) > -1 ) { return 'gnca-kingston'; } } // Handle regions that are \"misnamed\". For instance, the province of Ontario is in the \"Toronto\" region. if( geo_data.region ) { geo_data.region = geo_data.region.toUpperCase(); } else { return false; } switch (geo_data.region) { case 'ONTARIO': if( geo_data.city ) { var city = geo_data.city.toUpperCase(); if( 'LONDON' === city || 'WOODSTOCK' === city ) { return 'gnca-london'; } else if( 'GUE"
+    },
+    {
+      "title": "Saskatchewan Human Rights Commission | PLEA",
+      "url": "https://plea.org/government-agencies/saskatchewan-human-rights-commission",
+      "tavily_excerpt": "### Protection Against Discrimination\n\nThe Saskatchewan Human Rights Code sets prohibited grounds of discrimination. These prohibitions apply to certain aspects of life, including work, education and housing.\n\nRead More →\n\n### Human Rights Complaints\n\nThe Saskatchewan Human Rights Commission can help individuals resolve their matter in several ways.\n\nRead More →\n\nOur newest project is designed to provide legal information for Indigenous communities through a dedicated website, indigenous.plea.org, and print material. All is available free of charge.\n\n### Legal Information for Indigenous Communities\n\nCHECK IT OUT\n\n### Housing & Communities\n\nRenting a Home Buying & Selling a Home Condos Neighbours Communities\n\n### Planning for the Future\n\nHealth Care Directives Power of Attorney Wills [...] Housing & Communities Planning for the Future Death & Estates Health Older Adults Consumer Protection Non-Profit Organizations & Charities Debts & Credit Government & Government Agencies Courts & Legal Systems Crimes & Fines Victims Resources for Teachers Legal Information for Newcomers Family Law Saskatchewan Workplace Sexual Harassment (SHIFT) Legal Information for Indigenous Communities About PLEA Contact Us Search \n\nGovernment & Government Agencies\n\n# Saskatchewan Human Rights Commission\n\nThe Saskatchewan Human Rights Commission is a provincial government body that investigates human rights complaints. They enforce The Saskatchewan Human Rights Code independently from the government. You can file a complaint with the Commission relating to your rights under the Code.",
+      "query_ids": [
+        "6bdba831934921a10b0cf565"
+      ],
+      "final_url": "https://plea.org/government-agencies/saskatchewan-human-rights-commission",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!doctype html> <html class=\"no-js\" lang=\"\"> <head> <meta charset=\"utf-8\"> <meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> <link rel=\"home\" href=\"https://plea.org/\"> <link rel=\"apple-touch-icon\" href=\"apple-touch-icon.png\"> <link href=\"https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i|PT+Serif:700\" rel=\"stylesheet\"> <link rel=\"stylesheet\" href=\"/dist/style.css\"> <title>Saskatchewan Human Rights Commission | PLEA</title> <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-6718598-1', 'auto'); ga('set', 'anonymizeIp', true); ga('send', 'pageview'); </script><meta name=\"generator\" content=\"SEOmatic\"> <meta name=\""
+    },
+    {
+      "title": "patient rights in Saskatchewan hospitals",
+      "url": "https://www.facebook.com/groups/324192655327055/posts/1653551345724506",
+      "tavily_excerpt": "patient rights in Saskatchewan hospitals: Be treated with dignity, respect, and without discrimination. Receive safe, quality health care.",
+      "query_ids": [
+        "6bdba831934921a10b0cf565"
+      ],
+      "final_url": "https://www.facebook.com/groups/324192655327055/posts/1653551345724506",
+      "source_fetch": "fetched",
+      "category": "individual_incident_candidate",
+      "evidence_excerpt": "<!DOCTYPE html><html id=\"facebook\" class=\"_9dls __fb-light-mode\" lang=\"en\" dir=\"ltr\"><head><link data-default-icon=\"https://static.xx.fbcdn.net/rsrc.php/y1/r/ay1hV6OlegS.ico\" data-badged-icon=\"https://static.xx.fbcdn.net/rsrc.php/yD/r/UJj0tgk-RrT.ico\" rel=\"shortcut icon\" href=\"https://static.xx.fbcdn.net/rsrc.php/y1/r/ay1hV6OlegS.ico\" /><meta name=\"bingbot\" content=\"noarchive\" /><meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=2,shrink-to-fit=no\" /><meta property=\"al:android:app_name\" content=\"Facebook\" /><meta property=\"al:android:package\" content=\"com.facebook.katana\" /><meta property=\"al:android:url\" content=\"fb://native_post/UzpfSTEwMjQ3NzU5NzMyNTk1NTA6Vks6MTY1MzU1MTM0NTcyNDUwNg==\" /><meta property=\"al:ios:app_name\" content=\"Facebook\" /><meta property=\"al:ios:app_store_id\" content=\"284882215\" /><meta property=\"al:ios:url\" content=\"fb://story/?graphqlid=UzpfSTEwMjQ3NzU5NzMyNTk1NTA6Vks6MTY1MzU1MTM0NTcyNDUwNg==\" /><meta name=\"apple-itunes-app\" content=\"a"
+    }
+  ]
+}

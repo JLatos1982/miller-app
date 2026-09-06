@@ -71,12 +71,36 @@ function extractTitle(html) {
   return match ? match[1].replace(/\s+/g, " ").trim().slice(0, 200) : ""
 }
 
-async function readLimitedText(response) {
+async function readLimitedText(response, { timeoutMs = REQUEST_TIMEOUT_MS } = {}) {
   const contentType = response.headers.get("content-type") || ""
   if (!contentType.includes("text/html") && !contentType.includes("text/plain")) return ""
 
   let size = 0
   const chunks = []
+  // Node fetch exposes a Web ReadableStream. Bound individual reads as well as
+  // request headers; some publishers leave a response stream open indefinitely.
+  if (response.body?.getReader) {
+    const reader = response.body.getReader()
+    let timer = null
+    const timedRead = () => new Promise((resolve, reject) => {
+      timer = setTimeout(() => reject(Object.assign(new Error("Research body timed out"), { name: "AbortError" })), timeoutMs)
+      reader.read().then(resolve, reject)
+    })
+    try {
+      while (true) {
+        const { done, value } = await timedRead()
+        clearTimeout(timer); timer = null
+        if (done) break
+        size += value.length
+        if (size > MAX_BODY_BYTES) break
+        chunks.push(Buffer.from(value))
+      }
+    } finally {
+      clearTimeout(timer)
+      try { await reader.cancel() } catch { /* A completed stream may not cancel. */ }
+    }
+    return Buffer.concat(chunks).toString("utf8")
+  }
   for await (const chunk of response.body) {
     size += chunk.length
     if (size > MAX_BODY_BYTES) break
@@ -91,11 +115,15 @@ export async function fetchSafeResearchDocument(value, { fetchImpl = fetch, look
   for (let redirect = 0; redirect <= MAX_REDIRECTS; redirect += 1) {
     const controller = new AbortController(), timer = setTimeout(() => controller.abort(), Math.min(timeoutMs, REQUEST_TIMEOUT_MS))
     let response
-    try { response = await fetchImpl(current, { redirect: "manual", signal: controller.signal, agent: pinnedAgent(current, safeAddresses), headers: { "User-Agent": "MillerEvidenceResearch/1.0", Accept: "text/html,text/plain;q=0.8" } }) }
-    finally { clearTimeout(timer) }
-    if ([301, 302, 303, 307, 308].includes(response.status)) { const location = response.headers.get("location"); response.body?.destroy?.(); if (!location || redirect === MAX_REDIRECTS) throw new Error("Too many or invalid redirects"); resolved = await resolveSafePublicUrl(new URL(location, current).toString(), lookup); current = resolved.url; safeAddresses = resolved.addresses; continue }
-    const text = await readLimitedText(response)
-    return { ok: response.ok, status: response.status, url: current.toString(), contentType: response.headers.get("content-type") || "", text, bytesBounded: true, redirects: redirect }
+    try {
+      response = await fetchImpl(current, { redirect: "manual", signal: controller.signal, agent: pinnedAgent(current, safeAddresses), headers: { "User-Agent": "MillerEvidenceResearch/1.0", Accept: "text/html,text/plain;q=0.8" } })
+      if ([301, 302, 303, 307, 308].includes(response.status)) { const location = response.headers.get("location"); response.body?.destroy?.(); if (!location || redirect === MAX_REDIRECTS) throw new Error("Too many or invalid redirects"); resolved = await resolveSafePublicUrl(new URL(location, current).toString(), lookup); current = resolved.url; safeAddresses = resolved.addresses; continue }
+      // Keep the abort timer alive while the bounded body is read as well as
+      // while headers arrive. A server that stalls mid-stream must not block a
+      // durable research run indefinitely.
+      const text = await readLimitedText(response, { timeoutMs: Math.min(timeoutMs, REQUEST_TIMEOUT_MS) })
+      return { ok: response.ok, status: response.status, url: current.toString(), contentType: response.headers.get("content-type") || "", text, bytesBounded: true, redirects: redirect }
+    } finally { clearTimeout(timer) }
   }
   throw new Error("Research document could not be retrieved")
 }

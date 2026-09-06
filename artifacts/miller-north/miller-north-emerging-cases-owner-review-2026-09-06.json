@@ -1,0 +1,49 @@
+{
+  "schema_version": "miller-north-emerging-cases-owner-review-v1",
+  "publication_scope": "private_owner_review",
+  "generated_at": "2026-09-06",
+  "public_projection": "src/data/miller-north-emerging-cases-public-v1.json",
+  "lifecycle": ["lead", "emerging_case", "dossier_candidate", "research_policy_case"],
+  "published_watching_now": {
+    "total": 8,
+    "british_columbia": 3,
+    "alberta": 3,
+    "saskatchewan": 2,
+    "dossier_candidates": 1
+  },
+  "private_incident_candidate_review": {
+    "working_candidates_inspected": 20,
+    "already_represented_as_anonymized_live_listening_items": 15,
+    "newly_advanced_to_emerging_case": 0,
+    "held_back_or_owner_review": 5,
+    "rejected_as_false": 0,
+    "note": "Incident-like reports remain in Live Listening unless a meaningful institutional, legal, policy or implementation chain develops. Named private rows were never copied into the browser projection."
+  },
+  "named_lead_decisions": [
+    {
+      "private_subject": "Yvonne Houssin",
+      "decision": "remain_live_listening_only",
+      "reason": "A public reported account is available and is already represented anonymously in Live Listening, but no sufficiently deep later accountability chain was located for Watching Now.",
+      "publication_change": false
+    },
+    {
+      "private_subject": "Nathan Cushman",
+      "decision": "remain_live_listening_only",
+      "reason": "The cited public report describes a family complaint and an AHS review response, but later direct institutional follow-up was not located in this bounded pass.",
+      "publication_change": false
+    },
+    {
+      "private_subject": "intentionally unnamed patient records",
+      "decision": "hold_identity_boundary",
+      "reason": "No private identity clues are needed for the public evidence story. Existing anonymization remains in force.",
+      "publication_change": false
+    }
+  ],
+  "top_dossier_candidates": [
+    { "rank": 1, "case": "Indigenous Patient Safety Investigator and Advocate", "province": "Alberta", "next_requirement": "Aggregate activity, recommendations and response reporting" },
+    { "rank": 2, "case": "B.C. Patient Care Quality Review", "province": "British Columbia", "next_requirement": "Published recommendations or interim policy direction" },
+    { "rank": 3, "case": "Island Health Indigenous Patient Self-Identification redesign", "province": "British Columbia", "next_requirement": "Public redesign milestones and governance terms" }
+  ],
+  "production_database_changes": 0,
+  "incident_merges": 0
+}

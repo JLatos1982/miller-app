@@ -1,0 +1,230 @@
+{
+  "generated_at": "2026-09-05T23:50:45.367Z",
+  "groups_processed": 12,
+  "one_incident": 0,
+  "multiple_incidents": 0,
+  "incident_plus_context": 0,
+  "context_only": 11,
+  "insufficient_identity": 1,
+  "incident_candidates_extracted": 0,
+  "legacy_evidence_attached": 0,
+  "new_legacy_incident_proposals": 0,
+  "groups": [
+    {
+      "source_url": "https://healthqualitybc.ca/wp-content/uploads/Sharing-Concerns-Principles-to-Guide-the-Development-of-an-Indigenous-Patient-Feedback-Process-Health-Quality-BC.pdf",
+      "evidence_record_ids": [
+        "ihe_405535d4fac6861d4e18",
+        "ihe_6b26e9f53f26b19a55f7",
+        "ihe_794dd8b85ef9ac67175a",
+        "ihe_c98c9deccbee21b57855",
+        "ihe_f952a66cbaedba6051bf"
+      ],
+      "score": 30,
+      "signals": [
+        "patient",
+        "complaint",
+        "death"
+      ],
+      "queue_state": "queued_for_bounded_source_review",
+      "classification": "context_only",
+      "rationale": "rank signal arose from aggregated/research/policy vocabulary; legacy excerpts do not identify a separable incident",
+      "incident_candidates": []
+    },
+    {
+      "source_url": "https://afnigc.ca/wp-content/uploads/2024/10/First-Nations-emergency-care-in-Alberta-descriptive-results-of-a-retrospective-cohort-study.pdf",
+      "evidence_record_ids": [
+        "ihe_4152380615ae3555514b",
+        "ihe_6a3c6eabd8cd89f1aaef",
+        "ihe_9e6762e6ee0cac3017c5",
+        "ihe_c87c115b700a301a4ff5"
+      ],
+      "score": 20,
+      "signals": [
+        "patient",
+        "emergency"
+      ],
+      "queue_state": "queued_for_bounded_source_review",
+      "classification": "context_only",
+      "rationale": "rank signal arose from aggregated/research/policy vocabulary; legacy excerpts do not identify a separable incident",
+      "incident_candidates": []
+    },
+    {
+      "source_url": "https://afnigc.ca/wp-content/uploads/2024/10/IMPACT1.pdf",
+      "evidence_record_ids": [
+        "ihe_146f5070cc77a752f2e4",
+        "ihe_827078598d871b47e78b",
+        "ihe_92ae176a69ad7d0f8c6b",
+        "ihe_9ee291af1509b833a573",
+        "ihe_a5375ce2058683de1312",
+        "ihe_ab56c88eb7c22ea4d835"
+      ],
+      "score": 20,
+      "signals": [
+        "patient",
+        "emergency"
+      ],
+      "queue_state": "queued_for_bounded_source_review",
+      "classification": "context_only",
+      "rationale": "rank signal arose from aggregated/research/policy vocabulary; legacy excerpts do not identify a separable incident",
+      "incident_candidates": []
+    },
+    {
+      "source_url": "https://www.cmajopen.ca/content/cmajo/11/6/E1135.full.pdf",
+      "evidence_record_ids": [
+        "ihe_73972d439652e959197f",
+        "ihe_8dfefb1e49ee0c2ba870",
+        "ihe_cfc43a16ce8d1baad081",
+        "ihe_d3bfe144dfe145ebcf45"
+      ],
+      "score": 20,
+      "signals": [
+        "patient",
+        "emergency"
+      ],
+      "queue_state": "queued_for_bounded_source_review",
+      "classification": "context_only",
+      "rationale": "rank signal arose from aggregated/research/policy vocabulary; legacy excerpts do not identify a separable incident",
+      "incident_candidates": []
+    },
+    {
+      "source_url": "https://www.cpsbc.ca/files/pdf/DAP-AS-Indigenous-Cultural-Safety-Cultural-Humility-and-Anti-racism.pdf",
+      "evidence_record_ids": [
+        "ihe_5efdc2e90fddae44fce7",
+        "ihe_69111a44f06a73e8dccc",
+        "ihe_6f6a2abfb98151d7cabe",
+        "ihe_a70a6adf4d04bd4ed050",
+        "ihe_b12130201afbc4806068",
+        "ihe_dd9aa6e8da7c4c32018f",
+        "ihe_e53fddb26f891a3ad5aa"
+      ],
+      "score": 20,
+      "signals": [
+        "hospital",
+        "patient"
+      ],
+      "queue_state": "queued_for_bounded_source_review",
+      "classification": "context_only",
+      "rationale": "rank signal arose from aggregated/research/policy vocabulary; legacy excerpts do not identify a separable incident",
+      "incident_candidates": []
+    },
+    {
+      "source_url": "https://www.ualberta.ca/en/folio/2024/04/racism-leads-first-nations-patients-to-leave-emergency.html",
+      "evidence_record_ids": [
+        "ihe_6a865cc1384f23ad3a84",
+        "ihe_b196ae4993054b768c26"
+      ],
+      "score": 20,
+      "signals": [
+        "patient",
+        "emergency"
+      ],
+      "queue_state": "queued_for_bounded_source_review",
+      "classification": "context_only",
+      "rationale": "rank signal arose from aggregated/research/policy vocabulary; legacy excerpts do not identify a separable incident",
+      "incident_candidates": []
+    },
+    {
+      "source_url": "https://afnigc.ca/anti-racism-in-the-emergency-department",
+      "evidence_record_ids": [
+        "ihe_98b6583e528b9a8262ff",
+        "ihe_be49d407a7ca23c700c0"
+      ],
+      "score": 10,
+      "signals": [
+        "emergency"
+      ],
+      "queue_state": "queued_for_bounded_source_review",
+      "classification": "context_only",
+      "rationale": "rank signal arose from aggregated/research/policy vocabulary; legacy excerpts do not identify a separable incident",
+      "incident_candidates": []
+    },
+    {
+      "source_url": "https://nursing.usask.ca/documents/research-initiatives/anti-racism-resources/cpr-racism-article.pdf",
+      "evidence_record_ids": [
+        "ihe_0756d29598e76e8395e9",
+        "ihe_2161541c80738e25556f",
+        "ihe_2a7ca2b237bc58d20e9a",
+        "ihe_566ef58e5a8ff8d24e79",
+        "ihe_81dfa4eddcbb3065ea63",
+        "ihe_825cc4e2deb1d0644352",
+        "ihe_85a3a43fb6516d5f3702",
+        "ihe_a6c6bf9481fc89cc2b1e",
+        "ihe_c54c3ab95f287d969209"
+      ],
+      "score": 10,
+      "signals": [
+        "death"
+      ],
+      "queue_state": "queued_for_bounded_source_review",
+      "classification": "context_only",
+      "rationale": "rank signal arose from aggregated/research/policy vocabulary; legacy excerpts do not identify a separable incident",
+      "incident_candidates": []
+    },
+    {
+      "source_url": "https://sites.google.com/ualberta.ca/equityemergencycare/research-projects/first-nations-emergency-department-care-in-alberta_1",
+      "evidence_record_ids": [
+        "ihe_8c58eb48abf2bef4b54c",
+        "ihe_dcba7e2cf56dff25d0cf"
+      ],
+      "score": 10,
+      "signals": [
+        "emergency"
+      ],
+      "queue_state": "queued_for_bounded_source_review",
+      "classification": "context_only",
+      "rationale": "rank signal arose from aggregated/research/policy vocabulary; legacy excerpts do not identify a separable incident",
+      "incident_candidates": []
+    },
+    {
+      "source_url": "https://www.aptnnews.ca/national-news/anti-indigenous-bias-may-lead-to-first-nations-leaving-emergency-departments-without-care",
+      "evidence_record_ids": [
+        "ihe_8fc858ed45ce1c8ddf53",
+        "ihe_dc260acfdc486fb6b0f8"
+      ],
+      "score": 10,
+      "signals": [
+        "hospital"
+      ],
+      "queue_state": "queued_for_bounded_source_review",
+      "classification": "context_only",
+      "rationale": "rank signal arose from aggregated/research/policy vocabulary; legacy excerpts do not identify a separable incident",
+      "incident_candidates": []
+    },
+    {
+      "source_url": "https://www.interiorhealth.ca/sites/default/files/PDFS/ih-in-plain-sight-response-volume-5-november-2025.pdf",
+      "evidence_record_ids": [
+        "ihe_1613c971d2d2f27e0a1c",
+        "ihe_3574abf328ec70a656d1",
+        "ihe_5708a0c9eef60f395d8e",
+        "ihe_6730eb9123674b5da5a6",
+        "ihe_72d3f72c38bceaf8f7b5",
+        "ihe_b8924e7ffe3468f081b9",
+        "ihe_d8e3b6c62e17fe621b99",
+        "ihe_f12a901d22b86eeac2c9"
+      ],
+      "score": 10,
+      "signals": [
+        "patient"
+      ],
+      "queue_state": "queued_for_bounded_source_review",
+      "classification": "context_only",
+      "rationale": "rank signal arose from aggregated/research/policy vocabulary; legacy excerpts do not identify a separable incident",
+      "incident_candidates": []
+    },
+    {
+      "source_url": "https://www.nationalobserver.com/2023/04/11/investigations/analysis-anti-indigenous-racism-hospitals-reveals-pattern-harm-no",
+      "evidence_record_ids": [
+        "ihe_1768b718da7cdd6485f7",
+        "ihe_504bed49916cdf30f216"
+      ],
+      "score": 10,
+      "signals": [
+        "hospital"
+      ],
+      "queue_state": "queued_for_bounded_source_review",
+      "classification": "insufficient_identity",
+      "rationale": "requires opened source review before separating reported accounts",
+      "incident_candidates": []
+    }
+  ]
+}

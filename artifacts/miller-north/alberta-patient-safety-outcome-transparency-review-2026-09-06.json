@@ -1,0 +1,126 @@
+{
+  "schema_version": "farm-accountability-outcome-transparency-v1",
+  "review_id": "accountability-transparency:alberta-indigenous-patient-safety:2026-09-06",
+  "private": true,
+  "subject": "Alberta Indigenous Patient Safety Investigator and Advocate",
+  "research_question": "What privacy-protecting public evidence exists about the activity, outputs and outcomes of Alberta's Indigenous Patient Safety Investigator and Advocate?",
+  "time_scope": "2023-01-01 through 2026-09-06",
+  "summary": "One role-specific aggregate activity measure was located: Alberta's 2026–29 Primary and Preventative Health Services business plan reports 321 correspondence items in 2025. The measure does not identify unique complainants, accepted matters, completed reviews, recommendations, referrals, resolutions or outcomes. Parent-office reporting describes broader activity and process changes, but it cannot be attributed to this role unless the source separates it.",
+  "expected_fields": [
+    {
+      "field": "intake_volume",
+      "reporting_state": "partially_reported",
+      "relationship_strength": "direct_attribution",
+      "public_finding": "The role-specific business-plan measure reports 321 correspondence items in 2025. Correspondence volume is an activity measure, not a count of complaints, people, accepted cases or outcomes.",
+      "sources_checked": [
+        { "title": "Primary and Preventative Health Services Business Plan 2026–29", "organization": "Government of Alberta", "url": "https://open.alberta.ca/dataset/1f359112-3adc-4202-8002-35c96521e80f/resource/a9fb0611-e4d9-42eb-9d9a-50779aaf8903/download/pphs-business-plan-2026-29.pdf" }
+      ]
+    },
+    {
+      "field": "accepted_cases",
+      "reporting_state": "not_located",
+      "relationship_strength": "insufficient",
+      "public_finding": "No role-specific count of matters accepted for review or investigation was located in the official sources searched.",
+      "sources_checked": [
+        { "title": "Alberta Health Advocate resources", "organization": "Government of Alberta", "url": "https://www.alberta.ca/alberta-health-advocate-resources" },
+        { "title": "Primary and Preventative Health Services Business Plan 2026–29", "organization": "Government of Alberta", "url": "https://open.alberta.ca/dataset/1f359112-3adc-4202-8002-35c96521e80f/resource/a9fb0611-e4d9-42eb-9d9a-50779aaf8903/download/pphs-business-plan-2026-29.pdf" }
+      ]
+    },
+    {
+      "field": "completed_reviews",
+      "reporting_state": "not_located",
+      "relationship_strength": "insufficient",
+      "public_finding": "No role-specific count of completed Health Charter reviews or other investigations was located.",
+      "sources_checked": [
+        { "title": "Alberta Health Advocate resources", "organization": "Government of Alberta", "url": "https://www.alberta.ca/alberta-health-advocate-resources" },
+        { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" }
+      ]
+    },
+    {
+      "field": "recommendations",
+      "reporting_state": "mentioned_without_count",
+      "relationship_strength": "direct_attribution",
+      "public_finding": "The public mandate permits recommendations and system advice, but no role-specific count, subject summary or follow-up ledger for issued recommendations was located.",
+      "sources_checked": [
+        { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" },
+        { "title": "Indigenous Patient Safety Investigator job description", "organization": "Government of Alberta", "url": "https://mydocs.wfd.alberta.ca/media/tigjql3o/jd-indigenous-pt-safety-inv.pdf" }
+      ]
+    },
+    {
+      "field": "referrals",
+      "reporting_state": "mentioned_without_count",
+      "relationship_strength": "direct_attribution",
+      "public_finding": "Official process material describes referral to another complaint body when appropriate, but no aggregate referral count was located.",
+      "sources_checked": [
+        { "title": "Make a complaint to the Health Advocate offices", "organization": "Government of Alberta", "url": "https://www.alberta.ca/make-a-complaint-to-the-health-advocate-offices" },
+        { "title": "Indigenous Patient Safety Investigator and Advocate learning session", "organization": "First Nations Telehealth Network", "url": "https://docs.fntn.ca/VC22944/Handouts/POSTER_and_ZOOMLINK_0616.pdf" }
+      ]
+    },
+    {
+      "field": "remedies_resolutions",
+      "reporting_state": "not_located",
+      "relationship_strength": "insufficient",
+      "public_finding": "No role-specific aggregate account of early resolutions, remedies or other case outcomes was located.",
+      "sources_checked": [
+        { "title": "Alberta Health Advocate resources", "organization": "Government of Alberta", "url": "https://www.alberta.ca/alberta-health-advocate-resources" },
+        { "title": "Make a complaint to the Health Advocate offices", "organization": "Government of Alberta", "url": "https://www.alberta.ca/make-a-complaint-to-the-health-advocate-offices" }
+      ]
+    },
+    {
+      "field": "systemic_themes",
+      "reporting_state": "mentioned_without_count",
+      "relationship_strength": "direct_attribution",
+      "public_finding": "The mandate includes identifying patterns and systemic concerns, but no role-specific public thematic summary was located.",
+      "sources_checked": [
+        { "title": "Indigenous Patient Safety Investigator job description", "organization": "Government of Alberta", "url": "https://mydocs.wfd.alberta.ca/media/tigjql3o/jd-indigenous-pt-safety-inv.pdf" },
+        { "title": "Indigenous Patient Safety Investigator and Advocate", "organization": "Government of Alberta", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" }
+      ]
+    },
+    {
+      "field": "policy_system_changes",
+      "reporting_state": "reported_only_at_parent_office_level",
+      "relationship_strength": "related_but_not_attributed",
+      "public_finding": "Parent-office reporting describes standardized follow-up protocols and information-sharing improvements across Alberta's advocate offices. The annual report does not attribute those changes to the Indigenous Patient Safety Investigator and Advocate.",
+      "sources_checked": [
+        { "title": "Alberta Health Annual Report 2024–2025", "organization": "Government of Alberta", "url": "https://open.alberta.ca/dataset/4bb6bc99-ab59-47fd-a633-dfc27d7a049e/resource/6920038c-39c3-4dbd-ad36-14c649bff0a6/download/hlth-annual-report-2024-2025.pdf" }
+      ]
+    },
+    {
+      "field": "annual_public_reporting",
+      "reporting_state": "partially_reported",
+      "relationship_strength": "direct_attribution",
+      "public_finding": "A role-specific correspondence metric appears in the 2026–29 ministry business plan, and the parent ministry annual report confirms the appointment. No comprehensive role-specific annual report or outcome ledger was located.",
+      "sources_checked": [
+        { "title": "Primary and Preventative Health Services Business Plan 2026–29", "organization": "Government of Alberta", "url": "https://open.alberta.ca/dataset/1f359112-3adc-4202-8002-35c96521e80f/resource/a9fb0611-e4d9-42eb-9d9a-50779aaf8903/download/pphs-business-plan-2026-29.pdf" },
+        { "title": "Alberta Health Annual Report 2024–2025", "organization": "Government of Alberta", "url": "https://open.alberta.ca/dataset/4bb6bc99-ab59-47fd-a633-dfc27d7a049e/resource/6920038c-39c3-4dbd-ad36-14c649bff0a6/download/hlth-annual-report-2024-2025.pdf" }
+      ]
+    },
+    {
+      "field": "follow_up_implementation",
+      "reporting_state": "partially_reported",
+      "relationship_strength": "direct_attribution",
+      "public_finding": "The public record supports appointment, operation and community-facing education. It does not provide role-specific aggregate follow-up on recommendations, resolutions or resulting system changes.",
+      "sources_checked": [
+        { "title": "Alberta Health Annual Report 2024–2025", "organization": "Government of Alberta", "url": "https://open.alberta.ca/dataset/4bb6bc99-ab59-47fd-a633-dfc27d7a049e/resource/6920038c-39c3-4dbd-ad36-14c649bff0a6/download/hlth-annual-report-2024-2025.pdf" },
+        { "title": "Indigenous Patient Safety Investigator and Advocate learning session", "organization": "First Nations Telehealth Network", "url": "https://docs.fntn.ca/VC22944/Handouts/POSTER_and_ZOOMLINK_0616.pdf" }
+      ]
+    }
+  ],
+  "indigenous_led_assessment": {
+    "finding": "Siksika Health Services documented the 2023 announcement, and the First Nations Telehealth Network hosted a 2026 public learning session about access and process. No independent Indigenous-led public evaluation of trust, accessibility, independence, effectiveness or outcomes was located in this bounded review.",
+    "caution": "Absence of a located evaluation does not establish support, opposition or lack of community awareness."
+  },
+  "stopping_reason": "The role page, complaint-process pages, advocate-office resource library, ministry business plans and annual reports, Hansard, and identified First Nations-serving public materials were checked. Additional searches were returning the same mandate and launch material; the remaining role-specific outcome detail appears non-public or requires direct records access.",
+  "next_bounded_action": "Prepare, but do not send, a narrow information-request concept for privacy-protecting aggregate statistics and recommendation follow-up records.",
+  "information_request_concept": {
+    "likely_record_holder": "Ministry of Primary and Preventative Health Services / Office of Alberta Health Advocates",
+    "date_range": "2024-10-01 through 2026-08-31",
+    "missing_information": "Aggregate counts of contacts and unique matters where maintained; accepted, declined or referred matters; completed reviews; recommendations issued; aggregate issue categories; resolutions; and non-identifying follow-up status.",
+    "suggested_record_categories": [
+      "aggregate administrative statistics",
+      "role-specific performance dashboards or annual summaries",
+      "non-identifying recommendation and follow-up logs"
+    ],
+    "privacy_boundary": "Request aggregate statistics only, with small-cell suppression where needed. Do not request complaint narratives, patient identities or medical information."
+  }
+}

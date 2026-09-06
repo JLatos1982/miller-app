@@ -1,0 +1,37 @@
+{
+  "schema_version": "miller-north-provincial-case-validation-v1",
+  "generated_at": "2026-09-06T00:00:00-07:00",
+  "publication_scope": "private_owner_review",
+  "validation": {
+    "cases": 3,
+    "provinces": {
+      "british_columbia": 1,
+      "saskatchewan": 1,
+      "alberta": 1
+    },
+    "sources": 31,
+    "evidence_edges": 27,
+    "timeline_events": 24,
+    "findings": 14,
+    "owner_review_cases": 3
+  },
+  "operations": {
+    "web_search_calls": 15,
+    "source_inspection_calls": 13,
+    "authoritative_source_families_used": 15,
+    "tavily_calls": 0,
+    "local_model_calls": 0,
+    "cloud_model_api_calls": 0,
+    "measurable_external_cost_usd": 0
+  },
+  "safeguards": {
+    "no_publication": true,
+    "no_production_mutation": true,
+    "no_migrations": true,
+    "no_information_requests_sent": true,
+    "anonymity_preserved": true,
+    "no_treaty_legal_inference_from_geography": true,
+    "no_retroactive_law_application": true,
+    "no_nonimplementation_inference_from_missing_reporting": true
+  }
+}

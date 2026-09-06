@@ -1,0 +1,708 @@
+{
+  "schema_version": "miller-north-provincial-research-case-v1",
+  "case_id": "mnrpc_ab_indigenous_primary_care_panel",
+  "province": "alberta",
+  "research_date": "2026-09-06",
+  "publication_scope": "private_owner_review",
+  "production_mutations": 0,
+  "publication_mutations": 0,
+  "identity": {
+    "canonical_name": "Alberta Indigenous Primary Health Care Advisory Panel and implementation",
+    "subject_type": "systemic_advisory_panel_and_implementation_chain",
+    "location": "Alberta (provincewide)",
+    "jurisdiction": "Alberta health system",
+    "status": "private policy and implementation case",
+    "identifiers": [
+      "ab_indigenous_primary_health_care_advisory_panel",
+      "maps_indigenous_way_forward"
+    ]
+  },
+  "alberta_selection": {
+    "preferred_focus": "Red Deer and Central Alberta",
+    "ordered_geographic_search_completed": true,
+    "candidates_considered": [
+      {
+        "candidate_id": "ab_candidate_red_deer_engagement",
+        "case": "Red Deer health-care action-plan cultural-safety concerns",
+        "location": "Red Deer",
+        "evidence_strength": "moderate",
+        "authoritative_sources": [
+          "mnpcs_ab_red_deer_heard"
+        ],
+        "accountability_depth": "consultation concern but no case-specific investigation or findings",
+        "legal_policy_depth": "limited",
+        "implementation_evidence": "not linked to a specific response",
+        "suitability": "rejected",
+        "reason": "Too shallow for a substantial accountability dossier."
+      },
+      {
+        "candidate_id": "ab_candidate_rdrhc_support",
+        "case": "Red Deer Regional Hospital Indigenous Hospital Support Services",
+        "location": "Red Deer",
+        "evidence_strength": "high for operation",
+        "authoritative_sources": [
+          "mnpcs_ab_rdrhc_support"
+        ],
+        "accountability_depth": "no documented triggering review located",
+        "legal_policy_depth": "limited",
+        "implementation_evidence": "current service page",
+        "suitability": "rejected",
+        "reason": "Strong service evidence but an unsupported accountability backstory."
+      },
+      {
+        "candidate_id": "ab_candidate_central_zone_engagement",
+        "case": "AHS Central Zone Indigenous engagement and cultural-safety activity",
+        "location": "Central Zone",
+        "evidence_strength": "moderate",
+        "authoritative_sources": [
+          "mnpcs_ab_red_deer_heard",
+          "mnpcs_ab_rdrhc_support"
+        ],
+        "accountability_depth": "system activity without one coherent findings-to-response chain",
+        "legal_policy_depth": "limited",
+        "implementation_evidence": "selected service examples",
+        "suitability": "rejected",
+        "reason": "Useful context, not a sufficiently bounded case."
+      },
+      {
+        "candidate_id": "ab_candidate_maskwacis_perinatal",
+        "case": "Mâmawihitowin perinatal cultural-safety intervention",
+        "location": "Maskwacîs / Central Alberta",
+        "evidence_strength": "moderate to high",
+        "authoritative_sources": [],
+        "accountability_depth": "Indigenous-led intervention and evaluation",
+        "legal_policy_depth": "low",
+        "implementation_evidence": "research evaluation",
+        "suitability": "reserve",
+        "reason": "Strong local learning case but weaker government/legal/accountability depth than the selected panel chain."
+      },
+      {
+        "candidate_id": "ab_candidate_primary_care_panel",
+        "case": "Indigenous Primary Health Care Advisory Panel and implementation",
+        "location": "Alberta provincewide, including Treaty 6, 7 and 8 contexts",
+        "evidence_strength": "high",
+        "authoritative_sources": [
+          "mnpcs_ab_panel_report",
+          "mnpcs_ab_early_investment",
+          "mnpcs_ab_way_forward",
+          "mnpcs_ab_improving",
+          "mnpcs_ab_advocate"
+        ],
+        "accountability_depth": "recommendations, formal response, commitments, oversight, funding and implementation",
+        "legal_policy_depth": "strong governance and Health Charter context",
+        "implementation_evidence": "multiple current mechanisms",
+        "suitability": "selected",
+        "reason": "Only candidate with a defensible multi-stage accountability and implementation chain."
+      }
+    ],
+    "selected_candidate_id": "ab_candidate_primary_care_panel",
+    "reason_selected": "Red Deer and Central Alberta searches produced important cultural-safety concerns and current support services, but no equally strong incident-to-investigation-to-response chain. The provincewide panel was selected because it provides 22 recommendations, a formal implementation plan, funding mechanisms, an oversight/complaint function and later follow-up."
+  },
+  "owner_view": {
+    "what_happened": "Alberta convened an Indigenous Primary Health Care Advisory Panel that produced 22 recommendations for culturally safe, Indigenous-led and accountable primary health care. Government then published an implementation plan and created or funded several mechanisms, including an Indigenous Health Division, navigator grants, an innovation fund and an Indigenous Patient Safety Investigator and Advocate.",
+    "why_this_matters": [
+      "It is Alberta's strongest defensible public chain from Indigenous-led advice to government commitments and operational mechanisms.",
+      "It shows why a program, funding stream and complaints office should remain separate evidence stages.",
+      "The Red Deer search still yielded useful local context, while avoiding a forced weak local case."
+    ],
+    "review_first": [
+      "Multiple implementation mechanisms are verifiable, but no current comprehensive public status ledger for all 22 recommendations was located.",
+      "The Indigenous Patient Safety Investigator and Advocate is operational with defined powers and limits; it is not a court, professional regulator or substitute for every complaint route.",
+      "Navigator and innovation funding are implementation evidence, not evidence of provincewide access or outcomes."
+    ],
+    "review_next": [
+      "Map the 22 recommendations to The Way Forward milestones.",
+      "Assess which funded recipients serve Central Alberta.",
+      "Track the promised anti-racism strategy following 2024 engagement.",
+      "Keep Treaty 6, 7 and 8 references as governance/territorial context unless a source establishes a specific legal consequence."
+    ],
+    "reference": [
+      "Red Deer hospital support services are operational context but were not linked to a specific triggering accountability action in public sources."
+    ],
+    "what_we_know": [
+      "The panel report contains 22 recommendations.",
+      "Government published a separate Indigenous implementation plan.",
+      "Current pages document funding and oversight mechanisms.",
+      "The patient-safety advocate has a Health Charter review and advisory role with explicit limits."
+    ],
+    "what_remains_uncertain": [
+      "Current status of each of the 22 recommendations.",
+      "Geographic distribution and sustained operation of all funded initiatives.",
+      "Outcome evidence for navigator, innovation and complaint mechanisms.",
+      "Whether the anti-racism engagement produced a final strategy after the last public update."
+    ],
+    "next_questions": [
+      "Is there a current internal or public 22-recommendation implementation ledger?",
+      "Which panel-funded initiatives provide verified service in Red Deer or Central Zone?"
+    ],
+    "recommended_next_move": "Build a 22-recommendation public-evidence ledger using The Way Forward, then verify Central Alberta recipients and services as a separate bounded pass.",
+    "one_thing_to_remember": "Alberta publicly demonstrates implementation machinery, but not yet one complete public account of the status and outcomes of all 22 recommendations."
+  },
+  "geographic_governance_context": {
+    "physical_geography": "Provincewide; Red Deer and Central Alberta were searched first",
+    "indigenous_context": "The panel includes Treaty 6, 7 and 8 and Métis perspectives as described in the report.",
+    "governance_authority": "Alberta Health, health-system bodies, Indigenous leaders/organizations and the Health Advocates office have distinct roles.",
+    "legal_boundary": "Treaty geography and Indigenous participation are not treated as automatic legal-right or jurisdiction findings."
+  },
+  "timeline": [
+    {
+      "timeline_id": "mnpct_ab_2022_red_deer",
+      "date_or_range": "2022-09-29",
+      "event_type": "local_engagement",
+      "title": "Red Deer engagement identifies cultural-safety concerns",
+      "short_description": "Participants raised cultural safety, racism and bias as health-system concerns; this was consultation evidence, not a formal case finding.",
+      "organization": "Government of Alberta and Alberta Health Services",
+      "source_references": [
+        "mnpcs_ab_red_deer_heard"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "timeline_id": "mnpct_ab_2022_panel",
+      "date_or_range": "2022-2023",
+      "event_type": "advisory_panel",
+      "title": "Indigenous advisory panel convened",
+      "short_description": "Indigenous leaders and health-system participants developed recommendations for primary health-care reform.",
+      "organization": "Government of Alberta",
+      "source_references": [
+        "mnpcs_ab_panel_report"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_ab_2023_report",
+      "date_or_range": "2023",
+      "event_type": "recommendations",
+      "title": "Panel issues 22 recommendations",
+      "short_description": "The final report organizes recommendations around culturally safe, Indigenous-led and accountable care.",
+      "organization": "Indigenous Primary Health Care Advisory Panel",
+      "source_references": [
+        "mnpcs_ab_panel_report"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_ab_2023_investment",
+      "date_or_range": "2023",
+      "event_type": "government_response",
+      "title": "Early investment opportunities published",
+      "short_description": "Government identifies early commitments and implementation mechanisms.",
+      "organization": "Alberta Health",
+      "source_references": [
+        "mnpcs_ab_early_investment"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_ab_2024_way",
+      "date_or_range": "2024",
+      "event_type": "implementation_plan",
+      "title": "The Way Forward published",
+      "short_description": "A separate Indigenous primary-health-care plan sets out implementation work.",
+      "organization": "Alberta Health",
+      "source_references": [
+        "mnpcs_ab_way_forward"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_ab_current_programs",
+      "date_or_range": "2024-2026",
+      "event_type": "implementation",
+      "title": "Funding and oversight mechanisms operate",
+      "short_description": "Navigator grants, an innovation fund, an Indigenous Health Division and patient-safety advocate are publicly documented.",
+      "organization": "Government of Alberta / Office of Alberta Health Advocates",
+      "source_references": [
+        "mnpcs_ab_navigator",
+        "mnpcs_ab_innovation",
+        "mnpcs_ab_advocate",
+        "mnpcs_ab_improving"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_ab_2024_racism_engagement",
+      "date_or_range": "2024-10 to 2025-07",
+      "event_type": "follow_up_engagement",
+      "title": "Anti-racism engagement held",
+      "short_description": "Government gathered input and reported that results were under review; a final resulting strategy was not located.",
+      "organization": "Government of Alberta",
+      "source_references": [
+        "mnpcs_ab_anti_racism"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "organizations": [
+    {
+      "name": "Alberta Health",
+      "role": "policy lead, response author and funder"
+    },
+    {
+      "name": "Indigenous Primary Health Care Advisory Panel",
+      "role": "recommendation body with Indigenous and health-system participants"
+    },
+    {
+      "name": "Office of Alberta Health Advocates",
+      "role": "home of the Indigenous Patient Safety Investigator and Advocate"
+    },
+    {
+      "name": "Alberta Health Services",
+      "role": "health-service operator and Red Deer/Central context source"
+    },
+    {
+      "name": "Indigenous organizations and funded recipients",
+      "role": "distinct governance and service-delivery partners"
+    }
+  ],
+  "public_role_people": [
+    {
+      "public_name": "Tyler White",
+      "role": "advisory panel co-chair/member and public Indigenous health leader",
+      "organization": "Siksika Health Services / advisory panel",
+      "source_references": [
+        "mnpcs_ab_panel_report"
+      ]
+    },
+    {
+      "public_name": "Kathy Lepine",
+      "role": "advisory panel member and public Indigenous health leader",
+      "organization": "Indigenous Primary Health Care Advisory Panel",
+      "source_references": [
+        "mnpcs_ab_panel_report"
+      ]
+    },
+    {
+      "public_name": "Trish Merrithew-Mercredi",
+      "role": "government co-chair/public health-system official",
+      "organization": "Alberta Health / advisory panel",
+      "source_references": [
+        "mnpcs_ab_panel_report"
+      ]
+    },
+    {
+      "public_name": "Tony Cardinal",
+      "role": "Indigenous Patient Safety Investigator and Advocate",
+      "organization": "Office of Alberta Health Advocates",
+      "source_references": [
+        "mnpcs_ab_advocate"
+      ]
+    }
+  ],
+  "recommendations": [
+    {
+      "title": "Twenty-two panel recommendations",
+      "summary": "The report groups reform around relationship, access, culturally safe care, accountability and Indigenous-led design."
+    }
+  ],
+  "government_response_and_commitments": [
+    {
+      "title": "The Way Forward",
+      "summary": "A formal implementation plan follows the panel report."
+    },
+    {
+      "title": "Early investment and program mechanisms",
+      "summary": "Navigator, innovation, Indigenous Health Division and advocate functions translate parts of the response into funded or operational structures."
+    }
+  ],
+  "policy_law_governance": [
+    {
+      "title": "The Way Forward implementation plan",
+      "context_scope": "directly_applicable",
+      "summary": "The plan is the direct government implementation framework for panel recommendations."
+    },
+    {
+      "title": "Alberta Health Charter",
+      "context_scope": "directly_applicable",
+      "summary": "The advocate can conduct delegated Health Charter reviews; the Charter guides expectations but is not treated here as adjudicating individual legal liability."
+    },
+    {
+      "title": "Treaty 6, 7 and 8 and Métis context",
+      "context_scope": "governance_context",
+      "summary": "The panel report itself frames Indigenous participation and distinctions; no additional treaty legal consequence is inferred."
+    }
+  ],
+  "funding": [
+    {
+      "title": "Indigenous Primary Health Care Innovation Fund",
+      "attribution_scope": "program_level",
+      "summary": "Government reports a $20 million program envelope; it is not allocated to one service unless recipient-level evidence says so."
+    },
+    {
+      "title": "Indigenous Patient Navigator Grant Program",
+      "attribution_scope": "recipient_level",
+      "summary": "The program names funded organizations and periods, providing recipient-level but not universal outcome evidence."
+    }
+  ],
+  "implementation_evidence": [
+    {
+      "depth": "policy_adoption",
+      "summary": "The Way Forward is a formal response plan tied to the panel recommendations.",
+      "source_references": [
+        "mnpcs_ab_way_forward",
+        "mnpcs_ab_panel_report"
+      ]
+    },
+    {
+      "depth": "funding",
+      "summary": "Navigator and innovation funding mechanisms are publicly documented.",
+      "source_references": [
+        "mnpcs_ab_navigator",
+        "mnpcs_ab_innovation",
+        "mnpcs_ab_maps"
+      ]
+    },
+    {
+      "depth": "office_or_program_creation",
+      "summary": "The Indigenous Health Division and Indigenous Patient Safety Investigator and Advocate are documented structures.",
+      "source_references": [
+        "mnpcs_ab_improving",
+        "mnpcs_ab_advocate"
+      ]
+    },
+    {
+      "depth": "operational_implementation",
+      "summary": "The advocate provides a current complaint-support and system-advice mechanism with specified powers and limits.",
+      "source_references": [
+        "mnpcs_ab_advocate",
+        "mnpcs_ab_charter"
+      ]
+    },
+    {
+      "depth": "reporting",
+      "summary": "Current government pages list completed and underway actions, but not a complete current 22-row status ledger.",
+      "source_references": [
+        "mnpcs_ab_improving",
+        "mnpcs_ab_maps"
+      ]
+    }
+  ],
+  "follow_up_and_recurrence": [
+    {
+      "title": "Anti-racism engagement",
+      "signal": "later_related_signal_found",
+      "summary": "Later engagement revisits racism in Indigenous health care; this is a follow-up signal, not proof that earlier mechanisms were ineffective."
+    },
+    {
+      "title": "Red Deer local services",
+      "signal": "implementation_context",
+      "summary": "Indigenous hospital support is operational at RDRHC, but no source-backed edge to a panel commitment was located in this pass."
+    }
+  ],
+  "evidence_graph": {
+    "edges": [
+      {
+        "edge_id": "mnpce_ab_panel_recs",
+        "from_object_id": "indigenous_primary_care_panel",
+        "relationship_type": "recommends",
+        "to_object_id": "panel_22_recommendations",
+        "neutral_summary": "The panel report issues 22 recommendations.",
+        "source_references": [
+          "mnpcs_ab_panel_report"
+        ],
+        "confidence": "high"
+      },
+      {
+        "edge_id": "mnpce_ab_plan_response",
+        "from_object_id": "the_way_forward",
+        "relationship_type": "responds_to",
+        "to_object_id": "panel_22_recommendations",
+        "neutral_summary": "The implementation plan is a formal government response.",
+        "source_references": [
+          "mnpcs_ab_way_forward",
+          "mnpcs_ab_panel_report"
+        ],
+        "confidence": "high",
+        "context_scope": "directly_applicable"
+      },
+      {
+        "edge_id": "mnpce_ab_division",
+        "from_object_id": "indigenous_health_division",
+        "relationship_type": "responds_to",
+        "to_object_id": "panel_22_recommendations",
+        "neutral_summary": "Government reports the division as an implementation structure.",
+        "source_references": [
+          "mnpcs_ab_improving",
+          "mnpcs_ab_early_investment"
+        ],
+        "confidence": "high",
+        "context_scope": "response_context"
+      },
+      {
+        "edge_id": "mnpce_ab_navigator",
+        "from_object_id": "panel_22_recommendations",
+        "relationship_type": "partially_implements",
+        "to_object_id": "indigenous_patient_navigator_grants",
+        "neutral_summary": "Navigator grants operationalize part of access and navigation recommendations.",
+        "source_references": [
+          "mnpcs_ab_navigator",
+          "mnpcs_ab_way_forward"
+        ],
+        "confidence": "high",
+        "context_scope": "response_context"
+      },
+      {
+        "edge_id": "mnpce_ab_innovation",
+        "from_object_id": "panel_22_recommendations",
+        "relationship_type": "funded_by",
+        "to_object_id": "indigenous_primary_care_innovation_fund",
+        "neutral_summary": "The fund supports implementation projects; program-level funding is not service-level attribution.",
+        "source_references": [
+          "mnpcs_ab_innovation",
+          "mnpcs_ab_maps"
+        ],
+        "confidence": "high",
+        "context_scope": "response_context"
+      },
+      {
+        "edge_id": "mnpce_ab_advocate",
+        "from_object_id": "indigenous_patient_safety_advocate",
+        "relationship_type": "responds_to",
+        "to_object_id": "panel_22_recommendations",
+        "neutral_summary": "The advocate is a current oversight and complaint-support mechanism.",
+        "source_references": [
+          "mnpcs_ab_advocate",
+          "mnpcs_ab_improving"
+        ],
+        "confidence": "high",
+        "context_scope": "response_context"
+      },
+      {
+        "edge_id": "mnpce_ab_charter",
+        "from_object_id": "indigenous_patient_safety_advocate",
+        "relationship_type": "governed_by",
+        "to_object_id": "alberta_health_charter",
+        "neutral_summary": "The advocate may undertake delegated Health Charter reviews within defined limits.",
+        "source_references": [
+          "mnpcs_ab_advocate",
+          "mnpcs_ab_charter"
+        ],
+        "confidence": "high",
+        "context_scope": "directly_applicable"
+      },
+      {
+        "edge_id": "mnpce_ab_racism_followup",
+        "from_object_id": "anti_racism_engagement_2024",
+        "relationship_type": "reports_on",
+        "to_object_id": "indigenous_healthcare_racism_concerns",
+        "neutral_summary": "Later engagement documents continuing policy attention without proving earlier reform failure.",
+        "source_references": [
+          "mnpcs_ab_anti_racism"
+        ],
+        "confidence": "medium",
+        "context_scope": "response_context"
+      },
+      {
+        "edge_id": "mnpce_ab_red_deer_context",
+        "from_object_id": "rdrhc_indigenous_support",
+        "relationship_type": "has_context",
+        "to_object_id": "central_alberta_service_environment",
+        "neutral_summary": "The service establishes local operational context but is not attributed to the panel without evidence.",
+        "source_references": [
+          "mnpcs_ab_rdrhc_support"
+        ],
+        "confidence": "high",
+        "context_scope": "governance_context"
+      }
+    ]
+  },
+  "findings": [
+    {
+      "finding_id": "frf_ab_implementation_machinery",
+      "finding_type": "major_new_connection",
+      "priority_band": "review_first",
+      "title": "Panel recommendations connect to real mechanisms",
+      "summary": "A formal plan, funding programs, a ministry division and an advocate are source-backed.",
+      "why_it_matters": "The chain reaches beyond announcement into administration and operation.",
+      "uncertainty": "It does not establish all recommendations complete or effective.",
+      "recommended_action": "Build the 22-row status ledger next."
+    },
+    {
+      "finding_id": "frf_ab_reporting_gap",
+      "finding_type": "implementation_gap",
+      "priority_band": "review_first",
+      "title": "Comprehensive recommendation reporting remains unclear",
+      "summary": "No current public 22-row status ledger was located.",
+      "why_it_matters": "It prevents overgeneralizing from selected programs.",
+      "uncertainty": "An internal ledger may exist.",
+      "recommended_action": "Ask Alberta Health for a current crosswalk."
+    },
+    {
+      "finding_id": "frf_ab_red_deer_boundary",
+      "finding_type": "architecture_learning",
+      "priority_band": "review_first",
+      "title": "The discovery process correctly rejected a forced Red Deer case",
+      "summary": "Local official sources showed concern and services but not a deep accountability chain.",
+      "why_it_matters": "Evidence quality took priority over geographic preference.",
+      "uncertainty": "Local links may emerge in a future recipient/service pass.",
+      "recommended_action": "Retain Red Deer candidates as context, not as the dossier anchor."
+    },
+    {
+      "finding_id": "frf_ab_advocate_limits",
+      "finding_type": "legal_or_policy_change",
+      "priority_band": "review_next",
+      "title": "Advocate powers and limits are explicit",
+      "summary": "The current office supports complaints and delegated Charter reviews but cannot exercise court or regulator powers.",
+      "why_it_matters": "Clear boundaries prevent overstating accountability authority.",
+      "uncertainty": "Outcome reporting remains limited.",
+      "recommended_action": "Display mandate limits beside the mechanism."
+    },
+    {
+      "finding_id": "frf_ab_anti_racism_followup",
+      "finding_type": "repeated_recommendation",
+      "priority_band": "review_next",
+      "title": "Later engagement revisits racism concerns",
+      "summary": "The 2024 engagement is a later related signal.",
+      "why_it_matters": "It may guide the next policy follow-up.",
+      "uncertainty": "It is not proof the panel response failed.",
+      "recommended_action": "Track publication of the resulting strategy."
+    }
+  ],
+  "knowledge_gap_follow_ups": [
+    {
+      "question": "Is there a current comprehensive public status ledger for all 22 Indigenous Primary Health Care Advisory Panel recommendations?",
+      "outcome": "partially_answered",
+      "answer": "Government sources document a dedicated implementation plan and multiple current mechanisms, but no comprehensive current recommendation-by-recommendation status ledger was located.",
+      "source_references": [
+        "mnpcs_ab_way_forward",
+        "mnpcs_ab_improving",
+        "mnpcs_ab_maps",
+        "mnpcs_ab_navigator",
+        "mnpcs_ab_innovation",
+        "mnpcs_ab_advocate"
+      ],
+      "stopping_reason": "The central official report, implementation plan and current program pages were inspected. Additional searches repeated the same sources and showed diminishing returns; organization-specific follow-up is the appropriate next step.",
+      "information_requests_sent": 0
+    }
+  ],
+  "owner_assessment": {
+    "significance": "review_first",
+    "confidence": "high",
+    "owner_review": true,
+    "owner_review_reason": "The 22 recommendation crosswalk, Central Alberta recipient mapping and anti-racism strategy status remain unresolved.",
+    "recommended_next_action": "Create the 22-recommendation ledger and a separate Central Alberta recipient/service map."
+  },
+  "limitations": "This is a policy and implementation dossier, not an adjudicated incident case. It does not infer legal consequences from Treaty geography, effectiveness from program creation, or a direct causal link between Red Deer services and panel recommendations without evidence.",
+  "sources": [
+    {
+      "source_id": "mnpcs_ab_red_deer_heard",
+      "source_family_id": "fogs_alberta_health_services",
+      "url": "https://www.albertahealthservices.ca/assets/about/comm/ahs-comm-what-we-heard-red-deer.pdf",
+      "title": "Red Deer health-care action plan — What We Heard",
+      "source_organization": "Government of Alberta and Alberta Health Services",
+      "source_type": "official_engagement_summary",
+      "publication_date": "2022-09-29",
+      "evidence_role": "Red Deer cultural-safety concern and candidate-screen evidence"
+    },
+    {
+      "source_id": "mnpcs_ab_rdrhc_support",
+      "source_family_id": "fogs_alberta_health_services",
+      "url": "https://www.albertahealthservices.ca/findhealth/Service.aspx?id=1070602&serviceAtFacilityID=1109853",
+      "title": "Indigenous Hospital Support Services at Red Deer Regional Hospital Centre",
+      "source_organization": "Alberta Health Services",
+      "source_type": "official_current_service_page",
+      "publication_date": null,
+      "evidence_role": "Red Deer operational Indigenous-support context"
+    },
+    {
+      "source_id": "mnpcs_ab_panel_report",
+      "source_family_id": "fogs_alberta_health",
+      "url": "https://open.alberta.ca/dataset/68717edd-5861-406e-b4ea-dd0e9051dadc/resource/da7c9aae-9cc1-48f4-bce5-6e71bd02a9c8/download/hlth-maps-indigenous-primary-health-care-advisory-panel-final-report.pdf",
+      "title": "Modernizing Alberta's Primary Health Care System: Indigenous Primary Health Care Advisory Panel final report",
+      "source_organization": "Government of Alberta",
+      "source_type": "official_advisory_panel_report",
+      "publication_date": "2023",
+      "evidence_role": "22 recommendations and Indigenous-governance framing"
+    },
+    {
+      "source_id": "mnpcs_ab_early_investment",
+      "source_family_id": "fogs_alberta_health",
+      "url": "https://open.alberta.ca/dataset/e9016d69-8688-4e77-a565-82d461370bdc/resource/337df180-3cda-4cb7-9025-a7fa178aa0d6/download/hlth-maps-indigenous-panel-recommendations-opportunities-for-early-investment.pdf",
+      "title": "Indigenous panel recommendations: opportunities for early investment",
+      "source_organization": "Government of Alberta",
+      "source_type": "official_response_and_investment_plan",
+      "publication_date": "2023",
+      "evidence_role": "government response and early commitments"
+    },
+    {
+      "source_id": "mnpcs_ab_way_forward",
+      "source_family_id": "fogs_alberta_health",
+      "url": "https://open.alberta.ca/publications/way-forward-indigenous-primary-health-care-implementation-panel-plan-advance-recommendations",
+      "title": "The Way Forward: Indigenous primary health care implementation plan",
+      "source_organization": "Government of Alberta",
+      "source_type": "official_implementation_plan",
+      "publication_date": "2024",
+      "evidence_role": "time-bounded implementation architecture"
+    },
+    {
+      "source_id": "mnpcs_ab_improving",
+      "source_family_id": "fogs_alberta_health",
+      "url": "https://www.alberta.ca/improving-indigenous-health-care",
+      "title": "Improving Indigenous health care",
+      "source_organization": "Government of Alberta",
+      "source_type": "official_current_implementation_page",
+      "publication_date": null,
+      "evidence_role": "current implementation mechanisms and status"
+    },
+    {
+      "source_id": "mnpcs_ab_maps",
+      "source_family_id": "fogs_alberta_health",
+      "url": "https://www.alberta.ca/modernizing-albertas-primary-health-care-system-maps",
+      "title": "Modernizing Alberta's primary health care system",
+      "source_organization": "Government of Alberta",
+      "source_type": "official_program_page",
+      "publication_date": null,
+      "evidence_role": "investment and implementation mechanisms"
+    },
+    {
+      "source_id": "mnpcs_ab_navigator",
+      "source_family_id": "fogs_alberta_health",
+      "url": "https://www.alberta.ca/indigenous-patient-navigator-grant-program",
+      "title": "Indigenous Patient Navigator Grant Program",
+      "source_organization": "Government of Alberta",
+      "source_type": "official_grant_program_page",
+      "publication_date": null,
+      "evidence_role": "operational funding mechanism and recipients"
+    },
+    {
+      "source_id": "mnpcs_ab_innovation",
+      "source_family_id": "fogs_alberta_health",
+      "url": "https://www.alberta.ca/indigenous-primary-health-care-funding-innovation-fund",
+      "title": "Indigenous Primary Health Care Innovation Fund",
+      "source_organization": "Government of Alberta",
+      "source_type": "official_funding_program_page",
+      "publication_date": null,
+      "evidence_role": "implementation funding mechanism"
+    },
+    {
+      "source_id": "mnpcs_ab_advocate",
+      "source_family_id": "fogs_alberta_health_advocates",
+      "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate",
+      "title": "Indigenous Patient Safety Investigator and Advocate",
+      "source_organization": "Office of Alberta Health Advocates",
+      "source_type": "official_oversight_program_page",
+      "publication_date": null,
+      "evidence_role": "current complaint and system-advice mechanism"
+    },
+    {
+      "source_id": "mnpcs_ab_charter",
+      "source_family_id": "fogs_alberta_health_advocates",
+      "url": "https://www.alberta.ca/alberta-health-charter.aspx",
+      "title": "Alberta Health Charter",
+      "source_organization": "Government of Alberta",
+      "source_type": "official_health_charter",
+      "publication_date": "2014",
+      "evidence_role": "legal/policy framework used by the advocate"
+    },
+    {
+      "source_id": "mnpcs_ab_anti_racism",
+      "source_family_id": "fogs_alberta_health",
+      "url": "https://www.alberta.ca/index.php/addressing-racism-in-indigenous-health-care",
+      "title": "Addressing racism in Indigenous health care",
+      "source_organization": "Government of Alberta",
+      "source_type": "official_engagement_page",
+      "publication_date": "2025-07-24",
+      "evidence_role": "later anti-racism engagement and follow-up signal"
+    }
+  ]
+}

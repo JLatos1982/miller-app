@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert/strict"
-import { bcGeocoderConfiguration, bcResultMeetsExactPinStandard, canonicalCivicAddress, classifyBcAddressResults, normalizeBcAddressResult, requestBcAddressGeocode } from "../server/bcAddressGeocoder.js"
+import { bcGeocoderConfiguration, bcResultMeetsExactPinStandard, bcResultMeetsPracticalPublicLocationStandard, canonicalCivicAddress, classifyBcAddressResults, normalizeBcAddressResult, requestBcAddressGeocode } from "../server/bcAddressGeocoder.js"
 
 const exactFeature = { geometry: { coordinates: [-122.9501, 49.2184] }, properties: { fullAddress: "7155 Kingsway, Burnaby, BC", streetName: "Kingsway", localityName: "Burnaby", provinceCode: "BC", score: 100, precisionPoints: 100, matchPrecision: "CIVIC_NUMBER", locationDescriptor: "accessPoint", siteID: "fixture-site", faults: [] } }
 const submitted = { street_address: "Unit 320, 7155 Kingsway", city: "Burnaby", result_count: 1 }
@@ -54,6 +54,35 @@ test("BC result classification distinguishes exact, approximate, ambiguous, and 
   assert.equal(classifyBcAddressResults([], submitted).classification, "no_match")
 })
 
+test("practical geocoding accepts a strong same-civic 99 accesspoint with low-scoring fallbacks", () => {
+  const best = exactCivicFeature({ fullAddress: "520 Richards St, Vancouver, BC", civicNumber: "520", streetName: "Richards", streetType: "St", localityName: "Vancouver", score: 99, precisionPoints: 99, matchPrecision: "BLOCK", locationDescriptor: "accessPoint" })
+  const fallback = exactCivicFeature({ fullAddress: "Richards St, Vancouver, BC", civicNumber: "", streetName: "Richards", streetType: "St", localityName: "Vancouver", score: 77, precisionPoints: 78, matchPrecision: "STREET", locationDescriptor: "streetPoint" })
+  const classified = classifyBcAddressResults([best, fallback], { street_address: "520 Richards Street", city: "Vancouver" })
+  assert.equal(classified.classification, "practical_high_confidence")
+  assert.equal(classified.candidate_identity_clear, true)
+  assert.equal(classified.materially_competing_candidate, false)
+  assert.equal(bcResultMeetsPracticalPublicLocationStandard(classified.best, classified.alternatives), true)
+})
+
+test("practical geocoding rejects a materially competing local civic candidate", () => {
+  const best = exactCivicFeature({ fullAddress: "520 Richards St, Vancouver, BC", civicNumber: "520", streetName: "Richards", streetType: "St", localityName: "Vancouver", score: 99, precisionPoints: 99, matchPrecision: "BLOCK", locationDescriptor: "accessPoint" })
+  const competing = exactCivicFeature({ fullAddress: "522 Richards St, Vancouver, BC", civicNumber: "522", streetName: "Richards", streetType: "St", localityName: "Vancouver", score: 98, precisionPoints: 99, matchPrecision: "BLOCK", locationDescriptor: "accessPoint" })
+  const classified = classifyBcAddressResults([best, competing], { street_address: "520 Richards Street", city: "Vancouver" })
+  assert.equal(classified.classification, "ambiguous")
+  assert.equal(classified.materially_competing_candidate, true)
+  assert.equal(bcResultMeetsPracticalPublicLocationStandard(classified.best, classified.alternatives), false)
+})
+
+test("practical geocoding accepts a 100 parcelpoint with only same-civic low-risk fallbacks", () => {
+  const best = exactCivicFeature({ fullAddress: "2184 W Broadway, Vancouver, BC", civicNumber: "2184", streetName: "Broadway", streetDirection: "W", localityName: "Vancouver", score: 100, precisionPoints: 100, matchPrecision: "UNIT", locationDescriptor: "parcelPoint" })
+  const sameCivicFallback = exactCivicFeature({ fullAddress: "2184 W Broadway, Vancouver, BC", civicNumber: "2184", streetName: "Broadway", streetDirection: "W", localityName: "Vancouver", score: 98, precisionPoints: 100, matchPrecision: "CIVIC_NUMBER", locationDescriptor: "parcelPoint" })
+  const distantFallback = exactCivicFeature({ fullAddress: "2184 E Broadway, Vancouver, BC", civicNumber: "2184", streetName: "Broadway", streetDirection: "E", localityName: "Vancouver", score: 95, precisionPoints: 99, matchPrecision: "BLOCK", locationDescriptor: "accessPoint" })
+  const classified = classifyBcAddressResults([best, sameCivicFallback, distantFallback], { street_address: "Unit 440, 2184 W Broadway", city: "Vancouver" })
+  assert.equal(classified.classification, "practical_high_confidence")
+  assert.equal(classified.candidate_identity_clear, true)
+  assert.equal(classified.materially_competing_candidate, false)
+})
+
 test("exact civic comparison canonicalizes bounded English ordinals and harmless typography", () => {
   const cases = [
     ["323 8th Street", "323 Eighth St"],
@@ -65,12 +94,14 @@ test("exact civic comparison canonicalizes bounded English ordinals and harmless
     ["50 King Road", "50 King Rd"],
     ["8 Oak Boulevard", "8 Oak Blvd"],
     ["9 Pine Highway", "9 Pine Hwy"],
+    ["10732 City Parkway", "10732 City Pky"],
     ["10 Cedar Drive", "10 Cedar Dr"],
     ["11 Fir Lane", "11 Fir Ln"],
     ["12 Elm Court", "12 Elm Ct"],
     ["13 Maple Crescent", "13 Maple Cres"],
     ["14 Ash Place", "14 Ash Pl"],
     ["15 River Terrace", "15 River Ter"],
+    ["2184 W Broadway", "2184 Broadway W"],
   ]
   for (const [left, right] of cases) {
     const leftKey = canonicalCivicAddress(left), rightKey = canonicalCivicAddress(right)

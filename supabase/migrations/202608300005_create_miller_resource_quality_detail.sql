@@ -17,6 +17,18 @@ create table public.miller_resource_quality_detail_v1 (
   last_verified_at timestamptz
 );
 
+-- Keep the population step explicit about its historical prerequisites. This
+-- fails before any projection rows are written if a clean rebuild loses one.
+do $$
+begin
+  if to_regclass('public.resource_registry') is null
+     or to_regclass('public.resource_locations') is null
+     or to_regclass('public.miller_resource_quality_v1') is null then
+    raise exception 'miller_resource_quality_detail_v1 dependencies are missing';
+  end if;
+end;
+$$;
+
 insert into public.miller_resource_quality_detail_v1 (
   resource_id, name, quality_state, completeness_score, lifecycle_state, editorial_status,
   city, province, has_address, has_coordinates, location_state, qc_state,

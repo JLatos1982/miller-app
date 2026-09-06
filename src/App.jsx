@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useMemo, useReducer, useRef, useState } from "react"
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
 import "./App.css"
 import rawResources from "./vancouver_resources_merged_updated.json"
 import { supabase } from "./supabaseClient"
@@ -6,11 +6,13 @@ import millerClassic from "./assets/miller_classic.png"
 import millerJade from "./assets/miller_jade.png"
 import millerViolet from "./assets/miller_violet.png"
 import millerRose from "./assets/miller_rose.png"
+import millerNorth from "./assets/miller_north.png"
 
 import titleClassic from "./assets/title.png"
 import titleJade from "./assets/title_jade.png"
 import titleViolet from "./assets/title_violet.png"
 import titleRose from "./assets/title_rose.png"
+import titleNorth from "./assets/title_north.png"
 
 import arrowLeft from "./assets/arrow_left.png";
 import arrowRight from "./assets/arrow_right.png";
@@ -19,10 +21,8 @@ import backgroundClassic from "./assets/background_classic.png"
 import backgroundViolet from "./assets/background_violet.png"
 import backgroundJade from "./assets/background_jade.png"
 import backgroundRose from "./assets/background_rose.png"
+import backgroundNorth from "./assets/background_north.png"
 import justinPortrait from "./assets/Justin.png"
-import AddToHandoutButton from "./handout/AddToHandoutButton.jsx"
-import HandoutBuilder from "./handout/HandoutBuilder.jsx"
-import { createInitialHandoutState, getResourceKey, handoutReducer, hasHandoutContent } from "./handout/handoutState.js"
 import { MILLER_COPY } from "./interfaceCopy.js"
 import { adminFetch, getAdminAccessState } from "./adminApi.js"
 import { clearAuthCallbackFromUrl, hasAuthCallbackParams, requestAdminMagicLink } from "./adminAuthFlow.js"
@@ -43,6 +43,7 @@ import CuratedListManager from "./admin/CuratedListManager.jsx"
 import PdfDocumentManager from "./admin/PdfDocumentManager.jsx"
 import ResearchPlanner from "./admin/ResearchPlanner.jsx"
 import SystemHealth from "./admin/SystemHealth.jsx"
+import MillerNorthIncidentReview from "./admin/MillerNorthIncidentReview.jsx"
 import PreMadeLists from "./lists/PreMadeLists.jsx"
 import GetTherePanel from "./navigation/GetTherePanel.jsx"
 import { eligiblePublicLocation } from "./navigation/navigation.js"
@@ -56,6 +57,7 @@ import MillerNorthLiveListening from "./site/MillerNorthLiveListening.jsx"
 import MillerNorthEmergingCases from "./site/MillerNorthEmergingCases.jsx"
 import MillerNorthMethodology from "./site/MillerNorthMethodology.jsx"
 import MillerNorthResearchPolicy from "./site/MillerNorthResearchPolicy.jsx"
+import MillerNorthAccountabilitySnapshot from "./site/MillerNorthAccountabilitySnapshot.jsx"
 import MillerNorthFirstNationsSupports from "./site/MillerNorthFirstNationsSupports.jsx"
 import EmailResultsDialog from "./site/EmailResultsDialog.jsx"
 import MillerPracticalSupports from "./site/MillerPracticalSupports.jsx"
@@ -65,11 +67,12 @@ import { destinationBesideRenderedResult } from "./companion/millerCompanionAdap
 import { isMeaningfulCompanionInput, MILLER_PRESENTATION_INTENTS, presentationIntent } from "./companion/millerCompanionLifecycle.js"
 import { bubbleNeedsMillerReadingPosition, readingStageHeight, resolveMillerReadingOffset } from "./companion/millerSceneLayout.js"
 import { MILLER_CLASSIC_READING_WALK_DURATION, millerClassicWalkStep, nextMillerClassicWalkIndex } from "./companion/millerClassicWalk.js"
-import classicMillerNoticeDog from "./assets/miller/interaction/classic-miller-notice-dog.png"
-import classicMillerLeanReach from "./assets/miller/interaction/classic-miller-lean-reach.png"
-import classicMillerPetDog from "./assets/miller/interaction/classic-miller-pet-dog.png"
-import classicMillerStepLeft01 from "./assets/miller/interaction/classic-miller-step-left-01.png"
-import classicMillerStepLeft02 from "./assets/miller/interaction/classic-miller-step-left-02.png"
+import { millerCharacterInteraction } from "./companion/millerCompanionAdapter.js"
+import { millerCharacterPose } from "./companion/millerCharacterInteractionThemes.js"
+import practicalSupports from "./data/miller-practical-supports-public-v1.json"
+import millerFunding from "./data/miller-funding-assistance-public-v1.json"
+import { buildMillerSpecializedSearchResources, mergeMillerSearchResources, millerResourceSearchText } from "./millerPublicSearchResources.js"
+import { publicCounsellingPractitioners } from "./data/privateCounsellingPractitioners.js"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -158,6 +161,14 @@ const CATEGORY_ALIASES = {
   ],
   "Youth Support": ["youth", "teen", "teenager", "young person", "young adult"],
   "Indigenous Support": ["indigenous", "first nations", "metis", "inuit", "aboriginal"],
+  "Funding & Assistance": ["funding", "financial help", "grant", "grants", "bursary", "benefit", "benefits", "subsidy", "assistance"],
+  "Training / Education": ["training", "education", "course", "courses", "skills", "tuition", "certificate", "trades"],
+  "Employment": ["employment", "job", "jobs", "work", "workbc", "vocational"],
+  "Identification / ID": ["identification", "id", "birth certificate", "services card", "sin replacement"],
+  "Income / Benefits": ["income", "income assistance", "benefits", "disability", "pwd", "cpp d", "tax clinic"],
+  "Transportation": ["transportation", "transport", "travel", "transit", "bus pass", "handydart", "medical travel"],
+  "Legal / Advocacy": ["advocacy", "navigation", "legal", "tenant", "tenancy", "rights"],
+  "Basic Needs": ["food", "clothing", "phone", "hygiene", "basic needs"],
 }
 
 const STOP_WORDS = new Set([
@@ -222,15 +233,14 @@ const MILLER_THEMES = [
     background: backgroundRose,
     accent: "#ef91a8",
   },
+  {
+    name: "North",
+    avatar: millerNorth,
+    title: titleNorth,
+    background: backgroundNorth,
+    accent: "#315e79",
+  },
 ]
-
-const CLASSIC_INTERACTION_POSES = Object.freeze({
-  noticeDog: classicMillerNoticeDog,
-  leanReach: classicMillerLeanReach,
-  petDog: classicMillerPetDog,
-  stepLeft01: classicMillerStepLeft01,
-  stepLeft02: classicMillerStepLeft02,
-})
 
 function normalizeText(value) {
   return String(value || "")
@@ -348,28 +358,7 @@ function cleanResources(rows) {
 }
 
 function buildSearchText(resource) {
-  return `
-    ${resource.name}
-    ${resource.organization}
-    ${resource.serviceType}
-    ${resource.category}
-    ${resource.population}
-    ${resource.eligibility}
-    ${resource.description}
-    ${resource.accessType}
-    ${resource.hours}
-    ${resource.phone}
-    ${resource.altPhone}
-    ${resource.email}
-    ${resource.website}
-    ${resource.address}
-    ${resource.city}
-    ${resource.region}
-    ${resource.notes}
-    ${(resource.tags || []).join(" ")}
-  `
-    .toLowerCase()
-    .replace(/\s+/g, " ")
+  return `${millerResourceSearchText(resource)} ${resource.altPhone || ""} ${resource.email || ""} ${resource.notes || ""}`.toLowerCase().replace(/\s+/g, " ")
 }
 
 function dedupeResources(resources) {
@@ -491,7 +480,9 @@ function expandTerms(query, categories = [], aiHints = null) {
 
 function cityMatches(resource, selectedCity) {
   if (selectedCity === "All Cities") return true
-  return normalizeText(resource.city) === normalizeText(selectedCity)
+  if (normalizeText(resource.city) === normalizeText(selectedCity)) return true
+  if ((resource.searchLocations || []).some(location => normalizeText(location) === normalizeText(selectedCity))) return true
+  return resource.provinceWide === true
 }
 
 function scoreResource(resource, query, selectedCity, options = {}) {
@@ -701,19 +692,19 @@ function renderMessageWithLinks(text) {
 
 function App() {
   const isAdminRoute = typeof window !== "undefined" && window.location.pathname.startsWith("/admin")
+  const isMillerNorthAdminRoute = typeof window !== "undefined" && window.location.pathname === "/admin/miller-north"
   const isOwnerRoute = typeof window !== "undefined" && window.location.pathname === "/owner/directory-health-audit"
   const isInternalRoute = isAdminRoute || isOwnerRoute
-  const normalizedResources = useMemo(() => {
-    return dedupeResources(cleanResources(rawResources))
-  }, [])
+  const normalizedResources = useMemo(() => dedupeResources(mergeMillerSearchResources(
+    cleanResources(rawResources),
+    buildMillerSpecializedSearchResources(practicalSupports.records, millerFunding.records),
+  )), [])
 
   const defaultReply = MILLER_COPY.searchIntro
 
   const [query, setQuery] = useState("")
   const [selectedCity, setSelectedCity] = useState("All Cities")
   const [hasSearched, setHasSearched] = useState(false)
-  const [handout, dispatchHandout] = useReducer(handoutReducer, undefined, createInitialHandoutState)
-  const [isHandoutOpen, setIsHandoutOpen] = useState(false)
   const [isMapOpen, setIsMapOpen] = useState(false)
   const [isEmailResultsOpen, setIsEmailResultsOpen] = useState(false)
   const [isListsOpen, setIsListsOpen] = useState(() => window.location.pathname === "/lists" || window.location.pathname.startsWith("/lists/"))
@@ -758,17 +749,6 @@ useEffect(() => {
   })
 }, [currentTheme.name])
 
-  useEffect(() => {
-    if (!hasHandoutContent(handout)) return undefined
-
-    function warnBeforeLeaving(event) {
-      event.preventDefault()
-      event.returnValue = ""
-    }
-
-    window.addEventListener("beforeunload", warnBeforeLeaving)
-    return () => window.removeEventListener("beforeunload", warnBeforeLeaving)
-  }, [handout])
 
   const [isLoading, setIsLoading] = useState(false)
   const [isTyping, setIsTyping] = useState(false)
@@ -881,6 +861,12 @@ useEffect(() => {
 
 useEffect(() => {
   localStorage.setItem(MILLER_THEME_NAME_STORAGE_KEY, currentTheme.name)
+}, [currentTheme.name])
+
+useEffect(() => {
+  // A theme change always begins from that character's own neutral artwork;
+  // an in-flight pose from the previous keyed companion cannot leak across.
+  setMillerGreetingPose("neutral")
 }, [currentTheme.name])
 
 useEffect(() => {
@@ -1557,9 +1543,9 @@ function previousMiller() {
  const millerWalkPose = ["walking", "returning"].includes(millerReadingPosition)
    ? millerClassicWalkStep(millerWalkIndex, { returning: millerReadingPosition === "returning" }).pose
    : "neutral"
- const millerImageSrc = currentTheme.name === "Classic"
-   ? CLASSIC_INTERACTION_POSES[millerWalkPose !== "neutral" ? millerWalkPose : millerGreetingPose] || currentTheme.avatar
-   : currentTheme.avatar
+ const activeCharacterInteraction = millerCharacterInteraction(currentTheme.name)
+ const activeMillerPose = currentTheme.name === "Classic" && millerWalkPose !== "neutral" ? millerWalkPose : millerGreetingPose
+ const millerImageSrc = millerCharacterPose(currentTheme.name, activeMillerPose, currentTheme.avatar)
 
   const millerClasses = [
   "miller-image",
@@ -1582,7 +1568,9 @@ function previousMiller() {
     : {}
   const companionIdleAllowed = !prefersReducedMotion && !isTyping && !isLoading && !query.trim() && ["home", "reading"].includes(millerReadingPosition) && companionSearchOutcome.status !== "pending"
 
-const millerImageStyle = {}
+const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerPose] != null
+  ? { "--miller-interaction-offset-x": `${activeCharacterInteraction.poseOffsets[activeMillerPose]}px` }
+  : {}
 
   if (isOwnerRoute) {
     if (isAdminMode) return <DirectoryHealthAuditBackPage onSignOut={async () => { await supabase.auth.signOut({ scope: "local" }); setIsAdminMode(false) }}/>
@@ -1591,6 +1579,10 @@ const millerImageStyle = {}
 
   if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence/research-policy") {
     return <MillerNorthResearchPolicy />
+  }
+
+  if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence/accountability-snapshot") {
+    return <MillerNorthAccountabilitySnapshot />
   }
 
   if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence/live-listening") {
@@ -1626,22 +1618,13 @@ const millerImageStyle = {}
   }
 
   if (isAdminRoute) {
+    if (isMillerNorthAdminRoute) {
+      return <main className="admin-route-shell"><header className="admin-route-header"><a href="/admin">← Administrator dashboard</a><div><p className="eyebrow">Protected administration</p><h1>Miller North incident review</h1></div>{isAdminMode ? <button type="button" onClick={async () => { await supabase.auth.signOut({ scope: "local" }); setIsAdminMode(false) }}>Sign out</button> : null}</header>{isAdminMode ? <MillerNorthIncidentReview/> : <section className="admin-login-page" aria-labelledby="miller-north-login-title"><h2 id="miller-north-login-title">Administrator sign in required</h2><p>This private review is available only to an allowlisted Miller administrator.</p><a href="/admin/login">Sign in to Miller administration</a></section>}</main>
+    }
     if (isAdminMode && window.location.pathname.startsWith("/admin/lists")) {
       return <main className="admin-route-shell"><header className="admin-route-header"><a href="/admin">← Administrator dashboard</a><div><p className="eyebrow">Protected administration</p><h1>Pre-made Lists</h1></div></header><PdfDocumentManager/><CuratedListManager/></main>
     }
-    return <main className="admin-route-shell"><header className="admin-route-header"><a href="/">← Public resource finder</a><div><p className="eyebrow">Protected administration</p><h1>Miller administrator</h1></div>{isAdminMode ? <button type="button" onClick={async () => { await supabase.auth.signOut({ scope: "local" }); setIsAdminMode(false); setAdminReviewItems([]) }}>Sign out</button> : null}</header>{!isAdminMode ? <section className="admin-login-page" aria-labelledby="admin-login-title"><h2 id="admin-login-title">Administrator sign in</h2><p>Sign in with your Supabase account. Server access is granted only to an allowlisted administrator.</p><form onSubmit={requestAdminLogin}><label htmlFor="admin-email">Supabase account email</label><input id="admin-email" type="email" autoComplete="email" required value={adminLoginEmail} onChange={(event) => setAdminLoginEmail(event.target.value)}/><button type="submit">Email secure sign-in link</button><p role="status">{adminLoginStatus}</p></form></section> : <section className="admin-dashboard" aria-label="Administrator dashboard"><p role="status">{adminReviewStatus}</p><SystemHealth/><ResearchPlanner/><PendingLocationReview/><ShelterCandidateReview/><div className="admin-review-panel"><div className="results-head"><h2>Admin Review Queue <span className="results-count">{pendingCount} pending</span></h2></div><div className="resource-list">{adminReviewItems.map((resource, index) => <article key={`admin-${resource.website}-${index}`} className="resource-card"><div className="resource-top"><div><h3>{shortenTitle(resource.name)}</h3>{resource.city ? <p className="resource-org">{resource.city}</p> : null}</div></div>{resource.description ? <p className="resource-description">{resource.description}</p> : null}{renderAiReview(resource)}<div className="resource-links">{safeHttpUrl(resource.website) ? <a className="resource-link-button" href={safeHttpUrl(resource.website)} target="_blank" rel="noreferrer">🌐 Open Website</a> : null}</div><div className="resource-review-actions"><button className="approve-button" onClick={() => approveTavilyResource(resource)}>✅ Approve</button><button className="hide-button" onClick={() => hideTavilyResource(resource)}>🚫 Hide</button></div></article>)}</div></div></section>}</main>
-  }
-
-  if (isHandoutOpen) {
-    return (
-      <div className="app-shell handout-app-shell">
-        <HandoutBuilder
-          handout={handout}
-          dispatch={dispatchHandout}
-          onBack={() => setIsHandoutOpen(false)}
-        />
-      </div>
-    )
+    return <main className="admin-route-shell"><header className="admin-route-header"><a href="/">← Public resource finder</a><div><p className="eyebrow">Protected administration</p><h1>Miller administrator</h1></div>{isAdminMode ? <button type="button" onClick={async () => { await supabase.auth.signOut({ scope: "local" }); setIsAdminMode(false); setAdminReviewItems([]) }}>Sign out</button> : null}</header>{!isAdminMode ? <section className="admin-login-page" aria-labelledby="admin-login-title"><h2 id="admin-login-title">Administrator sign in</h2><p>Sign in with your Supabase account. Server access is granted only to an allowlisted administrator.</p><form onSubmit={requestAdminLogin}><label htmlFor="admin-email">Supabase account email</label><input id="admin-email" type="email" autoComplete="email" required value={adminLoginEmail} onChange={(event) => setAdminLoginEmail(event.target.value)}/><button type="submit">Email secure sign-in link</button><p role="status">{adminLoginStatus}</p></form></section> : <section className="admin-dashboard" aria-label="Administrator dashboard"><MillerNorthIncidentReview/><p role="status">{adminReviewStatus}</p><SystemHealth/><ResearchPlanner/><PendingLocationReview/><ShelterCandidateReview/><div className="admin-review-panel"><div className="results-head"><h2>Admin Review Queue <span className="results-count">{pendingCount} pending</span></h2></div><div className="resource-list">{adminReviewItems.map((resource, index) => <article key={`admin-${resource.website}-${index}`} className="resource-card"><div className="resource-top"><div><h3>{shortenTitle(resource.name)}</h3>{resource.city ? <p className="resource-org">{resource.city}</p> : null}</div></div>{resource.description ? <p className="resource-description">{resource.description}</p> : null}{renderAiReview(resource)}<div className="resource-links">{safeHttpUrl(resource.website) ? <a className="resource-link-button" href={safeHttpUrl(resource.website)} target="_blank" rel="noreferrer">🌐 Open Website</a> : null}</div><div className="resource-review-actions"><button className="approve-button" onClick={() => approveTavilyResource(resource)}>✅ Approve</button><button className="hide-button" onClick={() => hideTavilyResource(resource)}>🚫 Hide</button></div></article>)}</div></div></section>}</main>
   }
 
   if (isListsOpen) {
@@ -1649,7 +1632,7 @@ const millerImageStyle = {}
   }
 
   if (isMapOpen) {
-    return <ServiceMap resources={[...new Map([...normalizedResources, ...mapResources].map((resource) => [String(resource.id), resource])).values()]} handout={handout} dispatchHandout={dispatchHandout} onBack={() => setIsMapOpen(false)} onGetThere={(resource) => setNavigationTarget({ resource, location: resource })} isAdminMode={isAdminMode} millerAvatar={currentTheme.avatar} sessionId={sessionId} />
+    return <ServiceMap resources={[...new Map([...normalizedResources, ...mapResources].map((resource) => [String(resource.id), resource])).values()]} onBack={() => setIsMapOpen(false)} onGetThere={(resource) => setNavigationTarget({ resource, location: resource })} isAdminMode={isAdminMode} millerAvatar={currentTheme.avatar} sessionId={sessionId} />
   }
 
   return (
@@ -1668,16 +1651,6 @@ const millerImageStyle = {}
           <a className="handout-indicator" href="/funding-assistance">Funding &amp; Assistance</a>
           <button type="button" className="handout-indicator" onClick={() => { window.history.pushState({}, "", "/lists"); setIsListsOpen(true) }}><span aria-hidden="true">☷</span>Pre-made Lists</button>
           <button type="button" className="handout-indicator" onClick={() => setIsMapOpen(true)}><span aria-hidden="true">⌖</span>Service Map</button>
-          <button
-            type="button"
-            className="handout-indicator"
-            onClick={() => setIsHandoutOpen(true)}
-            aria-label={`Open handout with ${handout.resources.length} selected resources`}
-          >
-            <span aria-hidden="true">▤</span>
-            Handout
-            <span className="handout-count" aria-live="polite">{handout.resources.length}</span>
-          </button>
           <button type="button" className="handout-indicator private-counselling-nav" onClick={() => setOpenInfoModal("private-counselling")}>Private Counselling</button>
           <button type="button" className="handout-indicator" onClick={() => setOpenInfoModal("about-site")}>About This Site</button>
         </div>
@@ -1697,7 +1670,7 @@ const millerImageStyle = {}
           </div>
       <main className="hero-layout">
         <section className="hero-copy">
-         
+
 
           <form className="search-panel" onSubmit={handleSearch} ref={searchPanelRef}>
             <div
@@ -1799,7 +1772,7 @@ const millerImageStyle = {}
 
                       <div className="resource-meta">
                         {resource.serviceType && <span>{resource.serviceType}</span>}
-                        {resource.category && <span>{resource.category}</span>}
+                        {resource.category && normalizeText(resource.category) !== normalizeText(resource.serviceType) ? <span>{resource.category}</span> : null}
 
                         {resource.source === "tavily" && (
   <span className="web-result-badge">
@@ -1887,7 +1860,7 @@ const millerImageStyle = {}
     📞 Call
   </a>
 ) : null}
-  
+
   {safeHttpUrl(resource.website) ? (
     <a
       className="resource-link-button"
@@ -1919,14 +1892,7 @@ const millerImageStyle = {}
     </a>
   ) : null}
 
-  {resource.source === "tavily" && !resource.approved ? null : (
-    <AddToHandoutButton
-      resource={resource}
-      selected={handout.resources.some((item) => item.key === getResourceKey(resource))}
-      onAdd={(item) => dispatchHandout({ type: "add_resource", resource: item })}
-      onRemove={() => dispatchHandout({ type: "remove_resource", key: getResourceKey(resource) })}
-    />
-  )}
+  {(resource.collectionLinks || []).map(link => <a key={link.href} className="resource-link-button secondary" href={link.href}>{link.label}</a>)}
   {publicLocation ? <button type="button" className="resource-link-button get-there-button" onClick={() => setNavigationTarget({ resource, location: publicLocation, origin: navigationContext.origin })}>Get there</button> : null}
 </div>
                     </article>
@@ -1947,6 +1913,10 @@ const millerImageStyle = {}
       alt="Illustrated resource guide"
       className={millerClasses}
       style={millerImageStyle}
+      onError={(event) => {
+        event.currentTarget.onerror = null
+        event.currentTarget.src = currentTheme.avatar
+      }}
     />
   </div>
 
@@ -2005,7 +1975,7 @@ const millerImageStyle = {}
 
   </div>
 
-  <MillerSheepdog themeName={currentTheme.name} scenePosition={millerReadingPosition} reducedMotion={prefersReducedMotion} onGreetingPhaseChange={setMillerGreetingPose} presentationIntent={companionIntent} overlayHost={companionOverlayHost} idleAllowed={companionIdleAllowed} />
+  <MillerSheepdog key={currentTheme.name} themeName={currentTheme.name} scenePosition={millerReadingPosition} reducedMotion={prefersReducedMotion} onGreetingPhaseChange={setMillerGreetingPose} presentationIntent={companionIntent} overlayHost={companionOverlayHost} idleAllowed={companionIdleAllowed} />
 
 </div>
 
@@ -2115,7 +2085,14 @@ const millerImageStyle = {}
       {navigationTarget ? <GetTherePanel resource={navigationTarget.resource} location={navigationTarget.location} initialOrigin={navigationTarget.origin} onClose={() => setNavigationTarget(null)}/> : null}
       {isEmailResultsOpen ? <EmailResultsDialog results={results} city={selectedCity} onClose={() => setIsEmailResultsOpen(false)} /> : null}
       {openInfoModal === "private-counselling" ? <AccessibleModal title="Private Counselling" labelledBy="private-counselling-title" onClose={() => setOpenInfoModal(null)} className="private-counselling-modal">
-        <div className="private-counselling-intro">
+        <section className="private-counselling-options" aria-labelledby="private-counselling-options-title">
+          <h3 id="private-counselling-options-title">Private counselling options</h3>
+          <p>I’ve had the opportunity to work alongside some wonderful practitioners who also offer private counselling. Here are a few options you may wish to explore.</p>
+          <p className="private-counselling-options-note">These are starting points, not formal endorsements. Availability may change, so please review each practitioner’s current site or profile to decide whether the service may be a fit.</p>
+          <div className="private-counselling-card-grid">{publicCounsellingPractitioners().map(practitioner => <article className="private-counselling-card" key={practitioner.id}><h4>{practitioner.name}{practitioner.credentials ? `, ${practitioner.credentials}` : ""}</h4><p className="private-counselling-practice">{practitioner.practice}</p><p>{practitioner.summary}</p><a href={practitioner.href} {...(practitioner.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}>{practitioner.action}</a></article>)}</div>
+          <p className="private-counselling-crisis-note">Private-practice links are not crisis services. For immediate danger or urgent crisis support, contact the appropriate emergency or crisis service.</p>
+        </section>
+        <div className="private-counselling-intro" id="justin-counselling-details">
           <section className="private-counselling-profile" aria-label="About Justin Latos">
             <p className="private-counselling-name">Justin Latos, MSc, CCC</p>
             <p className="private-counselling-specialties">Counselling · addictions support · life transitions</p>
@@ -2149,7 +2126,7 @@ const millerImageStyle = {}
       </AccessibleModal> : null}
       {openInfoModal === "about-site" ? <AccessibleModal title="About This Site" labelledBy="about-site-title" onClose={() => setOpenInfoModal(null)} className="about-site-modal">
         <section className="about-site-intro"><p className="about-site-lead">A little help finding your way.</p><p>Finding the right community service can involve a surprising amount of detective work. This site brings together information about addiction, mental health, housing, counselling, harm reduction, treatment, and other community supports to make that search a little easier.</p></section>
-        <section aria-labelledby="about-site-how-it-works"><h3 id="about-site-how-it-works">How it works</h3><dl className="about-site-tools"><div><dt>Search</dt><dd>Tell the resource finder what kind of help you’re looking for. Adding your city can help narrow the search.</dd></div><div><dt>Pre-made Lists</dt><dd>Browse organized collections when you’d rather explore than search. The Master List provides a broader view of available resources.</dd></div><div><dt>Service Map</dt><dd>Explore resources geographically when location matters.</dd></div><div><dt>Handout</dt><dd>Save useful resources in a simpler collection to refer to or share later.</dd></div><div><dt>Suggest a Resource / Notes</dt><dd>Leave a note about a missing, changed, or useful service. You can also attach a resource flyer or document for review.</dd></div></dl></section>
+        <section aria-labelledby="about-site-how-it-works"><h3 id="about-site-how-it-works">How it works</h3><dl className="about-site-tools"><div><dt>Search</dt><dd>Tell the resource finder what kind of help you’re looking for. Adding your city can help narrow the search.</dd></div><div><dt>Email Results</dt><dd>Choose useful search results and send a concise, source-linked list after reviewing it.</dd></div><div><dt>Pre-made Lists</dt><dd>Browse organized collections when you’d rather explore than search. The Master List provides a broader view of available resources.</dd></div><div><dt>Service Map</dt><dd>Explore resources geographically when location matters.</dd></div><div><dt>Suggest a Resource / Notes</dt><dd>Leave a note about a missing, changed, or useful service. You can also attach a resource flyer or document for review.</dd></div></dl></section>
         <section><h3>A bit of detective work</h3><p>Community-resource information changes. Programs move, eligibility and phone numbers change, and services sometimes close or open.</p><p>The site helps gather and organize useful information, but it’s always a good idea to confirm important details directly with the service provider. Think of the resource finder as helping with some investigative legwork — not replacing the people and organizations providing support.</p></section>
         <section className="about-site-note"><h3>Important distinction</h3><p>This site provides community-resource navigation and information. It is not a counselling, medical, or emergency service.</p><p>Private Counselling is a separate service, available through the Private Counselling section. For immediate emergency assistance, use the appropriate local emergency service.</p></section>
       </AccessibleModal> : null}

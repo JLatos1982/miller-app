@@ -10,8 +10,7 @@ export const MILLER_CLASSIC_GREETING = defineCompanionSequence({
     { id: 'notice-dog', pose: 'noticeDog', duration: 500 },
     { id: 'lean-reach', pose: 'leanReach', duration: 620 },
     { id: 'pet-dog', pose: 'petDog', duration: 1600 },
-    // The lean pose intentionally serves in reverse for this small rise.
-    { id: 'rise', pose: 'leanReach', duration: 620 },
+    { id: 'rise', pose: 'rise', duration: 620 },
     { id: 'settled', pose: 'neutral', settle: true },
   ],
 })

@@ -1,0 +1,94 @@
+{
+  "schema_version": "miller-north-provincial-timeline-v1",
+  "case_id": "mnrpc_ab_indigenous_primary_care_panel",
+  "publication_scope": "private_owner_review",
+  "timeline": [
+    {
+      "timeline_id": "mnpct_ab_2022_red_deer",
+      "date_or_range": "2022-09-29",
+      "event_type": "local_engagement",
+      "title": "Red Deer engagement identifies cultural-safety concerns",
+      "short_description": "Participants raised cultural safety, racism and bias as health-system concerns; this was consultation evidence, not a formal case finding.",
+      "organization": "Government of Alberta and Alberta Health Services",
+      "source_references": [
+        "mnpcs_ab_red_deer_heard"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "timeline_id": "mnpct_ab_2022_panel",
+      "date_or_range": "2022-2023",
+      "event_type": "advisory_panel",
+      "title": "Indigenous advisory panel convened",
+      "short_description": "Indigenous leaders and health-system participants developed recommendations for primary health-care reform.",
+      "organization": "Government of Alberta",
+      "source_references": [
+        "mnpcs_ab_panel_report"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_ab_2023_report",
+      "date_or_range": "2023",
+      "event_type": "recommendations",
+      "title": "Panel issues 22 recommendations",
+      "short_description": "The final report organizes recommendations around culturally safe, Indigenous-led and accountable care.",
+      "organization": "Indigenous Primary Health Care Advisory Panel",
+      "source_references": [
+        "mnpcs_ab_panel_report"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_ab_2023_investment",
+      "date_or_range": "2023",
+      "event_type": "government_response",
+      "title": "Early investment opportunities published",
+      "short_description": "Government identifies early commitments and implementation mechanisms.",
+      "organization": "Alberta Health",
+      "source_references": [
+        "mnpcs_ab_early_investment"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_ab_2024_way",
+      "date_or_range": "2024",
+      "event_type": "implementation_plan",
+      "title": "The Way Forward published",
+      "short_description": "A separate Indigenous primary-health-care plan sets out implementation work.",
+      "organization": "Alberta Health",
+      "source_references": [
+        "mnpcs_ab_way_forward"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_ab_current_programs",
+      "date_or_range": "2024-2026",
+      "event_type": "implementation",
+      "title": "Funding and oversight mechanisms operate",
+      "short_description": "Navigator grants, an innovation fund, an Indigenous Health Division and patient-safety advocate are publicly documented.",
+      "organization": "Government of Alberta / Office of Alberta Health Advocates",
+      "source_references": [
+        "mnpcs_ab_navigator",
+        "mnpcs_ab_innovation",
+        "mnpcs_ab_advocate",
+        "mnpcs_ab_improving"
+      ],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "mnpct_ab_2024_racism_engagement",
+      "date_or_range": "2024-10 to 2025-07",
+      "event_type": "follow_up_engagement",
+      "title": "Anti-racism engagement held",
+      "short_description": "Government gathered input and reported that results were under review; a final resulting strategy was not located.",
+      "organization": "Government of Alberta",
+      "source_references": [
+        "mnpcs_ab_anti_racism"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

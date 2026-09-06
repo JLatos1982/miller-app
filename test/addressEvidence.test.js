@@ -1,7 +1,7 @@
 import test from "node:test"
 import assert from "node:assert/strict"
 import fs from "node:fs"
-import { addressComponents, approveEvidenceForGeocoding, classifyAddressEvidence, classifySource, extractNumberedAddresses, groupSharedAddresses, isCompleteNumberedAddress, normalizedGeocodingQuery } from "../server/addressEvidence.js"
+import { addressComponents, approveEvidenceForGeocoding, classifyAddressEvidence, classifySource, extractNumberedAddresses, groupSharedAddresses, isCompleteNumberedAddress, normalizedGeocodingQuery, pageSupportsProgram } from "../server/addressEvidence.js"
 
 const resource = { name: "Burnaby Public OAT Clinic", organization: "Fraser Health", address: "Unit 320, 7155 Kingsway", city: "Burnaby", service_type: "OAT clinic" }
 const page = { text: "Burnaby Public OAT Clinic is located at Unit 320, 7155 Kingsway in Burnaby." }
@@ -33,6 +33,24 @@ test("shared buildings retain independent canonical identities", () => {
 
 test("numbered public addresses can be proposed from opened page content", () => {
   assert.deepEqual(extractNumberedAddresses("Visit the clinic at Unit 320, 7155 Kingsway today."), ["Unit 320, 7155 Kingsway"])
+})
+
+test("civic extraction does not retain ordinary prose before the civic number", () => {
+  assert.deepEqual(extractNumberedAddresses("Practical Centre offers appointments at 100 Main Street in Vancouver."), ["100 Main Street"])
+})
+
+test("civic extraction supports bare suite-dash addresses and ignores navigation lookalikes", () => {
+  assert.deepEqual(extractNumberedAddresses("Location 440 – 2184 W Broadway Vancouver, BC. Email United Way at Unit 1, 1 Email United Way."), ["Unit 440, 2184 W Broadway"])
+})
+
+test("civic extraction retains an ordinal street name after a direction", () => {
+  assert.deepEqual(extractNumberedAddresses("Pacifica Treatment Centre location: 1755 East 11th Avenue, Vancouver, BC."), ["1755 East 11th Avenue"])
+})
+
+test("program-site support accepts a labeled physical address but not mailing-only evidence", () => {
+  const farProgramPage = `${"unrelated text ".repeat(100)}Program Name provides counselling. Address: 520 Richards Street, Vancouver.`
+  assert.equal(pageSupportsProgram({ resource: { name: "Program Name" }, pageText: farProgramPage, address: "520 Richards Street" }), true)
+  assert.equal(pageSupportsProgram({ resource: { name: "Program Name" }, pageText: "Program Name provides counselling. Mailing Address: 520 Richards Street, Vancouver.", address: "520 Richards Street" }), false)
 })
 
 test("BC address normalization preserves units across common formats", () => {

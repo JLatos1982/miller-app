@@ -32,15 +32,35 @@ test("First Nations Supports projection publishes a bounded reviewed subset", ()
   assert.ok(!supports.records.some(record => ["fns_ab_aivcc", "fns_sk_wellness_wheel"].includes(record.public_support_id)))
 })
 
-test("quiet-sharing removes main entry affordances and applies noindex to Miller North navigation", () => {
+test("Miller North is a main theme while quiet-sharing pages remain noindex", () => {
   const app = readFileSync(new URL("../src/App.jsx", import.meta.url), "utf8")
   const evidence = readFileSync(new URL("../src/site/IndigenousHealthcareEvidence.jsx", import.meta.url), "utf8")
   const nav = readFileSync(new URL("../src/site/MillerNorthPublicNav.jsx", import.meta.url), "utf8")
-  assert.doesNotMatch(app, /name: "North"/)
+  assert.match(app, /name: "North"/)
   assert.doesNotMatch(evidence, /ihe-feather|FirstNationsHealthcareEvidenceFeather/)
   assert.match(app, /indigenous-healthcare-evidence\/first-nations-supports/)
   assert.match(nav, /noindex, nofollow/)
   assert.match(nav, /data-miller-north-quiet-sharing/)
+})
+
+test("North headers use the existing North landing route rather than the Miller resource finder", () => {
+  const app = readFileSync(new URL("../src/App.jsx", import.meta.url), "utf8")
+  const nav = readFileSync(new URL("../src/site/MillerNorthPublicNav.jsx", import.meta.url), "utf8")
+  const northHeaders = [
+    "IndigenousHealthcareEvidence.jsx",
+    "MillerNorthFirstNationsSupports.jsx",
+    "MillerNorthLiveListening.jsx",
+    "MillerNorthMethodology.jsx",
+    "MillerNorthEmergingCases.jsx",
+    "MillerNorthResearchPolicy.jsx",
+    "MillerFundingAssistance.jsx",
+  ].map(file => readFileSync(new URL(`../src/site/${file}`, import.meta.url), "utf8"))
+
+  assert.match(app, /window\.location\.pathname === "\/indigenous-healthcare-evidence"/)
+  assert.match(nav, /MILLER_NORTH_HOME_HREF = "\/indigenous-healthcare-evidence"/)
+  assert.match(nav, /Miller North Home/)
+  for (const header of northHeaders) assert.match(header, /MillerNorthHomeLink/)
+  assert.equal(northHeaders.some(header => /Miller resource finder/.test(header)), false)
 })
 
 test("supports page is responsive, source-followable and does not expose review internals", () => {

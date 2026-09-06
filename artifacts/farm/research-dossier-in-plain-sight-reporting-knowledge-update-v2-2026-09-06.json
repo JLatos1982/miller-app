@@ -1,0 +1,72 @@
+{
+  "schema_version": "farm-research-dossier-knowledge-update-v1",
+  "projection_id": "farm_dossier_miller_north_in_plain_sight_reporting_v2",
+  "version": 2,
+  "base_dossier_id": "farm_dossier_miller_north_in_plain_sight_reporting_v1",
+  "canonical_fixture_id": "farm_fixture_north_ips_reporting_limit_v1",
+  "canonical_workflow_id": "farm-research-dossier-v1",
+  "ledger_id": "ips_24_recommendation_public_evidence_ledger_v1",
+  "research_date": "2026-09-06",
+  "publication_scope": "private_owner_review",
+  "production_mutations": 0,
+  "publication_mutations": 0,
+  "foi_requests_sent": 0,
+  "previous_knowledge_state": {
+    "specifically_evidenced_recommendations": [
+      1,
+      2,
+      17,
+      22,
+      23,
+      24
+    ],
+    "unresolved_question": "Current recommendation-level status for the other recommendations and whether a comprehensive current official ledger exists."
+  },
+  "investigation": {
+    "target_dossier_id": "farm_dossier_miller_north_in_plain_sight_reporting_v1",
+    "canonical_workflow_id": "farm-research-dossier-v1",
+    "bounded_question": "What is the strongest defensible current public-evidence status for each of the 24 In Plain Sight recommendations?",
+    "method": "Original-report numbering and responsible parties were used as anchors; the 2023 official 24-month report supplied a common baseline; later authoritative sources were searched by recommendation subject, responsible organization and named implementation mechanism.",
+    "stopping_rule": "Stop when authoritative evidence answers the bounded status question, official avenues are exhausted, remaining evidence appears non-public, an information-request candidate is reached, or returns sharply diminish."
+  },
+  "new_evidence": {
+    "exact_recommendation_records": 24,
+    "authoritative_source_records": 17,
+    "direct_official_baseline_coverage": 24,
+    "post_2023_evidence_coverage": 20,
+    "numbering_conflict": "A current official reporting page labels the PIDA expansion as recommendation 2 although the original report assigns PIDA to recommendation 11; this projection uses the original report numbering."
+  },
+  "updated_knowledge_state": {
+    "recommendations_assessed": 24,
+    "status_counts": {
+      "implemented": 2,
+      "substantially_implemented": 3,
+      "partially_implemented": 12,
+      "implementation_underway": 4,
+      "implementation_evidence_fragmentary": 3
+    },
+    "strongest_confirmed_elements": [
+      "health-authority PIDA coverage (recommendation 11)",
+      "Associate Deputy Minister role creation (recommendation 13)",
+      "task-team operation and 24-month report (recommendation 24)",
+      "health-system apologies and agreement provisions (recommendation 1)",
+      "Métis health relationship tables and regional agreements (recommendation 7)"
+    ],
+    "material_change": "The dossier now has a source-backed public-evidence record for every recommendation rather than six examples. It still cannot claim a current official comprehensive status ledger or equate incomplete reporting with non-implementation."
+  },
+  "public_reporting_finding": {
+    "comprehensive_current_24_row_ledger_located": false,
+    "last_comprehensive_public_report_located": "2023-11-30",
+    "current_reporting_mode": "distributed_across_action_plan_ministries_health_system_and_indigenous_organizations",
+    "official_limitation_statement": "The current Action 3.07 page says the present framework has limited capacity to fully capture the breadth and depth of progress across all 24 recommendations and that the Ministry is exploring a more comprehensive update."
+  },
+  "remaining_high_value_gaps": [
+    "Current establishment and statutory status of the proposed Indigenous Health Officer (recommendation 3)",
+    "Current establishment, authority and funding of the proposed Indigenous Health Representative and Advocate office (recommendation 4)",
+    "A completed public measurement framework/dashboard and Indigenous data-governance status (recommendation 9)",
+    "The jointly governed Indigenous pandemic-response structure (recommendation 15)",
+    "A current Ministry-held recommendation-by-recommendation status and evidence matrix for all 24 recommendations"
+  ],
+  "owner_review": true,
+  "owner_review_reason": "Most records support partial or underway status, and recommendation-level scope, current recency and a source-numbering conflict require human review before any publication decision."
+}

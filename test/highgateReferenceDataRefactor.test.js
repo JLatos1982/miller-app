@@ -36,6 +36,7 @@ test("typed reference migration stays narrow and backend-only", () => {
   assert.match(migration, /alter table public\.highgate_authoritative_location_reference enable row level security/i)
   assert.match(migration, /revoke all on public\.highgate_authoritative_location_reference from public, anon, authenticated/i)
   assert.match(migration, /grant select on public\.highgate_authoritative_location_reference to service_role/i)
+  assert.match(migration, /join public\.resource_registry resource on resource\.id = reference_data\.resource_id::uuid/i)
   assert.doesNotMatch(migration, /create table public\.(config|configuration|settings)\b/i)
 })
 

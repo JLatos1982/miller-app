@@ -2,10 +2,12 @@ import test from "node:test"
 import assert from "node:assert/strict"
 import fs from "node:fs"
 
-test("private counselling is a secondary mailto-only accessible modal", () => {
+test("private counselling remains a secondary accessible modal with a modest verified option set", async () => {
   const app = fs.readFileSync(new URL("../src/App.jsx", import.meta.url), "utf8")
   const css = fs.readFileSync(new URL("../src/App.css", import.meta.url), "utf8")
   const modal = fs.readFileSync(new URL("../src/site/AccessibleModal.jsx", import.meta.url), "utf8")
+  const { publicCounsellingPractitioners } = await import("../src/data/privateCounsellingPractitioners.js")
+  const practitioners = publicCounsellingPractitioners()
   assert.match(app, /Private Counselling/)
   assert.match(app, /Justin Latos, MSc, CCC/)
   assert.doesNotMatch(app, /Justin Latos, MA, CCC/)
@@ -13,7 +15,16 @@ test("private counselling is a secondary mailto-only accessible modal", () => {
   assert.match(app, /handout-toolbar-controls/)
   assert.match(css, /\.handout-toolbar-controls\s*\{[\s\S]*?flex-wrap: wrap/)
   assert.match(css, /\.handout-indicator\s*\{[\s\S]*?border: 1px solid var\(--line-dark\)/)
-  assert.match(css, /\.handout-count\s*\{[\s\S]*?background: var\(--badge-bg\)/)
+  assert.equal(practitioners.length, 6)
+  assert.deepEqual(practitioners.map(item => item.name), ["Justin Latos", "Dale Wagner", "Vicky Kaler", "Ravi Teja", "Ariel Dumais", "Zahra Lakhdhir"])
+  assert.equal(practitioners.every(item => /^#|^https:\/\//.test(item.href)), true)
+  assert.equal(practitioners.some(item => /Ada/.test(item.name)), false)
+  assert.equal(practitioners.some(item => item.name === "Ariel Dumais" && item.href === "https://bcacc.ca/counsellors/ariel-dumais/"), true)
+  assert.equal(practitioners.some(item => item.name === "Ravi Teja" && item.href === "https://www.rtcounselling.ca/team"), true)
+  assert.equal(practitioners.some(item => item.name === "Zahra Lakhdhir" && item.href === "https://www.serenitycounsellingbc.com/zahra-lakhdhir"), true)
+  assert.match(app, /These are starting points, not formal endorsements/)
+  assert.match(app, /Private-practice links are not crisis services/)
+  assert.doesNotMatch(app, /Fraser Health/)
   assert.match(app, /private-counselling-services/)
   assert.match(app, /import justinPortrait from "\.\/assets\/Justin\.png"/)
   assert.match(app, /src=\{justinPortrait\} alt="Portrait sketch of Justin Latos"/)
@@ -28,4 +39,5 @@ test("private counselling is a secondary mailto-only accessible modal", () => {
   assert.match(modal, /event\.key === "Escape"/)
   assert.match(modal, /document\.body\.style\.overflow = "hidden"/)
   assert.match(modal, /opener\?\.focus\?\./)
+  assert.match(css, /\.private-counselling-card-grid/)
 })

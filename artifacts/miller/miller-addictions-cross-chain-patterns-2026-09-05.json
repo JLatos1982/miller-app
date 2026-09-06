@@ -1,0 +1,197 @@
+{
+  "schema_version": "miller-addictions-cross-chain-synthesis-v1",
+  "research_domain": "miller_addictions",
+  "research_date": "2026-09-05",
+  "publication_scope": "private_benchmark_only",
+  "chains_inspected": 21,
+  "patterns": [
+    {
+      "pattern_id": "macp_coroner_recommendations_recur",
+      "pattern_type": "recurring_coroner_recommendation",
+      "title": "Core coroner recommendations recur across reporting cycles",
+      "neutral_summary": "The 2022 death-review panel explicitly said the 2017 panel recommendations remained relevant and required; the 2023 urgent panel then revisited the 2022 safer-supply recommendation.",
+      "chain_ids": ["mapc_coroner_system_recommendations", "mapc_oat_access", "mapc_drug_checking", "mapc_system_of_care", "mapc_prescribed_alternatives"],
+      "evidence_source_ids": ["bc_coroner_2018", "bc_coroner_2022", "bc_coroner_2023"],
+      "confidence": "high",
+      "owner_review_flag": false,
+      "owner_review_reason": null
+    },
+    {
+      "pattern_id": "macp_system_oversight_repeated",
+      "pattern_type": "repeated_recommendation",
+      "title": "Standards, oversight, and evaluation remain recurring requests",
+      "neutral_summary": "Coroner, public-health, audit, and federal expert sources repeatedly call for accountable systems, standards, monitoring, and evaluation, although the exact scope differs by source.",
+      "chain_ids": ["mapc_coroner_system_recommendations", "mapc_system_of_care", "mapc_harm_reduction_audit", "mapc_federal_drug_strategy", "mapc_supportive_recovery_rules"],
+      "evidence_source_ids": ["bc_coroner_2018", "bc_coroner_2022", "bc_oag_2024", "can_task2"],
+      "confidence": "high",
+      "owner_review_flag": true,
+      "owner_review_reason": "The sources use overlapping but non-identical concepts of regulation, standards, oversight, and evaluation."
+    },
+    {
+      "pattern_id": "macp_access_expansion_repeats",
+      "pattern_type": "repeated_access_barrier",
+      "title": "Access expansion recurs across treatment modalities and age groups",
+      "neutral_summary": "OAT, youth treatment, adult system-of-care, treatment-capacity, and First Nations-led chains all contain commitments to reduce access barriers or bring care closer to home.",
+      "chain_ids": ["mapc_oat_access", "mapc_youth_treatment", "mapc_system_of_care", "mapc_treatment_capacity", "mapc_indigenous_treatment_services"],
+      "evidence_source_ids": ["bc_coroner_2018", "bc_system_framework", "bc_budget_2023", "bc_fn_beds_2026"],
+      "confidence": "high",
+      "owner_review_flag": false,
+      "owner_review_reason": null
+    },
+    {
+      "pattern_id": "macp_provincial_actor_recurrence",
+      "pattern_type": "recurring_responsible_actor",
+      "title": "The B.C. government recurs as issuer, funder, responder, and implementer",
+      "neutral_summary": "Normalized actor mapping finds the B.C. government or its health ministries in 15 of 21 chains, with distinct roles that should not be collapsed into a single responsibility label.",
+      "chain_ids": ["mapc_toxic_drug_emergency", "mapc_coroner_system_recommendations", "mapc_system_of_care", "mapc_prescribed_alternatives", "mapc_overdose_prevention_services", "mapc_oat_scope_expansion", "mapc_oat_access", "mapc_decriminalization", "mapc_supportive_recovery_rules", "mapc_treatment_capacity", "mapc_youth_treatment", "mapc_indigenous_treatment_services", "mapc_drug_checking", "mapc_addiction_clinical_guidelines", "mapc_harm_reduction_audit"],
+      "evidence_source_ids": ["bc_pha", "bc_coroner_portal", "bc_pathway", "bc_budget_2023"],
+      "confidence": "high",
+      "owner_review_flag": false,
+      "owner_review_reason": null
+    },
+    {
+      "pattern_id": "macp_health_authority_delivery",
+      "pattern_type": "recurring_responsible_actor",
+      "title": "Regional health authorities are recurring delivery organizations",
+      "neutral_summary": "Health authorities recur as recommendation recipients or service implementers in seven chains and provide the most concrete location-level operational evidence.",
+      "chain_ids": ["mapc_overdose_prevention_services", "mapc_oat_access", "mapc_drug_checking", "mapc_system_of_care", "mapc_prescribed_alternatives", "mapc_treatment_capacity", "mapc_youth_treatment"],
+      "evidence_source_ids": ["vch_services", "fraser_road_2026", "fraser_youth_2022", "bc_order_ops_2016"],
+      "confidence": "high",
+      "owner_review_flag": false,
+      "owner_review_reason": null
+    },
+    {
+      "pattern_id": "macp_policy_service_identity_gap",
+      "pattern_type": "policy_to_service_gap",
+      "title": "Aggregate commitments often omit resource-level identity",
+      "neutral_summary": "Bed totals and funding announcements can demonstrate policy activity while still omitting the facility name, operator, access route, or canonical identity required for a Miller resource link.",
+      "chain_ids": ["mapc_treatment_capacity", "mapc_youth_treatment", "mapc_indigenous_treatment_services", "mapc_system_of_care"],
+      "evidence_source_ids": ["bc_budget_2023", "bc_beds_2021", "bc_fn_beds_2026", "bc_terrace_2026"],
+      "confidence": "high",
+      "owner_review_flag": true,
+      "owner_review_reason": "Some aggregate announcements may overlap across fiscal years or program inventories."
+    },
+    {
+      "pattern_id": "macp_rural_geographic_gap",
+      "pattern_type": "recurring_geographic_gap",
+      "title": "Rural, remote, and northern access recurs as an implementation concern",
+      "neutral_summary": "Multiple chains identify travel, prescriber access, or local treatment capacity outside major urban centres and include targeted virtual, mobile, or Nation-led responses.",
+      "chain_ids": ["mapc_oat_access", "mapc_treatment_capacity", "mapc_indigenous_treatment_services", "mapc_system_of_care", "mapc_prescribed_alternatives"],
+      "evidence_source_ids": ["bc_oat_line", "fraser_road_2026", "bc_terrace_2026", "fnha_eval", "bc_ten_year_2026"],
+      "confidence": "high",
+      "owner_review_flag": true,
+      "owner_review_reason": "The evidence demonstrates targeted responses but does not establish population-adjusted adequacy."
+    },
+    {
+      "pattern_id": "macp_partial_implementation_longitudinal",
+      "pattern_type": "prolonged_partial_implementation",
+      "title": "Several system-level reforms remain partial across multi-year evidence windows",
+      "neutral_summary": "The system-of-care, prescribed-alternatives, coroner, and treatment-capacity chains contain implementation activity alongside later evidence of remaining scope or reporting gaps.",
+      "chain_ids": ["mapc_system_of_care", "mapc_prescribed_alternatives", "mapc_coroner_system_recommendations", "mapc_treatment_capacity", "mapc_harm_reduction_audit"],
+      "evidence_source_ids": ["bc_pathway_progress", "bc_oag_2024", "bc_coroner_2023", "bc_ten_year_2026"],
+      "confidence": "high",
+      "owner_review_flag": true,
+      "owner_review_reason": "Partial status describes documented scope, not an effectiveness or compliance judgment."
+    },
+    {
+      "pattern_id": "macp_decrim_amendments",
+      "pattern_type": "repeated_policy_amendment",
+      "title": "The decriminalization exemption was amended twice within sixteen months",
+      "neutral_summary": "The federal exemption took effect in January 2023, was amended for youth-oriented areas after 230 days, and was amended again for public spaces 232 days later.",
+      "chain_ids": ["mapc_decriminalization", "mapc_federal_drug_strategy"],
+      "evidence_source_ids": ["can_decrim_2022", "can_decrim_2024", "can_task1"],
+      "confidence": "high",
+      "owner_review_flag": true,
+      "owner_review_reason": "Temporal amendment history is factual; reasons and effects remain politically contested and are not inferred."
+    },
+    {
+      "pattern_id": "macp_professional_standard_traceability",
+      "pattern_type": "repeated_regulatory_change",
+      "title": "Professional standards provide comparatively strong version traceability",
+      "neutral_summary": "OAT prescribing, pharmacy, nursing, and controlled-delivery materials commonly expose effective dates and update or supersession relationships more clearly than funding announcements do.",
+      "chain_ids": ["mapc_oat_standards", "mapc_oat_scope_expansion", "mapc_addiction_clinical_guidelines", "mapc_supportive_recovery_rules"],
+      "evidence_source_ids": ["cpbc_oat_update", "cpbc_delivery_2026", "bccnm_np", "bccnm_rn", "bccsu_oud_2023"],
+      "confidence": "high",
+      "owner_review_flag": false,
+      "owner_review_reason": null
+    },
+    {
+      "pattern_id": "macp_aggregate_reporting_gap",
+      "pattern_type": "implementation_reporting_gap",
+      "title": "Aggregate implementation totals are difficult to reconcile to individual services",
+      "neutral_summary": "Provincial totals for beds, sites, and calls are useful implementation evidence, but the public record does not always provide a stable inventory that reconciles each total to named services.",
+      "chain_ids": ["mapc_treatment_capacity", "mapc_overdose_prevention_services", "mapc_oat_access", "mapc_youth_treatment"],
+      "evidence_source_ids": ["bc_better_care", "bc_ten_year_2026", "bc_budget_2023", "bc_drug_actions"],
+      "confidence": "high",
+      "owner_review_flag": true,
+      "owner_review_reason": "Different sources may report distinct service classes, dates, or fiscal cohorts."
+    },
+    {
+      "pattern_id": "macp_first_nations_governance_distinction",
+      "pattern_type": "recurring_responsible_actor",
+      "title": "First Nations-led delivery requires separate governance and funding roles",
+      "neutral_summary": "The Indigenous-services and treatment-capacity chains show provincial funding relationships, FNHA support, and local First Nations governance; the service operator must not be described as a provincial program merely because provincial funds are involved.",
+      "chain_ids": ["mapc_indigenous_treatment_services", "mapc_treatment_capacity"],
+      "evidence_source_ids": ["fnha_eval", "fnha_centres", "bc_fn_beds_2026", "bc_terrace_2026"],
+      "confidence": "high",
+      "owner_review_flag": false,
+      "owner_review_reason": null
+    }
+  ],
+  "topic_clusters": [
+    {"topic":"treatment_and_service_access","chain_ids":["mapc_treatment_capacity","mapc_youth_treatment","mapc_indigenous_treatment_services","mapc_system_of_care","mapc_oat_access"]},
+    {"topic":"toxic_drug_and_overdose_response","chain_ids":["mapc_toxic_drug_emergency","mapc_coroner_system_recommendations","mapc_overdose_prevention_services","mapc_take_home_naloxone","mapc_overdose_emergency_law"]},
+    {"topic":"oat_and_professional_practice","chain_ids":["mapc_oat_access","mapc_oat_scope_expansion","mapc_oat_standards","mapc_addiction_clinical_guidelines"]},
+    {"topic":"prescribed_alternatives_and_harm_reduction","chain_ids":["mapc_prescribed_alternatives","mapc_harm_reduction_audit","mapc_federal_drug_strategy","mapc_drug_checking"]},
+    {"topic":"law_regulation_and_formal_rules","chain_ids":["mapc_decriminalization","mapc_supervised_consumption_legal","mapc_overdose_emergency_law","mapc_involuntary_care","mapc_supportive_recovery_rules"]},
+    {"topic":"indigenous_led_and_rural_access","chain_ids":["mapc_indigenous_treatment_services","mapc_oat_access","mapc_system_of_care","mapc_treatment_capacity"]}
+  ],
+  "repeated_recommendations": [
+    {"signal_id":"marr_regulate_recovery_2018_2022","originating_commitment_id":"madc_coroner_2018_regulate_recovery","original_date":"2018-04-05","later_date":"2022-03-09","organizations":["BC Coroners Service","Government of British Columbia"],"source_ids":["bc_coroner_2018","bc_coroner_2022"],"implementation_between":"The Assisted Living Regulation took effect in 2019; supportive-recovery standards followed in 2021.","material_change":"The later panel repeated the need for regulation, oversight, evidence-based quality, monitoring, and evaluation.","review_signal":"substantially similar recommendation repeated after partial rule implementation","confidence":"high","owner_review_flag":true,"owner_review_reason":"The regulation and standards demonstrate action but do not by themselves prove complete oversight or outcome monitoring."},
+    {"signal_id":"marr_oat_access_2018_2022","originating_commitment_id":"madc_coroner_2018_expand_oat","original_date":"2018-04-05","later_date":"2022-03-09","organizations":["BC Coroners Service","Government of British Columbia","Regional health authorities"],"source_ids":["bc_coroner_2018","bc_coroner_2022","bc_oat_line"],"implementation_between":"OAT expansion actions were documented, but the 2022 panel said the earlier access recommendation remained relevant and required.","material_change":"The later panel placed OAT within a broader evidence-based continuum of care.","review_signal":"continued access concern documented alongside implementation activity","confidence":"high","owner_review_flag":false,"owner_review_reason":null},
+    {"signal_id":"marr_drug_checking_2018_2022","originating_commitment_id":"madc_coroner_2018_drug_checking","original_date":"2018-04-05","later_date":"2022-03-09","organizations":["BC Coroners Service","Government of British Columbia","Regional health authorities"],"source_ids":["bc_coroner_2018","bc_coroner_2022","bc_pathway_progress"],"implementation_between":"Distributed drug-checking implementation was reported in 2021.","material_change":"The later report retained drug checking as part of the still-relevant earlier recommendations.","review_signal":"recommendation repeated despite documented rollout","confidence":"high","owner_review_flag":true,"owner_review_reason":"Repetition may reflect desired scale or access rather than absence of implementation."},
+    {"signal_id":"marr_safer_supply_2022_2023","originating_commitment_id":"madc_coroner_2022_safer_supply","original_date":"2022-03-09","later_date":"2023-11-01","organizations":["BC Coroners Service","Government of British Columbia","Government of Canada"],"source_ids":["bc_coroner_2022","bc_coroner_2023","bc_pathway_progress","bc_oag_2024"],"implementation_between":"A prescribed safer-supply program and measured enrolment were documented.","material_change":"The 2023 panel focused on non-prescribed alternatives, which is materially broader than the earlier prescribed model.","review_signal":"later report revisited the same toxic-supply concern with a changed implementation path","confidence":"high","owner_review_flag":true,"owner_review_reason":"The recommendations are related but should not be treated as identical."},
+    {"signal_id":"marr_continuum_2022_2023","originating_commitment_id":"madc_coroner_2022_continuum","original_date":"2022-03-09","later_date":"2023-11-01","organizations":["BC Coroners Service","Ministry of Health","Regional health authorities"],"source_ids":["bc_coroner_2022","bc_coroner_2023","bc_system_framework"],"implementation_between":"The Adult Substance Use System of Care Framework was published in December 2022.","material_change":"The later urgent report focused on toxic-supply access while documenting continued mortality and referring back to the 2022 panel.","review_signal":"later report revisited the broader crisis; exact recommendation repetition is uncertain","confidence":"medium","owner_review_flag":true,"owner_review_reason":"This is a recurrence signal, not a literal repeat of the continuum recommendation."},
+    {"signal_id":"marr_decriminalization_2019_2021","originating_commitment_id":"madc_pho_2019_decriminalize","original_date":"2019-04-01","later_date":"2021-05-06","organizations":["Office of the Provincial Health Officer","Health Canada Expert Task Force","Governments of British Columbia and Canada"],"source_ids":["bc_pho_stopping_harm","can_task1","can_decrim_2022"],"implementation_between":"No exemption was yet in force; the federal exemption was approved in 2022 and took effect in 2023.","material_change":"The federal task force recommended ending criminal penalties nationally, while the earlier PHO report proposed B.C.-focused mechanisms.","review_signal":"substantially similar policy direction repeated by a different authoritative body","confidence":"high","owner_review_flag":false,"owner_review_reason":null},
+    {"signal_id":"marr_federal_standards_2021_2023","originating_commitment_id":"madc_federal_national_standards","original_date":"2021-06-06","later_date":"2023-10-30","organizations":["Health Canada Expert Task Force","Government of Canada","Provincial and territorial governments"],"source_ids":["can_task2","can_cdss","can_cdss_eval"],"implementation_between":"The federal government acknowledged the task-force work and later renewed its drug strategy; no single national service-standard instrument was located.","material_change":"The renewed strategy contains coordination and service-system activity but does not cleanly reproduce the proposed national standards.","review_signal":"later strategy revisited system coordination; implementation of the specific standards remains unclear","confidence":"medium","owner_review_flag":true,"owner_review_reason":"The original concept may not map to one later instrument."
+    }
+  ],
+  "temporal_intervals": [
+    {"interval_id":"mati_regulation_after_coroner","start_event":"2018 coroner recommendation","start_date":"2018-04-05","end_event":"Assisted Living Regulation issued","end_date":"2019-08-21","days":503,"interpretation":"rule change followed; causal attribution is not inferred"},
+    {"interval_id":"mati_standards_after_coroner","start_event":"2018 coroner recommendation","start_date":"2018-04-05","end_event":"supportive-recovery standards effective","end_date":"2021-09-01","days":1245,"interpretation":"operating standards followed after more than three years"},
+    {"interval_id":"mati_coroner_repeat_2018_2022","start_event":"2018 panel","start_date":"2018-04-05","end_event":"2022 panel","end_date":"2022-03-09","days":1434,"interpretation":"later panel explicitly said earlier recommendations remained relevant and required"},
+    {"interval_id":"mati_coroner_repeat_2022_2023","start_event":"2022 panel","start_date":"2022-03-09","end_event":"2023 urgent panel","end_date":"2023-11-01","days":602,"interpretation":"later panel revisited the earlier safer-supply recommendation"},
+    {"interval_id":"mati_pss_to_audit","start_event":"prescribed safer-supply policy direction","start_date":"2021-07-15","end_event":"Auditor General report","end_date":"2024-03-19","days":978,"interpretation":"later audit documented implementation gaps"},
+    {"interval_id":"mati_road_commitment_to_fraser","start_event":"provincewide Road to Recovery expansion commitment","start_date":"2024-07-22","end_event":"Fraser expansion reported operational","end_date":"2026-02-03","days":561,"interpretation":"regional service evidence followed; causation is not inferred"},
+    {"interval_id":"mati_decrim_first_amendment","start_event":"decriminalization exemption effective","start_date":"2023-01-31","end_event":"first amendment","end_date":"2023-09-18","days":230,"interpretation":"first formal amendment interval"},
+    {"interval_id":"mati_decrim_second_amendment","start_event":"first amendment","start_date":"2023-09-18","end_event":"second amendment","end_date":"2024-05-07","days":232,"interpretation":"second formal amendment interval"},
+    {"interval_id":"mati_pho_to_exemption","start_event":"PHO decriminalization recommendation","start_date":"2019-04-01","end_event":"federal exemption effective","end_date":"2023-01-31","days":1401,"interpretation":"recommendation-to-implementation interval; intervening federal and provincial decisions matter"}
+  ],
+  "recurring_organizations": [
+    {"organization":"Government of British Columbia / health ministries","chain_count":15,"instrument_count":38,"commitment_count":26,"recommendation_recipient_count":23,"service_relationship_count":12,"roles":["issuer","funder","recommendation recipient","responder","implementer"]},
+    {"organization":"Regional health authorities","chain_count":7,"instrument_count":1,"commitment_count":13,"recommendation_recipient_count":13,"service_relationship_count":6,"roles":["recommendation recipient","service operator","implementation reporter"]},
+    {"organization":"Health Canada / Government of Canada","chain_count":5,"instrument_count":15,"commitment_count":6,"recommendation_recipient_count":6,"service_relationship_count":0,"roles":["legislator","exemption authority","funder","strategy issuer","evaluator"]},
+    {"organization":"BC Coroners Service","chain_count":5,"instrument_count":5,"commitment_count":7,"recommendation_recipient_count":0,"service_relationship_count":0,"roles":["systemic reviewer","recommendation issuer","outcome reporter"]},
+    {"organization":"Office of the Provincial Health Officer","chain_count":5,"instrument_count":9,"commitment_count":2,"recommendation_recipient_count":0,"service_relationship_count":0,"roles":["emergency authority","public-health recommender","reviewer","progress reporter"]},
+    {"organization":"Fraser Health","chain_count":3,"instrument_count":5,"commitment_count":0,"recommendation_recipient_count":0,"service_relationship_count":5,"roles":["service operator","regional implementer","operational evidence publisher"]},
+    {"organization":"Vancouver Coastal Health","chain_count":2,"instrument_count":2,"commitment_count":1,"recommendation_recipient_count":1,"service_relationship_count":2,"roles":["service operator","regional implementer","operational directory"]},
+    {"organization":"British Columbia Centre on Substance Use","chain_count":2,"instrument_count":1,"commitment_count":1,"recommendation_recipient_count":1,"service_relationship_count":0,"roles":["clinical guideline issuer","training partner"]},
+    {"organization":"Office of the Auditor General of British Columbia","chain_count":2,"instrument_count":2,"commitment_count":2,"recommendation_recipient_count":0,"service_relationship_count":0,"roles":["independent public auditor","implementation assessor"]}
+  ],
+  "operations": {
+    "input_chain_rows": 21,
+    "input_instrument_rows": 73,
+    "input_commitment_rows": 30,
+    "input_policy_service_rows": 15,
+    "input_source_catalog_rows": 68,
+    "input_curated_resource_rows": 333,
+    "structured_inspection_units": 540,
+    "web_search_calls": 9,
+    "search_queries": 28,
+    "direct_url_opens": 5,
+    "tavily_calls": 0,
+    "local_model_calls": 0,
+    "additional_cloud_model_api_calls": 0,
+    "measurable_external_cost_usd": 0
+  }
+}

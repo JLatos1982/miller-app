@@ -1,0 +1,11 @@
+import { mkdirSync, writeFileSync } from "node:fs"
+
+// Publicly indexed social material is retained as a private lead only.  It is
+// not source evidence for an incident unless later independently verified.
+const leads = [
+  { platform: "reddit", source_url: "https://www.reddit.com/r/saskatchewan/comments/17qk10u", public_account_name: "r/saskatchewan", province: "saskatchewan", municipality: "Regina", facility: "Regina hospital", public_excerpt: "A public Reddit discussion shares a report that Saskatchewan's health minister said alleged racism at a Regina hospital was under third-party review. The indexed material does not identify a patient or establish whether this is already represented in the private incident database.", lead_status: "high_value_social_lead", verification_state: "targeted_verification_needed", provenance: { discovery_method: "public_indexed_reddit_search", discovery_window: "2023" } },
+  { platform: "reddit", source_url: "https://www.reddit.com/r/alberta/comments/yu67k0", public_account_name: "r/alberta", province: "alberta", municipality: "Edmonton", facility: "Misericordia Hospital", public_excerpt: "A public Reddit discussion links to reporting about the existing Pearl Gambler Misericordia Hospital case. It is retained only as a non-independent social reference and does not change the incident's evidence status.", lead_status: "existing_incident_support", potential_incident_id: "7e6cadd2-7ba7-4fd3-b219-ee35623435bf", verification_state: "matched_existing_incident", provenance: { discovery_method: "public_indexed_reddit_search", non_independent_repost: true } },
+]
+mkdirSync("artifacts/miller-north", { recursive: true })
+writeFileSync("artifacts/miller-north/miller-north-social-leads-v1.json", `${JSON.stringify({ schema_version: "miller-north-social-leads-v1", generated_at: new Date().toISOString(), leads }, null, 2)}\n`)
+console.log(JSON.stringify({ staged_social_leads: leads.length }, null, 2))

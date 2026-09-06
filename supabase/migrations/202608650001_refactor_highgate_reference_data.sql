@@ -46,7 +46,20 @@ insert into public.highgate_authoritative_location_reference(
   resource_id, legacy_original_address, corrected_address, locality, province,
   authoritative_sources, correction_fingerprint_key, correction_policy, reason_code,
   qc_supersession_enabled
-) values
+)
+select
+  reference_data.resource_id::uuid,
+  reference_data.legacy_original_address,
+  reference_data.corrected_address,
+  reference_data.locality,
+  reference_data.province,
+  reference_data.authoritative_sources,
+  reference_data.correction_fingerprint_key,
+  reference_data.correction_policy,
+  reference_data.reason_code,
+  reference_data.qc_supersession_enabled
+from (
+  values
 (
   '23b498ab-7fed-5fbc-9f21-c9bea51cdf46', '#320-7155 Kingsway',
   'Unit 320, 7155 Kingsway, Burnaby, BC', 'Burnaby', 'BC',
@@ -60,7 +73,13 @@ insert into public.highgate_authoritative_location_reference(
   '["https://www.fraserhealth.ca/Service-Directory/Locations/Burnaby/highgate-village","https://www.fraserhealth.ca/Service-Directory/Service-at-Location/D/7/opioid-treatment---burnaby"]'::jsonb,
   'unit320-7155-kingsway-burnaby', 'authoritative_location_correction_v1',
   'legacy_hash_prefixed_unit_misclassified_nonphysical', false
-);
+)
+) as reference_data(
+  resource_id, legacy_original_address, corrected_address, locality, province,
+  authoritative_sources, correction_fingerprint_key, correction_policy, reason_code,
+  qc_supersession_enabled
+)
+join public.resource_registry resource on resource.id = reference_data.resource_id::uuid;
 
 alter table public.authoritative_location_corrections
   drop constraint authoritative_location_corrections_corrected_address_check;

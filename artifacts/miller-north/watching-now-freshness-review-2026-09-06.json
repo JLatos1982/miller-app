@@ -1,0 +1,18 @@
+{
+  "schema_version": "miller-north-watching-now-freshness-review-v1",
+  "private": true,
+  "review_date": "2026-09-06",
+  "records_reviewed_for_schedule": 8,
+  "records_due": 0,
+  "public_records_changed": 0,
+  "targeted_check": {
+    "story": "Patient Care Quality Review",
+    "reason": "Explicit priority check",
+    "result": "unchanged",
+    "public_source_state": "The official engagement page still says the surveys closed July 24, 2026 and an engagement summary is expected in Spring 2027. No recommendation, interim finding, policy proposal or legislative proposal was located on the current page.",
+    "decision": "Remain in Watching Now; do not promote and do not reset the scheduled next-check date solely because of this early check.",
+    "source": "https://engage.gov.bc.ca/patientcarequality"
+  },
+  "next_due_story": "Patient Care Quality Review",
+  "next_check_due": "2026-10-01"
+}

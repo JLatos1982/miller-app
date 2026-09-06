@@ -21,7 +21,7 @@ const ORDINAL_WORDS = Object.freeze(new Map([
 const ORDINAL_TENS = Object.freeze(new Map([["twenty", 20], ["thirty", 30], ["forty", 40], ["fifty", 50], ["sixty", 60], ["seventy", 70], ["eighty", 80], ["ninety", 90]]))
 const ORDINAL_ONES = Object.freeze(new Map([["first", 1], ["second", 2], ["third", 3], ["fourth", 4], ["fifth", 5], ["sixth", 6], ["seventh", 7], ["eighth", 8], ["ninth", 9]]))
 const STREET_SUFFIXES = Object.freeze(new Map([
-  ["street", "st"], ["st", "st"], ["avenue", "ave"], ["ave", "ave"], ["road", "rd"], ["rd", "rd"], ["boulevard", "blvd"], ["blvd", "blvd"], ["highway", "hwy"], ["hwy", "hwy"], ["drive", "dr"], ["dr", "dr"], ["lane", "ln"], ["ln", "ln"], ["court", "ct"], ["ct", "ct"], ["crescent", "cres"], ["cres", "cres"], ["place", "pl"], ["pl", "pl"], ["way", "way"], ["terrace", "ter"], ["ter", "ter"],
+  ["street", "st"], ["st", "st"], ["avenue", "ave"], ["ave", "ave"], ["road", "rd"], ["rd", "rd"], ["boulevard", "blvd"], ["blvd", "blvd"], ["highway", "hwy"], ["hwy", "hwy"], ["parkway", "pky"], ["pkwy", "pky"], ["pky", "pky"], ["drive", "dr"], ["dr", "dr"], ["lane", "ln"], ["ln", "ln"], ["court", "ct"], ["ct", "ct"], ["crescent", "cres"], ["cres", "cres"], ["place", "pl"], ["pl", "pl"], ["way", "way"], ["terrace", "ter"], ["ter", "ter"],
 ]))
 const DIRECTIONS = Object.freeze(new Map([["north", "n"], ["n", "n"], ["south", "s"], ["s", "s"], ["east", "e"], ["e", "e"], ["west", "w"], ["w", "w"], ["northeast", "ne"], ["ne", "ne"], ["northwest", "nw"], ["nw", "nw"], ["southeast", "se"], ["se", "se"], ["southwest", "sw"], ["sw", "sw"]]))
 
@@ -46,6 +46,7 @@ function canonicalStreet(value, structured = {}) {
   const streetSource = hasStructuredStreet ? [structured.street_name, structured.street_type, structured.street_direction].filter(Boolean).join(" ") : addressComponents(value).street_address.replace(/^\s*\d+[A-Za-z]?\b\s*/, "")
   const tokens = comparisonTokens(streetSource)
   let direction = "", suffix = ""
+  if (DIRECTIONS.has(tokens[0]) && tokens.length > 1) direction = DIRECTIONS.get(tokens.shift())
   if (DIRECTIONS.has(tokens.at(-1))) direction = DIRECTIONS.get(tokens.pop())
   if (STREET_SUFFIXES.has(tokens.at(-1))) suffix = STREET_SUFFIXES.get(tokens.pop())
   return { name: canonicalOrdinalTokens(tokens).join(" "), suffix, direction }
@@ -141,14 +142,44 @@ export function bcResultMeetsExactPinStandard(result = {}) {
   return result.score >= BC_GEOCODER_MIN_SCORE && result.precision_points >= BC_GEOCODER_MIN_PRECISION_POINTS && result.exact_precision === true && result.exact_descriptor === true && result.civic_number_match === true && result.street_match === true && result.municipality_match === true && result.province_match === true && result.valid_coordinate === true && result.materially_faulted === false && result.result_count === 1 && result.storage_licensed === true && result.display_licensed === true
 }
 
+function sameCivicIdentity(left = {}, right = {}) {
+  const a = left.standardized_components || {}, b = right.standardized_components || {}
+  return a.civic_number === b.civic_number && a.street_name === b.street_name && a.street_type === b.street_type && a.street_direction === b.street_direction
+}
+
+function materiallyCompetingCivicCandidate(best, alternatives = []) {
+  return alternatives.some((candidate) => {
+    const comparable = candidate.valid_coordinate && candidate.province_match && candidate.municipality_match && Number(candidate.score) >= Number(best.score) - 2
+    if (!comparable) return false
+    if (!sameCivicIdentity(best, candidate)) return true
+    return Math.abs(candidate.latitude - best.latitude) > 0.0002 || Math.abs(candidate.longitude - best.longitude) > 0.0002
+  })
+}
+
+// Practical public-location publication permits the BC Geocoder's strong
+// access-point outcome even when it is reported as BLOCK precision or includes
+// low-scoring fallback candidates. A same- or higher-quality competing civic
+// candidate still fails closed.
+export function bcResultMeetsPracticalPublicLocationStandard(result = {}, alternatives = []) {
+  const acceptedTier = (result.score === 100 && result.location_descriptor === "parcelpoint") || (result.score === 99 && result.location_descriptor === "accesspoint")
+  if (!acceptedTier || result.precision_points < BC_GEOCODER_MIN_PRECISION_POINTS) return false
+  if (!result.civic_number_match || !result.street_match || !result.municipality_match || !result.province_match || !result.valid_coordinate || result.materially_faulted) return false
+  if (!result.storage_licensed || !result.display_licensed || !Number.isInteger(result.result_count) || result.result_count < 1 || result.result_count > 5) return false
+  return !materiallyCompetingCivicCandidate(result, alternatives)
+}
+
 export function classifyBcAddressResults(features = [], submitted = {}) {
   const normalized = features.map((feature) => normalizeBcAddressResult(feature, { ...submitted, result_count: features.length }))
   if (!normalized.length) return Object.freeze({ classification: "no_match", best: null, alternatives: [] })
   const best = normalized[0], viable = normalized.filter((item) => item.valid_coordinate && item.province_match && item.municipality_match)
-  if (viable.length > 1 && Number(viable[1].score) >= Number(best.score) - 2 && viable[1].precision === best.precision && viable[1].site_id !== best.site_id) return Object.freeze({ classification: "ambiguous", best, alternatives: normalized.slice(1) })
-  if (bcResultMeetsExactPinStandard({ ...best, result_count: 1 })) return Object.freeze({ classification: "exact_civic", best, alternatives: normalized.slice(1) })
-  if (best.score >= 90 && best.precision_points >= 95 && best.civic_number_match && best.municipality_match) return Object.freeze({ classification: "high_confidence_close", best, alternatives: normalized.slice(1) })
-  if (/interpolat/i.test(best.interpolation) || ["block", "street"].includes(best.precision)) return Object.freeze({ classification: "approximate", best, alternatives: normalized.slice(1) })
-  if (["locality", "province"].includes(best.precision)) return Object.freeze({ classification: "locality_only", best, alternatives: normalized.slice(1) })
-  return Object.freeze({ classification: "low_confidence", best, alternatives: normalized.slice(1) })
+  const alternatives = normalized.slice(1)
+  const materiallyCompeting = materiallyCompetingCivicCandidate(best, alternatives)
+  if (viable.length > 1 && Number(viable[1].score) >= Number(best.score) - 2 && viable[1].precision === best.precision && viable[1].site_id !== best.site_id) return Object.freeze({ classification: "ambiguous", best, alternatives, candidate_identity_clear: false, materially_competing_candidate: true })
+  if (bcResultMeetsExactPinStandard(best)) return Object.freeze({ classification: "exact_civic", best, alternatives, candidate_identity_clear: true, materially_competing_candidate: false })
+  if (bcResultMeetsPracticalPublicLocationStandard(best, alternatives)) return Object.freeze({ classification: "practical_high_confidence", best, alternatives, candidate_identity_clear: true, materially_competing_candidate: false })
+  if (materiallyCompeting) return Object.freeze({ classification: "ambiguous", best, alternatives, candidate_identity_clear: false, materially_competing_candidate: true })
+  if (best.score >= 90 && best.precision_points >= 95 && best.civic_number_match && best.municipality_match) return Object.freeze({ classification: "high_confidence_close", best, alternatives, candidate_identity_clear: false, materially_competing_candidate: false })
+  if (/interpolat/i.test(best.interpolation) || ["block", "street"].includes(best.precision)) return Object.freeze({ classification: "approximate", best, alternatives, candidate_identity_clear: false, materially_competing_candidate: false })
+  if (["locality", "province"].includes(best.precision)) return Object.freeze({ classification: "locality_only", best, alternatives, candidate_identity_clear: false, materially_competing_candidate: false })
+  return Object.freeze({ classification: "low_confidence", best, alternatives, candidate_identity_clear: false, materially_competing_candidate: false })
 }

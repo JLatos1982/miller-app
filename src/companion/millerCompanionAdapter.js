@@ -14,11 +14,51 @@ export const MILLER_CHARACTER_INTERACTION = Object.freeze({
     supportsNotice: true,
     supportsPetting: true,
     anchors: Object.freeze({ ground: Object.freeze({ x: .5, y: .97 }), petHand: Object.freeze({ x: .17, y: .71 }) }),
+    petPose: Object.freeze({ width: 320, height: 604, translateX: -106 }),
+    poseOffsets: Object.freeze({ leanReach: -106, petDog: -106, rise: -106 }),
   }),
-  // Jade, Violet, Rose, and North intentionally retain the static tableau
-  // until they have their own reviewed interaction art.
+  north: Object.freeze({
+    supportsNotice: true,
+    supportsPetting: true,
+    anchors: Object.freeze({ ground: Object.freeze({ x: .5, y: .97 }), petHand: Object.freeze({ x: .15, y: .70 }) }),
+    petPose: Object.freeze({ width: 300, height: 450, translateX: -80 }),
+    // These offsets align North's independently framed reach hand to the
+    // existing sheepdog head anchor without moving either actor's ground.
+    poseOffsets: Object.freeze({ leanReach: -60, petDog: -80, rise: -60 }),
+  }),
+  violet: Object.freeze({
+    supportsNotice: true,
+    supportsPetting: true,
+    anchors: Object.freeze({ ground: Object.freeze({ x: .5, y: .97 }), petHand: Object.freeze({ x: .20, y: .70 }) }),
+    petPose: Object.freeze({ width: 640, height: 960, translateX: -95 }),
+    // Violet's trunk and forelimb meet the same independent dog head anchor.
+    poseOffsets: Object.freeze({ leanReach: -95, petDog: -95, rise: -95 }),
+  }),
+  rose: Object.freeze({
+    supportsNotice: true,
+    supportsPetting: true,
+    anchors: Object.freeze({ ground: Object.freeze({ x: .5, y: .97 }), petHand: Object.freeze({ x: .08, y: .70 }) }),
+    petPose: Object.freeze({ width: 640, height: 960, translateX: -59 }),
+    poseOffsets: Object.freeze({ leanReach: -59, petDog: -59, rise: -59 }),
+  }),
+  jade: Object.freeze({
+    supportsNotice: true,
+    supportsPetting: true,
+    anchors: Object.freeze({ ground: Object.freeze({ x: .5, y: .97 }), petHand: Object.freeze({ x: .08, y: .70 }) }),
+    petPose: Object.freeze({ width: 640, height: 960, translateX: -59 }),
+    poseOffsets: Object.freeze({ leanReach: -59, petDog: -59, rise: -59 }),
+  }),
   fallback: 'static-companion-tableau',
 })
+
+export function millerCharacterInteraction(themeName) {
+  return MILLER_CHARACTER_INTERACTION[String(themeName || '').toLowerCase()] || null
+}
+
+export function supportsMillerDogGreeting(themeName) {
+  const interaction = millerCharacterInteraction(themeName)
+  return Boolean(interaction?.supportsNotice && interaction?.supportsPetting)
+}
 
 export function staticCompanionPresentation({ reducedMotion = false, animationEnabled = true } = {}) {
   // Stable fallback used whenever decorative movement is unavailable. It does

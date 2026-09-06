@@ -1,0 +1,19 @@
+{
+  "schema_version": "miller-north-research-policy-public-projection-validation-v1",
+  "validation": {
+    "cases": 3,
+    "recommendations": 24,
+    "displayed_claims": 65,
+    "evidence_bearing_claims": 65,
+    "sources": 42,
+    "discovery_findings": 9
+  },
+  "safeguards": {
+    "raw_owner_review_fields_excluded": true,
+    "internal_identifiers_excluded": true,
+    "anonymized_people_not_identified": true,
+    "sources_required_for_material_claims": true,
+    "no_database_mutation": true,
+    "no_migration": true
+  }
+}

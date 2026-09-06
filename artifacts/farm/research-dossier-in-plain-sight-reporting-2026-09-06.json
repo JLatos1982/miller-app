@@ -1,0 +1,375 @@
+{
+  "schema_version": "farm-research-dossier-v1",
+  "dossier_id": "farm_dossier_miller_north_in_plain_sight_reporting_v1",
+  "canonical_fixture_id": "farm_fixture_north_ips_reporting_limit_v1",
+  "research_date": "2026-09-06",
+  "publication_scope": "private_owner_review",
+  "production_mutations": 0,
+  "publication_mutations": 0,
+  "owner_synthesis": {
+    "what_this_is": "In Plain Sight documented Indigenous-specific racism in British Columbia health care and issued 24 recommendations. This dossier assembles the formal response, recommendation-level implementation examples and the Province’s current limitation in reporting comprehensively across all 24 recommendations.",
+    "what_we_learned": [
+      "Declaration Act Action 3.07 is the Province’s current formal implementation vehicle for the recommendations.",
+      "Official sources document specific activity connected to recommendations 1, 2, 17, 22, 23 and 24, including governance, a complaint process, a standard, legislative reform and education tools.",
+      "The current Action 3.07 page says the reporting framework does not yet capture comprehensive progress across all 24 recommendations.",
+      "Later federal reporting identifies a $171.8-million Indigenous Health and Cultural Safety Fund connected to recommendation 17, but the amount is program-level and not attributable to the full recommendation set.",
+      "The reporting limitation is a source-backed accountability finding; it is not evidence that all unreported recommendations were unimplemented."
+    ],
+    "why_it_matters": "The case tests whether Farm can represent documented progress and a material reporting gap at the same time without converting incomplete public reporting into a claim of institutional failure.",
+    "what_remains_unclear": [
+      "Is there a current comprehensive official status report covering all 24 recommendations?",
+      "What is the latest recommendation-level status for the 18 recommendations not disaggregated in the assembled current reporting?",
+      "Which reported activities have independent operational or outcome evidence beyond government progress descriptions?"
+    ],
+    "recommended_next_move": "Seek or request a current 24-recommendation status ledger with status date, responsible organization and evidence source for each recommendation."
+  },
+  "identity": {
+    "canonical_name": "In Plain Sight — implementation and public-reporting accountability",
+    "domain": "miller_north_indigenous_healthcare",
+    "subject_type": "systemic_review_and_implementation_chain",
+    "location_jurisdiction": "British Columbia",
+    "status": "implementation_activity_documented_reporting_completeness_unclear",
+    "identifiers": ["bc_in_plain_sight", "mnlc_in_plain_sight", "bc_drap_action_3_07"]
+  },
+  "timeline": [
+    {
+      "timeline_id": "fdtimeline_ips_report_2020",
+      "date_or_range": "2020-11-30",
+      "event_type": "final_report",
+      "title": "In Plain Sight final report and recommendations",
+      "short_description": "The independent review documented findings and issued 24 recommendations concerning Indigenous-specific racism in B.C. health care.",
+      "organization": "In Plain Sight independent review",
+      "relationship": "documents",
+      "source_references": ["fdsource_ips_fnha_one_year"],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "fdtimeline_ips_fnha_one_year_2021",
+      "date_or_range": "2021-11-30",
+      "event_type": "indigenous_led_follow_up",
+      "title": "FNHA publishes one-year update",
+      "short_description": "FNHA reported anti-racism, cultural-safety and humility work one year after In Plain Sight.",
+      "organization": "First Nations Health Authority",
+      "relationship": "reports_on",
+      "source_references": ["fdsource_ips_fnha_one_year"],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "fdtimeline_ips_twenty_four_month_2023",
+      "date_or_range": "2023-11-30",
+      "event_type": "government_progress_update",
+      "title": "Province issues 24-month update",
+      "short_description": "The official update described implementation activity connected to the recommendations.",
+      "organization": "Government of British Columbia",
+      "relationship": "evaluated_by",
+      "source_references": ["fdsource_ips_24_month_update"],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "fdtimeline_ips_estimates_examples_2024",
+      "date_or_range": "2024",
+      "event_type": "recommendation_level_status_examples",
+      "title": "Estimates notes document specific implementation examples",
+      "short_description": "The official notes describe recommendation-level activity including governance, complaint, professional-standard, legislative and training work.",
+      "organization": "British Columbia Ministry of Health",
+      "relationship": "reports_on",
+      "source_references": ["fdsource_ips_estimates_notes"],
+      "confidence": "high"
+    },
+    {
+      "timeline_id": "fdtimeline_ips_current_action_reporting",
+      "date_or_range": "current as inspected 2026-09-06",
+      "event_type": "current_action_status",
+      "title": "Action 3.07 reports progress and a coverage limitation",
+      "short_description": "The current action page identifies implementation activity while stating that the framework does not comprehensively report all 24 recommendations.",
+      "organization": "Government of British Columbia",
+      "relationship": "limits_reporting_for",
+      "source_references": ["fdsource_ips_action_307"],
+      "confidence": "high"
+    }
+  ],
+  "organizations": [
+    {"name": "Government of British Columbia", "role": "formal response and Action 3.07 reporting"},
+    {"name": "British Columbia Ministry of Health", "role": "lead ministry and implementation reporting"},
+    {"name": "First Nations Health Authority", "role": "Indigenous health partner and follow-up source"},
+    {"name": "First Nations Health Council", "role": "governance partner identified in the response"},
+    {"name": "Métis Nation British Columbia", "role": "partner identified in the formal response"},
+    {"name": "Health regulators and health authorities", "role": "implementation organizations for specified recommendations"}
+  ],
+  "policy_law_governance": [
+    {
+      "title": "Declaration Act Action 3.07",
+      "context_scope": "directly_applicable",
+      "summary": "The action is the current formal provincial implementation-and-reporting vehicle for In Plain Sight.",
+      "source_references": ["fdsource_ips_action_307"]
+    },
+    {
+      "title": "Health Professions and Occupations Act reform",
+      "context_scope": "response_context",
+      "summary": "Official updates connect legislative reform to recommendation 23; this dossier records the relationship without making a legal-effectiveness conclusion.",
+      "source_references": ["fdsource_ips_action_307", "fdsource_ips_estimates_notes"]
+    },
+    {
+      "title": "B.C. Cultural Safety and Humility Standard",
+      "context_scope": "response_context",
+      "summary": "Official reporting identifies the standard as activity connected to recommendation 22.",
+      "source_references": ["fdsource_ips_estimates_notes"]
+    }
+  ],
+  "accountability": [
+    {
+      "title": "In Plain Sight findings and 24 recommendations",
+      "summary": "The originating review documented systemic concerns and defined the recommendation set tracked by the later response.",
+      "source_references": ["fdsource_ips_fnha_one_year", "fdsource_ips_24_month_update"]
+    },
+    {
+      "title": "Current public-reporting limitation",
+      "summary": "The current provincial action page says comprehensive recommendation-level reporting remains limited.",
+      "source_references": ["fdsource_ips_action_307"]
+    }
+  ],
+  "funding_public_money": [
+    {
+      "title": "$171.8-million Indigenous Health and Cultural Safety Fund",
+      "amount_cad": 171800000,
+      "funding_type": "program_fund",
+      "attribution_scope": "program_level",
+      "recipient": "multiple B.C. Indigenous health and cultural-safety initiatives",
+      "summary": "Federal annual reporting connects the fund to recommendation 17; the amount cannot be allocated across all 24 recommendations or to a single activity from this source.",
+      "source_references": ["fdsource_ips_canada_health_act"]
+    }
+  ],
+  "service_real_world_implementation": [
+    {
+      "title": "Indigenous complaints process and governance mechanisms",
+      "summary": "Official reporting describes specific mechanisms connected to recommendations 1 and 2; this dossier treats those as implementation examples, not a complete status ledger.",
+      "source_references": ["fdsource_ips_estimates_notes", "fdsource_ips_action_307"]
+    },
+    {
+      "title": "Professional standard, legislative reform and learning tools",
+      "summary": "Official sources describe concrete outputs connected to recommendations 22, 23 and 24.",
+      "source_references": ["fdsource_ips_estimates_notes", "fdsource_ips_action_307"]
+    }
+  ],
+  "implementation_evidence": [
+    {
+      "state": "partially_implemented",
+      "date": "2024",
+      "summary": "Specific recommendation-level activities are documented for recommendations 1, 2, 17, 22, 23 and 24.",
+      "source_references": ["fdsource_ips_estimates_notes", "fdsource_ips_canada_health_act"]
+    },
+    {
+      "state": "reporting_unclear",
+      "date": "2026-09-06",
+      "summary": "No current comprehensive official 24-row status ledger was located, and the Action 3.07 page describes limits in the reporting framework.",
+      "source_references": ["fdsource_ips_action_307"]
+    }
+  ],
+  "audits_follow_up": [
+    {
+      "title": "FNHA one-year update",
+      "summary": "An Indigenous health organization’s follow-up documents early anti-racism and cultural-safety activity.",
+      "source_references": ["fdsource_ips_fnha_one_year"]
+    },
+    {
+      "title": "Provincial 24-month and current Action 3.07 reporting",
+      "summary": "The two government reporting stages show progress descriptions over time and expose the current comprehensiveness limitation.",
+      "source_references": ["fdsource_ips_24_month_update", "fdsource_ips_action_307"]
+    }
+  ],
+  "unresolved_questions": [
+    {
+      "gap_id": "fdgap_ips_current_24_row_status",
+      "question": "Is there a current comprehensive official status ledger covering all 24 recommendations?",
+      "gap_type": "FOI_candidate",
+      "priority": "review_first",
+      "rationale": "The current official page itself identifies a limitation in comprehensive recommendation-level reporting."
+    },
+    {
+      "gap_id": "fdgap_ips_eighteen_statuses",
+      "question": "What is the current status and evidence date for each of the 18 recommendations not disaggregated in the assembled current sources?",
+      "gap_type": "official_source_follow_up",
+      "priority": "review_first",
+      "rationale": "Silence cannot be converted into non-implementation, completion or failure."
+    },
+    {
+      "gap_id": "fdgap_ips_independent_outcome_evidence",
+      "question": "Which implementation claims have independent operational or outcome evaluation?",
+      "gap_type": "web_research",
+      "priority": "review_next",
+      "rationale": "Government activity reporting and outcome evidence are different evidence classes."
+    }
+  ],
+  "foi_candidates": [
+    {
+      "candidate_id": "fdfoi_ips_recommendation_ledger",
+      "status": "draft_not_sent",
+      "organization": "British Columbia Ministry of Health",
+      "exact_missing_information": "The latest recommendation-by-recommendation status table for all 24 In Plain Sight recommendations, including responsible organization, status date and cited implementation evidence.",
+      "bounded_date_range": "2023-12-01 to 2026-09-06",
+      "why_it_matters": "It would close a clearly documented public-reporting gap without seeking any patient, complainant or personnel information.",
+      "public_sources_checked": ["fdsource_ips_action_307", "fdsource_ips_24_month_update", "fdsource_ips_estimates_notes", "fdsource_ips_canada_health_act", "fdsource_ips_fnha_one_year"],
+      "suggested_record_category": "current implementation tracker, status ledger, briefing table or recommendation-level progress matrix",
+      "exclusions": ["private_patient_information", "individual_complaint_records", "personnel_files"]
+    }
+  ],
+  "evidence_graph": {
+    "nodes_are_domain_references": true,
+    "edges": [
+      {
+        "edge_id": "fdedge_ips_report_documents_problem",
+        "from_object_id": "bc_indigenous_specific_healthcare_racism_findings",
+        "to_object_id": "bc_in_plain_sight",
+        "relationship_type": "documents",
+        "date": "2020-11-30",
+        "context_scope": "directly_applicable",
+        "neutral_summary": "The independent review documented systemic concerns and established the 24-recommendation accountability set.",
+        "confidence": "high",
+        "source_references": ["fdsource_ips_fnha_one_year", "fdsource_ips_24_month_update"]
+      },
+      {
+        "edge_id": "fdedge_ips_report_recommendations",
+        "from_object_id": "bc_in_plain_sight",
+        "to_object_id": "bc_ips_24_recommendations",
+        "relationship_type": "recommends",
+        "date": "2020-11-30",
+        "context_scope": "directly_applicable",
+        "neutral_summary": "The report issued 24 recommendations that later official sources track in whole or in part.",
+        "confidence": "high",
+        "source_references": ["fdsource_ips_fnha_one_year", "fdsource_ips_24_month_update"]
+      },
+      {
+        "edge_id": "fdedge_ips_action_formal_response",
+        "from_object_id": "bc_in_plain_sight",
+        "to_object_id": "bc_drap_action_3_07",
+        "relationship_type": "responds_to",
+        "date": "2026-09-06",
+        "context_scope": "response_context",
+        "neutral_summary": "Declaration Act Action 3.07 is the Province’s formal implementation vehicle for the recommendation set.",
+        "confidence": "high",
+        "source_references": ["fdsource_ips_action_307"]
+      },
+      {
+        "edge_id": "fdedge_ips_specific_activity_partial",
+        "from_object_id": "bc_drap_action_3_07",
+        "to_object_id": "bc_ips_recommendation_level_activities",
+        "relationship_type": "partially_implements",
+        "date": "2024",
+        "implementation_state": "partially_implemented",
+        "neutral_summary": "Official sources document specific activities for recommendations 1, 2, 17, 22, 23 and 24 without resolving the status of all recommendations.",
+        "confidence": "high",
+        "source_references": ["fdsource_ips_estimates_notes", "fdsource_ips_canada_health_act", "fdsource_ips_action_307"]
+      },
+      {
+        "edge_id": "fdedge_ips_fund_rec17_context",
+        "from_object_id": "bc_indigenous_health_cultural_safety_fund_171_8m",
+        "to_object_id": "bc_ips_recommendation_17",
+        "relationship_type": "funded_by",
+        "date": "2024-04-01 to 2025-03-31",
+        "funding_scope": "program_level",
+        "implementation_state": "funded",
+        "neutral_summary": "Federal annual reporting connects the $171.8-million fund to recommendation 17 at program level.",
+        "confidence": "high",
+        "source_references": ["fdsource_ips_canada_health_act"]
+      },
+      {
+        "edge_id": "fdedge_ips_reporting_limit",
+        "from_object_id": "bc_drap_action_3_07",
+        "to_object_id": "bc_ips_current_reporting_gap",
+        "relationship_type": "limits_reporting_for",
+        "date": "2026-09-06",
+        "implementation_state": "reporting_unclear",
+        "neutral_summary": "The current action page says its framework has limited capacity to report comprehensively across all 24 recommendations.",
+        "confidence": "high",
+        "source_references": ["fdsource_ips_action_307"]
+      },
+      {
+        "edge_id": "fdedge_ips_updates_follow_up",
+        "from_object_id": "bc_in_plain_sight",
+        "to_object_id": "bc_ips_follow_up_reporting_series",
+        "relationship_type": "evaluated_by",
+        "date": "2021-11-30 to 2026-09-06",
+        "context_scope": "response_context",
+        "neutral_summary": "FNHA and provincial updates create a follow-up series with differing scopes and levels of detail.",
+        "confidence": "high",
+        "source_references": ["fdsource_ips_fnha_one_year", "fdsource_ips_24_month_update", "fdsource_ips_action_307"]
+      }
+    ]
+  },
+  "owner_assessment": {
+    "significance": "review_first",
+    "confidence": "high",
+    "owner_review": true,
+    "owner_review_reason": "Specific implementation activity is well sourced, but comprehensive recommendation-level status and independent outcome evidence remain incomplete.",
+    "recommended_next_action": "Prioritize the recommendation-by-recommendation status ledger as the next bounded research or information-request task."
+  },
+  "quality_assessment": {
+    "band": "strong",
+    "score": 13,
+    "maximum_score": 16,
+    "dimensions": {
+      "identity_confidence": 2,
+      "primary_source_coverage": 2,
+      "timeline_completeness": 2,
+      "policy_legal_coverage": 2,
+      "funding_traceability": 1,
+      "implementation_evidence": 1,
+      "follow_up_evidence": 2,
+      "unresolved_question_burden": 1
+    },
+    "notice": "Research completeness only; this is not a moral, effectiveness, compliance, or reputational score."
+  },
+  "limitations": "This dossier relies on public institutional reporting and does not infer completion from activity, infer non-implementation from silence, provide legal advice or assess whether reforms caused particular outcomes. The $171.8-million amount is program-level context, not a recommendation-by-recommendation allocation.",
+  "source_set": [
+    {
+      "source_id": "fdsource_ips_action_307",
+      "source_family_id": "fogs_bc_declaration_act_reporting",
+      "url": "https://declaration.gov.bc.ca/actions/3-07/",
+      "title": "Declaration Act Action 3.07",
+      "source_organization": "Government of British Columbia",
+      "authority_class": "official_primary",
+      "role": "current implementation activity and reporting limitation",
+      "publication_date": null
+    },
+    {
+      "source_id": "fdsource_ips_24_month_update",
+      "source_family_id": "fogs_bc_news_archive",
+      "url": "https://news.gov.bc.ca/releases/2023HLTH0123-001561",
+      "title": "B.C. marks progress on addressing Indigenous-specific racism in health care",
+      "source_organization": "Government of British Columbia",
+      "authority_class": "official_primary",
+      "role": "24-month implementation progress",
+      "publication_date": "2023-11-30"
+    },
+    {
+      "source_id": "fdsource_ips_estimates_notes",
+      "source_family_id": "fogs_bc_open_information",
+      "url": "https://docs.openinfo.gov.bc.ca/Health_Estimates_Notes_2024.pdf",
+      "title": "Health Estimates Notes 2024",
+      "source_organization": "British Columbia Ministry of Health",
+      "authority_class": "official_primary",
+      "role": "recommendation-level status examples",
+      "publication_date": "2024"
+    },
+    {
+      "source_id": "fdsource_ips_canada_health_act",
+      "source_family_id": "fogs_health_canada",
+      "url": "https://www.canada.ca/en/health-canada/services/publications/health-system-services/canada-health-act-annual-report-2024-2025.html",
+      "title": "Canada Health Act Annual Report 2024–2025",
+      "source_organization": "Health Canada",
+      "authority_class": "official_primary",
+      "role": "program-level funding and recommendation 17 context",
+      "publication_date": "2025"
+    },
+    {
+      "source_id": "fdsource_ips_fnha_one_year",
+      "source_family_id": "fogs_fnha",
+      "url": "https://www.fnha.ca/about/news-and-events/news/first-nations-health-authority-provides-update-on-anti-racism-cultural-safety-and-humility-efforts-at-first-anniversary-of-in-plain-sight-report",
+      "title": "FNHA update at first anniversary of In Plain Sight",
+      "source_organization": "First Nations Health Authority",
+      "authority_class": "indigenous_government_or_organization",
+      "role": "Indigenous health organization follow-up",
+      "publication_date": "2021-11-30"
+    }
+  ]
+}
