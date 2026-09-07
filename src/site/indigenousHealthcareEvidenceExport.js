@@ -7,7 +7,7 @@ export const EVIDENCE_STATUS_LABELS = Object.freeze({
   procedural_adjudicative_context: "Procedural context",
 })
 
-export const PROVINCE_LABELS = Object.freeze({ british_columbia: "British Columbia", alberta: "Alberta", saskatchewan: "Saskatchewan" })
+export const PROVINCE_LABELS = Object.freeze({ british_columbia: "British Columbia", alberta: "Alberta", saskatchewan: "Saskatchewan", canada: "Canada-wide" })
 
 const readable = value => value || "Not specified"
 

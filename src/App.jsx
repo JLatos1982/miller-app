@@ -58,6 +58,8 @@ import MillerNorthEmergingCases from "./site/MillerNorthEmergingCases.jsx"
 import MillerNorthMethodology from "./site/MillerNorthMethodology.jsx"
 import MillerNorthResearchPolicy from "./site/MillerNorthResearchPolicy.jsx"
 import MillerNorthAccountabilitySnapshot from "./site/MillerNorthAccountabilitySnapshot.jsx"
+import MillerNorthAccountabilityWatch from "./site/MillerNorthAccountabilityWatch.jsx"
+import MillerNorthSeriousHarm from "./site/MillerNorthSeriousHarm.jsx"
 import MillerNorthFirstNationsSupports from "./site/MillerNorthFirstNationsSupports.jsx"
 import EmailResultsDialog from "./site/EmailResultsDialog.jsx"
 import MillerPracticalSupports from "./site/MillerPracticalSupports.jsx"
@@ -1583,6 +1585,14 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
 
   if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence/accountability-snapshot") {
     return <MillerNorthAccountabilitySnapshot />
+  }
+
+  if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence/accountability-watch") {
+    return <MillerNorthAccountabilityWatch />
+  }
+
+  if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence/serious-harm") {
+    return <MillerNorthSeriousHarm />
   }
 
   if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence/live-listening") {

@@ -29,6 +29,90 @@
         "The absence of one current public status ledger is itself an important reporting limitation, not proof of non-implementation."
       ],
       "one_thing_to_remember": "Public evidence documents substantial activity, but evidence of activity is not the same as evidence of system-wide outcomes.",
+      "review_date": "2026-09-07",
+      "dossier_sections": [
+        {
+          "eyebrow": "Accountability dossier",
+          "title": "What prompted the process—and what the review found",
+          "items": [
+            {
+              "title": "Prompt",
+              "text": "The Province commissioned an independent review after longstanding public concern about Indigenous-specific racism and discrimination in B.C. health care. The published review drew on the experiences of almost 9,000 Indigenous people and health-care workers; it is a systemic review, not a single-incident adjudication.",
+              "sources": [
+                { "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care", "organization": "In Plain Sight independent review / Government of British Columbia", "category": "original report", "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf", "publication_date": "2020-11-30" }
+              ]
+            },
+            {
+              "title": "Review and finding",
+              "text": "The independent review reported widespread Indigenous-specific racism and discrimination in B.C. health care and issued 24 recommendations. Miller North treats that report as the source of the formal systemic findings; later responses do not replace it.",
+              "sources": [
+                { "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care", "organization": "In Plain Sight independent review / Government of British Columbia", "category": "original report", "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf", "publication_date": "2020-11-30" }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Response and responsibility",
+          "title": "What followed—and who was expected to act",
+          "items": [
+            {
+              "title": "Recommendations and commitments",
+              "text": "The recommendations assigned work across the Province, health authorities, regulators, professional bodies, education institutions and Indigenous partners. Public apologies, task-team work, standards and agreements document commitments and some implementation activity; a commitment is not treated as completed implementation.",
+              "sources": [
+                { "title": "In Plain Sight Task Team 24-Month Report", "organization": "In Plain Sight Task Team / Government of British Columbia", "category": "implementation / follow-up", "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf", "publication_date": "2023-11-30" }
+              ]
+            },
+            {
+              "title": "Accountability for the next action",
+              "text": "Declaration Act Action 3.07 is the current public reporting home for the recommendation response, but responsibility remains distributed. The page identifies continuing government and partner work rather than a single body with a complete public close-out ledger.",
+              "sources": [
+                { "title": "Declaration Act Action 3.07", "organization": "Government of British Columbia", "category": "government", "url": "https://declaration.gov.bc.ca/actions/3-07/" }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Implementation evidence",
+          "title": "What public documents show happened afterward",
+          "items": [
+            {
+              "title": "Documented actions",
+              "text": "The 24-month report documents recommendation-level activity. Later public sources document, among other actions, health-sector disclosure protection, a First Nations-led cultural-safety standard, professional-regulation change and patient-feedback work. These materials support activity at different stages; they are not one common outcome measure.",
+              "sources": [
+                { "title": "In Plain Sight Task Team 24-Month Report", "organization": "In Plain Sight Task Team / Government of British Columbia", "category": "implementation / follow-up", "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf", "publication_date": "2023-11-30" },
+                { "title": "FNHA and HSO release B.C. Cultural Safety and Humility Standard", "organization": "First Nations Health Authority", "category": "Indigenous organization", "url": "https://www.fnha.ca/about/news-and-events/news/fnha-and-hso-release-bc-cultural-safety-and-humility-standard", "publication_date": "2022-11-29" }
+              ]
+            },
+            {
+              "title": "Independent perspective",
+              "text": "A First Nations Health Authority evaluation of the B.C. Tripartite Framework documented governance progress while identifying continuing sustainability, clarity and accountability work. It is relevant follow-up evidence, not an evaluation of completion of all 24 recommendations.",
+              "sources": [
+                { "title": "Evaluation of the B.C. Tripartite Framework Agreement on First Nations Health Governance, 2018–2024", "organization": "First Nations Health Authority", "category": "Indigenous organization", "url": "https://www.fnha.ca/Documents/Evaluation-of-the-BC-Tripartite-Framework-Agreement-on-First-Nations-Health-Governance-Final-Report-2018-2024.pdf", "publication_date": "2024" }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "What we still do not know",
+          "title": "The key public-reporting gap",
+          "items": [
+            {
+              "title": "Unresolved",
+              "text": "Current public reporting is stronger on activities than on consistent, provincewide outcomes. The absence of a current consolidated status for every recommendation does not show that an action or outcome did not occur.",
+              "sources": [
+                { "title": "Declaration Act Action 3.07", "organization": "Government of British Columbia", "category": "government", "url": "https://declaration.gov.bc.ca/actions/3-07/" }
+              ]
+            },
+            {
+              "title": "Most useful next document",
+              "text": "The most useful next public document would be a current recommendation-by-recommendation status ledger that identifies the responsible organization, evidence of implementation, scope, outcome measures and unresolved work for all 24 recommendations.",
+              "sources": [
+                { "title": "Declaration Act Action 3.07", "organization": "Government of British Columbia", "category": "government", "url": "https://declaration.gov.bc.ca/actions/3-07/" }
+              ]
+            }
+          ]
+        }
+      ],
       "metrics": [
         {
           "label": "Recommendations",

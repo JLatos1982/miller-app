@@ -63,83 +63,83 @@
     },
     {
       "public_record_id": "ihe_008afff9c6c2f7d60ae4",
-      "evidence_type": "official investigation",
-      "evidence_status": "official_investigation",
-      "province": "saskatchewan",
+      "evidence_type": "Commentary on the In Plain Sight review of B.C. health care",
+      "evidence_status": "systemic_evidence",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "Pamela Palmater",
+      "summary": "This commentary discusses the In Plain Sight review and its B.C.-wide findings and recommendations on Indigenous-specific racism in health care. It is commentary about a review, not an official investigation issued by this publisher.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
         "publisher": "pampalmater.com",
         "url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "commentary"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original In Plain Sight report is the source for the review's formal findings."
     },
     {
       "public_record_id": "ihe_00b2e6b09b04051ba899",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Fraser Health acknowledgement and commitment following In Plain Sight",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health” is included as systemic evidence concerning Indigenous health care. The source remains authoritative for its scope and findings.",
+      "care_setting": "Not applicable — institutional response",
+      "organization": "Fraser Health and Fraser Salish Regional Caucus",
+      "summary": "In December 2020, Fraser Health and the Fraser Salish Regional Caucus jointly accepted the In Plain Sight review's findings and committed to work with Indigenous partners on eliminating racism. This is an institutional response and commitment; it does not itself demonstrate that the commitments were completed.",
       "recommendation_action": null,
       "source": {
         "title": "Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health",
         "publisher": "www.fraserhealth.ca",
         "url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination",
         "publication_date": null,
-        "source_type": "health_authority"
+        "source_type": "institutional statement"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source responds to a B.C.-wide review and is not evidence of a Saskatchewan event."
     },
     {
       "public_record_id": "ihe_00feb84cbbb69760143f",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Qualitative research on anti-Indigenous racism in rural B.C. primary care",
       "evidence_status": "systemic_evidence",
       "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Original Article” is included as systemic evidence concerning Indigenous health care. The source remains authoritative for its scope and findings.",
+      "care_setting": "Primary health care",
+      "organization": "Canadian Family Physician / Rural Coordination Centre of British Columbia",
+      "summary": "This qualitative research article examines anti-Indigenous racism reported through the Rural Site Visits Project in rural British Columbia primary care. It is research evidence about a broader pattern, not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Original Article",
         "publisher": "www.nccih.ca",
         "url": "https://www.nccih.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The study's conclusions are limited to its research design and do not establish individual findings."
     },
     {
       "public_record_id": "ihe_0173de53145c8e4727d8",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "National survey on Indigenous peoples' childbirth experiences",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "canada",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds” is included as systemic evidence concerning Indigenous health care. The source remains authoritative for its scope and findings.",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "University of British Columbia",
+      "summary": "University of British Columbia reporting describes a national survey of Indigenous peoples' experiences during pregnancy and childbirth. The survey is nationwide research evidence and is not an official investigation or a Saskatchewan-specific event record.",
       "recommendation_action": null,
       "source": {
         "title": "Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds",
         "publisher": "news.ubc.ca",
         "url": "https://news.ubc.ca/2026/07/national-survey-indigenous-people-childbirth-mistreatment",
         "publication_date": null,
-        "source_type": "indigenous_organization"
+        "source_type": "university research news"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The record retains national scope because the source does not establish a single provincial jurisdiction."
     },
     {
       "public_record_id": "ihe_01cb332bd883a5b24745",
@@ -183,63 +183,63 @@
     },
     {
       "public_record_id": "ihe_01fee2cd2df21872a966",
-      "evidence_type": "official investigation",
-      "evidence_status": "official_investigation",
-      "province": "saskatchewan",
+      "evidence_type": "Professional-regulator reference to the In Plain Sight review",
+      "evidence_status": "systemic_evidence",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care | College of Pharmacists of British Columbia” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "College of Pharmacists of British Columbia",
+      "summary": "The College of Pharmacists of British Columbia links readers to In Plain Sight, the B.C. review of Indigenous-specific racism and discrimination in health care. The page is a reference to that review, not a separate investigation or finding by the College.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care | College of Pharmacists of British Columbia",
         "publisher": "bcpharmacists.org",
         "url": "https://bcpharmacists.org/readlinks/plain-sight-addressing-indigenous-specific-racism-and-discrimination-bc-health-care",
         "publication_date": null,
-        "source_type": "indigenous_organization"
+        "source_type": "professional-regulator resource"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original review remains the authoritative source for its findings."
     },
     {
       "public_record_id": "ihe_0229d8158ac458c0b1ad",
-      "evidence_type": "Recommendation or action",
+      "evidence_type": "Qualitative systematic review of primary health-care experiences in Canada",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "canada",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Indigenous people's experiences of primary health care ... - PMC” contains province-specific material relevant to Indigenous health-care systemic evidence; the source excerpt and provenance define its scope.",
+      "care_setting": "Primary health care",
+      "organization": "Health Promotion and Chronic Disease Prevention in Canada",
+      "summary": "This qualitative systematic review synthesizes published evidence on Indigenous peoples' primary health-care experiences across Canada. It identifies supportive experiences as well as discriminatory attitudes and systemic barriers, without assigning a single provincial location.",
       "recommendation_action": null,
       "source": {
         "title": "Indigenous people's experiences of primary health care ... - PMC",
         "publisher": "pmc.ncbi.nlm.nih.gov",
         "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11097747",
         "publication_date": null,
-        "source_type": "government"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": "Procedural or institutional context is shown with its source-supported limits; it is not proof of an underlying allegation or effectiveness."
+      "caution": "Author affiliation or a discovery query does not make this Canada-wide review Saskatchewan or Alberta evidence."
     },
     {
       "public_record_id": "ihe_0253f603031e96de8a66",
-      "evidence_type": "official investigation",
-      "evidence_status": "official_investigation",
+      "evidence_type": "Journalism reporting research on Alberta emergency care",
+      "evidence_status": "systemic_evidence",
       "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Racism, discrimination may lead to First Nations patients ...” contains province-specific material relevant to Indigenous health-care official investigation; the source excerpt and provenance define its scope.",
+      "care_setting": "Emergency department care",
+      "organization": "CBC News",
+      "summary": "CBC reported on research linking racism and discrimination to First Nations patients leaving Alberta emergency departments before being seen or against medical advice. The article reports research findings and related public context; it is not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Racism, discrimination may lead to First Nations patients ...",
         "publisher": "www.cbc.ca",
         "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342",
         "publication_date": null,
-        "source_type": "credible_journalism"
+        "source_type": "journalism"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source concerns Alberta emergency care; any separately reported complaint in the article is not treated here as a formal finding."
     },
     {
       "public_record_id": "ihe_027841d8e7709ae6c6d5",
@@ -303,43 +303,43 @@
     },
     {
       "public_record_id": "ihe_03c596a4874680d3e99e",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Qualitative systematic review of primary health-care experiences in Canada",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "canada",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Indigenous people's experiences of primary health care in ...” is included as systemic evidence concerning Indigenous health care. The source remains authoritative for its scope and findings.",
+      "care_setting": "Primary health care",
+      "organization": "Public Health Agency of Canada",
+      "summary": "The Public Health Agency of Canada published a peer-reviewed qualitative systematic review of Indigenous peoples' primary health-care experiences across Canada. It synthesizes 22 articles and is research evidence, not an official investigation or a Saskatchewan-specific finding.",
       "recommendation_action": null,
       "source": {
         "title": "Indigenous people's experiences of primary health care in ...",
         "publisher": "www.canada.ca",
         "url": "https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-44-no-4-2024/indigenous-people-experiences-primary-health-care-canada-qualitative-systematic-review.html",
         "publication_date": null,
-        "source_type": "indigenous_organization"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "Publication by a federal body does not make a literature review a formal finding."
     },
     {
       "public_record_id": "ihe_03fe15d11fc0fd7bc1d7",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Journalism reporting research on Alberta emergency care",
       "evidence_status": "systemic_evidence",
       "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "***WATCH | Study says First Nations people may be leaving ERs due to racism:*** ![](https://i.cbc.ca/ais/1.7181810,1717224828595/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C0%2C1920%2C1080%29%3BResize%3D620) Racism, discrimination pushing First Nations patients out of Alberta ERs April 22, 2024| Duration 1:56 A study out of Alberta published in the Canadian Medical Association Journal showed that acts of racism and discrimination by hospital staff make First Nations patients more likely to leave an emergency room before being treated.",
+      "care_setting": "Emergency department care",
+      "organization": "CBC News",
+      "summary": "CBC reported on research linking racism and discrimination to First Nations patients leaving Alberta emergency departments before being seen or against medical advice. The article reports research findings and related public context; it is not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Racism, discrimination may lead to First Nations patients ...",
         "publisher": "www.cbc.ca",
         "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342",
         "publication_date": null,
-        "source_type": "credible_journalism"
+        "source_type": "journalism"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source concerns Alberta emergency care; any separately reported complaint in the article is not treated here as a formal finding."
     },
     {
       "public_record_id": "ihe_04cdcba87a50da8e3458",
@@ -403,29 +403,29 @@
     },
     {
       "public_record_id": "ihe_0569da34f0de8e1c4ec2",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Commentary on the In Plain Sight review of B.C. health care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater” is included as systemic evidence concerning Indigenous health care. The source remains authoritative for its scope and findings.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "Pamela Palmater",
+      "summary": "This commentary discusses the In Plain Sight review and its B.C.-wide findings and recommendations on Indigenous-specific racism in health care. It is commentary about a review, not an official investigation issued by this publisher.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
         "publisher": "pampalmater.com",
         "url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "commentary"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original In Plain Sight report is the source for the review's formal findings."
     },
     {
       "public_record_id": "ihe_060852ba38407dcf26d2",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -525,7 +525,7 @@
       "public_record_id": "ihe_0756d29598e76e8395e9",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -543,23 +543,23 @@
     },
     {
       "public_record_id": "ihe_076d478f7c5ffe83c04c",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
       "evidence_status": "systemic_evidence",
       "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Birthing injustice: unmasking structural racism and the ...” is included as systemic evidence concerning Indigenous health care. The source remains authoritative for its scope and findings.",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
       "recommendation_action": null,
       "source": {
         "title": "Birthing injustice: unmasking structural racism and the ...",
         "publisher": "www.frontiersin.org",
         "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
         "publication_date": null,
-        "source_type": "research_or_university"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched."
     },
     {
       "public_record_id": "ihe_08130986c2d15379f2f1",
@@ -625,7 +625,7 @@
       "public_record_id": "ihe_0987e94b3b85dc02da4d",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -703,7 +703,7 @@
       "public_record_id": "ihe_0badb1abb2489ab8b965",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -721,23 +721,23 @@
     },
     {
       "public_record_id": "ihe_0cbf5f0cac896b99cc17",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Alberta human-rights initiatives report",
       "evidence_status": "systemic_evidence",
-      "province": "british_columbia",
+      "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "(September 2017) $10,000 2018 Indigenous Health and Cultural Competency Development for Registered Nurses (CARNA) Indigenous Health and Cultural Competency Development for Registered Nurses: This project will address systemic and individual discrimination of Indigenous people in Alberta’s health system.",
+      "care_setting": "Health system",
+      "organization": "Alberta Human Rights Commission",
+      "summary": "The Alberta Human Rights Commission's initiatives report describes a 2018 nursing cultural-competency project intended to address discrimination affecting Indigenous people in Alberta's health system. It documents a funded initiative, not a finding about an individual care experience or implementation outcome.",
       "recommendation_action": null,
       "source": {
         "title": "indigenous-initiatives-2010-11-to-2018-19. ...",
         "publisher": "albertahumanrights.ab.ca",
         "url": "https://albertahumanrights.ab.ca/media/wjmbqth0/indigenous-initiatives-2010-11-to-2018-19.pdf",
         "publication_date": null,
-        "source_type": "oversight_or_adjudicative"
+        "source_type": "official report"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The report concerns Alberta initiatives and should not be presented as B.C. evidence."
     },
     {
       "public_record_id": "ihe_0cdfea03a7b0459d8bc3",
@@ -781,23 +781,23 @@
     },
     {
       "public_record_id": "ihe_0d9ac06b375d91c2e494",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Journalism reporting research on Alberta emergency care",
       "evidence_status": "systemic_evidence",
       "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "## Racism and stereotypes Study participants, while commenting on the quantitative findings, raised a number of reasons why First Nations patients leave emergency departments without receiving care.",
+      "care_setting": "Emergency department care",
+      "organization": "CBC News",
+      "summary": "CBC reported on research linking racism and discrimination to First Nations patients leaving Alberta emergency departments before being seen or against medical advice. The article reports research findings and related public context; it is not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Racism, discrimination may lead to First Nations patients ...",
         "publisher": "www.cbc.ca",
         "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342",
         "publication_date": null,
-        "source_type": "credible_journalism"
+        "source_type": "journalism"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source concerns Alberta emergency care; any separately reported complaint in the article is not treated here as a formal finding."
     },
     {
       "public_record_id": "ihe_0d9beb32141c08bfbfe6",
@@ -981,23 +981,23 @@
     },
     {
       "public_record_id": "ihe_112b0e91bd20e27c612f",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Research on racism in Alberta emergency care",
       "evidence_status": "systemic_evidence",
       "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Impacts of racism on First Nations patients' emergency care: results of a thematic analysis of healthcare provider interviews in Alberta, Canada | BMC Health Services Research | Full Text” contains province-specific material relevant to Indigenous health-care systemic evidence; the source excerpt and provenance define its scope.",
+      "care_setting": "Emergency department care",
+      "organization": "BMC Health Services Research",
+      "summary": "A 2022 qualitative study of 16 Alberta emergency-department providers reported accounts of racist stereotyping, disrespect and barriers affecting First Nations patients. It is research evidence about emergency care, not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Impacts of racism on First Nations patients' emergency care: results of a thematic analysis of healthcare provider interviews in Alberta, Canada | BMC Health Services Research | Full Text",
         "publisher": "bmchealthservres.biomedcentral.com",
         "url": "https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-022-08129-5",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The study reports provider perspectives and does not establish findings about any particular patient encounter."
     },
     {
       "public_record_id": "ihe_116e55af660f854df791",
@@ -1043,7 +1043,7 @@
       "public_record_id": "ihe_12474acd8437272f823e",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -1061,23 +1061,23 @@
     },
     {
       "public_record_id": "ihe_12e170dd3e019079cd9a",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Qualitative systematic review of primary health-care experiences in Canada",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "canada",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Three major synthesized findings were revealed—satisfactory experiences, discriminatory attitudes and systemic challenges faced by Indigenous patients—along with one synthesized finding on their specific recommendations.",
+      "care_setting": "Primary health care",
+      "organization": "Public Health Agency of Canada",
+      "summary": "The Public Health Agency of Canada published a peer-reviewed qualitative systematic review of Indigenous peoples' primary health-care experiences across Canada. It synthesizes 22 articles and is research evidence, not an official investigation or a Saskatchewan-specific finding.",
       "recommendation_action": null,
       "source": {
         "title": "Indigenous people's experiences of primary health care in ...",
         "publisher": "www.canada.ca",
         "url": "https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-44-no-4-2024/indigenous-people-experiences-primary-health-care-canada-qualitative-systematic-review.html",
         "publication_date": null,
-        "source_type": "indigenous_organization"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "Publication by a federal body does not make a literature review a formal finding."
     },
     {
       "public_record_id": "ihe_12f152448fdab9c8a57a",
@@ -1181,23 +1181,23 @@
     },
     {
       "public_record_id": "ihe_1445978133ccf9996c36",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
       "evidence_status": "systemic_evidence",
       "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Snuneymuxw and Cowichan Nations, Richmond, BC, Canada Article metrics ## Abstract Indigenous people in Canada continue to experience systemic racism, disrespect, and loss of autonomy within the healthcare system, particularly in the context of pregnancy and childbirth.",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
       "recommendation_action": null,
       "source": {
         "title": "Birthing injustice: unmasking structural racism and the ...",
         "publisher": "www.frontiersin.org",
         "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
         "publication_date": null,
-        "source_type": "research_or_university"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched."
     },
     {
       "public_record_id": "ihe_145615efb832deeee62b",
@@ -1223,7 +1223,7 @@
       "public_record_id": "ihe_145a340e7295fd7eecac",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -1263,7 +1263,7 @@
       "public_record_id": "ihe_146f5070cc77a752f2e4",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "alberta",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -1283,7 +1283,7 @@
       "public_record_id": "ihe_14a6fbd4a27531e8532a",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -1339,7 +1339,7 @@
       "public_record_id": "ihe_1519e033d0e9b6ab03b7",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -1517,23 +1517,23 @@
     },
     {
       "public_record_id": "ihe_1737eb81f94eb5329214",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Snuneymuxw and Cowichan Nations, Richmond, BC, Canada Article metrics ## Abstract Indigenous people in Canada continue to experience systemic racism, disrespect, and loss of autonomy within the healthcare system, particularly in the context of pregnancy and childbirth.",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
       "recommendation_action": null,
       "source": {
         "title": "Birthing injustice: unmasking structural racism and the ...",
         "publisher": "www.frontiersin.org",
         "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
         "publication_date": null,
-        "source_type": "research_or_university"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched."
     },
     {
       "public_record_id": "ihe_1768b718da7cdd6485f7",
@@ -1599,7 +1599,7 @@
       "public_record_id": "ihe_18d936f093a0d662cd47",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -1697,23 +1697,23 @@
     },
     {
       "public_record_id": "ihe_1ae9da6be2b1941b9709",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Journalism reporting research on Alberta emergency care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "(Mike Symington/CBC) ## Social Sharing Systemic racism and inequity in health care may be contributing to why First Nations patients in Alberta disproportionately leave emergency departments without being seen, or against medical advice, according to a new study published in the Canadian Medical Association Journal.",
+      "care_setting": "Emergency department care",
+      "organization": "CBC News",
+      "summary": "CBC reported on research linking racism and discrimination to First Nations patients leaving Alberta emergency departments before being seen or against medical advice. The article reports research findings and related public context; it is not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Racism, discrimination may lead to First Nations patients ...",
         "publisher": "www.cbc.ca",
         "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342",
         "publication_date": null,
-        "source_type": "credible_journalism"
+        "source_type": "journalism"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source concerns Alberta emergency care; any separately reported complaint in the article is not treated here as a formal finding."
     },
     {
       "public_record_id": "ihe_1b00476a53c86bf6f92e",
@@ -1779,7 +1779,7 @@
       "public_record_id": "ihe_1c3b231a169bd6d49a88",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -1797,23 +1797,23 @@
     },
     {
       "public_record_id": "ihe_1ca9490426c12c32eb64",
-      "evidence_type": "official investigation",
-      "evidence_status": "official_investigation",
-      "province": "alberta",
+      "evidence_type": "Professional-regulator reference to the In Plain Sight review",
+      "evidence_status": "systemic_evidence",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “In Plain Sight: Addressing Indigenous-specific Racism and ...” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "College of Pharmacists of British Columbia",
+      "summary": "The College of Pharmacists of British Columbia links readers to In Plain Sight, the B.C. review of Indigenous-specific racism and discrimination in health care. The page is a reference to that review, not a separate investigation or finding by the College.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Addressing Indigenous-specific Racism and ...",
         "publisher": "www.bcpharmacists.org",
         "url": "https://www.bcpharmacists.org/readlinks/plain-sight-addressing-indigenous-specific-racism-and-discrimination-bc-health-care",
         "publication_date": null,
-        "source_type": "indigenous_organization"
+        "source_type": "professional-regulator resource"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original review remains the authoritative source for its findings."
     },
     {
       "public_record_id": "ihe_1ce756603245d50a6a0d",
@@ -1959,7 +1959,7 @@
       "public_record_id": "ihe_2161541c80738e25556f",
       "evidence_type": "Recommendation or action",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -2057,23 +2057,23 @@
     },
     {
       "public_record_id": "ihe_23569ac9c93b12818bb8",
-      "evidence_type": "official investigation",
-      "evidence_status": "official_investigation",
-      "province": "saskatchewan",
+      "evidence_type": "National survey on Indigenous peoples' childbirth experiences",
+      "evidence_status": "systemic_evidence",
+      "province": "canada",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds” contains province-specific material relevant to Indigenous health-care official investigation; the source excerpt and provenance define its scope.",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "University of British Columbia",
+      "summary": "University of British Columbia reporting describes a national survey of Indigenous peoples' experiences during pregnancy and childbirth. The survey is nationwide research evidence and is not an official investigation or a Saskatchewan-specific event record.",
       "recommendation_action": null,
       "source": {
         "title": "Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds",
         "publisher": "news.ubc.ca",
         "url": "https://news.ubc.ca/2026/07/national-survey-indigenous-people-childbirth-mistreatment",
         "publication_date": null,
-        "source_type": "indigenous_organization"
+        "source_type": "university research news"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The record retains national scope because the source does not establish a single provincial jurisdiction."
     },
     {
       "public_record_id": "ihe_23cbba967ecde195bdca",
@@ -2179,7 +2179,7 @@
       "public_record_id": "ihe_26b54ee2baaf9d463307",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -2277,23 +2277,23 @@
     },
     {
       "public_record_id": "ihe_29441943bcfc7048868b",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Birthing injustice: unmasking structural racism and the ...” is included as systemic evidence concerning Indigenous health care. The source remains authoritative for its scope and findings.",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
       "recommendation_action": null,
       "source": {
         "title": "Birthing injustice: unmasking structural racism and the ...",
         "publisher": "www.frontiersin.org",
         "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
         "publication_date": null,
-        "source_type": "research_or_university"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched."
     },
     {
       "public_record_id": "ihe_2a57f3c2abfde74d6c9b",
@@ -2315,29 +2315,29 @@
     },
     {
       "public_record_id": "ihe_2a60323006b014a30dc9",
-      "evidence_type": "official investigation",
-      "evidence_status": "official_investigation",
+      "evidence_type": "Qualitative research on anti-Indigenous racism in rural B.C. primary care",
+      "evidence_status": "systemic_evidence",
       "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Original Article” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
+      "care_setting": "Primary health care",
+      "organization": "Canadian Family Physician / Rural Coordination Centre of British Columbia",
+      "summary": "This qualitative research article examines anti-Indigenous racism reported through the Rural Site Visits Project in rural British Columbia primary care. It is research evidence about a broader pattern, not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Original Article",
         "publisher": "www.nccih.ca",
         "url": "https://www.nccih.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The study's conclusions are limited to its research design and do not establish individual findings."
     },
     {
       "public_record_id": "ihe_2a7ca2b237bc58d20e9a",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -2437,7 +2437,7 @@
       "public_record_id": "ihe_2c29fc3679f9e7106381",
       "evidence_type": "reported account",
       "evidence_status": "reported_account",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -2495,23 +2495,23 @@
     },
     {
       "public_record_id": "ihe_2d31d815400de31f2394",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Journalism reporting research on Alberta emergency care",
       "evidence_status": "systemic_evidence",
       "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The researchers also asked 64 health directors, emergency-care providers and First Nations patients to comment on their quantitative findings through sharing circles, a focus group and telephone interviews from 2019 to 2022.",
+      "care_setting": "Emergency department care",
+      "organization": "CBC News",
+      "summary": "CBC reported on research linking racism and discrimination to First Nations patients leaving Alberta emergency departments before being seen or against medical advice. The article reports research findings and related public context; it is not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Racism, discrimination may lead to First Nations patients ...",
         "publisher": "www.cbc.ca",
         "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342",
         "publication_date": null,
-        "source_type": "credible_journalism"
+        "source_type": "journalism"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source concerns Alberta emergency care; any separately reported complaint in the article is not treated here as a formal finding."
     },
     {
       "public_record_id": "ihe_2d4592ca2e7b947f182b",
@@ -2655,23 +2655,23 @@
     },
     {
       "public_record_id": "ihe_310a701d3e39c07f9b57",
-      "evidence_type": "official investigation",
-      "evidence_status": "official_investigation",
-      "province": "saskatchewan",
+      "evidence_type": "Professional-regulator reference to the In Plain Sight review",
+      "evidence_status": "systemic_evidence",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “In Plain Sight: Addressing Indigenous-specific Racism and ...” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "College of Pharmacists of British Columbia",
+      "summary": "The College of Pharmacists of British Columbia links readers to In Plain Sight, the B.C. review of Indigenous-specific racism and discrimination in health care. The page is a reference to that review, not a separate investigation or finding by the College.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Addressing Indigenous-specific Racism and ...",
         "publisher": "www.bcpharmacists.org",
         "url": "https://www.bcpharmacists.org/readlinks/plain-sight-addressing-indigenous-specific-racism-and-discrimination-bc-health-care",
         "publication_date": null,
-        "source_type": "indigenous_organization"
+        "source_type": "professional-regulator resource"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original review remains the authoritative source for its findings."
     },
     {
       "public_record_id": "ihe_311af17690cf883a9900",
@@ -2875,23 +2875,23 @@
     },
     {
       "public_record_id": "ihe_348c3675ea2d01516efc",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Commentary on the In Plain Sight review of B.C. health care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Widespread Indigenous-specific stereotyping, racism and discrimination exist in the BC healthcare system; 2.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "Pamela Palmater",
+      "summary": "This commentary discusses the In Plain Sight review and its B.C.-wide findings and recommendations on Indigenous-specific racism in health care. It is commentary about a review, not an official investigation issued by this publisher.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
         "publisher": "pampalmater.com",
         "url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "commentary"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original In Plain Sight report is the source for the review's formal findings."
     },
     {
       "public_record_id": "ihe_3508e6c1ebbf22d1836b",
@@ -2977,7 +2977,7 @@
       "public_record_id": "ihe_3599f3cc4de78c814cfc",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -3077,7 +3077,7 @@
       "public_record_id": "ihe_3826b9fb304375896327",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -3115,23 +3115,23 @@
     },
     {
       "public_record_id": "ihe_39f5374b255a261f6fe3",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Commentary on the In Plain Sight review of B.C. health care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "At their core, the recommendations all work to confronting the legacy of colonialism in healthcare head on: *“A basic awareness has grown that the current inequities and injustices faced by Indigenous peoples in Canada – such as those examined in this Review – are deeply rooted in an enduring legacy of colonialism, and that confronting that legacy requires substantive, transformative change.”* ## **MOVING FORWARD** It is important that Canadians read this report and then push governments, hospitals, universities and all those working in the healthcare system, in any capacity to embrace their role in reconciliation and ensuring that the human rights of Indigenous peoples to healthcare",
+      "care_setting": "Multiple health-care settings",
+      "organization": "Pamela Palmater",
+      "summary": "This commentary discusses the In Plain Sight review and its B.C.-wide findings and recommendations on Indigenous-specific racism in health care. It is commentary about a review, not an official investigation issued by this publisher.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
         "publisher": "pampalmater.com",
         "url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "commentary"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original In Plain Sight report is the source for the review's formal findings."
     },
     {
       "public_record_id": "ihe_3a0493c5f4c258f0d13e",
@@ -3177,7 +3177,7 @@
       "public_record_id": "ihe_3c00fa07c21b31e4d5f1",
       "evidence_type": "official investigation",
       "evidence_status": "official_investigation",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -3235,23 +3235,23 @@
     },
     {
       "public_record_id": "ihe_3e2bb79377af7076adeb",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Research on racism in Alberta emergency care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Impacts of racism on First Nations patients' emergency care: results of a thematic analysis of healthcare provider interviews in Alberta, Canada | BMC Health Services Research | Full Text” is included as systemic evidence concerning Indigenous health care. The source remains authoritative for its scope and findings.",
+      "care_setting": "Emergency department care",
+      "organization": "BMC Health Services Research",
+      "summary": "A 2022 qualitative study of 16 Alberta emergency-department providers reported accounts of racist stereotyping, disrespect and barriers affecting First Nations patients. It is research evidence about emergency care, not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Impacts of racism on First Nations patients' emergency care: results of a thematic analysis of healthcare provider interviews in Alberta, Canada | BMC Health Services Research | Full Text",
         "publisher": "bmchealthservres.biomedcentral.com",
         "url": "https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-022-08129-5",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The study reports provider perspectives and does not establish findings about any particular patient encounter."
     },
     {
       "public_record_id": "ihe_3e617553760c416870b3",
@@ -3455,23 +3455,23 @@
     },
     {
       "public_record_id": "ihe_419a727e7537adca36e9",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The emotional burden experienced by Indigenous mothers as a result of racism and discrimination in healthcare settings can increase the risk of conditions such as postpartum depression, with lasting impacts on both maternal and infant health (5).",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
       "recommendation_action": null,
       "source": {
         "title": "Birthing injustice: unmasking structural racism and the ...",
         "publisher": "www.frontiersin.org",
         "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
         "publication_date": null,
-        "source_type": "research_or_university"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched."
     },
     {
       "public_record_id": "ihe_42025e3c944afdc67c64",
@@ -3495,23 +3495,23 @@
     },
     {
       "public_record_id": "ihe_420576e01718d9a609bf",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Qualitative research on anti-Indigenous racism in rural B.C. primary care",
       "evidence_status": "systemic_evidence",
       "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Keywords: Anti‑Indigenous, British Columbia, cultural safety, equity, family medicine, general practice, health care, Indigenous health, primary care patients, qualitative research, racism, rural, rural health and medicine, safety Résumé Introduction: Notre article examine les expériences de racisme anti‑autochtone tirées des données recueillies dans les zones rurales de la Colombie‑Britannique dans le cadre du Rural Coordination Centre of British Columbia’s Rural Site Visits Project (projet de visites des sites ruraux).",
+      "care_setting": "Primary health care",
+      "organization": "Canadian Family Physician / Rural Coordination Centre of British Columbia",
+      "summary": "This qualitative research article examines anti-Indigenous racism reported through the Rural Site Visits Project in rural British Columbia primary care. It is research evidence about a broader pattern, not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Original Article",
         "publisher": "www.nccih.ca",
         "url": "https://www.nccih.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The study's conclusions are limited to its research design and do not establish individual findings."
     },
     {
       "public_record_id": "ihe_42c0860f7b99aa7d4329",
@@ -3575,23 +3575,23 @@
     },
     {
       "public_record_id": "ihe_44f4ffe96bf11b31f775",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Qualitative research on anti-Indigenous racism in rural B.C. primary care",
       "evidence_status": "systemic_evidence",
       "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Conclusions: Anti‑Indigenous racism exists and adversely impacts the care Indigenous peoples receive throughout rural BC.",
+      "care_setting": "Primary health care",
+      "organization": "Canadian Family Physician / Rural Coordination Centre of British Columbia",
+      "summary": "This qualitative research article examines anti-Indigenous racism reported through the Rural Site Visits Project in rural British Columbia primary care. It is research evidence about a broader pattern, not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Original Article",
         "publisher": "www.nccih.ca",
         "url": "https://www.nccih.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The study's conclusions are limited to its research design and do not establish individual findings."
     },
     {
       "public_record_id": "ihe_44f6678ed700052c0ea1",
@@ -3757,7 +3757,7 @@
       "public_record_id": "ihe_474d9d126e46639b61e1",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -3835,23 +3835,23 @@
     },
     {
       "public_record_id": "ihe_49f5a447bac47272f559",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Journalism reporting research on Alberta emergency care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "***WATCH | Study says First Nations people may be leaving ERs due to racism:*** ![](https://i.cbc.ca/ais/1.7181810,1717224828595/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C0%2C1920%2C1080%29%3BResize%3D620) Racism, discrimination pushing First Nations patients out of Alberta ERs April 22, 2024| Duration 1:56 A study out of Alberta published in the Canadian Medical Association Journal showed that acts of racism and discrimination by hospital staff make First Nations patients more likely to leave an emergency room before being treated.",
+      "care_setting": "Emergency department care",
+      "organization": "CBC News",
+      "summary": "CBC reported on research linking racism and discrimination to First Nations patients leaving Alberta emergency departments before being seen or against medical advice. The article reports research findings and related public context; it is not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Racism, discrimination may lead to First Nations patients ...",
         "publisher": "www.cbc.ca",
         "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342",
         "publication_date": null,
-        "source_type": "credible_journalism"
+        "source_type": "journalism"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source concerns Alberta emergency care; any separately reported complaint in the article is not treated here as a formal finding."
     },
     {
       "public_record_id": "ihe_4a1f0ac7fe9560763ddf",
@@ -4057,7 +4057,7 @@
       "public_record_id": "ihe_50980e5c3932d9bbc3ff",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -4117,7 +4117,7 @@
       "public_record_id": "ihe_513196f07f479dd3d74b",
       "evidence_type": "official investigation",
       "evidence_status": "official_investigation",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -4215,23 +4215,23 @@
     },
     {
       "public_record_id": "ihe_544ce0002abb7b83428b",
-      "evidence_type": "reported account",
-      "evidence_status": "reported_account",
-      "province": "saskatchewan",
+      "evidence_type": "Fraser Health acknowledgement and commitment following In Plain Sight",
+      "evidence_status": "systemic_evidence",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "A public source reports: The public source “Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health” contains province-specific material relevant to Indigenous health-care reported account; the bounded source excerpt and provenance define its scope. This record documents the reported account and does not present the underlying allegation as an independently established finding.",
+      "care_setting": "Not applicable — institutional response",
+      "organization": "Fraser Health and Fraser Salish Regional Caucus",
+      "summary": "In December 2020, Fraser Health and the Fraser Salish Regional Caucus jointly accepted the In Plain Sight review's findings and committed to work with Indigenous partners on eliminating racism. This is an institutional response and commitment; it does not itself demonstrate that the commitments were completed.",
       "recommendation_action": null,
       "source": {
         "title": "Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health",
         "publisher": "www.fraserhealth.ca",
         "url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination",
         "publication_date": null,
-        "source_type": "health_authority"
+        "source_type": "institutional statement"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": "A publicly documented account or allegation. Inclusion records that the account was made; it does not independently establish the underlying event."
+      "caution": "The source responds to a B.C.-wide review and is not evidence of a Saskatchewan event."
     },
     {
       "public_record_id": "ihe_548e9b8abd83cbfa810d",
@@ -4295,23 +4295,23 @@
     },
     {
       "public_record_id": "ihe_55dc3ca02847504f7e36",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Journalism reporting research on Alberta emergency care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Racism, discrimination may lead to First Nations patients ...” is included as systemic evidence concerning Indigenous health care. The source remains authoritative for its scope and findings.",
+      "care_setting": "Emergency department care",
+      "organization": "CBC News",
+      "summary": "CBC reported on research linking racism and discrimination to First Nations patients leaving Alberta emergency departments before being seen or against medical advice. The article reports research findings and related public context; it is not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Racism, discrimination may lead to First Nations patients ...",
         "publisher": "www.cbc.ca",
         "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342",
         "publication_date": null,
-        "source_type": "credible_journalism"
+        "source_type": "journalism"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source concerns Alberta emergency care; any separately reported complaint in the article is not treated here as a formal finding."
     },
     {
       "public_record_id": "ihe_55fbfc2080a49d791774",
@@ -4355,7 +4355,7 @@
       "public_record_id": "ihe_566ef58e5a8ff8d24e79",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -4553,23 +4553,23 @@
     },
     {
       "public_record_id": "ihe_581630f83071859de49b",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Qualitative research on anti-Indigenous racism in rural B.C. primary care",
       "evidence_status": "systemic_evidence",
       "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Primary care providers appeared unaware of the extent of discrimination and barriers to care affecting Indigenous community members, suggesting a disconnect between provider perception and patient experience.",
+      "care_setting": "Primary health care",
+      "organization": "Canadian Family Physician / Rural Coordination Centre of British Columbia",
+      "summary": "This qualitative research article examines anti-Indigenous racism reported through the Rural Site Visits Project in rural British Columbia primary care. It is research evidence about a broader pattern, not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Original Article",
         "publisher": "www.nccih.ca",
         "url": "https://www.nccih.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The study's conclusions are limited to its research design and do not establish individual findings."
     },
     {
       "public_record_id": "ihe_58e20e17d74aaf9c5038",
@@ -4595,7 +4595,7 @@
       "public_record_id": "ihe_59423c0f5f1ee1a48245",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -4715,7 +4715,7 @@
       "public_record_id": "ihe_5b21c402c6edef00a248",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -4755,7 +4755,7 @@
       "public_record_id": "ihe_5b5c5b49f9715d3eafeb",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -4871,23 +4871,23 @@
     },
     {
       "public_record_id": "ihe_5cbf51c84d18edd2ab5a",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Birthing injustice: unmasking structural racism and the ...” is included as systemic evidence concerning Indigenous health care. The source remains authoritative for its scope and findings.",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
       "recommendation_action": null,
       "source": {
         "title": "Birthing injustice: unmasking structural racism and the ...",
         "publisher": "www.frontiersin.org",
         "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
         "publication_date": null,
-        "source_type": "research_or_university"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched."
     },
     {
       "public_record_id": "ihe_5ce15f4d8a68a13fb19c",
@@ -4911,29 +4911,29 @@
     },
     {
       "public_record_id": "ihe_5de9746307410ec46489",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Commentary on the In Plain Sight review of B.C. health care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Indigenous health care workers face racism and discrimination in their work environments.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "Pamela Palmater",
+      "summary": "This commentary discusses the In Plain Sight review and its B.C.-wide findings and recommendations on Indigenous-specific racism in health care. It is commentary about a review, not an official investigation issued by this publisher.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
         "publisher": "pampalmater.com",
         "url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "commentary"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original In Plain Sight report is the source for the review's formal findings."
     },
     {
       "public_record_id": "ihe_5efdc2e90fddae44fce7",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -4973,7 +4973,7 @@
       "public_record_id": "ihe_5f2eeaf7340f0d076ed4",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -5089,7 +5089,7 @@
       "public_record_id": "ihe_60c5466e8e43fc21d09f",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -5127,23 +5127,23 @@
     },
     {
       "public_record_id": "ihe_6116bd1583a1582b83b2",
-      "evidence_type": "official investigation",
-      "evidence_status": "official_investigation",
-      "province": "saskatchewan",
+      "evidence_type": "Qualitative systematic review of primary health-care experiences in Canada",
+      "evidence_status": "systemic_evidence",
+      "province": "canada",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Indigenous people's experiences of primary health care in ...” contains province-specific material relevant to Indigenous health-care official investigation; the source excerpt and provenance define its scope.",
+      "care_setting": "Primary health care",
+      "organization": "Public Health Agency of Canada",
+      "summary": "The Public Health Agency of Canada published a peer-reviewed qualitative systematic review of Indigenous peoples' primary health-care experiences across Canada. It synthesizes 22 articles and is research evidence, not an official investigation or a Saskatchewan-specific finding.",
       "recommendation_action": null,
       "source": {
         "title": "Indigenous people's experiences of primary health care in ...",
         "publisher": "www.canada.ca",
         "url": "https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-44-no-4-2024/indigenous-people-experiences-primary-health-care-canada-qualitative-systematic-review.html",
         "publication_date": null,
-        "source_type": "indigenous_organization"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "Publication by a federal body does not make a literature review a formal finding."
     },
     {
       "public_record_id": "ihe_6192409bb3b61266d354",
@@ -5187,23 +5187,23 @@
     },
     {
       "public_record_id": "ihe_62e10f098d351aca7754",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Fraser Health acknowledgement and commitment following In Plain Sight",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Healthcare*”: #### Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C.",
+      "care_setting": "Not applicable — institutional response",
+      "organization": "Fraser Health and Fraser Salish Regional Caucus",
+      "summary": "In December 2020, Fraser Health and the Fraser Salish Regional Caucus jointly accepted the In Plain Sight review's findings and committed to work with Indigenous partners on eliminating racism. This is an institutional response and commitment; it does not itself demonstrate that the commitments were completed.",
       "recommendation_action": null,
       "source": {
         "title": "Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health",
         "publisher": "www.fraserhealth.ca",
         "url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination",
         "publication_date": null,
-        "source_type": "health_authority"
+        "source_type": "institutional statement"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source responds to a B.C.-wide review and is not evidence of a Saskatchewan event."
     },
     {
       "public_record_id": "ihe_62f9916c4f9f1408d89e",
@@ -5249,7 +5249,7 @@
       "public_record_id": "ihe_635489f759ac742e293b",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -5269,7 +5269,7 @@
       "public_record_id": "ihe_63d7225f2b866a89ae0a",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -5327,23 +5327,23 @@
     },
     {
       "public_record_id": "ihe_6465dd9c64f0c549b854",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Commentary on the In Plain Sight review of B.C. health care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Racism limits access to medical treatment and negatively affects the health and wellness of Indigenous peoples in BC; 3.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "Pamela Palmater",
+      "summary": "This commentary discusses the In Plain Sight review and its B.C.-wide findings and recommendations on Indigenous-specific racism in health care. It is commentary about a review, not an official investigation issued by this publisher.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
         "publisher": "pampalmater.com",
         "url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "commentary"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original In Plain Sight report is the source for the review's formal findings."
     },
     {
       "public_record_id": "ihe_6553166b6d95b650b89a",
@@ -5469,7 +5469,7 @@
       "public_record_id": "ihe_68ba913617b60d5f9fd3",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -5549,7 +5549,7 @@
       "public_record_id": "ihe_69111a44f06a73e8dccc",
       "evidence_type": "reported account",
       "evidence_status": "reported_account",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -5569,7 +5569,7 @@
       "public_record_id": "ihe_69d9e13f862e985a8f6b",
       "evidence_type": "Recommendation or action",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -5705,23 +5705,23 @@
     },
     {
       "public_record_id": "ihe_6ab00330e189c1c990b5",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Journalism reporting research on Alberta emergency care",
       "evidence_status": "systemic_evidence",
       "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Benedict Crow Chief, of Siksika Nation, filed a human rights complaint last year against Alberta Health Services (AHS) and a hospital, alleging anti-Indigenous discrimination led to the death of his wife, Myra Crow Chief.",
+      "care_setting": "Emergency department care",
+      "organization": "CBC News",
+      "summary": "CBC reported on research linking racism and discrimination to First Nations patients leaving Alberta emergency departments before being seen or against medical advice. The article reports research findings and related public context; it is not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Racism, discrimination may lead to First Nations patients ...",
         "publisher": "www.cbc.ca",
         "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342",
         "publication_date": null,
-        "source_type": "credible_journalism"
+        "source_type": "journalism"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source concerns Alberta emergency care; any separately reported complaint in the article is not treated here as a formal finding."
     },
     {
       "public_record_id": "ihe_6ac47dd22ee153c33712",
@@ -5865,23 +5865,23 @@
     },
     {
       "public_record_id": "ihe_6c30494f8c4d8c38c871",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Commentary on the In Plain Sight review of B.C. health care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "She had been appointed by BC’s Minister of Health to conduct a review of racism against Indigenous peoples in BC’s healthcare system.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "Pamela Palmater",
+      "summary": "This commentary discusses the In Plain Sight review and its B.C.-wide findings and recommendations on Indigenous-specific racism in health care. It is commentary about a review, not an official investigation issued by this publisher.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
         "publisher": "pampalmater.com",
         "url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "commentary"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original In Plain Sight report is the source for the review's formal findings."
     },
     {
       "public_record_id": "ihe_6c45398af584ab376b73",
@@ -6047,7 +6047,7 @@
       "public_record_id": "ihe_6f6a2abfb98151d7cabe",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -6067,7 +6067,7 @@
       "public_record_id": "ihe_6f852e6401853b83aa61",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -6285,23 +6285,23 @@
     },
     {
       "public_record_id": "ihe_745b042c37a851758908",
-      "evidence_type": "Recommendation or action",
+      "evidence_type": "Research report on emergency-department triage in Alberta",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “First Nations patients triaged as less urgent than others in ...” contains province-specific material relevant to Indigenous health-care systemic evidence; the source excerpt and provenance define its scope.",
+      "care_setting": "Emergency department care",
+      "organization": "University of Alberta",
+      "summary": "University of Alberta reporting describes research finding that First Nations patients in Alberta emergency departments were triaged as less urgent than other patients. It is research reporting about Alberta emergency care, not a recommendation or action.",
       "recommendation_action": null,
       "source": {
         "title": "First Nations patients triaged as less urgent than others in ...",
         "publisher": "www.ualberta.ca",
         "url": "https://www.ualberta.ca/en/folio/2022/01/first-nations-patients-triaged-as-less-urgent-than-others-in-alberta-emergency-departments.html",
         "publication_date": null,
-        "source_type": "government"
+        "source_type": "university research news"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": "Procedural or institutional context is shown with its source-supported limits; it is not proof of an underlying allegation or effectiveness."
+      "caution": "The source does not support a Saskatchewan location."
     },
     {
       "public_record_id": "ihe_75141abc8251d7d9fca3",
@@ -6347,7 +6347,7 @@
       "public_record_id": "ihe_760811d25d820204cae2",
       "evidence_type": "official investigation",
       "evidence_status": "official_investigation",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -6485,7 +6485,7 @@
       "public_record_id": "ihe_7761be79261eae0a892b",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -6683,23 +6683,23 @@
     },
     {
       "public_record_id": "ihe_7abeb8583525c353ec23",
-      "evidence_type": "official investigation",
-      "evidence_status": "official_investigation",
-      "province": "saskatchewan",
+      "evidence_type": "Scoping review of anti-Indigenous racism in Canadian health care",
+      "evidence_status": "systemic_evidence",
+      "province": "canada",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Anti-Indigenous racism in Canadian healthcare - PMC - NIH” contains province-specific material relevant to Indigenous health-care official investigation; the source excerpt and provenance define its scope.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "International Journal of Indigenous Health",
+      "summary": "This scoping review maps research on anti-Indigenous racism in Canadian health care, including settings, populations and regions represented in the literature. It is nationwide research synthesis, not an official investigation or a finding about a single province.",
       "recommendation_action": null,
       "source": {
         "title": "Anti-Indigenous racism in Canadian healthcare - PMC - NIH",
         "publisher": "pmc.ncbi.nlm.nih.gov",
         "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11414646",
         "publication_date": null,
-        "source_type": "government"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "Canadian scope is retained because the review does not establish a single provincial jurisdiction for this record."
     },
     {
       "public_record_id": "ihe_7b3278f8252fae548b5b",
@@ -6865,7 +6865,7 @@
       "public_record_id": "ihe_7e525acca936010a256f",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -6923,7 +6923,7 @@
       "public_record_id": "ihe_7fa44a84c36a9a933ce4",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -6961,63 +6961,63 @@
     },
     {
       "public_record_id": "ihe_80ac3db7b9c36339ce87",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "National survey on Indigenous peoples' childbirth experiences",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "canada",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Our findings show those commitments have not translated into consistent practice at the point of care.” Harmful experiences reported by Indigenous participants during pregnancy and childbirth included: * Feeling neglected during childbirth (39.6 per cent) * Being left unattended when they needed help (37.1 per cent) * Being ignored or refused care (34.8 per cent) * Having treatment withheld or imposed without their consent (31 per cent) * Being shouted at or scolded by a health-care provider (28 per cent) * Receiving negative comments about their ethnicity, heritage or culture (8.4 per cent) Younger Indigenous people and those with Indigenous partners reported the highest rates of mistreat",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "University of British Columbia",
+      "summary": "University of British Columbia reporting describes a national survey of Indigenous peoples' experiences during pregnancy and childbirth. The survey is nationwide research evidence and is not an official investigation or a Saskatchewan-specific event record.",
       "recommendation_action": null,
       "source": {
         "title": "Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds",
         "publisher": "news.ubc.ca",
         "url": "https://news.ubc.ca/2026/07/national-survey-indigenous-people-childbirth-mistreatment",
         "publication_date": null,
-        "source_type": "indigenous_organization"
+        "source_type": "university research news"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The record retains national scope because the source does not establish a single provincial jurisdiction."
     },
     {
       "public_record_id": "ihe_80e92d334011d416f879",
-      "evidence_type": "systemic evidence",
-      "evidence_status": "systemic_evidence",
-      "province": "alberta",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "These inequities are particularly evident in pregnancy and childbirth, where Indigenous families often encounter discrimination, mistrust in the healthcare system, and inadequate integration of Indigenous knowledge and traditions in medical practices (2).",
-      "recommendation_action": null,
-      "source": {
-        "title": "Birthing injustice: unmasking structural racism and the ...",
-        "publisher": "www.frontiersin.org",
-        "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
-        "publication_date": null,
-        "source_type": "research_or_university"
-      },
-      "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
-    },
-    {
-      "public_record_id": "ihe_80eda7f4e367e68a095d",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
       "evidence_status": "systemic_evidence",
       "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "These structures perpetuate racism, stereotyping, and the marginalization of Indigenous knowledge and cultural practices, undermining trust and creating barriers to equitable care (1–3).",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
       "recommendation_action": null,
       "source": {
         "title": "Birthing injustice: unmasking structural racism and the ...",
         "publisher": "www.frontiersin.org",
         "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
         "publication_date": null,
-        "source_type": "research_or_university"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched."
+    },
+    {
+      "public_record_id": "ihe_80eda7f4e367e68a095d",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
+      "evidence_status": "systemic_evidence",
+      "province": "british_columbia",
+      "year": null,
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
+      "recommendation_action": null,
+      "source": {
+        "title": "Birthing injustice: unmasking structural racism and the ...",
+        "publisher": "www.frontiersin.org",
+        "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
+        "publication_date": null,
+        "source_type": "peer-reviewed research"
+      },
+      "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched."
     },
     {
       "public_record_id": "ihe_80f36a62cdc741d0690e",
@@ -7063,7 +7063,7 @@
       "public_record_id": "ihe_81dfa4eddcbb3065ea63",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -7083,7 +7083,7 @@
       "public_record_id": "ihe_81e7b39348b663e219c6",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -7103,7 +7103,7 @@
       "public_record_id": "ihe_825cc4e2deb1d0644352",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -7123,7 +7123,7 @@
       "public_record_id": "ihe_827078598d871b47e78b",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "alberta",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -7141,23 +7141,23 @@
     },
     {
       "public_record_id": "ihe_8292b8ec0b9f61337e2b",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Journalism reporting research on Alberta emergency care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Benedict Crow Chief, of Siksika Nation, filed a human rights complaint last year against Alberta Health Services (AHS) and a hospital, alleging anti-Indigenous discrimination led to the death of his wife, Myra Crow Chief.",
+      "care_setting": "Emergency department care",
+      "organization": "CBC News",
+      "summary": "CBC reported on research linking racism and discrimination to First Nations patients leaving Alberta emergency departments before being seen or against medical advice. The article reports research findings and related public context; it is not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Racism, discrimination may lead to First Nations patients ...",
         "publisher": "www.cbc.ca",
         "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342",
         "publication_date": null,
-        "source_type": "credible_journalism"
+        "source_type": "journalism"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source concerns Alberta emergency care; any separately reported complaint in the article is not treated here as a formal finding."
     },
     {
       "public_record_id": "ihe_82e6c39ca3fcd12be9d9",
@@ -7241,7 +7241,7 @@
       "public_record_id": "ihe_85a3a43fb6516d5f3702",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -7339,23 +7339,23 @@
     },
     {
       "public_record_id": "ihe_87d4bdc7290350eb7050",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "These structures perpetuate racism, stereotyping, and the marginalization of Indigenous knowledge and cultural practices, undermining trust and creating barriers to equitable care (1–3).",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
       "recommendation_action": null,
       "source": {
         "title": "Birthing injustice: unmasking structural racism and the ...",
         "publisher": "www.frontiersin.org",
         "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
         "publication_date": null,
-        "source_type": "research_or_university"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched."
     },
     {
       "public_record_id": "ihe_8872ea0e3cc7ef1fa150",
@@ -7419,23 +7419,23 @@
     },
     {
       "public_record_id": "ihe_8a16c17a3287d42273c6",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Commentary on the In Plain Sight review of B.C. health care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The significant harms experienced by Indigenous peoples on a regular basis are why the report’s recommendations on how to move forward to address anti-Indigenous racism in BC’s healthcare system are so important.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "Pamela Palmater",
+      "summary": "This commentary discusses the In Plain Sight review and its B.C.-wide findings and recommendations on Indigenous-specific racism in health care. It is commentary about a review, not an official investigation issued by this publisher.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
         "publisher": "pampalmater.com",
         "url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "commentary"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original In Plain Sight report is the source for the review's formal findings."
     },
     {
       "public_record_id": "ihe_8a5a031e7c3ccf9b36cf",
@@ -7559,23 +7559,23 @@
     },
     {
       "public_record_id": "ihe_8e221f89a7bdbbd214d7",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Research on racism in Alberta emergency care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Impacts of racism on First Nations patients' emergency care: results of a thematic analysis of healthcare provider interviews in Alberta, Canada | BMC Health Services Research | Full Text” contains province-specific material relevant to Indigenous health-care systemic evidence; the bounded source excerpt and provenance define its scope.",
+      "care_setting": "Emergency department care",
+      "organization": "BMC Health Services Research",
+      "summary": "A 2022 qualitative study of 16 Alberta emergency-department providers reported accounts of racist stereotyping, disrespect and barriers affecting First Nations patients. It is research evidence about emergency care, not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Impacts of racism on First Nations patients' emergency care: results of a thematic analysis of healthcare provider interviews in Alberta, Canada | BMC Health Services Research | Full Text",
         "publisher": "bmchealthservres.biomedcentral.com",
         "url": "https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-022-08129-5",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The study reports provider perspectives and does not establish findings about any particular patient encounter."
     },
     {
       "public_record_id": "ihe_8fc858ed45ce1c8ddf53",
@@ -7717,23 +7717,23 @@
     },
     {
       "public_record_id": "ihe_9251b310443149febcf3",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Journalism reporting research on Alberta emergency care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The researchers also asked 64 health directors, emergency-care providers and First Nations patients to comment on their quantitative findings through sharing circles, a focus group and telephone interviews from 2019 to 2022.",
+      "care_setting": "Emergency department care",
+      "organization": "CBC News",
+      "summary": "CBC reported on research linking racism and discrimination to First Nations patients leaving Alberta emergency departments before being seen or against medical advice. The article reports research findings and related public context; it is not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Racism, discrimination may lead to First Nations patients ...",
         "publisher": "www.cbc.ca",
         "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342",
         "publication_date": null,
-        "source_type": "credible_journalism"
+        "source_type": "journalism"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source concerns Alberta emergency care; any separately reported complaint in the article is not treated here as a formal finding."
     },
     {
       "public_record_id": "ihe_928ad10bf8f1152b6f02",
@@ -7759,7 +7759,7 @@
       "public_record_id": "ihe_92ae176a69ad7d0f8c6b",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "alberta",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -7859,7 +7859,7 @@
       "public_record_id": "ihe_943766330cc594be0549",
       "evidence_type": "Recommendation or action",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -8019,7 +8019,7 @@
       "public_record_id": "ihe_97df6386439afd524ee4",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -8057,23 +8057,23 @@
     },
     {
       "public_record_id": "ihe_9944b82a8aa7af62a6ac",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Snuneymuxw and Cowichan Nations, Richmond, BC, Canada Article metrics ## Abstract Indigenous people in Canada continue to experience systemic racism, disrespect, and loss of autonomy within the healthcare system, particularly in the context of pregnancy and childbirth.",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
       "recommendation_action": null,
       "source": {
         "title": "Birthing injustice: unmasking structural racism and the ...",
         "publisher": "www.frontiersin.org",
         "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
         "publication_date": null,
-        "source_type": "research_or_university"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched."
     },
     {
       "public_record_id": "ihe_99866b1b0ea1e87bcaeb",
@@ -8411,23 +8411,23 @@
     },
     {
       "public_record_id": "ihe_9e348c242fddb0944144",
-      "evidence_type": "official investigation",
-      "evidence_status": "official_investigation",
-      "province": "alberta",
+      "evidence_type": "Scoping review of anti-Indigenous racism in Canadian health care",
+      "evidence_status": "systemic_evidence",
+      "province": "canada",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Anti-Indigenous racism in Canadian healthcare - PMC - NIH” contains province-specific material relevant to Indigenous health-care official investigation; the source excerpt and provenance define its scope.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "International Journal of Indigenous Health",
+      "summary": "This scoping review maps research on anti-Indigenous racism in Canadian health care, including settings, populations and regions represented in the literature. It is nationwide research synthesis, not an official investigation or a finding about a single province.",
       "recommendation_action": null,
       "source": {
         "title": "Anti-Indigenous racism in Canadian healthcare - PMC - NIH",
         "publisher": "pmc.ncbi.nlm.nih.gov",
         "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11414646",
         "publication_date": null,
-        "source_type": "government"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "Canadian scope is retained because the review does not establish a single provincial jurisdiction for this record."
     },
     {
       "public_record_id": "ihe_9e536a4deda380d09f63",
@@ -8493,7 +8493,7 @@
       "public_record_id": "ihe_9ee291af1509b833a573",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "alberta",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -8533,7 +8533,7 @@
       "public_record_id": "ihe_9f2ef97f2ccec312db1e",
       "evidence_type": "official investigation",
       "evidence_status": "official_investigation",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -8571,23 +8571,23 @@
     },
     {
       "public_record_id": "ihe_a08af4518cbce9e76ad6",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The emotional burden experienced by Indigenous mothers as a result of racism and discrimination in healthcare settings can increase the risk of conditions such as postpartum depression, with lasting impacts on both maternal and infant health (5).",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
       "recommendation_action": null,
       "source": {
         "title": "Birthing injustice: unmasking structural racism and the ...",
         "publisher": "www.frontiersin.org",
         "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
         "publication_date": null,
-        "source_type": "research_or_university"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched."
     },
     {
       "public_record_id": "ihe_a123fd3ea01af0e76368",
@@ -8653,7 +8653,7 @@
       "public_record_id": "ihe_a39b278f3136a89c7269",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -8673,7 +8673,7 @@
       "public_record_id": "ihe_a3f16bb2eed56f022e2d",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -8693,7 +8693,7 @@
       "public_record_id": "ihe_a41ec23004bffcd44ac8",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -8711,23 +8711,23 @@
     },
     {
       "public_record_id": "ihe_a4897d8cee8159f85202",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Fraser Health acknowledgement and commitment following In Plain Sight",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "We pledge our commitment to work with the caucus, your leaders and other Indigenous partners, including the First Nation's Health Authority, to end racism in our health care system.",
+      "care_setting": "Not applicable — institutional response",
+      "organization": "Fraser Health and Fraser Salish Regional Caucus",
+      "summary": "In December 2020, Fraser Health and the Fraser Salish Regional Caucus jointly accepted the In Plain Sight review's findings and committed to work with Indigenous partners on eliminating racism. This is an institutional response and commitment; it does not itself demonstrate that the commitments were completed.",
       "recommendation_action": null,
       "source": {
         "title": "Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health",
         "publisher": "www.fraserhealth.ca",
         "url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination",
         "publication_date": null,
-        "source_type": "health_authority"
+        "source_type": "institutional statement"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source responds to a B.C.-wide review and is not evidence of a Saskatchewan event."
     },
     {
       "public_record_id": "ihe_a514c1f0e8075674398f",
@@ -8753,7 +8753,7 @@
       "public_record_id": "ihe_a5375ce2058683de1312",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "alberta",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -8851,29 +8851,29 @@
     },
     {
       "public_record_id": "ihe_a679a0e2b74ecf98781c",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Journalism reporting research on Alberta emergency care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "## Racism and stereotypes Study participants, while commenting on the quantitative findings, raised a number of reasons why First Nations patients leave emergency departments without receiving care.",
+      "care_setting": "Emergency department care",
+      "organization": "CBC News",
+      "summary": "CBC reported on research linking racism and discrimination to First Nations patients leaving Alberta emergency departments before being seen or against medical advice. The article reports research findings and related public context; it is not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Racism, discrimination may lead to First Nations patients ...",
         "publisher": "www.cbc.ca",
         "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342",
         "publication_date": null,
-        "source_type": "credible_journalism"
+        "source_type": "journalism"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source concerns Alberta emergency care; any separately reported complaint in the article is not treated here as a formal finding."
     },
     {
       "public_record_id": "ihe_a6c6bf9481fc89cc2b1e",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -8893,7 +8893,7 @@
       "public_record_id": "ihe_a70a6adf4d04bd4ed050",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -8933,7 +8933,7 @@
       "public_record_id": "ihe_a7aa5c6c31b766c62f6a",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -8951,43 +8951,43 @@
     },
     {
       "public_record_id": "ihe_a7ee6d688ce8f2f8cbde",
-      "evidence_type": "official investigation",
-      "evidence_status": "official_investigation",
+      "evidence_type": "Professional-regulator reference to the In Plain Sight review",
+      "evidence_status": "systemic_evidence",
       "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care | College of Pharmacists of British Columbia” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "College of Pharmacists of British Columbia",
+      "summary": "The College of Pharmacists of British Columbia links readers to In Plain Sight, the B.C. review of Indigenous-specific racism and discrimination in health care. The page is a reference to that review, not a separate investigation or finding by the College.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care | College of Pharmacists of British Columbia",
         "publisher": "bcpharmacists.org",
         "url": "https://bcpharmacists.org/readlinks/plain-sight-addressing-indigenous-specific-racism-and-discrimination-bc-health-care",
         "publication_date": null,
-        "source_type": "indigenous_organization"
+        "source_type": "professional-regulator resource"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original review remains the authoritative source for its findings."
     },
     {
       "public_record_id": "ihe_a8d29856339e45c5eacd",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Commentary on the In Plain Sight review of B.C. health care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Indigenous women and girls are disproportionately impacted by Indigenous-specific racism in the healthcare system; 4.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "Pamela Palmater",
+      "summary": "This commentary discusses the In Plain Sight review and its B.C.-wide findings and recommendations on Indigenous-specific racism in health care. It is commentary about a review, not an official investigation issued by this publisher.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
         "publisher": "pampalmater.com",
         "url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "commentary"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original In Plain Sight report is the source for the review's formal findings."
     },
     {
       "public_record_id": "ihe_a8dbfb70dcac3acf1d37",
@@ -9053,7 +9053,7 @@
       "public_record_id": "ihe_a978e081e678466e08f5",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -9151,43 +9151,43 @@
     },
     {
       "public_record_id": "ihe_aa8967c65419b99493cb",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Commentary on the In Plain Sight review of B.C. health care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The report – which includes both its core findings and recommendations – contains numerous examples of Indigenous peoples given substandard medical treatment or no treatment at all in hospitals and healthcare facilities of all kinds.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "Pamela Palmater",
+      "summary": "This commentary discusses the In Plain Sight review and its B.C.-wide findings and recommendations on Indigenous-specific racism in health care. It is commentary about a review, not an official investigation issued by this publisher.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
         "publisher": "pampalmater.com",
         "url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "commentary"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original In Plain Sight report is the source for the review's formal findings."
     },
     {
       "public_record_id": "ihe_aa8ef1ef6b357bde3129",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Commentary on the In Plain Sight review of B.C. health care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Just before the holidays, a report was released which confirmed what most Indigenous peoples already knew – that racism against Indigenous peoples, especially First Nations peoples – is widespread in BC’s healthcare system.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "Pamela Palmater",
+      "summary": "This commentary discusses the In Plain Sight review and its B.C.-wide findings and recommendations on Indigenous-specific racism in health care. It is commentary about a review, not an official investigation issued by this publisher.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
         "publisher": "pampalmater.com",
         "url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "commentary"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original In Plain Sight report is the source for the review's formal findings."
     },
     {
       "public_record_id": "ihe_aa8f4b0bdcdf09b02af8",
@@ -9233,7 +9233,7 @@
       "public_record_id": "ihe_ab56c88eb7c22ea4d835",
       "evidence_type": "reported account",
       "evidence_status": "reported_account",
-      "province": "saskatchewan",
+      "province": "alberta",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -9313,7 +9313,7 @@
       "public_record_id": "ihe_acca6ce326dd3d82a4fb",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -9393,7 +9393,7 @@
       "public_record_id": "ihe_b00e26f56937ebd14854",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -9533,7 +9533,7 @@
       "public_record_id": "ihe_b12130201afbc4806068",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -9789,23 +9789,23 @@
     },
     {
       "public_record_id": "ihe_b35a113cc1d38fbc5e39",
-      "evidence_type": "Recommendation or action",
+      "evidence_type": "Alberta human-rights initiatives report",
       "evidence_status": "systemic_evidence",
-      "province": "british_columbia",
+      "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “indigenous-initiatives-2010-11-to-2018-19. ...” contains province-specific Indigenous health-care material; its bounded excerpt and provenance define the evidence scope.",
+      "care_setting": "Health system",
+      "organization": "Alberta Human Rights Commission",
+      "summary": "The Alberta Human Rights Commission's initiatives report describes a 2018 nursing cultural-competency project intended to address discrimination affecting Indigenous people in Alberta's health system. It documents a funded initiative, not a finding about an individual care experience or implementation outcome.",
       "recommendation_action": null,
       "source": {
         "title": "indigenous-initiatives-2010-11-to-2018-19. ...",
         "publisher": "albertahumanrights.ab.ca",
         "url": "https://albertahumanrights.ab.ca/media/wjmbqth0/indigenous-initiatives-2010-11-to-2018-19.pdf",
         "publication_date": null,
-        "source_type": "oversight_or_adjudicative"
+        "source_type": "official report"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": "Procedural or institutional context is shown with its source-supported limits; it is not proof of an underlying allegation or effectiveness."
+      "caution": "The report concerns Alberta initiatives and should not be presented as B.C. evidence."
     },
     {
       "public_record_id": "ihe_b3d3f75d5d00ce307ade",
@@ -9991,7 +9991,7 @@
       "public_record_id": "ihe_b69c56411edebaef8916",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -10011,7 +10011,7 @@
       "public_record_id": "ihe_b71f517c45bebee5df17",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -10149,23 +10149,23 @@
     },
     {
       "public_record_id": "ihe_b82b296103fed06ec88b",
-      "evidence_type": "official investigation",
-      "evidence_status": "official_investigation",
-      "province": "alberta",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
+      "evidence_status": "systemic_evidence",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Birthing injustice: unmasking structural racism and the ...” contains province-specific material relevant to Indigenous health-care official investigation; the source excerpt and provenance define its scope.",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
       "recommendation_action": null,
       "source": {
         "title": "Birthing injustice: unmasking structural racism and the ...",
         "publisher": "www.frontiersin.org",
         "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
         "publication_date": null,
-        "source_type": "research_or_university"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched."
     },
     {
       "public_record_id": "ihe_b85c9c14deeab7f16f34",
@@ -10269,29 +10269,29 @@
     },
     {
       "public_record_id": "ihe_b955f9dbc4b759afd52b",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Commentary on the In Plain Sight review of B.C. health care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "## **RACISM CAUSES REAL HARM** She also stressed that these racist stereotypes lead to real physical harm, mental harm and even death for Indigenous peoples, in the following ways: (1) Unacceptable personal interactions – like racist comments; (2) Long wait times/denial of service – more so than non-Indigenous patients; (3) Lack of communication/shunning Indigenous patients; (4) Not believing or minimizing health concerns – Indigenous peoples accused of faking; (5) Inappropriate or no pain management – assuming patients are drug seeking; (6) Rough treatment – like man-handling or physical harm; (7) Medical mistakes & misdiagnosis – assuming patients drunk and not addressing under",
+      "care_setting": "Multiple health-care settings",
+      "organization": "Pamela Palmater",
+      "summary": "This commentary discusses the In Plain Sight review and its B.C.-wide findings and recommendations on Indigenous-specific racism in health care. It is commentary about a review, not an official investigation issued by this publisher.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
         "publisher": "pampalmater.com",
         "url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "commentary"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original In Plain Sight report is the source for the review's formal findings."
     },
     {
       "public_record_id": "ihe_b9d8f9784363e908134b",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -10425,23 +10425,23 @@
     },
     {
       "public_record_id": "ihe_be7d37138f2c381815c8",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "These structures perpetuate racism, stereotyping, and the marginalization of Indigenous knowledge and cultural practices, undermining trust and creating barriers to equitable care (1–3).",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
       "recommendation_action": null,
       "source": {
         "title": "Birthing injustice: unmasking structural racism and the ...",
         "publisher": "www.frontiersin.org",
         "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
         "publication_date": null,
-        "source_type": "research_or_university"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched."
     },
     {
       "public_record_id": "ihe_becb670031ed8aa30950",
@@ -10667,7 +10667,7 @@
       "public_record_id": "ihe_c54c3ab95f287d969209",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -10685,43 +10685,43 @@
     },
     {
       "public_record_id": "ihe_c5c955aa61a89075e1d8",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "These inequities are particularly evident in pregnancy and childbirth, where Indigenous families often encounter discrimination, mistrust in the healthcare system, and inadequate integration of Indigenous knowledge and traditions in medical practices (2).",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
       "recommendation_action": null,
       "source": {
         "title": "Birthing injustice: unmasking structural racism and the ...",
         "publisher": "www.frontiersin.org",
         "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
         "publication_date": null,
-        "source_type": "research_or_university"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched."
     },
     {
       "public_record_id": "ihe_c5f9f7ce73e982509cf2",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "National survey on Indigenous peoples' childbirth experiences",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "canada",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "“They are manifestations of structural and interpersonal racism embedded within health-care systems that continue to exert control over Indigenous bodies and decision-making.",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "University of British Columbia",
+      "summary": "University of British Columbia reporting describes a national survey of Indigenous peoples' experiences during pregnancy and childbirth. The survey is nationwide research evidence and is not an official investigation or a Saskatchewan-specific event record.",
       "recommendation_action": null,
       "source": {
         "title": "Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds",
         "publisher": "news.ubc.ca",
         "url": "https://news.ubc.ca/2026/07/national-survey-indigenous-people-childbirth-mistreatment",
         "publication_date": null,
-        "source_type": "indigenous_organization"
+        "source_type": "university research news"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The record retains national scope because the source does not establish a single provincial jurisdiction."
     },
     {
       "public_record_id": "ihe_c619459af0ce4826de16",
@@ -10747,7 +10747,7 @@
       "public_record_id": "ihe_c6b112f9d0062f9fbcea",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -10785,23 +10785,23 @@
     },
     {
       "public_record_id": "ihe_c73c0ea8e2ceb4093bdd",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Journalism reporting research on Alberta emergency care",
       "evidence_status": "systemic_evidence",
       "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "(Mike Symington/CBC) ## Social Sharing Systemic racism and inequity in health care may be contributing to why First Nations patients in Alberta disproportionately leave emergency departments without being seen, or against medical advice, according to a new study published in the Canadian Medical Association Journal.",
+      "care_setting": "Emergency department care",
+      "organization": "CBC News",
+      "summary": "CBC reported on research linking racism and discrimination to First Nations patients leaving Alberta emergency departments before being seen or against medical advice. The article reports research findings and related public context; it is not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Racism, discrimination may lead to First Nations patients ...",
         "publisher": "www.cbc.ca",
         "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342",
         "publication_date": null,
-        "source_type": "credible_journalism"
+        "source_type": "journalism"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source concerns Alberta emergency care; any separately reported complaint in the article is not treated here as a formal finding."
     },
     {
       "public_record_id": "ihe_c7c9cd5b9b64b2801ee2",
@@ -11023,23 +11023,23 @@
     },
     {
       "public_record_id": "ihe_cc00b80df1d23fe8bec8",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Commentary on the In Plain Sight review of B.C. health care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "She also noted that talking about anti-Indigenous racism in healthcare can be very triggering for Indigenous peoples who have experienced the physical and mental harms associated with racist comments, substandard treatment or the denial of treatment.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "Pamela Palmater",
+      "summary": "This commentary discusses the In Plain Sight review and its B.C.-wide findings and recommendations on Indigenous-specific racism in health care. It is commentary about a review, not an official investigation issued by this publisher.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
         "publisher": "pampalmater.com",
         "url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "commentary"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original In Plain Sight report is the source for the review's formal findings."
     },
     {
       "public_record_id": "ihe_cc24d7163c041a1b0b5c",
@@ -11163,23 +11163,23 @@
     },
     {
       "public_record_id": "ihe_cdcf4779bc804d59471e",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "National survey on Indigenous peoples' childbirth experiences",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "canada",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Indigenous respondents who received care from a midwife reported lower rates of mistreatment (41.3 per cent) than those who did not receive midwifery care (68.5 per cent).",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "University of British Columbia",
+      "summary": "University of British Columbia reporting describes a national survey of Indigenous peoples' experiences during pregnancy and childbirth. The survey is nationwide research evidence and is not an official investigation or a Saskatchewan-specific event record.",
       "recommendation_action": null,
       "source": {
         "title": "Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds",
         "publisher": "news.ubc.ca",
         "url": "https://news.ubc.ca/2026/07/national-survey-indigenous-people-childbirth-mistreatment",
         "publication_date": null,
-        "source_type": "indigenous_organization"
+        "source_type": "university research news"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The record retains national scope because the source does not establish a single provincial jurisdiction."
     },
     {
       "public_record_id": "ihe_ce1af3c60434fe1d6e37",
@@ -11523,23 +11523,23 @@
     },
     {
       "public_record_id": "ihe_d2bfba0782f8d2b68962",
-      "evidence_type": "official investigation",
-      "evidence_status": "official_investigation",
+      "evidence_type": "Professional-regulator reference to the In Plain Sight review",
+      "evidence_status": "systemic_evidence",
       "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “In Plain Sight: Addressing Indigenous-specific Racism and ...” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "College of Pharmacists of British Columbia",
+      "summary": "The College of Pharmacists of British Columbia links readers to In Plain Sight, the B.C. review of Indigenous-specific racism and discrimination in health care. The page is a reference to that review, not a separate investigation or finding by the College.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Addressing Indigenous-specific Racism and ...",
         "publisher": "www.bcpharmacists.org",
         "url": "https://www.bcpharmacists.org/readlinks/plain-sight-addressing-indigenous-specific-racism-and-discrimination-bc-health-care",
         "publication_date": null,
-        "source_type": "indigenous_organization"
+        "source_type": "professional-regulator resource"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original review remains the authoritative source for its findings."
     },
     {
       "public_record_id": "ihe_d2cd9a590550083c5ec9",
@@ -11623,43 +11623,43 @@
     },
     {
       "public_record_id": "ihe_d680e72deb81ca5f2faa",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Qualitative research on anti-Indigenous racism in rural B.C. primary care",
       "evidence_status": "systemic_evidence",
       "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "For example, Indigenous patients who feel the health services they receive are not culturally appropriate face greater barriers to care that can lead to reduced access to preventative care and disease management, increasing the likelihood of diabetes prevalence.5 Furthermore, discrimination by healthcare providers is directly associated with unmet health needs.6 Anti‑Indigenous racism regularly occurs in a variety of healthcare settings and can impact the experience of every Indigenous patient in every healthcare encounter.",
+      "care_setting": "Primary health care",
+      "organization": "Canadian Family Physician / Rural Coordination Centre of British Columbia",
+      "summary": "This qualitative research article examines anti-Indigenous racism reported through the Rural Site Visits Project in rural British Columbia primary care. It is research evidence about a broader pattern, not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Original Article",
         "publisher": "www.nccih.ca",
         "url": "https://www.nccih.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The study's conclusions are limited to its research design and do not establish individual findings."
     },
     {
       "public_record_id": "ihe_d6c9903d9b2451497c64",
-      "evidence_type": "official investigation",
-      "evidence_status": "official_investigation",
-      "province": "saskatchewan",
+      "evidence_type": "Journalism reporting research on Alberta emergency care",
+      "evidence_status": "systemic_evidence",
+      "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Racism, discrimination may lead to First Nations patients ...” contains province-specific material relevant to Indigenous health-care official investigation; the source excerpt and provenance define its scope.",
+      "care_setting": "Emergency department care",
+      "organization": "CBC News",
+      "summary": "CBC reported on research linking racism and discrimination to First Nations patients leaving Alberta emergency departments before being seen or against medical advice. The article reports research findings and related public context; it is not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Racism, discrimination may lead to First Nations patients ...",
         "publisher": "www.cbc.ca",
         "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342",
         "publication_date": null,
-        "source_type": "credible_journalism"
+        "source_type": "journalism"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source concerns Alberta emergency care; any separately reported complaint in the article is not treated here as a formal finding."
     },
     {
       "public_record_id": "ihe_d71c8b10390a0045ef30",
@@ -11685,7 +11685,7 @@
       "public_record_id": "ihe_d78b0dbec0fff0f9e2d7",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -11863,23 +11863,23 @@
     },
     {
       "public_record_id": "ihe_dbe6ab07ff815b00c93d",
-      "evidence_type": "official investigation",
-      "evidence_status": "official_investigation",
-      "province": "saskatchewan",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
+      "evidence_status": "systemic_evidence",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Birthing injustice: unmasking structural racism and the ...” contains province-specific material relevant to Indigenous health-care official investigation; the source excerpt and provenance define its scope.",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
       "recommendation_action": null,
       "source": {
         "title": "Birthing injustice: unmasking structural racism and the ...",
         "publisher": "www.frontiersin.org",
         "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
         "publication_date": null,
-        "source_type": "research_or_university"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched."
     },
     {
       "public_record_id": "ihe_dc260acfdc486fb6b0f8",
@@ -12021,49 +12021,49 @@
     },
     {
       "public_record_id": "ihe_dd3608bb8f55bb6697b3",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
       "evidence_status": "systemic_evidence",
       "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "These inequities are particularly evident in pregnancy and childbirth, where Indigenous families often encounter discrimination, mistrust in the healthcare system, and inadequate integration of Indigenous knowledge and traditions in medical practices (2).",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
       "recommendation_action": null,
       "source": {
         "title": "Birthing injustice: unmasking structural racism and the ...",
         "publisher": "www.frontiersin.org",
         "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
         "publication_date": null,
-        "source_type": "research_or_university"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched."
     },
     {
       "public_record_id": "ihe_dd89b4d12f10e51a5870",
-      "evidence_type": "Recommendation or action",
+      "evidence_type": "Qualitative systematic review of primary health-care experiences in Canada",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "canada",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Indigenous people's experiences of primary health care ... - PMC” contains province-specific material relevant to Indigenous health-care systemic evidence; the source excerpt and provenance define its scope.",
+      "care_setting": "Primary health care",
+      "organization": "Health Promotion and Chronic Disease Prevention in Canada",
+      "summary": "This qualitative systematic review synthesizes published evidence on Indigenous peoples' primary health-care experiences across Canada. It identifies supportive experiences as well as discriminatory attitudes and systemic barriers, without assigning a single provincial location.",
       "recommendation_action": null,
       "source": {
         "title": "Indigenous people's experiences of primary health care ... - PMC",
         "publisher": "pmc.ncbi.nlm.nih.gov",
         "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11097747",
         "publication_date": null,
-        "source_type": "government"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": "Procedural or institutional context is shown with its source-supported limits; it is not proof of an underlying allegation or effectiveness."
+      "caution": "Author affiliation or a discovery query does not make this Canada-wide review Saskatchewan or Alberta evidence."
     },
     {
       "public_record_id": "ihe_dd9aa6e8da7c4c32018f",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -12261,23 +12261,23 @@
     },
     {
       "public_record_id": "ihe_e277435f66eefdebd170",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Fraser Health acknowledgement and commitment following In Plain Sight",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Health Care](https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination \"Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C.",
+      "care_setting": "Not applicable — institutional response",
+      "organization": "Fraser Health and Fraser Salish Regional Caucus",
+      "summary": "In December 2020, Fraser Health and the Fraser Salish Regional Caucus jointly accepted the In Plain Sight review's findings and committed to work with Indigenous partners on eliminating racism. This is an institutional response and commitment; it does not itself demonstrate that the commitments were completed.",
       "recommendation_action": null,
       "source": {
         "title": "Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health",
         "publisher": "www.fraserhealth.ca",
         "url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination",
         "publication_date": null,
-        "source_type": "health_authority"
+        "source_type": "institutional statement"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source responds to a B.C.-wide review and is not evidence of a Saskatchewan event."
     },
     {
       "public_record_id": "ihe_e3a95f9a5e32164a171a",
@@ -12321,49 +12321,49 @@
     },
     {
       "public_record_id": "ihe_e4c9f9f7aac7a2da7ff5",
-      "evidence_type": "official investigation",
-      "evidence_status": "official_investigation",
-      "province": "british_columbia",
+      "evidence_type": "Scoping review of anti-Indigenous racism in Canadian health care",
+      "evidence_status": "systemic_evidence",
+      "province": "canada",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Anti-Indigenous racism in Canadian healthcare - PMC - NIH” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "International Journal of Indigenous Health",
+      "summary": "This scoping review maps research on anti-Indigenous racism in Canadian health care, including settings, populations and regions represented in the literature. It is nationwide research synthesis, not an official investigation or a finding about a single province.",
       "recommendation_action": null,
       "source": {
         "title": "Anti-Indigenous racism in Canadian healthcare - PMC - NIH",
         "publisher": "pmc.ncbi.nlm.nih.gov",
         "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11414646",
         "publication_date": null,
-        "source_type": "government"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "Canadian scope is retained because the review does not establish a single provincial jurisdiction for this record."
     },
     {
       "public_record_id": "ihe_e4f41a5a9e55a9caf697",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Fraser Health acknowledgement and commitment following In Plain Sight",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "We have agreed that the Aboriginal Health Steering Committee will be the main table for all of our work to eliminate racism and ensure equality in accessing health care services for Indigenous people.",
+      "care_setting": "Not applicable — institutional response",
+      "organization": "Fraser Health and Fraser Salish Regional Caucus",
+      "summary": "In December 2020, Fraser Health and the Fraser Salish Regional Caucus jointly accepted the In Plain Sight review's findings and committed to work with Indigenous partners on eliminating racism. This is an institutional response and commitment; it does not itself demonstrate that the commitments were completed.",
       "recommendation_action": null,
       "source": {
         "title": "Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health",
         "publisher": "www.fraserhealth.ca",
         "url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination",
         "publication_date": null,
-        "source_type": "health_authority"
+        "source_type": "institutional statement"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source responds to a B.C.-wide review and is not evidence of a Saskatchewan event."
     },
     {
       "public_record_id": "ihe_e53fddb26f891a3ad5aa",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -12479,23 +12479,23 @@
     },
     {
       "public_record_id": "ihe_e6ef737bbdf0689678a1",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Journalism reporting research on Alberta emergency care",
       "evidence_status": "systemic_evidence",
       "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Racism, discrimination may lead to First Nations patients ...” is included as systemic evidence concerning Indigenous health care. The source remains authoritative for its scope and findings.",
+      "care_setting": "Emergency department care",
+      "organization": "CBC News",
+      "summary": "CBC reported on research linking racism and discrimination to First Nations patients leaving Alberta emergency departments before being seen or against medical advice. The article reports research findings and related public context; it is not an official investigation.",
       "recommendation_action": null,
       "source": {
         "title": "Racism, discrimination may lead to First Nations patients ...",
         "publisher": "www.cbc.ca",
         "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342",
         "publication_date": null,
-        "source_type": "credible_journalism"
+        "source_type": "journalism"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source concerns Alberta emergency care; any separately reported complaint in the article is not treated here as a formal finding."
     },
     {
       "public_record_id": "ihe_e76623ab67ebca627508",
@@ -12521,7 +12521,7 @@
       "public_record_id": "ihe_e774d10e6751d02fc0ce",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -12559,23 +12559,23 @@
     },
     {
       "public_record_id": "ihe_e894a19e0a05145474b5",
-      "evidence_type": "official investigation",
-      "evidence_status": "official_investigation",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
+      "evidence_status": "systemic_evidence",
       "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Birthing injustice: unmasking structural racism and the ...” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
       "recommendation_action": null,
       "source": {
         "title": "Birthing injustice: unmasking structural racism and the ...",
         "publisher": "www.frontiersin.org",
         "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
         "publication_date": null,
-        "source_type": "research_or_university"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched."
     },
     {
       "public_record_id": "ihe_e89cc9450f72b1451eca",
@@ -12639,7 +12639,7 @@
       "public_record_id": "ihe_e92483e93454ec457e12",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -12699,7 +12699,7 @@
       "public_record_id": "ihe_ea5d9aeefe743bf6c5dd",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -12855,7 +12855,7 @@
       "public_record_id": "ihe_ec188a0276cea7ddfcab",
       "evidence_type": "official investigation",
       "evidence_status": "official_investigation",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -13395,7 +13395,7 @@
       "public_record_id": "ihe_f54c56a29293d7e17085",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -13435,7 +13435,7 @@
       "public_record_id": "ihe_f63bc5b4ce49247a2b14",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "alberta",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -13611,23 +13611,23 @@
     },
     {
       "public_record_id": "ihe_fab100506fc53c1d0c7c",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
       "evidence_status": "systemic_evidence",
       "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The emotional burden experienced by Indigenous mothers as a result of racism and discrimination in healthcare settings can increase the risk of conditions such as postpartum depression, with lasting impacts on both maternal and infant health (5).",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
       "recommendation_action": null,
       "source": {
         "title": "Birthing injustice: unmasking structural racism and the ...",
         "publisher": "www.frontiersin.org",
         "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full",
         "publication_date": null,
-        "source_type": "research_or_university"
+        "source_type": "peer-reviewed research"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched."
     },
     {
       "public_record_id": "ihe_fad542a4a92545fa7173",
@@ -13713,7 +13713,7 @@
       "public_record_id": "ihe_fdb65d5c291d4cd4f467",
       "evidence_type": "systemic evidence",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -13751,49 +13751,49 @@
     },
     {
       "public_record_id": "ihe_fefa9f7f088f69e52491",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "National survey on Indigenous peoples' childbirth experiences",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "canada",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The data reveals egregious violations of Indigenous peoples’ rights within health-care settings, exposing the profound failure of health-care systems to uphold the protections affirmed in international human rights law.” The researchers mapped the experiences against the Truth and Reconciliation Commission of Canada’s Calls to Action and the United Nations Declaration on the Rights of Indigenous Peoples (UNDRIP), identifying gaps across multiple areas including the rights to security of the person, freedom from discrimination, culturally safe care, and free, prior and informed consent.",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "University of British Columbia",
+      "summary": "University of British Columbia reporting describes a national survey of Indigenous peoples' experiences during pregnancy and childbirth. The survey is nationwide research evidence and is not an official investigation or a Saskatchewan-specific event record.",
       "recommendation_action": null,
       "source": {
         "title": "Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds",
         "publisher": "news.ubc.ca",
         "url": "https://news.ubc.ca/2026/07/national-survey-indigenous-people-childbirth-mistreatment",
         "publication_date": null,
-        "source_type": "indigenous_organization"
+        "source_type": "university research news"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The record retains national scope because the source does not establish a single provincial jurisdiction."
     },
     {
       "public_record_id": "ihe_ff34f1e420c173239a94",
-      "evidence_type": "systemic evidence",
+      "evidence_type": "Commentary on the In Plain Sight review of B.C. health care",
       "evidence_status": "systemic_evidence",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Current public health emergencies magnify racism and vulnerabilities, an disproportionately impact Indigenous peoples and 5.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "Pamela Palmater",
+      "summary": "This commentary discusses the In Plain Sight review and its B.C.-wide findings and recommendations on Indigenous-specific racism in health care. It is commentary about a review, not an official investigation issued by this publisher.",
       "recommendation_action": null,
       "source": {
         "title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
         "publisher": "pampalmater.com",
         "url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents",
         "publication_date": null,
-        "source_type": "institutional_or_public"
+        "source_type": "commentary"
       },
       "methodology": "Public evidence summary. Evidence types are distinct; sources remain authoritative. This library is not exhaustive.",
-      "caution": null
+      "caution": "The original In Plain Sight report is the source for the review's formal findings."
     },
     {
       "public_record_id": "ihe_ff3c6259da01901d0992",
       "evidence_type": "reported account",
       "evidence_status": "reported_account",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -13813,7 +13813,7 @@
       "public_record_id": "ihe_ff3c99632ca863874690",
       "evidence_type": "official investigation",
       "evidence_status": "official_investigation",
-      "province": "saskatchewan",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
@@ -13850,5 +13850,5 @@
       "caution": null
     }
   ],
-  "projection_fingerprint": "fe44723ae68c79eb673c22ef2a00cb14c913ab1ad0ce2c7077fe8b2bce04c744"
+  "projection_fingerprint": "123b505621e0d8041154c2c04c58a0979d27ead00f82c21e6a4601678803a4dc"
 }

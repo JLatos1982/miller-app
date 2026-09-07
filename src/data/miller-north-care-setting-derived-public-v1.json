@@ -1,0 +1,991 @@
+{
+  "schema_version": "miller-north-care-setting-derived-public-v1",
+  "generated_at": "2026-09-07T19:26:02.043Z",
+  "publication_scope": "publication_safe_derived_classifications",
+  "records": [
+    {
+      "public_record_id": "ihe_008afff9c6c2f7d60ae4",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_00b2e6b09b04051ba899",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_00feb84cbbb69760143f",
+      "care_setting": "primary_care",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_0173de53145c8e4727d8",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_01fee2cd2df21872a966",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_0229d8158ac458c0b1ad",
+      "care_setting": "primary_care",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_0253f603031e96de8a66",
+      "care_setting": "emergency_department",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_03119b7319d2ab5ccdd5",
+      "care_setting": "specialist_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_03c596a4874680d3e99e",
+      "care_setting": "primary_care",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_03fe15d11fc0fd7bc1d7",
+      "care_setting": "emergency_department",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_0569da34f0de8e1c4ec2",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_060852ba38407dcf26d2",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_0743220788c676c9d832",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_076d478f7c5ffe83c04c",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_0b1548b4a358de3154b8",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_0cbf5f0cac896b99cc17",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_0d9ac06b375d91c2e494",
+      "care_setting": "emergency_department",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_0eba8728e68642d8aa69",
+      "care_setting": "specialist_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_112b0e91bd20e27c612f",
+      "care_setting": "emergency_department",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_12e170dd3e019079cd9a",
+      "care_setting": "primary_care",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_1445978133ccf9996c36",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_14a6fbd4a27531e8532a",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_159773eae4a7b639d7d9",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_1737eb81f94eb5329214",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_1ae9da6be2b1941b9709",
+      "care_setting": "emergency_department",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_1c3b231a169bd6d49a88",
+      "care_setting": "rural_remote",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_1ca9490426c12c32eb64",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_1ddf751f8fb3289e452c",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_1f564745b927c83033b9",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_220ea7cc3831aa3197ab",
+      "care_setting": "ambulance_paramedic",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_23569ac9c93b12818bb8",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_29441943bcfc7048868b",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_2a60323006b014a30dc9",
+      "care_setting": "primary_care",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_2b9c87414a1d20e62583",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_2c29fc3679f9e7106381",
+      "care_setting": "rural_remote",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_2d31d815400de31f2394",
+      "care_setting": "emergency_department",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_310a701d3e39c07f9b57",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_3143f17223d2d9f424fc",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_31bdc83df8833bb1e159",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_348c3675ea2d01516efc",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_3508e6c1ebbf22d1836b",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_3775097b4a75b956dfca",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_3826b9fb304375896327",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_39f5374b255a261f6fe3",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_3a0493c5f4c258f0d13e",
+      "care_setting": "emergency_department",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_3e2bb79377af7076adeb",
+      "care_setting": "emergency_department",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_419a727e7537adca36e9",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_420576e01718d9a609bf",
+      "care_setting": "primary_care",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_44f4ffe96bf11b31f775",
+      "care_setting": "primary_care",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_47ff9d3f6f5fced76e5f",
+      "care_setting": "emergency_department",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_49f5a447bac47272f559",
+      "care_setting": "emergency_department",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_50980e5c3932d9bbc3ff",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_544ce0002abb7b83428b",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_55dc3ca02847504f7e36",
+      "care_setting": "emergency_department",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_57a4e8d2cbb0b2cecb2a",
+      "care_setting": "emergency_department",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_581630f83071859de49b",
+      "care_setting": "primary_care",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_59423c0f5f1ee1a48245",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_5b5c5b49f9715d3eafeb",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_5cbf51c84d18edd2ab5a",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_5de9746307410ec46489",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_5f0e61a3732d2b89c9e9",
+      "care_setting": "emergency_department",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_603bfb4c11772e31f933",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_6097bf1b6933ccae5dc4",
+      "care_setting": "specialist_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_6116bd1583a1582b83b2",
+      "care_setting": "primary_care",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_6251eab507b67542fdc1",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_62e10f098d351aca7754",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_635489f759ac742e293b",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_6465dd9c64f0c549b854",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_6553166b6d95b650b89a",
+      "care_setting": "ambulance_paramedic",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_68f9cebe689a0c12ac4a",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_6ab00330e189c1c990b5",
+      "care_setting": "emergency_department",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_6c30494f8c4d8c38c871",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_6fbf9b42f2638023c3af",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_73972d439652e959197f",
+      "care_setting": "ambulance_paramedic",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_745b042c37a851758908",
+      "care_setting": "emergency_department",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_77381a2c188c6df040a4",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_7ab61ce5412e012962e0",
+      "care_setting": "emergency_department",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_7abeb8583525c353ec23",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_7cc9f84801744351c7a1",
+      "care_setting": "public_health",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_7d5a5990b05305c0c72f",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_80ac3db7b9c36339ce87",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_80e92d334011d416f879",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_80eda7f4e367e68a095d",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_8292b8ec0b9f61337e2b",
+      "care_setting": "emergency_department",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_8786dfdac7cd8a1c45df",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_87d4bdc7290350eb7050",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_8a16c17a3287d42273c6",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_8c58eb48abf2bef4b54c",
+      "care_setting": "emergency_department",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_8dfefb1e49ee0c2ba870",
+      "care_setting": "ambulance_paramedic",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_8e221f89a7bdbbd214d7",
+      "care_setting": "emergency_department",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_903d480f3f1622b281e6",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_924dd14208290e9bb59f",
+      "care_setting": "emergency_department",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_9251b310443149febcf3",
+      "care_setting": "emergency_department",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_98b6583e528b9a8262ff",
+      "care_setting": "emergency_department",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_9944b82a8aa7af62a6ac",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_9a5940f75577ce74acc9",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_9e348c242fddb0944144",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_a08af4518cbce9e76ad6",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_a41ec23004bffcd44ac8",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_a4897d8cee8159f85202",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_a679a0e2b74ecf98781c",
+      "care_setting": "emergency_department",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_a7ee6d688ce8f2f8cbde",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_a8d29856339e45c5eacd",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_a8f620c1f10ba1ad463b",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_a978e081e678466e08f5",
+      "care_setting": "rural_remote",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_aa47abc9defef1bae781",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_aa8967c65419b99493cb",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_aa8ef1ef6b357bde3129",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_acca6ce326dd3d82a4fb",
+      "care_setting": "rural_remote",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_ace2fedb144718d7722b",
+      "care_setting": "specialist_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_adfea3b806b96dc39262",
+      "care_setting": "emergency_department",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_b35a113cc1d38fbc5e39",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_b4a7977cd2e9201cad4b",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_b4c7bdb51ea65cf0efc2",
+      "care_setting": "specialist_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_b6757e755de985266cdf",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_b69c56411edebaef8916",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_b82b296103fed06ec88b",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_b955f9dbc4b759afd52b",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_bbd01c9e472f5a3e73e9",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_be49d407a7ca23c700c0",
+      "care_setting": "emergency_department",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_be55e23001263f7c7047",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_be7d37138f2c381815c8",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_c5c955aa61a89075e1d8",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_c5f9f7ce73e982509cf2",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_c6b112f9d0062f9fbcea",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_c73c0ea8e2ceb4093bdd",
+      "care_setting": "emergency_department",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_c7d3931a3c34cd010ac2",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_cc00b80df1d23fe8bec8",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_cd5a844d81687d8e4d87",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_cdcf4779bc804d59471e",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_ce41925286bdd0dc9a3f",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_cfc43a16ce8d1baad081",
+      "care_setting": "ambulance_paramedic",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_d1ba3121686c2d054167",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_d2bfba0782f8d2b68962",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_d680e72deb81ca5f2faa",
+      "care_setting": "primary_care",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_d6c9903d9b2451497c64",
+      "care_setting": "emergency_department",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_d78b0dbec0fff0f9e2d7",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_d79bdec2c08d7568ac24",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_d932c5d164b074c72684",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_dbe6ab07ff815b00c93d",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_dcba7e2cf56dff25d0cf",
+      "care_setting": "emergency_department",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_dd3608bb8f55bb6697b3",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_dd89b4d12f10e51a5870",
+      "care_setting": "primary_care",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_e277435f66eefdebd170",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_e4c9f9f7aac7a2da7ff5",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_e4f41a5a9e55a9caf697",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_e5aa3c6ad0f08f0432dc",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_e6ef737bbdf0689678a1",
+      "care_setting": "emergency_department",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_e774d10e6751d02fc0ce",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_e7f88f7037d8cf30e50a",
+      "care_setting": "emergency_department",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_e894a19e0a05145474b5",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_e89cc9450f72b1451eca",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_ea5d9aeefe743bf6c5dd",
+      "care_setting": "rural_remote",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_eb571798197db7378bbc",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_eb75da4d728817b07532",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_f0ca324fd30aef12a5cf",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_f47ab13247942e896816",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_f771213aed3a50be4ee7",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_f84005b7da048be08afd",
+      "care_setting": "primary_care",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_f8e2833147e3e8a4fc7f",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_fab100506fc53c1d0c7c",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_fefa9f7f088f69e52491",
+      "care_setting": "maternity_reproductive",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_ff34f1e420c173239a94",
+      "care_setting": "other",
+      "classification_route": "existing_structured_field",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    },
+    {
+      "public_record_id": "ihe_ff3c6259da01901d0992",
+      "care_setting": "rural_remote",
+      "classification_route": "deterministic_explicit_phrase",
+      "rule_version": "miller-north-care-setting-enrichment-v1"
+    }
+  ]
+}

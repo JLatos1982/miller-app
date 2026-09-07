@@ -1,0 +1,178 @@
+{
+  "schema_version": "miller-north-accountability-watch-v1",
+  "review_date": "2026-09-07",
+  "caution": "This watch follows public evidence of accountability, implementation and reporting. An absence of public evidence is not evidence that no action or outcome occurred.",
+  "change_detection": {
+    "material": ["new accountability document", "new related incident", "implementation evidence change", "commitment or status change", "contradiction or confidence change", "responsibility change", "legal or regulatory outcome", "classification or geography correction"],
+    "suppressed": ["review-date-only change", "formatting-only change", "source reordering"],
+    "review_rule": "Deterministic changes create a review item; they do not publish a new conclusion or status automatically."
+  },
+  "chains": [
+    {
+      "chain_id": "mnaw_in_plain_sight",
+      "title": "In Plain Sight implementation and reporting",
+      "province": "British Columbia",
+      "originating_concern": "The 2020 independent review documented widespread Indigenous-specific racism and discrimination in B.C. health care.",
+      "key_finding": "The review issued 24 recommendations for systemic change.",
+      "recommendation_or_commitment": "The Province and health-sector partners committed to act on the recommendations.",
+      "responsible_organizations": ["Government of British Columbia", "health authorities", "health regulators", "Indigenous partners"],
+      "accountable_actors": ["B.C. Ministry of Health", "In Plain Sight reporting partners"],
+      "implementation_action_claimed": "Public reporting describes legal, regulatory, governance and patient-feedback actions.",
+      "implementation_evidence": "The 24-month report and later Action 3.07 reporting document activity, while Action 3.07 says comprehensive reporting capacity is limited.",
+      "current_status": "partial_implementation_evidence",
+      "unresolved_gap": "No current recommendation-by-recommendation public status ledger was located for all 24 recommendations.",
+      "contradictions_or_limitations": "Activity, policy adoption and program creation are not equivalent to provincewide operation or measured outcomes.",
+      "last_reviewed": "2026-09-07",
+      "best_next_document": "A current 24-row status ledger naming each responsible organization, implementation evidence and outcome measure.",
+      "confidence": "high",
+      "evidence_quality": "Original independent review plus official implementation reports; outcome coverage remains incomplete.",
+      "sources": [
+        { "title": "In Plain Sight", "role": "original independent review", "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2020/11/In-Plain-Sight-Full-Report-2020.pdf" },
+        { "title": "In Plain Sight Task Team 24-Month Report", "role": "official implementation report", "url": "https://news.gov.bc.ca/files/IPS2YearReport.pdf" },
+        { "title": "Declaration Act Action 3.07", "role": "official progress reporting", "url": "https://declaration.gov.bc.ca/actions/3-07/" }
+      ]
+    },
+    {
+      "chain_id": "mnaw_fnho",
+      "title": "First Nations Health Ombudsperson Office inaugural reporting",
+      "province": "Saskatchewan",
+      "originating_concern": "First Nations leaders created a culturally grounded route for health-care complaints, advocacy, resolution and investigation.",
+      "key_finding": "The inaugural report records 391 complaints from July 2023 to March 2025 and identifies four systemic recommendation themes.",
+      "recommendation_or_commitment": "Saskatchewan’s Ministry of Health and Saskatchewan Health Authority stated they were reviewing the report and recommendations.",
+      "responsible_organizations": ["Saskatchewan Ministry of Health", "Saskatchewan Health Authority", "health-system organizations addressed by FNHO"],
+      "accountable_actors": ["First Nations Health Ombudsperson Office", "Saskatchewan Minister of Health"],
+      "implementation_action_claimed": "FNHO reports case-level resolution work; government reported review of its recommendations.",
+      "implementation_evidence": "The inaugural report documents case-specific activity, and Hansard records the Ministry/SHA review statement.",
+      "current_status": "response_under_review",
+      "unresolved_gap": "No later recommendation-level Ministry or SHA implementation response was located.",
+      "contradictions_or_limitations": "Closed or resolved complaints and continued funding do not establish systemwide implementation.",
+      "last_reviewed": "2026-09-07",
+      "best_next_document": "A Ministry/SHA response that maps each FNHO recommendation to an owner, action and evidence of progress.",
+      "confidence": "high",
+      "evidence_quality": "First Nations-governed primary reporting plus a legislative response statement; later implementation reporting is limited.",
+      "sources": [
+        { "title": "FNHO Inaugural Report", "role": "First Nations-governed primary report", "url": "https://fnhoo.ca/wp-content/uploads/2025/10/Inaugural-Report-2023-2025.pdf" },
+        { "title": "Saskatchewan Hansard, October 28, 2025", "role": "legislative response record", "url": "https://docs.legassembly.sk.ca/legdocs/Assembly/Debates/30L2S/20251028DebatesHTML.htm" }
+      ]
+    },
+    {
+      "chain_id": "mnaw_alberta_patient_safety",
+      "title": "Indigenous Patient Safety Investigator and Advocate",
+      "province": "Alberta",
+      "originating_concern": "An Indigenous advisory panel called for a more accountable response to racism and patient concerns.",
+      "key_finding": "The advocate has a bounded Health Charter review and advisory role, but no general disciplinary power.",
+      "recommendation_or_commitment": "Alberta created the role within the Office of Alberta Health Advocates.",
+      "responsible_organizations": ["Office of Alberta Health Advocates", "Government of Alberta", "health authorities and organizations receiving recommendations"],
+      "accountable_actors": ["Office of Alberta Health Advocates", "Alberta Health"],
+      "implementation_action_claimed": "The office provides complaint support, navigation, bounded review and system advice.",
+      "implementation_evidence": "The service page and 2026–29 business plan document operation; the plan reports 321 correspondence items in 2025.",
+      "current_status": "operating_with_outcome_gap",
+      "unresolved_gap": "A public ledger of cases, recommendations, responses and outcomes was not located.",
+      "contradictions_or_limitations": "Correspondence volume is not a count of complaints, investigations, resolutions or outcomes.",
+      "last_reviewed": "2026-09-07",
+      "best_next_document": "An annual public report with aggregate caseload, recommendation, response-time and outcome measures.",
+      "confidence": "high",
+      "evidence_quality": "Official mandate and business-plan sources support operation and a narrow correspondence metric; role-specific outcomes remain unreported.",
+      "sources": [
+        { "title": "Indigenous Patient Safety Investigator and Advocate", "role": "official mandate and access page", "url": "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate" },
+        { "title": "Primary and Preventative Health Services Business Plan 2026–29", "role": "official operational reporting", "url": "https://open.alberta.ca/dataset/1f359112-3adc-4202-8002-35c96521e80f/resource/a9fb0611-e4d9-42eb-9d9a-50779aaf8903/download/pphs-business-plan-2026-29.pdf" }
+      ]
+    },
+    {
+      "chain_id": "mnaw_saskatoon_sterilization",
+      "title": "Saskatoon coerced-sterilization review and response",
+      "province": "Saskatchewan",
+      "originating_concern": "A commissioned external review documented reported experiences of seven Indigenous women concerning pressure or coercion around tubal ligation.",
+      "key_finding": "The review issued ten Calls to Action and treated the accounts as a cohort/systemic concern.",
+      "recommendation_or_commitment": "Saskatoon Health Region apologized; SHA links the Indigenous Birth Support Worker Program to the review.",
+      "responsible_organizations": ["Saskatchewan Health Authority", "Saskatchewan health-system organizations", "governments responsible for distinct legal and policy actions"],
+      "accountable_actors": ["Saskatchewan Health Authority", "Court of King’s Bench for Saskatchewan for procedural litigation matters"],
+      "implementation_action_claimed": "SHA states the Birth Support Worker Program was created in response and continues at Jim Pattison Children’s Hospital.",
+      "implementation_evidence": "SHA evaluation and current service-page material support an operating program and local evaluation.",
+      "current_status": "partial_implementation_evidence",
+      "unresolved_gap": "Current status for most Calls to Action and a provincewide consent-policy audit were not located.",
+      "contradictions_or_limitations": "The 2025 class-certification decision was procedural and did not decide the truth of individual reported experiences.",
+      "last_reviewed": "2026-09-07",
+      "best_next_document": "An SHA ten-Call implementation table with evidence, scope and outcome measures.",
+      "confidence": "high",
+      "evidence_quality": "Commissioned external review plus current health-system program evidence and a direct procedural legal source.",
+      "sources": [
+        { "title": "Tubal Ligation in the Saskatoon Health Region", "role": "commissioned external review", "url": "https://senatorboyer.ca/wp-content/uploads/2021/09/Tubal-Ligation-in-the-Saskatoon-Health-Region-the-Lived-Experience-of-Aboriginal-Women-Boyer-and-Bartlett-July-11-2017.pdf" },
+        { "title": "Indigenous Birth Support Worker Program", "role": "health-system implementation and evaluation evidence", "url": "https://www.saskhealthauthority.ca/our-organization/our-direction/research/who-we-are/exciting-discoveries/lessons-learned-indigenous-birth-support-worker-program" },
+        { "title": "Popp v Canada (Attorney General), 2025 SKKB 89 digest", "role": "procedural legal source", "url": "https://www.lawsociety.sk.ca/wp-content/uploads/CM27-18.pdf" }
+      ]
+    },
+    {
+      "chain_id": "mnaw_alberta_primary_care_panel",
+      "title": "Alberta Indigenous Primary Health Care Advisory Panel",
+      "province": "Alberta",
+      "originating_concern": "Alberta convened an Indigenous advisory panel to address culturally safe, Indigenous-led and accountable primary health care.",
+      "key_finding": "The panel made 22 recommendations and government published a separate implementation plan.",
+      "recommendation_or_commitment": "The Way Forward and related government pages describe implementation, funding and oversight mechanisms.",
+      "responsible_organizations": ["Alberta Health", "Government of Alberta", "funded organizations and health-system partners"],
+      "accountable_actors": ["Alberta Health", "Indigenous Primary Health Care Advisory Panel context"],
+      "implementation_action_claimed": "Navigator grants, an innovation fund, an Indigenous Health Division and a patient-safety advocate are publicly documented.",
+      "implementation_evidence": "Official plan, program and funding pages document named mechanisms and some completed/underway work.",
+      "current_status": "partial_implementation_evidence",
+      "unresolved_gap": "A current 22-recommendation status ledger and outcome evidence for funded mechanisms were not located.",
+      "contradictions_or_limitations": "Program creation and listed actions are not evidence of provincewide service reach, sustained operation or effectiveness.",
+      "last_reviewed": "2026-09-07",
+      "best_next_document": "A current public 22-recommendation implementation and outcome ledger, including geographic service coverage.",
+      "confidence": "high",
+      "evidence_quality": "Original advisory report and official implementation sources establish named actions; recommendation-level outcomes are incomplete.",
+      "sources": [
+        { "title": "Indigenous Primary Health Care Advisory Panel final report", "role": "original advisory report", "url": "https://open.alberta.ca/dataset/68717edd-5861-406e-b4ea-dd0e9051dadc/resource/da7c9aae-9cc1-48f4-bce5-6e71bd02a9c8/download/hlth-maps-indigenous-primary-health-care-advisory-panel-final-report.pdf" },
+        { "title": "The Way Forward", "role": "official implementation plan", "url": "https://open.alberta.ca/publications/way-forward-indigenous-primary-health-care-implementation-panel-plan-advance-recommendations" },
+        { "title": "Improving Indigenous health care", "role": "official program and funding update", "url": "https://www.alberta.ca/improving-indigenous-health-care" }
+      ]
+    },
+    {
+      "chain_id": "mnaw_maskwacis_youth_inquiry",
+      "title": "Maskwacis youth fatality inquiry and recommendation responses",
+      "province": "Alberta",
+      "originating_concern": "A public fatality inquiry examined the deaths by suicide of four First Nations young people from the four Nations of Maskwacis between 2017 and 2020.",
+      "key_finding": "The inquiry described barriers spanning child and family services, mental-health supports, information sharing, funding and coordination, and issued 44 recommendations according to the public report and Indigenous reporting.",
+      "recommendation_or_commitment": "The public response tracker records 62 responder rows covering 40 distinct numbered recommendations, including healthcare recommendations to Alberta Health Services and provincial and federal organizations.",
+      "responsible_organizations": ["Alberta Health Services", "Government of Alberta", "Indigenous Services Canada", "Delegated First Nations Agencies and local service partners named by the inquiry"],
+      "accountable_actors": ["Alberta Justice", "Alberta Health Services", "Children and Family Services", "Primary and Preventative Health Services", "Mental Health and Addiction", "Indigenous Services Canada"],
+      "implementation_action_claimed": "The tracker records categories including accepted, accepted in principle, not accepted, other, waiting for response and no response recorded for named responder rows.",
+      "implementation_evidence": "The tracker establishes that responses were requested and records response categories. It does not provide a complete implementation or outcome ledger, and five healthcare responder rows were still marked waiting for response when reviewed.",
+      "current_status": "response_under_review",
+      "unresolved_gap": "Recommendation-level claimed actions, implementation evidence, outcomes and independent verification are not consistently available in the structured tracker.",
+      "contradictions_or_limitations": "Forty numbered recommendations appear in the current response tracker while the inquiry/reporting describes 44. Responder labels are not evidence that a recommendation was implemented.",
+      "last_reviewed": "2026-09-07",
+      "best_next_document": "Full response letters and a recommendation-by-recommendation implementation and outcome update, especially for AHS recommendations 12, 13, 28, 29 and 35.",
+      "confidence": "high",
+      "evidence_quality": "Public fatality-inquiry report, structured official response tracker and Indigenous-media reporting; implementation evidence remains limited.",
+      "sources": [
+        { "title": "Report to the Minister of Justice: T.M., C.L., S.R. and E.S.", "role": "public fatality inquiry", "url": "https://open.alberta.ca/publications/fatality-inquiry-2025-07-23" },
+        { "title": "Responses to public fatality inquiry recommendations", "role": "official recommendation-response tracker", "url": "https://open.alberta.ca/opendata/responses-to-public-fatality-inquiry-recommendations" },
+        { "title": "Deaths of four First Nation teens examined in fatality report", "role": "Indigenous journalism", "url": "https://cfweradio.ca/2025/08/27/33304/" }
+      ]
+    },
+    {
+      "chain_id": "mnaw_solonas_support_recommendation",
+      "title": "Solonas inquest Indigenous-support recommendation",
+      "province": "British Columbia",
+      "originating_concern": "The inquest into Nadine Marcy Solonas’s death reviewed police custody, mistrust of first responders, paramedic assessment, emergency care and transfer after a serious assault.",
+      "key_finding": "The jury recommended a 24-hour, on-call Indigenous support position for Indigenous people in RCMP custody who refuse treatment or mistrust first responders.",
+      "recommendation_or_commitment": "The recommendation was directed to the Deputy Commissioner of RCMP E Division and specified a non-uniformed civilian role supporting a culturally safe environment.",
+      "responsible_organizations": ["Royal Canadian Mounted Police, E Division"],
+      "accountable_actors": ["Deputy Commissioner, RCMP E Division", "B.C. Coroners Service"],
+      "implementation_action_claimed": "No recommendation-specific public action statement was located in the sources reviewed.",
+      "implementation_evidence": "No public evidence confirming creation or evaluation of the recommended position was located.",
+      "current_status": "procedural_outcome_with_gaps",
+      "unresolved_gap": "Whether the RCMP responded to or implemented the recommendation remains unclear from public sources.",
+      "contradictions_or_limitations": "The inquest was fact-finding, not fault-finding. The verdict records that the Independent Investigations Office found no police action or inaction contributed to the death, and the jury did not make a finding of racism.",
+      "last_reviewed": "2026-09-07",
+      "best_next_document": "A recommendation-specific RCMP response or later public evaluation of an on-call Indigenous support role in B.C. custody settings.",
+      "confidence": "high",
+      "evidence_quality": "Official jury verdict and Indigenous-media corroboration; recommendation follow-up was not located.",
+      "related_incident_refs": ["mnsh_nadine_solonas_2017"],
+      "sources": [
+        { "title": "Verdict at Coroners Inquest: Nadine Marcy Solonas", "role": "jury verdict", "url": "https://www2.gov.bc.ca/assets/gov/birth-adoption-death-marriage-and-divorce/deaths/coroners-service/inquest/2023/bccs_solonas_verdict_with_coroner_comments.pdf" },
+        { "title": "Inquest brings call for Indigenous support worker for people in custody", "role": "Indigenous journalism", "url": "https://www.cfnrfm.ca/2023/06/06/inquest-into-death-of-quesnel-woman-in-2017-brings-calls-for-a-support-worker-for-indigenous-people-in-custody/" }
+      ]
+    }
+  ]
+}

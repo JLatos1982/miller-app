@@ -9,6 +9,7 @@ const links = [
   ["listening", "/indigenous-healthcare-evidence/live-listening", "Live Listening"],
   ["emerging", "/indigenous-healthcare-evidence/watching-now", "Watching Now"],
   ["research", "/indigenous-healthcare-evidence/research-policy", "Research & Policy"],
+  ["official", "/indigenous-healthcare-evidence/serious-harm", "Official records"],
   ["supports", "/indigenous-healthcare-evidence/first-nations-supports", "First Nations Supports"],
   ["funding", "/indigenous-healthcare-evidence/funding-assistance", "Funding & Assistance"],
   ["methodology", "/indigenous-healthcare-evidence/methodology", "How evidence works"],

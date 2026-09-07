@@ -65,7 +65,7 @@ test("North headers use the existing North landing route rather than the Miller 
 
 test("North landing keeps the active evidence-question search and removes the legacy inline filter", () => {
   const page = readFileSync(new URL("../src/site/IndigenousHealthcareEvidence.jsx", import.meta.url), "utf8")
-  assert.match(page, /Ask the evidence library/)
+  assert.match(page, /Search Miller North/)
   assert.match(page, /\/api\/indigenous-healthcare-evidence\/search/)
   assert.doesNotMatch(page, /ihe-library-search|ihe-library-query|libraryQuery/)
   assert.doesNotMatch(page, /IndigenousHealthcareEvidenceLibrarySearch\.css/)

@@ -1,0 +1,147 @@
+{
+  "schema_version": "miller-north-serious-harm-public-v1",
+  "review_date": "2026-09-07",
+  "content_note": "This section contains research on serious harm, death, discrimination and health-care experiences. Miller North presents it for research and accountability purposes.",
+  "interpretation_note": "Source labels describe what kind of public evidence is available. They do not establish causation, wrongdoing or the truth of every reported claim.",
+  "incidents": [
+    {
+      "public_incident_id": "mnsh_nadine_solonas_2017",
+      "title": "Nadine Marcy Solonas inquest and Indigenous-support recommendation",
+      "province": "British Columbia",
+      "location": "Quesnel and Vancouver",
+      "event_date": "2017-10-01",
+      "care_setting": "Police custody, paramedic assessment, emergency care and interfacility transfer",
+      "summary": "A B.C. inquest reviewed the circumstances of Nadine Marcy Solonas’s death after police custody, paramedic assessment, emergency care in Quesnel and transfer to Vancouver. The jury recommended a 24-hour, on-call Indigenous support position for Indigenous people in RCMP custody who refuse treatment or mistrust first responders.",
+      "evidence_strength": {
+        "key": "formal_process_evidence",
+        "label": "Formal process evidence",
+        "source_roles": ["jury_verdict", "indigenous_journalism"]
+      },
+      "formal_process_status": "Inquest completed; jury recommendation issued",
+      "institutional_response": "The verdict records that the Independent Investigations Office found no police action or inaction contributed to the death.",
+      "formal_outcome": "The inquest established the medical cause and circumstances of death and made a prevention recommendation. It did not make a finding of racism or legal responsibility.",
+      "unresolved_questions": [
+        "Was a recommendation-specific RCMP response published?",
+        "Was the recommended support position created or evaluated?"
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "related_watch_chain_id": "mnaw_solonas_support_recommendation",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "Verdict at Coroners Inquest: Nadine Marcy Solonas",
+          "role": "jury_verdict",
+          "url": "https://www2.gov.bc.ca/assets/gov/birth-adoption-death-marriage-and-divorce/deaths/coroners-service/inquest/2023/bccs_solonas_verdict_with_coroner_comments.pdf"
+        },
+        {
+          "title": "Inquest brings call for Indigenous support worker for people in custody",
+          "role": "indigenous_journalism",
+          "url": "https://www.cfnrfm.ca/2023/06/06/inquest-into-death-of-quesnel-woman-in-2017-brings-calls-for-a-support-worker-for-indigenous-people-in-custody/"
+        }
+      ]
+    },
+    {
+      "public_incident_id": "mnsh_bccnm_emergency_assessment_2021",
+      "title": "Emergency-department assessment and resuscitation consent agreement",
+      "province": "British Columbia",
+      "location": "British Columbia",
+      "event_date": "2021-09",
+      "care_setting": "Emergency department",
+      "affected_person": "Not publicly named",
+      "summary": "BCCNM approved a consent agreement after finding that an emergency-room nurse did not adequately assess or perform resuscitative measures for an Indigenous person found apparently pulseless and unresponsive in a vestibule, and did not meet documentation standards.",
+      "evidence_strength": {
+        "key": "final_formal_outcome",
+        "label": "Formal outcome",
+        "source_roles": ["regulator_finding"]
+      },
+      "formal_process_status": "Regulatory consent agreement approved January 25, 2023",
+      "institutional_response": "BCCNM issued a public reprimand and specified suspension and education terms if the former registrant reapplies.",
+      "formal_outcome": "A professional-regulator consent agreement; not a court judgment or a broader health-system finding.",
+      "unresolved_questions": [
+        "No separate public institutional response or system-level follow-up was located in the bounded review."
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "BCCNM public notice: Katherine Lowe, RN",
+          "role": "regulator_finding",
+          "final_outcome": true,
+          "url": "https://www.bccnm.ca/Public/complaints/Pages/Notice.aspx?NoticeID=880"
+        }
+      ]
+    },
+    {
+      "public_incident_id": "mnsh_bccnm_consent_2021",
+      "title": "Consent and Indigenous-heritage regulatory agreement",
+      "province": "British Columbia",
+      "location": "British Columbia",
+      "event_date": "2021-06",
+      "care_setting": "Nursing care in a public setting",
+      "affected_person": "Not publicly named",
+      "summary": "BCCNM approved a consent agreement after finding that a nurse performed a religious ritual on a client without informed consent and without considering the client’s Indigenous heritage.",
+      "evidence_strength": {
+        "key": "final_formal_outcome",
+        "label": "Formal outcome",
+        "source_roles": ["regulator_finding"]
+      },
+      "formal_process_status": "Regulatory consent agreement approved September 23, 2022",
+      "institutional_response": "BCCNM imposed a four-month suspension, a temporary practice restriction, mentorship and remedial education.",
+      "formal_outcome": "A professional-regulator consent agreement; not a court judgment or a finding about an entire institution.",
+      "unresolved_questions": [
+        "No separate public institutional response or system-level follow-up was located in the bounded review."
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "BCCNM public notice: Christopher Villaflor, LPN",
+          "role": "regulator_finding",
+          "final_outcome": true,
+          "url": "https://www.bccnm.ca/Public/complaints/Pages/Notice.aspx?NoticeID=846"
+        }
+      ]
+    },
+    {
+      "public_incident_id": "mnsh_trevor_dubois_2026",
+      "title": "Trevor Dubois hospital death and ongoing reviews",
+      "province": "Saskatchewan",
+      "location": "Royal University Hospital, Saskatoon",
+      "event_date": "2026-01-09",
+      "care_setting": "Inpatient hospital and protective services",
+      "summary": "Saskatchewan Health Authority acknowledged that Trevor Dubois died after an encounter involving Protective Services Officers at Royal University Hospital. SHA said police and Coroners Service investigations, a Critical Incident review, an internal review and a third-party use-of-force review were underway.",
+      "evidence_strength": {
+        "key": "institutional_acknowledgement",
+        "label": "Institution acknowledged",
+        "source_roles": ["institutional_statement", "independent_journalism"]
+      },
+      "formal_process_status": "Multiple reviews and investigations announced; no final public finding located",
+      "institutional_response": "SHA said it suspended the involved officer pending review and a related labour investigation and was engaging Saskatoon Tribal Council and the family.",
+      "formal_outcome": "No final public police, coroner, Critical Incident or use-of-force outcome was located in the bounded search.",
+      "unresolved_questions": [
+        "What did the announced reviews conclude?",
+        "Did any recommendation or policy change result from the incident?",
+        "How will the separate provincewide security review report its findings?"
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "SHA update: patient death at Royal University Hospital",
+          "role": "institutional_statement",
+          "url": "https://www.saskhealthauthority.ca/news-events/news/update-statement-regarding-patient-death-royal-university-hospital"
+        },
+        {
+          "title": "Call for independent inquiry into First Nations health care after Trevor Dubois’s death",
+          "role": "independent_journalism",
+          "url": "https://www.ckom.com/2026/01/26/call-for-independent-inquiry-into-first-nations-health-care-in-wake-of-trevor-dubois-death/"
+        },
+        {
+          "title": "Independent Review Begins to Strengthen Hospital Safety and Security",
+          "role": "government_response",
+          "url": "https://www.saskatchewan.ca/government/news-and-media/2026/may/21/independent-review-begins-to-strengthen-hospital-safety-and-security"
+        }
+      ]
+    }
+  ]
+}

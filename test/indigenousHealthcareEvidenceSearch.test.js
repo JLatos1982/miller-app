@@ -34,25 +34,25 @@ test("OpenAI context is capped and carries the reported-account instruction", as
   let request
   const openai = { responses: { create: async (value) => {
     request = value
-    return { output_text: JSON.stringify({ answer: "The supplied record is a reported account.", record_ids: [] }) }
+    return { output_text: JSON.stringify({ answer: "The supplied result is a reported account.", result_ids: [] }) }
   } } }
   const result = await searchIndigenousHealthcareEvidence({ query: "emergency", apiKeyPresent: true, openai })
   assert.equal(result.summary_available, true)
   assert.match(EVIDENCE_SEARCH_INSTRUCTIONS, /reported account/i)
-  assert.ok(JSON.parse(request.input).records.length <= MAX_EVIDENCE_SEARCH_RECORDS)
+  assert.ok(JSON.parse(request.input).results.length <= MAX_EVIDENCE_SEARCH_RECORDS)
   assert.equal(request.max_output_tokens, 700)
 })
 
-test("evidence page retains the active question search, clear/reset, and existing filters", () => {
+test("evidence page retains site-wide search, clear/reset, and existing evidence filters", () => {
   const page = readFileSync(new URL("../src/site/IndigenousHealthcareEvidence.jsx", import.meta.url), "utf8")
   assert.match(page, /First Nations Healthcare Evidence/)
-  assert.match(page, /Ask about patterns, sources, places, or evidence/)
-  assert.match(page, /Ask the evidence library/)
+  assert.match(page, /Search incidents, evidence, organizations, reports, and accountability/)
+  assert.match(page, /Search Miller North/)
   assert.doesNotMatch(page, /ihe-library-search|ihe-library-query|libraryQuery/)
-  assert.match(page, /Emergency departments in Alberta/)
+  assert.match(page, /Hospital security Saskatchewan/)
   assert.match(page, /setSearchQuery\(example\)/)
-  assert.match(page, /relevant record/)
-  assert.match(page, /evidenceSearch\.match_count > 0/)
+  assert.match(page, /relevant result/)
+  assert.match(page, /evidenceSearch\.match_count \|\| 0/)
   assert.match(page, /clearEvidenceSearch/)
   assert.match(page, /filterEvidenceRecords\(records, filters\)/)
   assert.match(page, /displayedRecords/)

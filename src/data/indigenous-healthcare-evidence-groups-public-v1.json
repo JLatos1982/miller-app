@@ -1,18 +1,18 @@
 {
   "schema_version": "miller-north-public-evidence-groups-v1",
-  "generated_at": "2026-09-06T16:17:44.803Z",
+  "generated_at": "2026-09-07T18:59:08.874Z",
   "mode": "non_destructive_public_presentation",
   "metrics": {
     "raw_source_records": 695,
-    "public_evidence_groups": 321,
-    "incident_like_groups": 111,
-    "exact_duplicate_rows_suppressed": 0,
-    "additional_source_rows_consolidated": 24,
-    "contextual_rows_consolidated": 350,
-    "cohort_or_systemic_groups": 210,
-    "related_not_duplicate_source_clusters": 16,
-    "probable_duplicate_owner_reviews": 4,
-    "unresolved_duplicate_reviews": 4
+    "public_evidence_groups": 307,
+    "incident_like_groups": 100,
+    "exact_duplicate_rows_suppressed": 93,
+    "additional_source_rows_consolidated": 15,
+    "contextual_rows_consolidated": 280,
+    "cohort_or_systemic_groups": 207,
+    "related_not_duplicate_source_clusters": 14,
+    "probable_duplicate_owner_reviews": 5,
+    "unresolved_duplicate_reviews": 5
   },
   "groups": [
     {
@@ -84,41 +84,6 @@
           "source_type": "institutional_or_public",
           "publication_date": null,
           "url": "https://www.sciencedirect.com/science/article/abs/pii/S1755599X19300114"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_01ea7a3c64f5859975aa",
-      "member_public_record_ids": [
-        "ihe_1c3b231a169bd6d49a88",
-        "ihe_acca6ce326dd3d82a4fb"
-      ],
-      "source_record_count": 2,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "systemic_evidence",
-      "evidence_type": "systemic evidence",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The report’s Indigenous People’s survey found First Nations patients were less likely to make complaints for fear of discrimination and were two times more likely to have adverse experiences in institutional settings.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "Interior Health shares progress on report’s call to address Indigenous racism in B.C. healthcare - BC Rural Health Network",
-        "publisher": "bcruralhealth.org",
-        "source_type": "indigenous_organization",
-        "publication_date": null,
-        "url": "https://bcruralhealth.org/interior-health-shares-progress-on-reports-call-to-address-indigenous-racism-in-b-c-healthcare"
-      },
-      "sources": [
-        {
-          "title": "Interior Health shares progress on report’s call to address Indigenous racism in B.C. healthcare - BC Rural Health Network",
-          "publisher": "bcruralhealth.org",
-          "source_type": "indigenous_organization",
-          "publication_date": null,
-          "url": "https://bcruralhealth.org/interior-health-shares-progress-on-reports-call-to-address-indigenous-racism-in-b-c-healthcare"
         }
       ]
     },
@@ -228,40 +193,6 @@
       ]
     },
     {
-      "public_record_id": "iheg_051bdb378a320084e1aa",
-      "member_public_record_ids": [
-        "ihe_9e348c242fddb0944144"
-      ],
-      "source_record_count": 1,
-      "source_count": 1,
-      "presentation_classification": "separate_incident",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "alberta",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Anti-Indigenous racism in Canadian healthcare - PMC - NIH” contains province-specific material relevant to Indigenous health-care official investigation; the source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "Anti-Indigenous racism in Canadian healthcare - PMC - NIH",
-        "publisher": "pmc.ncbi.nlm.nih.gov",
-        "source_type": "government",
-        "publication_date": null,
-        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11414646"
-      },
-      "sources": [
-        {
-          "title": "Anti-Indigenous racism in Canadian healthcare - PMC - NIH",
-          "publisher": "pmc.ncbi.nlm.nih.gov",
-          "source_type": "government",
-          "publication_date": null,
-          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11414646"
-        }
-      ]
-    },
-    {
       "public_record_id": "iheg_05272e2bf40078a4dd3c",
       "member_public_record_ids": [
         "ihe_132913509d2ba9e1f0a2",
@@ -301,43 +232,6 @@
       ]
     },
     {
-      "public_record_id": "iheg_062293c7421259bfb8e5",
-      "member_public_record_ids": [
-        "ihe_12474acd8437272f823e",
-        "ihe_3599f3cc4de78c814cfc",
-        "ihe_7fa44a84c36a9a933ce4",
-        "ihe_943766330cc594be0549"
-      ],
-      "source_record_count": 4,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "systemic_evidence",
-      "evidence_type": "systemic evidence",
-      "province": "alberta",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "“Appropriately titled, *In Plain Sight* describes what we already know: in its current state, there is deeply rooted bias and systemic racism at all facets of the system, this is further damaging for Indigenous people that we cannot rely on for the level of care we are entitled to,” says CSTC in a news release.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "Northern B.C. Indigenous group calles for decisive change in B.C. Healthcare following report on racism - Prince George Citizen",
-        "publisher": "www.princegeorgecitizen.com",
-        "source_type": "indigenous_organization",
-        "publication_date": null,
-        "url": "https://www.princegeorgecitizen.com/local-news/carrier-sekani-tribal-council-calls-for-definitive-change-in-bcs-healthcare-following-report-on-racism-3141063"
-      },
-      "sources": [
-        {
-          "title": "Northern B.C. Indigenous group calles for decisive change in B.C. Healthcare following report on racism - Prince George Citizen",
-          "publisher": "www.princegeorgecitizen.com",
-          "source_type": "indigenous_organization",
-          "publication_date": null,
-          "url": "https://www.princegeorgecitizen.com/local-news/carrier-sekani-tribal-council-calls-for-definitive-change-in-bcs-healthcare-following-report-on-racism-3141063"
-        }
-      ]
-    },
-    {
       "public_record_id": "iheg_06f77eb89f5b3165d589",
       "member_public_record_ids": [
         "ihe_b27bcb0139050061c9cd"
@@ -368,6 +262,42 @@
           "source_type": "institutional_or_public",
           "publication_date": null,
           "url": "https://link.springer.com/article/10.1007/s43678-024-00687-3"
+        }
+      ]
+    },
+    {
+      "public_record_id": "iheg_0733f6d38e0620af2963",
+      "member_public_record_ids": [
+        "ihe_2c29fc3679f9e7106381",
+        "ihe_ff3c6259da01901d0992"
+      ],
+      "source_record_count": 2,
+      "source_count": 1,
+      "presentation_classification": "same_incident_duplicate",
+      "evidence_status": "reported_account",
+      "evidence_type": "reported account",
+      "province": "british_columbia",
+      "year": null,
+      "care_setting": null,
+      "organization": null,
+      "summary": "A public source reports: The public source “Interior Health shares progress on report’s call to address Indigenous racism in B.C. healthcare - BC Rural Health Network” contains province-specific material relevant to Indigenous health-care reported account; the bounded source excerpt and provenance define its scope. This record documents the reported account and does not present the underlying allegation as an independently established finding.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "caution": "A publicly documented account or allegation. Inclusion records that the account was made; it does not independently establish the underlying event.",
+      "source": {
+        "title": "Interior Health shares progress on report’s call to address Indigenous racism in B.C. healthcare - BC Rural Health Network",
+        "publisher": "bcruralhealth.org",
+        "source_type": "indigenous_organization",
+        "publication_date": null,
+        "url": "https://bcruralhealth.org/interior-health-shares-progress-on-reports-call-to-address-indigenous-racism-in-b-c-healthcare"
+      },
+      "sources": [
+        {
+          "title": "Interior Health shares progress on report’s call to address Indigenous racism in B.C. healthcare - BC Rural Health Network",
+          "publisher": "bcruralhealth.org",
+          "source_type": "indigenous_organization",
+          "publication_date": null,
+          "url": "https://bcruralhealth.org/interior-health-shares-progress-on-reports-call-to-address-indigenous-racism-in-b-c-healthcare"
         }
       ]
     },
@@ -756,40 +686,6 @@
       ]
     },
     {
-      "public_record_id": "iheg_1057a3dc084b9d3d52c1",
-      "member_public_record_ids": [
-        "ihe_9c8245cec359ab5ec6b4"
-      ],
-      "source_record_count": 1,
-      "source_count": 1,
-      "presentation_classification": "separate_incident",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "british_columbia",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. - BCACHC” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. - BCACHC",
-        "publisher": "bcachc.org",
-        "source_type": "indigenous_organization",
-        "publication_date": null,
-        "url": "https://bcachc.org/resources_post/in-plain-sight-addressing-indigenous-specific-racism-and-discrimination-in-b-c"
-      },
-      "sources": [
-        {
-          "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. - BCACHC",
-          "publisher": "bcachc.org",
-          "source_type": "indigenous_organization",
-          "publication_date": null,
-          "url": "https://bcachc.org/resources_post/in-plain-sight-addressing-indigenous-specific-racism-and-discrimination-in-b-c"
-        }
-      ]
-    },
-    {
       "public_record_id": "iheg_10620e64dac90ccddb78",
       "member_public_record_ids": [
         "ihe_271a2a3f496c39d64cef"
@@ -821,46 +717,6 @@
           "source_type": "institutional_or_public",
           "publication_date": null,
           "url": "https://www.bcpharmacists.org/CulturalSafetyAndHumility"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_12167db45fdeb0c4a38b",
-      "member_public_record_ids": [
-        "ihe_1ae9da6be2b1941b9709",
-        "ihe_49f5a447bac47272f559",
-        "ihe_55dc3ca02847504f7e36",
-        "ihe_8292b8ec0b9f61337e2b",
-        "ihe_9251b310443149febcf3",
-        "ihe_a679a0e2b74ecf98781c",
-        "ihe_d6c9903d9b2451497c64"
-      ],
-      "source_record_count": 7,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Racism, discrimination may lead to First Nations patients ...” contains province-specific material relevant to Indigenous health-care official investigation; the source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "Racism, discrimination may lead to First Nations patients ...",
-        "publisher": "www.cbc.ca",
-        "source_type": "credible_journalism",
-        "publication_date": null,
-        "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342"
-      },
-      "sources": [
-        {
-          "title": "Racism, discrimination may lead to First Nations patients ...",
-          "publisher": "www.cbc.ca",
-          "source_type": "credible_journalism",
-          "publication_date": null,
-          "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342"
         }
       ]
     },
@@ -1186,79 +1042,6 @@
       ]
     },
     {
-      "public_record_id": "iheg_1b24d5cfb7377bc5e78f",
-      "member_public_record_ids": [
-        "ihe_dd89b4d12f10e51a5870"
-      ],
-      "source_record_count": 1,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "systemic_evidence",
-      "evidence_type": "Recommendation or action",
-      "province": "alberta",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Indigenous people's experiences of primary health care ... - PMC” contains province-specific material relevant to Indigenous health-care systemic evidence; the source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "caution": "Procedural or institutional context is shown with its source-supported limits; it is not proof of an underlying allegation or effectiveness.",
-      "source": {
-        "title": "Indigenous people's experiences of primary health care ... - PMC",
-        "publisher": "pmc.ncbi.nlm.nih.gov",
-        "source_type": "government",
-        "publication_date": null,
-        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11097747"
-      },
-      "sources": [
-        {
-          "title": "Indigenous people's experiences of primary health care ... - PMC",
-          "publisher": "pmc.ncbi.nlm.nih.gov",
-          "source_type": "government",
-          "publication_date": null,
-          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11097747"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_1bc9584add88897d5ce9",
-      "member_public_record_ids": [
-        "ihe_00b2e6b09b04051ba899",
-        "ihe_62e10f098d351aca7754",
-        "ihe_a4897d8cee8159f85202",
-        "ihe_e277435f66eefdebd170",
-        "ihe_e4f41a5a9e55a9caf697"
-      ],
-      "source_record_count": 5,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "systemic_evidence",
-      "evidence_type": "systemic evidence",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "We have agreed that the Aboriginal Health Steering Committee will be the main table for all of our work to eliminate racism and ensure equality in accessing health care services for Indigenous people.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health",
-        "publisher": "www.fraserhealth.ca",
-        "source_type": "health_authority",
-        "publication_date": null,
-        "url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination"
-      },
-      "sources": [
-        {
-          "title": "Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health",
-          "publisher": "www.fraserhealth.ca",
-          "source_type": "health_authority",
-          "publication_date": null,
-          "url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination"
-        }
-      ]
-    },
-    {
       "public_record_id": "iheg_1c77dad537f4c41c33b5",
       "member_public_record_ids": [
         "ihe_dcba7e2cf56dff25d0cf"
@@ -1324,41 +1107,6 @@
           "source_type": "health_authority",
           "publication_date": null,
           "url": "https://www.interiorhealth.ca/stories/ihs-fifth-plain-sight-response-supports-reconciliation"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_1de5ce5ff561208539e3",
-      "member_public_record_ids": [
-        "ihe_544ce0002abb7b83428b"
-      ],
-      "source_record_count": 1,
-      "source_count": 1,
-      "presentation_classification": "separate_incident",
-      "evidence_status": "reported_account",
-      "evidence_type": "reported account",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "A public source reports: The public source “Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health” contains province-specific material relevant to Indigenous health-care reported account; the bounded source excerpt and provenance define its scope. This record documents the reported account and does not present the underlying allegation as an independently established finding.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "caution": "A publicly documented account or allegation. Inclusion records that the account was made; it does not independently establish the underlying event.",
-      "source": {
-        "title": "Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health",
-        "publisher": "www.fraserhealth.ca",
-        "source_type": "health_authority",
-        "publication_date": null,
-        "url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination"
-      },
-      "sources": [
-        {
-          "title": "Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health",
-          "publisher": "www.fraserhealth.ca",
-          "source_type": "health_authority",
-          "publication_date": null,
-          "url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination"
         }
       ]
     },
@@ -1579,45 +1327,6 @@
       ]
     },
     {
-      "public_record_id": "iheg_213a9fb45e43820b470e",
-      "member_public_record_ids": [
-        "ihe_0173de53145c8e4727d8",
-        "ihe_23569ac9c93b12818bb8",
-        "ihe_80ac3db7b9c36339ce87",
-        "ihe_c5f9f7ce73e982509cf2",
-        "ihe_cdcf4779bc804d59471e",
-        "ihe_fefa9f7f088f69e52491"
-      ],
-      "source_record_count": 6,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds” contains province-specific material relevant to Indigenous health-care official investigation; the source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds",
-        "publisher": "news.ubc.ca",
-        "source_type": "indigenous_organization",
-        "publication_date": null,
-        "url": "https://news.ubc.ca/2026/07/national-survey-indigenous-people-childbirth-mistreatment"
-      },
-      "sources": [
-        {
-          "title": "Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds",
-          "publisher": "news.ubc.ca",
-          "source_type": "indigenous_organization",
-          "publication_date": null,
-          "url": "https://news.ubc.ca/2026/07/national-survey-indigenous-people-childbirth-mistreatment"
-        }
-      ]
-    },
-    {
       "public_record_id": "iheg_22267fcd508b5cf7d389",
       "member_public_record_ids": [
         "ihe_4f5f97c2cbf9b4ae406c"
@@ -1789,6 +1498,79 @@
       ]
     },
     {
+      "public_record_id": "iheg_26a8285205f9730a07ab",
+      "member_public_record_ids": [
+        "ihe_1c3b231a169bd6d49a88",
+        "ihe_a978e081e678466e08f5",
+        "ihe_acca6ce326dd3d82a4fb",
+        "ihe_ea5d9aeefe743bf6c5dd"
+      ],
+      "source_record_count": 4,
+      "source_count": 1,
+      "presentation_classification": "cohort_or_systemic_record",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "systemic evidence",
+      "province": "british_columbia",
+      "year": null,
+      "care_setting": null,
+      "organization": null,
+      "summary": "The report’s Indigenous People’s survey found First Nations patients were less likely to make complaints for fear of discrimination and were two times more likely to have adverse experiences in institutional settings.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "source": {
+        "title": "Interior Health shares progress on report’s call to address Indigenous racism in B.C. healthcare - BC Rural Health Network",
+        "publisher": "bcruralhealth.org",
+        "source_type": "indigenous_organization",
+        "publication_date": null,
+        "url": "https://bcruralhealth.org/interior-health-shares-progress-on-reports-call-to-address-indigenous-racism-in-b-c-healthcare"
+      },
+      "sources": [
+        {
+          "title": "Interior Health shares progress on report’s call to address Indigenous racism in B.C. healthcare - BC Rural Health Network",
+          "publisher": "bcruralhealth.org",
+          "source_type": "indigenous_organization",
+          "publication_date": null,
+          "url": "https://bcruralhealth.org/interior-health-shares-progress-on-reports-call-to-address-indigenous-racism-in-b-c-healthcare"
+        }
+      ]
+    },
+    {
+      "public_record_id": "iheg_27164d3d61ce5b21a9d6",
+      "member_public_record_ids": [
+        "ihe_0229d8158ac458c0b1ad",
+        "ihe_dd89b4d12f10e51a5870"
+      ],
+      "source_record_count": 2,
+      "source_count": 1,
+      "presentation_classification": "cohort_or_systemic_record",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "Qualitative systematic review of primary health-care experiences in Canada",
+      "province": "canada",
+      "year": null,
+      "care_setting": "Primary health care",
+      "organization": "Health Promotion and Chronic Disease Prevention in Canada",
+      "summary": "This qualitative systematic review synthesizes published evidence on Indigenous peoples' primary health-care experiences across Canada. It identifies supportive experiences as well as discriminatory attitudes and systemic barriers, without assigning a single provincial location.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "caution": "Author affiliation or a discovery query does not make this Canada-wide review Saskatchewan or Alberta evidence.",
+      "source": {
+        "title": "Indigenous people's experiences of primary health care ... - PMC",
+        "publisher": "pmc.ncbi.nlm.nih.gov",
+        "source_type": "peer-reviewed research",
+        "publication_date": null,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11097747"
+      },
+      "sources": [
+        {
+          "title": "Indigenous people's experiences of primary health care ... - PMC",
+          "publisher": "pmc.ncbi.nlm.nih.gov",
+          "source_type": "peer-reviewed research",
+          "publication_date": null,
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11097747"
+        }
+      ]
+    },
+    {
       "public_record_id": "iheg_2a525544430fab0fee01",
       "member_public_record_ids": [
         "ihe_e89cc9450f72b1451eca"
@@ -1829,27 +1611,35 @@
         "ihe_0253f603031e96de8a66",
         "ihe_03fe15d11fc0fd7bc1d7",
         "ihe_0d9ac06b375d91c2e494",
+        "ihe_1ae9da6be2b1941b9709",
         "ihe_2d31d815400de31f2394",
+        "ihe_49f5a447bac47272f559",
+        "ihe_55dc3ca02847504f7e36",
         "ihe_6ab00330e189c1c990b5",
+        "ihe_8292b8ec0b9f61337e2b",
+        "ihe_9251b310443149febcf3",
+        "ihe_a679a0e2b74ecf98781c",
         "ihe_c73c0ea8e2ceb4093bdd",
+        "ihe_d6c9903d9b2451497c64",
         "ihe_e6ef737bbdf0689678a1"
       ],
-      "source_record_count": 7,
+      "source_record_count": 14,
       "source_count": 1,
       "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "Journalism reporting research on Alberta emergency care",
       "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Racism, discrimination may lead to First Nations patients ...” contains province-specific material relevant to Indigenous health-care official investigation; the source excerpt and provenance define its scope.",
+      "care_setting": "Emergency department care",
+      "organization": "CBC News",
+      "summary": "CBC reported on research linking racism and discrimination to First Nations patients leaving Alberta emergency departments before being seen or against medical advice. The article reports research findings and related public context; it is not an official investigation.",
       "recommendation_action": null,
       "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "caution": "The source concerns Alberta emergency care; any separately reported complaint in the article is not treated here as a formal finding.",
       "source": {
         "title": "Racism, discrimination may lead to First Nations patients ...",
         "publisher": "www.cbc.ca",
-        "source_type": "credible_journalism",
+        "source_type": "journalism",
         "publication_date": null,
         "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342"
       },
@@ -1857,7 +1647,7 @@
         {
           "title": "Racism, discrimination may lead to First Nations patients ...",
           "publisher": "www.cbc.ca",
-          "source_type": "credible_journalism",
+          "source_type": "journalism",
           "publication_date": null,
           "url": "https://www.cbc.ca/news/canada/edmonton/alberta-study-first-nations-patients-emergency-departments-1.7179342"
         }
@@ -2072,53 +1862,41 @@
       ]
     },
     {
-      "public_record_id": "iheg_308da632a6b5dba7bdff",
+      "public_record_id": "iheg_3085e7662b3895f5415c",
       "member_public_record_ids": [
-        "ihe_060852ba38407dcf26d2",
-        "ihe_0987e94b3b85dc02da4d",
-        "ihe_145a340e7295fd7eecac",
-        "ihe_1519e033d0e9b6ab03b7",
-        "ihe_50980e5c3932d9bbc3ff",
-        "ihe_59423c0f5f1ee1a48245",
-        "ihe_b69c56411edebaef8916",
-        "ihe_b71f517c45bebee5df17",
-        "ihe_c6b112f9d0062f9fbcea",
-        "ihe_d78b0dbec0fff0f9e2d7",
-        "ihe_ec188a0276cea7ddfcab"
+        "ihe_5efdc2e90fddae44fce7",
+        "ihe_6f6a2abfb98151d7cabe",
+        "ihe_a70a6adf4d04bd4ed050",
+        "ihe_b12130201afbc4806068",
+        "ihe_dd9aa6e8da7c4c32018f",
+        "ihe_e53fddb26f891a3ad5aa"
       ],
-      "source_record_count": 11,
-      "source_count": 2,
+      "source_record_count": 6,
+      "source_count": 1,
       "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "saskatchewan",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "systemic evidence",
+      "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
-      "summary": "The public source “Nearly two-thirds of Indigenous people report mistreatment ...” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
+      "summary": "College of Physicians and Surgeons of British Columbia ACCREDITATION STANDARDS Indigenous Cultural Safety, Cultural Humility and Anti-racism 3 of 8 Document ID: 12708 Version: 2.0 Publication date: 2026-04-01 Effective date: 2024-07-01 Introduction The purpose of this standard is to set out clear expectations for the provision of culturally safe and anti-racist care for Indigenous patients in health-care facilities accredited by the Diagnostic Accreditation Program (DAP) and the Non-hospital Medical and Surgical Facilities Accreditation Program (NHMSFAP).",
       "recommendation_action": null,
       "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
       "source": {
-        "title": "Nearly two-thirds of Indigenous people report mistreatment ...",
-        "publisher": "ca.news.yahoo.com",
-        "source_type": "indigenous_organization",
+        "title": "Indigenous Cultural Safety, Cultural Humility and Anti-Racism",
+        "publisher": "www.cpsbc.ca",
+        "source_type": "institutional_or_public",
         "publication_date": null,
-        "url": "https://ca.news.yahoo.com/nearly-two-thirds-indigenous-people-134041266.html"
+        "url": "https://www.cpsbc.ca/files/pdf/DAP-AS-Indigenous-Cultural-Safety-Cultural-Humility-and-Anti-racism.pdf"
       },
       "sources": [
         {
-          "title": "Nearly two-thirds of Indigenous people report mistreatment ...",
-          "publisher": "ca.news.yahoo.com",
-          "source_type": "indigenous_organization",
+          "title": "Indigenous Cultural Safety, Cultural Humility and Anti-Racism",
+          "publisher": "www.cpsbc.ca",
+          "source_type": "institutional_or_public",
           "publication_date": null,
-          "url": "https://ca.news.yahoo.com/nearly-two-thirds-indigenous-people-134041266.html"
-        },
-        {
-          "title": "Nearly two-thirds of Indigenous people report mistreatment ...",
-          "publisher": "www.cbc.ca",
-          "source_type": "credible_journalism",
-          "publication_date": null,
-          "url": "https://www.cbc.ca/news/canada/british-columbia/ubc-study-on-indigenous-people-mistreatment-during-childbirth-9.7267757"
+          "url": "https://www.cpsbc.ca/files/pdf/DAP-AS-Indigenous-Cultural-Safety-Cultural-Humility-and-Anti-racism.pdf"
         }
       ]
     },
@@ -2224,6 +2002,42 @@
           "source_type": "government",
           "publication_date": null,
           "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6901193"
+        }
+      ]
+    },
+    {
+      "public_record_id": "iheg_320b1ace0ccf61431cd6",
+      "member_public_record_ids": [
+        "ihe_69d9e13f862e985a8f6b",
+        "ihe_97df6386439afd524ee4",
+        "ihe_a39b278f3136a89c7269"
+      ],
+      "source_record_count": 3,
+      "source_count": 1,
+      "presentation_classification": "cohort_or_systemic_record",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "systemic evidence",
+      "province": "british_columbia",
+      "year": null,
+      "care_setting": null,
+      "organization": null,
+      "summary": "healthcare released Mary Ellen Turpel-Lafond has released her second report into the prevalence of systemic anti-indigenous racism in the B.C.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "source": {
+        "title": "Report links racism, poor Indigenous health outcomes in B.C. healthcare | Globalnews.ca",
+        "publisher": "globalnews.ca",
+        "source_type": "credible_journalism",
+        "publication_date": null,
+        "url": "https://globalnews.ca/news/7621022/bc-indigenous-healthcare-racism-report"
+      },
+      "sources": [
+        {
+          "title": "Report links racism, poor Indigenous health outcomes in B.C. healthcare | Globalnews.ca",
+          "publisher": "globalnews.ca",
+          "source_type": "credible_journalism",
+          "publication_date": null,
+          "url": "https://globalnews.ca/news/7621022/bc-indigenous-healthcare-racism-report"
         }
       ]
     },
@@ -2419,6 +2233,42 @@
       ]
     },
     {
+      "public_record_id": "iheg_3373b70466185f072d14",
+      "member_public_record_ids": [
+        "ihe_0cbf5f0cac896b99cc17",
+        "ihe_b35a113cc1d38fbc5e39"
+      ],
+      "source_record_count": 2,
+      "source_count": 1,
+      "presentation_classification": "cohort_or_systemic_record",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "Alberta human-rights initiatives report",
+      "province": "alberta",
+      "year": null,
+      "care_setting": "Health system",
+      "organization": "Alberta Human Rights Commission",
+      "summary": "The Alberta Human Rights Commission's initiatives report describes a 2018 nursing cultural-competency project intended to address discrimination affecting Indigenous people in Alberta's health system. It documents a funded initiative, not a finding about an individual care experience or implementation outcome.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "caution": "The report concerns Alberta initiatives and should not be presented as B.C. evidence.",
+      "source": {
+        "title": "indigenous-initiatives-2010-11-to-2018-19. ...",
+        "publisher": "albertahumanrights.ab.ca",
+        "source_type": "official report",
+        "publication_date": null,
+        "url": "https://albertahumanrights.ab.ca/media/wjmbqth0/indigenous-initiatives-2010-11-to-2018-19.pdf"
+      },
+      "sources": [
+        {
+          "title": "indigenous-initiatives-2010-11-to-2018-19. ...",
+          "publisher": "albertahumanrights.ab.ca",
+          "source_type": "official report",
+          "publication_date": null,
+          "url": "https://albertahumanrights.ab.ca/media/wjmbqth0/indigenous-initiatives-2010-11-to-2018-19.pdf"
+        }
+      ]
+    },
+    {
       "public_record_id": "iheg_3545c8f65ffb4dbcc0a8",
       "member_public_record_ids": [
         "ihe_f86479567e0d78c818dc"
@@ -2489,38 +2339,39 @@
       ]
     },
     {
-      "public_record_id": "iheg_37ee15d749aa2b6e8cb8",
+      "public_record_id": "iheg_3772eeb7ec869a9a3e1e",
       "member_public_record_ids": [
-        "ihe_03c596a4874680d3e99e",
-        "ihe_12e170dd3e019079cd9a",
-        "ihe_6116bd1583a1582b83b2"
+        "ihe_7abeb8583525c353ec23",
+        "ihe_9e348c242fddb0944144",
+        "ihe_e4c9f9f7aac7a2da7ff5"
       ],
       "source_record_count": 3,
       "source_count": 1,
       "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "saskatchewan",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "Scoping review of anti-Indigenous racism in Canadian health care",
+      "province": "canada",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Indigenous people's experiences of primary health care in ...” contains province-specific material relevant to Indigenous health-care official investigation; the source excerpt and provenance define its scope.",
+      "care_setting": "Multiple health-care settings",
+      "organization": "International Journal of Indigenous Health",
+      "summary": "This scoping review maps research on anti-Indigenous racism in Canadian health care, including settings, populations and regions represented in the literature. It is nationwide research synthesis, not an official investigation or a finding about a single province.",
       "recommendation_action": null,
       "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "caution": "Canadian scope is retained because the review does not establish a single provincial jurisdiction for this record.",
       "source": {
-        "title": "Indigenous people's experiences of primary health care in ...",
-        "publisher": "www.canada.ca",
-        "source_type": "indigenous_organization",
+        "title": "Anti-Indigenous racism in Canadian healthcare - PMC - NIH",
+        "publisher": "pmc.ncbi.nlm.nih.gov",
+        "source_type": "peer-reviewed research",
         "publication_date": null,
-        "url": "https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-44-no-4-2024/indigenous-people-experiences-primary-health-care-canada-qualitative-systematic-review.html"
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11414646"
       },
       "sources": [
         {
-          "title": "Indigenous people's experiences of primary health care in ...",
-          "publisher": "www.canada.ca",
-          "source_type": "indigenous_organization",
+          "title": "Anti-Indigenous racism in Canadian healthcare - PMC - NIH",
+          "publisher": "pmc.ncbi.nlm.nih.gov",
+          "source_type": "peer-reviewed research",
           "publication_date": null,
-          "url": "https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-44-no-4-2024/indigenous-people-experiences-primary-health-care-canada-qualitative-systematic-review.html"
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11414646"
         }
       ]
     },
@@ -2659,41 +2510,6 @@
           "source_type": "institutional_or_public",
           "publication_date": null,
           "url": "https://fnha.ca/services-and-support/culturally-grounded-care/cultural-safety-and-humility"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_39a9cce63f146d83e7b4",
-      "member_public_record_ids": [
-        "ihe_ff3c6259da01901d0992"
-      ],
-      "source_record_count": 1,
-      "source_count": 1,
-      "presentation_classification": "separate_incident",
-      "evidence_status": "reported_account",
-      "evidence_type": "reported account",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "A public source reports: The public source “Interior Health shares progress on report’s call to address Indigenous racism in B.C. healthcare - BC Rural Health Network” contains province-specific material relevant to Indigenous health-care reported account; the bounded source excerpt and provenance define its scope. This record documents the reported account and does not present the underlying allegation as an independently established finding.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "caution": "A publicly documented account or allegation. Inclusion records that the account was made; it does not independently establish the underlying event.",
-      "source": {
-        "title": "Interior Health shares progress on report’s call to address Indigenous racism in B.C. healthcare - BC Rural Health Network",
-        "publisher": "bcruralhealth.org",
-        "source_type": "indigenous_organization",
-        "publication_date": null,
-        "url": "https://bcruralhealth.org/interior-health-shares-progress-on-reports-call-to-address-indigenous-racism-in-b-c-healthcare"
-      },
-      "sources": [
-        {
-          "title": "Interior Health shares progress on report’s call to address Indigenous racism in B.C. healthcare - BC Rural Health Network",
-          "publisher": "bcruralhealth.org",
-          "source_type": "indigenous_organization",
-          "publication_date": null,
-          "url": "https://bcruralhealth.org/interior-health-shares-progress-on-reports-call-to-address-indigenous-racism-in-b-c-healthcare"
         }
       ]
     },
@@ -3161,34 +2977,29 @@
       "public_record_id": "iheg_4109bed06033aca02e1f",
       "member_public_record_ids": [
         "ihe_00feb84cbbb69760143f",
-        "ihe_159773eae4a7b639d7d9",
         "ihe_2a60323006b014a30dc9",
-        "ihe_42025e3c944afdc67c64",
         "ihe_420576e01718d9a609bf",
         "ihe_44f4ffe96bf11b31f775",
         "ihe_581630f83071859de49b",
-        "ihe_62f9916c4f9f1408d89e",
-        "ihe_6f10d5425c188dd41d41",
-        "ihe_a8dbfb70dcac3acf1d37",
-        "ihe_d680e72deb81ca5f2faa",
-        "ihe_deeaf0e4a3459d24a8d2"
+        "ihe_d680e72deb81ca5f2faa"
       ],
-      "source_record_count": 12,
-      "source_count": 2,
+      "source_record_count": 6,
+      "source_count": 1,
       "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "Qualitative research on anti-Indigenous racism in rural B.C. primary care",
       "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Original Article” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
+      "care_setting": "Primary health care",
+      "organization": "Canadian Family Physician / Rural Coordination Centre of British Columbia",
+      "summary": "This qualitative research article examines anti-Indigenous racism reported through the Rural Site Visits Project in rural British Columbia primary care. It is research evidence about a broader pattern, not an official investigation.",
       "recommendation_action": null,
       "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "caution": "The study's conclusions are limited to its research design and do not establish individual findings.",
       "source": {
         "title": "Original Article",
         "publisher": "www.nccih.ca",
-        "source_type": "institutional_or_public",
+        "source_type": "peer-reviewed research",
         "publication_date": null,
         "url": "https://www.nccih.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf"
       },
@@ -3196,16 +3007,9 @@
         {
           "title": "Original Article",
           "publisher": "www.nccih.ca",
-          "source_type": "institutional_or_public",
+          "source_type": "peer-reviewed research",
           "publication_date": null,
           "url": "https://www.nccih.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf"
-        },
-        {
-          "title": "experiences of Indigenous rural British Columbians accessing ...",
-          "publisher": "www.ccnsa.ca",
-          "source_type": "peer_reviewed_research",
-          "publication_date": null,
-          "url": "https://www.ccnsa.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf"
         }
       ]
     },
@@ -3589,114 +3393,6 @@
       ]
     },
     {
-      "public_record_id": "iheg_4d1c843591f14a2d3f37",
-      "member_public_record_ids": [
-        "ihe_1ca9490426c12c32eb64"
-      ],
-      "source_record_count": 1,
-      "source_count": 1,
-      "presentation_classification": "separate_incident",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "alberta",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “In Plain Sight: Addressing Indigenous-specific Racism and ...” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "In Plain Sight: Addressing Indigenous-specific Racism and ...",
-        "publisher": "www.bcpharmacists.org",
-        "source_type": "indigenous_organization",
-        "publication_date": null,
-        "url": "https://www.bcpharmacists.org/readlinks/plain-sight-addressing-indigenous-specific-racism-and-discrimination-bc-health-care"
-      },
-      "sources": [
-        {
-          "title": "In Plain Sight: Addressing Indigenous-specific Racism and ...",
-          "publisher": "www.bcpharmacists.org",
-          "source_type": "indigenous_organization",
-          "publication_date": null,
-          "url": "https://www.bcpharmacists.org/readlinks/plain-sight-addressing-indigenous-specific-racism-and-discrimination-bc-health-care"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_4d6d29d65d55e2203c69",
-      "member_public_record_ids": [
-        "ihe_3e2bb79377af7076adeb",
-        "ihe_8e221f89a7bdbbd214d7"
-      ],
-      "source_record_count": 2,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "systemic_evidence",
-      "evidence_type": "systemic evidence",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Impacts of racism on First Nations patients' emergency care: results of a thematic analysis of healthcare provider interviews in Alberta, Canada | BMC Health Services Research | Full Text” contains province-specific material relevant to Indigenous health-care systemic evidence; the bounded source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "Impacts of racism on First Nations patients' emergency care: results of a thematic analysis of healthcare provider interviews in Alberta, Canada | BMC Health Services Research | Full Text",
-        "publisher": "bmchealthservres.biomedcentral.com",
-        "source_type": "institutional_or_public",
-        "publication_date": null,
-        "url": "https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-022-08129-5"
-      },
-      "sources": [
-        {
-          "title": "Impacts of racism on First Nations patients' emergency care: results of a thematic analysis of healthcare provider interviews in Alberta, Canada | BMC Health Services Research | Full Text",
-          "publisher": "bmchealthservres.biomedcentral.com",
-          "source_type": "institutional_or_public",
-          "publication_date": null,
-          "url": "https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-022-08129-5"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_4db7dfae501fbc5f9152",
-      "member_public_record_ids": [
-        "ihe_29441943bcfc7048868b",
-        "ihe_87d4bdc7290350eb7050",
-        "ihe_9944b82a8aa7af62a6ac",
-        "ihe_a08af4518cbce9e76ad6",
-        "ihe_c5c955aa61a89075e1d8",
-        "ihe_dbe6ab07ff815b00c93d"
-      ],
-      "source_record_count": 6,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Birthing injustice: unmasking structural racism and the ...” contains province-specific material relevant to Indigenous health-care official investigation; the source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "Birthing injustice: unmasking structural racism and the ...",
-        "publisher": "www.frontiersin.org",
-        "source_type": "research_or_university",
-        "publication_date": null,
-        "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full"
-      },
-      "sources": [
-        {
-          "title": "Birthing injustice: unmasking structural racism and the ...",
-          "publisher": "www.frontiersin.org",
-          "source_type": "research_or_university",
-          "publication_date": null,
-          "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full"
-        }
-      ]
-    },
-    {
       "public_record_id": "iheg_4e2a73035eaa64824911",
       "member_public_record_ids": [
         "ihe_339f5825029adfc94e78"
@@ -3797,6 +3493,41 @@
           "source_type": null,
           "publication_date": null,
           "url": "https://open.alberta.ca/dataset/2af836dc-ba21-48f2-8c07-a79416258101/resource/3e9aa322-344b-43f0-9ed4-07f6cfd10ac9/download/ir-mmiwg-roadmap-2022.pdf"
+        }
+      ]
+    },
+    {
+      "public_record_id": "iheg_5144395265f48c689890",
+      "member_public_record_ids": [
+        "ihe_69111a44f06a73e8dccc"
+      ],
+      "source_record_count": 1,
+      "source_count": 1,
+      "presentation_classification": "separate_incident",
+      "evidence_status": "reported_account",
+      "evidence_type": "reported account",
+      "province": "british_columbia",
+      "year": null,
+      "care_setting": null,
+      "organization": null,
+      "summary": "A public source reports: The public source “Indigenous Cultural Safety, Cultural Humility and Anti-Racism” contains province-specific material relevant to Indigenous health-care reported account; the bounded source excerpt and provenance define its scope. This record documents the reported account and does not present the underlying allegation as an independently established finding.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "caution": "A publicly documented account or allegation. Inclusion records that the account was made; it does not independently establish the underlying event.",
+      "source": {
+        "title": "Indigenous Cultural Safety, Cultural Humility and Anti-Racism",
+        "publisher": "www.cpsbc.ca",
+        "source_type": "institutional_or_public",
+        "publication_date": null,
+        "url": "https://www.cpsbc.ca/files/pdf/DAP-AS-Indigenous-Cultural-Safety-Cultural-Humility-and-Anti-racism.pdf"
+      },
+      "sources": [
+        {
+          "title": "Indigenous Cultural Safety, Cultural Humility and Anti-Racism",
+          "publisher": "www.cpsbc.ca",
+          "source_type": "institutional_or_public",
+          "publication_date": null,
+          "url": "https://www.cpsbc.ca/files/pdf/DAP-AS-Indigenous-Cultural-Safety-Cultural-Humility-and-Anti-racism.pdf"
         }
       ]
     },
@@ -4126,75 +3857,6 @@
       ]
     },
     {
-      "public_record_id": "iheg_55d4d927f8fa40c37ee2",
-      "member_public_record_ids": [
-        "ihe_7abeb8583525c353ec23"
-      ],
-      "source_record_count": 1,
-      "source_count": 1,
-      "presentation_classification": "separate_incident",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Anti-Indigenous racism in Canadian healthcare - PMC - NIH” contains province-specific material relevant to Indigenous health-care official investigation; the source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "Anti-Indigenous racism in Canadian healthcare - PMC - NIH",
-        "publisher": "pmc.ncbi.nlm.nih.gov",
-        "source_type": "government",
-        "publication_date": null,
-        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11414646"
-      },
-      "sources": [
-        {
-          "title": "Anti-Indigenous racism in Canadian healthcare - PMC - NIH",
-          "publisher": "pmc.ncbi.nlm.nih.gov",
-          "source_type": "government",
-          "publication_date": null,
-          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11414646"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_57680e8b6ddd57de20f9",
-      "member_public_record_ids": [
-        "ihe_69111a44f06a73e8dccc"
-      ],
-      "source_record_count": 1,
-      "source_count": 1,
-      "presentation_classification": "separate_incident",
-      "evidence_status": "reported_account",
-      "evidence_type": "reported account",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "A public source reports: The public source “Indigenous Cultural Safety, Cultural Humility and Anti-Racism” contains province-specific material relevant to Indigenous health-care reported account; the bounded source excerpt and provenance define its scope. This record documents the reported account and does not present the underlying allegation as an independently established finding.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "caution": "A publicly documented account or allegation. Inclusion records that the account was made; it does not independently establish the underlying event.",
-      "source": {
-        "title": "Indigenous Cultural Safety, Cultural Humility and Anti-Racism",
-        "publisher": "www.cpsbc.ca",
-        "source_type": "institutional_or_public",
-        "publication_date": null,
-        "url": "https://www.cpsbc.ca/files/pdf/DAP-AS-Indigenous-Cultural-Safety-Cultural-Humility-and-Anti-racism.pdf"
-      },
-      "sources": [
-        {
-          "title": "Indigenous Cultural Safety, Cultural Humility and Anti-Racism",
-          "publisher": "www.cpsbc.ca",
-          "source_type": "institutional_or_public",
-          "publication_date": null,
-          "url": "https://www.cpsbc.ca/files/pdf/DAP-AS-Indigenous-Cultural-Safety-Cultural-Humility-and-Anti-racism.pdf"
-        }
-      ]
-    },
-    {
       "public_record_id": "iheg_5858b2dbcd6988950d6c",
       "member_public_record_ids": [
         "ihe_3edde131df092e2116f5"
@@ -4370,41 +4032,6 @@
           "source_type": "indigenous_organization",
           "publication_date": null,
           "url": "https://www.phsa.ca/about/who-we-are/eradicating-indigenous-specific-racism/journey"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_5be8484a47aca0a168ae",
-      "member_public_record_ids": [
-        "ihe_0229d8158ac458c0b1ad"
-      ],
-      "source_record_count": 1,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "systemic_evidence",
-      "evidence_type": "Recommendation or action",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Indigenous people's experiences of primary health care ... - PMC” contains province-specific material relevant to Indigenous health-care systemic evidence; the source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "caution": "Procedural or institutional context is shown with its source-supported limits; it is not proof of an underlying allegation or effectiveness.",
-      "source": {
-        "title": "Indigenous people's experiences of primary health care ... - PMC",
-        "publisher": "pmc.ncbi.nlm.nih.gov",
-        "source_type": "government",
-        "publication_date": null,
-        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11097747"
-      },
-      "sources": [
-        {
-          "title": "Indigenous people's experiences of primary health care ... - PMC",
-          "publisher": "pmc.ncbi.nlm.nih.gov",
-          "source_type": "government",
-          "publication_date": null,
-          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11097747"
         }
       ]
     },
@@ -4692,6 +4319,41 @@
       ]
     },
     {
+      "public_record_id": "iheg_61f1541b9d0554ac901a",
+      "member_public_record_ids": [
+        "ihe_ab56c88eb7c22ea4d835"
+      ],
+      "source_record_count": 1,
+      "source_count": 1,
+      "presentation_classification": "separate_incident",
+      "evidence_status": "reported_account",
+      "evidence_type": "reported account",
+      "province": "alberta",
+      "year": null,
+      "care_setting": null,
+      "organization": null,
+      "summary": "A public source reports: The public source “Impacts of racism” contains province-specific material relevant to Indigenous health-care reported account; the source excerpt and provenance define its scope. This record documents the reported account and does not present the underlying allegation as an independently established finding.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "caution": "A publicly documented account or allegation. Inclusion records that the account was made; it does not independently establish the underlying event.",
+      "source": {
+        "title": "Impacts of racism",
+        "publisher": "afnigc.ca",
+        "source_type": "institutional_or_public",
+        "publication_date": null,
+        "url": "https://afnigc.ca/wp-content/uploads/2024/10/IMPACT1.pdf"
+      },
+      "sources": [
+        {
+          "title": "Impacts of racism",
+          "publisher": "afnigc.ca",
+          "source_type": "institutional_or_public",
+          "publication_date": null,
+          "url": "https://afnigc.ca/wp-content/uploads/2024/10/IMPACT1.pdf"
+        }
+      ]
+    },
+    {
       "public_record_id": "iheg_6221f61c4109d370e190",
       "member_public_record_ids": [
         "ihe_3ea391098eff90571212"
@@ -4723,6 +4385,49 @@
           "source_type": "government",
           "publication_date": null,
           "url": "https://bccfp.bc.ca/empower/cultural-safety-humility"
+        }
+      ]
+    },
+    {
+      "public_record_id": "iheg_62361caf80e430b7014d",
+      "member_public_record_ids": [
+        "ihe_5f2eeaf7340f0d076ed4",
+        "ihe_63d7225f2b866a89ae0a",
+        "ihe_7761be79261eae0a892b",
+        "ihe_7e525acca936010a256f",
+        "ihe_a3f16bb2eed56f022e2d",
+        "ihe_a7aa5c6c31b766c62f6a",
+        "ihe_b9d8f9784363e908134b",
+        "ihe_e92483e93454ec457e12",
+        "ihe_fdb65d5c291d4cd4f467",
+        "ihe_ff3c99632ca863874690"
+      ],
+      "source_record_count": 10,
+      "source_count": 1,
+      "presentation_classification": "cohort_or_systemic_record",
+      "evidence_status": "official_investigation",
+      "evidence_type": "official investigation",
+      "province": "british_columbia",
+      "year": null,
+      "care_setting": null,
+      "organization": null,
+      "summary": "The public source “Majority of Indigenous Patients and Workers Say They Experienced Racism in BC Health Care: Report” contains province-specific Indigenous health-care material; its bounded excerpt and provenance define the evidence scope.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "source": {
+        "title": "Majority of Indigenous Patients and Workers Say They Experienced Racism in BC Health Care: Report",
+        "publisher": "www.vice.com",
+        "source_type": "indigenous_organization",
+        "publication_date": null,
+        "url": "https://www.vice.com/en/article/majority-of-indigenous-patients-and-workers-say-they-experienced-racism-in-bc-healthcare-report"
+      },
+      "sources": [
+        {
+          "title": "Majority of Indigenous Patients and Workers Say They Experienced Racism in BC Health Care: Report",
+          "publisher": "www.vice.com",
+          "source_type": "indigenous_organization",
+          "publication_date": null,
+          "url": "https://www.vice.com/en/article/majority-of-indigenous-patients-and-workers-say-they-experienced-racism-in-bc-healthcare-report"
         }
       ]
     },
@@ -4979,6 +4684,94 @@
       ]
     },
     {
+      "public_record_id": "iheg_669b5f9639424262a934",
+      "member_public_record_ids": [
+        "ihe_008afff9c6c2f7d60ae4",
+        "ihe_0569da34f0de8e1c4ec2",
+        "ihe_348c3675ea2d01516efc",
+        "ihe_39f5374b255a261f6fe3",
+        "ihe_5de9746307410ec46489",
+        "ihe_6465dd9c64f0c549b854",
+        "ihe_6c30494f8c4d8c38c871",
+        "ihe_8a16c17a3287d42273c6",
+        "ihe_a8d29856339e45c5eacd",
+        "ihe_aa8967c65419b99493cb",
+        "ihe_aa8ef1ef6b357bde3129",
+        "ihe_b955f9dbc4b759afd52b",
+        "ihe_cc00b80df1d23fe8bec8",
+        "ihe_ff34f1e420c173239a94"
+      ],
+      "source_record_count": 14,
+      "source_count": 1,
+      "presentation_classification": "cohort_or_systemic_record",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "Commentary on the In Plain Sight review of B.C. health care",
+      "province": "british_columbia",
+      "year": null,
+      "care_setting": "Multiple health-care settings",
+      "organization": "Pamela Palmater",
+      "summary": "This commentary discusses the In Plain Sight review and its B.C.-wide findings and recommendations on Indigenous-specific racism in health care. It is commentary about a review, not an official investigation issued by this publisher.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "caution": "The original In Plain Sight report is the source for the review's formal findings.",
+      "source": {
+        "title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
+        "publisher": "pampalmater.com",
+        "source_type": "commentary",
+        "publication_date": null,
+        "url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents"
+      },
+      "sources": [
+        {
+          "title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
+          "publisher": "pampalmater.com",
+          "source_type": "commentary",
+          "publication_date": null,
+          "url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents"
+        }
+      ]
+    },
+    {
+      "public_record_id": "iheg_67df8579b7f11ad0fe9b",
+      "member_public_record_ids": [
+        "ihe_0173de53145c8e4727d8",
+        "ihe_23569ac9c93b12818bb8",
+        "ihe_80ac3db7b9c36339ce87",
+        "ihe_c5f9f7ce73e982509cf2",
+        "ihe_cdcf4779bc804d59471e",
+        "ihe_fefa9f7f088f69e52491"
+      ],
+      "source_record_count": 6,
+      "source_count": 1,
+      "presentation_classification": "cohort_or_systemic_record",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "National survey on Indigenous peoples' childbirth experiences",
+      "province": "canada",
+      "year": null,
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "University of British Columbia",
+      "summary": "University of British Columbia reporting describes a national survey of Indigenous peoples' experiences during pregnancy and childbirth. The survey is nationwide research evidence and is not an official investigation or a Saskatchewan-specific event record.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "caution": "The record retains national scope because the source does not establish a single provincial jurisdiction.",
+      "source": {
+        "title": "Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds",
+        "publisher": "news.ubc.ca",
+        "source_type": "university research news",
+        "publication_date": null,
+        "url": "https://news.ubc.ca/2026/07/national-survey-indigenous-people-childbirth-mistreatment"
+      },
+      "sources": [
+        {
+          "title": "Nearly two-thirds of Indigenous people report mistreatment during childbirth, first national survey finds",
+          "publisher": "news.ubc.ca",
+          "source_type": "university research news",
+          "publication_date": null,
+          "url": "https://news.ubc.ca/2026/07/national-survey-indigenous-people-childbirth-mistreatment"
+        }
+      ]
+    },
+    {
       "public_record_id": "iheg_67f5b972eed2efb28a50",
       "member_public_record_ids": [
         "ihe_2aa663cedbaf44727b0a"
@@ -5159,12 +4952,11 @@
         "ihe_aa189c503be97d163ad0",
         "ihe_c9683f1e60e80f39c569",
         "ihe_d192776dcd388d270043",
-        "ihe_d2bfba0782f8d2b68962",
         "ihe_e6b2726f9d1c9baeb1da",
         "ihe_eaa23e425798c7a6cf82"
       ],
-      "source_record_count": 8,
-      "source_count": 2,
+      "source_record_count": 7,
+      "source_count": 1,
       "presentation_classification": "cohort_or_systemic_record",
       "evidence_status": "official_investigation",
       "evidence_type": "official investigation",
@@ -5189,13 +4981,6 @@
           "source_type": "institutional_or_public",
           "publication_date": null,
           "url": "https://www.bcchr.ca/sites/default/files/group-opsei/in-plain-sight-full-report.pdf"
-        },
-        {
-          "title": "In Plain Sight: Addressing Indigenous-specific Racism and ...",
-          "publisher": "www.bcpharmacists.org",
-          "source_type": "indigenous_organization",
-          "publication_date": null,
-          "url": "https://www.bcpharmacists.org/readlinks/plain-sight-addressing-indigenous-specific-racism-and-discrimination-bc-health-care"
         }
       ]
     },
@@ -5380,49 +5165,6 @@
       ]
     },
     {
-      "public_record_id": "iheg_70cf1ddfd8a4751c85a5",
-      "member_public_record_ids": [
-        "ihe_5f2eeaf7340f0d076ed4",
-        "ihe_63d7225f2b866a89ae0a",
-        "ihe_7761be79261eae0a892b",
-        "ihe_7e525acca936010a256f",
-        "ihe_a3f16bb2eed56f022e2d",
-        "ihe_a7aa5c6c31b766c62f6a",
-        "ihe_b9d8f9784363e908134b",
-        "ihe_e92483e93454ec457e12",
-        "ihe_fdb65d5c291d4cd4f467",
-        "ihe_ff3c99632ca863874690"
-      ],
-      "source_record_count": 10,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Majority of Indigenous Patients and Workers Say They Experienced Racism in BC Health Care: Report” contains province-specific Indigenous health-care material; its bounded excerpt and provenance define the evidence scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "Majority of Indigenous Patients and Workers Say They Experienced Racism in BC Health Care: Report",
-        "publisher": "www.vice.com",
-        "source_type": "indigenous_organization",
-        "publication_date": null,
-        "url": "https://www.vice.com/en/article/majority-of-indigenous-patients-and-workers-say-they-experienced-racism-in-bc-healthcare-report"
-      },
-      "sources": [
-        {
-          "title": "Majority of Indigenous Patients and Workers Say They Experienced Racism in BC Health Care: Report",
-          "publisher": "www.vice.com",
-          "source_type": "indigenous_organization",
-          "publication_date": null,
-          "url": "https://www.vice.com/en/article/majority-of-indigenous-patients-and-workers-say-they-experienced-racism-in-bc-healthcare-report"
-        }
-      ]
-    },
-    {
       "public_record_id": "iheg_73c2ec3e8ef9e158aeb8",
       "member_public_record_ids": [
         "ihe_5f5b0296671ce403d37b",
@@ -5454,41 +5196,6 @@
           "source_type": null,
           "publication_date": null,
           "url": "https://www.bccnm.ca/Documents/cultural_safety_humility/BCCNM_Redress_Update_September2023.pdf"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_743fd4b89f114fa5d9b5",
-      "member_public_record_ids": [
-        "ihe_0cbf5f0cac896b99cc17",
-        "ihe_b35a113cc1d38fbc5e39"
-      ],
-      "source_record_count": 2,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "systemic_evidence",
-      "evidence_type": "systemic evidence",
-      "province": "british_columbia",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "(September 2017) $10,000 2018 Indigenous Health and Cultural Competency Development for Registered Nurses (CARNA) Indigenous Health and Cultural Competency Development for Registered Nurses: This project will address systemic and individual discrimination of Indigenous people in Alberta’s health system.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "indigenous-initiatives-2010-11-to-2018-19. ...",
-        "publisher": "albertahumanrights.ab.ca",
-        "source_type": "oversight_or_adjudicative",
-        "publication_date": null,
-        "url": "https://albertahumanrights.ab.ca/media/wjmbqth0/indigenous-initiatives-2010-11-to-2018-19.pdf"
-      },
-      "sources": [
-        {
-          "title": "indigenous-initiatives-2010-11-to-2018-19. ...",
-          "publisher": "albertahumanrights.ab.ca",
-          "source_type": "oversight_or_adjudicative",
-          "publication_date": null,
-          "url": "https://albertahumanrights.ab.ca/media/wjmbqth0/indigenous-initiatives-2010-11-to-2018-19.pdf"
         }
       ]
     },
@@ -6557,6 +6264,44 @@
       ]
     },
     {
+      "public_record_id": "iheg_8f10904db33b3554f929",
+      "member_public_record_ids": [
+        "ihe_146f5070cc77a752f2e4",
+        "ihe_827078598d871b47e78b",
+        "ihe_92ae176a69ad7d0f8c6b",
+        "ihe_9ee291af1509b833a573",
+        "ihe_a5375ce2058683de1312"
+      ],
+      "source_record_count": 5,
+      "source_count": 1,
+      "presentation_classification": "cohort_or_systemic_record",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "systemic evidence",
+      "province": "alberta",
+      "year": null,
+      "care_setting": null,
+      "organization": null,
+      "summary": "Holroyd1,2, Kayla Fitzpatrick3, Chyloe Healy4, Katherine Rittenbach1,5,6, Tessy Big Plume7, Lea Bill8, Anne Bird9, Bonnie Healy4, Kristopher Janvier10, Eunice Louis11 and Cheryl Barnabe12 Abstract Background: First Nations people experience racism in society and in the healthcare system.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "source": {
+        "title": "Impacts of racism",
+        "publisher": "afnigc.ca",
+        "source_type": "institutional_or_public",
+        "publication_date": null,
+        "url": "https://afnigc.ca/wp-content/uploads/2024/10/IMPACT1.pdf"
+      },
+      "sources": [
+        {
+          "title": "Impacts of racism",
+          "publisher": "afnigc.ca",
+          "source_type": "institutional_or_public",
+          "publication_date": null,
+          "url": "https://afnigc.ca/wp-content/uploads/2024/10/IMPACT1.pdf"
+        }
+      ]
+    },
+    {
       "public_record_id": "iheg_8fa87090f6dfa6af942f",
       "member_public_record_ids": [
         "ihe_2decec182a14df05be1d",
@@ -6698,36 +6443,40 @@
       ]
     },
     {
-      "public_record_id": "iheg_92b0620838f04607fc72",
+      "public_record_id": "iheg_916cd5e5fb67b2b9142d",
       "member_public_record_ids": [
-        "ihe_a7ee6d688ce8f2f8cbde"
+        "ihe_0badb1abb2489ab8b965",
+        "ihe_18d936f093a0d662cd47",
+        "ihe_474d9d126e46639b61e1",
+        "ihe_513196f07f479dd3d74b",
+        "ihe_60c5466e8e43fc21d09f"
       ],
-      "source_record_count": 1,
+      "source_record_count": 5,
       "source_count": 1,
-      "presentation_classification": "separate_incident",
+      "presentation_classification": "cohort_or_systemic_record",
       "evidence_status": "official_investigation",
       "evidence_type": "official investigation",
       "province": "british_columbia",
       "year": null,
       "care_setting": null,
       "organization": null,
-      "summary": "The public source “In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care | College of Pharmacists of British Columbia” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
+      "summary": "The public source “In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Baseline Project” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
       "recommendation_action": null,
       "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
       "source": {
-        "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care | College of Pharmacists of British Columbia",
-        "publisher": "bcpharmacists.org",
-        "source_type": "indigenous_organization",
+        "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Baseline Project",
+        "publisher": "baseline.bchumanrights.ca",
+        "source_type": "oversight_or_adjudicative",
         "publication_date": null,
-        "url": "https://bcpharmacists.org/readlinks/plain-sight-addressing-indigenous-specific-racism-and-discrimination-bc-health-care"
+        "url": "https://baseline.bchumanrights.ca/report/in-plain-sight-addressing-indigenous-specific-racism-and-discrimination-in-b-c-health-care"
       },
       "sources": [
         {
-          "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care | College of Pharmacists of British Columbia",
-          "publisher": "bcpharmacists.org",
-          "source_type": "indigenous_organization",
+          "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Baseline Project",
+          "publisher": "baseline.bchumanrights.ca",
+          "source_type": "oversight_or_adjudicative",
           "publication_date": null,
-          "url": "https://bcpharmacists.org/readlinks/plain-sight-addressing-indigenous-specific-racism-and-discrimination-bc-health-care"
+          "url": "https://baseline.bchumanrights.ca/report/in-plain-sight-addressing-indigenous-specific-racism-and-discrimination-in-b-c-health-care"
         }
       ]
     },
@@ -6836,6 +6585,45 @@
           "source_type": null,
           "publication_date": null,
           "url": "https://www.justice.gc.ca/eng/declaration/report-rapport/2026/b1.html"
+        }
+      ]
+    },
+    {
+      "public_record_id": "iheg_93d5bb96b4feb6d57d8d",
+      "member_public_record_ids": [
+        "ihe_159773eae4a7b639d7d9",
+        "ihe_42025e3c944afdc67c64",
+        "ihe_62f9916c4f9f1408d89e",
+        "ihe_6f10d5425c188dd41d41",
+        "ihe_a8dbfb70dcac3acf1d37",
+        "ihe_deeaf0e4a3459d24a8d2"
+      ],
+      "source_record_count": 6,
+      "source_count": 1,
+      "presentation_classification": "cohort_or_systemic_record",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "systemic evidence",
+      "province": "british_columbia",
+      "year": null,
+      "care_setting": null,
+      "organization": null,
+      "summary": "For example, Indigenous patients who feel the health services they receive are not culturally appropriate face greater barriers to care that can lead to reduced access to preventative care and disease management, increasing the likelihood of diabetes prevalence.5 Furthermore, discrimination by healthcare providers is directly associated with unmet health needs.6 Anti‑Indigenous racism regularly occurs in a variety of healthcare settings and can impact the experience of every Indigenous patient in every healthcare encounter.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "source": {
+        "title": "experiences of Indigenous rural British Columbians accessing ...",
+        "publisher": "www.ccnsa.ca",
+        "source_type": "peer_reviewed_research",
+        "publication_date": null,
+        "url": "https://www.ccnsa.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf"
+      },
+      "sources": [
+        {
+          "title": "experiences of Indigenous rural British Columbians accessing ...",
+          "publisher": "www.ccnsa.ca",
+          "source_type": "peer_reviewed_research",
+          "publication_date": null,
+          "url": "https://www.ccnsa.ca/Publications/lists/PublicationsExternal/Attachments/2025-06-09-AR-We_re_racially_profiled-Aldred.pdf"
         }
       ]
     },
@@ -7015,65 +6803,6 @@
       ]
     },
     {
-      "public_record_id": "iheg_982d002c5b62c3fee81a",
-      "member_public_record_ids": [
-        "ihe_14a6fbd4a27531e8532a",
-        "ihe_26b54ee2baaf9d463307",
-        "ihe_3826b9fb304375896327",
-        "ihe_5b5c5b49f9715d3eafeb",
-        "ihe_635489f759ac742e293b",
-        "ihe_6f852e6401853b83aa61",
-        "ihe_81e7b39348b663e219c6",
-        "ihe_9f2ef97f2ccec312db1e",
-        "ihe_a41ec23004bffcd44ac8",
-        "ihe_e774d10e6751d02fc0ce",
-        "ihe_f041ce03c9f9c43167ee",
-        "ihe_f63bc5b4ce49247a2b14"
-      ],
-      "source_record_count": 12,
-      "source_count": 3,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "alberta",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Nearly two-thirds of Indigenous people report mistreatment ...” contains province-specific material relevant to Indigenous health-care official investigation; the source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "Nearly two-thirds of Indigenous people report mistreatment ...",
-        "publisher": "www.cbc.ca",
-        "source_type": "credible_journalism",
-        "publication_date": null,
-        "url": "https://www.cbc.ca/news/canada/british-columbia/ubc-study-on-indigenous-people-mistreatment-during-childbirth-9.7267757"
-      },
-      "sources": [
-        {
-          "title": "Nearly two-thirds of Indigenous people report mistreatment ...",
-          "publisher": "www.cbc.ca",
-          "source_type": "credible_journalism",
-          "publication_date": null,
-          "url": "https://www.cbc.ca/news/canada/british-columbia/ubc-study-on-indigenous-people-mistreatment-during-childbirth-9.7267757"
-        },
-        {
-          "title": "Nearly two-thirds of Indigenous people report mistreatment ...",
-          "publisher": "ca.news.yahoo.com",
-          "source_type": "indigenous_organization",
-          "publication_date": null,
-          "url": "https://ca.news.yahoo.com/nearly-two-thirds-indigenous-people-134041266.html"
-        },
-        {
-          "title": "Nearly two-thirds of Indigenous people report mistreatment ...",
-          "publisher": "www.med.ubc.ca",
-          "source_type": "indigenous_organization",
-          "publication_date": null,
-          "url": "https://www.med.ubc.ca/news/nearly-two-thirds-of-indigenous-people-report-mistreatment-during-childbirth-first-national-survey-finds"
-        }
-      ]
-    },
-    {
       "public_record_id": "iheg_98feac16aef85bbd6eff",
       "member_public_record_ids": [
         "ihe_4fdd4449665bbe806747"
@@ -7174,41 +6903,6 @@
           "source_type": "institutional_or_public",
           "publication_date": null,
           "url": "https://www.facebook.com/61552745540362/posts/for-immediate-release-april-12-2026fnhoo-finds-systemic-failure-in-the-closure-o/122236924808091518"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_9bfffffd01cbc0029bb8",
-      "member_public_record_ids": [
-        "ihe_ab56c88eb7c22ea4d835"
-      ],
-      "source_record_count": 1,
-      "source_count": 1,
-      "presentation_classification": "separate_incident",
-      "evidence_status": "reported_account",
-      "evidence_type": "reported account",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "A public source reports: The public source “Impacts of racism” contains province-specific material relevant to Indigenous health-care reported account; the source excerpt and provenance define its scope. This record documents the reported account and does not present the underlying allegation as an independently established finding.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "caution": "A publicly documented account or allegation. Inclusion records that the account was made; it does not independently establish the underlying event.",
-      "source": {
-        "title": "Impacts of racism",
-        "publisher": "afnigc.ca",
-        "source_type": "institutional_or_public",
-        "publication_date": null,
-        "url": "https://afnigc.ca/wp-content/uploads/2024/10/IMPACT1.pdf"
-      },
-      "sources": [
-        {
-          "title": "Impacts of racism",
-          "publisher": "afnigc.ca",
-          "source_type": "institutional_or_public",
-          "publication_date": null,
-          "url": "https://afnigc.ca/wp-content/uploads/2024/10/IMPACT1.pdf"
         }
       ]
     },
@@ -7348,45 +7042,6 @@
           "source_type": "indigenous_organization",
           "publication_date": null,
           "url": "https://www.uicc.org/news/inequity-cancer-care-indigenous-peoples"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_9e0e63350d9d03b7fd27",
-      "member_public_record_ids": [
-        "ihe_5efdc2e90fddae44fce7",
-        "ihe_6f6a2abfb98151d7cabe",
-        "ihe_a70a6adf4d04bd4ed050",
-        "ihe_b12130201afbc4806068",
-        "ihe_dd9aa6e8da7c4c32018f",
-        "ihe_e53fddb26f891a3ad5aa"
-      ],
-      "source_record_count": 6,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "systemic_evidence",
-      "evidence_type": "systemic evidence",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "College of Physicians and Surgeons of British Columbia ACCREDITATION STANDARDS Indigenous Cultural Safety, Cultural Humility and Anti-racism 3 of 8 Document ID: 12708 Version: 2.0 Publication date: 2026-04-01 Effective date: 2024-07-01 Introduction The purpose of this standard is to set out clear expectations for the provision of culturally safe and anti-racist care for Indigenous patients in health-care facilities accredited by the Diagnostic Accreditation Program (DAP) and the Non-hospital Medical and Surgical Facilities Accreditation Program (NHMSFAP).",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "Indigenous Cultural Safety, Cultural Humility and Anti-Racism",
-        "publisher": "www.cpsbc.ca",
-        "source_type": "institutional_or_public",
-        "publication_date": null,
-        "url": "https://www.cpsbc.ca/files/pdf/DAP-AS-Indigenous-Cultural-Safety-Cultural-Humility-and-Anti-racism.pdf"
-      },
-      "sources": [
-        {
-          "title": "Indigenous Cultural Safety, Cultural Humility and Anti-Racism",
-          "publisher": "www.cpsbc.ca",
-          "source_type": "institutional_or_public",
-          "publication_date": null,
-          "url": "https://www.cpsbc.ca/files/pdf/DAP-AS-Indigenous-Cultural-Safety-Cultural-Humility-and-Anti-racism.pdf"
         }
       ]
     },
@@ -7639,20 +7294,42 @@
     {
       "public_record_id": "iheg_a14726ae3c7e638fc62f",
       "member_public_record_ids": [
+        "ihe_060852ba38407dcf26d2",
+        "ihe_0987e94b3b85dc02da4d",
+        "ihe_145a340e7295fd7eecac",
+        "ihe_14a6fbd4a27531e8532a",
+        "ihe_1519e033d0e9b6ab03b7",
+        "ihe_26b54ee2baaf9d463307",
         "ihe_28694d07bda70ca4a721",
+        "ihe_3826b9fb304375896327",
+        "ihe_50980e5c3932d9bbc3ff",
+        "ihe_59423c0f5f1ee1a48245",
         "ihe_5aab7fdc8475aa767a14",
+        "ihe_5b5c5b49f9715d3eafeb",
+        "ihe_635489f759ac742e293b",
         "ihe_68f9cebe689a0c12ac4a",
+        "ihe_6f852e6401853b83aa61",
+        "ihe_81e7b39348b663e219c6",
         "ihe_839f605fa75fa5d6658e",
+        "ihe_9f2ef97f2ccec312db1e",
+        "ihe_a41ec23004bffcd44ac8",
         "ihe_a5421698929fc60f1d7b",
         "ihe_b4a7977cd2e9201cad4b",
         "ihe_b6757e755de985266cdf",
+        "ihe_b69c56411edebaef8916",
+        "ihe_b71f517c45bebee5df17",
         "ihe_b8a65aa522007027953a",
+        "ihe_c6b112f9d0062f9fbcea",
         "ihe_ce41925286bdd0dc9a3f",
         "ihe_d1ba3121686c2d054167",
+        "ihe_d78b0dbec0fff0f9e2d7",
         "ihe_d79bdec2c08d7568ac24",
-        "ihe_e11d8e9ce6ca290b7463"
+        "ihe_e11d8e9ce6ca290b7463",
+        "ihe_e774d10e6751d02fc0ce",
+        "ihe_ec188a0276cea7ddfcab",
+        "ihe_f63bc5b4ce49247a2b14"
       ],
-      "source_record_count": 12,
+      "source_record_count": 34,
       "source_count": 3,
       "presentation_classification": "cohort_or_systemic_record",
       "evidence_status": "official_investigation",
@@ -7681,17 +7358,17 @@
         },
         {
           "title": "Nearly two-thirds of Indigenous people report mistreatment ...",
-          "publisher": "www.med.ubc.ca",
-          "source_type": "indigenous_organization",
-          "publication_date": null,
-          "url": "https://www.med.ubc.ca/news/nearly-two-thirds-of-indigenous-people-report-mistreatment-during-childbirth-first-national-survey-finds"
-        },
-        {
-          "title": "Nearly two-thirds of Indigenous people report mistreatment ...",
           "publisher": "www.cbc.ca",
           "source_type": "credible_journalism",
           "publication_date": null,
           "url": "https://www.cbc.ca/news/canada/british-columbia/ubc-study-on-indigenous-people-mistreatment-during-childbirth-9.7267757"
+        },
+        {
+          "title": "Nearly two-thirds of Indigenous people report mistreatment ...",
+          "publisher": "www.med.ubc.ca",
+          "source_type": "indigenous_organization",
+          "publication_date": null,
+          "url": "https://www.med.ubc.ca/news/nearly-two-thirds-of-indigenous-people-report-mistreatment-during-childbirth-first-national-survey-finds"
         }
       ]
     },
@@ -7727,40 +7404,6 @@
           "source_type": "peer_reviewed_research",
           "publication_date": null,
           "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9210059"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_a25397f9e038902375bf",
-      "member_public_record_ids": [
-        "ihe_760811d25d820204cae2"
-      ],
-      "source_record_count": 1,
-      "source_count": 1,
-      "presentation_classification": "separate_incident",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "alberta",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. - BCACHC” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. - BCACHC",
-        "publisher": "bcachc.org",
-        "source_type": "indigenous_organization",
-        "publication_date": null,
-        "url": "https://bcachc.org/resources_post/in-plain-sight-addressing-indigenous-specific-racism-and-discrimination-in-b-c"
-      },
-      "sources": [
-        {
-          "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. - BCACHC",
-          "publisher": "bcachc.org",
-          "source_type": "indigenous_organization",
-          "publication_date": null,
-          "url": "https://bcachc.org/resources_post/in-plain-sight-addressing-indigenous-specific-racism-and-discrimination-in-b-c"
         }
       ]
     },
@@ -7936,6 +7579,46 @@
       ]
     },
     {
+      "public_record_id": "iheg_a47706894c4d18112d0a",
+      "member_public_record_ids": [
+        "ihe_00b2e6b09b04051ba899",
+        "ihe_544ce0002abb7b83428b",
+        "ihe_62e10f098d351aca7754",
+        "ihe_a4897d8cee8159f85202",
+        "ihe_e277435f66eefdebd170",
+        "ihe_e4f41a5a9e55a9caf697"
+      ],
+      "source_record_count": 6,
+      "source_count": 1,
+      "presentation_classification": "cohort_or_systemic_record",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "Fraser Health acknowledgement and commitment following In Plain Sight",
+      "province": "british_columbia",
+      "year": null,
+      "care_setting": "Not applicable — institutional response",
+      "organization": "Fraser Health and Fraser Salish Regional Caucus",
+      "summary": "In December 2020, Fraser Health and the Fraser Salish Regional Caucus jointly accepted the In Plain Sight review's findings and committed to work with Indigenous partners on eliminating racism. This is an institutional response and commitment; it does not itself demonstrate that the commitments were completed.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "caution": "The source responds to a B.C.-wide review and is not evidence of a Saskatchewan event.",
+      "source": {
+        "title": "Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health",
+        "publisher": "www.fraserhealth.ca",
+        "source_type": "institutional statement",
+        "publication_date": null,
+        "url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination"
+      },
+      "sources": [
+        {
+          "title": "Acknowledging the Report – In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Fraser Health",
+          "publisher": "www.fraserhealth.ca",
+          "source_type": "institutional statement",
+          "publication_date": null,
+          "url": "https://www.fraserhealth.ca/news/2020/Dec/acknowledging-the-report--in-plain-sight-addressing-indigenous-specific-racism-and-discrimination"
+        }
+      ]
+    },
+    {
       "public_record_id": "iheg_a560c8941d1835b40a45",
       "member_public_record_ids": [
         "ihe_ace2fedb144718d7722b"
@@ -8000,74 +7683,6 @@
           "source_type": "indigenous_organization",
           "publication_date": null,
           "url": "https://www.indigenouswatchdog.org/current-problems/theme/systemic-racism/group/metis/health"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_a610f5b52c173dc7227c",
-      "member_public_record_ids": [
-        "ihe_e4c9f9f7aac7a2da7ff5"
-      ],
-      "source_record_count": 1,
-      "source_count": 1,
-      "presentation_classification": "separate_incident",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "british_columbia",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Anti-Indigenous racism in Canadian healthcare - PMC - NIH” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "Anti-Indigenous racism in Canadian healthcare - PMC - NIH",
-        "publisher": "pmc.ncbi.nlm.nih.gov",
-        "source_type": "government",
-        "publication_date": null,
-        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11414646"
-      },
-      "sources": [
-        {
-          "title": "Anti-Indigenous racism in Canadian healthcare - PMC - NIH",
-          "publisher": "pmc.ncbi.nlm.nih.gov",
-          "source_type": "government",
-          "publication_date": null,
-          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11414646"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_a632ad4dfc30c1990d4b",
-      "member_public_record_ids": [
-        "ihe_01fee2cd2df21872a966"
-      ],
-      "source_record_count": 1,
-      "source_count": 1,
-      "presentation_classification": "separate_incident",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care | College of Pharmacists of British Columbia” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care | College of Pharmacists of British Columbia",
-        "publisher": "bcpharmacists.org",
-        "source_type": "indigenous_organization",
-        "publication_date": null,
-        "url": "https://bcpharmacists.org/readlinks/plain-sight-addressing-indigenous-specific-racism-and-discrimination-bc-health-care"
-      },
-      "sources": [
-        {
-          "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care | College of Pharmacists of British Columbia",
-          "publisher": "bcpharmacists.org",
-          "source_type": "indigenous_organization",
-          "publication_date": null,
-          "url": "https://bcpharmacists.org/readlinks/plain-sight-addressing-indigenous-specific-racism-and-discrimination-bc-health-care"
         }
       ]
     },
@@ -8172,48 +7787,6 @@
           "source_type": "government",
           "publication_date": null,
           "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10126787"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_aa4e23df64c1d3e9d282",
-      "member_public_record_ids": [
-        "ihe_0756d29598e76e8395e9",
-        "ihe_2161541c80738e25556f",
-        "ihe_2a7ca2b237bc58d20e9a",
-        "ihe_566ef58e5a8ff8d24e79",
-        "ihe_81dfa4eddcbb3065ea63",
-        "ihe_825cc4e2deb1d0644352",
-        "ihe_85a3a43fb6516d5f3702",
-        "ihe_a6c6bf9481fc89cc2b1e",
-        "ihe_c54c3ab95f287d969209"
-      ],
-      "source_record_count": 9,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "systemic_evidence",
-      "evidence_type": "systemic evidence",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "With the growing public awareness of Indigenous-specific racism (Government of British Columbia, 2020) and with the highly publicized deaths of Brian Sinclair (Gunn, 2017) and more recently the death of Joyce Echaquan (Lowrie & Malone, 2020) in Canada, there has been an outcry to end racism in health care (Canadian Association of Schools of Nursing [CASN], 2023; Canadian Nurses Association [CNA], 2021; Government of British Columbia, 2020).",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "CPR RACISM: A Guide for Health Care Providers to Address ...",
-        "publisher": "nursing.usask.ca",
-        "source_type": "institutional_or_public",
-        "publication_date": null,
-        "url": "https://nursing.usask.ca/documents/research-initiatives/anti-racism-resources/cpr-racism-article.pdf"
-      },
-      "sources": [
-        {
-          "title": "CPR RACISM: A Guide for Health Care Providers to Address ...",
-          "publisher": "nursing.usask.ca",
-          "source_type": "institutional_or_public",
-          "publication_date": null,
-          "url": "https://nursing.usask.ca/documents/research-initiatives/anti-racism-resources/cpr-racism-article.pdf"
         }
       ]
     },
@@ -8439,6 +8012,44 @@
       ]
     },
     {
+      "public_record_id": "iheg_ac9a85b379b812cb84bc",
+      "member_public_record_ids": [
+        "ihe_3c00fa07c21b31e4d5f1",
+        "ihe_5b21c402c6edef00a248",
+        "ihe_68ba913617b60d5f9fd3",
+        "ihe_b00e26f56937ebd14854",
+        "ihe_f54c56a29293d7e17085"
+      ],
+      "source_record_count": 5,
+      "source_count": 1,
+      "presentation_classification": "cohort_or_systemic_record",
+      "evidence_status": "official_investigation",
+      "evidence_type": "official investigation",
+      "province": "british_columbia",
+      "year": null,
+      "care_setting": null,
+      "organization": null,
+      "summary": "The public source “Northern Health apologizes following report on Indigenous racism in B.C. Healthcare - Prince George Citizen” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "source": {
+        "title": "Northern Health apologizes following report on Indigenous racism in B.C. Healthcare - Prince George Citizen",
+        "publisher": "www.princegeorgecitizen.com",
+        "source_type": "institutional_or_public",
+        "publication_date": null,
+        "url": "https://www.princegeorgecitizen.com/local-news/we-are-truly-and-deeply-sorry-northern-health-responds-to-report-on-racism-in-bc-healthcare-3143865"
+      },
+      "sources": [
+        {
+          "title": "Northern Health apologizes following report on Indigenous racism in B.C. Healthcare - Prince George Citizen",
+          "publisher": "www.princegeorgecitizen.com",
+          "source_type": "institutional_or_public",
+          "publication_date": null,
+          "url": "https://www.princegeorgecitizen.com/local-news/we-are-truly-and-deeply-sorry-northern-health-responds-to-report-on-racism-in-bc-healthcare-3143865"
+        }
+      ]
+    },
+    {
       "public_record_id": "iheg_afcdfb1fe0e533955c16",
       "member_public_record_ids": [
         "ihe_be49d407a7ca23c700c0"
@@ -8509,69 +8120,44 @@
       ]
     },
     {
-      "public_record_id": "iheg_b0b89c9ca798072e8277",
-      "member_public_record_ids": [
-        "ihe_3c00fa07c21b31e4d5f1",
-        "ihe_5b21c402c6edef00a248",
-        "ihe_68ba913617b60d5f9fd3",
-        "ihe_b00e26f56937ebd14854",
-        "ihe_f54c56a29293d7e17085"
-      ],
-      "source_record_count": 5,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Northern Health apologizes following report on Indigenous racism in B.C. Healthcare - Prince George Citizen” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "Northern Health apologizes following report on Indigenous racism in B.C. Healthcare - Prince George Citizen",
-        "publisher": "www.princegeorgecitizen.com",
-        "source_type": "institutional_or_public",
-        "publication_date": null,
-        "url": "https://www.princegeorgecitizen.com/local-news/we-are-truly-and-deeply-sorry-northern-health-responds-to-report-on-racism-in-bc-healthcare-3143865"
-      },
-      "sources": [
-        {
-          "title": "Northern Health apologizes following report on Indigenous racism in B.C. Healthcare - Prince George Citizen",
-          "publisher": "www.princegeorgecitizen.com",
-          "source_type": "institutional_or_public",
-          "publication_date": null,
-          "url": "https://www.princegeorgecitizen.com/local-news/we-are-truly-and-deeply-sorry-northern-health-responds-to-report-on-racism-in-bc-healthcare-3143865"
-        }
-      ]
-    },
-    {
       "public_record_id": "iheg_b12582a46394a54d45b7",
       "member_public_record_ids": [
         "ihe_076d478f7c5ffe83c04c",
         "ihe_1445978133ccf9996c36",
+        "ihe_1737eb81f94eb5329214",
+        "ihe_29441943bcfc7048868b",
+        "ihe_419a727e7537adca36e9",
+        "ihe_5cbf51c84d18edd2ab5a",
+        "ihe_80e92d334011d416f879",
         "ihe_80eda7f4e367e68a095d",
+        "ihe_87d4bdc7290350eb7050",
+        "ihe_9944b82a8aa7af62a6ac",
+        "ihe_a08af4518cbce9e76ad6",
+        "ihe_b82b296103fed06ec88b",
+        "ihe_be7d37138f2c381815c8",
+        "ihe_c5c955aa61a89075e1d8",
+        "ihe_dbe6ab07ff815b00c93d",
         "ihe_dd3608bb8f55bb6697b3",
         "ihe_e894a19e0a05145474b5",
         "ihe_fab100506fc53c1d0c7c"
       ],
-      "source_record_count": 6,
+      "source_record_count": 18,
       "source_count": 1,
       "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "Research on structural racism in pregnancy and childbirth care in B.C.",
       "province": "british_columbia",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Birthing injustice: unmasking structural racism and the ...” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
+      "care_setting": "Pregnancy and childbirth care",
+      "organization": "Frontiers in Global Women's Health",
+      "summary": "This research article examines structural racism and Indigenous peoples' experiences of pregnancy and childbirth care in British Columbia. It is systemic research evidence, not an official investigation or a finding about an individual experience.",
       "recommendation_action": null,
       "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "caution": "The source supports British Columbia context; it should not be copied into Alberta or Saskatchewan solely because those provinces were searched.",
       "source": {
         "title": "Birthing injustice: unmasking structural racism and the ...",
         "publisher": "www.frontiersin.org",
-        "source_type": "research_or_university",
+        "source_type": "peer-reviewed research",
         "publication_date": null,
         "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full"
       },
@@ -8579,7 +8165,7 @@
         {
           "title": "Birthing injustice: unmasking structural racism and the ...",
           "publisher": "www.frontiersin.org",
-          "source_type": "research_or_university",
+          "source_type": "peer-reviewed research",
           "publication_date": null,
           "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full"
         }
@@ -8616,6 +8202,94 @@
           "source_type": "institutional_or_public",
           "publication_date": null,
           "url": "https://www.cpsbc.ca/public/public-resources/what-expect/cultural-safety-humility-anti-racism"
+        }
+      ]
+    },
+    {
+      "public_record_id": "iheg_b21c77720d1fae93347a",
+      "member_public_record_ids": [
+        "ihe_01fee2cd2df21872a966",
+        "ihe_1ca9490426c12c32eb64",
+        "ihe_310a701d3e39c07f9b57",
+        "ihe_a7ee6d688ce8f2f8cbde",
+        "ihe_d2bfba0782f8d2b68962"
+      ],
+      "source_record_count": 5,
+      "source_count": 2,
+      "presentation_classification": "cohort_or_systemic_record",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "Professional-regulator reference to the In Plain Sight review",
+      "province": "british_columbia",
+      "year": null,
+      "care_setting": "Multiple health-care settings",
+      "organization": "College of Pharmacists of British Columbia",
+      "summary": "The College of Pharmacists of British Columbia links readers to In Plain Sight, the B.C. review of Indigenous-specific racism and discrimination in health care. The page is a reference to that review, not a separate investigation or finding by the College.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "caution": "The original review remains the authoritative source for its findings.",
+      "source": {
+        "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care | College of Pharmacists of British Columbia",
+        "publisher": "bcpharmacists.org",
+        "source_type": "professional-regulator resource",
+        "publication_date": null,
+        "url": "https://bcpharmacists.org/readlinks/plain-sight-addressing-indigenous-specific-racism-and-discrimination-bc-health-care"
+      },
+      "sources": [
+        {
+          "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care | College of Pharmacists of British Columbia",
+          "publisher": "bcpharmacists.org",
+          "source_type": "professional-regulator resource",
+          "publication_date": null,
+          "url": "https://bcpharmacists.org/readlinks/plain-sight-addressing-indigenous-specific-racism-and-discrimination-bc-health-care"
+        },
+        {
+          "title": "In Plain Sight: Addressing Indigenous-specific Racism and ...",
+          "publisher": "www.bcpharmacists.org",
+          "source_type": "professional-regulator resource",
+          "publication_date": null,
+          "url": "https://www.bcpharmacists.org/readlinks/plain-sight-addressing-indigenous-specific-racism-and-discrimination-bc-health-care"
+        }
+      ]
+    },
+    {
+      "public_record_id": "iheg_b42d0a94e2b45e575eba",
+      "member_public_record_ids": [
+        "ihe_0756d29598e76e8395e9",
+        "ihe_2161541c80738e25556f",
+        "ihe_2a7ca2b237bc58d20e9a",
+        "ihe_566ef58e5a8ff8d24e79",
+        "ihe_81dfa4eddcbb3065ea63",
+        "ihe_825cc4e2deb1d0644352",
+        "ihe_85a3a43fb6516d5f3702",
+        "ihe_a6c6bf9481fc89cc2b1e",
+        "ihe_c54c3ab95f287d969209"
+      ],
+      "source_record_count": 9,
+      "source_count": 1,
+      "presentation_classification": "cohort_or_systemic_record",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "systemic evidence",
+      "province": "british_columbia",
+      "year": null,
+      "care_setting": null,
+      "organization": null,
+      "summary": "With the growing public awareness of Indigenous-specific racism (Government of British Columbia, 2020) and with the highly publicized deaths of Brian Sinclair (Gunn, 2017) and more recently the death of Joyce Echaquan (Lowrie & Malone, 2020) in Canada, there has been an outcry to end racism in health care (Canadian Association of Schools of Nursing [CASN], 2023; Canadian Nurses Association [CNA], 2021; Government of British Columbia, 2020).",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "source": {
+        "title": "CPR RACISM: A Guide for Health Care Providers to Address ...",
+        "publisher": "nursing.usask.ca",
+        "source_type": "institutional_or_public",
+        "publication_date": null,
+        "url": "https://nursing.usask.ca/documents/research-initiatives/anti-racism-resources/cpr-racism-article.pdf"
+      },
+      "sources": [
+        {
+          "title": "CPR RACISM: A Guide for Health Care Providers to Address ...",
+          "publisher": "nursing.usask.ca",
+          "source_type": "institutional_or_public",
+          "publication_date": null,
+          "url": "https://nursing.usask.ca/documents/research-initiatives/anti-racism-resources/cpr-racism-article.pdf"
         }
       ]
     },
@@ -8686,41 +8360,6 @@
           "source_type": "research_or_university",
           "publication_date": null,
           "url": "https://www.cmajopen.ca/content/11/3/E404"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_b878ca3fd628c111f858",
-      "member_public_record_ids": [
-        "ihe_2c29fc3679f9e7106381"
-      ],
-      "source_record_count": 1,
-      "source_count": 1,
-      "presentation_classification": "separate_incident",
-      "evidence_status": "reported_account",
-      "evidence_type": "reported account",
-      "province": "alberta",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "A public source reports: The public source “Interior Health shares progress on report’s call to address Indigenous racism in B.C. healthcare - BC Rural Health Network” contains province-specific material relevant to Indigenous health-care reported account; the bounded source excerpt and provenance define its scope. This record documents the reported account and does not present the underlying allegation as an independently established finding.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "caution": "A publicly documented account or allegation. Inclusion records that the account was made; it does not independently establish the underlying event.",
-      "source": {
-        "title": "Interior Health shares progress on report’s call to address Indigenous racism in B.C. healthcare - BC Rural Health Network",
-        "publisher": "bcruralhealth.org",
-        "source_type": "indigenous_organization",
-        "publication_date": null,
-        "url": "https://bcruralhealth.org/interior-health-shares-progress-on-reports-call-to-address-indigenous-racism-in-b-c-healthcare"
-      },
-      "sources": [
-        {
-          "title": "Interior Health shares progress on report’s call to address Indigenous racism in B.C. healthcare - BC Rural Health Network",
-          "publisher": "bcruralhealth.org",
-          "source_type": "indigenous_organization",
-          "publication_date": null,
-          "url": "https://bcruralhealth.org/interior-health-shares-progress-on-reports-call-to-address-indigenous-racism-in-b-c-healthcare"
         }
       ]
     },
@@ -8826,6 +8465,41 @@
           "source_type": "credible_journalism",
           "publication_date": null,
           "url": "https://www.aptnnews.ca/national-news/anti-indigenous-bias-may-lead-to-first-nations-leaving-emergency-departments-without-care"
+        }
+      ]
+    },
+    {
+      "public_record_id": "iheg_bc7967f66d21ab0fd818",
+      "member_public_record_ids": [
+        "ihe_760811d25d820204cae2",
+        "ihe_9c8245cec359ab5ec6b4"
+      ],
+      "source_record_count": 2,
+      "source_count": 1,
+      "presentation_classification": "cohort_or_systemic_record",
+      "evidence_status": "official_investigation",
+      "evidence_type": "official investigation",
+      "province": "british_columbia",
+      "year": null,
+      "care_setting": null,
+      "organization": null,
+      "summary": "The public source “In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. - BCACHC” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "source": {
+        "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. - BCACHC",
+        "publisher": "bcachc.org",
+        "source_type": "indigenous_organization",
+        "publication_date": null,
+        "url": "https://bcachc.org/resources_post/in-plain-sight-addressing-indigenous-specific-racism-and-discrimination-in-b-c"
+      },
+      "sources": [
+        {
+          "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. - BCACHC",
+          "publisher": "bcachc.org",
+          "source_type": "indigenous_organization",
+          "publication_date": null,
+          "url": "https://bcachc.org/resources_post/in-plain-sight-addressing-indigenous-specific-racism-and-discrimination-in-b-c"
         }
       ]
     },
@@ -8970,44 +8644,6 @@
       ]
     },
     {
-      "public_record_id": "iheg_beeeca86b19394c5bae8",
-      "member_public_record_ids": [
-        "ihe_0badb1abb2489ab8b965",
-        "ihe_18d936f093a0d662cd47",
-        "ihe_474d9d126e46639b61e1",
-        "ihe_513196f07f479dd3d74b",
-        "ihe_60c5466e8e43fc21d09f"
-      ],
-      "source_record_count": 5,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Baseline Project” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Baseline Project",
-        "publisher": "baseline.bchumanrights.ca",
-        "source_type": "oversight_or_adjudicative",
-        "publication_date": null,
-        "url": "https://baseline.bchumanrights.ca/report/in-plain-sight-addressing-indigenous-specific-racism-and-discrimination-in-b-c-health-care"
-      },
-      "sources": [
-        {
-          "title": "In Plain Sight: Addressing Indigenous-specific Racism and Discrimination in B.C. Health Care - Baseline Project",
-          "publisher": "baseline.bchumanrights.ca",
-          "source_type": "oversight_or_adjudicative",
-          "publication_date": null,
-          "url": "https://baseline.bchumanrights.ca/report/in-plain-sight-addressing-indigenous-specific-racism-and-discrimination-in-b-c-health-care"
-        }
-      ]
-    },
-    {
       "public_record_id": "iheg_bfb5c6c56d68509b7aab",
       "member_public_record_ids": [
         "ihe_e6dded4de72a996badbd"
@@ -9039,6 +8675,43 @@
           "source_type": "indigenous_organization",
           "publication_date": null,
           "url": "https://www.bcpharmacists.org/indigenous-cultural-safety-cultural-humility-and-anti-racism-education-pharmacy-professionals"
+        }
+      ]
+    },
+    {
+      "public_record_id": "iheg_bfbe2ceaa44f2cd4e12e",
+      "member_public_record_ids": [
+        "ihe_112b0e91bd20e27c612f",
+        "ihe_3e2bb79377af7076adeb",
+        "ihe_8e221f89a7bdbbd214d7"
+      ],
+      "source_record_count": 3,
+      "source_count": 1,
+      "presentation_classification": "cohort_or_systemic_record",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "Research on racism in Alberta emergency care",
+      "province": "alberta",
+      "year": null,
+      "care_setting": "Emergency department care",
+      "organization": "BMC Health Services Research",
+      "summary": "A 2022 qualitative study of 16 Alberta emergency-department providers reported accounts of racist stereotyping, disrespect and barriers affecting First Nations patients. It is research evidence about emergency care, not an official investigation.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "caution": "The study reports provider perspectives and does not establish findings about any particular patient encounter.",
+      "source": {
+        "title": "Impacts of racism on First Nations patients' emergency care: results of a thematic analysis of healthcare provider interviews in Alberta, Canada | BMC Health Services Research | Full Text",
+        "publisher": "bmchealthservres.biomedcentral.com",
+        "source_type": "peer-reviewed research",
+        "publication_date": null,
+        "url": "https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-022-08129-5"
+      },
+      "sources": [
+        {
+          "title": "Impacts of racism on First Nations patients' emergency care: results of a thematic analysis of healthcare provider interviews in Alberta, Canada | BMC Health Services Research | Full Text",
+          "publisher": "bmchealthservres.biomedcentral.com",
+          "source_type": "peer-reviewed research",
+          "publication_date": null,
+          "url": "https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-022-08129-5"
         }
       ]
     },
@@ -9284,44 +8957,6 @@
           "source_type": "institutional_or_public",
           "publication_date": null,
           "url": "https://www.ohchr.org/sites/default/files/Documents/Issues/IPeoples/EMRIP/Health/UniversityManitoba.pdf"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_c447b427bc77596658b7",
-      "member_public_record_ids": [
-        "ihe_146f5070cc77a752f2e4",
-        "ihe_827078598d871b47e78b",
-        "ihe_92ae176a69ad7d0f8c6b",
-        "ihe_9ee291af1509b833a573",
-        "ihe_a5375ce2058683de1312"
-      ],
-      "source_record_count": 5,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "systemic_evidence",
-      "evidence_type": "systemic evidence",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "Holroyd1,2, Kayla Fitzpatrick3, Chyloe Healy4, Katherine Rittenbach1,5,6, Tessy Big Plume7, Lea Bill8, Anne Bird9, Bonnie Healy4, Kristopher Janvier10, Eunice Louis11 and Cheryl Barnabe12 Abstract Background: First Nations people experience racism in society and in the healthcare system.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "Impacts of racism",
-        "publisher": "afnigc.ca",
-        "source_type": "institutional_or_public",
-        "publication_date": null,
-        "url": "https://afnigc.ca/wp-content/uploads/2024/10/IMPACT1.pdf"
-      },
-      "sources": [
-        {
-          "title": "Impacts of racism",
-          "publisher": "afnigc.ca",
-          "source_type": "institutional_or_public",
-          "publication_date": null,
-          "url": "https://afnigc.ca/wp-content/uploads/2024/10/IMPACT1.pdf"
         }
       ]
     },
@@ -9753,45 +9388,6 @@
       ]
     },
     {
-      "public_record_id": "iheg_d0c8e57ea113be199e6b",
-      "member_public_record_ids": [
-        "ihe_1737eb81f94eb5329214",
-        "ihe_419a727e7537adca36e9",
-        "ihe_5cbf51c84d18edd2ab5a",
-        "ihe_80e92d334011d416f879",
-        "ihe_b82b296103fed06ec88b",
-        "ihe_be7d37138f2c381815c8"
-      ],
-      "source_record_count": 6,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "alberta",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Birthing injustice: unmasking structural racism and the ...” contains province-specific material relevant to Indigenous health-care official investigation; the source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "Birthing injustice: unmasking structural racism and the ...",
-        "publisher": "www.frontiersin.org",
-        "source_type": "research_or_university",
-        "publication_date": null,
-        "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full"
-      },
-      "sources": [
-        {
-          "title": "Birthing injustice: unmasking structural racism and the ...",
-          "publisher": "www.frontiersin.org",
-          "source_type": "research_or_university",
-          "publication_date": null,
-          "url": "https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2026.1780855/full"
-        }
-      ]
-    },
-    {
       "public_record_id": "iheg_d0ed16e94d27e63fca06",
       "member_public_record_ids": [
         "ihe_3592eac2afab434ab752"
@@ -9895,41 +9491,6 @@
           "source_type": "credible_journalism",
           "publication_date": null,
           "url": "https://www.cbc.ca/news/canada/edmonton/study-identifies-anti-indigenous-bias-among-alberta-physicians-1.6768459"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_d1e9d3c6233b837a6cc9",
-      "member_public_record_ids": [
-        "ihe_a978e081e678466e08f5",
-        "ihe_ea5d9aeefe743bf6c5dd"
-      ],
-      "source_record_count": 2,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "systemic_evidence",
-      "evidence_type": "systemic evidence",
-      "province": "alberta",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The report’s Indigenous People’s survey found First Nations patients were less likely to make complaints for fear of discrimination and were two times more likely to have adverse experiences in institutional settings.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "Interior Health shares progress on report’s call to address Indigenous racism in B.C. healthcare - BC Rural Health Network",
-        "publisher": "bcruralhealth.org",
-        "source_type": "indigenous_organization",
-        "publication_date": null,
-        "url": "https://bcruralhealth.org/interior-health-shares-progress-on-reports-call-to-address-indigenous-racism-in-b-c-healthcare"
-      },
-      "sources": [
-        {
-          "title": "Interior Health shares progress on report’s call to address Indigenous racism in B.C. healthcare - BC Rural Health Network",
-          "publisher": "bcruralhealth.org",
-          "source_type": "indigenous_organization",
-          "publication_date": null,
-          "url": "https://bcruralhealth.org/interior-health-shares-progress-on-reports-call-to-address-indigenous-racism-in-b-c-healthcare"
         }
       ]
     },
@@ -10112,40 +9673,6 @@
           "source_type": "research_or_university",
           "publication_date": null,
           "url": "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2026.1766047/full"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_d71c314904140383baee",
-      "member_public_record_ids": [
-        "ihe_310a701d3e39c07f9b57"
-      ],
-      "source_record_count": 1,
-      "source_count": 1,
-      "presentation_classification": "separate_incident",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “In Plain Sight: Addressing Indigenous-specific Racism and ...” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "In Plain Sight: Addressing Indigenous-specific Racism and ...",
-        "publisher": "www.bcpharmacists.org",
-        "source_type": "indigenous_organization",
-        "publication_date": null,
-        "url": "https://www.bcpharmacists.org/readlinks/plain-sight-addressing-indigenous-specific-racism-and-discrimination-bc-health-care"
-      },
-      "sources": [
-        {
-          "title": "In Plain Sight: Addressing Indigenous-specific Racism and ...",
-          "publisher": "www.bcpharmacists.org",
-          "source_type": "indigenous_organization",
-          "publication_date": null,
-          "url": "https://www.bcpharmacists.org/readlinks/plain-sight-addressing-indigenous-specific-racism-and-discrimination-bc-health-care"
         }
       ]
     },
@@ -10355,53 +9882,6 @@
           "source_type": "indigenous_governance_release",
           "publication_date": null,
           "url": "https://www.bcafn.ca/sites/default/files/docs/news/2020Nov30_FNLC%20release%20re%20METL%20report%20on%20racism%20in%20BC%20Healthcare%20system%20-%20FINAL.pdf"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_dccfc725e6b0e6512771",
-      "member_public_record_ids": [
-        "ihe_008afff9c6c2f7d60ae4",
-        "ihe_0569da34f0de8e1c4ec2",
-        "ihe_348c3675ea2d01516efc",
-        "ihe_39f5374b255a261f6fe3",
-        "ihe_5de9746307410ec46489",
-        "ihe_6465dd9c64f0c549b854",
-        "ihe_6c30494f8c4d8c38c871",
-        "ihe_8a16c17a3287d42273c6",
-        "ihe_a8d29856339e45c5eacd",
-        "ihe_aa8967c65419b99493cb",
-        "ihe_aa8ef1ef6b357bde3129",
-        "ihe_b955f9dbc4b759afd52b",
-        "ihe_cc00b80df1d23fe8bec8",
-        "ihe_ff34f1e420c173239a94"
-      ],
-      "source_record_count": 14,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "official_investigation",
-      "evidence_type": "official investigation",
-      "province": "saskatchewan",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater” contains province-specific material relevant to Indigenous health-care official investigation; the bounded source excerpt and provenance define its scope.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
-        "publisher": "pampalmater.com",
-        "source_type": "institutional_or_public",
-        "publication_date": null,
-        "url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents"
-      },
-      "sources": [
-        {
-          "title": "In Plain Sight: Widespread Racism in BC Healthcare - Pam Palmater",
-          "publisher": "pampalmater.com",
-          "source_type": "institutional_or_public",
-          "publication_date": null,
-          "url": "https://pampalmater.com/2021/01/in-plain-sight-new-report-documents"
         }
       ]
     },
@@ -10722,7 +10202,41 @@
       ]
     },
     {
-      "public_record_id": "iheg_e7235d0d416f6f00fcc7",
+      "public_record_id": "iheg_e69e533fc78c7c3c6723",
+      "member_public_record_ids": [
+        "ihe_f041ce03c9f9c43167ee"
+      ],
+      "source_record_count": 1,
+      "source_count": 1,
+      "presentation_classification": "cohort_or_systemic_record",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "systemic evidence",
+      "province": "alberta",
+      "year": null,
+      "care_setting": null,
+      "organization": null,
+      "summary": "The public source “Nearly two-thirds of Indigenous people report mistreatment ...” is included as systemic evidence concerning Indigenous health care. The source remains authoritative for its scope and findings.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "source": {
+        "title": "Nearly two-thirds of Indigenous people report mistreatment ...",
+        "publisher": "www.med.ubc.ca",
+        "source_type": "indigenous_organization",
+        "publication_date": null,
+        "url": "https://www.med.ubc.ca/news/nearly-two-thirds-of-indigenous-people-report-mistreatment-during-childbirth-first-national-survey-finds"
+      },
+      "sources": [
+        {
+          "title": "Nearly two-thirds of Indigenous people report mistreatment ...",
+          "publisher": "www.med.ubc.ca",
+          "source_type": "indigenous_organization",
+          "publication_date": null,
+          "url": "https://www.med.ubc.ca/news/nearly-two-thirds-of-indigenous-people-report-mistreatment-during-childbirth-first-national-survey-finds"
+        }
+      ]
+    },
+    {
+      "public_record_id": "iheg_e719d7dda968b82dccbf",
       "member_public_record_ids": [
         "ihe_745b042c37a851758908"
       ],
@@ -10730,19 +10244,19 @@
       "source_count": 1,
       "presentation_classification": "cohort_or_systemic_record",
       "evidence_status": "systemic_evidence",
-      "evidence_type": "Recommendation or action",
-      "province": "saskatchewan",
+      "evidence_type": "Research report on emergency-department triage in Alberta",
+      "province": "alberta",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “First Nations patients triaged as less urgent than others in ...” contains province-specific material relevant to Indigenous health-care systemic evidence; the source excerpt and provenance define its scope.",
+      "care_setting": "Emergency department care",
+      "organization": "University of Alberta",
+      "summary": "University of Alberta reporting describes research finding that First Nations patients in Alberta emergency departments were triaged as less urgent than other patients. It is research reporting about Alberta emergency care, not a recommendation or action.",
       "recommendation_action": null,
       "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "caution": "Procedural or institutional context is shown with its source-supported limits; it is not proof of an underlying allegation or effectiveness.",
+      "caution": "The source does not support a Saskatchewan location.",
       "source": {
         "title": "First Nations patients triaged as less urgent than others in ...",
         "publisher": "www.ualberta.ca",
-        "source_type": "government",
+        "source_type": "university research news",
         "publication_date": null,
         "url": "https://www.ualberta.ca/en/folio/2022/01/first-nations-patients-triaged-as-less-urgent-than-others-in-alberta-emergency-departments.html"
       },
@@ -10750,7 +10264,7 @@
         {
           "title": "First Nations patients triaged as less urgent than others in ...",
           "publisher": "www.ualberta.ca",
-          "source_type": "government",
+          "source_type": "university research news",
           "publication_date": null,
           "url": "https://www.ualberta.ca/en/folio/2022/01/first-nations-patients-triaged-as-less-urgent-than-others-in-alberta-emergency-departments.html"
         }
@@ -10788,6 +10302,43 @@
           "source_type": "health_authority_response",
           "publication_date": null,
           "url": "https://www.saskhealthauthority.ca/news-events/news/saskatchewan-health-authority-honours-commitment-truth-and-reconciliation"
+        }
+      ]
+    },
+    {
+      "public_record_id": "iheg_e911bf9df224f042a71f",
+      "member_public_record_ids": [
+        "ihe_12474acd8437272f823e",
+        "ihe_3599f3cc4de78c814cfc",
+        "ihe_7fa44a84c36a9a933ce4",
+        "ihe_943766330cc594be0549"
+      ],
+      "source_record_count": 4,
+      "source_count": 1,
+      "presentation_classification": "cohort_or_systemic_record",
+      "evidence_status": "systemic_evidence",
+      "evidence_type": "systemic evidence",
+      "province": "british_columbia",
+      "year": null,
+      "care_setting": null,
+      "organization": null,
+      "summary": "“Appropriately titled, *In Plain Sight* describes what we already know: in its current state, there is deeply rooted bias and systemic racism at all facets of the system, this is further damaging for Indigenous people that we cannot rely on for the level of care we are entitled to,” says CSTC in a news release.",
+      "recommendation_action": null,
+      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "source": {
+        "title": "Northern B.C. Indigenous group calles for decisive change in B.C. Healthcare following report on racism - Prince George Citizen",
+        "publisher": "www.princegeorgecitizen.com",
+        "source_type": "indigenous_organization",
+        "publication_date": null,
+        "url": "https://www.princegeorgecitizen.com/local-news/carrier-sekani-tribal-council-calls-for-definitive-change-in-bcs-healthcare-following-report-on-racism-3141063"
+      },
+      "sources": [
+        {
+          "title": "Northern B.C. Indigenous group calles for decisive change in B.C. Healthcare following report on racism - Prince George Citizen",
+          "publisher": "www.princegeorgecitizen.com",
+          "source_type": "indigenous_organization",
+          "publication_date": null,
+          "url": "https://www.princegeorgecitizen.com/local-news/carrier-sekani-tribal-council-calls-for-definitive-change-in-bcs-healthcare-following-report-on-racism-3141063"
         }
       ]
     },
@@ -10900,42 +10451,6 @@
           "source_type": "indigenous_organization",
           "publication_date": null,
           "url": "https://www.indigenouswatchdog.org/current-problems/theme/systemic-racism/health"
-        }
-      ]
-    },
-    {
-      "public_record_id": "iheg_ec869140090394694e0e",
-      "member_public_record_ids": [
-        "ihe_69d9e13f862e985a8f6b",
-        "ihe_97df6386439afd524ee4",
-        "ihe_a39b278f3136a89c7269"
-      ],
-      "source_record_count": 3,
-      "source_count": 1,
-      "presentation_classification": "cohort_or_systemic_record",
-      "evidence_status": "systemic_evidence",
-      "evidence_type": "systemic evidence",
-      "province": "alberta",
-      "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "healthcare released Mary Ellen Turpel-Lafond has released her second report into the prevalence of systemic anti-indigenous racism in the B.C.",
-      "recommendation_action": null,
-      "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
-      "source": {
-        "title": "Report links racism, poor Indigenous health outcomes in B.C. healthcare | Globalnews.ca",
-        "publisher": "globalnews.ca",
-        "source_type": "credible_journalism",
-        "publication_date": null,
-        "url": "https://globalnews.ca/news/7621022/bc-indigenous-healthcare-racism-report"
-      },
-      "sources": [
-        {
-          "title": "Report links racism, poor Indigenous health outcomes in B.C. healthcare | Globalnews.ca",
-          "publisher": "globalnews.ca",
-          "source_type": "credible_journalism",
-          "publication_date": null,
-          "url": "https://globalnews.ca/news/7621022/bc-indigenous-healthcare-racism-report"
         }
       ]
     },
@@ -11400,36 +10915,39 @@
       ]
     },
     {
-      "public_record_id": "iheg_fa3a4bf35a24b74a5e8d",
+      "public_record_id": "iheg_fa6411022eb4ef38cac7",
       "member_public_record_ids": [
-        "ihe_112b0e91bd20e27c612f"
+        "ihe_03c596a4874680d3e99e",
+        "ihe_12e170dd3e019079cd9a",
+        "ihe_6116bd1583a1582b83b2"
       ],
-      "source_record_count": 1,
+      "source_record_count": 3,
       "source_count": 1,
       "presentation_classification": "cohort_or_systemic_record",
       "evidence_status": "systemic_evidence",
-      "evidence_type": "systemic evidence",
-      "province": "alberta",
+      "evidence_type": "Qualitative systematic review of primary health-care experiences in Canada",
+      "province": "canada",
       "year": null,
-      "care_setting": null,
-      "organization": null,
-      "summary": "The public source “Impacts of racism on First Nations patients' emergency care: results of a thematic analysis of healthcare provider interviews in Alberta, Canada | BMC Health Services Research | Full Text” contains province-specific material relevant to Indigenous health-care systemic evidence; the source excerpt and provenance define its scope.",
+      "care_setting": "Primary health care",
+      "organization": "Public Health Agency of Canada",
+      "summary": "The Public Health Agency of Canada published a peer-reviewed qualitative systematic review of Indigenous peoples' primary health-care experiences across Canada. It synthesizes 22 articles and is research evidence, not an official investigation or a Saskatchewan-specific finding.",
       "recommendation_action": null,
       "methodology": "Presentation grouping preserves the underlying approved source-derived records and suppresses only deterministic duplication.",
+      "caution": "Publication by a federal body does not make a literature review a formal finding.",
       "source": {
-        "title": "Impacts of racism on First Nations patients' emergency care: results of a thematic analysis of healthcare provider interviews in Alberta, Canada | BMC Health Services Research | Full Text",
-        "publisher": "bmchealthservres.biomedcentral.com",
-        "source_type": "institutional_or_public",
+        "title": "Indigenous people's experiences of primary health care in ...",
+        "publisher": "www.canada.ca",
+        "source_type": "peer-reviewed research",
         "publication_date": null,
-        "url": "https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-022-08129-5"
+        "url": "https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-44-no-4-2024/indigenous-people-experiences-primary-health-care-canada-qualitative-systematic-review.html"
       },
       "sources": [
         {
-          "title": "Impacts of racism on First Nations patients' emergency care: results of a thematic analysis of healthcare provider interviews in Alberta, Canada | BMC Health Services Research | Full Text",
-          "publisher": "bmchealthservres.biomedcentral.com",
-          "source_type": "institutional_or_public",
+          "title": "Indigenous people's experiences of primary health care in ...",
+          "publisher": "www.canada.ca",
+          "source_type": "peer-reviewed research",
           "publication_date": null,
-          "url": "https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-022-08129-5"
+          "url": "https://www.canada.ca/en/public-health/services/reports-publications/health-promotion-chronic-disease-prevention-canada-research-policy-practice/vol-44-no-4-2024/indigenous-people-experiences-primary-health-care-canada-qualitative-systematic-review.html"
         }
       ]
     },

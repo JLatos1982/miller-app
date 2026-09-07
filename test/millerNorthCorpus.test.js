@@ -8,9 +8,12 @@ test("reconstructed corpus preflight is deterministic and preserves the source i
   assert.equal(preflight.record_count, 695)
   assert.equal(preflight.fingerprint, corpusFingerprint(records))
   assert.equal(preflight.date_coverage.exact_event_date, 0)
-  assert.equal(preflight.province_coverage.alberta, 201)
-  assert.equal(preflight.province_coverage.british_columbia, 269)
-  assert.equal(preflight.province_coverage.saskatchewan, 225)
+  // Public-source audit corrections retain Canada-wide material as Canada and repair
+  // province assignments rather than treating discovery-query geography as event scope.
+  assert.equal(preflight.province_coverage.alberta, 188)
+  assert.equal(preflight.province_coverage.british_columbia, 373)
+  assert.equal(preflight.province_coverage.canada, 14)
+  assert.equal(preflight.province_coverage.saskatchewan, 120)
   assert.deepEqual(preflight, preflightCorpus(records))
 })
 

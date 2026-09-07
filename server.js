@@ -305,7 +305,9 @@ const TAVILY_CLIENT = tavily({
 app.post("/api/indigenous-healthcare-evidence/search", rateLimit({ windowMs: 60_000, max: 8 }), async (req, res) => {
   const query = typeof req.body?.query === "string" ? req.body.query.trim() : ""
   if (!query || query.length > MAX_EVIDENCE_SEARCH_QUERY_LENGTH) return res.status(400).json({ error: "Enter a search question of up to 500 characters." })
-  const result = await searchIndigenousHealthcareEvidence({ query, openai: evidenceSearchClient, apiKeyPresent: Boolean(process.env.OPENAI_API_KEY) })
+  const resultTypes = Array.isArray(req.body?.result_types) ? req.body.result_types.filter(value => ["incident", "evidence", "listening", "accountability", "research_report"].includes(value)).slice(0, 5) : []
+  const provinces = Array.isArray(req.body?.provinces) ? req.body.provinces.filter(value => ["british_columbia", "alberta", "saskatchewan", "canada"].includes(value)).slice(0, 4) : []
+  const result = await searchIndigenousHealthcareEvidence({ query, resultTypes, provinces, openai: evidenceSearchClient, apiKeyPresent: Boolean(process.env.OPENAI_API_KEY) })
   res.setHeader("Cache-Control", "no-store")
   return res.json(result)
 })
