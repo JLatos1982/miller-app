@@ -142,6 +142,81 @@
           "url": "https://www.saskatchewan.ca/government/news-and-media/2026/may/21/independent-review-begins-to-strengthen-hospital-safety-and-security"
         }
       ]
+    },
+    {
+      "public_incident_id": "mnsh_randy_lampreau_2019",
+      "title": "Randy Lampreau inquest and custody-health recommendations",
+      "province": "British Columbia",
+      "location": "Kamloops",
+      "event_date": "2019-03-13",
+      "care_setting": "Police custody, prisoner health monitoring and emergency response",
+      "summary": "A B.C. inquest reviewed the death of Randy Lampreau, an Indigenous man, in a Kamloops RCMP cell. The jury recommended changes to prisoner-wellness checks, health-care staffing in the cellblock, an Indigenous liaison, a sobering centre and oversight of detention guards.",
+      "evidence_strength": {
+        "key": "formal_process_evidence",
+        "label": "Formal process evidence",
+        "source_roles": ["jury_verdict", "indigenous_journalism"]
+      },
+      "formal_process_status": "Inquest completed; six prevention recommendations issued",
+      "institutional_response": "The verdict records that the Independent Investigations Office found no evidence that police officers committed a criminal offence in relation to the death. Indigenous-led reporting later quoted the Province as saying it had no plans for a Kamloops sobering centre at that time.",
+      "formal_outcome": "The jury classified the death as accidental and made prevention recommendations. An inquest is fact-finding, not fault-finding, and did not determine legal responsibility or make a finding of racism.",
+      "unresolved_questions": [
+        "Which recommendations received formal responses from the RCMP, City of Kamloops, Province or Interior Health?",
+        "Were the recommended health-care staffing, Indigenous liaison, monitoring or sobering-centre measures implemented?"
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "Verdict at Coroners Inquest: Randy Dale Lampreau",
+          "role": "jury_verdict",
+          "url": "https://www2.gov.bc.ca/assets/gov/birth-adoption-death-marriage-and-divorce/deaths/coroners-service/inquest/2024/lampreau_vcc.pdf"
+        },
+        {
+          "title": "Inquest jury urges RCMP to review detention policies after Secwe̓pemc man died in custody",
+          "role": "indigenous_journalism",
+          "url": "https://indiginews.com/news/inquest-jury-urges-rcmp-to-review-detention-policies-after-secwe%CC%93pemc-man-died-in-custody/"
+        }
+      ]
+    },
+    {
+      "public_incident_id": "mnsh_julian_jones_2021",
+      "title": "Julian Jones inquest and remote paramedic-access recommendation",
+      "province": "British Columbia",
+      "location": "Opitsaht, Tla-o-qui-aht First Nation",
+      "event_date": "2021-02-27",
+      "care_setting": "Police wellness response and remote emergency medical access",
+      "summary": "A B.C. inquest reviewed the police-involved death of Julian Jones, a Tla-o-qui-aht First Nation member, in Opitsaht. The jury recommended an Indigenous liaison for the Tofino RCMP and 24-hour water-taxi arrangements for B.C. Emergency Health Services paramedics serving the remote community.",
+      "evidence_strength": {
+        "key": "formal_process_evidence",
+        "label": "Formal process evidence",
+        "source_roles": ["jury_verdict", "indigenous_led_report", "indigenous_journalism"]
+      },
+      "formal_process_status": "Inquest completed; four prevention recommendations issued",
+      "institutional_response": "No recommendation-specific RCMP or B.C. Emergency Health Services response was located in the bounded review.",
+      "formal_outcome": "The jury classified the death as homicide and made prevention recommendations. That coroner classification describes how the death occurred; it does not determine criminal or civil responsibility.",
+      "unresolved_questions": [
+        "Will B.C. Emergency Health Services establish reliable round-the-clock marine transport for paramedics serving Opitsaht?",
+        "Will the Tofino RCMP establish the recommended Indigenous liaison role?"
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "Verdict at Coroners Inquest: Julian Lawrence John Jones",
+          "role": "jury_verdict",
+          "url": "https://www2.gov.bc.ca/assets/gov/birth-adoption-death-marriage-and-divorce/deaths/coroners-service/inquest/2026/julian_jones_verdict.pdf"
+        },
+        {
+          "title": "Tla-o-qui-aht First Nation and Nuu-chah-nulth Tribal Council mark the fifth anniversary of Julian Jones's death",
+          "role": "indigenous_led_report",
+          "url": "https://nuuchahnulth.org/news/2025"
+        },
+        {
+          "title": "Coroners inquest jury recommends better water taxi access for paramedics",
+          "role": "indigenous_journalism",
+          "url": "https://hashilthsa.com/news/2026-08-27/coroners-inquest-jury-recommends-better-water-taxi-access-paramedics-tasers-and"
+        }
+      ]
     }
   ]
 }

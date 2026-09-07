@@ -23,6 +23,8 @@ test("site search handles phrases, aliases, geography, settings and typo toleran
   assert.deepEqual(retrieveMillerNorthResults("In Plain Sight").map(item => item.result_id), retrieveMillerNorthResults("In Plain Sight").map(item => item.result_id))
   assert.ok(retrieveMillerNorthResults("Nadine Solonas paramedic inquest").some(item => item.underlying_record_id === "mnsh_nadine_solonas_2017"))
   assert.ok(retrieveMillerNorthResults("Indigenous emergency resuscitation regulator").some(item => item.underlying_record_id === "mnsh_bccnm_emergency_assessment_2021"))
+  assert.ok(retrieveMillerNorthResults("Kamloops prisoner health Indigenous liaison").some(item => item.underlying_record_id === "mnsh_randy_lampreau_2019"))
+  assert.ok(retrieveMillerNorthResults("remote paramedic water taxi Opitsaht").some(item => item.underlying_record_id === "mnsh_julian_jones_2021"))
   assert.ok(retrieveMillerNorthResults("Maskwacis youth recommendations").some(item => item.underlying_record_id === "mnaw_maskwacis_youth_inquiry"))
 })
 

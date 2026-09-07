@@ -39,6 +39,7 @@
       "listener_feasibility": "very_high",
       "priority": "highest",
       "last_checked": "2026-09-07",
+      "latest_bounded_cycle": "Maskwacis: 62 responder rows across 40 numbered recommendations; repeated run found 0 added, changed or removed rows.",
       "limitations": "One recommendation can have multiple responder rows; response labels are not proof of implementation.",
       "robots_access_considerations": "Public CKAN API and download only.",
       "historical_backfill_feasible": true
@@ -96,6 +97,7 @@
       "listener_feasibility": "very_high",
       "priority": "highest",
       "last_checked": "2026-09-07",
+      "latest_bounded_cycle": "Thirty-four verdict PDFs from 2024–2026 were fingerprinted; an identical replay reported 34 unchanged documents and no false new events.",
       "limitations": "Inquests are fact-finding, not fault-finding; some verdicts or responses may not be posted.",
       "robots_access_considerations": "Public pages and linked documents only.",
       "historical_backfill_feasible": true
@@ -153,6 +155,7 @@
       "listener_feasibility": "high",
       "priority": "highest",
       "last_checked": "2026-09-07",
+      "latest_bounded_cycle": "Notices 1000–1133 were fetched without error; body-only screening found no new explicit Indigenous-healthcare candidate and replay reported all 133 unchanged.",
       "limitations": "Not every complaint is public; search templates can create false positives from navigation text.",
       "robots_access_considerations": "Public notices only; exclude private complaint information.",
       "historical_backfill_feasible": true
@@ -345,6 +348,7 @@
       "listener_feasibility": "high",
       "priority": "highest",
       "last_checked": "2026-09-07",
+      "latest_bounded_cycle": "Narrow government-news searches surfaced two 2026 custody-medical-distress inquest notices; both remain private pending verdicts and explicit Indigenous relevance.",
       "limitations": "News releases are notices or institutional statements, not the underlying inquest record unless a report is linked.",
       "robots_access_considerations": "Public search and RSS only.",
       "historical_backfill_feasible": true

@@ -30,9 +30,20 @@ const sampleWorkbook = () => {
 }
 
 test("publication-safe serious-harm projection validates and minimizes identity", () => {
-  assert.deepEqual(validatePublicSeriousHarmProjection(seriousHarm), { valid: true, incidents: 4 })
+  assert.deepEqual(validatePublicSeriousHarmProjection(seriousHarm), { valid: true, incidents: 6 })
   assert.equal(seriousHarm.incidents.filter(item => item.affected_person).every(item => item.affected_person === "Not publicly named"), true)
   assert.equal(JSON.stringify(seriousHarm).includes("private_notes"), false)
+})
+
+test("new inquest records preserve formal-process limits and Indigenous source roles", () => {
+  const lampreau = seriousHarm.incidents.find(item => item.public_incident_id === "mnsh_randy_lampreau_2019")
+  const jones = seriousHarm.incidents.find(item => item.public_incident_id === "mnsh_julian_jones_2021")
+  assert.equal(lampreau.evidence_strength.key, "formal_process_evidence")
+  assert.match(lampreau.formal_outcome, /fact-finding, not fault-finding/i)
+  assert.equal(lampreau.sources.some(source => source.role === "indigenous_journalism"), true)
+  assert.equal(jones.evidence_strength.key, "formal_process_evidence")
+  assert.match(jones.formal_outcome, /does not determine criminal or civil responsibility/i)
+  assert.equal(jones.sources.some(source => source.role === "indigenous_led_report"), true)
 })
 
 test("reviewed serious-harm route uses Miller North navigation and restrained presentation", () => {
