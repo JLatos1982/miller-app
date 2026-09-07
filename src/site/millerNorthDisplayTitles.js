@@ -12,7 +12,12 @@ const GENERIC_EVIDENCE_TITLES = new Set([
   "recommendation or action",
   "procedural adjudicative context",
   "health",
+  "media release",
+  "news release",
+  "press release",
 ])
+
+const UNSUITABLE_SOURCE_HEADING = /\b(?:outraged|horrif(?:ic|ied|ying)|shocking|racist behavio[u]?r)\b/i
 
 function concernFromText(value) {
   const text = clean(value).toLowerCase()
@@ -32,7 +37,7 @@ export function evidenceDisplayTitle(record = {}) {
   const sourceTitle = clean(record.source?.title)
   const supplied = clean(record.display_title)
   if (supplied) return sentence(supplied)
-  if (sourceTitle && !GENERIC_EVIDENCE_TITLES.has(sourceTitle.toLowerCase())) {
+  if (sourceTitle && !GENERIC_EVIDENCE_TITLES.has(sourceTitle.toLowerCase()) && !UNSUITABLE_SOURCE_HEADING.test(sourceTitle)) {
     return sourceTitle.length <= 108 ? sentence(sourceTitle) : `${sourceTitle.slice(0, 105).trim()}…`
   }
   const context = [record.summary, record.care_setting, record.recommendation_action].filter(Boolean).join(" ")

@@ -9,7 +9,7 @@ test("Miller North search index covers public evidence, incidents, Listening, ac
   assert.deepEqual([...types].sort(), ["accountability", "evidence", "incident", "listening", "research_report"])
   assert.ok(index.length > 350)
   assert.ok(index.every(item => item.destination_route.startsWith("/indigenous-healthcare-evidence")))
-  assert.ok(index.filter(item => item.result_type === "evidence").every(item => !/^(Official Investigation|Reported Account|Systemic Evidence)$/i.test(item.title)))
+  assert.ok(index.filter(item => item.result_type === "evidence").every(item => !/^(Official Investigation|Reported Account|Systemic Evidence|News Release|Media Release|Press Release)$/i.test(item.title)))
   assert.doesNotMatch(JSON.stringify(index), /owner_review|private_note|patient_name|ordinary_username/i)
 })
 
