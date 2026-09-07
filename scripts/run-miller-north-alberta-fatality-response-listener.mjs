@@ -9,7 +9,10 @@ import {
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..")
 const args = process.argv.slice(2)
-const valueAfter = flag => args[args.indexOf(flag) + 1]
+const valueAfter = flag => {
+  const index = args.indexOf(flag)
+  return index === -1 ? null : args[index + 1]
+}
 const workbookPath = valueAfter("--workbook")
 const caseName = valueAfter("--case") || "T.M.,C.L.,S.R., E.S."
 if (!workbookPath) throw new Error("Usage: npm run listen:miller-north-alberta-fatality -- --workbook /path/to/public.xlsx [--case case-name]")

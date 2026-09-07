@@ -1,0 +1,86 @@
+{
+  "schema_version": "miller-legal-listener-memory-v1",
+  "checked_at": "2026-09-07",
+  "documents": [
+    {
+      "legal_record_id": "legal_ca_2016_chrt_2",
+      "citation": "2016 CHRT 2",
+      "document_fingerprint": "6401797be8cd9936b1a6be7bcc125e919832c41abf3ebf464386a73e2a79cef4",
+      "event_fingerprint": "6bddbe5f11dec14efa4fce596880b76866cb53c08d0dd20dae6c9e9d8913be17",
+      "process_role": "merits_decision",
+      "source_url": "https://www.canlii.org/en/ca/chrt/doc/2016/2016chrt2/2016chrt2.html"
+    },
+    {
+      "legal_record_id": "legal_ca_2021_fc_969",
+      "citation": "2021 FC 969",
+      "document_fingerprint": "fb0b8f2d928fb97912b0e2122250ff14315b986d06ff0f745c5e1069d18f1a16",
+      "event_fingerprint": "6bddbe5f11dec14efa4fce596880b76866cb53c08d0dd20dae6c9e9d8913be17",
+      "process_role": "judicial_review",
+      "source_url": "https://decisions.fct-cf.gc.ca/fc-cf/decisions/en/item/511126/index.do"
+    },
+    {
+      "legal_record_id": "legal_ca_2011_scc_44",
+      "citation": "2011 SCC 44",
+      "document_fingerprint": "aac93a85e3dc7e657bca16fc4c540ea91371fe224e60a0bb9ae3b82518ddcbc7",
+      "event_fingerprint": "833b94ade3fcf78f060ea01519bae337fd973b220f0668e67c2b448e79566304",
+      "process_role": "final_judgment",
+      "source_url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/7960/index.do"
+    },
+    {
+      "legal_record_id": "legal_ca_2017_scc_30",
+      "citation": "2017 SCC 30",
+      "document_fingerprint": "08d864d4077ca56643c54fcf3fe1c35f203ab1686bd531f37c3865dda8ec5fae",
+      "event_fingerprint": "6744ed65bf6207dd0a8e06011e20ca33ccc9d816b7106d536c05b657e89e850c",
+      "process_role": "final_judgment",
+      "source_url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/16679/index.do"
+    },
+    {
+      "legal_record_id": "legal_ca_2021_scc_42",
+      "citation": "2021 SCC 42",
+      "document_fingerprint": "09ec57ff797dd0f14107be2612e6b7201598434041f5e2c638637669e91ca998",
+      "event_fingerprint": "2e774c582d51fba1a8033ce59028536d040367caf9dec937202df90b33ff2838",
+      "process_role": "final_judgment",
+      "source_url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/19056/index.do"
+    },
+    {
+      "legal_record_id": "legal_bc_2005_bchrt_302",
+      "citation": "2005 BCHRT 302",
+      "document_fingerprint": "8c7b04b2f5ac32bd307fc9cf010cb0c41169442de2de24de091044841dd24107",
+      "event_fingerprint": "8f4d6b3b121779cfcbd81ec26e5a3a68804205731cd3f97434acf0b6a9397cce",
+      "process_role": "merits_decision",
+      "source_url": "https://www.canlii.org/en/bc/bchrt/doc/2005/2005bchrt302/2005bchrt302.html"
+    },
+    {
+      "legal_record_id": "legal_bc_2021_bchrt_22",
+      "citation": "2021 BCHRT 22",
+      "document_fingerprint": "3ca1a19210bf422d52d700c877522792f93c5d06e1544d8e0d17e633ec0c3c4f",
+      "event_fingerprint": "2385c1001dd2284715f06863c2de7869a7fef51468ac9e8d9a91fa133f0bef8d",
+      "process_role": "procedural_decision",
+      "source_url": "https://www.canlii.org/en/bc/bchrt/doc/2021/2021bchrt22/2021bchrt22.html"
+    },
+    {
+      "legal_record_id": "legal_bc_2018_bcca_132",
+      "citation": "2018 BCCA 132",
+      "document_fingerprint": "e3243120e352726320d8ec9c686c86597ed338361fbb78bebd9ab936bb98ae1c",
+      "event_fingerprint": "a5ba6e1312bb7b4d769f3fce366f4191e314f06cba59d7bb93a8a1651a09baff",
+      "process_role": "appeal",
+      "source_url": "https://www.canlii.org/en/bc/bcca/doc/2018/2018bcca132/2018bcca132.html"
+    },
+    {
+      "legal_record_id": "legal_ab_2020_ahrc_94",
+      "citation": "2020 AHRC 94",
+      "document_fingerprint": "e568549f3991cc1600c7b9d4bb6fdb4e9c9eb69adfba8942b1cac2373f364c3d",
+      "event_fingerprint": "d0439771ba7d056172231eae0015ccdadf34ae3282584f8f33e8238b44e1e97c",
+      "process_role": "merits_decision",
+      "source_url": "https://www.canlii.org/en/ab/abhrc/doc/2020/2020ahrc94/2020ahrc94.html"
+    },
+    {
+      "legal_record_id": "legal_ab_2021_ahrc_95",
+      "citation": "2021 AHRC 95",
+      "document_fingerprint": "3b640d5cdb9ed0cd8e421f421cc7bf0359e5e6d25552b7c2c9c9bb7edc5ccfe8",
+      "event_fingerprint": "7f435e38de0e625991eb6a3e10039e7c089cd0fb49a18527881c05b6710bebad",
+      "process_role": "procedural_decision",
+      "source_url": "https://www.canlii.org/en/ab/abhrc/doc/2021/2021ahrc95/2021ahrc95.html"
+    }
+  ]
+}

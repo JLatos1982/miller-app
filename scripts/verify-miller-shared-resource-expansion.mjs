@@ -1,6 +1,7 @@
 import expansion from "../src/data/miller-shared-resource-expansion-2026-09-07.json" with { type: "json" }
+import legalExpansion from "../src/data/miller-shared-legal-resource-expansion-2026-09-07.json" with { type: "json" }
 
-const urls = [...new Set(expansion.records.flatMap(record => [record.website, record.source?.url]).filter(Boolean))]
+const urls = [...new Set([...expansion.records, ...legalExpansion.records].flatMap(record => [record.website, record.source?.url]).filter(Boolean))]
 const results = []
 let cursor = 0
 await Promise.all(Array.from({ length: 4 }, async () => {

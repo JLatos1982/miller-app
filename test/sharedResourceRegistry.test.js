@@ -8,9 +8,9 @@ import { filterMillerNorthSupports } from "../src/site/millerNorthSupportFilters
 import { projectSharedResources, validateSharedResourceRegistry } from "../server/sharedResourceRegistry.js"
 
 test("shared public registry validates and preserves distinct project projections", () => {
-  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 111, miller_only: 47, miller_north_only: 41, both: 23 })
-  assert.equal(projectSharedResources(registry, "miller").length, 70)
-  assert.equal(projectSharedResources(registry, "miller_north").length, 64)
+  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 124, miller_only: 47, miller_north_only: 42, both: 35 })
+  assert.equal(projectSharedResources(registry, "miller").length, 82)
+  assert.equal(projectSharedResources(registry, "miller_north").length, 77)
 })
 
 test("known cross-project programs share one canonical record while program-level services stay distinct", () => {
@@ -65,4 +65,16 @@ test("North quick filters find specialized facets without duplicating canonical 
   const mentalHealth = filterMillerNorthSupports(records, { category: "mental_health_substance_use" })
   assert.ok(mentalHealth.some(record => record.canonical_resource_id === "shared_isc_hope_for_wellness"))
   assert.deepEqual(filterMillerNorthSupports(records, { query: "courtwork", province: "Alberta" }).map(record => record.canonical_resource_id), ["shared_ncsa_indigenous_courtwork"])
+})
+
+test("verified legal-navigation services project independently into both products", () => {
+  const miller = projectSharedResources(registry, "miller")
+  const north = projectSharedResources(registry, "miller_north")
+  const shared = registry.records.find(record => record.canonical_resource_id === "shared_bc_human_rights_clinic")
+  assert.deepEqual(shared.project_visibility, ["miller", "miller_north"])
+  assert.equal(shared.legal_support.service_type, "human_rights_advice_and_possible_representation")
+  assert.ok(miller.some(record => record.canonical_resource_id === "shared_sk_classic_legal_programs"))
+  assert.ok(north.some(record => record.canonical_resource_id === "shared_bc_virtual_indigenous_justice_centre"))
+  assert.equal(miller.some(record => record.canonical_resource_id === "north_bc_police_accountability_unit"), false)
+  assert.equal(north.some(record => record.canonical_resource_id === "north_bc_police_accountability_unit"), true)
 })

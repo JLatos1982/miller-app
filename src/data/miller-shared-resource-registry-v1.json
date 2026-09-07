@@ -368,6 +368,61 @@
       ]
     },
     {
+      "canonical_resource_id": "shared_ab_human_rights_complaint_navigation",
+      "record_type": "service",
+      "organization": "Alberta Human Rights Commission",
+      "program_name": "Alberta Human Rights Complaint Navigation",
+      "categories": [
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "complaint navigation",
+        "discrimination",
+        "human rights",
+        "legal"
+      ],
+      "description": "Official information and intake for complaints alleging discrimination within Alberta human-rights jurisdiction.",
+      "population_served": "People considering a complaint under the Alberta Human Rights Act",
+      "indigenous_scope": "open_to_people_within_alberta_human_rights_jurisdiction",
+      "governance_type": "provincial_human_rights_body",
+      "geography": "Alberta",
+      "province": "Alberta",
+      "city_community": "",
+      "service_area": "Alberta",
+      "delivery_modes": [],
+      "eligibility": "The complaint must fall within the Act and generally be made within one year of the alleged discriminatory act. Acceptance is not a finding on the merits.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "No filing fee",
+      "referral_requirement": "",
+      "access": "Review the Commission's complaint guidance and submit through the official intake process.",
+      "phone": "",
+      "email": "",
+      "website": "https://albertahumanrights.ab.ca/complaints/making-a-complaint/",
+      "funding": null,
+      "housing": null,
+      "legal_support": {
+        "service_type": "human_rights_complaint_intake_and_information",
+        "representation": "The Commission provides process information and complaint administration, not private legal representation or individualized legal advice."
+      },
+      "transportation": null,
+      "source": {
+        "title": "Making a complaint",
+        "authority": "Alberta Human Rights Commission",
+        "url": "https://albertahumanrights.ab.ca/complaints/making-a-complaint/"
+      },
+      "last_verified": "2026-09-07",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "shared_ab_human_rights_complaint_navigation"
+      ]
+    },
+    {
       "canonical_resource_id": "shared_ab_income_support_emergency",
       "record_type": "funding",
       "organization": "Government of Alberta",
@@ -428,6 +483,63 @@
       ],
       "source_record_ids": [
         "shared_ab_income_support_emergency"
+      ]
+    },
+    {
+      "canonical_resource_id": "shared_ab_ombudsman_complaint_review",
+      "record_type": "service",
+      "organization": "Alberta Ombudsman",
+      "program_name": "Alberta Ombudsman Complaint Review",
+      "categories": [
+        "financial_funding",
+        "healthcare",
+        "legal_rights"
+      ],
+      "subcategories": [
+        "administrative fairness",
+        "benefit appeals",
+        "healthcare complaints",
+        "legal",
+        "ombuds"
+      ],
+      "description": "Independent administrative-fairness review after available appeal or complaint routes have been used, including defined provincial health, professional-regulatory and benefit matters.",
+      "population_served": "People with an administrative-fairness concern involving a body within the Alberta Ombudsman's jurisdiction",
+      "indigenous_scope": "open_to_people_within_ombudsman_jurisdiction",
+      "governance_type": "legislative_officer",
+      "geography": "Alberta",
+      "province": "Alberta",
+      "city_community": "",
+      "service_area": "Alberta",
+      "delivery_modes": [],
+      "eligibility": "Available complaint and appeal routes normally must be completed first. The office does not act as an advocate or court and does not investigate police conduct.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "Free",
+      "referral_requirement": "",
+      "access": "Use the jurisdiction checklist, complete other available review routes, then file through the Ombudsman's complaint process.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.ombudsman.ab.ca/complaints/before-filing-a-complaint/",
+      "funding": null,
+      "housing": null,
+      "legal_support": {
+        "service_type": "administrative_fairness_complaint_review",
+        "representation": "Independent review and recommendation role; not advocacy or legal representation."
+      },
+      "transportation": null,
+      "source": {
+        "title": "Before Filing a Complaint",
+        "authority": "Alberta Ombudsman",
+        "url": "https://www.ombudsman.ab.ca/complaints/before-filing-a-complaint/"
+      },
+      "last_verified": "2026-09-07",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "shared_ab_ombudsman_complaint_review"
       ]
     },
     {
@@ -740,6 +852,60 @@
       ],
       "source_record_ids": [
         "curated:1wfj0t6"
+      ]
+    },
+    {
+      "canonical_resource_id": "shared_bc_human_rights_clinic",
+      "record_type": "service",
+      "organization": "Community Legal Assistance Society",
+      "program_name": "BC Human Rights Clinic",
+      "categories": [
+        "legal_rights"
+      ],
+      "subcategories": [
+        "discrimination",
+        "human rights",
+        "judicial review",
+        "legal"
+      ],
+      "description": "Free initial legal advice about B.C. human-rights concerns, with representation available for eligible complaints that have been accepted and are proceeding at the Tribunal; separate intake is available for possible judicial review.",
+      "population_served": "People with a provincial human-rights concern in British Columbia, subject to the clinic's current service criteria",
+      "indigenous_scope": "open_to_eligible_bc_residents",
+      "governance_type": "legal_nonprofit",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "A free initial appointment is available for advice. Representation requires an accepted complaint that is proceeding at the B.C. Human Rights Tribunal and the clinic's intake approval.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "Free",
+      "referral_requirement": "",
+      "access": "Use the clinic appointment or representation intake on the current service page. Judicial-review help has a separate intake.",
+      "phone": "1-855-685-6222",
+      "email": "",
+      "website": "https://clasbc.net/get-legal-help/human-rights-complaints/",
+      "funding": null,
+      "housing": null,
+      "legal_support": {
+        "service_type": "human_rights_advice_and_possible_representation",
+        "representation": "Representation is not automatic; it is available only for eligible accepted complaints selected through the clinic's intake."
+      },
+      "transportation": null,
+      "source": {
+        "title": "Human Rights Complaints",
+        "authority": "Community Legal Assistance Society",
+        "url": "https://clasbc.net/get-legal-help/human-rights-complaints/"
+      },
+      "last_verified": "2026-09-07",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "shared_bc_human_rights_clinic"
       ]
     },
     {
@@ -1163,6 +1329,117 @@
       ],
       "source_record_ids": [
         "funding:miller-north:fnfund_ab_productivity"
+      ]
+    },
+    {
+      "canonical_resource_id": "shared_ca_human_rights_complaint_navigation",
+      "record_type": "service",
+      "organization": "Canadian Human Rights Commission",
+      "program_name": "Canadian Human Rights Complaint Navigation",
+      "categories": [
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "complaint navigation",
+        "discrimination",
+        "federal services",
+        "human rights",
+        "legal"
+      ],
+      "description": "Official screening and intake information for discrimination complaints involving federally regulated organizations or federal services.",
+      "population_served": "People with a complaint that may fall within federal Canadian Human Rights Act jurisdiction",
+      "indigenous_scope": "canada_wide_federal_jurisdiction",
+      "governance_type": "federal_human_rights_body",
+      "geography": "Canada-wide for matters within federal jurisdiction",
+      "province": "Canada-wide",
+      "city_community": "",
+      "service_area": "Canada-wide for matters within federal jurisdiction",
+      "delivery_modes": [],
+      "eligibility": "The complaint must fall within federal human-rights jurisdiction and meet current filing requirements. Intake or acceptance is not a merits finding.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "No filing fee stated",
+      "referral_requirement": "",
+      "access": "Use the Commission's eligibility questions and official complaint process; provincial or territorial matters may need a different human-rights body.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.chrc-ccdp.gc.ca/make-a-complaint",
+      "funding": null,
+      "housing": null,
+      "legal_support": {
+        "service_type": "federal_human_rights_complaint_intake",
+        "representation": "The Commission administers and screens complaints; it does not provide private legal representation."
+      },
+      "transportation": null,
+      "source": {
+        "title": "Make a complaint",
+        "authority": "Canadian Human Rights Commission",
+        "url": "https://www.chrc-ccdp.gc.ca/make-a-complaint"
+      },
+      "last_verified": "2026-09-07",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "shared_ca_human_rights_complaint_navigation"
+      ]
+    },
+    {
+      "canonical_resource_id": "shared_sk_classic_legal_programs",
+      "record_type": "service",
+      "organization": "Community Legal Assistance Services for Saskatoon's Inner City",
+      "program_name": "CLASSIC Legal Clinics",
+      "categories": [
+        "legal_rights"
+      ],
+      "subcategories": [
+        "criminal law",
+        "human rights",
+        "legal",
+        "social assistance",
+        "tenancy"
+      ],
+      "description": "Case-by-case legal advocacy and brief advice for people experiencing poverty and injustice, including tenancy, social-assistance, human-rights and some criminal matters.",
+      "population_served": "People who meet CLASSIC's case-by-case eligibility policies; some criminal or family matters require a prior Legal Aid denial",
+      "indigenous_scope": "open_to_eligible_clients",
+      "governance_type": "community_legal_clinic",
+      "geography": "Saskatoon and telephone-based access as offered by the program",
+      "province": "Saskatchewan",
+      "city_community": "Saskatoon",
+      "service_area": "Saskatoon and telephone-based access as offered by the program",
+      "delivery_modes": [],
+      "eligibility": "Eligibility is assessed case by case. Criminal and family applicants must first be denied Legal Aid before applying for certain CLASSIC services.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "Free",
+      "referral_requirement": "",
+      "access": "Call CLASSIC to apply for the Walk-In Advocacy Clinic or a Legal Advice Clinic appointment.",
+      "phone": "306-657-6100",
+      "email": "",
+      "website": "https://classiclaw.ca/what-we-do/classic-programs/",
+      "funding": null,
+      "housing": null,
+      "legal_support": {
+        "service_type": "community_legal_advocacy_and_brief_advice",
+        "representation": "Full representation may be available through the Walk-In Advocacy Clinic after staff approval; brief advice does not include full representation."
+      },
+      "transportation": null,
+      "source": {
+        "title": "CLASSIC Programs",
+        "authority": "CLASSIC",
+        "url": "https://classiclaw.ca/what-we-do/classic-programs/"
+      },
+      "last_verified": "2026-09-07",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "shared_sk_classic_legal_programs"
       ]
     },
     {
@@ -2201,6 +2478,64 @@
       "source_record_ids": [
         "curated:88k31t",
         "fns_bc_fraser_indigenous_health_liaisons"
+      ]
+    },
+    {
+      "canonical_resource_id": "shared_sk_pro_bono_legal_clinics",
+      "record_type": "service",
+      "organization": "Pro Bono Law Saskatchewan",
+      "program_name": "Free Legal Clinics",
+      "categories": [
+        "financial_funding",
+        "legal_rights"
+      ],
+      "subcategories": [
+        "legal",
+        "legal advice",
+        "low income",
+        "rural remote"
+      ],
+      "description": "Up to one hour of free legal advice from a volunteer lawyer through clinics across Saskatchewan for eligible people with low incomes.",
+      "population_served": "Saskatchewan residents with low incomes who meet the clinic's current appointment criteria",
+      "indigenous_scope": "open_to_eligible_saskatchewan_residents",
+      "governance_type": "legal_nonprofit",
+      "geography": "Saskatchewan through 17 listed clinic locations and telephone appointments",
+      "province": "Saskatchewan",
+      "city_community": "",
+      "service_area": "Saskatchewan through 17 listed clinic locations and telephone appointments",
+      "delivery_modes": [
+        "in_person",
+        "phone"
+      ],
+      "eligibility": "The applicant must meet the clinic's low-income and appointment criteria.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "Free",
+      "referral_requirement": "",
+      "access": "Use the eligibility and appointment link on the clinic page or call the toll-free line.",
+      "phone": "1-855-833-7257",
+      "email": "",
+      "website": "https://pblsask.ca/free-legal-clinics/",
+      "funding": null,
+      "housing": null,
+      "legal_support": {
+        "service_type": "brief_legal_advice",
+        "representation": "The clinic provides advice during the appointment and does not take on full representation of the file."
+      },
+      "transportation": null,
+      "source": {
+        "title": "Free Legal Clinics",
+        "authority": "Pro Bono Law Saskatchewan",
+        "url": "https://pblsask.ca/free-legal-clinics/"
+      },
+      "last_verified": "2026-09-07",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "shared_sk_pro_bono_legal_clinics"
       ]
     },
     {
@@ -3686,6 +4021,62 @@
       ]
     },
     {
+      "canonical_resource_id": "shared_ab_legal_aid",
+      "record_type": "service",
+      "organization": "Legal Aid Alberta",
+      "program_name": "Legal Aid Alberta",
+      "categories": [
+        "family_community",
+        "legal_rights"
+      ],
+      "subcategories": [
+        "civil law",
+        "criminal law",
+        "family law",
+        "legal",
+        "legal aid"
+      ],
+      "description": "Application pathway for financially eligible Albertans seeking covered criminal, family or civil legal services.",
+      "population_served": "People in Alberta who meet current financial, legal-issue and merit criteria",
+      "indigenous_scope": "open_to_eligible_alberta_residents",
+      "governance_type": "public_legal_aid_organization",
+      "geography": "Alberta",
+      "province": "Alberta",
+      "city_community": "",
+      "service_area": "Alberta",
+      "delivery_modes": [],
+      "eligibility": "Eligibility depends on current income and assets, the type of legal problem, and the merits and coverage rules for the service requested.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Apply through the current Legal Aid Alberta application process and provide the requested financial and case information.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.legalaid.ab.ca/resources/application-processes/",
+      "funding": null,
+      "housing": null,
+      "legal_support": {
+        "service_type": "legal_aid_application_and_representation",
+        "representation": "A lawyer is provided only when the application is approved under current coverage and eligibility rules."
+      },
+      "transportation": null,
+      "source": {
+        "title": "Application Processes",
+        "authority": "Legal Aid Alberta",
+        "url": "https://www.legalaid.ab.ca/resources/application-processes/"
+      },
+      "last_verified": "2026-09-07",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "shared_ab_legal_aid"
+      ]
+    },
+    {
       "canonical_resource_id": "support:legal-aid-bc-new-westminster-access",
       "record_type": "service",
       "organization": "Legal Aid BC",
@@ -3731,6 +4122,62 @@
       ],
       "source_record_ids": [
         "support:legal-aid-bc-new-westminster-access"
+      ]
+    },
+    {
+      "canonical_resource_id": "shared_sk_legal_aid",
+      "record_type": "service",
+      "organization": "Legal Aid Saskatchewan",
+      "program_name": "Legal Aid Saskatchewan",
+      "categories": [
+        "family_community",
+        "legal_rights"
+      ],
+      "subcategories": [
+        "criminal law",
+        "family law",
+        "immigration",
+        "legal",
+        "legal aid"
+      ],
+      "description": "Application pathway for covered criminal, family, immigration and other legal matters for people who meet Saskatchewan legal-aid criteria.",
+      "population_served": "People whose financial circumstances and legal matter meet current Saskatchewan legal-aid rules",
+      "indigenous_scope": "open_to_eligible_saskatchewan_residents",
+      "governance_type": "public_legal_aid_organization",
+      "geography": "Saskatchewan",
+      "province": "Saskatchewan",
+      "city_community": "",
+      "service_area": "Saskatchewan",
+      "delivery_modes": [],
+      "eligibility": "Financial eligibility, the type of issue and the merits or coverage rules for the matter are assessed during application.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call the Application Centre, request a callback, or contact a Legal Aid office to apply.",
+      "phone": "1-800-667-3764",
+      "email": "",
+      "website": "https://legalaid.sk.ca/legal-help/how-do-i-apply/",
+      "funding": null,
+      "housing": null,
+      "legal_support": {
+        "service_type": "legal_aid_application_and_representation",
+        "representation": "Representation is available only after an application is approved under current eligibility and coverage rules."
+      },
+      "transportation": null,
+      "source": {
+        "title": "How do I apply for Legal Aid?",
+        "authority": "Legal Aid Saskatchewan",
+        "url": "https://legalaid.sk.ca/legal-help/how-do-i-apply/"
+      },
+      "last_verified": "2026-09-07",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "shared_sk_legal_aid"
       ]
     },
     {
@@ -3942,6 +4389,61 @@
       ],
       "source_record_ids": [
         "support:bc-assistance-medical-transportation-supplement"
+      ]
+    },
+    {
+      "canonical_resource_id": "shared_bc_mental_health_law_program",
+      "record_type": "service",
+      "organization": "Community Legal Assistance Society",
+      "program_name": "Mental Health Law Program",
+      "categories": [
+        "healthcare",
+        "legal_rights"
+      ],
+      "subcategories": [
+        "involuntary care",
+        "legal",
+        "mental health",
+        "patient rights"
+      ],
+      "description": "Legal representation for people involuntarily detained under British Columbia's Mental Health Act or subject to the mental-disorder provisions of the Criminal Code.",
+      "population_served": "People within the program's mental-health detention or Criminal Code mental-disorder mandate",
+      "indigenous_scope": "open_to_people_within_program_mandate",
+      "governance_type": "legal_nonprofit",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "The person must fall within the program's stated involuntary-detention or Criminal Code mental-disorder mandate.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review the current program information and contact CLAS for intake or referral guidance.",
+      "phone": "",
+      "email": "",
+      "website": "https://clasbc.net/our-work/programs/",
+      "funding": null,
+      "housing": null,
+      "legal_support": {
+        "service_type": "mental_health_law_representation",
+        "representation": "Representation is offered within the program's defined statutory mandate and intake process."
+      },
+      "transportation": null,
+      "source": {
+        "title": "CLAS Programs",
+        "authority": "Community Legal Assistance Society",
+        "url": "https://clasbc.net/our-work/programs/"
+      },
+      "last_verified": "2026-09-07",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "shared_bc_mental_health_law_program"
       ]
     },
     {
@@ -4638,6 +5140,66 @@
       ]
     },
     {
+      "canonical_resource_id": "shared_sk_ort_dispute_resolution",
+      "record_type": "service",
+      "organization": "Government of Saskatchewan",
+      "program_name": "Office of Residential Tenancies Dispute Resolution",
+      "categories": [
+        "housing",
+        "legal_rights"
+      ],
+      "subcategories": [
+        "dispute resolution",
+        "housing",
+        "legal",
+        "tenancy"
+      ],
+      "description": "Official information, application and hearing process for residential landlord and tenant disputes in Saskatchewan.",
+      "population_served": "Landlords and tenants with a matter within Saskatchewan residential-tenancy jurisdiction",
+      "indigenous_scope": "open_to_people_within_saskatchewan_tenancy_jurisdiction",
+      "governance_type": "provincial_administrative_tribunal",
+      "geography": "Saskatchewan",
+      "province": "Saskatchewan",
+      "city_community": "",
+      "service_area": "Saskatchewan",
+      "delivery_modes": [],
+      "eligibility": "The matter must fall within the Office of Residential Tenancies' jurisdiction and filing rules.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review the dispute and hearing steps, try direct resolution where appropriate, and file through the official process if needed.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.saskatchewan.ca/residents/housing-and-renting/renting-and-leasing/settling-disputes-and-steps-to-a-hearing",
+      "funding": null,
+      "housing": {
+        "housing_type": "tenancy_dispute_resolution",
+        "application_process": "Formal application and hearing process",
+        "availability": "Applications accepted under current rules",
+        "restrictions": "Residential-tenancy jurisdiction and filing rules apply"
+      },
+      "legal_support": {
+        "service_type": "tenancy_information_and_adjudication",
+        "representation": "The office provides process information and adjudicates eligible disputes; it does not represent either party."
+      },
+      "transportation": null,
+      "source": {
+        "title": "Dispute Resolution and the Hearing Process",
+        "authority": "Government of Saskatchewan",
+        "url": "https://www.saskatchewan.ca/residents/housing-and-renting/renting-and-leasing/settling-disputes-and-steps-to-a-hearing"
+      },
+      "last_verified": "2026-09-07",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "shared_sk_ort_dispute_resolution"
+      ]
+    },
+    {
       "canonical_resource_id": "shared_sk_ombudsman_complaints",
       "record_type": "service",
       "organization": "Ombudsman Saskatchewan",
@@ -4748,6 +5310,60 @@
       ],
       "source_record_ids": [
         "funding:miller-north:fnfund_sk_pbcn_iset"
+      ]
+    },
+    {
+      "canonical_resource_id": "north_bc_police_accountability_unit",
+      "record_type": "service",
+      "organization": "BC First Nations Justice Council",
+      "program_name": "Police Accountability Unit",
+      "categories": [
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "legal",
+        "police accountability",
+        "complaint navigation",
+        "indigenous legal services"
+      ],
+      "description": "Indigenous-led legal support for eligible police-accountability matters in British Columbia, including navigation of complaint and oversight processes.",
+      "population_served": "Indigenous people in British Columbia with a police-accountability concern within the unit's current mandate",
+      "indigenous_scope": "indigenous_specific",
+      "governance_type": "first_nations_justice_organization",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "The concern must fit the unit's current police-accountability mandate and intake criteria.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review the current mandate and contact the unit through its official intake page.",
+      "phone": "",
+      "email": "",
+      "website": "https://bcfnjc.com/services/police-accountability-unit/",
+      "funding": null,
+      "housing": null,
+      "legal_support": {
+        "service_type": "police_accountability_navigation_and_legal_support",
+        "representation": "Service and representation depend on mandate, eligibility and intake capacity."
+      },
+      "transportation": null,
+      "source": {
+        "title": "Police Accountability Unit",
+        "authority": "BC First Nations Justice Council",
+        "url": "https://bcfnjc.com/services/police-accountability-unit/"
+      },
+      "last_verified": "2026-09-07",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "north_bc_police_accountability_unit"
       ]
     },
     {
@@ -4862,6 +5478,66 @@
       ],
       "source_record_ids": [
         "fns_bc_fnha_quality_care_safety"
+      ]
+    },
+    {
+      "canonical_resource_id": "shared_ab_rtdrs",
+      "record_type": "service",
+      "organization": "Government of Alberta",
+      "program_name": "Residential Tenancy Dispute Resolution Service",
+      "categories": [
+        "housing",
+        "legal_rights"
+      ],
+      "subcategories": [
+        "dispute resolution",
+        "housing",
+        "legal",
+        "tenancy"
+      ],
+      "description": "Quasi-judicial dispute-resolution process for eligible landlord and tenant claims under Alberta residential-tenancy legislation.",
+      "population_served": "Landlords and tenants with a dispute within RTDRS jurisdiction",
+      "indigenous_scope": "open_to_people_within_alberta_tenancy_jurisdiction",
+      "governance_type": "provincial_administrative_tribunal",
+      "geography": "Alberta",
+      "province": "Alberta",
+      "city_community": "",
+      "service_area": "Alberta",
+      "delivery_modes": [],
+      "eligibility": "The dispute must fall within RTDRS jurisdiction and applicable filing limits. Filing fees and limitation periods apply unless an official fee-waiver route is available.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review jurisdiction and filing requirements, prepare evidence and apply through the official RTDRS process.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.alberta.ca/rtdrs-apply",
+      "funding": null,
+      "housing": {
+        "housing_type": "tenancy_dispute_resolution",
+        "application_process": "Formal application and hearing process",
+        "availability": "Applications accepted under current rules",
+        "restrictions": "Jurisdiction, filing and limitation requirements apply"
+      },
+      "legal_support": {
+        "service_type": "tenancy_dispute_adjudication",
+        "representation": "The service decides eligible disputes; it does not provide a lawyer or act as a party's advocate."
+      },
+      "transportation": null,
+      "source": {
+        "title": "RTDRS – How to apply",
+        "authority": "Government of Alberta",
+        "url": "https://www.alberta.ca/rtdrs-apply"
+      },
+      "last_verified": "2026-09-07",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "shared_ab_rtdrs"
       ]
     },
     {
@@ -5657,6 +6333,65 @@
       ],
       "source_record_ids": [
         "support:tricities-rent-bank"
+      ]
+    },
+    {
+      "canonical_resource_id": "shared_bc_virtual_indigenous_justice_centre",
+      "record_type": "service",
+      "organization": "BC First Nations Justice Council",
+      "program_name": "Virtual Indigenous Justice Centre",
+      "categories": [
+        "legal_rights"
+      ],
+      "subcategories": [
+        "child protection",
+        "criminal law",
+        "indigenous legal services",
+        "legal",
+        "rural remote"
+      ],
+      "description": "No-cost virtual legal advice, representation and referral services for Indigenous people across British Columbia, with lawyer bookings focused on criminal and child-protection matters.",
+      "population_served": "Indigenous people with a legal matter in British Columbia, including people in communities without an in-person Indigenous Justice Centre",
+      "indigenous_scope": "indigenous_specific",
+      "governance_type": "first_nations_justice_organization",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [
+        "phone",
+        "virtual",
+        "in_person_when_required"
+      ],
+      "eligibility": "Callers must self-identify as Indigenous, have a matter in British Columbia and be able to connect by phone. Free lawyer bookings focus on criminal and child-protection matters; other callers may receive information or referral help.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "Free",
+      "referral_requirement": "",
+      "access": "Call the toll-free intake line for navigation and a possible appointment with a lawyer.",
+      "phone": "1-866-786-0081",
+      "email": "",
+      "website": "https://bcfnjc.com/services/virtual-indigenous-justice-centre/",
+      "funding": null,
+      "housing": null,
+      "legal_support": {
+        "service_type": "indigenous_legal_advice_representation_and_referral",
+        "representation": "Free representation is available within the centre's current criminal and child-protection mandate; other matters may receive information or referrals."
+      },
+      "transportation": null,
+      "source": {
+        "title": "Virtual Indigenous Justice Centre",
+        "authority": "BC First Nations Justice Council",
+        "url": "https://bcfnjc.com/services/virtual-indigenous-justice-centre/"
+      },
+      "last_verified": "2026-09-07",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "shared_bc_virtual_indigenous_justice_centre"
       ]
     },
     {
