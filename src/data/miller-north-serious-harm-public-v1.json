@@ -184,6 +184,46 @@
       ]
     },
     {
+      "public_incident_id": "mnsh_lindsey_izony_2019",
+      "title": "Lindsey Izony inquest and custody-health recommendations",
+      "province": "British Columbia",
+      "location": "Prince George",
+      "event_date": "2019-07-20",
+      "care_setting": "Police custody, emergency medical response and hospital care",
+      "summary": "A B.C. inquest reviewed Lindsey Izony's death after she experienced a medical emergency in Prince George RCMP custody, was treated by paramedics and was transported to University Hospital of Northern B.C. Public Indigenous-focused research and community reporting identify Izony as a Tsek'ene woman. The jury made six prevention recommendations concerning First Nations substance-use services, detention-guard standards, RCMP training, cellblock oversight, cell access and continuous medical support.",
+      "evidence_strength": {
+        "key": "formal_process_evidence",
+        "label": "Formal process evidence",
+        "source_roles": ["jury_verdict", "indigenous_led_research", "community_reporting"]
+      },
+      "formal_process_status": "Inquest completed; six prevention recommendations issued",
+      "institutional_response": "The public 2024 inquest index links the verdict but does not list a recommendation-response package for this case.",
+      "formal_outcome": "The jury classified the death as accidental and made prevention recommendations. The inquest was fact-finding, not fault-finding, and did not make a finding of racism or legal responsibility.",
+      "unresolved_questions": [
+        "Did the organizations addressed by the jury publish recommendation-specific responses?",
+        "Were the recommended First Nations service audit, detention standards, training, cellblock measures and continuous medical support implemented or evaluated?"
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "Verdict at Coroners Inquest: Lindsey Taylor Izony",
+          "role": "jury_verdict",
+          "url": "https://www2.gov.bc.ca/assets/gov/birth-adoption-death-marriage-and-divorce/deaths/coroners-service/inquest/2024/izony_verdict_2024-10-25.pdf"
+        },
+        {
+          "title": "We Remember",
+          "role": "indigenous_led_research",
+          "url": "https://www.rgdtapwewin.com/we-remember"
+        },
+        {
+          "title": "Honour Their Names: New Exhibit Highlights Police Killings of Indigenous People",
+          "role": "community_reporting",
+          "url": "https://themainlander.com/2022/03/15/honour-their-names-new-exhibit-highlights-police-killings-of-indigenous-people/"
+        }
+      ]
+    },
+    {
       "public_incident_id": "mnsh_julian_jones_2021",
       "title": "Julian Jones inquest and remote paramedic-access recommendation",
       "province": "British Columbia",
@@ -392,6 +432,42 @@
       ]
     },
     {
+      "public_incident_id": "mnsh_alyssa_george_2013",
+      "title": "Alyssa Josephine Talina George inquest and recommendation responses",
+      "province": "British Columbia",
+      "location": "Terrace and Vancouver",
+      "event_date": "2013-09-10",
+      "care_setting": "Police custody, emergency care, ambulance and air transfer",
+      "summary": "A B.C. inquest reviewed the death of Alyssa Josephine Talina George, a First Nations woman, after she was found in medical distress in Terrace RCMP custody, taken to hospital and later transferred by air to Vancouver. The jury issued 16 prevention recommendations concerning custody monitoring, medical assessment, cultural training, laboratory practice, withdrawal-management services and information sharing.",
+      "evidence_strength": {
+        "key": "formal_process_evidence",
+        "label": "Formal process evidence",
+        "source_roles": ["jury_verdict", "recommendation_response"]
+      },
+      "formal_process_status": "Inquest completed; 16 recommendations issued; public responses posted from six organizations",
+      "institutional_response": "BCEHS, the RCMP, City of Terrace, FNHA, Ministry of Health and Terrace RCMP published responses. The responses describe policy reviews, refresher training, information-sharing practices and joint work on withdrawal-management services. These are organizational responses and claimed actions, not independent proof of implementation or outcomes.",
+      "formal_outcome": "The jury classified the death as accidental and made prevention recommendations. The inquest was fact-finding, not fault-finding, and did not determine criminal or civil responsibility or make a formal finding of racism.",
+      "unresolved_questions": [
+        "Which of the 16 recommendations were fully implemented and independently evaluated?",
+        "What outcomes followed the custody-health, cultural-training, information-sharing and withdrawal-management changes described by responding organizations?"
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "related_watch_chain_id": "mnaw_alyssa_george_recommendations",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "Verdict at Coroners Inquest: Alyssa Josephine Talina George",
+          "role": "jury_verdict",
+          "url": "https://www2.gov.bc.ca/assets/gov/birth-adoption-death-marriage-and-divorce/deaths/coroners-service/inquest/2015/alyssa-josephine-talina-george-2015-0380-003-verdict.pdf"
+        },
+        {
+          "title": "Responses to recommendations into the death of Alyssa Josephine Talina George",
+          "role": "recommendation_response",
+          "url": "https://www2.gov.bc.ca/assets/gov/birth-adoption-death-marriage-and-divorce/deaths/coroners-service/inquest/2015/george-alyssa-2013-0380-0003-response.pdf"
+        }
+      ]
+    },
+    {
       "public_incident_id": "mnsh_bccnm_michell_2014",
       "title": "First Nations community-care documentation and supervision consent agreement",
       "province": "British Columbia",
@@ -458,6 +534,138 @@
       ]
     },
     {
+      "public_incident_id": "mnsh_jacob_setah_2014",
+      "title": "Jacob George Setah inquest and youth mental-health recommendations",
+      "province": "British Columbia",
+      "location": "Stone Reserve, Williams Lake and Kamloops",
+      "event_date": "2014-06-15",
+      "care_setting": "Rural and regional hospital care, involuntary mental-health care and police response",
+      "summary": "A B.C. inquest reviewed the death of Jacob George Setah, an 18-year-old member of Yunesit’in, after he was transferred from Cariboo Memorial Hospital to Royal Inland Hospital under the Mental Health Act and left a secure ward. The jury made prevention recommendations concerning First Nations youth mental-health resources, family travel support, assessment, transfer communication, psychiatric care and hospital elopement response.",
+      "evidence_strength": {
+        "key": "formal_process_evidence",
+        "label": "Formal process evidence",
+        "source_roles": ["jury_verdict", "recommendation_response_index"]
+      },
+      "formal_process_status": "Inquest completed; prevention recommendations issued; one public responder entry indexed",
+      "institutional_response": "The B.C. Coroners Service response index lists an October 2017 response from the Ministry of Children and Family Development. No complete public response set or implementation ledger was located for the other organizations addressed by the jury.",
+      "formal_outcome": "The jury classified the death as suicide and made prevention recommendations. The inquest was fact-finding, not fault-finding, and did not determine criminal or civil responsibility or make a formal finding of discrimination.",
+      "unresolved_questions": [
+        "How did FNHA, Interior Health and the other responsible organizations respond to the recommendations?",
+        "What implementation and outcome evidence exists for youth mental-health access, family travel support, transfer communication and hospital safety measures?"
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "related_watch_chain_id": "mnaw_jacob_setah_recommendations",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "Verdict at Coroners Inquest: Jacob George Setah",
+          "role": "jury_verdict",
+          "url": "https://www2.gov.bc.ca/assets/gov/birth-adoption-death-marriage-and-divorce/deaths/coroners-service/inquest/2016/setah-jacob-george-inquest-final-verdict.pdf"
+        },
+        {
+          "title": "Responses to Coroner’s Inquest — 2016",
+          "role": "recommendation_response_index",
+          "url": "https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/inquest-schedule-jury-findings-verdicts/2016/2016-responses"
+        }
+      ]
+    },
+    {
+      "public_incident_id": "mnsh_cpsbc_trauma_informed_gynecology_2025",
+      "title": "Anonymous Indigenous patient — trauma-informed gynecology review",
+      "province": "British Columbia",
+      "location": "British Columbia",
+      "event_date": "2025",
+      "date_label": "Case summary published",
+      "care_setting": "Ambulatory gynecology clinic",
+      "affected_person": "Not publicly named",
+      "summary": "A CPSBC Inquiry Committee case summary describes an Indigenous woman seeking a first gynecological assessment who disclosed a history of sexual assault. The committee concluded that the physician did not meet expectations for culturally safe, trauma-informed care and identified missed opportunities to build trust, respond to distress and reduce re-traumatization.",
+      "evidence_strength": {
+        "key": "formal_process_evidence",
+        "label": "Formal process evidence",
+        "source_roles": ["regulator_case_summary"]
+      },
+      "formal_process_status": "Inquiry Committee review completed; regulator case summary published",
+      "institutional_response": "The committee considered it appropriate to end the examination for safety reasons, while finding that earlier rapport-building, clearer information and a more responsive approach could have supported a safer encounter.",
+      "formal_outcome": "This is an anonymized regulator learning summary of an Inquiry Committee review. It is not a disciplinary order, court judgment or finding about an identified clinic.",
+      "unresolved_questions": [
+        "The incident date, physician and clinic are not stated publicly.",
+        "No later institutional response or implementation evaluation was located."
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "Case study: importance of culturally safe and trauma-informed care",
+          "role": "regulator_case_summary",
+          "url": "https://www.cpsbc.ca/news/publications/college-connector/2025-V13-04/03"
+        }
+      ]
+    },
+    {
+      "public_incident_id": "mnsh_cpsbc_metis_mental_health_2024",
+      "title": "Anonymous Métis patient — outpatient mental-health communication review",
+      "province": "British Columbia",
+      "location": "British Columbia",
+      "event_date": "2024",
+      "date_label": "Case summary published",
+      "care_setting": "Outpatient psychiatric care",
+      "affected_person": "Not publicly named",
+      "summary": "A CPSBC Inquiry Committee case summary describes a Métis woman who experienced a first appointment with a psychiatrist as dismissive and unsafe. The committee identified concerns about the physician's public-facing comments, tone and body language, and how the patient was asked about her Métis ancestry without a clearly documented care purpose.",
+      "evidence_strength": {
+        "key": "formal_process_evidence",
+        "label": "Formal process evidence",
+        "source_roles": ["regulator_case_summary"]
+      },
+      "formal_process_status": "Inquiry Committee investigation concluded; regulator case summary and recommendations published",
+      "institutional_response": "The committee issued recommendations concerning professional communication, person-led care, trauma-informed practice and culturally safe inquiry about identity.",
+      "formal_outcome": "This is an anonymized regulator learning summary of an Inquiry Committee review. It is not a disciplinary order, court judgment or finding about an identified clinic.",
+      "unresolved_questions": [
+        "The incident date, physician and clinic are not stated publicly.",
+        "No later institutional response or implementation evaluation was located."
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "Case study: tone and body language can impact a patient’s experience",
+          "role": "regulator_case_summary",
+          "url": "https://www.cpsbc.ca/news/publications/college-connector/2024-V12-05/02"
+        }
+      ]
+    },
+    {
+      "public_incident_id": "mnsh_cpsbc_primary_care_generalization_2025",
+      "title": "Anonymous Indigenous patient — primary-care generalization review",
+      "province": "British Columbia",
+      "location": "British Columbia",
+      "event_date": "2025",
+      "date_label": "Case summary published",
+      "care_setting": "Primary care",
+      "affected_person": "Not publicly named",
+      "summary": "A CPSBC Inquiry Committee case summary describes an Indigenous woman who requested blood-glucose monitoring because of her family history. The committee found that the physician responded with generalized assumptions about Indigenous patients rather than a distinctions-based, patient-centred discussion, leaving the patient feeling dismissed and unsafe.",
+      "evidence_strength": {
+        "key": "formal_process_evidence",
+        "label": "Formal process evidence",
+        "source_roles": ["regulator_case_summary"]
+      },
+      "formal_process_status": "Inquiry Committee review completed; regulator case summary published",
+      "institutional_response": "CPSBC reported that the physician reflected on the harm, sought further education, reviewed documentation and committed to changes in practice.",
+      "formal_outcome": "This is an anonymized regulator learning summary and reports a physician response within the complaint process. It is not a disciplinary order, court judgment or independent measurement of later practice change.",
+      "unresolved_questions": [
+        "The incident date, physician and clinic are not stated publicly.",
+        "The public case summary does not report whether the committed practice changes were later evaluated."
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "Case study: Importance of humility",
+          "role": "regulator_case_summary",
+          "url": "https://www.cpsbc.ca/news/publications/college-connector/2025-V13-05/04"
+        }
+      ]
+    },
+    {
       "public_incident_id": "mnsh_silent_world_jordan_2013",
       "title": "The Silent World of Jordan — youth-custody healthcare investigation",
       "province": "Saskatchewan",
@@ -469,14 +677,15 @@
       "evidence_strength": {
         "key": "formal_process_evidence",
         "label": "Formal process evidence",
-        "source_roles": ["independent_advocate_investigation"]
+        "source_roles": ["independent_advocate_investigation", "legislative_committee_record"]
       },
       "formal_process_status": "Independent Advocate investigation completed; ten recommendations issued",
-      "institutional_response": "The Advocate reported that the Ministry had conducted its own review and implemented changes. The Advocate's 2016 annual report later said the Ministry accepted all ten recommendations but required time for implementation.",
+      "institutional_response": "The Advocate reported that the Ministry had conducted its own review and implemented changes. The Advocate's 2016 annual report later said the Ministry accepted all ten recommendations but required time for implementation. In 2019, a Saskatchewan Human Services Committee exchange recorded that a proposed transfer of direct correctional healthcare responsibility to the Saskatchewan Health Authority had not advanced at that time.",
       "formal_outcome": "An independent statutory Advocate investigation with findings and recommendations. The public report uses a pseudonym and does not assign criminal or civil responsibility.",
       "unresolved_questions": [
         "What is the current recommendation-by-recommendation implementation status?",
-        "Which policy and training changes remain in operation, and what outcome evidence exists?"
+        "Which policy and training changes remain in operation, and what outcome evidence exists?",
+        "Was the proposed correctional-healthcare governance change completed after the 2019 committee evidence?"
       ],
       "official_evidence_added_at": "2026-09-07",
       "related_watch_chain_id": "mnaw_silent_world_jordan",
@@ -486,6 +695,11 @@
           "title": "The Silent World of Jordan",
           "role": "independent_advocate_investigation",
           "url": "https://www.saskadvocate.ca/assets/the-silent-world-of-jordan-public-report-june-15-2016-0.pdf"
+        },
+        {
+          "title": "Standing Committee on Human Services, May 1, 2019",
+          "role": "legislative_committee_record",
+          "url": "https://docs.legassembly.sk.ca/legdocs/Committees/HUS/Debates/28L/190501Debates-HUS.pdf"
         }
       ]
     }

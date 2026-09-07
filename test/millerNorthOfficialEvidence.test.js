@@ -30,7 +30,7 @@ const sampleWorkbook = () => {
 }
 
 test("publication-safe serious-harm projection validates and minimizes identity", () => {
-  assert.deepEqual(validatePublicSeriousHarmProjection(seriousHarm), { valid: true, incidents: 14 })
+  assert.deepEqual(validatePublicSeriousHarmProjection(seriousHarm), { valid: true, incidents: 20 })
   assert.equal(seriousHarm.incidents.filter(item => item.affected_person).every(item => item.affected_person === "Not publicly named"), true)
   assert.equal(JSON.stringify(seriousHarm).includes("private_notes"), false)
 })
@@ -38,11 +38,29 @@ test("publication-safe serious-harm projection validates and minimizes identity"
 test("CPSBC additions distinguish case summaries from final consent-agreement outcomes", () => {
   const caseStudies = seriousHarm.incidents.filter(item => item.sources.some(source => source.role === "regulator_case_summary"))
   const skrenes = seriousHarm.incidents.find(item => item.public_incident_id === "mnsh_cpsbc_skrenes_2022")
-  assert.equal(caseStudies.length, 3)
+  assert.equal(caseStudies.length, 6)
   assert.equal(caseStudies.every(item => item.evidence_strength.key === "formal_process_evidence" && item.date_label === "Case summary published"), true)
   assert.equal(skrenes.evidence_strength.key, "final_formal_outcome")
   assert.equal(skrenes.affected_person, "Not publicly named")
   assert.match(skrenes.formal_outcome, /not a court judgment/i)
+})
+
+test("new CPSBC case summaries preserve anonymity, setting and regulator-process limits", () => {
+  const ids = [
+    "mnsh_cpsbc_trauma_informed_gynecology_2025",
+    "mnsh_cpsbc_metis_mental_health_2024",
+    "mnsh_cpsbc_primary_care_generalization_2025",
+  ]
+  const additions = ids.map(id => seriousHarm.incidents.find(item => item.public_incident_id === id))
+  assert.equal(additions.every(Boolean), true)
+  assert.equal(additions.every(item => item.affected_person === "Not publicly named"), true)
+  assert.equal(additions.every(item => item.evidence_strength.key === "formal_process_evidence"), true)
+  assert.equal(additions.every(item => /not a disciplinary order/i.test(item.formal_outcome)), true)
+  assert.deepEqual(additions.map(item => item.care_setting), [
+    "Ambulatory gynecology clinic",
+    "Outpatient psychiatric care",
+    "Primary care",
+  ])
 })
 
 test("Trevor Dubois record gains a later institutional update without implying a review outcome", () => {
@@ -69,6 +87,32 @@ test("new inquest records preserve formal-process limits and Indigenous source r
   assert.equal(jones.sources.some(source => source.role === "indigenous_led_report"), true)
 })
 
+test("Lindsey Izony record separates the inquest from Indigenous-context sources and later outcomes", () => {
+  const izony = seriousHarm.incidents.find(item => item.public_incident_id === "mnsh_lindsey_izony_2019")
+  assert.equal(izony.evidence_strength.key, "formal_process_evidence")
+  assert.equal(izony.sources.some(source => source.role === "jury_verdict"), true)
+  assert.equal(izony.sources.some(source => source.role === "indigenous_led_research"), true)
+  assert.match(izony.formal_outcome, /did not make a finding of racism or legal responsibility/i)
+  assert.match(izony.institutional_response, /does not list a recommendation-response package/i)
+})
+
+test("Alyssa George record separates public responses from implementation evidence", () => {
+  const george = seriousHarm.incidents.find(item => item.public_incident_id === "mnsh_alyssa_george_2013")
+  assert.equal(george.evidence_strength.key, "formal_process_evidence")
+  assert.equal(george.related_watch_chain_id, "mnaw_alyssa_george_recommendations")
+  assert.match(george.formal_process_status, /16 recommendations/i)
+  assert.match(george.institutional_response, /not independent proof/i)
+  assert.match(george.formal_outcome, /fact-finding, not fault-finding/i)
+})
+
+test("Jacob Setah record preserves inquest limits and response gaps", () => {
+  const setah = seriousHarm.incidents.find(item => item.public_incident_id === "mnsh_jacob_setah_2014")
+  assert.equal(setah.related_watch_chain_id, "mnaw_jacob_setah_recommendations")
+  assert.match(setah.care_setting, /involuntary mental-health care/i)
+  assert.match(setah.institutional_response, /No complete public response set/i)
+  assert.match(setah.formal_outcome, /fact-finding, not fault-finding/i)
+})
+
 test("historical publication additions preserve source roles, anonymity and inquest limits", () => {
   const george = seriousHarm.incidents.find(item => item.public_incident_id === "mnsh_jocelyn_george_2016")
   const michell = seriousHarm.incidents.find(item => item.public_incident_id === "mnsh_bccnm_michell_2014")
@@ -86,6 +130,8 @@ test("Saskatchewan Advocate investigation preserves the public pseudonym and for
   assert.equal(jordan.evidence_strength.key, "formal_process_evidence")
   assert.match(jordan.formal_outcome, /uses a pseudonym/i)
   assert.equal(jordan.related_watch_chain_id, "mnaw_silent_world_jordan")
+  assert.equal(jordan.sources.some(source => source.role === "legislative_committee_record"), true)
+  assert.match(jordan.institutional_response, /had not advanced at that time/i)
 })
 
 test("reviewed serious-harm route uses Miller North navigation and restrained presentation", () => {
@@ -107,6 +153,7 @@ test("evidence strength is a quiet source-role label, not a traumatic-event scor
   assert.equal(deriveIncidentEvidenceStrength([{ role: "jury_verdict" }, { role: "indigenous_journalism" }]).key, "formal_process_evidence")
   assert.equal(deriveIncidentEvidenceStrength([{ role: "regulator_case_summary" }]).key, "formal_process_evidence")
   assert.equal(deriveIncidentEvidenceStrength([{ role: "regulator_finding", final_outcome: true }]).key, "final_formal_outcome")
+  assert.equal(deriveIncidentEvidenceStrength([{ role: "community_reporting" }, { role: "indigenous_led_research" }]).key, "independently_corroborated")
 })
 
 test("new official evidence is detected without creating a duplicate incident", () => {

@@ -22,7 +22,7 @@ const FORMAL_PROCESS_ROLES = new Set([
 ])
 const FINAL_OUTCOME_ROLES = new Set(["regulator_finding", "tribunal_merits_decision", "court_judgment"])
 const INSTITUTIONAL_ROLES = new Set(["institutional_statement", "organizational_response", "government_response"])
-const INDEPENDENT_ROLES = new Set(["indigenous_led_report", "indigenous_journalism", "independent_journalism", "media_corroboration"])
+const INDEPENDENT_ROLES = new Set(["indigenous_led_report", "indigenous_led_research", "indigenous_journalism", "independent_journalism", "media_corroboration"])
 const FORBIDDEN_PUBLIC_FIELDS = new Set(["private_notes", "owner_notes", "patient_name", "medical_records", "private_contact", "internal_workflow_state"])
 
 export function deriveIncidentEvidenceStrength(sources = []) {

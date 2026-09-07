@@ -175,6 +175,55 @@
       ]
     },
     {
+      "chain_id": "mnaw_jacob_setah_recommendations",
+      "title": "Jacob Setah youth mental-health recommendations",
+      "province": "British Columbia",
+      "originating_concern": "Jacob George Setah, an 18-year-old member of Yunesit’in, died after rural and regional hospital care, transfer under the Mental Health Act and departure from a secure ward at Royal Inland Hospital.",
+      "key_finding": "The inquest identified prevention needs spanning community youth mental-health resources, family support during distant transfers, clinical assessment and handoff, psychiatric care and hospital elopement response.",
+      "recommendation_or_commitment": "The jury directed recommendations to FNHA, Interior Health, provincial ministries and other organizations concerning First Nations youth support, family travel assistance, hospital practices and mental-health care.",
+      "responsible_organizations": ["First Nations Health Authority", "Interior Health", "B.C. Ministry of Children and Family Development", "B.C. Ministry of Health"],
+      "accountable_actors": ["First Nations Health Authority", "Interior Health", "B.C. Ministry of Children and Family Development", "B.C. Coroners Service"],
+      "implementation_action_claimed": "The public response index lists an October 2017 Ministry of Children and Family Development response.",
+      "implementation_evidence": "No complete public recommendation-response set, implementation ledger or measured outcome report was located for the organizations addressed by the jury.",
+      "current_status": "response_under_review",
+      "unresolved_gap": "The public record does not show the current recommendation-by-recommendation status or outcomes for youth mental-health access, family travel support, transfer communication and hospital safety measures.",
+      "contradictions_or_limitations": "A response index confirms that a response exists but does not establish implementation or effectiveness. The inquest was fact-finding, not fault-finding, and did not make a formal finding of discrimination.",
+      "last_reviewed": "2026-09-07",
+      "best_next_document": "The full MCFD response and recommendation-specific responses from FNHA and Interior Health, followed by any later implementation evaluation.",
+      "confidence": "high",
+      "evidence_quality": "Official jury verdict and official response index; implementation and outcome reporting remain incomplete.",
+      "related_incident_refs": ["mnsh_jacob_setah_2014"],
+      "sources": [
+        { "title": "Verdict at Coroners Inquest: Jacob George Setah", "role": "jury verdict", "url": "https://www2.gov.bc.ca/assets/gov/birth-adoption-death-marriage-and-divorce/deaths/coroners-service/inquest/2016/setah-jacob-george-inquest-final-verdict.pdf" },
+        { "title": "Responses to Coroner’s Inquest — 2016", "role": "official response index", "url": "https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/inquest-schedule-jury-findings-verdicts/2016/2016-responses" }
+      ]
+    },
+    {
+      "chain_id": "mnaw_alyssa_george_recommendations",
+      "title": "Alyssa George inquest recommendation responses",
+      "province": "British Columbia",
+      "originating_concern": "Alyssa Josephine Talina George, a First Nations woman, was found in medical distress in Terrace RCMP custody and died after emergency care and air transfer to Vancouver.",
+      "key_finding": "The inquest reviewed gaps in custody monitoring, medical assessment, cultural training, laboratory practice, withdrawal-management access and information sharing.",
+      "recommendation_or_commitment": "The jury issued 16 prevention recommendations to the RCMP, City of Terrace, BCEHS, Northern Health, FNHA and Ministry of Health. Public responses were posted from six organizations.",
+      "responsible_organizations": ["Royal Canadian Mounted Police", "City of Terrace", "BC Emergency Health Services", "Northern Health", "First Nations Health Authority", "B.C. Ministry of Health"],
+      "accountable_actors": ["Royal Canadian Mounted Police", "Northern Health", "B.C. Ministry of Health", "B.C. Coroners Service"],
+      "implementation_action_claimed": "Responders described policy amendments, refresher training, custody-monitoring practices, information-sharing work and a multi-agency process concerning withdrawal-management services in Terrace.",
+      "implementation_evidence": "The response bundle documents what organizations accepted, rejected or said they were doing. A 2024 Northern Health board paper and a 2026 public announcement document later withdrawal-management development in Terrace, but the located sources do not explicitly attribute that later work to the 2015 inquest recommendation.",
+      "current_status": "response_under_review",
+      "unresolved_gap": "A recommendation-by-recommendation implementation and outcome ledger was not located. The relationship between later Terrace withdrawal-management development and recommendation 15 remains related but not expressly attributed in the public sources reviewed.",
+      "contradictions_or_limitations": "A response or stated action is not independent implementation evidence. The Ministry said recommendation 14 on laboratory specimen retention could not reasonably be implemented. The inquest was fact-finding, not fault-finding, and did not make a formal finding of racism.",
+      "last_reviewed": "2026-09-07",
+      "best_next_document": "A current B.C. Coroners Service or responding-organization status table mapping all 16 recommendations to completed actions and measured outcomes.",
+      "confidence": "high",
+      "evidence_quality": "Official jury verdict, public recommendation-response bundle and later official service-development records; current outcome evidence remains incomplete.",
+      "related_incident_refs": ["mnsh_alyssa_george_2013"],
+      "sources": [
+        { "title": "Verdict at Coroners Inquest: Alyssa Josephine Talina George", "role": "jury verdict", "url": "https://www2.gov.bc.ca/assets/gov/birth-adoption-death-marriage-and-divorce/deaths/coroners-service/inquest/2015/alyssa-josephine-talina-george-2015-0380-003-verdict.pdf" },
+        { "title": "Responses to recommendations into the death of Alyssa Josephine Talina George", "role": "recommendation responses", "url": "https://www2.gov.bc.ca/assets/gov/birth-adoption-death-marriage-and-divorce/deaths/coroners-service/inquest/2015/george-alyssa-2013-0380-0003-response.pdf" },
+        { "title": "Moving forward with Indigenous-led treatment and recovery, substance-use services in Terrace", "role": "later related service update", "url": "https://stories.northernhealth.ca/news/moving-forward-indigenous-led-treatment-and-recovery-substance-use-services-terrace" }
+      ]
+    },
+    {
       "chain_id": "mnaw_silent_world_jordan",
       "title": "The Silent World of Jordan healthcare-access recommendations",
       "province": "Saskatchewan",
@@ -184,10 +233,10 @@
       "responsible_organizations": ["Saskatchewan Ministry of Justice, Corrections and Policing", "Prince Albert Youth Residence", "Court Services", "Agency Chiefs Child and Family Services"],
       "accountable_actors": ["Saskatchewan Ministry of Justice, Corrections and Policing", "Saskatchewan Advocate for Children and Youth"],
       "implementation_action_claimed": "The Advocate reported that the Ministry conducted an internal review and implemented changes; the 2016 annual report said the Ministry accepted all ten recommendations but required time for implementation.",
-      "implementation_evidence": "The public sources establish an institutional response and general claimed changes, but do not provide a current recommendation-by-recommendation implementation or outcome ledger.",
+      "implementation_evidence": "The public sources establish an institutional response and general claimed changes, but do not provide a current recommendation-by-recommendation implementation or outcome ledger. In 2019, a Ministry of Health official told a legislative committee that discussion about transferring direct responsibility for correctional healthcare to the Saskatchewan Health Authority had not advanced.",
       "current_status": "response_under_review",
-      "unresolved_gap": "Current status, sustained operation and outcome evidence for the ten recommendations were not located.",
-      "contradictions_or_limitations": "Acceptance and general statements about changes are not proof that every recommendation was implemented or effective. The report uses a pseudonym to protect the young person's identity.",
+      "unresolved_gap": "Current status, sustained operation and outcome evidence for the ten recommendations were not located. The 2019 committee exchange does not resolve whether the recommended stand-alone correctional healthcare policy was completed.",
+      "contradictions_or_limitations": "Acceptance and general statements about changes are not proof that every recommendation was implemented or effective. The 2019 discussion was not a final policy decision or implementation finding. The report uses a pseudonym to protect the young person's identity.",
       "last_reviewed": "2026-09-07",
       "best_next_document": "A current Saskatchewan Advocate recommendation-status record mapping all ten recommendations to action and outcome evidence.",
       "confidence": "high",
@@ -195,7 +244,8 @@
       "related_incident_refs": ["mnsh_silent_world_jordan_2013"],
       "sources": [
         { "title": "The Silent World of Jordan", "role": "independent Advocate investigation", "url": "https://www.saskadvocate.ca/assets/the-silent-world-of-jordan-public-report-june-15-2016-0.pdf" },
-        { "title": "Saskatchewan Advocate for Children and Youth 2016 Annual Report", "role": "recommendation monitoring", "url": "https://www.saskadvocate.ca/assets/advocate-for-children-and-youth-annual-report-final.pdf" }
+        { "title": "Saskatchewan Advocate for Children and Youth 2016 Annual Report", "role": "recommendation monitoring", "url": "https://www.saskadvocate.ca/assets/advocate-for-children-and-youth-annual-report-final.pdf" },
+        { "title": "Saskatchewan Human Services Committee, May 1, 2019", "role": "legislative committee record", "url": "https://docs.legassembly.sk.ca/legdocs/Committees/HUS/Debates/28L/190501Debates-HUS.pdf" }
       ]
     }
   ]
