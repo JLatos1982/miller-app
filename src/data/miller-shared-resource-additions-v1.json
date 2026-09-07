@@ -1,0 +1,74 @@
+{
+  "schema_version": "miller-shared-resource-additions-v1",
+  "generated_at": "2026-09-07",
+  "records": [
+    {
+      "canonical_resource_id": "shared_isc_nihb_mental_health_counselling",
+      "name": "NIHB Mental Health Counselling Benefit",
+      "organization": "Indigenous Services Canada",
+      "categories": ["mental_health", "funding", "benefits"],
+      "description": "Coverage for eligible professional mental-health counselling when it is not available through another public or private plan.",
+      "population_served": "Eligible registered First Nations and recognized Inuit clients in Canada",
+      "scope": "first_nations_and_inuit_specific",
+      "governance_type": "federal_indigenous_health_benefit",
+      "service_area": "Canada-wide, subject to regional administration and eligibility rules",
+      "delivery_modes": ["in_person", "virtual"],
+      "eligibility": "NIHB client eligibility and benefit rules apply; review the current official guide.",
+      "access_pathway": "Choose an eligible provider and confirm current coverage and billing arrangements through the official NIHB information.",
+      "phone": null,
+      "website": "https://www.sac-isc.gc.ca/eng/1576441552462/1576441618847",
+      "source": {
+        "title": "Non-Insured Health Benefits program for First Nations and Inuit: Mental health counselling benefits",
+        "authority": "Indigenous Services Canada",
+        "url": "https://www.sac-isc.gc.ca/eng/1576441552462/1576441618847"
+      },
+      "last_verified_date": "2026-09-07"
+    },
+    {
+      "canonical_resource_id": "shared_isc_hope_for_wellness",
+      "name": "Hope for Wellness Helpline",
+      "organization": "Indigenous Services Canada / Hope for Wellness",
+      "categories": ["mental_health", "crisis_support", "patient_navigation"],
+      "description": "Immediate, culturally aware emotional support, crisis intervention and help finding other wellness supports.",
+      "population_served": "First Nations, Inuit and Métis people across Canada",
+      "scope": "broader_indigenous",
+      "governance_type": "indigenous_crisis_service_federally_supported",
+      "service_area": "Canada-wide",
+      "delivery_modes": ["phone", "virtual"],
+      "eligibility": "Available to Indigenous people across Canada.",
+      "access_pathway": "Call 1-855-242-3310 or use the online chat; urgent danger still requires local emergency services.",
+      "phone": "1-855-242-3310",
+      "hours": "24/7",
+      "website": "https://www.sac-isc.gc.ca/eng/1576089519527/1576089566478",
+      "source": {
+        "title": "Hope for Wellness Helpline",
+        "authority": "Indigenous Services Canada",
+        "url": "https://www.sac-isc.gc.ca/eng/1576089519527/1576089566478"
+      },
+      "last_verified_date": "2026-09-07"
+    },
+    {
+      "canonical_resource_id": "shared_fnha_treatment_centres",
+      "name": "FNHA-funded Treatment Centres and Recovery Services",
+      "organization": "First Nations Health Authority",
+      "categories": ["substance_use", "treatment", "detox", "recovery_housing", "cultural_support"],
+      "description": "Official navigation to First Nations-focused residential, outpatient, withdrawal-management and recovery services in British Columbia.",
+      "population_served": "Eligibility varies by centre; the official directory identifies First Nations, Inuit, Indigenous youth and other program-specific populations.",
+      "scope": "first_nations_specific_or_program_defined",
+      "governance_type": "first_nations_governed_health_authority",
+      "province": "British Columbia",
+      "service_area": "British Columbia",
+      "delivery_modes": ["in_person", "residential", "outpatient"],
+      "eligibility": "Review the current centre description and referral package; eligibility and intake differ by program.",
+      "access_pathway": "Use the official directory and current referral package, then contact the selected program or FNHA.",
+      "phone": "1-866-913-0033",
+      "website": "https://fnha.ca/services-and-support/access-and-support/health-and-virtual-services/treatment-centres/",
+      "source": {
+        "title": "Treatment centres",
+        "authority": "First Nations Health Authority",
+        "url": "https://fnha.ca/services-and-support/access-and-support/health-and-virtual-services/treatment-centres/"
+      },
+      "last_verified_date": "2026-09-07"
+    }
+  ]
+}

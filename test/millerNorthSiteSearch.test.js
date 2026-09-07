@@ -9,6 +9,7 @@ test("Miller North search index covers public evidence, incidents, Listening, ac
   assert.deepEqual([...types].sort(), ["accountability", "evidence", "incident", "listening", "research_report"])
   assert.ok(index.length > 350)
   assert.ok(index.every(item => item.destination_route.startsWith("/indigenous-healthcare-evidence")))
+  assert.ok(index.filter(item => item.result_type === "evidence").every(item => !/^(Official Investigation|Reported Account|Systemic Evidence)$/i.test(item.title)))
   assert.doesNotMatch(JSON.stringify(index), /owner_review|private_note|patient_name|ordinary_username/i)
 })
 
@@ -57,7 +58,7 @@ test("optional query expansion failure degrades to deterministic results", async
 test("Evidence Library page presents a polished site-wide search with lightweight filters", () => {
   const page = readFileSync(new URL("../src/site/IndigenousHealthcareEvidence.jsx", import.meta.url), "utf8")
   assert.match(page, /Search Miller North/)
-  assert.match(page, /Search incidents, evidence, organizations, reports, and accountability/)
+  assert.match(page, /placeholder="Type here"/)
   assert.match(page, /Result type/)
   assert.match(page, /Canada-wide/)
   assert.match(page, /ihe-site-results/)

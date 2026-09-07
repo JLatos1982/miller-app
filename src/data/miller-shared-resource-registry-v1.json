@@ -1,0 +1,4352 @@
+{
+  "schema_version": "miller-shared-resource-registry-v1",
+  "generated_at": "2026-09-07",
+  "publication_boundary": "Public-source records only. Project-specific projections remain distinct.",
+  "taxonomy": {
+    "healthcare": [
+      "primary care",
+      "patient navigation",
+      "mental health",
+      "substance use",
+      "medical travel",
+      "community health"
+    ],
+    "housing": [
+      "emergency shelter",
+      "transitional housing",
+      "supportive housing",
+      "rent assistance",
+      "housing navigation"
+    ],
+    "legal_rights": [
+      "legal aid",
+      "human rights",
+      "complaint navigation",
+      "patient advocacy",
+      "ombuds services"
+    ],
+    "financial_funding": [
+      "benefits",
+      "emergency assistance",
+      "medical travel",
+      "treatment",
+      "housing",
+      "education and training",
+      "community grants"
+    ],
+    "family_community": [
+      "youth",
+      "families",
+      "Elders",
+      "cultural support",
+      "community navigation"
+    ],
+    "practical_support": [
+      "transportation",
+      "food",
+      "identification",
+      "income navigation",
+      "employment and training"
+    ]
+  },
+  "records": [
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_ab_abif",
+      "record_type": "funding",
+      "organization": "Government of Alberta",
+      "program_name": "Aboriginal Business Investment Fund",
+      "categories": [
+        "financial_funding"
+      ],
+      "subcategories": [
+        "business"
+      ],
+      "description": "business",
+      "population_served": "Indigenous community-owned businesses in Alberta with shovel-ready capital projects.",
+      "indigenous_scope": "first_nations_specific_or_distinctions_based",
+      "governance_type": "not_stated",
+      "geography": "Alberta",
+      "province": "Alberta",
+      "city_community": "",
+      "service_area": "Alberta",
+      "delivery_modes": [],
+      "eligibility": "Indigenous community-owned businesses in Alberta with shovel-ready capital projects.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official program page or contact the administering organization.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.alberta.ca/aboriginal-business-investment-fund",
+      "funding": {
+        "purpose": "business",
+        "funding_type": "grant",
+        "amount": "CAD 150,000–750,000",
+        "status": "open",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "annual_intake",
+        "next_check_due": "2026-09-13"
+      },
+      "source": {
+        "title": "Aboriginal Business Investment Fund",
+        "authority": "Government of Alberta",
+        "url": "https://www.alberta.ca/aboriginal-business-investment-fund"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_ab_abif"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_federal_aep_business_opportunities",
+      "record_type": "funding",
+      "organization": "Indigenous Services Canada",
+      "program_name": "Aboriginal Entrepreneurship Program – Access to Business Opportunities",
+      "categories": [
+        "financial_funding"
+      ],
+      "subcategories": [
+        "business"
+      ],
+      "description": "business",
+      "population_served": "Eligible Indigenous organizations proposing regional or national entrepreneurship-support initiatives; not individual business startups.",
+      "indigenous_scope": "broader_indigenous",
+      "governance_type": "not_stated",
+      "geography": "Federal",
+      "province": "Canada-wide",
+      "city_community": "",
+      "service_area": "Federal",
+      "delivery_modes": [],
+      "eligibility": "Eligible Indigenous organizations proposing regional or national entrepreneurship-support initiatives; not individual business startups.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official program page or contact the administering organization.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.sac-isc.gc.ca/eng/1582037564226/1610797399865",
+      "funding": {
+        "purpose": "business",
+        "funding_type": "non_repayable_contribution",
+        "amount": "",
+        "status": "open",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "2026_call_for_proposals",
+        "next_check_due": "2026-09-13"
+      },
+      "source": {
+        "title": "Aboriginal Entrepreneurship Program – Access to Business Opportunities",
+        "authority": "Indigenous Services Canada",
+        "url": "https://www.sac-isc.gc.ca/eng/1582037564226/1610797399865"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_federal_aep_business_opportunities"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_federal_aep",
+      "record_type": "funding",
+      "organization": "Indigenous Services Canada",
+      "program_name": "Aboriginal Entrepreneurship Program – Access to Capital",
+      "categories": [
+        "financial_funding"
+      ],
+      "subcategories": [
+        "business"
+      ],
+      "description": "business",
+      "population_served": "Eligible Indigenous entrepreneurs, Indigenous-owned businesses, organizations, and associations through participating Indigenous Financial Institutions and Métis Capital Corporations.",
+      "indigenous_scope": "broader_indigenous",
+      "governance_type": "not_stated",
+      "geography": "Federal",
+      "province": "Canada-wide",
+      "city_community": "",
+      "service_area": "Federal",
+      "delivery_modes": [],
+      "eligibility": "Eligible Indigenous entrepreneurs, Indigenous-owned businesses, organizations, and associations through participating Indigenous Financial Institutions and Métis Capital Corporations.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official program page or contact the administering organization.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.sac-isc.gc.ca/eng/1375201178602/1610797286236",
+      "funding": {
+        "purpose": "business",
+        "funding_type": "business_financing_and_non_repayable_equity_contribution",
+        "amount": "Up to CAD 99,999 for an individual entrepreneur or CAD 250,000 for an eligible community business",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "ongoing_program",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Aboriginal Entrepreneurship Program – Access to Capital",
+        "authority": "Indigenous Services Canada",
+        "url": "https://www.sac-isc.gc.ca/eng/1375201178602/1610797286236"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_federal_aep"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:success-active-generation-employment",
+      "record_type": "service",
+      "organization": "S.U.C.C.E.S.S.",
+      "program_name": "Active Generation for Employment",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "training"
+      ],
+      "description": "Group occupational and job-search training with one-to-one coaching, follow-up and possible financial supports.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Metro Vancouver",
+      "province": "",
+      "city_community": "",
+      "service_area": "Metro Vancouver",
+      "delivery_modes": [],
+      "eligibility": "Unemployed or precariously employed Metro Vancouver residents age 55 or older who meet the published work-authorization and labour-program criteria and face employment barriers.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review eligibility and contact the program for current intake.",
+      "phone": "604-684-1628",
+      "email": "",
+      "website": "https://successbc.ca/age/services/active-generation-for-employment-age-for-job-seekers-age-55/",
+      "funding": null,
+      "source": {
+        "title": "Active Generation for Employment for Job Seekers",
+        "authority": "S.U.C.C.E.S.S.",
+        "url": "https://successbc.ca/age/services/active-generation-for-employment-age-for-job-seekers-age-55/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:success-active-generation-employment"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:sources-admin-accounting-works",
+      "record_type": "service",
+      "organization": "Sources Community Resource Centres",
+      "program_name": "Admin and Accounting Works",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "training"
+      ],
+      "description": "A free 12-week virtual program with office, bookkeeping, QuickBooks, job-search and work-practicum training.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "British Columbia; virtual program administered from Surrey",
+      "province": "",
+      "city_community": "",
+      "service_area": "British Columbia; virtual program administered from Surrey",
+      "delivery_modes": [],
+      "eligibility": "B.C. residents age 50 or older who meet the published work-status and immigration or work-authorization criteria.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact Empowered for Employment to confirm the next intake and complete screening.",
+      "phone": "604-262-4858",
+      "email": "",
+      "website": "https://www.sourcesbc.ca/our-services/empowered-for-employment/",
+      "funding": null,
+      "source": {
+        "title": "Empowered for Employment — Admin and Accounting Works",
+        "authority": "Sources Community Resource Centres",
+        "url": "https://www.sourcesbc.ca/our-services/empowered-for-employment/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:sources-admin-accounting-works"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:alouette-outreach-services",
+      "record_type": "service",
+      "organization": "Alouette Addictions Services Society",
+      "program_name": "Alouette Outreach Services",
+      "categories": [
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "advocacy navigation"
+      ],
+      "description": "Outreach for people experiencing or at risk of homelessness, with help replacing lost ID, accessing income assistance, navigating health and addiction services and finding housing or shelter.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Maple Ridge and Pitt Meadows",
+      "province": "",
+      "city_community": "",
+      "service_area": "Maple Ridge and Pitt Meadows",
+      "delivery_modes": [],
+      "eligibility": "People experiencing or at risk of homelessness in Maple Ridge or Pitt Meadows; contact the operator to confirm the appropriate outreach pathway.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call Alouette Addictions Services or use the current operator page to ask for Outreach Services.",
+      "phone": "604-467-5179",
+      "email": "",
+      "website": "https://alouette.org/programs-services/",
+      "funding": null,
+      "source": {
+        "title": "Programs & Services — Outreach Services",
+        "authority": "Alouette Addictions Services Society",
+        "url": "https://alouette.org/programs-services/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:alouette-outreach-services"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller:bc_crisis_supplement",
+      "record_type": "funding",
+      "organization": "Government of British Columbia",
+      "program_name": "B.C. Crisis Supplement",
+      "categories": [
+        "financial_funding"
+      ],
+      "subcategories": [
+        "emergency assistance"
+      ],
+      "description": "emergency_assistance",
+      "population_served": "Eligible recipients of income, disability or hardship assistance facing an unexpected emergency need within the program rules",
+      "indigenous_scope": "broader_program",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "Eligible recipients of income, disability or hardship assistance facing an unexpected emergency need within the program rules",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review the official criteria and contact the Ministry to request the supplement.",
+      "phone": "",
+      "email": "",
+      "website": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/crisis-supplement",
+      "funding": {
+        "purpose": "emergency_assistance",
+        "funding_type": "one_time_supplement",
+        "amount": "",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "Eligibility-based emergency assistance",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Crisis Supplement",
+        "authority": "Government of British Columbia",
+        "url": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/crisis-supplement"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "funding:miller:bc_crisis_supplement"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller:bc_moving_transport_living_supplement",
+      "record_type": "funding",
+      "organization": "Government of British Columbia",
+      "program_name": "B.C. Moving, Transportation and Living Costs Supplement",
+      "categories": [
+        "financial_funding",
+        "practical_support"
+      ],
+      "subcategories": [
+        "moving transportation"
+      ],
+      "description": "moving_transportation",
+      "population_served": "Eligible recipients of income, disability or hardship assistance with no other resources for a qualifying move or transportation need",
+      "indigenous_scope": "broader_program",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "Eligible recipients of income, disability or hardship assistance with no other resources for a qualifying move or transportation need",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Request Ministry approval before incurring costs unless the official exceptional-circumstances rules apply.",
+      "phone": "",
+      "email": "",
+      "website": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/moving-transportation-and-living-costs",
+      "funding": {
+        "purpose": "moving_transportation",
+        "funding_type": "supplement",
+        "amount": "",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "Continuous eligibility-based assistance",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Moving, Transportation, and Living Costs",
+        "authority": "Government of British Columbia",
+        "url": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/moving-transportation-and-living-costs"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "funding:miller:bc_moving_transport_living_supplement"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller:bc_security_deposit_supplement",
+      "record_type": "funding",
+      "organization": "Government of British Columbia",
+      "program_name": "B.C. Security Deposit Supplement",
+      "categories": [
+        "financial_funding",
+        "housing"
+      ],
+      "subcategories": [
+        "housing"
+      ],
+      "description": "housing",
+      "population_served": "Eligible recipients of income, disability or hardship assistance who need a security deposit for rental accommodation",
+      "indigenous_scope": "broader_program",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "Eligible recipients of income, disability or hardship assistance who need a security deposit for rental accommodation",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review the official eligibility conditions and request the supplement through the Ministry before paying the deposit.",
+      "phone": "",
+      "email": "",
+      "website": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/security-deposits",
+      "funding": {
+        "purpose": "housing",
+        "funding_type": "repayable_supplement",
+        "amount": "Up to the security deposit permitted by the program rules",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "Continuous eligibility-based assistance",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Security Deposits",
+        "authority": "Government of British Columbia",
+        "url": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/security-deposits"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "funding:miller:bc_security_deposit_supplement"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:bc-bus-pass-program",
+      "record_type": "service",
+      "organization": "Government of British Columbia",
+      "program_name": "BC Bus Pass Program",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "transportation"
+      ],
+      "description": "A reduced-cost annual transit pass for eligible low-income seniors and people receiving disability assistance.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "British Columbia, including TransLink service areas",
+      "province": "",
+      "city_community": "",
+      "service_area": "British Columbia, including TransLink service areas",
+      "delivery_modes": [],
+      "eligibility": "Specified low-income seniors and people receiving disability assistance.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Eligibility is limited to specified low-income seniors and people receiving disability assistance; use the official application path.",
+      "phone": "1-866-866-0800",
+      "email": "",
+      "website": "https://www2.gov.bc.ca/buspassprogram",
+      "funding": null,
+      "source": {
+        "title": "BC Bus Pass Program official information",
+        "authority": "Government of British Columbia",
+        "url": "https://www2.gov.bc.ca/buspassprogram"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:bc-bus-pass-program"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:1wfj0t6",
+      "record_type": "service",
+      "organization": "BC Housing",
+      "program_name": "BC Housing Housing Registry and regional listings",
+      "categories": [
+        "housing"
+      ],
+      "subcategories": [
+        "housing"
+      ],
+      "description": "Apply for subsidized housing and review regional nonprofit and co-operative housing listings.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Lower Mainland, including Fraser North",
+      "province": "",
+      "city_community": "",
+      "service_area": "Lower Mainland, including Fraser North",
+      "delivery_modes": [],
+      "eligibility": "Eligibility depends on the Housing Registry or individual housing provider.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Apply through the Housing Registry and review Zone 4 or Zone 5 listings.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.bchousing.org/housing-assistance/rental-housing/housing-listings/housing-listings-pdfs",
+      "funding": null,
+      "source": {
+        "title": "BC Housing Housing Registry and regional listings official information",
+        "authority": "BC Housing",
+        "url": "https://www.bchousing.org/housing-assistance/rental-housing/housing-listings/housing-listings-pdfs"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1wfj0t6"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller:mfa_canada_benefits_finder",
+      "record_type": "funding",
+      "organization": "Government of Canada",
+      "program_name": "Benefits Finder",
+      "categories": [
+        "financial_funding",
+        "practical_support"
+      ],
+      "subcategories": [
+        "benefit navigation",
+        "income benefits"
+      ],
+      "description": "income_benefits",
+      "population_served": "People seeking federal benefit navigation",
+      "indigenous_scope": "broader_program",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "People seeking federal benefit navigation",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review the official page and contact the administering organization if current intake or eligibility is unclear.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.canada.ca/en/services/benefits/finder.html",
+      "funding": {
+        "purpose": "income_benefits",
+        "funding_type": "assistance",
+        "amount": "",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Benefits Finder",
+        "authority": "Government of Canada",
+        "url": "https://www.canada.ca/en/services/benefits/finder.html"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_federal_benefits_finder",
+        "funding:miller:mfa_canada_benefits_finder"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:embers-bladerunners",
+      "record_type": "service",
+      "organization": "EMBERS",
+      "program_name": "BladeRunners",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "training"
+      ],
+      "description": "Career exploration, certified skills training, work experience and job coaching for young people seeking employment.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Lower Mainland, with current training listed in Surrey",
+      "province": "",
+      "city_community": "",
+      "service_area": "Lower Mainland, with current training listed in Surrey",
+      "delivery_modes": [],
+      "eligibility": "People age 15–29 who meet the program's published work-authorization, school-status, employment-search and language criteria.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact BladeRunners to confirm the next training and registration availability.",
+      "phone": "604-312-3098",
+      "email": "",
+      "website": "https://www.emberscanada.org/bladerunners",
+      "funding": null,
+      "source": {
+        "title": "BladeRunners",
+        "authority": "EMBERS",
+        "url": "https://www.emberscanada.org/bladerunners"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:embers-bladerunners"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:4sdrnc",
+      "record_type": "service",
+      "organization": "Progressive Housing Society",
+      "program_name": "Burnaby Housing and Outreach Hub",
+      "categories": [
+        "housing"
+      ],
+      "subcategories": [
+        "housing"
+      ],
+      "description": "Housing outreach, referrals and practical help for people experiencing or at risk of homelessness.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Burnaby",
+      "province": "",
+      "city_community": "",
+      "service_area": "Burnaby",
+      "delivery_modes": [],
+      "eligibility": "Contact the outreach team to discuss housing needs and program eligibility.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Outreach referral, phone, or in-person contact at 7836 6th Street, Monday to Friday, 9 a.m.–4 p.m.",
+      "phone": "604-522-9669",
+      "email": "",
+      "website": "https://progressivehousing.net/services/outreach/",
+      "funding": null,
+      "source": {
+        "title": "Burnaby Housing and Outreach Hub official information",
+        "authority": "Progressive Housing Society",
+        "url": "https://progressivehousing.net/services/outreach/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:4sdrnc"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:burnaby-outreach-resource-centres",
+      "record_type": "service",
+      "organization": "Burnaby Society to End Homelessness",
+      "program_name": "Burnaby Outreach Resource Centres",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "basic needs"
+      ],
+      "description": "Weekly outreach locations offering basic necessities and connections to social supports.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Burnaby",
+      "province": "",
+      "city_community": "",
+      "service_area": "Burnaby",
+      "delivery_modes": [],
+      "eligibility": "People seeking low-barrier practical necessities and social-service connections.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Weekly Wednesday and Thursday outreach locations provide basic necessities and social-service connections; confirm the current schedule on the City page.",
+      "phone": "604-902-3071",
+      "email": "",
+      "website": "https://www.burnaby.ca/services-and-payments/seniors-and-family-support/homelessness/outreach-and-intervention",
+      "funding": null,
+      "source": {
+        "title": "Burnaby Outreach Resource Centres official information",
+        "authority": "Burnaby Society to End Homelessness",
+        "url": "https://www.burnaby.ca/services-and-payments/seniors-and-family-support/homelessness/outreach-and-intervention"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:burnaby-outreach-resource-centres"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:burnaby-rent-bank",
+      "record_type": "service",
+      "organization": "Lower Mainland Purpose Society / BC Rent Bank",
+      "program_name": "Burnaby Rent Bank",
+      "categories": [
+        "housing"
+      ],
+      "subcategories": [
+        "housing"
+      ],
+      "description": "Housing-stability help that may include a low-fee short-term loan, referrals and support during a temporary financial crisis.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Burnaby",
+      "province": "",
+      "city_community": "",
+      "service_area": "Burnaby",
+      "delivery_modes": [],
+      "eligibility": "Burnaby renters facing a temporary financial crisis; the program confirms eligibility through its application process.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Apply through BC Rent Bank or contact the Burnaby Rent Bank.",
+      "phone": "778-727-1142",
+      "email": "",
+      "website": "https://bcrentbank.ca/contact/",
+      "funding": null,
+      "source": {
+        "title": "Burnaby Rent Bank contact and application information",
+        "authority": "BC Rent Bank",
+        "url": "https://bcrentbank.ca/contact/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:burnaby-rent-bank"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller:canada_disability_benefit",
+      "record_type": "funding",
+      "organization": "Government of Canada",
+      "program_name": "Canada Disability Benefit",
+      "categories": [
+        "financial_funding"
+      ],
+      "subcategories": [
+        "income benefits"
+      ],
+      "description": "income_benefits",
+      "population_served": "People aged 18 to 64 who meet the federal program's current eligibility requirements",
+      "indigenous_scope": "broader_program",
+      "governance_type": "not_stated",
+      "geography": "Canada",
+      "province": "Canada-wide",
+      "city_community": "",
+      "service_area": "Canada",
+      "delivery_modes": [],
+      "eligibility": "People aged 18 to 64 who meet the federal program's current eligibility requirements",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review eligibility and apply through the official Service Canada page online, by phone, in person or by form.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit/apply.html",
+      "funding": {
+        "purpose": "income_benefits",
+        "funding_type": "benefit",
+        "amount": "",
+        "status": "open",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "Applications accepted through the current federal benefit process",
+        "next_check_due": "2026-09-13"
+      },
+      "source": {
+        "title": "Canada Disability Benefit — Apply",
+        "authority": "Government of Canada",
+        "url": "https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit/apply.html"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "funding:miller:canada_disability_benefit"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_ab_productivity",
+      "record_type": "funding",
+      "organization": "Government of Alberta",
+      "program_name": "Canada-Alberta Productivity Grant",
+      "categories": [
+        "financial_funding",
+        "practical_support"
+      ],
+      "subcategories": [
+        "employment training"
+      ],
+      "description": "employment training",
+      "population_served": "Eligible Alberta employers, including First Nations and Métis Settlements, funding approved training for employees.",
+      "indigenous_scope": "first_nations_specific_or_distinctions_based",
+      "governance_type": "not_stated",
+      "geography": "Alberta",
+      "province": "Alberta",
+      "city_community": "",
+      "service_area": "Alberta",
+      "delivery_modes": [],
+      "eligibility": "Eligible Alberta employers, including First Nations and Métis Settlements, funding approved training for employees.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official program page or contact the administering organization.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.alberta.ca/canada-alberta-productivity-grant",
+      "funding": {
+        "purpose": "employment training",
+        "funding_type": "training_grant",
+        "amount": "Up to CAD 5,000 per employed trainee or CAD 10,000 per unemployed trainee; employer maximum CAD 100,000/year",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "ongoing_program",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Canada-Alberta Productivity Grant",
+        "authority": "Government of Alberta",
+        "url": "https://www.alberta.ca/canada-alberta-productivity-grant"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_ab_productivity"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller:mfa_community_workforce",
+      "record_type": "funding",
+      "organization": "Government of British Columbia / WorkBC",
+      "program_name": "Community Workforce Response Grant participant supports",
+      "categories": [
+        "financial_funding",
+        "practical_support"
+      ],
+      "subcategories": [
+        "employment training",
+        "training"
+      ],
+      "description": "training",
+      "population_served": "Participants in approved projects; applicants are eligible organizations",
+      "indigenous_scope": "broader_program",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "Participants in approved projects; applicants are eligible organizations",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review the official page and contact the administering organization if current intake or eligibility is unclear.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.workbc.ca/find-loans-and-grants/community/community-workforce-response-grant/whats-new",
+      "funding": {
+        "purpose": "training",
+        "funding_type": "assistance",
+        "amount": "",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Community Workforce Response Grant participant supports",
+        "authority": "Government of British Columbia / WorkBC",
+        "url": "https://www.workbc.ca/find-loans-and-grants/community/community-workforce-response-grant/whats-new"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_bc_community_workforce",
+        "funding:miller:mfa_community_workforce"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:disability-alliance-bc-direct-services",
+      "record_type": "service",
+      "organization": "Disability Alliance BC",
+      "program_name": "Disability Alliance BC Direct Services",
+      "categories": [
+        "financial_funding"
+      ],
+      "subcategories": [
+        "income benefits"
+      ],
+      "description": "Appointment-based one-to-one help with PWD and CPP-D applications, the Disability Tax Credit, related benefits and income-tax filing.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "British Columbia by phone or online; in-person appointments in Vancouver",
+      "province": "",
+      "city_community": "",
+      "service_area": "British Columbia by phone or online; in-person appointments in Vancouver",
+      "delivery_modes": [],
+      "eligibility": "People in B.C. seeking help with disability benefits or related programs; the PWD and CPP-D advocacy waitlists have program-specific prerequisites.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review the direct-services options and request an appointment; walk-ins are not offered and demand is high.",
+      "phone": "604-872-1278",
+      "email": "",
+      "website": "https://disabilityalliancebc.org/direct-services/",
+      "funding": null,
+      "source": {
+        "title": "Direct Services",
+        "authority": "Disability Alliance BC",
+        "url": "https://disabilityalliancebc.org/direct-services/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:disability-alliance-bc-direct-services"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:plan-institute-disability-planning-helpline",
+      "record_type": "service",
+      "organization": "Plan Institute",
+      "program_name": "Disability Planning Helpline",
+      "categories": [
+        "financial_funding"
+      ],
+      "subcategories": [
+        "income benefits"
+      ],
+      "description": "Free one-to-one help with disability benefits and planning, including the Canada Disability Benefit, Disability Tax Credit and Registered Disability Savings Plan.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Canada by phone or online",
+      "province": "",
+      "city_community": "",
+      "service_area": "Canada by phone or online",
+      "delivery_modes": [],
+      "eligibility": "Anyone with a disability-related planning or benefit question, including disabled people, family members, friends and professionals.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call, email or use the online form; the operator notes that response times can be longer during high demand.",
+      "phone": "1-844-311-7526",
+      "email": "",
+      "website": "https://planinstitute.ca/helpline/",
+      "funding": null,
+      "source": {
+        "title": "Disability Planning Helpline",
+        "authority": "Plan Institute",
+        "url": "https://planinstitute.ca/helpline/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:plan-institute-disability-planning-helpline"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:rgor6n",
+      "record_type": "service",
+      "organization": "Progressive Housing Society",
+      "program_name": "Douglas Road Emergency Shelter",
+      "categories": [
+        "housing"
+      ],
+      "subcategories": [
+        "housing"
+      ],
+      "description": "A Burnaby emergency shelter generally operating on a first-come, first-served basis.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Burnaby",
+      "province": "",
+      "city_community": "",
+      "service_area": "Burnaby",
+      "delivery_modes": [],
+      "eligibility": "Confirm current intake and space directly with the shelter.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "First come, first served; confirm space directly with the shelter.",
+      "phone": "604-522-9669",
+      "email": "",
+      "website": "https://progressivehousing.net/services/shelters/emergency-shelter/",
+      "funding": null,
+      "source": {
+        "title": "Douglas Road Emergency Shelter official information",
+        "authority": "Progressive Housing Society",
+        "url": "https://progressivehousing.net/services/shelters/emergency-shelter/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:rgor6n"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_ab_epp",
+      "record_type": "funding",
+      "organization": "Government of Alberta",
+      "program_name": "Employment Partnerships Program",
+      "categories": [
+        "financial_funding",
+        "practical_support"
+      ],
+      "subcategories": [
+        "employment training"
+      ],
+      "description": "employment training",
+      "population_served": "Eligible Indigenous communities and organizations connecting Indigenous people to employment.",
+      "indigenous_scope": "first_nations_specific_or_distinctions_based",
+      "governance_type": "not_stated",
+      "geography": "Alberta",
+      "province": "Alberta",
+      "city_community": "",
+      "service_area": "Alberta",
+      "delivery_modes": [],
+      "eligibility": "Eligible Indigenous communities and organizations connecting Indigenous people to employment.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official program page or contact the administering organization.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.alberta.ca/employment-partnerships-program",
+      "funding": {
+        "purpose": "employment training",
+        "funding_type": "grant_or_benefit",
+        "amount": "",
+        "status": "closed",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "annual_intake",
+        "next_check_due": "2026-12-05"
+      },
+      "source": {
+        "title": "Employment Partnerships Program",
+        "authority": "Government of Alberta",
+        "url": "https://www.alberta.ca/employment-partnerships-program"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "expired_closed",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_ab_epp"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_federal_pss_general",
+      "record_type": "funding",
+      "organization": "Government of Canada",
+      "program_name": "Federal Indigenous Funding Programs Directory",
+      "categories": [
+        "financial_funding",
+        "practical_support"
+      ],
+      "subcategories": [
+        "funding navigation"
+      ],
+      "description": "funding navigation",
+      "population_served": "Varies by program.",
+      "indigenous_scope": "broader_indigenous",
+      "governance_type": "not_stated",
+      "geography": "Federal",
+      "province": "Canada-wide",
+      "city_community": "",
+      "service_area": "Federal",
+      "delivery_modes": [],
+      "eligibility": "Varies by program.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official program page or contact the administering organization.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.canada.ca/en/services/indigenous-peoples/funding-for-indigenous-peoples.html",
+      "funding": {
+        "purpose": "funding navigation",
+        "funding_type": "navigation",
+        "amount": "",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "directory",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Federal Indigenous Funding Programs Directory",
+        "authority": "Government of Canada",
+        "url": "https://www.canada.ca/en/services/indigenous-peoples/funding-for-indigenous-peoples.html"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_federal_pss_general"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_bc_first_citizens",
+      "record_type": "funding",
+      "organization": "Government of British Columbia",
+      "program_name": "First Citizens Fund",
+      "categories": [
+        "financial_funding",
+        "family_community"
+      ],
+      "subcategories": [
+        "education culture economic development"
+      ],
+      "description": "education culture economic development",
+      "population_served": "Programs are delivered through Indigenous partner organizations; eligibility varies by funded initiative.",
+      "indigenous_scope": "first_nations_specific_or_distinctions_based",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "Programs are delivered through Indigenous partner organizations; eligibility varies by funded initiative.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official program page or contact the administering organization.",
+      "phone": "",
+      "email": "",
+      "website": "https://www2.gov.bc.ca/gov/content/governments/indigenous-people/first-citizens-fund",
+      "funding": {
+        "purpose": "education culture economic development",
+        "funding_type": "grant_or_benefit",
+        "amount": "",
+        "status": "verify_before_applying",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "perpetual_fund_programs_vary",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "First Citizens Fund",
+        "authority": "Government of British Columbia",
+        "url": "https://www2.gov.bc.ca/gov/content/governments/indigenous-people/first-citizens-fund"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_bc_first_citizens"
+      ]
+    },
+    {
+      "canonical_resource_id": "fns_sk_sha_fnm_health_services",
+      "record_type": "service",
+      "organization": "Saskatchewan Health Authority",
+      "program_name": "First Nations and Métis Health Services",
+      "categories": [
+        "healthcare",
+        "housing",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "patient navigation",
+        "cultural support",
+        "elder support",
+        "transportation",
+        "discharge navigation",
+        "housing",
+        "family support"
+      ],
+      "description": "",
+      "population_served": "First Nations and Métis patients and families",
+      "indigenous_scope": "broader_indigenous",
+      "governance_type": "provincial_health_authority_indigenous_support_role",
+      "geography": "Named Saskatchewan hospital and urgent-care sites",
+      "province": "Saskatchewan",
+      "city_community": "Regina, Saskatoon, Prince Albert and Broadview",
+      "service_area": "Named Saskatchewan hospital and urgent-care sites",
+      "delivery_modes": [
+        "in_person",
+        "regional"
+      ],
+      "eligibility": "Patients and families at listed sites",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the operator using the public service page.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/indigenous-health/first-nations-and-metis-health-services",
+      "funding": null,
+      "source": {
+        "title": "First Nations and Métis Health Services",
+        "authority": "Saskatchewan Health Authority",
+        "url": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/indigenous-health/first-nations-and-metis-health-services"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "fns_sk_sha_fnm_health_services"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_bc_fncebf",
+      "record_type": "funding",
+      "organization": "Government of British Columbia",
+      "program_name": "First Nations Clean Energy Business Fund – Equity Funding",
+      "categories": [
+        "financial_funding"
+      ],
+      "subcategories": [
+        "economic development"
+      ],
+      "description": "economic development",
+      "population_served": "Eligible Indigenous governing bodies and authorized Indigenous organizations for community-benefit clean-energy projects.",
+      "indigenous_scope": "first_nations_specific_or_distinctions_based",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "Eligible Indigenous governing bodies and authorized Indigenous organizations for community-benefit clean-energy projects.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official program page or contact the administering organization.",
+      "phone": "",
+      "email": "",
+      "website": "https://communityclimatefunding.gov.bc.ca/funding/08e10ba0-07c1-ec11-983f-000d3a09e39f/",
+      "funding": {
+        "purpose": "economic development",
+        "funding_type": "capital_grant",
+        "amount": "Up to CAD 500,000",
+        "status": "upcoming",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "periodic_intake",
+        "next_check_due": "2026-09-13"
+      },
+      "source": {
+        "title": "First Nations Clean Energy Business Fund – Equity Funding",
+        "authority": "Government of British Columbia",
+        "url": "https://communityclimatefunding.gov.bc.ca/funding/08e10ba0-07c1-ec11-983f-000d3a09e39f/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_bc_fncebf"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_ab_fndf",
+      "record_type": "funding",
+      "organization": "Government of Alberta",
+      "program_name": "First Nations Development Fund",
+      "categories": [
+        "financial_funding",
+        "family_community"
+      ],
+      "subcategories": [
+        "community development"
+      ],
+      "description": "community development",
+      "population_served": "Recognized First Nations with reserve land in Alberta that have signed a grant agreement.",
+      "indigenous_scope": "first_nations_specific_or_distinctions_based",
+      "governance_type": "not_stated",
+      "geography": "Alberta",
+      "province": "Alberta",
+      "city_community": "",
+      "service_area": "Alberta",
+      "delivery_modes": [],
+      "eligibility": "Recognized First Nations with reserve land in Alberta that have signed a grant agreement.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official program page or contact the administering organization.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.alberta.ca/indigenous-funding-resources",
+      "funding": {
+        "purpose": "community development",
+        "funding_type": "grant",
+        "amount": "",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "ongoing_program",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "First Nations Development Fund",
+        "authority": "Government of Alberta",
+        "url": "https://www.alberta.ca/indigenous-funding-resources"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_ab_fndf"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_fnha_health_benefits",
+      "record_type": "funding",
+      "organization": "First Nations Health Authority",
+      "program_name": "First Nations Health Benefits",
+      "categories": [
+        "financial_funding",
+        "healthcare"
+      ],
+      "subcategories": [
+        "health"
+      ],
+      "description": "health",
+      "population_served": "Eligible First Nations people with Indian status living in B.C.; infant eligibility is described by FNHA.",
+      "indigenous_scope": "first_nations_specific_or_distinctions_based",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "Eligible First Nations people with Indian status living in B.C.; infant eligibility is described by FNHA.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official program page or contact the administering organization.",
+      "phone": "",
+      "email": "",
+      "website": "https://fnha.ca/benefits/overview/",
+      "funding": {
+        "purpose": "health",
+        "funding_type": "health_benefit",
+        "amount": "",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "recurring",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "First Nations Health Benefits",
+        "authority": "First Nations Health Authority",
+        "url": "https://fnha.ca/benefits/overview/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_fnha_health_benefits"
+      ]
+    },
+    {
+      "canonical_resource_id": "fns_sk_fnho",
+      "record_type": "service",
+      "organization": "First Nations Health Ombudsperson Office",
+      "program_name": "First Nations Health Ombudsperson Office",
+      "categories": [
+        "healthcare",
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "advocacy",
+        "patient safety",
+        "complaints resolution",
+        "patient navigation"
+      ],
+      "description": "",
+      "population_served": "Saskatchewan First Nations individuals and communities",
+      "indigenous_scope": "first_nations_specific",
+      "governance_type": "first_nations_governed_accountability_office",
+      "geography": "Saskatchewan First Nations individuals and communities",
+      "province": "Saskatchewan",
+      "city_community": "Provincewide",
+      "service_area": "Saskatchewan First Nations individuals and communities",
+      "delivery_modes": [
+        "phone",
+        "email",
+        "in_person"
+      ],
+      "eligibility": "Individual or legal guardian, or another person with consent",
+      "cost": "Free",
+      "referral_requirement": "",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-833-512-0651",
+      "email": "Intake@fnhoo.ca",
+      "website": "https://fnhoo.ca/faq/",
+      "funding": null,
+      "source": {
+        "title": "First Nations Health Ombudsperson Office",
+        "authority": "First Nations Health Ombudsperson Office",
+        "url": "https://fnhoo.ca/faq/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "fns_sk_fnho"
+      ]
+    },
+    {
+      "canonical_resource_id": "fns_bc_fnha_virtual_doctor",
+      "record_type": "service",
+      "organization": "First Nations Health Authority",
+      "program_name": "First Nations Virtual Doctor of the Day",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "primary care",
+        "patient navigation",
+        "virtual support"
+      ],
+      "description": "",
+      "population_served": "First Nations people and their families living in B.C.",
+      "indigenous_scope": "first_nations_specific",
+      "governance_type": "first_nations_governed_health_authority",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "Provincewide",
+      "service_area": "British Columbia",
+      "delivery_modes": [
+        "virtual",
+        "phone"
+      ],
+      "eligibility": "First Nations people and families in B.C.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-855-344-3800",
+      "email": "",
+      "website": "https://fnha.ca/services-and-support/access-and-support/health-and-virtual-services/virtual-doctor-how-it-works/",
+      "funding": null,
+      "source": {
+        "title": "First Nations Virtual Doctor of the Day",
+        "authority": "First Nations Health Authority",
+        "url": "https://fnha.ca/services-and-support/access-and-support/health-and-virtual-services/virtual-doctor-how-it-works/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "fns_bc_fnha_virtual_doctor"
+      ]
+    },
+    {
+      "canonical_resource_id": "fns_bc_fnha_virtual_substance_use",
+      "record_type": "service",
+      "organization": "First Nations Health Authority",
+      "program_name": "First Nations Virtual Substance Use and Psychiatry Service",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "substance use",
+        "opioid agonist treatment",
+        "mental health",
+        "virtual support"
+      ],
+      "description": "",
+      "population_served": "First Nations people and their families living in B.C.",
+      "indigenous_scope": "first_nations_specific",
+      "governance_type": "first_nations_governed_health_authority",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "Provincewide",
+      "service_area": "British Columbia",
+      "delivery_modes": [
+        "virtual",
+        "phone"
+      ],
+      "eligibility": "Referral from a health or wellness provider, Knowledge Keeper or Elder; Virtual Doctor of the Day can assist",
+      "cost": "No cost",
+      "referral_requirement": "Referral required",
+      "access": "Referral required",
+      "phone": "1-833-456-7655 (provider/referral support)",
+      "email": "",
+      "website": "https://fnha.ca/services-and-support/access-and-support/health-and-virtual-services/virtual-substance-use-and-psychiatry-service/",
+      "funding": null,
+      "source": {
+        "title": "First Nations Virtual Substance Use and Psychiatry Service",
+        "authority": "First Nations Health Authority",
+        "url": "https://fnha.ca/services-and-support/access-and-support/health-and-virtual-services/virtual-substance-use-and-psychiatry-service/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "fns_bc_fnha_virtual_substance_use"
+      ]
+    },
+    {
+      "canonical_resource_id": "fns_bc_fnha_mental_wellness_counselling",
+      "record_type": "service",
+      "organization": "First Nations Health Authority",
+      "program_name": "FNHA Mental Health and Wellness Supports",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "mental health",
+        "cultural support",
+        "traditional wellness"
+      ],
+      "description": "",
+      "population_served": "Eligible First Nations clients in B.C.; some listed crisis supports serve broader Indigenous populations",
+      "indigenous_scope": "first_nations_specific",
+      "governance_type": "first_nations_governed_health_authority",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "Provincewide",
+      "service_area": "British Columbia",
+      "delivery_modes": [
+        "in_person",
+        "virtual"
+      ],
+      "eligibility": "Coverage eligibility varies by benefit/provider",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-855-550-5454",
+      "email": "",
+      "website": "https://fnha.ca/services-and-support/preventative-care/mental-health-and-wellness/mental-health-and-wellness-supports/",
+      "funding": null,
+      "source": {
+        "title": "FNHA Mental Health and Wellness Supports",
+        "authority": "First Nations Health Authority",
+        "url": "https://fnha.ca/services-and-support/preventative-care/mental-health-and-wellness/mental-health-and-wellness-supports/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "fns_bc_fnha_mental_wellness_counselling"
+      ]
+    },
+    {
+      "canonical_resource_id": "shared_fnha_treatment_centres",
+      "record_type": "service",
+      "organization": "First Nations Health Authority",
+      "program_name": "FNHA-funded Treatment Centres and Recovery Services",
+      "categories": [
+        "healthcare",
+        "housing"
+      ],
+      "subcategories": [
+        "cultural support",
+        "detox",
+        "recovery housing",
+        "substance use",
+        "treatment"
+      ],
+      "description": "Official navigation to First Nations-focused residential, outpatient, withdrawal-management and recovery services in British Columbia.",
+      "population_served": "Eligibility varies by centre; the official directory identifies First Nations, Inuit, Indigenous youth and other program-specific populations.",
+      "indigenous_scope": "first_nations_specific_or_program_defined",
+      "governance_type": "first_nations_governed_health_authority",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [
+        "in_person",
+        "residential",
+        "outpatient"
+      ],
+      "eligibility": "Review the current centre description and referral package; eligibility and intake differ by program.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official directory and current referral package, then contact the selected program or FNHA.",
+      "phone": "1-866-913-0033",
+      "email": "",
+      "website": "https://fnha.ca/services-and-support/access-and-support/health-and-virtual-services/treatment-centres/",
+      "funding": null,
+      "source": {
+        "title": "Treatment centres",
+        "authority": "First Nations Health Authority",
+        "url": "https://fnha.ca/services-and-support/access-and-support/health-and-virtual-services/treatment-centres/"
+      },
+      "last_verified": "2026-09-07",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "shared_fnha_treatment_centres"
+      ]
+    },
+    {
+      "canonical_resource_id": "fns_ab_four_winds_navigation",
+      "record_type": "service",
+      "organization": "Alberta Health Services / Four Winds team",
+      "program_name": "Four Winds South Zone Indigenous Patient Navigation",
+      "categories": [
+        "healthcare",
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "patient navigation",
+        "discharge navigation",
+        "cultural support",
+        "advocacy"
+      ],
+      "description": "",
+      "population_served": "Indigenous patients and families",
+      "indigenous_scope": "broader_indigenous",
+      "governance_type": "indigenous_led_team_within_provincial_health_system",
+      "geography": "South Zone",
+      "province": "Alberta",
+      "city_community": "Lethbridge, Cardston, Pincher Creek and Fort Macleod",
+      "service_area": "South Zone",
+      "delivery_modes": [
+        "in_person",
+        "regional"
+      ],
+      "eligibility": "Patient/family self-contact or provider referral",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the operator using the public service page.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.albertahealthservices.ca/news/Page17093.aspx",
+      "funding": null,
+      "source": {
+        "title": "Four Winds South Zone Indigenous Patient Navigation",
+        "authority": "Alberta Health Services / Four Winds team",
+        "url": "https://www.albertahealthservices.ca/news/Page17093.aspx"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "fns_ab_four_winds_navigation"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:88k31t",
+      "record_type": "service",
+      "organization": "Fraser Health",
+      "program_name": "Fraser Health Indigenous Health Liaisons",
+      "categories": [
+        "family_community",
+        "healthcare",
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "advocacy navigation",
+        "cultural support",
+        "discharge navigation",
+        "family support",
+        "patient navigation"
+      ],
+      "description": "Health-system navigation, discharge support, cultural connections and care-planning support for Indigenous clients and families.",
+      "population_served": "People who self-identify as Indigenous or Aboriginal and their families",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser Health region",
+      "province": "British Columbia",
+      "city_community": "Fraser Health region",
+      "service_area": "Fraser Health region",
+      "delivery_modes": [],
+      "eligibility": "People who self-identify as Indigenous or Aboriginal and their families; referrals may also come from friends or health professionals.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Self-, family-, friend-, or professional referral through the liaison line; available daily 8:30 a.m.–8 p.m.",
+      "phone": "1-866-766-6960",
+      "email": "",
+      "website": "https://www.fraserhealth.ca/health-topics-a-to-z/indigenous-health/indigenous-health-liaisons",
+      "funding": null,
+      "source": {
+        "title": "Fraser Health Indigenous Health Liaisons official information",
+        "authority": "Fraser Health",
+        "url": "https://www.fraserhealth.ca/health-topics-a-to-z/indigenous-health/indigenous-health-liaisons"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "curated:88k31t",
+        "fns_bc_fraser_indigenous_health_liaisons"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:handydart-and-handycard",
+      "record_type": "service",
+      "organization": "TransLink",
+      "program_name": "HandyDART and HandyCard",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "transportation"
+      ],
+      "description": "Accessible transit programs for people whose disabilities affect use of conventional transit; HandyCard also enables concession fares, attendant travel and access to discounted TaxiSaver coupons.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Metro Vancouver",
+      "province": "",
+      "city_community": "",
+      "service_area": "Metro Vancouver",
+      "delivery_modes": [],
+      "eligibility": "People whose physical, sensory or cognitive disability prevents independent use of conventional transit for some or all trips.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Apply for HandyDART or HandyCard; eligible HandyCard members can purchase TaxiSaver coupons through TransLink.",
+      "phone": "604-953-3680",
+      "email": "",
+      "website": "https://www.translink.ca/rider-guide/transit-accessibility/handydart",
+      "funding": null,
+      "source": {
+        "title": "HandyDART and HandyCard official information",
+        "authority": "TransLink",
+        "url": "https://www.translink.ca/rider-guide/transit-accessibility/handydart"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:handydart-and-handycard"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_bc_health_bursary",
+      "record_type": "funding",
+      "organization": "StudentAid BC",
+      "program_name": "Health Programs – Indigenous Student Recruitment Bursary",
+      "categories": [
+        "financial_funding"
+      ],
+      "subcategories": [
+        "education"
+      ],
+      "description": "education",
+      "population_served": "Eligible self-declared Indigenous students in listed priority health programs.",
+      "indigenous_scope": "first_nations_specific_or_distinctions_based",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "Eligible self-declared Indigenous students in listed priority health programs.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official program page or contact the administering organization.",
+      "phone": "",
+      "email": "",
+      "website": "https://www2.gov.bc.ca/gov/content/education-training/post-secondary-education/aboriginal-education-training/information-for-aboriginal-students",
+      "funding": {
+        "purpose": "education",
+        "funding_type": "bursary",
+        "amount": "CAD 5,000 per program year",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "recurring",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Health Programs – Indigenous Student Recruitment Bursary",
+        "authority": "StudentAid BC",
+        "url": "https://www2.gov.bc.ca/gov/content/education-training/post-secondary-education/aboriginal-education-training/information-for-aboriginal-students"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_bc_health_bursary"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:hope-air-travel-support",
+      "record_type": "service",
+      "organization": "Hope Air",
+      "program_name": "Hope Air travel support",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "transportation"
+      ],
+      "description": "Free flights and related travel supports for people who must travel long distances to provincially insured specialist appointments and face financial barriers.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Canada, including British Columbia",
+      "province": "",
+      "city_community": "",
+      "service_area": "Canada, including British Columbia",
+      "delivery_modes": [],
+      "eligibility": "People with a confirmed, provincially covered specialist appointment requiring long-distance travel who demonstrate financial need; detailed travel requirements apply.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Apply online once the appointment is confirmed or call for help completing the application.",
+      "phone": "1-877-346-4673",
+      "email": "",
+      "website": "https://hopeair.ca/travel-support-services/",
+      "funding": null,
+      "source": {
+        "title": "Travel Supports & Resources",
+        "authority": "Hope Air",
+        "url": "https://hopeair.ca/travel-support-services/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:hope-air-travel-support"
+      ]
+    },
+    {
+      "canonical_resource_id": "shared_isc_hope_for_wellness",
+      "record_type": "service",
+      "organization": "Indigenous Services Canada / Hope for Wellness",
+      "program_name": "Hope for Wellness Helpline",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "crisis support",
+        "mental health",
+        "patient navigation"
+      ],
+      "description": "Immediate, culturally aware emotional support, crisis intervention and help finding other wellness supports.",
+      "population_served": "First Nations, Inuit and Métis people across Canada",
+      "indigenous_scope": "broader_indigenous",
+      "governance_type": "indigenous_crisis_service_federally_supported",
+      "geography": "Canada-wide",
+      "province": "Canada-wide",
+      "city_community": "",
+      "service_area": "Canada-wide",
+      "delivery_modes": [
+        "phone",
+        "virtual"
+      ],
+      "eligibility": "Available to Indigenous people across Canada.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 1-855-242-3310 or use the online chat; urgent danger still requires local emergency services.",
+      "phone": "1-855-242-3310",
+      "email": "",
+      "website": "https://www.sac-isc.gc.ca/eng/1576089519527/1576089566478",
+      "funding": null,
+      "source": {
+        "title": "Hope for Wellness Helpline",
+        "authority": "Indigenous Services Canada",
+        "url": "https://www.sac-isc.gc.ca/eng/1576089519527/1576089566478"
+      },
+      "last_verified": "2026-09-07",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "shared_isc_hope_for_wellness"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:identification-supplement",
+      "record_type": "service_and_funding",
+      "organization": "Government of British Columbia",
+      "program_name": "Identification Supplement",
+      "categories": [
+        "financial_funding",
+        "practical_support"
+      ],
+      "subcategories": [
+        "identification"
+      ],
+      "description": "Help with eligible direct costs of obtaining identification documents for people receiving specified B.C. assistance.",
+      "population_served": "Eligible recipients of B.C. income, disability, or hardship assistance",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "Specified recipients of B.C. income, disability or hardship assistance.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Eligible recipients can request help with direct identification-document costs through the assistance program.",
+      "phone": "1-866-866-0800",
+      "email": "",
+      "website": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/identification-supplement",
+      "funding": {
+        "purpose": "identification",
+        "funding_type": "assistance",
+        "amount": "",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Identification Supplement official information",
+        "authority": "Government of British Columbia",
+        "url": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/identification-supplement"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "funding:miller:mfa_bc_id_supplement",
+        "support:identification-supplement"
+      ]
+    },
+    {
+      "canonical_resource_id": "fns_sk_indigenous_birth_support",
+      "record_type": "service",
+      "organization": "Saskatchewan Health Authority",
+      "program_name": "Indigenous Birth Support Worker Program",
+      "categories": [
+        "healthcare",
+        "legal_rights",
+        "family_community"
+      ],
+      "subcategories": [
+        "maternal birth support",
+        "advocacy",
+        "cultural support",
+        "family support"
+      ],
+      "description": "",
+      "population_served": "First Nations, Métis and Inuit women planning to give birth in Saskatoon",
+      "indigenous_scope": "broader_indigenous",
+      "governance_type": "provincial_health_authority_indigenous_support_role",
+      "geography": "Jim Pattison Children’s Hospital Maternal Care Centre",
+      "province": "Saskatchewan",
+      "city_community": "Saskatoon",
+      "service_area": "Jim Pattison Children’s Hospital Maternal Care Centre",
+      "delivery_modes": [
+        "in_person"
+      ],
+      "eligibility": "Voluntary; referral or self-contact; first-come, first-served",
+      "cost": "Free",
+      "referral_requirement": "",
+      "access": "Contact the operator using the public service page.",
+      "phone": "306-514-7978",
+      "email": "BirthSupportJPCH@saskhealthauthority.ca",
+      "website": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/indigenous-health/maternal-care-centre-indigenous-birth-support-worker-jim-pattison-childrens-hospital",
+      "funding": null,
+      "source": {
+        "title": "Indigenous Birth Support Worker Program",
+        "authority": "Saskatchewan Health Authority",
+        "url": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/indigenous-health/maternal-care-centre-indigenous-birth-support-worker-jim-pattison-childrens-hospital"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "fns_sk_indigenous_birth_support"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_sk_business_directory",
+      "record_type": "funding",
+      "organization": "Government of Saskatchewan",
+      "program_name": "Indigenous Business Funding Programs",
+      "categories": [
+        "financial_funding"
+      ],
+      "subcategories": [
+        "business"
+      ],
+      "description": "business",
+      "population_served": "Varies by listed Indigenous business-financing program.",
+      "indigenous_scope": "first_nations_specific_or_distinctions_based",
+      "governance_type": "not_stated",
+      "geography": "Saskatchewan",
+      "province": "Saskatchewan",
+      "city_community": "",
+      "service_area": "Saskatchewan",
+      "delivery_modes": [],
+      "eligibility": "Varies by listed Indigenous business-financing program.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official program page or contact the administering organization.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.saskatchewan.ca/business/first-nations-metis-and-northern-community-businesses/economic-development/indigenous-business-funding-programs",
+      "funding": {
+        "purpose": "business",
+        "funding_type": "funding_navigation",
+        "amount": "",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "directory",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Indigenous Business Funding Programs",
+        "authority": "Government of Saskatchewan",
+        "url": "https://www.saskatchewan.ca/business/first-nations-metis-and-northern-community-businesses/economic-development/indigenous-business-funding-programs"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_sk_business_directory"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_ab_ietp",
+      "record_type": "funding",
+      "organization": "Government of Alberta",
+      "program_name": "Indigenous Employment Training Partnerships",
+      "categories": [
+        "financial_funding",
+        "practical_support"
+      ],
+      "subcategories": [
+        "employment training"
+      ],
+      "description": "employment training",
+      "population_served": "Eligible Indigenous organizations and partners proposing training-to-employment projects.",
+      "indigenous_scope": "first_nations_specific_or_distinctions_based",
+      "governance_type": "not_stated",
+      "geography": "Alberta",
+      "province": "Alberta",
+      "city_community": "",
+      "service_area": "Alberta",
+      "delivery_modes": [],
+      "eligibility": "Eligible Indigenous organizations and partners proposing training-to-employment projects.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official program page or contact the administering organization.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.alberta.ca/indigenous-employment-training-partnerships-program",
+      "funding": {
+        "purpose": "employment training",
+        "funding_type": "grant_or_contribution",
+        "amount": "",
+        "status": "contact_to_confirm",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "unknown_verify_program_page",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Indigenous Employment Training Partnerships",
+        "authority": "Government of Alberta",
+        "url": "https://www.alberta.ca/indigenous-employment-training-partnerships-program"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_ab_ietp"
+      ]
+    },
+    {
+      "canonical_resource_id": "fns_bc_surrey_indigenous_maternal_liaison",
+      "record_type": "service",
+      "organization": "Fraser Health",
+      "program_name": "Indigenous Maternal Liaison",
+      "categories": [
+        "healthcare",
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "maternal birth support",
+        "patient navigation",
+        "cultural support",
+        "advocacy"
+      ],
+      "description": "",
+      "population_served": "People who self-identify as Indigenous or Aboriginal",
+      "indigenous_scope": "broader_indigenous",
+      "governance_type": "provincial_health_authority_indigenous_support_role",
+      "geography": "Surrey Memorial Hospital",
+      "province": "British Columbia",
+      "city_community": "Surrey",
+      "service_area": "Surrey Memorial Hospital",
+      "delivery_modes": [
+        "in_person"
+      ],
+      "eligibility": "Self-referral accepted",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the operator using the public service page.",
+      "phone": "236-332-7615",
+      "email": "",
+      "website": "https://www.fraserhealth.ca/health-topics-a-to-z/indigenous-health/Indigenous-maternal-liaison",
+      "funding": null,
+      "source": {
+        "title": "Indigenous Maternal Liaison",
+        "authority": "Fraser Health",
+        "url": "https://www.fraserhealth.ca/health-topics-a-to-z/indigenous-health/Indigenous-maternal-liaison"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "fns_bc_surrey_indigenous_maternal_liaison"
+      ]
+    },
+    {
+      "canonical_resource_id": "fns_bc_fraser_indigenous_mental_health_liaisons",
+      "record_type": "service",
+      "organization": "Fraser Health",
+      "program_name": "Indigenous Mental Health Liaison Program",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "patient navigation",
+        "cultural support"
+      ],
+      "description": "",
+      "population_served": "Indigenous people in the Fraser Health region",
+      "indigenous_scope": "broader_indigenous",
+      "governance_type": "provincial_health_authority_indigenous_support_role",
+      "geography": "Fraser Health region",
+      "province": "British Columbia",
+      "city_community": "Surrey, Maple Ridge/Coquitlam, Abbotsford/Mission, Chilliwack, Hope/Agassiz",
+      "service_area": "Fraser Health region",
+      "delivery_modes": [
+        "in_person",
+        "regional"
+      ],
+      "eligibility": "See regional service page",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-833-866-6478",
+      "email": "",
+      "website": "https://www.fraserhealth.ca/Service-Directory/Services/mental-health-and-substance-use/mental-health---community-services/aboriginal-mental-health-liaisons",
+      "funding": null,
+      "source": {
+        "title": "Indigenous Mental Health Liaison Program",
+        "authority": "Fraser Health",
+        "url": "https://www.fraserhealth.ca/Service-Directory/Services/mental-health-and-substance-use/mental-health---community-services/aboriginal-mental-health-liaisons"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "fns_bc_fraser_indigenous_mental_health_liaisons"
+      ]
+    },
+    {
+      "canonical_resource_id": "fns_bc_surrey_indigenous_primary_health_clinic",
+      "record_type": "service",
+      "organization": "Fraser Region Aboriginal Friendship Centre Association / Fraser Health",
+      "program_name": "Indigenous Primary Health and Wellness Clinic (FRAFCA)",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "primary care",
+        "traditional wellness",
+        "cultural support",
+        "patient navigation"
+      ],
+      "description": "",
+      "population_served": "Métis, First Nations, Inuit and self-identifying Indigenous people",
+      "indigenous_scope": "broader_indigenous",
+      "governance_type": "indigenous_community_organization_health_authority_partnership",
+      "geography": "Surrey and outreach to Kwikwetlem, Katzie and Tsawwassen First Nations and Spirit of the Children",
+      "province": "British Columbia",
+      "city_community": "Surrey",
+      "service_area": "Surrey and outreach to Kwikwetlem, Katzie and Tsawwassen First Nations and Spirit of the Children",
+      "delivery_modes": [
+        "in_person",
+        "outreach"
+      ],
+      "eligibility": "Client self-referrals accepted",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the operator using the public service page.",
+      "phone": "604-283-3293",
+      "email": "",
+      "website": "https://www.fraserhealth.ca/Service-Directory/Service-at-Location/A/5/indigenous-primary-health-and-wellness-home---indigenous-health",
+      "funding": null,
+      "source": {
+        "title": "Indigenous Primary Health and Wellness Clinic (FRAFCA)",
+        "authority": "Fraser Region Aboriginal Friendship Centre Association / Fraser Health",
+        "url": "https://www.fraserhealth.ca/Service-Directory/Service-at-Location/A/5/indigenous-primary-health-and-wellness-home---indigenous-health"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "fns_bc_surrey_indigenous_primary_health_clinic"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:workbc-indigenous-skills-employment-training",
+      "record_type": "service",
+      "organization": "WorkBC",
+      "program_name": "Indigenous Skills and Employment Training provider directory",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "training"
+      ],
+      "description": "A directory of Indigenous Skills and Employment Training providers offering career support, training and, depending on the provider, help with tuition, equipment, transportation or living costs.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "British Columbia, including Lower Mainland providers",
+      "province": "",
+      "city_community": "",
+      "service_area": "British Columbia, including Lower Mainland providers",
+      "delivery_modes": [],
+      "eligibility": "Indigenous people; detailed eligibility and available supports are set by each provider and may be distinctions- or community-specific.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official directory to find the appropriate provider and confirm program eligibility directly.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.workbc.ca/get-support/indigenous-skills-and-employment-training",
+      "funding": null,
+      "source": {
+        "title": "Indigenous Skills and Employment Training",
+        "authority": "WorkBC",
+        "url": "https://www.workbc.ca/get-support/indigenous-skills-and-employment-training"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:workbc-indigenous-skills-employment-training"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller:mfa_iset",
+      "record_type": "funding",
+      "organization": "Employment and Social Development Canada",
+      "program_name": "Indigenous Skills and Employment Training services",
+      "categories": [
+        "financial_funding",
+        "practical_support"
+      ],
+      "subcategories": [
+        "employment training"
+      ],
+      "description": "employment_training",
+      "population_served": "Indigenous people through local service-delivery organizations",
+      "indigenous_scope": "broader_program",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "Indigenous people through local service-delivery organizations",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review the official page and contact the administering organization if current intake or eligibility is unclear.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.canada.ca/en/employment-social-development/programs/indigenous-skills-employment-training.html",
+      "funding": {
+        "purpose": "employment_training",
+        "funding_type": "assistance",
+        "amount": "",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Indigenous Skills and Employment Training services",
+        "authority": "Employment and Social Development Canada",
+        "url": "https://www.canada.ca/en/employment-social-development/programs/indigenous-skills-employment-training.html"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_federal_iset",
+        "funding:miller:mfa_iset"
+      ]
+    },
+    {
+      "canonical_resource_id": "fns_ab_indigenous_support_line",
+      "record_type": "service",
+      "organization": "Alberta Health Services / current provincial health system",
+      "program_name": "Indigenous Support Line",
+      "categories": [
+        "healthcare",
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "patient navigation",
+        "cultural support",
+        "advocacy",
+        "substance use",
+        "mental health"
+      ],
+      "description": "",
+      "population_served": "First Nations (status and non-status), Métis, Inuit and families",
+      "indigenous_scope": "broader_indigenous",
+      "governance_type": "provincial_health_system_indigenous_support_role",
+      "geography": "Alberta",
+      "province": "Alberta",
+      "city_community": "Provincewide",
+      "service_area": "Alberta",
+      "delivery_modes": [
+        "phone"
+      ],
+      "eligibility": "Indigenous people and families in Alberta",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-844-944-4744 or 811",
+      "email": "",
+      "website": "https://www.albertahealthservices.ca/findhealth/Service.aspx?id=1083567&serviceAtFacilityID=1138816",
+      "funding": null,
+      "source": {
+        "title": "Indigenous Support Line",
+        "authority": "Alberta Health Services / current provincial health system",
+        "url": "https://www.albertahealthservices.ca/findhealth/Service.aspx?id=1083567&serviceAtFacilityID=1138816"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "fns_ab_indigenous_support_line"
+      ]
+    },
+    {
+      "canonical_resource_id": "fns_ab_indigenous_wellness_clinic",
+      "record_type": "service",
+      "organization": "Alberta Health Services / current provincial health system",
+      "program_name": "Indigenous Wellness Clinic",
+      "categories": [
+        "healthcare",
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "primary care",
+        "mental health",
+        "substance use",
+        "patient navigation",
+        "advocacy"
+      ],
+      "description": "",
+      "population_served": "Indigenous patients of all ages in Edmonton Zone and surrounding area",
+      "indigenous_scope": "broader_indigenous",
+      "governance_type": "provincial_health_system_indigenous_service",
+      "geography": "Edmonton Zone and surrounding area",
+      "province": "Alberta",
+      "city_community": "Edmonton",
+      "service_area": "Edmonton Zone and surrounding area",
+      "delivery_modes": [
+        "in_person"
+      ],
+      "eligibility": "Referral requirements vary by service; physician availability is limited",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-844-441-4512 or 780-735-4512",
+      "email": "",
+      "website": "https://www.albertahealthservices.ca/findhealth/service.aspx?id=4838",
+      "funding": null,
+      "source": {
+        "title": "Indigenous Wellness Clinic",
+        "authority": "Alberta Health Services / current provincial health system",
+        "url": "https://www.albertahealthservices.ca/findhealth/service.aspx?id=4838"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "fns_ab_indigenous_wellness_clinic"
+      ]
+    },
+    {
+      "canonical_resource_id": "fns_sk_stc_integrated_wellness",
+      "record_type": "service",
+      "organization": "Saskatoon Tribal Council",
+      "program_name": "Integrated Wellness",
+      "categories": [
+        "healthcare",
+        "family_community"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "crisis support",
+        "traditional wellness",
+        "family support"
+      ],
+      "description": "",
+      "population_served": "STC member First Nations’ relatives across the lifespan",
+      "indigenous_scope": "first_nations_specific",
+      "governance_type": "first_nations_governed_tribal_council_program",
+      "geography": "Kinistin, Mistawasis, Muskeg Lake, Muskoday, One Arrow, Whitecap and Yellow Quill service points",
+      "province": "Saskatchewan",
+      "city_community": "STC member First Nations",
+      "service_area": "Kinistin, Mistawasis, Muskeg Lake, Muskoday, One Arrow, Whitecap and Yellow Quill service points",
+      "delivery_modes": [
+        "in_person",
+        "community"
+      ],
+      "eligibility": "Program information says people across the lifespan experiencing mental-wellness or addictions concerns can access support; confirm the appropriate member-community entry point",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the operator using the public service page.",
+      "phone": "306-956-6100",
+      "email": "",
+      "website": "https://sktc.sk.ca/wellness/integrated-wellness/",
+      "funding": null,
+      "source": {
+        "title": "Integrated Wellness",
+        "authority": "Saskatoon Tribal Council",
+        "url": "https://sktc.sk.ca/wellness/integrated-wellness/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "fns_sk_stc_integrated_wellness"
+      ]
+    },
+    {
+      "canonical_resource_id": "fns_bc_jordans_principle_coordination",
+      "record_type": "service",
+      "organization": "BC Aboriginal Child Care Society / regional First Nations service coordinators",
+      "program_name": "Jordan’s Principle Service Coordination Network and Hub",
+      "categories": [
+        "healthcare",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "youth support",
+        "family support",
+        "patient navigation"
+      ],
+      "description": "",
+      "population_served": "First Nations children and families",
+      "indigenous_scope": "first_nations_specific",
+      "governance_type": "indigenous_organization_service_coordination_with_federal_decision_authority",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "Provincewide",
+      "service_area": "British Columbia",
+      "delivery_modes": [
+        "phone",
+        "virtual",
+        "regional"
+      ],
+      "eligibility": "Jordan’s Principle eligibility and request rules apply",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the operator using the public service page.",
+      "phone": "",
+      "email": "",
+      "website": "https://fnha.ca/services-and-support/for-you/maternal-child-and-family-health/jordans-principle/",
+      "funding": null,
+      "source": {
+        "title": "Jordan’s Principle Service Coordination Network and Hub",
+        "authority": "BC Aboriginal Child Care Society / regional First Nations service coordinators",
+        "url": "https://fnha.ca/services-and-support/for-you/maternal-child-and-family-health/jordans-principle/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "fns_bc_jordans_principle_coordination"
+      ]
+    },
+    {
+      "canonical_resource_id": "fns_bc_katzie_health_wellness",
+      "record_type": "service",
+      "organization": "Katzie First Nation",
+      "program_name": "Katzie Health and Wellness",
+      "categories": [
+        "healthcare",
+        "family_community"
+      ],
+      "subcategories": [
+        "primary care",
+        "mental health",
+        "substance use",
+        "maternal birth support",
+        "traditional wellness",
+        "family support"
+      ],
+      "description": "",
+      "population_served": "Katzie First Nation members",
+      "indigenous_scope": "first_nations_specific",
+      "governance_type": "first_nations_governed_nation_health_program",
+      "geography": "Katzie First Nation members and community",
+      "province": "British Columbia",
+      "city_community": "Pitt Meadows",
+      "service_area": "Katzie First Nation members and community",
+      "delivery_modes": [
+        "in_person",
+        "community"
+      ],
+      "eligibility": "Katzie First Nation members; confirm program-specific eligibility with the Health Department",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the operator using the public service page.",
+      "phone": "604-465-8921",
+      "email": "katziehealth@katzie.ca",
+      "website": "https://katzie.ca/health/",
+      "funding": null,
+      "source": {
+        "title": "Katzie Health and Wellness",
+        "authority": "Katzie First Nation",
+        "url": "https://katzie.ca/health/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "fns_bc_katzie_health_wellness"
+      ]
+    },
+    {
+      "canonical_resource_id": "fns_bc_kuu_us_crisis",
+      "record_type": "service",
+      "organization": "KUU-US Crisis Line Society",
+      "program_name": "KUU-US Crisis Response Service",
+      "categories": [
+        "healthcare",
+        "family_community"
+      ],
+      "subcategories": [
+        "crisis support",
+        "youth support",
+        "elder support",
+        "mental health"
+      ],
+      "description": "",
+      "population_served": "Indigenous people in B.C.",
+      "indigenous_scope": "broader_indigenous",
+      "governance_type": "indigenous_nonprofit_service_operator",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "Provincewide",
+      "service_area": "British Columbia",
+      "delivery_modes": [
+        "phone"
+      ],
+      "eligibility": "Open crisis support",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-800-588-8717",
+      "email": "",
+      "website": "https://www.kuu-uscrisisline.com/",
+      "funding": null,
+      "source": {
+        "title": "KUU-US Crisis Response Service",
+        "authority": "KUU-US Crisis Line Society",
+        "url": "https://www.kuu-uscrisisline.com/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "fns_bc_kuu_us_crisis"
+      ]
+    },
+    {
+      "canonical_resource_id": "fns_bc_kwikwetlem_health_wellness",
+      "record_type": "service",
+      "organization": "kʷikʷəƛ̓əm First Nation",
+      "program_name": "kʷikʷəƛ̓əm Health and Wellness / Community-Based Health Clinic",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "primary care",
+        "mental health",
+        "substance use",
+        "traditional wellness",
+        "cultural support",
+        "patient navigation"
+      ],
+      "description": "",
+      "population_served": "kʷikʷəƛ̓əm m̀əlstéyəxʷ (members)",
+      "indigenous_scope": "first_nations_specific",
+      "governance_type": "first_nations_governed_nation_health_program",
+      "geography": "kʷikʷəƛ̓əm First Nation members and community",
+      "province": "British Columbia",
+      "city_community": "Coquitlam",
+      "service_area": "kʷikʷəƛ̓əm First Nation members and community",
+      "delivery_modes": [
+        "in_person",
+        "community"
+      ],
+      "eligibility": "Nation members; confirm practitioner schedules and program-specific eligibility with the Health and Wellness Department",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the operator using the public service page.",
+      "phone": "",
+      "email": "",
+      "website": "https://kwikwetlem.com/health-and-wellness.htm",
+      "funding": null,
+      "source": {
+        "title": "kʷikʷəƛ̓əm Health and Wellness / Community-Based Health Clinic",
+        "authority": "kʷikʷəƛ̓əm First Nation",
+        "url": "https://kwikwetlem.com/health-and-wellness.htm"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "fns_bc_kwikwetlem_health_wellness"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:legal-aid-bc-new-westminster-access",
+      "record_type": "service",
+      "organization": "Legal Aid BC",
+      "program_name": "Legal Aid BC — New Westminster access",
+      "categories": [
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "advocacy navigation"
+      ],
+      "description": "Local access to Legal Aid BC application and service information.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "New Westminster and nearby communities",
+      "province": "",
+      "city_community": "",
+      "service_area": "New Westminster and nearby communities",
+      "delivery_modes": [],
+      "eligibility": "Financial and legal-issue eligibility varies; call to apply or ask about service options.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call the local number to apply or ask about available in-person services.",
+      "phone": "604-498-2920",
+      "email": "",
+      "website": "https://legalaid.bc.ca/contact/call-us/local-phone-numbers",
+      "funding": null,
+      "source": {
+        "title": "Legal Aid BC — New Westminster access official information",
+        "authority": "Legal Aid BC",
+        "url": "https://legalaid.bc.ca/contact/call-us/local-phone-numbers"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:legal-aid-bc-new-westminster-access"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:maple-ridge-pitt-meadows-rent-bank",
+      "record_type": "service",
+      "organization": "Lower Mainland Purpose Society / BC Rent Bank",
+      "program_name": "Maple Ridge–Pitt Meadows Rent Bank",
+      "categories": [
+        "housing"
+      ],
+      "subcategories": [
+        "housing"
+      ],
+      "description": "Housing-stability help that may include a low-fee short-term loan, referrals and support during a temporary financial crisis.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Maple Ridge and Pitt Meadows",
+      "province": "",
+      "city_community": "",
+      "service_area": "Maple Ridge and Pitt Meadows",
+      "delivery_modes": [],
+      "eligibility": "Maple Ridge or Pitt Meadows renters facing a temporary financial crisis; the program confirms eligibility through its application process.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Apply through BC Rent Bank or contact the Maple Ridge–Pitt Meadows Rent Bank.",
+      "phone": "604-368-4585",
+      "email": "",
+      "website": "https://bcrentbank.ca/contact/",
+      "funding": null,
+      "source": {
+        "title": "Maple Ridge–Pitt Meadows Rent Bank contact and application information",
+        "authority": "BC Rent Bank",
+        "url": "https://bcrentbank.ca/contact/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:maple-ridge-pitt-meadows-rent-bank"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:fnha-medical-transportation-benefit",
+      "record_type": "service_and_funding",
+      "organization": "First Nations Health Authority",
+      "program_name": "Medical Transportation Benefit",
+      "categories": [
+        "financial_funding",
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "medical travel",
+        "transportation"
+      ],
+      "description": "Financial support toward transportation, meals or accommodation when an eligible First Nations client must travel for medically necessary care unavailable in their community of residence.",
+      "population_served": "Eligible First Nations clients in B.C.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "First Nations people with Indian status who live in B.C., and eligible infants under the current Health Benefits rules; coverage and prior-approval requirements apply.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact a Community Patient Travel Clerk or FNHA Medical Transportation assessor before travel to confirm eligibility and approval.",
+      "phone": "",
+      "email": "",
+      "website": "https://fnha.ca/benefits/benefits-guide/medical-transport-ambulance/",
+      "funding": {
+        "purpose": "transportation",
+        "funding_type": "assistance",
+        "amount": "",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Medical transportation",
+        "authority": "First Nations Health Authority",
+        "url": "https://fnha.ca/benefits/benefits-guide/medical-transport-ambulance/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_fnha_medical_transport",
+        "funding:miller:mfa_fnha_transport",
+        "support:fnha-medical-transportation-benefit"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:bc-assistance-medical-transportation-supplement",
+      "record_type": "service",
+      "organization": "Government of British Columbia",
+      "program_name": "Medical transportation supplement",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "transportation"
+      ],
+      "description": "Assistance with extraordinary transportation costs for essential medical treatment for eligible recipients of B.C. income or disability assistance.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "Specified recipients of income assistance, disability assistance or Medical Services Only coverage, or people approved under the published life-threatening-need rules.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the income or disability assistance program before travel to determine whether the supplement applies.",
+      "phone": "1-866-866-0800",
+      "email": "",
+      "website": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/health-supplements-and-programs/medical-transportation",
+      "funding": null,
+      "source": {
+        "title": "Medical Transportation",
+        "authority": "Government of British Columbia",
+        "url": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/health-supplements-and-programs/medical-transportation"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:bc-assistance-medical-transportation-supplement"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_fnha_mental_wellness",
+      "record_type": "funding",
+      "organization": "First Nations Health Authority",
+      "program_name": "Mental Wellness and Counselling Benefit",
+      "categories": [
+        "financial_funding",
+        "healthcare"
+      ],
+      "subcategories": [
+        "mental health"
+      ],
+      "description": "mental health",
+      "population_served": "Status First Nations people who meet the FNHA residency eligibility described on the program page.",
+      "indigenous_scope": "first_nations_specific_or_distinctions_based",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "Status First Nations people who meet the FNHA residency eligibility described on the program page.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official program page or contact the administering organization.",
+      "phone": "",
+      "email": "",
+      "website": "https://fnha.ca/updates-to-mental-health-counselling-programs/",
+      "funding": {
+        "purpose": "mental health",
+        "funding_type": "health_benefit",
+        "amount": "",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "recurring",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Mental Wellness and Counselling Benefit",
+        "authority": "First Nations Health Authority",
+        "url": "https://fnha.ca/updates-to-mental-health-counselling-programs/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_fnha_mental_wellness"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:my-self-serve-income-and-disability-assistance-access",
+      "record_type": "service",
+      "organization": "Government of British Columbia",
+      "program_name": "My Self Serve income and disability assistance access",
+      "categories": [
+        "financial_funding"
+      ],
+      "subcategories": [
+        "income benefits"
+      ],
+      "description": "Apply for or manage B.C. income and disability assistance online.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "People applying for or managing B.C. income or disability assistance.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Apply for or manage income and disability assistance online; phone help is available.",
+      "phone": "1-866-866-0800",
+      "email": "",
+      "website": "https://www.myselfserve.gov.bc.ca/",
+      "funding": null,
+      "source": {
+        "title": "My Self Serve income and disability assistance access official information",
+        "authority": "Government of British Columbia",
+        "url": "https://www.myselfserve.gov.bc.ca/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:my-self-serve-income-and-disability-assistance-access"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_federal_new_fiscal",
+      "record_type": "funding",
+      "organization": "Indigenous Services Canada",
+      "program_name": "New Fiscal Relationship Grant",
+      "categories": [
+        "financial_funding",
+        "family_community"
+      ],
+      "subcategories": [
+        "community capacity"
+      ],
+      "description": "community capacity",
+      "population_served": "Eligible First Nations, Tribal Councils, and eligible First Nations-led service-delivery entities under program requirements.",
+      "indigenous_scope": "first_nations_specific_or_distinctions_based",
+      "governance_type": "not_stated",
+      "geography": "Federal",
+      "province": "Canada-wide",
+      "city_community": "",
+      "service_area": "Federal",
+      "delivery_modes": [],
+      "eligibility": "Eligible First Nations, Tribal Councils, and eligible First Nations-led service-delivery entities under program requirements.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official program page or contact the administering organization.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.canada.ca/en/indigenous-services-canada/news/2024/10/first-nations-access-greater-flexibility-and-increased-self-determination-through-the-new-fiscal-relationship-grant.html",
+      "funding": {
+        "purpose": "community capacity",
+        "funding_type": "grant",
+        "amount": "",
+        "status": "verify_before_applying",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "renewable_up_to_10_years",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "New Fiscal Relationship Grant",
+        "authority": "Indigenous Services Canada",
+        "url": "https://www.canada.ca/en/indigenous-services-canada/news/2024/10/first-nations-access-greater-flexibility-and-increased-self-determination-through-the-new-fiscal-relationship-grant.html"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_federal_new_fiscal"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:new-westminster-crt-outreach",
+      "record_type": "service",
+      "organization": "City of New Westminster",
+      "program_name": "New Westminster Crises Response Outreach Team",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "identification"
+      ],
+      "description": "Person-centred outreach for people experiencing homelessness, mental-health or substance-use challenges, including help connecting to food, shelter, community services and identification such as BCID.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "New Westminster",
+      "province": "",
+      "city_community": "",
+      "service_area": "New Westminster",
+      "delivery_modes": [],
+      "eligibility": "People in New Westminster who may need help connecting to resources related to homelessness, mental health or substance use.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call CRT Outreach Monday to Friday, 8:30 a.m. to 4:30 p.m., excluding holidays, or use the current City page for drop-in updates.",
+      "phone": "604-527-4502",
+      "email": "",
+      "website": "https://www.newwestcity.ca/crises-response-outreach-team",
+      "funding": null,
+      "source": {
+        "title": "Crises Response Outreach Team",
+        "authority": "City of New Westminster",
+        "url": "https://www.newwestcity.ca/crises-response-outreach-team"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:new-westminster-crt-outreach"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:new-westminster-rent-bank",
+      "record_type": "service",
+      "organization": "Lower Mainland Purpose Society / BC Rent Bank",
+      "program_name": "New Westminster Rent Bank",
+      "categories": [
+        "housing"
+      ],
+      "subcategories": [
+        "housing"
+      ],
+      "description": "Housing-stability help that may include a low-fee short-term loan, referrals and support during a temporary financial crisis.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "New Westminster",
+      "province": "",
+      "city_community": "",
+      "service_area": "New Westminster",
+      "delivery_modes": [],
+      "eligibility": "New Westminster renters facing a temporary financial crisis; the program confirms eligibility through its application process.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Apply through BC Rent Bank or contact the New Westminster Rent Bank.",
+      "phone": "604-526-2522",
+      "email": "",
+      "website": "https://bcrentbank.ca/contact/",
+      "funding": null,
+      "source": {
+        "title": "New Westminster Rent Bank contact and application information",
+        "authority": "BC Rent Bank",
+        "url": "https://bcrentbank.ca/contact/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:new-westminster-rent-bank"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:new-westminster-youth-hub",
+      "record_type": "service",
+      "organization": "Lower Mainland Purpose Society",
+      "program_name": "New Westminster Youth Hub",
+      "categories": [
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "advocacy navigation"
+      ],
+      "description": "A youth space offering wraparound support, outreach, peer connection and skill-building programs.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "New Westminster",
+      "province": "",
+      "city_community": "",
+      "service_area": "New Westminster",
+      "delivery_modes": [],
+      "eligibility": "Youth seeking a welcoming space and support; confirm current program details with the operator.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the City listing to reach the operator and check the current program calendar.",
+      "phone": "604-521-3711",
+      "email": "",
+      "website": "https://www.newwestcity.ca/building-safer-communities-fund-program/sb_expander_articles/6728.php",
+      "funding": null,
+      "source": {
+        "title": "New Westminster Youth Hub",
+        "authority": "City of New Westminster",
+        "url": "https://www.newwestcity.ca/building-safer-communities-fund-program/sb_expander_articles/6728.php"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:new-westminster-youth-hub"
+      ]
+    },
+    {
+      "canonical_resource_id": "shared_isc_nihb_mental_health_counselling",
+      "record_type": "service",
+      "organization": "Indigenous Services Canada",
+      "program_name": "NIHB Mental Health Counselling Benefit",
+      "categories": [
+        "financial_funding",
+        "healthcare"
+      ],
+      "subcategories": [
+        "benefits",
+        "funding",
+        "mental health"
+      ],
+      "description": "Coverage for eligible professional mental-health counselling when it is not available through another public or private plan.",
+      "population_served": "Eligible registered First Nations and recognized Inuit clients in Canada",
+      "indigenous_scope": "first_nations_and_inuit_specific",
+      "governance_type": "federal_indigenous_health_benefit",
+      "geography": "Canada-wide, subject to regional administration and eligibility rules",
+      "province": "Canada-wide",
+      "city_community": "",
+      "service_area": "Canada-wide, subject to regional administration and eligibility rules",
+      "delivery_modes": [
+        "in_person",
+        "virtual"
+      ],
+      "eligibility": "NIHB client eligibility and benefit rules apply; review the current official guide.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Choose an eligible provider and confirm current coverage and billing arrangements through the official NIHB information.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.sac-isc.gc.ca/eng/1576441552462/1576441618847",
+      "funding": null,
+      "source": {
+        "title": "Non-Insured Health Benefits program for First Nations and Inuit: Mental health counselling benefits",
+        "authority": "Indigenous Services Canada",
+        "url": "https://www.sac-isc.gc.ca/eng/1576441552462/1576441618847"
+      },
+      "last_verified": "2026-09-07",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "shared_isc_nihb_mental_health_counselling"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_bc_nursing_tuition",
+      "record_type": "funding",
+      "organization": "StudentAid BC",
+      "program_name": "Nursing Tuition Grant – Indigenous",
+      "categories": [
+        "financial_funding"
+      ],
+      "subcategories": [
+        "education"
+      ],
+      "description": "education",
+      "population_served": "Eligible self-declared Indigenous students in qualifying B.C. public post-secondary nursing programs.",
+      "indigenous_scope": "first_nations_specific_or_distinctions_based",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "Eligible self-declared Indigenous students in qualifying B.C. public post-secondary nursing programs.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official program page or contact the administering organization.",
+      "phone": "",
+      "email": "",
+      "website": "https://www2.gov.bc.ca/gov/content/education-training/post-secondary-education/aboriginal-education-training/information-for-aboriginal-students",
+      "funding": {
+        "purpose": "education",
+        "funding_type": "grant",
+        "amount": "Up to CAD 5,000 per program year",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "recurring",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Nursing Tuition Grant – Indigenous",
+        "authority": "StudentAid BC",
+        "url": "https://www2.gov.bc.ca/gov/content/education-training/post-secondary-education/aboriginal-education-training/information-for-aboriginal-students"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_bc_nursing_tuition"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_sk_pbcn_iset",
+      "record_type": "funding",
+      "organization": "Peter Ballantyne Cree Nation",
+      "program_name": "Peter Ballantyne Cree Nation ISET services",
+      "categories": [
+        "financial_funding",
+        "practical_support"
+      ],
+      "subcategories": [
+        "employment training"
+      ],
+      "description": "employment training",
+      "population_served": "PBCN citizens and communities under locally designed program criteria.",
+      "indigenous_scope": "first_nations_specific_or_distinctions_based",
+      "governance_type": "not_stated",
+      "geography": "Saskatchewan",
+      "province": "Saskatchewan",
+      "city_community": "",
+      "service_area": "Saskatchewan",
+      "delivery_modes": [],
+      "eligibility": "PBCN citizens and communities under locally designed program criteria.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official program page or contact the administering organization.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.canada.ca/en/employment-social-development/news/2026/08/government-of-canada-announces-peter-ballantyne-cree-nation-as-an-indigenous-skills-and-employment-training-program-agreement-holder.html",
+      "funding": {
+        "purpose": "employment training",
+        "funding_type": "training_and_employment_services",
+        "amount": "CAD 6.8 million agreement funding (not an individual award amount)",
+        "status": "verify_before_applying",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "agreement_effective_2026",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Peter Ballantyne Cree Nation ISET services",
+        "authority": "Peter Ballantyne Cree Nation",
+        "url": "https://www.canada.ca/en/employment-social-development/news/2026/08/government-of-canada-announces-peter-ballantyne-cree-nation-as-an-indigenous-skills-and-employment-training-program-agreement-holder.html"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_sk_pbcn_iset"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller:mfa_psssp",
+      "record_type": "funding",
+      "organization": "Indigenous Services Canada",
+      "program_name": "Post-Secondary Student Support Program",
+      "categories": [
+        "financial_funding"
+      ],
+      "subcategories": [
+        "education"
+      ],
+      "description": "education",
+      "population_served": "Eligible registered First Nations post-secondary students",
+      "indigenous_scope": "broader_program",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "Eligible registered First Nations post-secondary students",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review the official page and contact the administering organization if current intake or eligibility is unclear.",
+      "phone": "",
+      "email": "",
+      "website": "https://sac-isc.gc.ca/eng/1100100033682/1531933580211",
+      "funding": {
+        "purpose": "education",
+        "funding_type": "assistance",
+        "amount": "",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Post-Secondary Student Support Program",
+        "authority": "Indigenous Services Canada",
+        "url": "https://sac-isc.gc.ca/eng/1100100033682/1531933580211"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_federal_psssp",
+        "funding:miller:mfa_psssp"
+      ]
+    },
+    {
+      "canonical_resource_id": "fns_bc_fnha_quality_care_safety",
+      "record_type": "service",
+      "organization": "First Nations Health Authority",
+      "program_name": "Quality Care and Safety Office",
+      "categories": [
+        "healthcare",
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "advocacy",
+        "patient safety",
+        "complaints resolution",
+        "patient navigation"
+      ],
+      "description": "",
+      "population_served": "First Nations clients and families",
+      "indigenous_scope": "first_nations_specific",
+      "governance_type": "first_nations_governed_health_authority",
+      "geography": "B.C. public health services, FNHA services and some FNHA-funded services",
+      "province": "British Columbia",
+      "city_community": "Provincewide",
+      "service_area": "B.C. public health services, FNHA services and some FNHA-funded services",
+      "delivery_modes": [
+        "phone",
+        "email",
+        "regional"
+      ],
+      "eligibility": "Feedback or complaint concerning eligible B.C. health-care experiences",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-844-935-1044",
+      "email": "quality@fnha.ca",
+      "website": "https://fnha.ca/about/governance-and-accountability/compliments-and-complaints/",
+      "funding": null,
+      "source": {
+        "title": "Quality Care and Safety Office",
+        "authority": "First Nations Health Authority",
+        "url": "https://fnha.ca/about/governance-and-accountability/compliments-and-complaints/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "fns_bc_fnha_quality_care_safety"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:service-bc-navigation",
+      "record_type": "service",
+      "organization": "Government of British Columbia",
+      "program_name": "Service BC government-service navigation",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "identification"
+      ],
+      "description": "Front-line navigation for provincial services including B.C. birth certificates, health cards, BC Services Card identity verification and other government services.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "People seeking access to participating B.C. government services; availability varies by service and office.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the online service finder, contact centre or local office; confirm the needed service is offered before visiting.",
+      "phone": "1-800-663-7867",
+      "email": "",
+      "website": "https://www2.gov.bc.ca/servicebc",
+      "funding": null,
+      "source": {
+        "title": "Service BC",
+        "authority": "Government of British Columbia",
+        "url": "https://www2.gov.bc.ca/servicebc"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:service-bc-navigation"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:share-better-at-home",
+      "record_type": "service",
+      "organization": "SHARE Family & Community Services",
+      "program_name": "SHARE Better at Home",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "transportation"
+      ],
+      "description": "Non-medical support for older adults, including transportation to appointments, grocery shopping, food support and friendly visiting.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Tri-Cities",
+      "province": "",
+      "city_community": "",
+      "service_area": "Tri-Cities",
+      "delivery_modes": [],
+      "eligibility": "Adults age 65 or older who live in the Tri-Cities; pre-registration is required and some fees vary by income.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Complete the eligibility assessment or contact SHARE reception.",
+      "phone": "604-540-9161",
+      "email": "",
+      "website": "https://sharesociety.ca/better-at-home-program-housekeeping-services",
+      "funding": null,
+      "source": {
+        "title": "Better at Home Program",
+        "authority": "SHARE Family & Community Services",
+        "url": "https://sharesociety.ca/better-at-home-program-housekeeping-services"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:share-better-at-home"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:share-food-bank-tricities",
+      "record_type": "service",
+      "organization": "SHARE Family & Community Services",
+      "program_name": "SHARE Food Bank",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "basic needs"
+      ],
+      "description": "Food support for Tri-Cities individuals and families, with registration and distribution locations in Coquitlam, Port Coquitlam and Port Moody.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Coquitlam, Port Coquitlam and Port Moody",
+      "province": "",
+      "city_community": "",
+      "service_area": "Coquitlam, Port Coquitlam and Port Moody",
+      "delivery_modes": [],
+      "eligibility": "Tri-Cities residents seeking food support. Registration requires government-issued identification and recent proof of address; the operator states that no means test is required.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Register in person without an appointment at the Port Moody food bank, or review the current operator page for community distribution locations and times.",
+      "phone": "604-540-9161",
+      "email": "",
+      "website": "https://sharesociety.ca/share-food-bank",
+      "funding": null,
+      "source": {
+        "title": "SHARE Food Bank",
+        "authority": "SHARE Family & Community Services",
+        "url": "https://sharesociety.ca/share-food-bank"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:share-food-bank-tricities"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:skills-training-for-employment-readiness-directory",
+      "record_type": "service",
+      "organization": "WorkBC",
+      "program_name": "Skills Training for Employment Readiness directory",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "training"
+      ],
+      "description": "A directory of current employment-readiness training providers and programs.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "British Columbia, with Lower Mainland programs",
+      "province": "",
+      "city_community": "",
+      "service_area": "British Columbia, with Lower Mainland programs",
+      "delivery_modes": [],
+      "eligibility": "Eligibility is set by each listed provider and program.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review current provider listings and contact the listed provider for program-specific eligibility.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.workbc.ca/get-support/employment-readiness-services/skills-training",
+      "funding": null,
+      "source": {
+        "title": "Skills Training for Employment Readiness directory official information",
+        "authority": "WorkBC",
+        "url": "https://www.workbc.ca/get-support/employment-readiness-services/skills-training"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:skills-training-for-employment-readiness-directory"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:sources-advocacy-housing-prevention",
+      "record_type": "service",
+      "organization": "Sources Community Resource Centres",
+      "program_name": "Sources Advocacy, Housing and Prevention Services",
+      "categories": [
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "advocacy navigation"
+      ],
+      "description": "Advocacy and support concerning income assistance, disability benefits, federal income supports, tenancy, debt and housing stability.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser Region, including Burnaby, New Westminster, Tri-Cities, Maple Ridge and Surrey",
+      "province": "",
+      "city_community": "",
+      "service_area": "Fraser Region, including Burnaby, New Westminster, Tri-Cities, Maple Ridge and Surrey",
+      "delivery_modes": [],
+      "eligibility": "Program criteria vary; contact Sources to identify the appropriate advocacy or housing program.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review the program page and call Advocacy Services for current intake.",
+      "phone": "778-735-1368",
+      "email": "",
+      "website": "https://www.sourcesbc.ca/our-services/advocacy-housing-prevention-services/",
+      "funding": null,
+      "source": {
+        "title": "Advocacy, Housing and Prevention Services",
+        "authority": "Sources Community Resource Centres",
+        "url": "https://www.sourcesbc.ca/our-services/advocacy-housing-prevention-services/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:sources-advocacy-housing-prevention"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:surrey-streetsmart",
+      "record_type": "service",
+      "organization": "City of Surrey, Surrey Libraries and Lookout Housing and Health Society",
+      "program_name": "StreetSMART",
+      "categories": [
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "advocacy navigation"
+      ],
+      "description": "Trauma-informed street outreach and walk-in support connecting people experiencing homelessness with health services, shelters, supportive housing and other community supports.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Surrey City Centre and Newton",
+      "province": "",
+      "city_community": "",
+      "service_area": "Surrey City Centre and Newton",
+      "delivery_modes": [],
+      "eligibility": "People experiencing homelessness in Surrey City Centre or Newton who need outreach or service connections.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the weekday outreach or walk-in hours listed on the City page, or contact the StreetSMART team by phone.",
+      "phone": "604-589-7777",
+      "email": "",
+      "website": "https://www.surrey.ca/about-surrey/housing-homelessness/housing-homelessness-resources-and-services",
+      "funding": null,
+      "source": {
+        "title": "Housing & Homelessness Resources and Services — StreetSMART",
+        "authority": "City of Surrey",
+        "url": "https://www.surrey.ca/about-surrey/housing-homelessness/housing-homelessness-resources-and-services"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:surrey-streetsmart"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:strongerbc-future-skills-grant",
+      "record_type": "service",
+      "organization": "Government of British Columbia / WorkBC",
+      "program_name": "StrongerBC Future Skills Grant",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "training"
+      ],
+      "description": "Funding for eligible short-term training at participating B.C. public post-secondary institutions.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "Eligible B.C. residents meeting the current learner and program criteria.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Check eligibility, select an eligible public post-secondary program, and apply through the official portal.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.workbc.ca/develop-skills/funding-grants-learners/strongerbc-future-skills-grant/guidelines",
+      "funding": null,
+      "source": {
+        "title": "StrongerBC Future Skills Grant official information",
+        "authority": "Government of British Columbia / WorkBC",
+        "url": "https://www.workbc.ca/develop-skills/funding-grants-learners/strongerbc-future-skills-grant/guidelines"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:strongerbc-future-skills-grant"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:surrey-housing-homelessness-navigation",
+      "record_type": "service",
+      "organization": "City of Surrey",
+      "program_name": "Surrey housing and homelessness resource navigation",
+      "categories": [
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "advocacy navigation"
+      ],
+      "description": "A current public guide to shelters, outreach, health services, housing resources and free BC 211 navigation for people experiencing or at risk of homelessness.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Surrey",
+      "province": "",
+      "city_community": "",
+      "service_area": "Surrey",
+      "delivery_modes": [],
+      "eligibility": "People seeking Surrey housing or homelessness resources; individual programs set their own eligibility.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the current City guide or call BC 211 for free, confidential referral support.",
+      "phone": "2-1-1",
+      "email": "",
+      "website": "https://www.surrey.ca/about-surrey/housing-homelessness/housing-homelessness-resources-and-services",
+      "funding": null,
+      "source": {
+        "title": "Housing & Homelessness Resources and Services",
+        "authority": "City of Surrey",
+        "url": "https://www.surrey.ca/about-surrey/housing-homelessness/housing-homelessness-resources-and-services"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:surrey-housing-homelessness-navigation"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:tax-aid-dabc",
+      "record_type": "service",
+      "organization": "Disability Alliance BC",
+      "program_name": "Tax AID DABC",
+      "categories": [
+        "financial_funding"
+      ],
+      "subcategories": [
+        "income benefits"
+      ],
+      "description": "Free year-round help for people with disabilities on low incomes to file current or prior-year simple tax returns and connect with tax-related benefits.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "British Columbia remotely; in-person partners include Metro Vancouver and Fraser Valley",
+      "province": "",
+      "city_community": "",
+      "service_area": "British Columbia remotely; in-person partners include Metro Vancouver and Fraser Valley",
+      "delivery_modes": [],
+      "eligibility": "People with disabilities in B.C. whose yearly income is under the current program threshold; confirm that the return is within the program's scope.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Book an appointment online or call Tax AID DABC.",
+      "phone": "236-477-1717",
+      "email": "",
+      "website": "https://disabilityalliancebc.org/direct-service/file-income-taxes/",
+      "funding": null,
+      "source": {
+        "title": "File Income Taxes — Tax AID DABC",
+        "authority": "Disability Alliance BC",
+        "url": "https://disabilityalliancebc.org/direct-service/file-income-taxes/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:tax-aid-dabc"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:trac-tenant-infoline",
+      "record_type": "service",
+      "organization": "Tenant Resource and Advisory Centre",
+      "program_name": "TRAC Tenant Infoline",
+      "categories": [
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "advocacy navigation"
+      ],
+      "description": "Free legal information and referrals about residential tenancy matters in British Columbia.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "B.C. residential tenants seeking legal information or referrals.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Free tenancy legal information and referral by phone during posted hours.",
+      "phone": "604-255-0546 or 1-800-665-1185",
+      "email": "",
+      "website": "https://tenants.bc.ca/get-help/tenant-infoline/",
+      "funding": null,
+      "source": {
+        "title": "TRAC Tenant Infoline official information",
+        "authority": "Tenant Resource and Advisory Centre",
+        "url": "https://tenants.bc.ca/get-help/tenant-infoline/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:trac-tenant-infoline"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller:bc_transport_to_treatment",
+      "record_type": "funding",
+      "organization": "Government of British Columbia",
+      "program_name": "Transportation to residential alcohol and drug treatment",
+      "categories": [
+        "financial_funding",
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "treatment transportation"
+      ],
+      "description": "treatment_transportation",
+      "population_served": "Eligible recipients of income, disability or hardship assistance who have been accepted into an approved B.C. residential treatment program",
+      "indigenous_scope": "broader_program",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "Eligible recipients of income, disability or hardship assistance who have been accepted into an approved B.C. residential treatment program",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review the official criteria and request approval through the Ministry before travel.",
+      "phone": "",
+      "email": "",
+      "website": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/transportation-to-alcohol-and-drug-facilities-policy-and-procedures",
+      "funding": {
+        "purpose": "treatment_transportation",
+        "funding_type": "transportation_supplement",
+        "amount": "",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "Eligibility-based assistance",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "Transportation to Alcohol & Drug Facilities",
+        "authority": "Government of British Columbia",
+        "url": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/transportation-to-alcohol-and-drug-facilities-policy-and-procedures"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "funding:miller:bc_transport_to_treatment"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:bc-travel-assistance-program",
+      "record_type": "service",
+      "organization": "Government of British Columbia",
+      "program_name": "Travel Assistance Program",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "transportation"
+      ],
+      "description": "Discounts from participating carriers for eligible B.C. residents who must travel within the province for non-emergency specialist care not available locally.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "B.C. residents enrolled in MSP with an eligible referral to the closest available insured specialist service and no third-party travel coverage.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Ask the referring clinician for a TAP form, then obtain a confirmation number before booking travel; past travel is not reimbursed.",
+      "phone": "1-800-661-2668",
+      "email": "",
+      "website": "https://www2.gov.bc.ca/gov/content/health/accessing-health-care/tap-bc/travel-assistance-program-tap-bc",
+      "funding": null,
+      "source": {
+        "title": "Travel Assistance Program",
+        "authority": "Government of British Columbia",
+        "url": "https://www2.gov.bc.ca/gov/content/health/accessing-health-care/tap-bc/travel-assistance-program-tap-bc"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:bc-travel-assistance-program"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:tricities-rent-bank",
+      "record_type": "service",
+      "organization": "SHARE Family & Community Services / BC Rent Bank",
+      "program_name": "TriCities Rent Bank",
+      "categories": [
+        "housing"
+      ],
+      "subcategories": [
+        "housing"
+      ],
+      "description": "Housing-stability help that may include a low-fee short-term loan, referrals and support during a temporary financial crisis.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Anmore, Belcarra, Coquitlam, Port Coquitlam and Port Moody",
+      "province": "",
+      "city_community": "",
+      "service_area": "Anmore, Belcarra, Coquitlam, Port Coquitlam and Port Moody",
+      "delivery_modes": [],
+      "eligibility": "Renters in the listed Tri-Cities communities; the program confirms eligibility through its application process.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Apply through BC Rent Bank or contact the TriCities Rent Bank.",
+      "phone": "604-540-9161",
+      "email": "",
+      "website": "https://bcrentbank.ca/contact/",
+      "funding": null,
+      "source": {
+        "title": "TriCities Rent Bank contact and application information",
+        "authority": "BC Rent Bank",
+        "url": "https://bcrentbank.ca/contact/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:tricities-rent-bank"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:burnaby-neighbourhood-house-tax-clinic",
+      "record_type": "service",
+      "organization": "Burnaby Neighbourhood House",
+      "program_name": "Volunteer Income Tax Program",
+      "categories": [
+        "financial_funding"
+      ],
+      "subcategories": [
+        "income benefits"
+      ],
+      "description": "Year-round monthly volunteer tax clinics for Burnaby residents with low incomes and straightforward tax situations.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Burnaby",
+      "province": "",
+      "city_community": "",
+      "service_area": "Burnaby",
+      "delivery_modes": [],
+      "eligibility": "Burnaby residents who meet the current household-income and tax-situation criteria and hold a Burnaby Neighbourhood House membership; fees can be waived for financial need.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the current pre-screening form and wait for the program to arrange an appointment.",
+      "phone": "604-431-0400",
+      "email": "",
+      "website": "https://burnabynh.ca/programs-and-services/community-program/volunteer-income-tax-program/",
+      "funding": null,
+      "source": {
+        "title": "Volunteer Income Tax Program",
+        "authority": "Burnaby Neighbourhood House",
+        "url": "https://burnabynh.ca/programs-and-services/community-program/volunteer-income-tax-program/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:burnaby-neighbourhood-house-tax-clinic"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:sources-volunteer-wheels",
+      "record_type": "service",
+      "organization": "Sources Community Resource Centres",
+      "program_name": "Volunteer Wheels",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "transportation"
+      ],
+      "description": "Volunteer door-to-door transportation for essential healthcare appointments for local residents who cannot use public transit and have no other transport.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "White Rock and South Surrey, with healthcare trips across Metro Vancouver",
+      "province": "",
+      "city_community": "",
+      "service_area": "White Rock and South Surrey, with healthcare trips across Metro Vancouver",
+      "delivery_modes": [],
+      "eligibility": "Residents of White Rock or South Surrey who cannot use public transit and have no other way to reach an essential healthcare appointment.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Request a ride at least one week in advance; the operator limits service to four drives per month and confirms each trip with the rider.",
+      "phone": "604-542-4357",
+      "email": "",
+      "website": "https://www.sourcesbc.ca/our-services/volunteer-services-volunteer-wheels/",
+      "funding": null,
+      "source": {
+        "title": "Volunteer Wheels",
+        "authority": "Sources Community Resource Centres",
+        "url": "https://www.sourcesbc.ca/our-services/volunteer-services-volunteer-wheels/"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:sources-volunteer-wheels"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:workbc-centre-burnaby-metrotown",
+      "record_type": "service",
+      "organization": "WorkBC",
+      "program_name": "WorkBC Centre — Burnaby Metrotown",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "employment"
+      ],
+      "description": "Free employment services, planning and job-search support through the local WorkBC centre.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Burnaby",
+      "province": "",
+      "city_community": "",
+      "service_area": "Burnaby",
+      "delivery_modes": [],
+      "eligibility": "Contact the centre; program-specific eligibility can vary.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Free employment services; apply online or contact the centre.",
+      "phone": "778-357-0566",
+      "email": "",
+      "website": "https://www.workbc.ca/workbc-centres/workbc-centre-burnaby-metrotown",
+      "funding": null,
+      "source": {
+        "title": "WorkBC Centre — Burnaby Metrotown official information",
+        "authority": "WorkBC",
+        "url": "https://www.workbc.ca/workbc-centres/workbc-centre-burnaby-metrotown"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:workbc-centre-burnaby-metrotown"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:workbc-centre-coquitlam",
+      "record_type": "service",
+      "organization": "WorkBC",
+      "program_name": "WorkBC Centre — Coquitlam",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "employment"
+      ],
+      "description": "Free employment services, planning and job-search support through the local WorkBC centre.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Coquitlam and Tri-Cities",
+      "province": "",
+      "city_community": "",
+      "service_area": "Coquitlam and Tri-Cities",
+      "delivery_modes": [],
+      "eligibility": "Contact the centre; program-specific eligibility can vary.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Free employment services; apply online or contact the centre.",
+      "phone": "778-730-0174",
+      "email": "",
+      "website": "https://www.workbc.ca/workbc-centres/workbc-centre-coquitlam",
+      "funding": null,
+      "source": {
+        "title": "WorkBC Centre — Coquitlam official information",
+        "authority": "WorkBC",
+        "url": "https://www.workbc.ca/workbc-centres/workbc-centre-coquitlam"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:workbc-centre-coquitlam"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:workbc-centre-maple-ridge",
+      "record_type": "service",
+      "organization": "WorkBC",
+      "program_name": "WorkBC Centre — Maple Ridge",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "employment"
+      ],
+      "description": "Free employment services, planning and job-search support for Maple Ridge and Pitt Meadows.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Maple Ridge and Pitt Meadows",
+      "province": "",
+      "city_community": "",
+      "service_area": "Maple Ridge and Pitt Meadows",
+      "delivery_modes": [],
+      "eligibility": "Contact the centre; program-specific eligibility can vary.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Free employment services; apply online or contact the centre.",
+      "phone": "604-466-4600",
+      "email": "",
+      "website": "https://www.workbc.ca/workbc-centres/workbc-centre-maple-ridge",
+      "funding": null,
+      "source": {
+        "title": "WorkBC Centre — Maple Ridge official information",
+        "authority": "WorkBC",
+        "url": "https://www.workbc.ca/workbc-centres/workbc-centre-maple-ridge"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:workbc-centre-maple-ridge"
+      ]
+    },
+    {
+      "canonical_resource_id": "support:workbc-centre-new-westminster",
+      "record_type": "service",
+      "organization": "WorkBC",
+      "program_name": "WorkBC Centre — New Westminster",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "employment"
+      ],
+      "description": "Free employment services, planning and job-search support through the local WorkBC centre.",
+      "population_served": "",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "New Westminster",
+      "province": "",
+      "city_community": "",
+      "service_area": "New Westminster",
+      "delivery_modes": [],
+      "eligibility": "Contact the centre; program-specific eligibility can vary.",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Free employment services; apply online or contact the centre.",
+      "phone": "604-522-9701",
+      "email": "",
+      "website": "https://www.workbc.ca/workbc-centres/workbc-centre-new-westminster",
+      "funding": null,
+      "source": {
+        "title": "WorkBC Centre — New Westminster official information",
+        "authority": "WorkBC",
+        "url": "https://www.workbc.ca/workbc-centres/workbc-centre-new-westminster"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "support:workbc-centre-new-westminster"
+      ]
+    },
+    {
+      "canonical_resource_id": "funding:miller:mfa_workbc_training",
+      "record_type": "funding",
+      "organization": "WorkBC",
+      "program_name": "WorkBC employment and training supports",
+      "categories": [
+        "financial_funding",
+        "practical_support"
+      ],
+      "subcategories": [
+        "employment training"
+      ],
+      "description": "employment_training",
+      "population_served": "Eligible B.C. job seekers; supports vary by stream",
+      "indigenous_scope": "broader_program",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [],
+      "eligibility": "Eligible B.C. job seekers; supports vary by stream",
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review the official page and contact the administering organization if current intake or eligibility is unclear.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.workbc.ca/workbc-centres/workbc-centre-new-westminster",
+      "funding": {
+        "purpose": "employment_training",
+        "funding_type": "assistance",
+        "amount": "",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "",
+        "next_check_due": "2026-10-06"
+      },
+      "source": {
+        "title": "WorkBC employment and training supports",
+        "authority": "WorkBC",
+        "url": "https://www.workbc.ca/workbc-centres/workbc-centre-new-westminster"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "funding:miller:mfa_workbc_training"
+      ]
+    }
+  ]
+}

@@ -3,6 +3,7 @@ export const MILLER_NORTH_PUBLIC_SECTIONS = Object.freeze([
   Object.freeze({ id: "incidents", label: "Incidents", href: "/indigenous-healthcare-evidence/serious-harm" }),
   Object.freeze({ id: "accountability", label: "Accountability", href: "/indigenous-healthcare-evidence/accountability-watch" }),
   Object.freeze({ id: "watching", label: "Watching", href: "/indigenous-healthcare-evidence/watching-now" }),
+  Object.freeze({ id: "supports", label: "Supports & Funding", href: "/indigenous-healthcare-evidence/first-nations-supports" }),
 ])
 
 export const MILLER_NORTH_PUBLIC_SECTION_ALIASES = Object.freeze({
@@ -15,6 +16,8 @@ export const MILLER_NORTH_PUBLIC_SECTION_ALIASES = Object.freeze({
   emerging: "watching",
   listening: "watching",
   watching: "watching",
+  supports: "supports",
+  funding: "supports",
 })
 
 export const MILLER_NORTH_PUBLIC_PLACEMENT_RULES = Object.freeze({
@@ -33,6 +36,10 @@ export const MILLER_NORTH_PUBLIC_PLACEMENT_RULES = Object.freeze({
   watching: Object.freeze({
     primary_home: "incomplete public processes with a concrete future question or milestone",
     includes: Object.freeze(["active_inquiry", "pending_verdict", "open_review", "pending_response"]),
+  }),
+  supports: Object.freeze({
+    primary_home: "publication-safe practical supports, benefits, and funding",
+    includes: Object.freeze(["support_service", "benefit", "funding_program"]),
   }),
 })
 

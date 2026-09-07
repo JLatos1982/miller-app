@@ -1,5 +1,6 @@
 import data from "../data/miller-north-serious-harm-public-v1.json"
 import MillerNorthPublicNav, { MillerNorthHomeLink } from "./MillerNorthPublicNav.jsx"
+import { incidentDisplayTitle, incidentMetadata } from "./millerNorthDisplayTitles.js"
 import "./MillerNorthCrossLinks.css"
 import "./MillerNorthPublicPages.css"
 import "./MillerNorthSeriousHarm.css"
@@ -15,7 +16,8 @@ export default function MillerNorthSeriousHarm() {
     <section className="mnsh-grid" aria-label={`${data.incidents.length} reviewed serious-harm records`}>
       {data.incidents.map(incident => <article id={incident.public_incident_id} key={incident.public_incident_id}>
         <div className="mnsh-card-head"><p>{incident.province}{incident.location ? ` · ${incident.location}` : ""}</p><span>{incident.evidence_strength.label}</span></div>
-        <h2>{incident.title}</h2>
+        <h2>{incidentDisplayTitle(incident)}</h2>
+        <p className="mnsh-identity">{incidentMetadata(incident)}</p>
         <p className="mnsh-summary">{incident.summary}</p>
         <dl>
           <div><dt>{incident.date_label || "Date"}</dt><dd>{incident.event_date}</dd></div>

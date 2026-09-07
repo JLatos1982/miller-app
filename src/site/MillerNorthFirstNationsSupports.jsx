@@ -1,71 +1,83 @@
 import { useMemo, useState } from "react"
 
-import supports from "../data/miller-north-first-nations-supports-public-v1.json"
-import { toMillerNorthSupportEmailResult } from "../millerNorthPublicSupportEmail.js"
+import registry from "../data/miller-shared-resource-registry-v1.json"
+import { toMillerNorthSharedEmailResult } from "../millerNorthPublicSupportEmail.js"
 import EmailResultsDialog from "./EmailResultsDialog.jsx"
 import MillerNorthPublicNav, { MillerNorthHomeLink } from "./MillerNorthPublicNav.jsx"
 import "./MillerNorthFirstNationsSupports.css"
 
-const readable = value => String(value || "").replaceAll("_", " ")
-const governanceLabels = {
-  first_nations_governed_nation_health_program: "Nation-operated",
-  first_nations_governed_health_authority: "First Nations-governed",
-  first_nations_governed_accountability_office: "First Nations-governed",
-  first_nations_governed_tribal_council_program: "First Nations-governed",
-  indigenous_community_organization_health_authority_partnership: "Indigenous community / health-authority partnership",
-  indigenous_organization_service_coordination_with_federal_decision_authority: "Indigenous service coordination · federal decision authority",
-  indigenous_nonprofit_service_operator: "Indigenous nonprofit",
-  indigenous_led_team_within_provincial_health_system: "Indigenous-led health-system team",
-  provincial_health_authority_indigenous_support_role: "Provincial health-system service",
-  provincial_health_system_indigenous_support_role: "Provincial health-system service",
-  provincial_health_system_indigenous_service: "Provincial health-system service",
+const categoryLabels = {
+  healthcare: "Health",
+  housing: "Housing",
+  legal_rights: "Legal & rights",
+  financial_funding: "Funding",
+  family_community: "Family & community",
+  practical_support: "Practical support",
 }
-const scopeLabels = { first_nations_specific: "First Nations-specific", broader_indigenous: "Broader Indigenous service" }
+const provinceLabels = { "British Columbia": "B.C.", Alberta: "Alberta", Saskatchewan: "Saskatchewan", "Canada-wide": "Canada-wide", Federal: "Canada-wide" }
+const fundingStatus = {
+  open: "Open now",
+  recurring: "Recurring intake",
+  upcoming: "Opens soon",
+  closed: "Closed",
+  contact_to_confirm: "Contact to confirm",
+  intake_unknown: "Intake unclear",
+  paused: "Paused",
+  archived: "Archived",
+  verify_before_applying: "Verify before applying",
+}
 
-function SupportCard({ record }) {
+const northRecords = registry.records.filter(record => record.project_visibility.includes("miller_north"))
+
+function ResourceCard({ record }) {
   return <article className="mn-support-card">
-    <div className="mn-support-labels"><span>{governanceLabels[record.governance_type] || readable(record.governance_type)}</span><span>{scopeLabels[record.scope] || readable(record.scope)}</span></div>
-    <h3>{record.name}</h3>
+    <div className="mn-support-labels"><span>{record.funding ? "Funding or benefit" : "Service"}</span><span>{provinceLabels[record.province] || record.province}</span>{record.funding?.status ? <span>{fundingStatus[record.funding.status]}</span> : null}</div>
+    <h3>{record.program_name}</h3>
     <p className="mn-support-operator">{record.organization}</p>
-    <p>{record.community} · {record.delivery_modes.map(readable).join(" · ")}</p>
-    <div className="mn-support-categories">{record.categories.map(category => <span key={category}>{readable(category)}</span>)}</div>
+    <p>{record.description || record.access}</p>
+    <div className="mn-support-categories">{record.categories.map(category => <span key={category}>{categoryLabels[category]}</span>)}</div>
     <dl>
-      <dt>Who it serves</dt><dd>{record.population_served}</dd>
-      <dt>Eligibility</dt><dd>{record.eligibility}</dd>
-      {record.referral_requirements && <><dt>Referral</dt><dd>{record.referral_requirements}</dd></>}
-      {record.cost && <><dt>Cost</dt><dd>{record.cost}</dd></>}
-      {record.hours && <><dt>Hours</dt><dd>{record.hours}</dd></>}
+      <dt>Who it serves</dt><dd>{record.population_served || record.eligibility || "See the official program page"}</dd>
+      <dt>Area</dt><dd>{record.service_area || record.geography || provinceLabels[record.province]}</dd>
+      {record.funding?.amount ? <><dt>Amount</dt><dd>{record.funding.amount}</dd></> : null}
+      {record.funding?.deadline ? <><dt>Deadline</dt><dd>{record.funding.deadline}</dd></> : null}
+      <dt>How to access</dt><dd>{record.access || "Use the official program page."}</dd>
     </dl>
     <footer>
-      {record.phone && <span><strong>Phone:</strong> {record.phone}</span>}
-      {record.email && <a href={`mailto:${record.email}`}>Email the service</a>}
-      <a href={record.website} target="_blank" rel="noreferrer">Service details and source ↗</a>
-      <small>Information checked {record.last_verified_date}</small>
+      {record.phone ? <span><strong>Phone:</strong> {record.phone}</span> : null}
+      <a href={record.website} target="_blank" rel="noreferrer">Official service or program page ↗</a>
+      <small>Information checked {record.last_verified}</small>
     </footer>
   </article>
 }
 
 export default function MillerNorthFirstNationsSupports() {
+  const [query, setQuery] = useState("")
   const [province, setProvince] = useState("all")
   const [category, setCategory] = useState("all")
-  const [fraserNorthOnly, setFraserNorthOnly] = useState(false)
   const [emailOpen, setEmailOpen] = useState(false)
-  const categories = useMemo(() => [...new Set(supports.records.flatMap(record => record.categories))].sort(), [])
-  const visible = supports.records.filter(record => (province === "all" || record.province === province) && (category === "all" || record.categories.includes(category)) && (!fraserNorthOnly || record.fraser_north))
+  const visible = useMemo(() => {
+    const term = query.trim().toLowerCase()
+    return northRecords.filter(record => {
+      const search = [record.program_name, record.organization, record.description, record.population_served, record.eligibility, record.geography, record.service_area, ...record.categories, ...record.subcategories].join(" ").toLowerCase()
+      return (!term || search.includes(term)) && (province === "all" || record.province === province) && (category === "all" || record.categories.includes(category))
+    })
+  }, [query, province, category])
 
   return <main className="mn-public-page mn-supports-page">
     <header className="mn-public-header"><MillerNorthHomeLink/><MillerNorthPublicNav current="supports" /></header>
-    <section className="mn-public-hero"><p className="mn-public-eyebrow">Miller North · First Nations Supports</p><h1>Practical support, with the source beside it</h1><p>Publicly documented health, navigation, advocacy, cultural, mental-health and substance-use supports across British Columbia, Alberta and Saskatchewan. This first quiet-sharing edition emphasizes Fraser North.</p></section>
-    <aside className="mn-public-note"><strong>Before relying on a listing</strong><br />{supports.caution} A service being listed here is not an endorsement, a guarantee of availability or a statement about service quality.</aside>
-    <section className="mn-supports-fraser" aria-labelledby="fraser-north-title"><p className="mn-public-eyebrow">Fraser North starting point</p><h2 id="fraser-north-title">Nine verified supports</h2><p>Nation-operated programs from Katzie and kʷikʷəƛ̓əm are kept distinct from Fraser Health programs and province-wide FNHA services.</p><button type="button" aria-pressed={fraserNorthOnly} onClick={() => setFraserNorthOnly(value => !value)}>{fraserNorthOnly ? "Show all supports" : "Show Fraser North supports"}</button></section>
-    <section className="mn-support-filters" aria-label="First Nations Supports filters">
-      <label>Province<select value={province} onChange={event => setProvince(event.target.value)}><option value="all">All provinces</option><option>British Columbia</option><option>Alberta</option><option>Saskatchewan</option></select></label>
-      <label>Support type<select value={category} onChange={event => setCategory(event.target.value)}><option value="all">All support types</option>{categories.map(value => <option value={value} key={value}>{readable(value)}</option>)}</select></label>
-      <p aria-live="polite">{visible.length} support{visible.length === 1 ? "" : "s"} shown</p><button type="button" onClick={() => setEmailOpen(true)}>Email these supports</button>
+    <section className="mn-public-hero"><p className="mn-public-eyebrow">Miller North · Supports &amp; Funding</p><h1>Practical help, with the source beside it</h1><p>Find health navigation, cultural and mental-health support, housing, rights assistance, transportation, benefits and funding across B.C., Alberta, Saskatchewan and Canada-wide programs.</p></section>
+    <aside className="mn-public-note"><strong>Check before relying on a listing.</strong><br />Programs, intake and eligibility can change. Review the official page or contact the organization. Inclusion is not an endorsement or a guarantee of availability, eligibility or funding.</aside>
+    <section className="mn-support-filters" aria-label="Supports and Funding filters">
+      <label>Search<input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Type here" /></label>
+      <label>Location<select value={province} onChange={event => setProvince(event.target.value)}><option value="all">All locations</option><option>British Columbia</option><option>Alberta</option><option>Saskatchewan</option><option>Canada-wide</option></select></label>
+      <label>Category<select value={category} onChange={event => setCategory(event.target.value)}><option value="all">All categories</option>{Object.entries(categoryLabels).map(([value, label]) => <option value={value} key={value}>{label}</option>)}</select></label>
+      <p aria-live="polite">{visible.length} resource{visible.length === 1 ? "" : "s"}</p><button type="button" onClick={() => setEmailOpen(true)} disabled={!visible.length}>Email these results</button>
     </section>
-    <section className="mn-support-grid" aria-label="Verified First Nations and Indigenous supports">{visible.map(record => <SupportCard key={record.public_support_id} record={record} />)}</section>
-    <section className="mn-public-section"><p className="mn-public-eyebrow">How to read governance labels</p><h2>Funding, governance and service delivery are different</h2><p>“First Nations-governed” or “Nation-operated” is used only where an authoritative source supports that description. A provincial health-system service with an Indigenous support role is labelled separately. Public funding does not by itself establish who governs or controls a service.</p></section>
-    <footer className="mn-public-footer">This page is a publication-safe service projection. Candidate notes, unresolved governance classifications and internal review material are not included.</footer>
-    {emailOpen ? <EmailResultsDialog results={visible.map(toMillerNorthSupportEmailResult).filter(Boolean)} city="" onClose={() => setEmailOpen(false)} /> : null}
+    <nav className="mn-support-quick" aria-label="Quick support categories">{Object.entries(categoryLabels).map(([value, label]) => <button type="button" key={value} aria-pressed={category === value} onClick={() => setCategory(category === value ? "all" : value)}>{label}</button>)}</nav>
+    <section className="mn-support-grid" aria-label="Verified First Nations and Indigenous supports and funding">{visible.map(record => <ResourceCard key={record.canonical_resource_id} record={record} />)}</section>
+    {!visible.length ? <p className="mn-support-empty">No verified public resources match these filters. Try another category or location.</p> : null}
+    <footer className="mn-public-footer">Candidate notes, unresolved eligibility, internal review material and expired programs presented as current are not included.</footer>
+    {emailOpen ? <EmailResultsDialog results={visible.map(toMillerNorthSharedEmailResult).filter(Boolean)} city="" onClose={() => setEmailOpen(false)} /> : null}
   </main>
 }

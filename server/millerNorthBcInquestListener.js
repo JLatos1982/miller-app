@@ -50,19 +50,20 @@ export function fingerprintBcInquestDocument(bytes) {
   return createHash("sha256").update(bytes).digest("hex")
 }
 
-export function compareBcInquestMemory(previous = {}, current = []) {
+export function compareBcInquestMemory(previous = {}, current = [], { preserveUnobserved = false } = {}) {
   const prior = previous.documents || {}
-  const documents = Object.fromEntries(current.map(item => [item.document_id, {
+  const observed = Object.fromEntries(current.map(item => [item.document_id, {
     url: item.url,
     person_or_event: item.person_or_event,
     year: item.year,
     document_fingerprint: item.document_fingerprint,
     checked_at: item.checked_at,
   }]))
+  const documents = preserveUnobserved ? { ...prior, ...observed } : observed
   const new_documents = current.filter(item => !prior[item.document_id])
   const amended_documents = current.filter(item => prior[item.document_id] && prior[item.document_id].document_fingerprint !== item.document_fingerprint)
   const unchanged_documents = current.filter(item => prior[item.document_id]?.document_fingerprint === item.document_fingerprint)
-  const removed_documents = Object.keys(prior).filter(id => !documents[id]).map(id => prior[id])
+  const removed_documents = preserveUnobserved ? [] : Object.keys(prior).filter(id => !documents[id]).map(id => prior[id])
   return {
     new_documents,
     amended_documents,

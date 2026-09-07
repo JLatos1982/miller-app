@@ -71,12 +71,13 @@ test("North landing keeps the active evidence-question search and removes the le
   assert.doesNotMatch(page, /IndigenousHealthcareEvidenceLibrarySearch\.css/)
 })
 
-test("supports page is responsive, source-followable and does not expose review internals", () => {
+test("unified Supports & Funding page is responsive, source-followable and does not expose review internals", () => {
   const page = readFileSync(new URL("../src/site/MillerNorthFirstNationsSupports.jsx", import.meta.url), "utf8")
   const css = readFileSync(new URL("../src/site/MillerNorthFirstNationsSupports.css", import.meta.url), "utf8")
-  assert.match(page, /aria-label="First Nations Supports filters"/)
-  assert.match(page, /Service details and source/)
-  assert.match(page, /Funding, governance and service delivery are different/)
+  assert.match(page, /aria-label="Supports and Funding filters"/)
+  assert.match(page, /Official service or program page/)
+  assert.match(page, /miller-shared-resource-registry-v1\.json/)
+  assert.doesNotMatch(page, /shared publication-safe resource registry|One resource foundation/)
   assert.match(css, /@media\(max-width:700px\)/)
   assert.doesNotMatch(page, /owner_review|confidence|private_notes/)
 })

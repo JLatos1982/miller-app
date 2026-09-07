@@ -103,7 +103,8 @@ import publicPracticalSupports from "./src/data/miller-practical-supports-public
 import publicMillerFunding from "./src/data/miller-funding-assistance-public-v1.json" with { type: "json" }
 import publicMillerNorthFunding from "./src/data/miller-north-funding-assistance-public-v1.json" with { type: "json" }
 import publicMillerNorthSupports from "./src/data/miller-north-first-nations-supports-public-v1.json" with { type: "json" }
-import { toMillerNorthSupportEmailResult } from "./src/millerNorthPublicSupportEmail.js"
+import publicSharedResources from "./src/data/miller-shared-resource-registry-v1.json" with { type: "json" }
+import { toMillerNorthSharedEmailResult, toMillerNorthSupportEmailResult } from "./src/millerNorthPublicSupportEmail.js"
 
 dotenv.config()
 
@@ -239,6 +240,7 @@ const publicEmailRecords = [
   ...publicMillerNorthSupports.records.map(toMillerNorthSupportEmailResult).filter(Boolean),
   ...publicMillerFunding.records.map(record => ({ id: record.id, kind: "funding", name: record.name, organization: record.funder, description: record.purpose, region: record.geography, eligibility: record.who_can_apply, accessType: `${record.status}${record.deadline ? ` · deadline ${record.deadline}` : ""}. ${record.application_method}`, website: record.application_url, source: record.source.authority, last_verified_at: record.last_verified_at, approved: true })),
   ...publicMillerNorthFunding.records.map(record => ({ id: record.id, kind: "funding", name: record.name, organization: record.funder, description: record.purpose, region: record.geography, eligibility: record.who_can_apply, accessType: `${record.status}${record.deadline ? ` · deadline ${record.deadline}` : ""}. ${record.application_method}`, website: record.application_url, source: record.source.authority, last_verified_at: record.last_verified_at, approved: true })),
+  ...publicSharedResources.records.filter(record => record.source_record_ids.some(id => id.startsWith("shared_"))).map(toMillerNorthSharedEmailResult).filter(Boolean),
 ]
 const emailResultIndex = buildEmailResultIndex([...curatedMapResources, ...publicEmailRecords])
 app.get("/api/email-results/status", (_req, res) => {

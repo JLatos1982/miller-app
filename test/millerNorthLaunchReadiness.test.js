@@ -53,7 +53,7 @@ test("Live Listening validator rejects names, private notes, unsupported links a
   assert.throws(() => validateMillerNorthLiveListeningProjection(unknownLink, { evidenceGroupIds: grouped.groups.map(group => group.public_record_id) }), /unknown_evidence_group/)
 })
 
-test("Miller North preserves public routes while the primary navigation uses four visitor-facing sections", () => {
+test("Miller North preserves public routes while the primary navigation uses five visitor-facing sections", () => {
   const app = readFileSync(new URL("../src/App.jsx", import.meta.url), "utf8")
   const nav = readFileSync(new URL("../src/site/MillerNorthPublicNav.jsx", import.meta.url), "utf8")
   const evidence = readFileSync(new URL("../src/site/IndigenousHealthcareEvidence.jsx", import.meta.url), "utf8")

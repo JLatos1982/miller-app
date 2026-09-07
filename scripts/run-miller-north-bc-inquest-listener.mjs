@@ -16,7 +16,9 @@ const checkedAt = new Date().toISOString()
 
 const indexResponse = await fetch(BC_INQUEST_INDEX, { redirect: "follow", signal: AbortSignal.timeout(30_000) })
 if (!indexResponse.ok) throw new Error(`bc_inquest_index_fetch_${indexResponse.status}`)
-const selected = parseBcInquestIndex(await indexResponse.text()).filter(item => item.year >= sinceYear).slice(-limit)
+const indexed = parseBcInquestIndex(await indexResponse.text())
+const eligible = indexed.filter(item => item.year >= sinceYear)
+const selected = eligible.slice(-limit)
 let cursor = 0
 const results = []
 await Promise.all(Array.from({ length: Math.min(4, selected.length) }, async () => {
@@ -38,7 +40,7 @@ results.sort((a, b) => a.url.localeCompare(b.url))
 let previous = {}
 try { previous = JSON.parse(readFileSync(memoryPath, "utf8")) } catch {}
 const comparable = results.filter(item => item.document_fingerprint)
-const comparison = compareBcInquestMemory(previous, comparable)
+const comparison = compareBcInquestMemory(previous, comparable, { preserveUnobserved: selected.length < indexed.length })
 const report = {
   schema_version: "miller-north-bc-inquest-listener-cycle-v1",
   checked_at: checkedAt,

@@ -38,3 +38,11 @@ test("B.C. inquest listener reports removed documents without reclassifying them
   assert.equal(result.removed_documents.length, 1)
   assert.equal(result.new_documents.length, 0)
 })
+
+test("bounded incremental windows preserve out-of-window listener memory", () => {
+  const previous = { documents: { old: { url: "https://www2.gov.bc.ca/assets/gov/old.pdf", document_fingerprint: "a".repeat(64) } } }
+  const current = { ...parseBcInquestIndex(row)[0], checked_at: "2026-09-07", document_fingerprint: fingerprintBcInquestDocument(Buffer.from("one")) }
+  const result = compareBcInquestMemory(previous, [current], { preserveUnobserved: true })
+  assert.equal(result.removed_documents.length, 0)
+  assert.equal(Object.keys(result.memory.documents).length, 2)
+})

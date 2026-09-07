@@ -17,3 +17,28 @@ export function toMillerNorthSupportEmailResult(record) {
     hidden: false,
   }
 }
+
+export function toMillerNorthSharedEmailResult(record) {
+  if (!record?.project_visibility?.includes("miller_north") || !record?.program_name || !record?.website) return null
+  const fundingSourceId = record.source_record_ids?.find(id => id.startsWith("funding:miller-north:"))
+  const supportSourceId = record.source_record_ids?.find(id => id.startsWith("fns_"))
+  const sharedSourceId = record.source_record_ids?.find(id => id.startsWith("shared_"))
+  const sourceId = fundingSourceId || supportSourceId || sharedSourceId
+  if (!sourceId) return null
+  return {
+    id: fundingSourceId ? sourceId : `support:north:${sourceId}`,
+    kind: fundingSourceId ? "funding" : "service",
+    name: record.program_name,
+    organization: record.organization,
+    description: record.description || record.access,
+    region: record.service_area || record.geography,
+    eligibility: record.eligibility,
+    accessType: record.access,
+    phone: record.phone,
+    website: record.website,
+    source: record.source?.authority,
+    last_verified_at: record.last_verified,
+    approved: true,
+    hidden: false,
+  }
+}

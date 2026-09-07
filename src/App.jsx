@@ -1612,7 +1612,7 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
   }
 
   if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence/funding-assistance") {
-    return <MillerFundingAssistance millerNorth />
+    return <MillerNorthFirstNationsSupports />
   }
 
   if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence") {

@@ -52,7 +52,7 @@ test("First Nations Supports can reuse Email Results without widening its public
   assert.equal(emailRecords.length, northSupports.records.length)
   assert.equal(emailRecords.every(isEmailResultEligible), true)
   assert.equal(emailRecords.every(item => !Object.keys(item).some(key => /owner|private|candidate|patient/i.test(key))), true)
-  assert.match(page, /Email these supports/)
+  assert.match(page, /Email these results/)
   assert.match(page, /EmailResultsDialog/)
   assert.match(server, /publicMillerNorthSupports\.records\.map\(toMillerNorthSupportEmailResult\)/)
 })

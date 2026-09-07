@@ -8,5 +8,5 @@ const choices = [
 ]
 
 export default function MillerNorthStartHere({ compact = false }) {
-  return <section className={`mn-start-here ${compact ? "is-compact" : ""}`} aria-labelledby="mn-start-title"><div><p>Start here</p><h2 id="mn-start-title">What would you like to understand?</h2></div><div className="mn-start-grid">{choices.map(choice => <a href={choice.href} key={choice.href}><strong>{choice.title}</strong><span>{choice.description}</span><small>{choice.link} →</small></a>)}</div><p className="mn-start-support">Looking for help now? <a href="/indigenous-healthcare-evidence/first-nations-supports">Find First Nations Supports</a> or <a href="/indigenous-healthcare-evidence/funding-assistance">Funding &amp; Assistance</a>.</p></section>
+  return <section className={`mn-start-here ${compact ? "is-compact" : ""}`} aria-labelledby="mn-start-title"><div><p>Start here</p><h2 id="mn-start-title">What would you like to understand?</h2></div><div className="mn-start-grid">{choices.map(choice => <a href={choice.href} key={choice.href}><strong>{choice.title}</strong><span>{choice.description}</span><small>{choice.link} →</small></a>)}</div><p className="mn-start-support">Looking for help now? <a href="/indigenous-healthcare-evidence/first-nations-supports">Open Supports &amp; Funding</a>.</p></section>
 }
