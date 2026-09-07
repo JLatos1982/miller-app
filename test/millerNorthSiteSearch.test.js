@@ -25,6 +25,8 @@ test("site search handles phrases, aliases, geography, settings and typo toleran
   assert.ok(retrieveMillerNorthResults("Indigenous emergency resuscitation regulator").some(item => item.underlying_record_id === "mnsh_bccnm_emergency_assessment_2021"))
   assert.ok(retrieveMillerNorthResults("Kamloops prisoner health Indigenous liaison").some(item => item.underlying_record_id === "mnsh_randy_lampreau_2019"))
   assert.ok(retrieveMillerNorthResults("remote paramedic water taxi Opitsaht").some(item => item.underlying_record_id === "mnsh_julian_jones_2021"))
+  assert.ok(retrieveMillerNorthResults("rural emergency safe discharge Indigenous").some(item => item.underlying_record_id === "mnsh_cpsbc_rural_discharge_2024"))
+  assert.ok(retrieveMillerNorthResults("Skrenes professional boundaries Indigenous patient").some(item => item.underlying_record_id === "mnsh_cpsbc_skrenes_2022"))
   assert.ok(retrieveMillerNorthResults("Maskwacis youth recommendations").some(item => item.underlying_record_id === "mnaw_maskwacis_youth_inquiry"))
 })
 

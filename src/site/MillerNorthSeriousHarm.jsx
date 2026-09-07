@@ -17,7 +17,7 @@ export default function MillerNorthSeriousHarm() {
         <h2>{incident.title}</h2>
         <p className="mnsh-summary">{incident.summary}</p>
         <dl>
-          <div><dt>Date</dt><dd>{incident.event_date}</dd></div>
+          <div><dt>{incident.date_label || "Date"}</dt><dd>{incident.event_date}</dd></div>
           <div><dt>Care setting</dt><dd>{incident.care_setting}</dd></div>
           <div><dt>Formal process</dt><dd>{incident.formal_process_status}</dd></div>
           <div><dt>Response on the public record</dt><dd>{incident.institutional_response}</dd></div>

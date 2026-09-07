@@ -15,6 +15,7 @@ const FORMAL_PROCESS_ROLES = new Set([
   "fatality_inquiry_report",
   "death_review_panel_report",
   "regulator_finding",
+  "regulator_case_summary",
   "tribunal_decision",
   "court_decision",
 ])
@@ -61,6 +62,7 @@ export function validatePublicSeriousHarmProjection(projection) {
     if (!["British Columbia", "Alberta", "Saskatchewan"].includes(incident.province) || !text(incident.title) || !text(incident.summary) || !text(incident.care_setting) || !/^\d{4}(-\d\d(-\d\d)?)?$/.test(incident.event_date || "") || !/^\d{4}-\d\d-\d\d$/.test(incident.last_reviewed || "")) throw new Error("miller_north_serious_harm_record_invalid")
     if (!Array.isArray(incident.sources) || !incident.sources.length || !incident.sources.every(source => text(source.title) && text(source.role) && /^https:\/\//.test(source.url || ""))) throw new Error("miller_north_serious_harm_source_invalid")
     if (!INCIDENT_EVIDENCE_LABELS[incident.evidence_strength?.key] || incident.evidence_strength.label !== INCIDENT_EVIDENCE_LABELS[incident.evidence_strength.key]) throw new Error("miller_north_serious_harm_strength_invalid")
+    if (deriveIncidentEvidenceStrength(incident.sources).key !== incident.evidence_strength.key) throw new Error("miller_north_serious_harm_strength_source_mismatch")
     if (Object.keys(incident).some(key => FORBIDDEN_PUBLIC_FIELDS.has(key))) throw new Error("miller_north_serious_harm_private_field")
     if (incident.affected_person && incident.affected_person !== "Not publicly named") throw new Error("miller_north_serious_harm_unnecessary_identity")
     ids.add(incident.public_incident_id)

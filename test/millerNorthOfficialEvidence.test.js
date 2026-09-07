@@ -30,9 +30,25 @@ const sampleWorkbook = () => {
 }
 
 test("publication-safe serious-harm projection validates and minimizes identity", () => {
-  assert.deepEqual(validatePublicSeriousHarmProjection(seriousHarm), { valid: true, incidents: 6 })
+  assert.deepEqual(validatePublicSeriousHarmProjection(seriousHarm), { valid: true, incidents: 10 })
   assert.equal(seriousHarm.incidents.filter(item => item.affected_person).every(item => item.affected_person === "Not publicly named"), true)
   assert.equal(JSON.stringify(seriousHarm).includes("private_notes"), false)
+})
+
+test("CPSBC additions distinguish case summaries from final consent-agreement outcomes", () => {
+  const caseStudies = seriousHarm.incidents.filter(item => item.sources.some(source => source.role === "regulator_case_summary"))
+  const skrenes = seriousHarm.incidents.find(item => item.public_incident_id === "mnsh_cpsbc_skrenes_2022")
+  assert.equal(caseStudies.length, 3)
+  assert.equal(caseStudies.every(item => item.evidence_strength.key === "formal_process_evidence" && item.date_label === "Case summary published"), true)
+  assert.equal(skrenes.evidence_strength.key, "final_formal_outcome")
+  assert.equal(skrenes.affected_person, "Not publicly named")
+  assert.match(skrenes.formal_outcome, /not a court judgment/i)
+})
+
+test("publication-safe projection rejects an evidence-strength label unsupported by source roles", () => {
+  const altered = structuredClone(seriousHarm)
+  altered.incidents[0].evidence_strength = { key: "lead", label: "Lead", source_roles: [] }
+  assert.throws(() => validatePublicSeriousHarmProjection(altered), /strength_source_mismatch/)
 })
 
 test("new inquest records preserve formal-process limits and Indigenous source roles", () => {
@@ -62,6 +78,7 @@ test("evidence strength is a quiet source-role label, not a traumatic-event scor
   assert.equal(deriveIncidentEvidenceStrength([{ role: "indigenous_journalism" }]).key, "reported_account")
   assert.equal(deriveIncidentEvidenceStrength([{ role: "indigenous_journalism" }, { role: "institutional_statement" }]).key, "institutional_acknowledgement")
   assert.equal(deriveIncidentEvidenceStrength([{ role: "jury_verdict" }, { role: "indigenous_journalism" }]).key, "formal_process_evidence")
+  assert.equal(deriveIncidentEvidenceStrength([{ role: "regulator_case_summary" }]).key, "formal_process_evidence")
   assert.equal(deriveIncidentEvidenceStrength([{ role: "regulator_finding", final_outcome: true }]).key, "final_formal_outcome")
 })
 

@@ -217,6 +217,134 @@
           "url": "https://hashilthsa.com/news/2026-08-27/coroners-inquest-jury-recommends-better-water-taxi-access-paramedics-tasers-and"
         }
       ]
+    },
+    {
+      "public_incident_id": "mnsh_cpsbc_rural_discharge_2024",
+      "title": "Anonymous Indigenous patient — rural emergency discharge review",
+      "province": "British Columbia",
+      "location": "Rural British Columbia",
+      "event_date": "2024",
+      "date_label": "Case summary published",
+      "care_setting": "Rural emergency department, mental-health assessment and discharge planning",
+      "affected_person": "Not publicly named",
+      "summary": "A CPSBC Inquiry Committee case summary describes an Indigenous woman taken by ambulance to a rural emergency department for suicidal ideation. The committee concluded that the physician should have made greater efforts to arrange a safe trip home and documented culturally safe discharge planning.",
+      "evidence_strength": {
+        "key": "formal_process_evidence",
+        "label": "Formal process evidence",
+        "source_roles": ["regulator_case_summary"]
+      },
+      "formal_process_status": "Inquiry Committee investigation concluded; regulator case summary and recommendations published",
+      "institutional_response": "The physician stated that the assessment was considerate and thorough and that support options were offered. The committee identified concerns about safe discharge follow-up and documentation.",
+      "formal_outcome": "This is an anonymized regulator learning summary of an Inquiry Committee review. It is not a disciplinary order, court judgment or finding about an identified hospital.",
+      "unresolved_questions": [
+        "The incident date, facility and any broader institutional response are not stated publicly.",
+        "No implementation or later outcome evidence was located."
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "Case study: upholding Indigenous cultural safety in practice",
+          "role": "regulator_case_summary",
+          "url": "https://www.cpsbc.ca/news/publications/college-connector/2024-V12-03/02"
+        }
+      ]
+    },
+    {
+      "public_incident_id": "mnsh_cpsbc_reproductive_care_2024",
+      "title": "Anonymous Indigenous patient — reproductive-care cultural-safety review",
+      "province": "British Columbia",
+      "location": "British Columbia",
+      "event_date": "2024",
+      "date_label": "Case summary published",
+      "care_setting": "Reproductive health clinic and emergency follow-up care",
+      "affected_person": "Not publicly named",
+      "summary": "A CPSBC Inquiry Committee case summary describes an Indigenous patient who requested a support person and time to pray before a reproductive procedure. The committee was critical of the restriction on support people, comments about ceremonial needs and the lack of clear, culturally safe communication.",
+      "evidence_strength": {
+        "key": "formal_process_evidence",
+        "label": "Formal process evidence",
+        "source_roles": ["regulator_case_summary"]
+      },
+      "formal_process_status": "Inquiry Committee investigation concluded; regulator case summary and recommendations published",
+      "institutional_response": "The physician acknowledged the seriousness of Indigenous-specific racism and its impact on health. The clinic described its protocols, while the committee recommended stronger support-person access, communication and follow-up.",
+      "formal_outcome": "This is an anonymized regulator learning summary of an Inquiry Committee review. It does not establish that the later complication was caused by the physician's conduct and is not a disciplinary order or court judgment.",
+      "unresolved_questions": [
+        "The incident date, clinic and any organization-wide policy response are not stated publicly.",
+        "No implementation or later outcome evidence was located."
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "Recommendations from the Inquiry Committee for culturally safe care",
+          "role": "regulator_case_summary",
+          "url": "https://www.cpsbc.ca/news/publications/college-connector/2024-V12-04/02"
+        }
+      ]
+    },
+    {
+      "public_incident_id": "mnsh_cpsbc_procedure_consent_2025",
+      "title": "Anonymous Indigenous patient — procedure consent and pain review",
+      "province": "British Columbia",
+      "location": "British Columbia",
+      "event_date": "2025",
+      "date_label": "Case summary published",
+      "care_setting": "Specialist outpatient procedure",
+      "affected_person": "Not publicly named",
+      "summary": "A CPSBC Inquiry Committee case summary describes an Indigenous patient whose pre-procedure pain medication was missed. The committee found that the physician continued after the patient expressed pain and physically withdrew, rather than pausing to reassess needs and consent.",
+      "evidence_strength": {
+        "key": "formal_process_evidence",
+        "label": "Formal process evidence",
+        "source_roles": ["regulator_case_summary"]
+      },
+      "formal_process_status": "Inquiry Committee review completed; regulator case summary published",
+      "institutional_response": "The regulator reported that the physician recognized the missed medication and apologized. The committee identified consent, pain-control and culturally safe communication concerns.",
+      "formal_outcome": "This is an anonymized regulator learning summary of an Inquiry Committee review. It is not a disciplinary order, court judgment or broader institutional finding.",
+      "unresolved_questions": [
+        "The incident date, procedure and facility are not stated publicly.",
+        "No later remedial, institutional or implementation report was located."
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "Case study: obtaining and maintaining culturally safe consent",
+          "role": "regulator_case_summary",
+          "url": "https://www.cpsbc.ca/news/publications/college-connector/2025-V13-03/05"
+        }
+      ]
+    },
+    {
+      "public_incident_id": "mnsh_cpsbc_skrenes_2022",
+      "title": "Anonymous Indigenous patient — CPSBC professional-boundaries consent agreement",
+      "province": "British Columbia",
+      "location": "Burns Lake",
+      "event_date": "2022-04-21",
+      "care_setting": "Virtual mental-health-related medical appointment",
+      "affected_person": "Not publicly named",
+      "summary": "CPSBC published a consent agreement in which physician Bryan David Skrenes acknowledged crossing professional boundaries by promoting his religious beliefs and discussing his own mental-health challenges with a vulnerable Indigenous patient during a virtual appointment.",
+      "evidence_strength": {
+        "key": "final_formal_outcome",
+        "label": "Formal outcome",
+        "source_roles": ["regulator_finding"]
+      },
+      "formal_process_status": "Regulatory consent agreement effective September 14, 2025",
+      "institutional_response": "CPSBC imposed a formal reprimand, changed the physician's registration to a disciplined class, limited workload and on-call work, and required practice restrictions and professional development.",
+      "formal_outcome": "A professional-regulator consent agreement resolving the investigation. It is not a court judgment or a finding about an entire health system.",
+      "unresolved_questions": [
+        "No separate public health-system response was located.",
+        "The anonymous patient's identity and private clinical details are not required for public accountability."
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "CPSBC public notification: Bryan David Skrenes",
+          "role": "regulator_finding",
+          "final_outcome": true,
+          "url": "https://www.cpsbc.ca/files/public-notifications/2025-09-25-Skrenes-2.pdf"
+        }
+      ]
     }
   ]
 }
