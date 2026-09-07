@@ -4,6 +4,7 @@
   "records": [
     {
       "canonical_resource_id": "shared_isc_nihb_mental_health_counselling",
+      "resource_kind": "funding",
       "name": "NIHB Mental Health Counselling Benefit",
       "organization": "Indigenous Services Canada",
       "categories": ["mental_health", "funding", "benefits"],
@@ -15,6 +16,11 @@
       "delivery_modes": ["in_person", "virtual"],
       "eligibility": "NIHB client eligibility and benefit rules apply; review the current official guide.",
       "access_pathway": "Choose an eligible provider and confirm current coverage and billing arrangements through the official NIHB information.",
+      "funding_type": "benefit",
+      "purpose": "Coverage for eligible professional mental-health counselling.",
+      "status": "recurring",
+      "recurring_cycle": "Ongoing benefit subject to current NIHB eligibility and coverage rules",
+      "application_method": "Review the current NIHB guide, choose an eligible provider and confirm coverage and billing arrangements.",
       "phone": null,
       "website": "https://www.sac-isc.gc.ca/eng/1576441552462/1576441618847",
       "source": {

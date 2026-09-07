@@ -27,7 +27,7 @@ export function toMillerNorthSharedEmailResult(record) {
   if (!sourceId) return null
   return {
     id: fundingSourceId ? sourceId : `support:north:${sourceId}`,
-    kind: fundingSourceId ? "funding" : "service",
+    kind: fundingSourceId || record.funding ? "funding" : "service",
     name: record.program_name,
     organization: record.organization,
     description: record.description || record.access,

@@ -3229,7 +3229,7 @@
     },
     {
       "canonical_resource_id": "shared_isc_nihb_mental_health_counselling",
-      "record_type": "service",
+      "record_type": "funding",
       "organization": "Indigenous Services Canada",
       "program_name": "NIHB Mental Health Counselling Benefit",
       "categories": [
@@ -3260,7 +3260,16 @@
       "phone": "",
       "email": "",
       "website": "https://www.sac-isc.gc.ca/eng/1576441552462/1576441618847",
-      "funding": null,
+      "funding": {
+        "purpose": "Coverage for eligible professional mental-health counselling.",
+        "funding_type": "benefit",
+        "amount": "",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "Ongoing benefit subject to current NIHB eligibility and coverage rules",
+        "next_check_due": ""
+      },
       "source": {
         "title": "Non-Insured Health Benefits program for First Nations and Inuit: Mental health counselling benefits",
         "authority": "Indigenous Services Canada",

@@ -43,7 +43,7 @@ function visibility(value) {
 }
 
 export function normalizeSharedResource(record, { project, sourceKind }) {
-  const funding = sourceKind === "funding"
+  const funding = (record.resource_kind || sourceKind) === "funding"
   const name = clean(record.name)
   const organization = clean(record.organization || record.funder || record.administering_organization)
   const website = clean(record.website || record.application_url || record.source?.url)

@@ -18,6 +18,9 @@ test("known cross-project programs share one canonical record while program-leve
   assert.ok(transport.source_record_ids.length >= 2)
   const rentBanks = registry.records.filter(record => /Rent Bank/.test(record.program_name))
   assert.ok(rentBanks.length >= 4)
+  const counsellingBenefit = registry.records.find(record => record.canonical_resource_id === "shared_isc_nihb_mental_health_counselling")
+  assert.equal(counsellingBenefit.record_type, "funding")
+  assert.equal(counsellingBenefit.funding.status, "recurring")
 })
 
 test("Supports & Funding UI consumes the shared projection and exposes no private workflow fields", () => {
@@ -35,4 +38,5 @@ test("every North projection record maps to a public email identifier", () => {
   assert.equal(emailRecords.filter(Boolean).length, records.length)
   assert.equal(new Set(emailRecords.map(record => record.id)).size, records.length)
   assert.ok(emailRecords.every(record => record.approved && record.website.startsWith("https://")))
+  assert.equal(emailRecords.find(record => record.id === "support:north:shared_isc_nihb_mental_health_counselling").kind, "funding")
 })
