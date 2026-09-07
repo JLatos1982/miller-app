@@ -350,6 +350,144 @@
           "url": "https://www.cpsbc.ca/files/public-notifications/2025-09-25-Skrenes-2.pdf"
         }
       ]
+    },
+    {
+      "public_incident_id": "mnsh_jocelyn_george_2016",
+      "title": "Jocelyn George inquest and custody-health recommendations",
+      "province": "British Columbia",
+      "location": "Port Alberni and Victoria",
+      "event_date": "2016-06-24",
+      "care_setting": "Police custody, paramedic assessment, emergency care and air transfer",
+      "summary": "A B.C. inquest reviewed the death of Jocelyn George, an Indigenous youth, after her condition deteriorated during detention in Port Alberni and she was transported to hospital and later transferred to Victoria. The verdict records that required prisoner monitoring was not consistently followed and the jury issued 24 prevention recommendations concerning health assessment, youth safety, cultural support, mental-health and addictions services, and Indigenous oversight.",
+      "evidence_strength": {
+        "key": "formal_process_evidence",
+        "label": "Formal process evidence",
+        "source_roles": ["jury_verdict", "indigenous_led_report", "indigenous_journalism"]
+      },
+      "formal_process_status": "Inquest completed; 24 prevention recommendations issued",
+      "institutional_response": "The verdict records policy and training changes after the death. A Nuu-chah-nulth Tribal Council statement said it was disappointed with the Independent Investigations Office conclusion and called for stronger custody-monitoring procedures.",
+      "formal_outcome": "The jury classified the death as accidental and made prevention recommendations. The inquest did not determine criminal or civil responsibility or make a formal finding of racism.",
+      "unresolved_questions": [
+        "Which recommendations received formal responses from the RCMP, City of Port Alberni, health authorities or provincial ministries?",
+        "Which recommended health, cultural-support, Indigenous-oversight or youth-wellness measures were implemented and evaluated?"
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "Verdict at Coroners Inquest: Jocelyn Nynah Marsha George",
+          "role": "jury_verdict",
+          "url": "https://www2.gov.bc.ca/assets/gov/birth-adoption-death-marriage-and-divorce/deaths/coroners-service/inquest/2021/george_verdict_with_coroner_comments.pdf"
+        },
+        {
+          "title": "Nuu-chah-nulth Tribal Council response to the police-watchdog decision",
+          "role": "indigenous_led_report",
+          "url": "https://nuuchahnulth.org/news/431"
+        },
+        {
+          "title": "Inquest uncovers need for systemic changes",
+          "role": "indigenous_journalism",
+          "url": "https://hashilthsa.com/news/2021-07-23/inquest-uncovers-need-systemic-changes"
+        }
+      ]
+    },
+    {
+      "public_incident_id": "mnsh_bccnm_michell_2014",
+      "title": "First Nations community-care documentation and supervision consent agreement",
+      "province": "British Columbia",
+      "location": "Northern British Columbia",
+      "event_date": "2014-09",
+      "date_label": "Conduct period began",
+      "care_setting": "Home and community nursing in a First Nations community",
+      "affected_person": "Not publicly named",
+      "summary": "A BCCNM predecessor regulator approved a consent agreement after identifying extensive documentation, care-planning and supervision gaps in home and community nursing in a First Nations community between 2014 and 2017. The notice also describes discontinued care to an Elder based on lifestyle concerns that were not documented or corroborated.",
+      "evidence_strength": {
+        "key": "final_formal_outcome",
+        "label": "Formal outcome",
+        "source_roles": ["regulator_finding"]
+      },
+      "formal_process_status": "Regulatory consent agreement approved July 20, 2018",
+      "institutional_response": "The regulator imposed terms equivalent to a six-month suspension, limits on in-charge and sole-nurse work, supervised practice, chart audits, and remedial education including Indigenous cultural care.",
+      "formal_outcome": "A professional-regulator consent agreement concerning practice in one First Nations community. It is not a court judgment or a finding about every service provided by the organization.",
+      "unresolved_questions": [
+        "The community and affected clients are not named in the public notice and are not required for accountability.",
+        "No separate public organizational response or implementation evaluation was located."
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "BCCNM public notice: June Michell, RN",
+          "role": "regulator_finding",
+          "final_outcome": true,
+          "url": "https://www.bccnm.ca/Public/complaints/Pages/Notice.aspx?NoticeID=199"
+        }
+      ]
+    },
+    {
+      "public_incident_id": "mnsh_bccnm_liesch_2021",
+      "title": "Discriminatory-comments nursing consent agreement",
+      "province": "British Columbia",
+      "location": "British Columbia",
+      "event_date": "2021-03",
+      "date_label": "Conduct period began",
+      "care_setting": "Nursing workplace in a First Nations community",
+      "affected_person": "Not publicly named",
+      "summary": "BCCNM approved a consent agreement after finding that a nurse made two discriminatory and derogatory workplace comments, including one about sterilization of First Nations women, while working in a First Nations community.",
+      "evidence_strength": {
+        "key": "final_formal_outcome",
+        "label": "Formal outcome",
+        "source_roles": ["regulator_finding"]
+      },
+      "formal_process_status": "Regulatory consent agreement approved June 21, 2022",
+      "institutional_response": "BCCNM imposed a five-week suspension, a temporary supervisory restriction, workplace mentorship, anti-racism education and sensitivity training.",
+      "formal_outcome": "A professional-regulator consent agreement about specified workplace comments. It does not establish a separate patient-care event or a finding about an entire community or organization.",
+      "unresolved_questions": [
+        "The public notice does not identify an affected patient or broader institutional response.",
+        "No later public implementation or workplace outcome was located."
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "BCCNM public notice: Barbara Liesch, RN",
+          "role": "regulator_finding",
+          "final_outcome": true,
+          "url": "https://www.bccnm.ca/Public/complaints/Pages/Notice.aspx?NoticeID=816"
+        }
+      ]
+    },
+    {
+      "public_incident_id": "mnsh_silent_world_jordan_2013",
+      "title": "The Silent World of Jordan — youth-custody healthcare investigation",
+      "province": "Saskatchewan",
+      "location": "Prince Albert",
+      "event_date": "2013-09-19",
+      "care_setting": "Youth custody, community medical clinic and emergency hospital care",
+      "affected_person": "Not publicly named",
+      "summary": "The Saskatchewan Advocate for Children and Youth investigated the death of a 16-year-old First Nations youth referred to publicly as Jordan. The Advocate found that the youth facility lacked adequate processes for complex needs and timely healthcare access, that signs of deteriorating health were not acted on adequately, and that the failure to accommodate Jordan's hearing impairment was improperly discriminatory and increased his disadvantage.",
+      "evidence_strength": {
+        "key": "formal_process_evidence",
+        "label": "Formal process evidence",
+        "source_roles": ["independent_advocate_investigation"]
+      },
+      "formal_process_status": "Independent Advocate investigation completed; ten recommendations issued",
+      "institutional_response": "The Advocate reported that the Ministry had conducted its own review and implemented changes. The Advocate's 2016 annual report later said the Ministry accepted all ten recommendations but required time for implementation.",
+      "formal_outcome": "An independent statutory Advocate investigation with findings and recommendations. The public report uses a pseudonym and does not assign criminal or civil responsibility.",
+      "unresolved_questions": [
+        "What is the current recommendation-by-recommendation implementation status?",
+        "Which policy and training changes remain in operation, and what outcome evidence exists?"
+      ],
+      "official_evidence_added_at": "2026-09-07",
+      "related_watch_chain_id": "mnaw_silent_world_jordan",
+      "last_reviewed": "2026-09-07",
+      "sources": [
+        {
+          "title": "The Silent World of Jordan",
+          "role": "independent_advocate_investigation",
+          "url": "https://www.saskadvocate.ca/assets/the-silent-world-of-jordan-public-report-june-15-2016-0.pdf"
+        }
+      ]
     }
   ]
 }

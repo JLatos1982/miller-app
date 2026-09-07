@@ -1,7 +1,7 @@
 import test from "node:test"
 import assert from "node:assert/strict"
 
-import { compareBccnmNoticeMemory, parseBccnmNotice, parseBccnmNoticeIndex, validateBccnmNoticeResult } from "../server/millerNorthBccnmListener.js"
+import { compareBccnmNoticeMemory, parseBccnmNotice, parseBccnmNoticeIndex, selectBccnmNoticesForRange, validateBccnmNoticeResult } from "../server/millerNorthBccnmListener.js"
 
 test("BCCNM index parsing yields stable canonical notice identities", () => {
   const records = parseBccnmNoticeIndex('<a href="/Public/complaints/Pages/Notice.aspx?NoticeID=880">Lowe, Katherine</a><a href="/Public/complaints/Pages/Notice.aspx?NoticeID=880">duplicate</a>')
@@ -26,4 +26,16 @@ test("BCCNM memory detects new and amended notices without changing identity", (
   assert.equal(replay.unchanged, 1)
   const changed = parseBccnmNotice('<div id="x_DetailsPanel"><h2>B</h2><p>Indigenous client consent care. Amended.</p></div><footer>', { noticeId: 1001 })
   assert.equal(compareBccnmNoticeMemory(initial.memory, [{ ...changed, checked_at: "2026-09-08" }]).updated_notices.length, 1)
+})
+
+test("BCCNM historical range selection is deterministic and inclusive", () => {
+  const index = [901, 35, 300, 299].map(notice_id => ({ notice_id }))
+  assert.deepEqual(selectBccnmNoticesForRange(index, { minId: 100, maxId: 900, limit: 2 }).map(item => item.notice_id), [299, 300])
+})
+
+test("BCCNM partial cycles preserve previously observed memory", () => {
+  const previous = { notices: { "35": { document_fingerprint: "a".repeat(64), url: "old", checked_at: "2026-09-01" } } }
+  const current = [{ notice_id: 300, document_fingerprint: "b".repeat(64), url: "new", checked_at: "2026-09-07" }]
+  const comparison = compareBccnmNoticeMemory(previous, current)
+  assert.deepEqual(Object.keys(comparison.memory.notices).sort(), ["300", "35"])
 })

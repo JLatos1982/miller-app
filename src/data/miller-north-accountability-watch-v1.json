@@ -173,6 +173,30 @@
         { "title": "Verdict at Coroners Inquest: Nadine Marcy Solonas", "role": "jury verdict", "url": "https://www2.gov.bc.ca/assets/gov/birth-adoption-death-marriage-and-divorce/deaths/coroners-service/inquest/2023/bccs_solonas_verdict_with_coroner_comments.pdf" },
         { "title": "Inquest brings call for Indigenous support worker for people in custody", "role": "Indigenous journalism", "url": "https://www.cfnrfm.ca/2023/06/06/inquest-into-death-of-quesnel-woman-in-2017-brings-calls-for-a-support-worker-for-indigenous-people-in-custody/" }
       ]
+    },
+    {
+      "chain_id": "mnaw_silent_world_jordan",
+      "title": "The Silent World of Jordan healthcare-access recommendations",
+      "province": "Saskatchewan",
+      "originating_concern": "A First Nations youth with significant hearing loss became increasingly ill while in youth custody and died after emergency transport to hospital.",
+      "key_finding": "The Saskatchewan Advocate found barriers to timely healthcare, inadequate processes for complex needs, failures to act on deteriorating health, and a discriminatory failure to accommodate the youth's hearing impairment.",
+      "recommendation_or_commitment": "The Advocate issued ten recommendations covering complex-needs procedures, a stand-alone healthcare policy, oversight, staff training, disability accommodation, court-service communication and child-welfare response.",
+      "responsible_organizations": ["Saskatchewan Ministry of Justice, Corrections and Policing", "Prince Albert Youth Residence", "Court Services", "Agency Chiefs Child and Family Services"],
+      "accountable_actors": ["Saskatchewan Ministry of Justice, Corrections and Policing", "Saskatchewan Advocate for Children and Youth"],
+      "implementation_action_claimed": "The Advocate reported that the Ministry conducted an internal review and implemented changes; the 2016 annual report said the Ministry accepted all ten recommendations but required time for implementation.",
+      "implementation_evidence": "The public sources establish an institutional response and general claimed changes, but do not provide a current recommendation-by-recommendation implementation or outcome ledger.",
+      "current_status": "response_under_review",
+      "unresolved_gap": "Current status, sustained operation and outcome evidence for the ten recommendations were not located.",
+      "contradictions_or_limitations": "Acceptance and general statements about changes are not proof that every recommendation was implemented or effective. The report uses a pseudonym to protect the young person's identity.",
+      "last_reviewed": "2026-09-07",
+      "best_next_document": "A current Saskatchewan Advocate recommendation-status record mapping all ten recommendations to action and outcome evidence.",
+      "confidence": "high",
+      "evidence_quality": "Independent statutory investigation plus the Advocate's public recommendation-monitoring report; current implementation reporting remains incomplete.",
+      "related_incident_refs": ["mnsh_silent_world_jordan_2013"],
+      "sources": [
+        { "title": "The Silent World of Jordan", "role": "independent Advocate investigation", "url": "https://www.saskadvocate.ca/assets/the-silent-world-of-jordan-public-report-june-15-2016-0.pdf" },
+        { "title": "Saskatchewan Advocate for Children and Youth 2016 Annual Report", "role": "recommendation monitoring", "url": "https://www.saskadvocate.ca/assets/advocate-for-children-and-youth-annual-report-final.pdf" }
+      ]
     }
   ]
 }

@@ -16,6 +16,7 @@ const FORMAL_PROCESS_ROLES = new Set([
   "death_review_panel_report",
   "regulator_finding",
   "regulator_case_summary",
+  "independent_advocate_investigation",
   "tribunal_decision",
   "court_decision",
 ])

@@ -19,6 +19,14 @@ export function parseBccnmNoticeIndex(html) {
   return [...notices.values()].sort((a, b) => a.notice_id - b.notice_id)
 }
 
+export function selectBccnmNoticesForRange(index = [], { minId = 1, maxId = Number.POSITIVE_INFINITY, limit = 200 } = {}) {
+  const boundedLimit = Math.min(500, Math.max(1, Number(limit) || 200))
+  return [...index]
+    .filter(item => item.notice_id >= minId && item.notice_id <= maxId)
+    .sort((a, b) => a.notice_id - b.notice_id)
+    .slice(0, boundedLimit)
+}
+
 export function parseBccnmNotice(html, { noticeId, url = `${NOTICE_BASE}${noticeId}` } = {}) {
   const source = String(html || "")
   const start = source.indexOf("_DetailsPanel\">")
@@ -44,7 +52,8 @@ export function parseBccnmNotice(html, { noticeId, url = `${NOTICE_BASE}${notice
 
 export function compareBccnmNoticeMemory(previous = {}, current = []) {
   const prior = previous.notices || {}
-  const next = Object.fromEntries(current.map(item => [String(item.notice_id), { document_fingerprint: item.document_fingerprint, url: item.url, checked_at: item.checked_at }]))
+  const observed = Object.fromEntries(current.map(item => [String(item.notice_id), { document_fingerprint: item.document_fingerprint, url: item.url, checked_at: item.checked_at }]))
+  const next = { ...prior, ...observed }
   const new_notices = current.filter(item => !prior[item.notice_id])
   const updated_notices = current.filter(item => prior[item.notice_id] && prior[item.notice_id].document_fingerprint !== item.document_fingerprint)
   return { new_notices, updated_notices, unchanged: current.length - new_notices.length - updated_notices.length, memory: { schema_version: "miller-north-bccnm-listener-memory-v1", notices: next } }

@@ -30,7 +30,7 @@ const sampleWorkbook = () => {
 }
 
 test("publication-safe serious-harm projection validates and minimizes identity", () => {
-  assert.deepEqual(validatePublicSeriousHarmProjection(seriousHarm), { valid: true, incidents: 10 })
+  assert.deepEqual(validatePublicSeriousHarmProjection(seriousHarm), { valid: true, incidents: 14 })
   assert.equal(seriousHarm.incidents.filter(item => item.affected_person).every(item => item.affected_person === "Not publicly named"), true)
   assert.equal(JSON.stringify(seriousHarm).includes("private_notes"), false)
 })
@@ -67,6 +67,25 @@ test("new inquest records preserve formal-process limits and Indigenous source r
   assert.equal(jones.evidence_strength.key, "formal_process_evidence")
   assert.match(jones.formal_outcome, /does not determine criminal or civil responsibility/i)
   assert.equal(jones.sources.some(source => source.role === "indigenous_led_report"), true)
+})
+
+test("historical publication additions preserve source roles, anonymity and inquest limits", () => {
+  const george = seriousHarm.incidents.find(item => item.public_incident_id === "mnsh_jocelyn_george_2016")
+  const michell = seriousHarm.incidents.find(item => item.public_incident_id === "mnsh_bccnm_michell_2014")
+  const liesch = seriousHarm.incidents.find(item => item.public_incident_id === "mnsh_bccnm_liesch_2021")
+  assert.match(george.formal_outcome, /did not determine criminal or civil responsibility/i)
+  assert.equal(george.sources.some(source => source.role === "indigenous_led_report"), true)
+  assert.equal(michell.affected_person, "Not publicly named")
+  assert.equal(liesch.affected_person, "Not publicly named")
+  assert.equal([michell, liesch].every(item => item.evidence_strength.key === "final_formal_outcome"), true)
+})
+
+test("Saskatchewan Advocate investigation preserves the public pseudonym and formal limits", () => {
+  const jordan = seriousHarm.incidents.find(item => item.public_incident_id === "mnsh_silent_world_jordan_2013")
+  assert.equal(jordan.affected_person, "Not publicly named")
+  assert.equal(jordan.evidence_strength.key, "formal_process_evidence")
+  assert.match(jordan.formal_outcome, /uses a pseudonym/i)
+  assert.equal(jordan.related_watch_chain_id, "mnaw_silent_world_jordan")
 })
 
 test("reviewed serious-harm route uses Miller North navigation and restrained presentation", () => {

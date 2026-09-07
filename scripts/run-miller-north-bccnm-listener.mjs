@@ -2,21 +2,22 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import { dirname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
 
-import { BCCNM_NOTICE_INDEX, compareBccnmNoticeMemory, parseBccnmNotice, parseBccnmNoticeIndex, validateBccnmNoticeResult } from "../server/millerNorthBccnmListener.js"
+import { BCCNM_NOTICE_INDEX, compareBccnmNoticeMemory, parseBccnmNotice, parseBccnmNoticeIndex, selectBccnmNoticesForRange, validateBccnmNoticeResult } from "../server/millerNorthBccnmListener.js"
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..")
 const artifactDir = resolve(root, "artifacts/miller-north")
 const memoryPath = resolve(artifactDir, "miller-north-bccnm-listener-memory-v1.json")
-const reportPath = resolve(artifactDir, "miller-north-bccnm-listener-cycle-v1.json")
 const args = process.argv.slice(2)
 const after = flag => args[args.indexOf(flag) + 1]
 const minId = Math.max(1, Number(after("--min-id")) || 1000)
-const limit = Math.min(200, Math.max(1, Number(after("--limit")) || 150))
+const maxId = Math.max(minId, Number(after("--max-id")) || Number.POSITIVE_INFINITY)
+const limit = Math.min(500, Math.max(1, Number(after("--limit")) || 150))
+const reportPath = resolve(artifactDir, Number.isFinite(maxId) ? `miller-north-bccnm-listener-cycle-${minId}-${maxId}-v1.json` : "miller-north-bccnm-listener-cycle-v1.json")
 const checkedAt = new Date().toISOString()
 
 const indexResponse = await fetch(BCCNM_NOTICE_INDEX, { redirect: "follow", signal: AbortSignal.timeout(30_000) })
 if (!indexResponse.ok) throw new Error(`bccnm_index_fetch_${indexResponse.status}`)
-const index = parseBccnmNoticeIndex(await indexResponse.text()).filter(item => item.notice_id >= minId).slice(-limit)
+const index = selectBccnmNoticesForRange(parseBccnmNoticeIndex(await indexResponse.text()), { minId, maxId, limit })
 let cursor = 0
 const results = []
 await Promise.all(Array.from({ length: Math.min(5, index.length) }, async () => {
@@ -42,7 +43,7 @@ const candidates = comparable.filter(item => item.disposition === "owner_review"
 const report = {
   schema_version: "miller-north-bccnm-listener-cycle-v1",
   checked_at: checkedAt,
-  scope: { min_notice_id: minId, notices_selected: index.length, production_writes: 0 },
+  scope: { min_notice_id: minId, max_notice_id: Number.isFinite(maxId) ? maxId : null, notices_selected: index.length, production_writes: 0 },
   metrics: { fetched: comparable.length, failed: results.length - comparable.length, candidate_notices: candidates.length, new_documents: comparison.new_notices.length, amended_documents: comparison.updated_notices.length, unchanged_documents: comparison.unchanged },
   candidates: candidates.map(item => ({ notice_id: item.notice_id, url: item.url, practitioner_label: item.practitioner_label, outcome_type: item.outcome_type, publication_date_text: item.publication_date_text, disposition: item.disposition, body_text: item.body_text })),
   errors: results.filter(item => item.fetch_error).map(item => ({ notice_id: item.notice_id, url: item.url, error: item.fetch_error })),

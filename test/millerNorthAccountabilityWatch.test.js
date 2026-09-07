@@ -8,14 +8,15 @@ import coverage from "../artifacts/miller-north/miller-north-coverage-gap-report
 import discoveryAssessment from "../artifacts/miller-north/miller-north-live-incident-discovery-assessment-2026-09-07.json" with { type: "json" }
 import { assessLiveIncidentCandidate, compareAccountabilityWatch, validateAccountabilityWatch, validateLiveIncidentCandidate } from "../server/millerNorthAccountabilityWatch.js"
 
-test("Accountability Watch has seven source-backed public chains", () => {
-  assert.deepEqual(validateAccountabilityWatch(watch), { valid: true, chains: 7 })
+test("Accountability Watch has eight source-backed public chains", () => {
+  assert.deepEqual(validateAccountabilityWatch(watch), { valid: true, chains: 8 })
   assert.deepEqual(new Set(watch.chains.map(chain => chain.province)), new Set(["British Columbia", "Alberta", "Saskatchewan"]))
   assert.equal(watch.chains.every(chain => chain.sources.every(source => source.url.startsWith("https://"))), true)
   assert.equal(watch.chains.every(chain => chain.sources.every(source => source.role)), true)
   assert.equal(watch.chains.every(chain => chain.evidence_quality), true)
   assert.match(watch.chains.find(chain => chain.chain_id === "mnaw_maskwacis_youth_inquiry").contradictions_or_limitations, /not evidence that a recommendation was implemented/i)
   assert.match(watch.chains.find(chain => chain.chain_id === "mnaw_solonas_support_recommendation").contradictions_or_limitations, /did not make a finding of racism/i)
+  assert.match(watch.chains.find(chain => chain.chain_id === "mnaw_silent_world_jordan").contradictions_or_limitations, /not proof that every recommendation was implemented/i)
 })
 
 test("watch change detection ignores review-date-only changes and finds new accountability documents", () => {

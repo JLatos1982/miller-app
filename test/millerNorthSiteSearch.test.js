@@ -27,6 +27,10 @@ test("site search handles phrases, aliases, geography, settings and typo toleran
   assert.ok(retrieveMillerNorthResults("remote paramedic water taxi Opitsaht").some(item => item.underlying_record_id === "mnsh_julian_jones_2021"))
   assert.ok(retrieveMillerNorthResults("rural emergency safe discharge Indigenous").some(item => item.underlying_record_id === "mnsh_cpsbc_rural_discharge_2024"))
   assert.ok(retrieveMillerNorthResults("Skrenes professional boundaries Indigenous patient").some(item => item.underlying_record_id === "mnsh_cpsbc_skrenes_2022"))
+  assert.ok(retrieveMillerNorthResults("Jocelyn George custody health inquest").some(item => item.underlying_record_id === "mnsh_jocelyn_george_2016"))
+  assert.ok(retrieveMillerNorthResults("First Nations community nursing documentation").some(item => item.underlying_record_id === "mnsh_bccnm_michell_2014"))
+  assert.ok(retrieveMillerNorthResults("sterilization First Nations nursing comment").some(item => item.underlying_record_id === "mnsh_bccnm_liesch_2021"))
+  assert.ok(retrieveMillerNorthResults("First Nations youth custody hearing healthcare Saskatchewan").some(item => item.underlying_record_id === "mnsh_silent_world_jordan_2013"))
   assert.ok(retrieveMillerNorthResults("Maskwacis youth recommendations").some(item => item.underlying_record_id === "mnaw_maskwacis_youth_inquiry"))
 })
 

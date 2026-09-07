@@ -35,6 +35,8 @@ test("coroner source registry is structurally valid and read-only oriented", () 
   assert.ok(registry.sources.some(item => item.source_id === "ab_fatality_recommendation_responses" && item.listener_feasibility === "very_high"))
   assert.ok(registry.sources.some(item => item.source_id === "bc_cpsbc_indigenous_case_studies" && item.recommended_frequency === "monthly"))
   assert.ok(registry.sources.some(item => item.source_id === "sk_fnho_publications" && item.source_family === "indigenous_governed_accountability"))
+  assert.ok(registry.sources.some(item => item.source_id === "ab_child_youth_advocate_reviews" && item.listener_feasibility === "very_high"))
+  assert.ok(registry.sources.some(item => item.source_id === "sk_advocate_children_youth" && item.historical_backfill_feasible === true))
 })
 
 test("document roles and mechanisms are classified deterministically", () => {
