@@ -42,6 +42,11 @@ function visibility(value) {
   return [...new Set(array(value))].sort()
 }
 
+const compactObject = value => Object.fromEntries(Object.entries(value).filter(([, nested]) => {
+  if (Array.isArray(nested)) return nested.length > 0
+  return nested !== null && nested !== undefined && nested !== ""
+}))
+
 export function normalizeSharedResource(record, { project, sourceKind }) {
   const funding = (record.resource_kind || sourceKind) === "funding"
   const name = clean(record.name)
@@ -66,6 +71,8 @@ export function normalizeSharedResource(record, { project, sourceKind }) {
     service_area: clean(record.service_area || record.area_served || record.geography),
     delivery_modes: array(record.delivery_modes),
     eligibility: clean(record.eligibility || record.who_can_apply),
+    access_requirements: array(record.access_requirements).map(clean),
+    required_documents: array(record.required_documents).map(clean),
     cost: clean(record.cost),
     referral_requirement: clean(record.referral_requirements),
     access: clean(record.access_pathway || record.access || record.application_method),
@@ -82,6 +89,23 @@ export function normalizeSharedResource(record, { project, sourceKind }) {
       recurring_cycle: clean(record.recurring_cycle),
       next_check_due: clean(record.next_check_due),
     } : null,
+    housing: record.housing ? compactObject({
+      housing_type: clean(record.housing.housing_type),
+      application_process: clean(record.housing.application_process),
+      availability: clean(record.housing.availability),
+      restrictions: clean(record.housing.restrictions),
+    }) : null,
+    legal_support: record.legal_support ? compactObject({
+      service_type: clean(record.legal_support.service_type),
+      representation: clean(record.legal_support.representation),
+    }) : null,
+    transportation: record.transportation ? compactObject({
+      funding_source: clean(record.transportation.funding_source),
+      eligible_trip_types: array(record.transportation.eligible_trip_types).map(clean),
+      escort_rules: clean(record.transportation.escort_rules),
+      delivery: clean(record.transportation.delivery),
+      travel_modes: array(record.transportation.travel_modes).map(clean),
+    }) : null,
     source: { title: clean(record.source?.title || name), authority: clean(record.source?.authority || organization), url: clean(record.source?.url || website) },
     last_verified: clean(record.last_verified_date || record.last_verified_at),
     verification_status: funding && !ACTIVE_FUNDING.has(record.status) ? "expired_closed" : "verified_active",
@@ -98,9 +122,11 @@ function mergeRecords(left, right) {
     project_visibility: visibility([...left.project_visibility, ...right.project_visibility]),
     source_record_ids: [...new Set([...left.source_record_ids, ...right.source_record_ids])].sort(),
   }
-  for (const key of ["organization", "description", "population_served", "indigenous_scope", "governance_type", "geography", "province", "city_community", "service_area", "eligibility", "cost", "referral_requirement", "access", "phone", "email"]) {
+  for (const key of ["organization", "description", "population_served", "indigenous_scope", "governance_type", "geography", "province", "city_community", "service_area", "eligibility", "cost", "referral_requirement", "access", "phone", "email", "housing", "legal_support", "transportation"]) {
     if (!merged[key] && right[key]) merged[key] = right[key]
   }
+  merged.access_requirements = [...new Set([...(left.access_requirements || []), ...(right.access_requirements || [])])]
+  merged.required_documents = [...new Set([...(left.required_documents || []), ...(right.required_documents || [])])]
   if (left.funding || right.funding) merged.funding = left.funding || right.funding
   if (left.record_type !== right.record_type) merged.record_type = "service_and_funding"
   return merged
@@ -138,6 +164,9 @@ export function validateSharedResourceRegistry(registry) {
     if (!record.program_name || !record.organization || !/^https:\/\//.test(record.website) || !/^https:\/\//.test(record.source?.url)) throw new Error("invalid_shared_resource_source")
     if (!/^\d{4}-\d{2}-\d{2}$/.test(record.last_verified) || !record.categories.length || record.categories.some(category => !TOP_LEVEL.has(category))) throw new Error("invalid_shared_resource_taxonomy")
     if (!record.project_visibility.every(project => ["miller", "miller_north"].includes(project))) throw new Error("invalid_project_visibility")
+    if (record.transportation && !record.categories.some(category => ["healthcare", "financial_funding", "practical_support"].includes(category))) throw new Error("invalid_transportation_taxonomy")
+    if (record.housing && !record.categories.includes("housing")) throw new Error("invalid_housing_taxonomy")
+    if (record.legal_support && !record.categories.includes("legal_rights")) throw new Error("invalid_legal_taxonomy")
     ids.add(record.canonical_resource_id)
   }
   const counts = {

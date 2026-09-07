@@ -4,16 +4,10 @@ import registry from "../data/miller-shared-resource-registry-v1.json"
 import { toMillerNorthSharedEmailResult } from "../millerNorthPublicSupportEmail.js"
 import EmailResultsDialog from "./EmailResultsDialog.jsx"
 import MillerNorthPublicNav, { MillerNorthHomeLink } from "./MillerNorthPublicNav.jsx"
+import { categoryLabels, filterMillerNorthSupports } from "./millerNorthSupportFilters.js"
 import "./MillerNorthFirstNationsSupports.css"
 
-const categoryLabels = {
-  healthcare: "Health",
-  housing: "Housing",
-  legal_rights: "Legal & rights",
-  financial_funding: "Funding",
-  family_community: "Family & community",
-  practical_support: "Practical support",
-}
+const categoryOptions = Object.entries(categoryLabels)
 const provinceLabels = { "British Columbia": "B.C.", Alberta: "Alberta", Saskatchewan: "Saskatchewan", "Canada-wide": "Canada-wide", Federal: "Canada-wide" }
 const fundingStatus = {
   open: "Open now",
@@ -35,10 +29,13 @@ function ResourceCard({ record }) {
     <h3>{record.program_name}</h3>
     <p className="mn-support-operator">{record.organization}</p>
     <p>{record.description || record.access}</p>
-    <div className="mn-support-categories">{record.categories.map(category => <span key={category}>{categoryLabels[category]}</span>)}</div>
+    <div className="mn-support-categories">{record.categories.map(category => <span key={category}>{categoryLabels[category] || category.replaceAll("_", " ")}</span>)}</div>
     <dl>
       <dt>Who it serves</dt><dd>{record.population_served || record.eligibility || "See the official program page"}</dd>
       <dt>Area</dt><dd>{record.service_area || record.geography || provinceLabels[record.province]}</dd>
+      {record.eligibility ? <><dt>Can I use this?</dt><dd>{record.eligibility}</dd></> : null}
+      {record.referral_requirement ? <><dt>Referral</dt><dd>{record.referral_requirement}</dd></> : null}
+      {record.housing?.availability ? <><dt>Availability</dt><dd>{record.housing.availability}</dd></> : null}
       {record.funding?.amount ? <><dt>Amount</dt><dd>{record.funding.amount}</dd></> : null}
       {record.funding?.deadline ? <><dt>Deadline</dt><dd>{record.funding.deadline}</dd></> : null}
       <dt>How to access</dt><dd>{record.access || "Use the official program page."}</dd>
@@ -57,11 +54,7 @@ export default function MillerNorthFirstNationsSupports() {
   const [category, setCategory] = useState("all")
   const [emailOpen, setEmailOpen] = useState(false)
   const visible = useMemo(() => {
-    const term = query.trim().toLowerCase()
-    return northRecords.filter(record => {
-      const search = [record.program_name, record.organization, record.description, record.population_served, record.eligibility, record.geography, record.service_area, ...record.categories, ...record.subcategories].join(" ").toLowerCase()
-      return (!term || search.includes(term)) && (province === "all" || record.province === province) && (category === "all" || record.categories.includes(category))
-    })
+    return filterMillerNorthSupports(northRecords, { query, province, category })
   }, [query, province, category])
 
   return <main className="mn-public-page mn-supports-page">
@@ -71,10 +64,10 @@ export default function MillerNorthFirstNationsSupports() {
     <section className="mn-support-filters" aria-label="Supports and Funding filters">
       <label>Search<input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Type here" /></label>
       <label>Location<select value={province} onChange={event => setProvince(event.target.value)}><option value="all">All locations</option><option>British Columbia</option><option>Alberta</option><option>Saskatchewan</option><option>Canada-wide</option></select></label>
-      <label>Category<select value={category} onChange={event => setCategory(event.target.value)}><option value="all">All categories</option>{Object.entries(categoryLabels).map(([value, label]) => <option value={value} key={value}>{label}</option>)}</select></label>
+      <label>Category<select value={category} onChange={event => setCategory(event.target.value)}><option value="all">All categories</option>{categoryOptions.map(([value, label]) => <option value={value} key={value}>{label}</option>)}</select></label>
       <p aria-live="polite">{visible.length} resource{visible.length === 1 ? "" : "s"}</p><button type="button" onClick={() => setEmailOpen(true)} disabled={!visible.length}>Email these results</button>
     </section>
-    <nav className="mn-support-quick" aria-label="Quick support categories">{Object.entries(categoryLabels).map(([value, label]) => <button type="button" key={value} aria-pressed={category === value} onClick={() => setCategory(category === value ? "all" : value)}>{label}</button>)}</nav>
+    <nav className="mn-support-quick" aria-label="Quick support categories">{categoryOptions.map(([value, label]) => <button type="button" key={value} aria-pressed={category === value} onClick={() => setCategory(category === value ? "all" : value)}>{label}</button>)}</nav>
     <section className="mn-support-grid" aria-label="Verified First Nations and Indigenous supports and funding">{visible.map(record => <ResourceCard key={record.canonical_resource_id} record={record} />)}</section>
     {!visible.length ? <p className="mn-support-empty">No verified public resources match these filters. Try another category or location.</p> : null}
     <footer className="mn-public-footer">Candidate notes, unresolved eligibility, internal review material and expired programs presented as current are not included.</footer>

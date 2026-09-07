@@ -23,7 +23,7 @@ export function toMillerNorthSharedEmailResult(record) {
   const fundingSourceId = record.source_record_ids?.find(id => id.startsWith("funding:miller-north:"))
   const supportSourceId = record.source_record_ids?.find(id => id.startsWith("fns_"))
   const sharedSourceId = record.source_record_ids?.find(id => id.startsWith("shared_"))
-  const sourceId = fundingSourceId || supportSourceId || sharedSourceId
+  const sourceId = fundingSourceId || supportSourceId || sharedSourceId || record.canonical_resource_id
   if (!sourceId) return null
   return {
     id: fundingSourceId ? sourceId : `support:north:${sourceId}`,

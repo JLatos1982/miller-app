@@ -74,8 +74,12 @@ test("North landing keeps the active evidence-question search and removes the le
 test("unified Supports & Funding page is responsive, source-followable and does not expose review internals", () => {
   const page = readFileSync(new URL("../src/site/MillerNorthFirstNationsSupports.jsx", import.meta.url), "utf8")
   const css = readFileSync(new URL("../src/site/MillerNorthFirstNationsSupports.css", import.meta.url), "utf8")
+  const filters = readFileSync(new URL("../src/site/millerNorthSupportFilters.js", import.meta.url), "utf8")
   assert.match(page, /aria-label="Supports and Funding filters"/)
   assert.match(page, /Official service or program page/)
+  assert.match(page, /Can I use this\?/)
+  assert.match(filters, /Mental health & substance use/)
+  assert.match(filters, /Transportation/)
   assert.match(page, /miller-shared-resource-registry-v1\.json/)
   assert.doesNotMatch(page, /shared publication-safe resource registry|One resource foundation/)
   assert.match(css, /@media\(max-width:700px\)/)
