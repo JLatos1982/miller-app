@@ -1,25 +1,16 @@
 import { useEffect } from "react"
 
+import { MILLER_NORTH_PUBLIC_SECTIONS, resolveMillerNorthPublicSection } from "./millerNorthPublicTaxonomy.js"
 import "./MillerNorthPublicPages.css"
 
 export const MILLER_NORTH_HOME_HREF = "/indigenous-healthcare-evidence"
-
-const links = [
-  ["evidence", "/indigenous-healthcare-evidence", "Evidence Library"],
-  ["listening", "/indigenous-healthcare-evidence/live-listening", "Live Listening"],
-  ["emerging", "/indigenous-healthcare-evidence/watching-now", "Watching Now"],
-  ["research", "/indigenous-healthcare-evidence/research-policy", "Research & Policy"],
-  ["official", "/indigenous-healthcare-evidence/serious-harm", "Official records"],
-  ["supports", "/indigenous-healthcare-evidence/first-nations-supports", "First Nations Supports"],
-  ["funding", "/indigenous-healthcare-evidence/funding-assistance", "Funding & Assistance"],
-  ["methodology", "/indigenous-healthcare-evidence/methodology", "How evidence works"],
-]
 
 export function MillerNorthHomeLink({ className }) {
   return <a href={MILLER_NORTH_HOME_HREF} className={className}>← Miller North Home</a>
 }
 
 export default function MillerNorthPublicNav({ current }) {
+  const activeSection = resolveMillerNorthPublicSection(current)
   useEffect(() => {
     let robots = document.querySelector('meta[name="robots"]')
     const created = !robots
@@ -41,5 +32,5 @@ export default function MillerNorthPublicNav({ current }) {
     }
   }, [])
 
-  return <nav className="mn-public-nav" aria-label="Miller North">{links.map(([id, href, label]) => <a key={id} href={href} aria-current={current === id ? "page" : undefined}>{label}</a>)}</nav>
+  return <nav className="mn-public-nav" aria-label="Miller North">{MILLER_NORTH_PUBLIC_SECTIONS.map(({ id, href, label }) => <a key={id} href={href} aria-current={activeSection === id ? "page" : undefined}>{label}</a>)}</nav>
 }

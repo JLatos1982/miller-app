@@ -41,7 +41,7 @@ test("Research and Policy route, navigation and responsive reading patterns are 
   const view = readFileSync(new URL("../src/site/MillerNorthResearchPolicy.jsx", import.meta.url), "utf8")
   const css = readFileSync(new URL("../src/site/MillerNorthResearchPolicy.css", import.meta.url), "utf8")
   assert.match(app, /indigenous-healthcare-evidence\/research-policy/)
-  assert.match(evidence, /Research &amp; Policy/)
+  assert.match(evidence, /Open Accountability Watch/)
   for (const phrase of ["What happened", "Why this matters", "What we know", "What remains unclear", "Sources and evidence", "Recommendation tracker"]) assert.match(view, new RegExp(phrase))
   assert.match(css, /@media\(max-width:600px\)/)
   assert.match(css, /\.mnrp-recommendation summary/)

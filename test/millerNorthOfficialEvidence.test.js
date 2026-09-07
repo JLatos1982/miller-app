@@ -45,6 +45,13 @@ test("CPSBC additions distinguish case summaries from final consent-agreement ou
   assert.match(skrenes.formal_outcome, /not a court judgment/i)
 })
 
+test("Trevor Dubois record gains a later institutional update without implying a review outcome", () => {
+  const dubois = seriousHarm.incidents.find(item => item.public_incident_id === "mnsh_trevor_dubois_2026")
+  assert.equal(dubois.sources.some(source => source.url.includes("sha-introducing-more-protective-services")), true)
+  assert.match(dubois.institutional_response, /external review .* remained underway/i)
+  assert.match(dubois.formal_outcome, /No final public/i)
+})
+
 test("publication-safe projection rejects an evidence-strength label unsupported by source roles", () => {
   const altered = structuredClone(seriousHarm)
   altered.incidents[0].evidence_strength = { key: "lead", label: "Lead", source_roles: [] }
@@ -70,8 +77,9 @@ test("reviewed serious-harm route uses Miller North navigation and restrained pr
   assert.match(page, /MillerNorthHomeLink/)
   assert.match(page, /What remains unresolved/)
   assert.match(page, /without deciding every allegation/i)
-  assert.match(navigation, /Official records/)
+  assert.match(navigation, /MILLER_NORTH_PUBLIC_SECTIONS/)
   assert.match(navigation, /← Miller North Home/)
+  assert.match(page, /Tracked in Accountability Watch/)
 })
 
 test("evidence strength is a quiet source-role label, not a traumatic-event score", () => {

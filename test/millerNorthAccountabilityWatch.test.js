@@ -98,4 +98,5 @@ test("watch is reachable from Research and Policy without changing the primary n
   assert.match(app, /indigenous-healthcare-evidence\/accountability-watch/)
   assert.match(research, /Open Accountability Watch/)
   assert.match(view, /What public evidence shows/)
+  assert.match(view, /Related incident/)
 })

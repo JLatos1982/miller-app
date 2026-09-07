@@ -53,7 +53,7 @@ test("Live Listening validator rejects names, private notes, unsupported links a
   assert.throws(() => validateMillerNorthLiveListeningProjection(unknownLink, { evidenceGroupIds: grouped.groups.map(group => group.public_record_id) }), /unknown_evidence_group/)
 })
 
-test("Miller North exposes its distinct public layers, supports, and a methodology route", () => {
+test("Miller North preserves public routes while the primary navigation uses four visitor-facing sections", () => {
   const app = readFileSync(new URL("../src/App.jsx", import.meta.url), "utf8")
   const nav = readFileSync(new URL("../src/site/MillerNorthPublicNav.jsx", import.meta.url), "utf8")
   const evidence = readFileSync(new URL("../src/site/IndigenousHealthcareEvidence.jsx", import.meta.url), "utf8")
@@ -61,20 +61,18 @@ test("Miller North exposes its distinct public layers, supports, and a methodolo
   const method = readFileSync(new URL("../src/site/MillerNorthMethodology.jsx", import.meta.url), "utf8")
   assert.match(app, /live-listening/)
   assert.match(app, /methodology/)
-  assert.match(nav, /Evidence Library/)
-  assert.match(nav, /Live Listening/)
-  assert.match(nav, /Research & Policy/)
-  assert.match(nav, /First Nations Supports/)
+  assert.match(nav, /MILLER_NORTH_PUBLIC_SECTIONS/)
+  assert.doesNotMatch(nav, /Live Listening/)
   assert.match(evidence, /indigenous-healthcare-evidence-groups-public-v1/)
   assert.doesNotMatch(evidence, /recent-public-signals-v1/)
-  assert.match(live, /Not every item will become an Evidence Library incident/)
+  assert.match(live, /A reported account is not the same as a formal finding/)
   assert.match(method, /Please do not submit confidential medical records or private personal information/)
 })
 
 test("core public pages use mobile card layouts, accessible labels and calm evidence states", () => {
   const live = readFileSync(new URL("../src/site/MillerNorthLiveListening.jsx", import.meta.url), "utf8")
   const css = readFileSync(new URL("../src/site/MillerNorthLiveListening.css", import.meta.url), "utf8")
-  assert.match(live, /aria-label="Live Listening filters"/)
+  assert.match(live, /aria-label="Recent public report filters"/)
   assert.match(live, /<details>/)
   assert.match(css, /@media\(max-width:520px\)/)
   assert.doesNotMatch(css, /#(?:f00|ff0000|0f0|00ff00)\b/i)

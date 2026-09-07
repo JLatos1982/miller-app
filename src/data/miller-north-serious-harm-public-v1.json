@@ -116,7 +116,7 @@
         "source_roles": ["institutional_statement", "independent_journalism"]
       },
       "formal_process_status": "Multiple reviews and investigations announced; no final public finding located",
-      "institutional_response": "SHA said it suspended the involved officer pending review and a related labour investigation and was engaging Saskatoon Tribal Council and the family.",
+      "institutional_response": "SHA said it suspended the involved officer pending review and a related labour investigation and was engaging Saskatoon Tribal Council and the family. In July 2026, SHA said the separate external review of protective-services protocols remained underway while contracted protective services were expanded in several communities.",
       "formal_outcome": "No final public police, coroner, Critical Incident or use-of-force outcome was located in the bounded search.",
       "unresolved_questions": [
         "What did the announced reviews conclude?",
@@ -140,6 +140,11 @@
           "title": "Independent Review Begins to Strengthen Hospital Safety and Security",
           "role": "government_response",
           "url": "https://www.saskatchewan.ca/government/news-and-media/2026/may/21/independent-review-begins-to-strengthen-hospital-safety-and-security"
+        },
+        {
+          "title": "SHA introducing more protective services in more communities",
+          "role": "institutional_statement",
+          "url": "https://www.saskhealthauthority.ca/news-events/news/sha-introducing-more-protective-services-more-communities"
         }
       ]
     },

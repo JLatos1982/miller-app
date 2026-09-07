@@ -28,13 +28,16 @@ test("all Watching Now records carry deterministic freshness questions", () => {
   assert.equal(projection.items.filter(item => item.refresh_classification === "moved_to_mature_case").length, 1)
 })
 
-test("Watching Now route and navigation remain distinct from Live Listening and mature research", () => {
+test("Watching is a clear public monitoring layer without exposing the internal research lifecycle", () => {
   const app = readFileSync(new URL("../src/App.jsx", import.meta.url), "utf8")
   const nav = readFileSync(new URL("../src/site/MillerNorthPublicNav.jsx", import.meta.url), "utf8")
   const view = readFileSync(new URL("../src/site/MillerNorthEmergingCases.jsx", import.meta.url), "utf8")
   assert.match(app, /indigenous-healthcare-evidence\/watching-now/)
-  assert.match(nav, /Watching Now/)
-  assert.match(view, /From a signal to a researched case/)
-  assert.match(view, /Live Listening/)
-  assert.match(view, /Evidence Library/)
+  assert.match(nav, /MILLER_NORTH_PUBLIC_SECTIONS/)
+  assert.match(view, /Current public developments/)
+  assert.match(view, /What we are waiting to learn/)
+  assert.doesNotMatch(view, /Research stage/)
+  assert.doesNotMatch(view, /From a signal to a researched case/)
+  assert.match(view, />Incidents</)
+  assert.match(view, />Evidence</)
 })
