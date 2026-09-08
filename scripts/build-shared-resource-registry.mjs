@@ -14,7 +14,9 @@ import westernRegionalPathways from "../src/data/miller-western-regional-pathway
 import westernPrioritySeams from "../src/data/miller-western-priority-seams-2026-09-08.json" with { type: "json" }
 import legacyPriorityVerification from "../src/data/miller-legacy-priority-verification-2026-09-08.json" with { type: "json" }
 import legacyPriorityVerificationV2 from "../src/data/miller-legacy-priority-verification-v2-2026-09-08.json" with { type: "json" }
+import legacyPriorityVerificationV3 from "../src/data/miller-legacy-priority-verification-v3-2026-09-08.json" with { type: "json" }
 import canadaFoundation from "../src/data/miller-canada-foundation-2026-09-08.json" with { type: "json" }
+import northernRemotePathways from "../src/data/miller-northern-remote-pathways-2026-09-08.json" with { type: "json" }
 import { buildSharedResourceRegistry, validateSharedResourceRegistry } from "../server/sharedResourceRegistry.js"
 
 const withDefaultProvince = (records, defaultProvince, overrides = {}) => records.map(record => ({
@@ -53,8 +55,12 @@ const records = buildSharedResourceRegistry([
   { project: "miller_north", sourceKind: "service", records: westernPrioritySeams.records.filter(record => record.project_visibility.includes("miller_north")) },
   { project: "miller", sourceKind: "service", records: legacyPriorityVerification.records },
   { project: "miller", sourceKind: "service", records: legacyPriorityVerificationV2.records },
+  { project: "miller", sourceKind: "service", records: legacyPriorityVerificationV3.records.filter(record => record.project_visibility.includes("miller")) },
+  { project: "miller_north", sourceKind: "service", records: legacyPriorityVerificationV3.records.filter(record => record.project_visibility.includes("miller_north")) },
   { project: "miller", sourceKind: "service", records: canadaFoundation.records.filter(record => record.project_visibility.includes("miller")) },
   { project: "miller_north", sourceKind: "service", records: canadaFoundation.records.filter(record => record.project_visibility.includes("miller_north")) },
+  { project: "miller", sourceKind: "service", records: northernRemotePathways.records.filter(record => record.project_visibility.includes("miller")) },
+  { project: "miller_north", sourceKind: "service", records: northernRemotePathways.records.filter(record => record.project_visibility.includes("miller_north")) },
 ])
 const registry = {
   schema_version: "miller-shared-resource-registry-v1",

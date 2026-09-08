@@ -67,10 +67,36 @@ function serviceScope(record, { province, community, address, serviceArea, deliv
     canada_wide: record.canada_wide === true || province === "Canada-wide",
     virtual: record.virtual === true || deliveryModes.some(mode => /virtual|online|telephone/i.test(clean(mode))),
     navigation_only: record.navigation_only === true,
+    travel_required: record.travel_required === true || record.navigation_pathway?.travel_required === true,
     scope_note: clean(record.scope_note),
     search_locations: [...new Set(array(record.search_locations).map(clean).filter(Boolean))],
     service_area: clean(serviceArea),
   }
+}
+
+function navigationPathway(record) {
+  const pathway = record.navigation_pathway
+  if (!pathway || typeof pathway !== "object") return null
+  const source = pathway.source_provenance && typeof pathway.source_provenance === "object"
+    ? compactObject({
+      authority: clean(pathway.source_provenance.authority),
+      url: clean(pathway.source_provenance.url),
+    })
+    : null
+  const normalizedPathway = compactObject({
+    origin_geographies: [...new Set(array(pathway.origin_geographies).map(clean).filter(Boolean))],
+    local_access_point: clean(pathway.local_access_point),
+    regional_intake: clean(pathway.regional_intake),
+    destination_service: clean(pathway.destination_service),
+    referral_requirement: clean(pathway.referral_requirement),
+    transportation_pathway: clean(pathway.transportation_pathway),
+    funding_pathway: clean(pathway.funding_pathway),
+    virtual_alternative: clean(pathway.virtual_alternative),
+    return_home_support: [...new Set(array(pathway.return_home_support).map(clean).filter(Boolean))],
+    travel_required: pathway.travel_required === true,
+    source_provenance: source && Object.keys(source).length ? source : null,
+  })
+  return Object.keys(normalizedPathway).length ? normalizedPathway : null
 }
 
 export function normalizeSharedResource(record, { project, sourceKind }) {
@@ -138,6 +164,7 @@ export function normalizeSharedResource(record, { project, sourceKind }) {
       delivery: clean(record.transportation.delivery),
       travel_modes: array(record.transportation.travel_modes).map(clean),
     }) : null,
+    navigation_pathway: navigationPathway(record),
     source: { title: clean(record.source?.title || name), authority: clean(record.source?.authority || organization), url: clean(record.source?.url || website) },
     last_verified: clean(record.last_verified_date || record.last_verified_at),
     verification_status: funding && !ACTIVE_FUNDING.has(record.status) ? "expired_closed" : "verified_active",
@@ -155,7 +182,7 @@ function mergeRecords(left, right) {
     project_visibility: visibility([...left.project_visibility, ...right.project_visibility]),
     source_record_ids: [...new Set([...left.source_record_ids, ...right.source_record_ids])].sort(),
   }
-  for (const key of ["program_name", "organization", "description", "population_served", "indigenous_scope", "governance_type", "geography", "province", "city_community", "address", "service_area", "eligibility", "cost", "referral_requirement", "access", "phone", "email", "website", "housing", "legal_support", "transportation"]) {
+  for (const key of ["program_name", "organization", "description", "population_served", "indigenous_scope", "governance_type", "geography", "province", "city_community", "address", "service_area", "eligibility", "cost", "referral_requirement", "access", "phone", "email", "website", "housing", "legal_support", "transportation", "navigation_pathway"]) {
     if (right[key] && (rightIsCurrent || !merged[key])) merged[key] = right[key]
   }
   const leftScope = left.service_scope || {}
@@ -168,6 +195,7 @@ function mergeRecords(left, right) {
     canada_wide: Boolean(leftScope.canada_wide || rightScope.canada_wide),
     virtual: Boolean(leftScope.virtual || rightScope.virtual),
     navigation_only: Boolean(leftScope.navigation_only || rightScope.navigation_only),
+    travel_required: Boolean(leftScope.travel_required || rightScope.travel_required),
     scope_note: rightScope.scope_note && (rightIsCurrent || !leftScope.scope_note) ? rightScope.scope_note : leftScope.scope_note || "",
     search_locations: [...new Set([...(leftScope.search_locations || []), ...(rightScope.search_locations || [])])],
     service_area: rightScope.service_area && (rightIsCurrent || !leftScope.service_area) ? rightScope.service_area : leftScope.service_area || "",
@@ -226,7 +254,11 @@ export function validateSharedResourceRegistry(registry) {
     if (record.legal_support && !record.categories.includes("legal_rights")) throw new Error("invalid_legal_taxonomy")
     if (!record.service_scope || typeof record.service_scope !== "object") throw new Error("invalid_service_scope")
     if (![record.service_scope.local_service_area, record.service_scope.regional_service_area, record.service_scope.search_locations].every(Array.isArray)) throw new Error("invalid_service_scope_areas")
-    if (![record.service_scope.province_wide, record.service_scope.canada_wide, record.service_scope.virtual, record.service_scope.navigation_only].every(value => typeof value === "boolean")) throw new Error("invalid_service_scope_flags")
+    if (![record.service_scope.province_wide, record.service_scope.canada_wide, record.service_scope.virtual, record.service_scope.navigation_only, record.service_scope.travel_required].every(value => typeof value === "boolean")) throw new Error("invalid_service_scope_flags")
+    if (record.navigation_pathway) {
+      if (typeof record.navigation_pathway !== "object" || !Array.isArray(record.navigation_pathway.origin_geographies || []) || !Array.isArray(record.navigation_pathway.return_home_support || [])) throw new Error("invalid_navigation_pathway")
+      if (record.navigation_pathway.source_provenance?.url && !/^https:\/\//.test(record.navigation_pathway.source_provenance.url)) throw new Error("invalid_navigation_pathway_source")
+    }
     ids.add(record.canonical_resource_id)
   }
   const counts = {

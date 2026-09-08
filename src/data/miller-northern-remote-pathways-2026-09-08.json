@@ -1,0 +1,2030 @@
+{
+  "schema_version": "miller-northern-remote-pathways-v1",
+  "generated_at": "2026-09-08",
+  "scope": "Bounded northern and remote access-pathway pass. Local access, regional hubs, destination care, travel, funding and return-home continuity remain distinct facts.",
+  "candidate_outcomes": {
+    "accepted_new": 17,
+    "enriched_existing": 8,
+    "duplicate_avoided": 6,
+    "deferred": 5,
+    "notes": [
+      "Existing NIHB, Hope for Wellness, Ontario Indigenous treatment-directory and provincial intake records were not duplicated.",
+      "No fixed-site withdrawal facility was inferred for Churchill, remote Manitoba First Nations, Nunavut communities or Labrador communities.",
+      "Nunavut health-centre contacts are regionalized; no single phone is represented as the local number for every community.",
+      "Rural Atlantic additions enrich provincial/regional pathways instead of cloning a program into each municipality."
+    ]
+  },
+  "records": [
+    {
+      "canonical_resource_id": "miller_mb_mha_connect",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Manitoba Mental Health & Addictions Connect",
+      "organization": "Shared Health Manitoba",
+      "categories": [
+        "addiction_intake",
+        "mental_health",
+        "substance_use",
+        "withdrawal_navigation",
+        "treatment_navigation",
+        "family_support"
+      ],
+      "description": "Provincial intake and referral pathway connecting individuals, caregivers and service providers with community mental-health, substance-use and problem-gambling services.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Manitoba",
+      "search_locations": [
+        "The Pas",
+        "Flin Flon",
+        "Churchill",
+        "Norway House",
+        "Cross Lake",
+        "Gillam",
+        "Swan River",
+        "Brochet",
+        "Garden Hill",
+        "God's Lake",
+        "God's River",
+        "Lac Brochet",
+        "Leaf Rapids",
+        "Oxford House",
+        "Shamattawa",
+        "Split Lake",
+        "Thicket Portage",
+        "Wabowden",
+        "Wasagamack",
+        "York Landing"
+      ],
+      "province_wide": true,
+      "navigation_only": true,
+      "virtual": true,
+      "travel_required": false,
+      "service_area": "Manitoba",
+      "delivery_modes": [
+        "virtual"
+      ],
+      "referral_requirements": "Call the toll-free provincial access point. Individuals, caregivers and providers may initiate a referral; consent is required when a provider refers.",
+      "access_pathway": "Call the toll-free provincial access point. Individuals, caregivers and providers may initiate a referral; consent is required when a provider refers.",
+      "phone": "1-877-710-3999",
+      "website": "https://healthproviders.sharedhealthmb.ca/services/mental-health-and-addictions/mha-connect/",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "The Pas",
+          "Flin Flon",
+          "Churchill",
+          "Norway House",
+          "Cross Lake",
+          "Gillam",
+          "Swan River",
+          "Brochet",
+          "Garden Hill",
+          "God's Lake",
+          "God's River",
+          "Lac Brochet",
+          "Leaf Rapids",
+          "Oxford House",
+          "Shamattawa",
+          "Split Lake",
+          "Thicket Portage",
+          "Wabowden",
+          "Wasagamack",
+          "York Landing"
+        ],
+        "local_access_point": "A local health centre, community provider, caregiver or the person seeking help may start the request.",
+        "regional_intake": "Manitoba Mental Health & Addictions Connect, 1-877-710-3999.",
+        "destination_service": "The intake pathway connects the person to the appropriate available community or regional service.",
+        "virtual_alternative": "Telephone intake is available province-wide.",
+        "return_home_support": [
+          "Ask the intake service to connect ongoing community mental-health or substance-use support close to home."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Shared Health Manitoba",
+          "url": "https://healthproviders.sharedhealthmb.ca/services/mental-health-and-addictions/mha-connect/"
+        }
+      },
+      "source": {
+        "title": "Manitoba Mental Health & Addictions Connect",
+        "authority": "Shared Health Manitoba",
+        "url": "https://healthproviders.sharedhealthmb.ca/services/mental-health-and-addictions/mha-connect/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_mb_northern_patient_transport",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Northern Patient Transportation Program",
+      "organization": "Manitoba Health",
+      "categories": [
+        "medical_transportation",
+        "treatment_transportation",
+        "rural_remote_access",
+        "funding"
+      ],
+      "description": "Subsidizes eligible medical transportation for northern Manitoba residents who must travel for medical or hospital care unavailable in their home community.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Manitoba",
+      "regional_service_area": [
+        "Northern Manitoba",
+        "The Pas",
+        "Flin Flon",
+        "Churchill",
+        "Norway House",
+        "Cross Lake",
+        "Gillam",
+        "Swan River",
+        "Brochet",
+        "Garden Hill",
+        "God's Lake",
+        "God's River",
+        "Lac Brochet",
+        "Leaf Rapids",
+        "Oxford House",
+        "Shamattawa",
+        "Split Lake",
+        "Thicket Portage",
+        "Wabowden",
+        "Wasagamack",
+        "York Landing"
+      ],
+      "search_locations": [
+        "The Pas",
+        "Flin Flon",
+        "Churchill",
+        "Norway House",
+        "Cross Lake",
+        "Gillam",
+        "Swan River",
+        "Brochet",
+        "Garden Hill",
+        "God's Lake",
+        "God's River",
+        "Lac Brochet",
+        "Leaf Rapids",
+        "Oxford House",
+        "Shamattawa",
+        "Split Lake",
+        "Thicket Portage",
+        "Wabowden",
+        "Wasagamack",
+        "York Landing"
+      ],
+      "province_wide": false,
+      "navigation_only": true,
+      "virtual": false,
+      "travel_required": true,
+      "service_area": "Eligible areas of northern Manitoba",
+      "delivery_modes": [
+        "navigation"
+      ],
+      "referral_requirements": "A physician must approve the travel and current eligibility must be confirmed with the appropriate Thompson, Churchill, The Pas, Pine Falls or Flin Flon office before arrangements are made.",
+      "access_pathway": "A physician must approve the travel and current eligibility must be confirmed with the appropriate Thompson, Churchill, The Pas, Pine Falls or Flin Flon office before arrangements are made.",
+      "eligibility": "Manitoba residents in the geographic areas listed by Manitoba Health who need eligible care unavailable in their home community; other transportation coverage can affect eligibility.",
+      "phone": "1-800-290-1098",
+      "website": "https://www.gov.mb.ca/health/mhsip/healthcoverage.html",
+      "transportation": {
+        "funding_source": "Manitoba Health",
+        "eligible_trip_types": [
+          "Eligible medical or hospital care unavailable in the home community"
+        ],
+        "delivery": "Physician approval and regional-office coordination required",
+        "travel_modes": [
+          "Approved ground or air travel"
+        ]
+      },
+      "navigation_pathway": {
+        "origin_geographies": [
+          "The Pas",
+          "Flin Flon",
+          "Churchill",
+          "Norway House",
+          "Cross Lake",
+          "Gillam",
+          "Swan River",
+          "Brochet",
+          "Garden Hill",
+          "God's Lake",
+          "God's River",
+          "Lac Brochet",
+          "Leaf Rapids",
+          "Oxford House",
+          "Shamattawa",
+          "Split Lake",
+          "Thicket Portage",
+          "Wabowden",
+          "Wasagamack",
+          "York Landing"
+        ],
+        "local_access_point": "Ask the referring physician or local health provider whether the care and travel meet current program rules.",
+        "regional_intake": "Use the official page to contact the correct Thompson, Churchill, The Pas, Pine Falls or Flin Flon NPTP office.",
+        "transportation_pathway": "The regional office coordinates or subsidizes approved travel after physician approval.",
+        "funding_pathway": "NPTP is a subsidy; other insurer or program coverage can affect eligibility.",
+        "return_home_support": [
+          "Confirm the return itinerary with the regional transportation office and arrange follow-up with the home-community provider."
+        ],
+        "travel_required": true,
+        "source_provenance": {
+          "authority": "Manitoba Health",
+          "url": "https://www.gov.mb.ca/health/mhsip/healthcoverage.html"
+        }
+      },
+      "source": {
+        "title": "Northern Patient Transportation Program",
+        "authority": "Manitoba Health",
+        "url": "https://www.gov.mb.ca/health/mhsip/healthcoverage.html"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_mb_raam_the_pas",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "My Health Team RAAM Clinic - The Pas",
+      "organization": "Northern Health Region",
+      "categories": [
+        "addiction_medicine",
+        "oat",
+        "substance_use",
+        "treatment_navigation",
+        "harm_reduction"
+      ],
+      "description": "Walk-in rapid-access addiction medicine clinic at Rosaire House for adults seeking help with substance use, including medication options and connection to ongoing care.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Manitoba",
+      "community": "The Pas",
+      "address": "144 Ross Avenue, The Pas, MB R9A 1K4",
+      "physical_location": {
+        "community": "The Pas",
+        "address": "144 Ross Avenue, The Pas, MB R9A 1K4",
+        "province": "Manitoba"
+      },
+      "local_service_area": [
+        "The Pas"
+      ],
+      "regional_service_area": [
+        "Northern Health Region"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": false,
+      "travel_required": false,
+      "service_area": "The Pas and Northern Health Region",
+      "delivery_modes": [
+        "in person"
+      ],
+      "referral_requirements": "No appointment or formal referral is required for RAAM. Confirm the current weekday registration time on the official page before travelling.",
+      "access_pathway": "No appointment or formal referral is required for RAAM. Confirm the current weekday registration time on the official page before travelling.",
+      "phone": "204-627-6474",
+      "website": "https://northernhealthregion.com/locations/mental-health-and-substance-recovery/",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "The Pas",
+          "Northern Health Region"
+        ],
+        "local_access_point": "Attend the The Pas RAAM registration period or call the clinic before travel.",
+        "regional_intake": "The clinic can connect a person to ongoing addiction care after the rapid-access visit.",
+        "referral_requirement": "No appointment or formal referral is required; current clinic capacity still needs confirmation.",
+        "return_home_support": [
+          "Ask the clinic to connect ongoing community addiction care."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Northern Health Region",
+          "url": "https://northernhealthregion.com/locations/mental-health-and-substance-recovery/"
+        }
+      },
+      "source": {
+        "title": "My Health Team RAAM Clinic - The Pas",
+        "authority": "Northern Health Region",
+        "url": "https://northernhealthregion.com/locations/mental-health-and-substance-recovery/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_mb_nhr_flin_flon_substance_recovery",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Northern Health Region Substance Use and Recovery - Flin Flon",
+      "organization": "Northern Health Region",
+      "categories": [
+        "addiction_intake",
+        "substance_use",
+        "counselling",
+        "treatment_navigation",
+        "recovery_support"
+      ],
+      "description": "Northern Health Region community office providing substance-use and recovery access in Flin Flon.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Manitoba",
+      "community": "Flin Flon",
+      "address": "Unit 2, 53 Main Street, Flin Flon, MB R8A 1J7",
+      "physical_location": {
+        "community": "Flin Flon",
+        "address": "Unit 2, 53 Main Street, Flin Flon, MB R8A 1J7",
+        "province": "Manitoba"
+      },
+      "local_service_area": [
+        "Flin Flon"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": false,
+      "travel_required": false,
+      "service_area": "Flin Flon area",
+      "delivery_modes": [
+        "in person"
+      ],
+      "referral_requirements": "Call the Flin Flon office to confirm the appropriate local or regional service and current access route.",
+      "access_pathway": "Call the Flin Flon office to confirm the appropriate local or regional service and current access route.",
+      "phone": "204-687-1665",
+      "website": "https://northernhealthregion.com/locations/mental-health-and-substance-recovery/",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Flin Flon"
+        ],
+        "local_access_point": "Call the community Substance Use and Recovery office.",
+        "regional_intake": "The office can identify the appropriate Northern Health Region service.",
+        "return_home_support": [
+          "Use the community office for ongoing recovery and counselling connections after regional care."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Northern Health Region",
+          "url": "https://northernhealthregion.com/locations/mental-health-and-substance-recovery/"
+        }
+      },
+      "source": {
+        "title": "Northern Health Region Substance Use and Recovery - Flin Flon",
+        "authority": "Northern Health Region",
+        "url": "https://northernhealthregion.com/locations/mental-health-and-substance-recovery/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_mb_rosaire_house",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Rosaire House Addiction Centre",
+      "organization": "Northern Health Region",
+      "categories": [
+        "substance_use",
+        "addiction_treatment",
+        "recovery_support",
+        "treatment_navigation"
+      ],
+      "description": "Northern Health Region substance-recovery centre in The Pas; the official source also identifies the on-site My Health Team RAAM clinic separately.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Manitoba",
+      "community": "The Pas",
+      "address": "144 Ross Avenue, The Pas, MB R9A 1K4",
+      "physical_location": {
+        "community": "The Pas",
+        "address": "144 Ross Avenue, The Pas, MB R9A 1K4",
+        "province": "Manitoba"
+      },
+      "local_service_area": [
+        "The Pas"
+      ],
+      "regional_service_area": [
+        "Northern Health Region"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": false,
+      "travel_required": false,
+      "service_area": "The Pas and Northern Health Region",
+      "scope_note": "Physical substance-recovery centre in The Pas; RAAM is a distinct on-site access service.",
+      "delivery_modes": [
+        "in person"
+      ],
+      "referral_requirements": "Call Rosaire House to confirm its current program, intake requirements and whether travel is appropriate. Do not treat it as a verified withdrawal-management bed without direct confirmation.",
+      "access_pathway": "Call Rosaire House to confirm its current program, intake requirements and whether travel is appropriate. Do not treat it as a verified withdrawal-management bed without direct confirmation.",
+      "phone": "204-623-6425",
+      "website": "https://northernhealthregion.com/locations/mental-health-and-substance-recovery/",
+      "source": {
+        "title": "Rosaire House Addiction Centre",
+        "authority": "Northern Health Region",
+        "url": "https://northernhealthregion.com/locations/mental-health-and-substance-recovery/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_on_slfnha_nodin",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "name": "Nodin Mental Health Services",
+      "organization": "Sioux Lookout First Nations Health Authority",
+      "categories": [
+        "indigenous_mental_health",
+        "addiction_counselling",
+        "counselling",
+        "family_youth",
+        "virtual_support",
+        "aftercare"
+      ],
+      "description": "First Nations health-authority counselling, intervention, travelling counsellor, tele-counselling and community mental-health/addiction support for the remote communities it serves.",
+      "population_served": "First Nations children, youth, adults and families from communities served by Sioux Lookout First Nations Health Authority.",
+      "province": "Ontario",
+      "community": "Sioux Lookout",
+      "address": "54 Queen Street, Sioux Lookout, ON",
+      "physical_location": {
+        "community": "Sioux Lookout",
+        "address": "54 Queen Street, Sioux Lookout, ON",
+        "province": "Ontario"
+      },
+      "local_service_area": [
+        "Sioux Lookout"
+      ],
+      "regional_service_area": [
+        "Northwestern Ontario",
+        "Sioux Lookout region"
+      ],
+      "search_locations": [
+        "Thunder Bay",
+        "Kenora",
+        "Dryden",
+        "Fort Frances",
+        "Sioux Lookout",
+        "Red Lake",
+        "Timmins",
+        "Sudbury",
+        "North Bay",
+        "Northern Ontario"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": true,
+      "travel_required": false,
+      "service_area": "33 First Nations communities in the Sioux Lookout region",
+      "delivery_modes": [
+        "in person",
+        "virtual"
+      ],
+      "referral_requirements": "Call Nodin reception or use the official referral forms. Intake accepts self-referrals; community assignments and travel availability must be confirmed.",
+      "access_pathway": "Call Nodin reception or use the official referral forms. Intake accepts self-referrals; community assignments and travel availability must be confirmed.",
+      "phone": "1-800-446-7863",
+      "website": "https://www.slfnha.com/health-services/nodin-mental-health-services/",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Sioux Lookout region",
+          "Remote First Nations served by SLFNHA"
+        ],
+        "local_access_point": "Call Nodin intake or ask the community health worker or nursing station to help with a referral.",
+        "regional_intake": "Nodin reception: 1-800-446-7863.",
+        "virtual_alternative": "Tele-counselling can connect eligible clients through participating community health centres or nursing stations.",
+        "return_home_support": [
+          "Travelling counsellors and tele-counselling may support follow-up in participating communities; current assignment must be confirmed."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Sioux Lookout First Nations Health Authority",
+          "url": "https://www.slfnha.com/health-services/nodin-mental-health-services/"
+        }
+      },
+      "source": {
+        "title": "Nodin Mental Health Services",
+        "authority": "Sioux Lookout First Nations Health Authority",
+        "url": "https://www.slfnha.com/health-services/nodin-mental-health-services/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_on_slfnha_client_services",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "name": "SLFNHA Client Services and Medical Travel Support",
+      "organization": "Sioux Lookout First Nations Health Authority",
+      "categories": [
+        "indigenous_navigation",
+        "medical_transportation",
+        "accommodation",
+        "patient_advocacy",
+        "discharge_navigation"
+      ],
+      "description": "Non-medical support for First Nations clients travelling from remote communities to Sioux Lookout or other urban centres, including hostel, local transportation, advocacy and discharge coordination.",
+      "population_served": "First Nations clients from communities served by SLFNHA who are travelling for eligible health care.",
+      "province": "Ontario",
+      "community": "Sioux Lookout",
+      "physical_location": {
+        "community": "Sioux Lookout",
+        "province": "Ontario"
+      },
+      "local_service_area": [
+        "Sioux Lookout"
+      ],
+      "regional_service_area": [
+        "Northwestern Ontario",
+        "Sioux Lookout region"
+      ],
+      "search_locations": [
+        "Thunder Bay",
+        "Kenora",
+        "Dryden",
+        "Fort Frances",
+        "Sioux Lookout",
+        "Red Lake",
+        "Timmins",
+        "Sudbury",
+        "North Bay",
+        "Northern Ontario"
+      ],
+      "province_wide": false,
+      "navigation_only": true,
+      "virtual": false,
+      "travel_required": true,
+      "service_area": "First Nations communities served by SLFNHA",
+      "delivery_modes": [
+        "in person"
+      ],
+      "referral_requirements": "Contact Client Services and the appropriate NIHB/medical-travel team before travel; transportation and accommodation depend on current approval and arrangements.",
+      "access_pathway": "Contact Client Services and the appropriate NIHB/medical-travel team before travel; transportation and accommodation depend on current approval and arrangements.",
+      "eligibility": "Current SLFNHA and NIHB medical-travel rules apply; confirm approval before making arrangements.",
+      "phone": "807-737-3850",
+      "website": "https://www.slfnha.com/client-services/",
+      "transportation": {
+        "funding_source": "NIHB or the applicable medical-travel administrator",
+        "eligible_trip_types": [
+          "Approved medical appointments outside the home community"
+        ],
+        "delivery": "Pre-arranged client transport, hostel and advocacy supports",
+        "travel_modes": [
+          "Community-to-hub travel",
+          "Local rides in Sioux Lookout"
+        ]
+      },
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Remote First Nations served by SLFNHA"
+        ],
+        "local_access_point": "Start with the home-community health provider and the applicable NIHB/medical-travel contact.",
+        "regional_intake": "SLFNHA Client Services coordinates non-medical support after approved travel reaches Sioux Lookout.",
+        "destination_service": "Sioux Lookout Meno Ya Win Health Centre or another approved urban care site.",
+        "transportation_pathway": "Approved medical travel to the hub, then SLFNHA rides to appointments or pharmacy where applicable.",
+        "funding_pathway": "NIHB or another applicable coverage provider must confirm eligibility and approval.",
+        "return_home_support": [
+          "Discharge coordination helps connect the return trip and home-community follow-up."
+        ],
+        "travel_required": true,
+        "source_provenance": {
+          "authority": "Sioux Lookout First Nations Health Authority",
+          "url": "https://www.slfnha.com/client-services/"
+        }
+      },
+      "source": {
+        "title": "SLFNHA Client Services and Medical Travel Support",
+        "authority": "Sioux Lookout First Nations Health Authority",
+        "url": "https://www.slfnha.com/client-services/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_on_nan_hope",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "name": "NAN HOPE Mental Health and Addictions Support",
+      "organization": "Nishnawbe Aski Nation and regional partners",
+      "categories": [
+        "indigenous_mental_health",
+        "addiction_navigation",
+        "crisis_support",
+        "counselling",
+        "service_navigation"
+      ],
+      "description": "24/7 culturally relevant mental-health and addictions support, triage and live service navigation for Nishnawbe Aski Nation community members.",
+      "population_served": "Members of the First Nations communities in Nishnawbe Aski Nation territory.",
+      "province": "Ontario",
+      "regional_service_area": [
+        "Nishnawbe Aski Nation territory",
+        "Northern Ontario"
+      ],
+      "search_locations": [
+        "Thunder Bay",
+        "Kenora",
+        "Dryden",
+        "Fort Frances",
+        "Sioux Lookout",
+        "Red Lake",
+        "Timmins",
+        "Sudbury",
+        "North Bay",
+        "Northern Ontario"
+      ],
+      "province_wide": false,
+      "navigation_only": true,
+      "virtual": true,
+      "travel_required": false,
+      "service_area": "Nishnawbe Aski Nation territory",
+      "delivery_modes": [
+        "virtual"
+      ],
+      "referral_requirements": "Call the 24/7 line for support and navigation. Confirm longer-term service referrals with the receiving program.",
+      "access_pathway": "Call the 24/7 line for support and navigation. Confirm longer-term service referrals with the receiving program.",
+      "phone": "1-844-626-4673",
+      "website": "https://www.slfnha.com/resources/",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Nishnawbe Aski Nation territory"
+        ],
+        "local_access_point": "Call NAN HOPE from the home community.",
+        "regional_intake": "The line provides triage and live navigation to community and regional supports.",
+        "virtual_alternative": "Telephone support is available without travelling.",
+        "return_home_support": [
+          "Ask for connection to the appropriate community mental-health or addiction support."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Nishnawbe Aski Nation and regional partners",
+          "url": "https://www.slfnha.com/resources/"
+        }
+      },
+      "source": {
+        "title": "NAN HOPE Mental Health and Addictions Support",
+        "authority": "Nishnawbe Aski Nation and regional partners",
+        "url": "https://www.slfnha.com/resources/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_on_northern_health_travel_grant",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Northern Health Travel Grant Program",
+      "organization": "Ontario Ministry of Health",
+      "categories": [
+        "medical_transportation",
+        "treatment_transportation",
+        "travel_funding",
+        "rural_remote_access"
+      ],
+      "description": "Financial assistance for eligible Northern Ontario residents travelling long distances to the nearest medical specialist or ministry-funded healthcare facility for services unavailable locally.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Ontario",
+      "regional_service_area": [
+        "Thunder Bay",
+        "Kenora",
+        "Dryden",
+        "Fort Frances",
+        "Sioux Lookout",
+        "Red Lake",
+        "Timmins",
+        "Sudbury",
+        "North Bay",
+        "Northern Ontario"
+      ],
+      "search_locations": [
+        "Thunder Bay",
+        "Kenora",
+        "Dryden",
+        "Fort Frances",
+        "Sioux Lookout",
+        "Red Lake",
+        "Timmins",
+        "Sudbury",
+        "North Bay",
+        "Northern Ontario"
+      ],
+      "province_wide": false,
+      "navigation_only": true,
+      "virtual": false,
+      "travel_required": true,
+      "service_area": "Northern Ontario",
+      "delivery_modes": [
+        "navigation"
+      ],
+      "referral_requirements": "Review eligibility and submit the official online or paper application within 12 months of treatment. Each round trip requires a separate application.",
+      "access_pathway": "Review eligibility and submit the official online or paper application within 12 months of treatment. Each round trip requires a separate application.",
+      "eligibility": "Current OHIP, northern-district, referral, eligible-service and 100 km one-way requirements apply. The grant does not cover every travel expense and other public coverage can make a trip ineligible.",
+      "website": "https://www.ontario.ca/page/northern-health-travel-grant-program",
+      "transportation": {
+        "funding_source": "Ontario Ministry of Health",
+        "eligible_trip_types": [
+          "Eligible specialist or ministry-funded healthcare services unavailable locally"
+        ],
+        "delivery": "Online or paper grant application after the eligible trip",
+        "travel_modes": [
+          "Eligible personal, public, rail or air travel under current rules"
+        ]
+      },
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Thunder Bay",
+          "Kenora",
+          "Dryden",
+          "Fort Frances",
+          "Sioux Lookout",
+          "Red Lake",
+          "Timmins",
+          "Sudbury",
+          "North Bay",
+          "Northern Ontario"
+        ],
+        "local_access_point": "Obtain the required referral and confirm that the destination is the nearest eligible service.",
+        "transportation_pathway": "Travel to the eligible Ontario or Manitoba service, retain required documentation, then apply within the program deadline.",
+        "funding_pathway": "The grant is partial financial assistance and does not cover all expenses.",
+        "return_home_support": [
+          "A separate application is required for each round trip."
+        ],
+        "travel_required": true,
+        "source_provenance": {
+          "authority": "Ontario Ministry of Health",
+          "url": "https://www.ontario.ca/page/northern-health-travel-grant-program"
+        }
+      },
+      "source": {
+        "title": "Northern Health Travel Grant Program",
+        "authority": "Ontario Ministry of Health",
+        "url": "https://www.ontario.ca/page/northern-health-travel-grant-program"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nl_mha_systems_navigator",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Mental Health and Addictions Systems Navigator",
+      "organization": "Newfoundland and Labrador Health Services",
+      "categories": [
+        "mental_health",
+        "addiction_navigation",
+        "housing_navigation",
+        "income_navigation",
+        "legal_navigation",
+        "family_support",
+        "aftercare"
+      ],
+      "description": "Provincial navigator helping individuals and families identify mental-health and addiction options and connect with related housing, income, health, community and justice services.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Newfoundland and Labrador",
+      "search_locations": [
+        "Corner Brook",
+        "St. Anthony",
+        "Happy Valley-Goose Bay",
+        "Labrador City",
+        "Churchill Falls",
+        "St. Anthony",
+        "Nain",
+        "Hopedale",
+        "Makkovik",
+        "Postville",
+        "Rigolet",
+        "Labrador"
+      ],
+      "province_wide": true,
+      "navigation_only": true,
+      "virtual": true,
+      "travel_required": false,
+      "service_area": "Newfoundland and Labrador",
+      "delivery_modes": [
+        "virtual"
+      ],
+      "referral_requirements": "Call or email the navigator to identify current options and next steps; this is navigation rather than a physical treatment site.",
+      "access_pathway": "Call or email the navigator to identify current options and next steps; this is navigation rather than a physical treatment site.",
+      "phone": "1-877-999-7589",
+      "email": "MHAnavigation@nlhealthservices.ca",
+      "website": "https://nlhealthservices.ca/patient-resources/patient-navigation-services/",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Newfoundland and Labrador"
+        ],
+        "local_access_point": "Call or email from the home community.",
+        "regional_intake": "The systems navigator helps identify the appropriate mental-health, addiction and related practical services.",
+        "virtual_alternative": "Telephone, email and video relay access are available.",
+        "return_home_support": [
+          "Ask the navigator to connect housing, income, community, justice and ongoing mental-health/addiction supports after treatment."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Newfoundland and Labrador Health Services",
+          "url": "https://nlhealthservices.ca/patient-resources/patient-navigation-services/"
+        }
+      },
+      "source": {
+        "title": "Mental Health and Addictions Systems Navigator",
+        "authority": "Newfoundland and Labrador Health Services",
+        "url": "https://nlhealthservices.ca/patient-resources/patient-navigation-services/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nl_labrador_odt_hub",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Labrador-Grenfell Opioid Dependence Treatment Hub",
+      "organization": "Newfoundland and Labrador Health Services",
+      "categories": [
+        "oat",
+        "withdrawal_support",
+        "counselling",
+        "family_support",
+        "harm_reduction",
+        "primary_care",
+        "treatment_navigation"
+      ],
+      "description": "Regional opioid-dependence treatment hub offering OAT, withdrawal and counselling support, family support, harm reduction, primary care and treatment connections in person, by phone and by telehealth.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Newfoundland and Labrador",
+      "community": "Happy Valley-Goose Bay",
+      "physical_location": {
+        "community": "Happy Valley-Goose Bay",
+        "province": "Newfoundland and Labrador"
+      },
+      "local_service_area": [
+        "Happy Valley-Goose Bay"
+      ],
+      "regional_service_area": [
+        "Happy Valley-Goose Bay",
+        "Labrador City",
+        "Churchill Falls",
+        "St. Anthony",
+        "Nain",
+        "Hopedale",
+        "Makkovik",
+        "Postville",
+        "Rigolet",
+        "Labrador"
+      ],
+      "search_locations": [
+        "Happy Valley-Goose Bay",
+        "Labrador City",
+        "Churchill Falls",
+        "St. Anthony",
+        "Nain",
+        "Hopedale",
+        "Makkovik",
+        "Postville",
+        "Rigolet",
+        "Labrador"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": true,
+      "travel_required": false,
+      "service_area": "Labrador-Grenfell Zone",
+      "delivery_modes": [
+        "in person",
+        "virtual"
+      ],
+      "referral_requirements": "Call the hub directly. The official source states that in-person, telephone and telehealth access is available throughout the zone without a referral.",
+      "access_pathway": "Call the hub directly. The official source states that in-person, telephone and telehealth access is available throughout the zone without a referral.",
+      "phone": "709-897-2125",
+      "website": "https://nlhealthservices.ca/story/holistic-approach-to-care-improves-access-to-services/",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Happy Valley-Goose Bay",
+          "Labrador City",
+          "Churchill Falls",
+          "St. Anthony",
+          "Nain",
+          "Hopedale",
+          "Makkovik",
+          "Postville",
+          "Rigolet",
+          "Labrador"
+        ],
+        "local_access_point": "Call the ODT Hub directly or ask 811, Doorways or a local mental-health/addictions service for connection.",
+        "regional_intake": "The Happy Valley-Goose Bay hub serves the Labrador-Grenfell Zone by phone, telehealth and in person.",
+        "destination_service": "In-person care is located in Happy Valley-Goose Bay; telephone and telehealth can reduce some travel.",
+        "referral_requirement": "No referral is required according to the current official service story.",
+        "virtual_alternative": "Telephone and telehealth service is available throughout the zone.",
+        "return_home_support": [
+          "The hub links people to counselling, primary care and other regional resources for ongoing support."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Newfoundland and Labrador Health Services",
+          "url": "https://nlhealthservices.ca/story/holistic-approach-to-care-improves-access-to-services/"
+        }
+      },
+      "source": {
+        "title": "Labrador-Grenfell Opioid Dependence Treatment Hub",
+        "authority": "Newfoundland and Labrador Health Services",
+        "url": "https://nlhealthservices.ca/story/holistic-approach-to-care-improves-access-to-services/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nl_nunatsiavut_nihb",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "name": "Nunatsiavut Non-Insured Health Benefits",
+      "organization": "Nunatsiavut Government",
+      "categories": [
+        "indigenous_benefits",
+        "medical_transportation",
+        "mental_health_funding",
+        "benefits_navigation"
+      ],
+      "description": "Nunatsiavut-administered NIHB access for Labrador Inuit beneficiaries, including medical transportation and eligible mental-health counselling benefits.",
+      "population_served": "Labrador Inuit Land Claim Agreement beneficiaries; current program rules apply.",
+      "province": "Newfoundland and Labrador",
+      "regional_service_area": [
+        "Happy Valley-Goose Bay",
+        "Labrador City",
+        "Churchill Falls",
+        "St. Anthony",
+        "Nain",
+        "Hopedale",
+        "Makkovik",
+        "Postville",
+        "Rigolet",
+        "Labrador"
+      ],
+      "search_locations": [
+        "Happy Valley-Goose Bay",
+        "Labrador City",
+        "Churchill Falls",
+        "St. Anthony",
+        "Nain",
+        "Hopedale",
+        "Makkovik",
+        "Postville",
+        "Rigolet",
+        "Labrador"
+      ],
+      "province_wide": false,
+      "navigation_only": true,
+      "virtual": false,
+      "travel_required": true,
+      "service_area": "Nunatsiavut and eligible Labrador Inuit beneficiaries",
+      "delivery_modes": [
+        "navigation"
+      ],
+      "referral_requirements": "Contact the appropriate Nunatsiavut NIHB team or local Department of Health and Social Development office before arranging travel or counselling.",
+      "access_pathway": "Contact the appropriate Nunatsiavut NIHB team or local Department of Health and Social Development office before arranging travel or counselling.",
+      "eligibility": "Labrador Inuit Land Claim Agreement beneficiary status and current benefit rules apply; prior approval may be required.",
+      "phone": "1-866-606-9750",
+      "email": "nihb@nunatsiavut.com",
+      "website": "https://nunatsiavut.com/departments/nihb/nihb-directory/",
+      "transportation": {
+        "funding_source": "Nunatsiavut Government NIHB",
+        "eligible_trip_types": [
+          "Approved medically necessary services unavailable in the home community"
+        ],
+        "delivery": "Prior approval and Nunatsiavut medical-travel coordination",
+        "travel_modes": [
+          "Approved medical transportation"
+        ]
+      },
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Nunatsiavut",
+          "Labrador Inuit communities"
+        ],
+        "local_access_point": "Contact the local health centre or Nunatsiavut DHSD office.",
+        "regional_intake": "The Nunatsiavut NIHB team confirms the appropriate benefit and approval route.",
+        "transportation_pathway": "Medical travel staff arrange or approve eligible travel under current rules.",
+        "funding_pathway": "Mental-health counselling and medical-transportation benefits have separate contacts and approval requirements.",
+        "return_home_support": [
+          "Contact the local health centre or DHSD office for follow-up and any return travel questions."
+        ],
+        "travel_required": true,
+        "source_provenance": {
+          "authority": "Nunatsiavut Government",
+          "url": "https://nunatsiavut.com/departments/nihb/nihb-directory/"
+        }
+      },
+      "source": {
+        "title": "Nunatsiavut Non-Insured Health Benefits",
+        "authority": "Nunatsiavut Government",
+        "url": "https://nunatsiavut.com/departments/nihb/nihb-directory/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nl_humberwood",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Humberwood Centre",
+      "organization": "Newfoundland and Labrador Health Services",
+      "categories": [
+        "residential_treatment",
+        "addiction_treatment",
+        "counselling",
+        "recovery_support"
+      ],
+      "description": "Residential mental-health and addictions treatment facility in Corner Brook with current facility and contact information published by NL Health Services.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Newfoundland and Labrador",
+      "community": "Corner Brook",
+      "address": "35 Boones Road, Corner Brook, NL A2H 7E5",
+      "physical_location": {
+        "community": "Corner Brook",
+        "address": "35 Boones Road, Corner Brook, NL A2H 7E5",
+        "province": "Newfoundland and Labrador"
+      },
+      "local_service_area": [
+        "Corner Brook"
+      ],
+      "regional_service_area": [
+        "Western Newfoundland",
+        "Newfoundland and Labrador"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": false,
+      "travel_required": false,
+      "service_area": "Newfoundland and Labrador",
+      "delivery_modes": [
+        "in person"
+      ],
+      "referral_requirements": "Call the facility or the provincial Mental Health and Addictions Systems Navigator to confirm current referral, admission and travel requirements.",
+      "access_pathway": "Call the facility or the provincial Mental Health and Addictions Systems Navigator to confirm current referral, admission and travel requirements.",
+      "phone": "709-634-4506",
+      "website": "https://nlhealthservices.ca/facility/humberwood-centre/",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Western Newfoundland",
+          "Labrador",
+          "Newfoundland and Labrador"
+        ],
+        "local_access_point": "Start with the provincial navigator or local mental-health/addictions service to confirm admission requirements.",
+        "destination_service": "Humberwood Centre is physically located in Corner Brook.",
+        "referral_requirement": "Confirm current referral and admission requirements before travel.",
+        "return_home_support": [
+          "Arrange community counselling, addiction support and housing connections before returning home."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Newfoundland and Labrador Health Services",
+          "url": "https://nlhealthservices.ca/facility/humberwood-centre/"
+        }
+      },
+      "source": {
+        "title": "Humberwood Centre",
+        "authority": "Newfoundland and Labrador Health Services",
+        "url": "https://nlhealthservices.ca/facility/humberwood-centre/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nl_mtap",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Medical Transportation Assistance Program",
+      "organization": "Government of Newfoundland and Labrador",
+      "categories": [
+        "medical_transportation",
+        "travel_funding",
+        "rural_remote_access"
+      ],
+      "description": "Financial assistance for eligible Medical Care Plan beneficiaries who must travel for specialized insured medical services unavailable in their area.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Newfoundland and Labrador",
+      "search_locations": [
+        "Corner Brook",
+        "St. Anthony",
+        "Happy Valley-Goose Bay",
+        "Labrador City",
+        "Churchill Falls",
+        "St. Anthony",
+        "Nain",
+        "Hopedale",
+        "Makkovik",
+        "Postville",
+        "Rigolet",
+        "Labrador"
+      ],
+      "province_wide": true,
+      "navigation_only": true,
+      "virtual": false,
+      "travel_required": true,
+      "service_area": "Newfoundland and Labrador",
+      "delivery_modes": [
+        "navigation"
+      ],
+      "referral_requirements": "Review the current eligibility and claim guide, register for direct deposit, and submit the applicable claim or prepayment request with required documentation.",
+      "access_pathway": "Review the current eligibility and claim guide, register for direct deposit, and submit the applicable claim or prepayment request with required documentation.",
+      "eligibility": "Current MCP, service, geography, other-coverage and documentation requirements apply.",
+      "phone": "1-877-475-2412",
+      "email": "mtap@gov.nl.ca",
+      "website": "https://www.gov.nl.ca/la/medical-transportation-assistance-program-mtap/medical-transportation-assistance-program/",
+      "transportation": {
+        "funding_source": "Government of Newfoundland and Labrador",
+        "eligible_trip_types": [
+          "Eligible specialized insured medical services unavailable locally"
+        ],
+        "delivery": "Claim, reimbursement or approved prepayment process",
+        "travel_modes": [
+          "Economy airfare",
+          "bus",
+          "ferry",
+          "private vehicle",
+          "eligible ground transport"
+        ]
+      },
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Newfoundland and Labrador",
+          "Happy Valley-Goose Bay",
+          "Labrador City",
+          "Churchill Falls",
+          "St. Anthony",
+          "Nain",
+          "Hopedale",
+          "Makkovik",
+          "Postville",
+          "Rigolet",
+          "Labrador"
+        ],
+        "local_access_point": "Confirm the eligible specialized service and required documentation with the referring provider.",
+        "transportation_pathway": "Use the current in-province or out-of-province flight prepayment or reimbursement pathway before the deadline.",
+        "funding_pathway": "MTAP assistance depends on current insured-service, geography, documentation and other-coverage rules.",
+        "return_home_support": [
+          "Retain confirmation of attendance and required receipts for the return-trip claim."
+        ],
+        "travel_required": true,
+        "source_provenance": {
+          "authority": "Government of Newfoundland and Labrador",
+          "url": "https://www.gov.nl.ca/la/medical-transportation-assistance-program-mtap/medical-transportation-assistance-program/"
+        }
+      },
+      "source": {
+        "title": "Medical Transportation Assistance Program",
+        "authority": "Government of Newfoundland and Labrador",
+        "url": "https://www.gov.nl.ca/la/medical-transportation-assistance-program-mtap/medical-transportation-assistance-program/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nu_community_health_access",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Nunavut Community Health Centre Mental Health and Addiction Access",
+      "organization": "Government of Nunavut Department of Health",
+      "categories": [
+        "mental_health_navigation",
+        "addiction_navigation",
+        "treatment_navigation",
+        "community_health",
+        "rural_remote_access",
+        "aftercare"
+      ],
+      "description": "Home-community starting point for mental-health and addiction support, assessment and connection to community, regional or out-of-territory services.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Nunavut",
+      "search_locations": [
+        "Iqaluit",
+        "Rankin Inlet",
+        "Cambridge Bay",
+        "Qikiqtaaluk",
+        "Kivalliq",
+        "Kitikmeot"
+      ],
+      "province_wide": true,
+      "navigation_only": true,
+      "virtual": false,
+      "travel_required": false,
+      "service_area": "Nunavut communities",
+      "scope_note": "The displayed number is the Department of Health general contact, not a universal local health-centre intake number.",
+      "delivery_modes": [
+        "navigation"
+      ],
+      "referral_requirements": "Contact the local community health centre, nurse, doctor, social worker or wellness counsellor. Community phone numbers differ; use the official medical-travel handbook contact list.",
+      "access_pathway": "Contact the local community health centre, nurse, doctor, social worker or wellness counsellor. Community phone numbers differ; use the official medical-travel handbook contact list.",
+      "phone": "867-975-5700",
+      "website": "https://livehealthy.gov.nu.ca/en/mental-wellness/drugs-and-alcohol/drugs-and-addiction",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Nunavut communities"
+        ],
+        "local_access_point": "Start with the nurse or doctor at the home-community health centre, or a local social worker or wellness counsellor.",
+        "regional_intake": "The home-community provider connects community, regional or out-of-territory care as appropriate.",
+        "virtual_alternative": "Local providers may use regional or virtual pathways where available.",
+        "return_home_support": [
+          "Follow up with the home-community health care provider after returning from travel."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Government of Nunavut Department of Health",
+          "url": "https://livehealthy.gov.nu.ca/en/mental-wellness/drugs-and-alcohol/drugs-and-addiction"
+        }
+      },
+      "source": {
+        "title": "Nunavut Community Health Centre Mental Health and Addiction Access",
+        "authority": "Government of Nunavut Department of Health",
+        "url": "https://livehealthy.gov.nu.ca/en/mental-wellness/drugs-and-alcohol/drugs-and-addiction"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nu_qikiqtaaluk_health_access",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Qikiqtaaluk Community Health Access",
+      "organization": "Government of Nunavut Department of Health",
+      "categories": [
+        "mental_health_navigation",
+        "addiction_navigation",
+        "treatment_navigation",
+        "community_health",
+        "rural_remote_access",
+        "aftercare"
+      ],
+      "description": "Regional-hub and community-health-centre pathway for mental-health, addiction and other health access in the Qikiqtaaluk region.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Nunavut",
+      "community": "Iqaluit",
+      "physical_location": {
+        "community": "Iqaluit",
+        "province": "Nunavut"
+      },
+      "local_service_area": [
+        "Iqaluit"
+      ],
+      "regional_service_area": [
+        "Iqaluit",
+        "Arctic Bay",
+        "Kinngait",
+        "Clyde River",
+        "Grise Fiord",
+        "Igloolik",
+        "Kimmirut",
+        "Pangnirtung",
+        "Pond Inlet",
+        "Qikiqtarjuaq",
+        "Resolute Bay",
+        "Sanikiluaq",
+        "Sanirajak"
+      ],
+      "search_locations": [
+        "Iqaluit",
+        "Arctic Bay",
+        "Kinngait",
+        "Clyde River",
+        "Grise Fiord",
+        "Igloolik",
+        "Kimmirut",
+        "Pangnirtung",
+        "Pond Inlet",
+        "Qikiqtarjuaq",
+        "Resolute Bay",
+        "Sanikiluaq",
+        "Sanirajak"
+      ],
+      "province_wide": false,
+      "navigation_only": true,
+      "virtual": false,
+      "travel_required": false,
+      "service_area": "Qikiqtaaluk region",
+      "scope_note": "Physical regional hub in Iqaluit; other communities have distinct health-centre numbers in the official handbook.",
+      "delivery_modes": [
+        "in person"
+      ],
+      "referral_requirements": "Start with the home-community health centre. The displayed phone is for Qikiqtani General Hospital in Iqaluit, not every community in the region.",
+      "access_pathway": "Start with the home-community health centre. The displayed phone is for Qikiqtani General Hospital in Iqaluit, not every community in the region.",
+      "phone": "867-975-8600",
+      "website": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Iqaluit",
+          "Arctic Bay",
+          "Kinngait",
+          "Clyde River",
+          "Grise Fiord",
+          "Igloolik",
+          "Kimmirut",
+          "Pangnirtung",
+          "Pond Inlet",
+          "Qikiqtarjuaq",
+          "Resolute Bay",
+          "Sanikiluaq",
+          "Sanirajak"
+        ],
+        "local_access_point": "Contact the health centre in the home community using its own official phone number.",
+        "regional_intake": "Qikiqtani General Hospital is the regional hub; access is coordinated through the home-community provider.",
+        "destination_service": "Some services are regional or out of territory; the destination must be confirmed by the referring provider.",
+        "referral_requirement": "Medical travel begins with a referral from a Nunavut practitioner when travel is required.",
+        "return_home_support": [
+          "After travel, follow up with the home-community health care provider."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Government of Nunavut Department of Health",
+          "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+        }
+      },
+      "source": {
+        "title": "Qikiqtaaluk Community Health Access",
+        "authority": "Government of Nunavut Department of Health",
+        "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nu_kivalliq_health_access",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Kivalliq Community Health Access",
+      "organization": "Government of Nunavut Department of Health",
+      "categories": [
+        "mental_health_navigation",
+        "addiction_navigation",
+        "treatment_navigation",
+        "community_health",
+        "rural_remote_access",
+        "aftercare"
+      ],
+      "description": "Regional-hub and community-health-centre pathway for mental-health, addiction and other health access in the Kivalliq region.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Nunavut",
+      "community": "Rankin Inlet",
+      "physical_location": {
+        "community": "Rankin Inlet",
+        "province": "Nunavut"
+      },
+      "local_service_area": [
+        "Rankin Inlet"
+      ],
+      "regional_service_area": [
+        "Rankin Inlet",
+        "Arviat",
+        "Baker Lake",
+        "Chesterfield Inlet",
+        "Coral Harbour",
+        "Naujaat",
+        "Whale Cove"
+      ],
+      "search_locations": [
+        "Rankin Inlet",
+        "Arviat",
+        "Baker Lake",
+        "Chesterfield Inlet",
+        "Coral Harbour",
+        "Naujaat",
+        "Whale Cove"
+      ],
+      "province_wide": false,
+      "navigation_only": true,
+      "virtual": false,
+      "travel_required": false,
+      "service_area": "Kivalliq region",
+      "scope_note": "Physical regional hub in Rankin Inlet; other communities have distinct health-centre numbers in the official handbook.",
+      "delivery_modes": [
+        "in person"
+      ],
+      "referral_requirements": "Start with the home-community health centre. The displayed phone is for Kivalliq Health Centre in Rankin Inlet, not every community in the region.",
+      "access_pathway": "Start with the home-community health centre. The displayed phone is for Kivalliq Health Centre in Rankin Inlet, not every community in the region.",
+      "phone": "867-645-8300",
+      "website": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Rankin Inlet",
+          "Arviat",
+          "Baker Lake",
+          "Chesterfield Inlet",
+          "Coral Harbour",
+          "Naujaat",
+          "Whale Cove"
+        ],
+        "local_access_point": "Contact the health centre in the home community using its own official phone number.",
+        "regional_intake": "Kivalliq Health Centre is the regional hub; access is coordinated through the home-community provider.",
+        "destination_service": "Some services are regional or out of territory; the destination must be confirmed by the referring provider.",
+        "referral_requirement": "Medical travel begins with a referral from a Nunavut practitioner when travel is required.",
+        "return_home_support": [
+          "After travel, follow up with the home-community health care provider."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Government of Nunavut Department of Health",
+          "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+        }
+      },
+      "source": {
+        "title": "Kivalliq Community Health Access",
+        "authority": "Government of Nunavut Department of Health",
+        "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nu_kitikmeot_health_access",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Kitikmeot Community Health Access",
+      "organization": "Government of Nunavut Department of Health",
+      "categories": [
+        "mental_health_navigation",
+        "addiction_navigation",
+        "treatment_navigation",
+        "community_health",
+        "rural_remote_access",
+        "aftercare"
+      ],
+      "description": "Regional-hub and community-health-centre pathway for mental-health, addiction and other health access in the Kitikmeot region.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Nunavut",
+      "community": "Cambridge Bay",
+      "physical_location": {
+        "community": "Cambridge Bay",
+        "province": "Nunavut"
+      },
+      "local_service_area": [
+        "Cambridge Bay"
+      ],
+      "regional_service_area": [
+        "Cambridge Bay",
+        "Gjoa Haven",
+        "Kugaaruk",
+        "Kugluktuk",
+        "Taloyoak"
+      ],
+      "search_locations": [
+        "Cambridge Bay",
+        "Gjoa Haven",
+        "Kugaaruk",
+        "Kugluktuk",
+        "Taloyoak"
+      ],
+      "province_wide": false,
+      "navigation_only": true,
+      "virtual": false,
+      "travel_required": false,
+      "service_area": "Kitikmeot region",
+      "scope_note": "Physical regional hub in Cambridge Bay; other communities have distinct health-centre numbers in the official handbook.",
+      "delivery_modes": [
+        "in person"
+      ],
+      "referral_requirements": "Start with the home-community health centre. The displayed phone is for Cambridge Bay Health Centre in Cambridge Bay, not every community in the region.",
+      "access_pathway": "Start with the home-community health centre. The displayed phone is for Cambridge Bay Health Centre in Cambridge Bay, not every community in the region.",
+      "phone": "867-983-4500",
+      "website": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Cambridge Bay",
+          "Gjoa Haven",
+          "Kugaaruk",
+          "Kugluktuk",
+          "Taloyoak"
+        ],
+        "local_access_point": "Contact the health centre in the home community using its own official phone number.",
+        "regional_intake": "Cambridge Bay Health Centre is the regional hub; access is coordinated through the home-community provider.",
+        "destination_service": "Some services are regional or out of territory; the destination must be confirmed by the referring provider.",
+        "referral_requirement": "Medical travel begins with a referral from a Nunavut practitioner when travel is required.",
+        "return_home_support": [
+          "After travel, follow up with the home-community health care provider."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Government of Nunavut Department of Health",
+          "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+        }
+      },
+      "source": {
+        "title": "Kitikmeot Community Health Access",
+        "authority": "Government of Nunavut Department of Health",
+        "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nu_qikiqtaaluk_medical_travel",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Qikiqtaaluk Medical Travel",
+      "organization": "Government of Nunavut Department of Health",
+      "categories": [
+        "medical_transportation",
+        "treatment_transportation",
+        "rural_remote_access",
+        "benefits_navigation"
+      ],
+      "description": "Regional medical-travel office for approved travel from communities in the Qikiqtaaluk region after a Nunavut practitioner referral.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Nunavut",
+      "regional_service_area": [
+        "Iqaluit",
+        "Arctic Bay",
+        "Kinngait",
+        "Clyde River",
+        "Grise Fiord",
+        "Igloolik",
+        "Kimmirut",
+        "Pangnirtung",
+        "Pond Inlet",
+        "Qikiqtarjuaq",
+        "Resolute Bay",
+        "Sanikiluaq",
+        "Sanirajak"
+      ],
+      "search_locations": [
+        "Iqaluit",
+        "Arctic Bay",
+        "Kinngait",
+        "Clyde River",
+        "Grise Fiord",
+        "Igloolik",
+        "Kimmirut",
+        "Pangnirtung",
+        "Pond Inlet",
+        "Qikiqtarjuaq",
+        "Resolute Bay",
+        "Sanikiluaq",
+        "Sanirajak"
+      ],
+      "province_wide": false,
+      "navigation_only": true,
+      "virtual": false,
+      "travel_required": true,
+      "service_area": "Qikiqtaaluk region",
+      "scope_note": "Qikiqtaaluk regional office; it is not a physical treatment facility and does not serve the other two Nunavut regions.",
+      "delivery_modes": [
+        "navigation"
+      ],
+      "referral_requirements": "Start with the home-community health centre. After the practitioner referral, the community travel team sends the approved request to the Qikiqtaaluk regional office.",
+      "access_pathway": "Start with the home-community health centre. After the practitioner referral, the community travel team sends the approved request to the Qikiqtaaluk regional office.",
+      "eligibility": "Current Nunavut health coverage, referral, approval, escort and regional medical-travel requirements apply.",
+      "phone": "1-866-371-3305",
+      "website": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf",
+      "transportation": {
+        "funding_source": "Government of Nunavut / applicable NIHB coverage",
+        "eligible_trip_types": [
+          "Approved care outside the home community"
+        ],
+        "delivery": "Qikiqtaaluk regional medical-travel coordination",
+        "travel_modes": [
+          "Approved scheduled or charter travel",
+          "Boarding-home ground transport where arranged"
+        ]
+      },
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Iqaluit",
+          "Arctic Bay",
+          "Kinngait",
+          "Clyde River",
+          "Grise Fiord",
+          "Igloolik",
+          "Kimmirut",
+          "Pangnirtung",
+          "Pond Inlet",
+          "Qikiqtarjuaq",
+          "Resolute Bay",
+          "Sanikiluaq",
+          "Sanirajak"
+        ],
+        "local_access_point": "Start with the health centre in the home community.",
+        "regional_intake": "Qikiqtaaluk Medical Travel: 1-866-371-3305.",
+        "destination_service": "The referring provider and regional travel office confirm the approved destination.",
+        "referral_requirement": "A Nunavut practitioner referral and regional approval are required when medical travel applies.",
+        "transportation_pathway": "The home-community travel team and Qikiqtaaluk office coordinate the approved itinerary.",
+        "funding_pathway": "Coverage and escort approval depend on current territorial and NIHB rules.",
+        "return_home_support": [
+          "The regional office arranges the approved return itinerary.",
+          "Follow up with the home-community health care provider after returning."
+        ],
+        "travel_required": true,
+        "source_provenance": {
+          "authority": "Government of Nunavut Department of Health",
+          "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+        }
+      },
+      "source": {
+        "title": "Qikiqtaaluk Medical Travel",
+        "authority": "Government of Nunavut Department of Health",
+        "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nu_kivalliq_medical_travel",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Kivalliq Medical Travel",
+      "organization": "Government of Nunavut Department of Health",
+      "categories": [
+        "medical_transportation",
+        "treatment_transportation",
+        "rural_remote_access",
+        "benefits_navigation"
+      ],
+      "description": "Regional medical-travel office for approved travel from communities in the Kivalliq region after a Nunavut practitioner referral.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Nunavut",
+      "regional_service_area": [
+        "Rankin Inlet",
+        "Arviat",
+        "Baker Lake",
+        "Chesterfield Inlet",
+        "Coral Harbour",
+        "Naujaat",
+        "Whale Cove"
+      ],
+      "search_locations": [
+        "Rankin Inlet",
+        "Arviat",
+        "Baker Lake",
+        "Chesterfield Inlet",
+        "Coral Harbour",
+        "Naujaat",
+        "Whale Cove"
+      ],
+      "province_wide": false,
+      "navigation_only": true,
+      "virtual": false,
+      "travel_required": true,
+      "service_area": "Kivalliq region",
+      "scope_note": "Kivalliq regional office; it is not a physical treatment facility and does not serve the other two Nunavut regions.",
+      "delivery_modes": [
+        "navigation"
+      ],
+      "referral_requirements": "Start with the home-community health centre. After the practitioner referral, the community travel team sends the approved request to the Kivalliq regional office.",
+      "access_pathway": "Start with the home-community health centre. After the practitioner referral, the community travel team sends the approved request to the Kivalliq regional office.",
+      "eligibility": "Current Nunavut health coverage, referral, approval, escort and regional medical-travel requirements apply.",
+      "phone": "1-844-886-8020",
+      "website": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf",
+      "transportation": {
+        "funding_source": "Government of Nunavut / applicable NIHB coverage",
+        "eligible_trip_types": [
+          "Approved care outside the home community"
+        ],
+        "delivery": "Kivalliq regional medical-travel coordination",
+        "travel_modes": [
+          "Approved scheduled or charter travel",
+          "Boarding-home ground transport where arranged"
+        ]
+      },
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Rankin Inlet",
+          "Arviat",
+          "Baker Lake",
+          "Chesterfield Inlet",
+          "Coral Harbour",
+          "Naujaat",
+          "Whale Cove"
+        ],
+        "local_access_point": "Start with the health centre in the home community.",
+        "regional_intake": "Kivalliq Medical Travel: 1-844-886-8020.",
+        "destination_service": "The referring provider and regional travel office confirm the approved destination.",
+        "referral_requirement": "A Nunavut practitioner referral and regional approval are required when medical travel applies.",
+        "transportation_pathway": "The home-community travel team and Kivalliq office coordinate the approved itinerary.",
+        "funding_pathway": "Coverage and escort approval depend on current territorial and NIHB rules.",
+        "return_home_support": [
+          "The regional office arranges the approved return itinerary.",
+          "Follow up with the home-community health care provider after returning."
+        ],
+        "travel_required": true,
+        "source_provenance": {
+          "authority": "Government of Nunavut Department of Health",
+          "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+        }
+      },
+      "source": {
+        "title": "Kivalliq Medical Travel",
+        "authority": "Government of Nunavut Department of Health",
+        "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nu_kitikmeot_medical_travel",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Kitikmeot Medical Travel",
+      "organization": "Government of Nunavut Department of Health",
+      "categories": [
+        "medical_transportation",
+        "treatment_transportation",
+        "rural_remote_access",
+        "benefits_navigation"
+      ],
+      "description": "Regional medical-travel office for approved travel from communities in the Kitikmeot region after a Nunavut practitioner referral.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Nunavut",
+      "regional_service_area": [
+        "Cambridge Bay",
+        "Gjoa Haven",
+        "Kugaaruk",
+        "Kugluktuk",
+        "Taloyoak"
+      ],
+      "search_locations": [
+        "Cambridge Bay",
+        "Gjoa Haven",
+        "Kugaaruk",
+        "Kugluktuk",
+        "Taloyoak"
+      ],
+      "province_wide": false,
+      "navigation_only": true,
+      "virtual": false,
+      "travel_required": true,
+      "service_area": "Kitikmeot region",
+      "scope_note": "Kitikmeot regional office; it is not a physical treatment facility and does not serve the other two Nunavut regions.",
+      "delivery_modes": [
+        "navigation"
+      ],
+      "referral_requirements": "Start with the home-community health centre. After the practitioner referral, the community travel team sends the approved request to the Kitikmeot regional office.",
+      "access_pathway": "Start with the home-community health centre. After the practitioner referral, the community travel team sends the approved request to the Kitikmeot regional office.",
+      "eligibility": "Current Nunavut health coverage, referral, approval, escort and regional medical-travel requirements apply.",
+      "phone": "1-844-886-8010",
+      "website": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf",
+      "transportation": {
+        "funding_source": "Government of Nunavut / applicable NIHB coverage",
+        "eligible_trip_types": [
+          "Approved care outside the home community"
+        ],
+        "delivery": "Kitikmeot regional medical-travel coordination",
+        "travel_modes": [
+          "Approved scheduled or charter travel",
+          "Boarding-home ground transport where arranged"
+        ]
+      },
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Cambridge Bay",
+          "Gjoa Haven",
+          "Kugaaruk",
+          "Kugluktuk",
+          "Taloyoak"
+        ],
+        "local_access_point": "Start with the health centre in the home community.",
+        "regional_intake": "Kitikmeot Medical Travel: 1-844-886-8010.",
+        "destination_service": "The referring provider and regional travel office confirm the approved destination.",
+        "referral_requirement": "A Nunavut practitioner referral and regional approval are required when medical travel applies.",
+        "transportation_pathway": "The home-community travel team and Kitikmeot office coordinate the approved itinerary.",
+        "funding_pathway": "Coverage and escort approval depend on current territorial and NIHB rules.",
+        "return_home_support": [
+          "The regional office arranges the approved return itinerary.",
+          "Follow up with the home-community health care provider after returning."
+        ],
+        "travel_required": true,
+        "source_provenance": {
+          "authority": "Government of Nunavut Department of Health",
+          "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+        }
+      },
+      "source": {
+        "title": "Kitikmeot Medical Travel",
+        "authority": "Government of Nunavut Department of Health",
+        "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nu_kamatsiaqtut",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Nunavut Kamatsiaqtut Helpline",
+      "organization": "Nunavut Kamatsiaqtut Helpline",
+      "categories": [
+        "mental_health",
+        "addiction_support",
+        "counselling_navigation",
+        "peer_support"
+      ],
+      "description": "Anonymous telephone support referenced by the Government of Nunavut for people seeking mental-health or addiction-related support.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Nunavut",
+      "search_locations": [
+        "Iqaluit",
+        "Rankin Inlet",
+        "Cambridge Bay",
+        "Qikiqtaaluk",
+        "Kivalliq",
+        "Kitikmeot"
+      ],
+      "province_wide": true,
+      "navigation_only": true,
+      "virtual": true,
+      "travel_required": false,
+      "service_area": "Nunavut",
+      "delivery_modes": [
+        "virtual"
+      ],
+      "referral_requirements": "Call the toll-free helpline. For assessment, treatment or medical travel, contact the home-community health centre separately.",
+      "access_pathway": "Call the toll-free helpline. For assessment, treatment or medical travel, contact the home-community health centre separately.",
+      "phone": "1-800-265-3333",
+      "website": "https://livehealthy.gov.nu.ca/en/mental-wellness/drugs-and-alcohol/drugs-and-addiction",
+      "source": {
+        "title": "Nunavut Kamatsiaqtut Helpline",
+        "authority": "Nunavut Kamatsiaqtut Helpline",
+        "url": "https://livehealthy.gov.nu.ca/en/mental-wellness/drugs-and-alcohol/drugs-and-addiction"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nu_medical_travel",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Nunavut Medical Travel",
+      "organization": "Government of Nunavut Department of Health",
+      "categories": [
+        "medical_transportation",
+        "rural_remote_access",
+        "benefits_navigation"
+      ],
+      "description": "Regional medical-travel coordination for Nunavummiut who need approved care outside their home community, with separate Qikiqtaaluk, Kivalliq and Kitikmeot contacts.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Nunavut",
+      "search_locations": [
+        "Iqaluit",
+        "Rankin Inlet",
+        "Cambridge Bay",
+        "Qikiqtaaluk",
+        "Kivalliq",
+        "Kitikmeot"
+      ],
+      "province_wide": true,
+      "navigation_only": true,
+      "virtual": false,
+      "travel_required": true,
+      "service_area": "Nunavut",
+      "delivery_modes": [
+        "navigation"
+      ],
+      "referral_requirements": "A Nunavut practitioner obtains the referral; the community travel team and correct regional office then coordinate approved travel and any approved escort. Use the separate regional record for the correct phone.",
+      "access_pathway": "A Nunavut practitioner obtains the referral; the community travel team and correct regional office then coordinate approved travel and any approved escort. Use the separate regional record for the correct phone.",
+      "eligibility": "Current Nunavut health coverage, referral, approval and regional medical-travel requirements apply.",
+      "email": "MedicalTravelInquiry@gov.nu.ca",
+      "website": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf",
+      "transportation": {
+        "funding_source": "Government of Nunavut / applicable NIHB coverage",
+        "eligible_trip_types": [
+          "Approved care outside the home community"
+        ],
+        "delivery": "Community health-centre referral and regional medical-travel coordination",
+        "travel_modes": [
+          "Approved scheduled or charter travel",
+          "Boarding-home ground transport where arranged"
+        ]
+      },
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Nunavut communities"
+        ],
+        "local_access_point": "Obtain a referral from a Nunavut doctor or nurse practitioner and tell the community travel team.",
+        "regional_intake": "The community travel team sends the approved request to Qikiqtaaluk, Kivalliq or Kitikmeot medical travel.",
+        "destination_service": "Regional staff confirm the destination, itinerary, boarding home and approved escort arrangements.",
+        "transportation_pathway": "Regional staff book approved flights, accommodation and some ground transport.",
+        "funding_pathway": "Coverage and escort approval depend on current territorial and NIHB rules.",
+        "return_home_support": [
+          "Regional travel staff arrange the return itinerary.",
+          "Follow up with the home-community health care provider after returning."
+        ],
+        "travel_required": true,
+        "source_provenance": {
+          "authority": "Government of Nunavut Department of Health",
+          "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+        }
+      },
+      "source": {
+        "title": "Nunavut Medical Travel",
+        "authority": "Government of Nunavut Department of Health",
+        "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_ns_recovery_support_centres",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Nova Scotia Recovery Support Centres",
+      "organization": "Nova Scotia Health",
+      "categories": [
+        "addiction_treatment",
+        "recovery_support",
+        "harm_reduction",
+        "withdrawal_navigation",
+        "oat_navigation",
+        "counselling"
+      ],
+      "description": "Regional recovery-support centres providing education, harm reduction, individual and group support, and connection to withdrawal, opioid treatment and community services.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Nova Scotia",
+      "search_locations": [
+        "Halifax",
+        "Dartmouth",
+        "Sydney",
+        "North Sydney",
+        "Port Hawkesbury",
+        "New Glasgow",
+        "Amherst",
+        "Truro",
+        "Lunenburg",
+        "Middleton",
+        "Yarmouth"
+      ],
+      "province_wide": true,
+      "navigation_only": false,
+      "virtual": false,
+      "travel_required": false,
+      "service_area": "Nova Scotia health zones",
+      "scope_note": "One provincial program with multiple physical locations; consult the official location list rather than assuming a centre is in every community.",
+      "delivery_modes": [],
+      "referral_requirements": "Call a listed centre directly, call provincial intake, or use walk-in access where the official location listing permits it.",
+      "access_pathway": "Call a listed centre directly, call provincial intake, or use walk-in access where the official location listing permits it.",
+      "phone": "1-855-922-1122",
+      "website": "https://mha.nshealth.ca/en/rsc",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Nova Scotia health zones"
+        ],
+        "local_access_point": "Call the nearest listed centre or the provincial intake service.",
+        "regional_intake": "Provincial intake can identify the correct zone and service.",
+        "destination_service": "The official page lists each current physical Recovery Support Centre and its access method.",
+        "return_home_support": [
+          "Centres can connect people to community mental-health, addiction and recovery supports."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Nova Scotia Health",
+          "url": "https://mha.nshealth.ca/en/rsc"
+        }
+      },
+      "source": {
+        "title": "Nova Scotia Recovery Support Centres",
+        "authority": "Nova Scotia Health",
+        "url": "https://mha.nshealth.ca/en/rsc"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_pe_mha_access",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Health PEI Mental Health and Addictions Access",
+      "organization": "Health PEI",
+      "categories": [
+        "addiction_intake",
+        "mental_health",
+        "treatment_navigation",
+        "counselling",
+        "family_support",
+        "aftercare"
+      ],
+      "description": "Province-wide phone access and patient navigation for mental-health and addiction programs, including open-access counselling and referral support.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Prince Edward Island",
+      "search_locations": [
+        "Charlottetown",
+        "Summerside",
+        "Souris",
+        "Montague",
+        "Alberton"
+      ],
+      "province_wide": true,
+      "navigation_only": true,
+      "virtual": true,
+      "travel_required": false,
+      "service_area": "Prince Edward Island",
+      "delivery_modes": [
+        "virtual"
+      ],
+      "referral_requirements": "Call the 24/7 line or contact the official Charlottetown, Souris, Montague, Summerside or Alberton community service point.",
+      "access_pathway": "Call the 24/7 line or contact the official Charlottetown, Souris, Montague, Summerside or Alberton community service point.",
+      "phone": "1-833-553-6983",
+      "website": "https://www.princeedwardisland.ca/en/information/health-pei/community-addiction-services",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Prince Edward Island"
+        ],
+        "local_access_point": "Call the provincial line or the nearest listed community addiction service.",
+        "regional_intake": "Health PEI intake connects the person to the appropriate stage-matched service.",
+        "return_home_support": [
+          "Community addiction services provide counselling and recovery-stage connections across the province."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Health PEI",
+          "url": "https://www.princeedwardisland.ca/en/information/health-pei/community-addiction-services"
+        }
+      },
+      "source": {
+        "title": "Health PEI Mental Health and Addictions Access",
+        "authority": "Health PEI",
+        "url": "https://www.princeedwardisland.ca/en/information/health-pei/community-addiction-services"
+      },
+      "last_verified_date": "2026-09-08"
+    }
+  ]
+}

@@ -3,7 +3,7 @@ import { millerResourceSearchText } from "../src/millerPublicSearchResources.js"
 import { conciseResourceDescription } from "../src/millerResultPresentation.js"
 import { buildMobileReadinessIndex, mobileReadinessSummary } from "./millerMobileReadiness.js"
 import { MILLER_CANADIAN_LOCATION_LABELS, MILLER_CANADIAN_LOCATION_PROVINCES, MILLER_COVERAGE_MATURITY } from "./millerWesternCommunities.js"
-import { buildMillerAccessPathway, decomposeMillerProfessionalNeeds, explainMillerProfessionalResults, recommendedMillerPackIds } from "./millerProfessionalWorkflow.js"
+import { buildMillerAccessPathway, decomposeMillerProfessionalNeeds, explainMillerProfessionalResults, millerProfessionalWorkflowIntent, recommendedMillerPackIds } from "./millerProfessionalWorkflow.js"
 
 export const MILLER_MOBILE_API_VERSION = "miller-mobile-search-v1"
 export const MILLER_MOBILE_RESULT_LIMIT = 20
@@ -94,7 +94,7 @@ export function validateMillerMobileSearchRequest(body = {}) {
     province,
     categories,
     limit: Math.min(requestedLimit, MILLER_MOBILE_RESULT_LIMIT),
-    broaden_nearby: body.broaden_nearby === true,
+    broaden_nearby: body.broaden_nearby === true || body.broaden_access === true,
   })
 }
 
@@ -185,6 +185,7 @@ function scopeFor(resource) {
     canada_wide: resource?.canadaWide === true || provinceFor(resource) === "Canada-wide",
     virtual: resource?.virtual_service === true,
     navigation_only: resource?.navigationOnly === true,
+    travel_required: resource?.travelRequired === true,
     scope_note: clean(resource?.scopeNote),
   }
 }
@@ -295,7 +296,9 @@ function normalizedCard(resource, readiness, location = "") {
     canada_wide: scope.canada_wide,
     virtual: scope.virtual,
     navigation_only: scope.navigation_only,
+    travel_required: scope.travel_required,
     scope_note: scope.scope_note,
+    access_pathway: resource?.accessPathway && typeof resource.accessPathway === "object" ? resource.accessPathway : null,
     location_relationship: relationship.code,
     location_label: relationship.label,
     phone: clean(resource.phone),
@@ -411,6 +414,8 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
   }
   const broadenCandidates = location ? geographicallyRelevant.filter(item => !directlyRelevant.some(existing => existing.resource === item.resource)) : []
   const coverageLevel = MILLER_COVERAGE_MATURITY[province] || "foundation"
+  const accessBroadening = Boolean(location && (cards.some(card => card.travel_required || card.access_pathway?.transportation_pathway)
+    || ["Yukon", "Northwest Territories", "Nunavut"].includes(province)))
   const coverageMessage = ["foundation", "exploratory"].includes(coverageLevel)
     ? `Miller's coverage in ${province || "this region"} is ${coverageLevel}. These are the verified options currently available.`
     : ""
@@ -433,9 +438,11 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
       available: Boolean(!request.broaden_nearby && broadenCandidates.length),
       applied: request.broaden_nearby,
       additional_match_count: broadenCandidates.length,
-      label: request.broaden_nearby ? "Showing broader regional options" : "Broaden nearby",
+      label: request.broaden_nearby ? "Showing broader access options" : accessBroadening ? "Show regional options" : "Broaden nearby",
+      behavior: accessBroadening ? "broaden_access" : "broaden_nearby",
     },
     workflow: {
+      intent: millerProfessionalWorkflowIntent(request.query, needs),
       needs,
       pathway: buildMillerAccessPathway({ results: cards, needs, searchScope }),
       recommended_pack_ids: recommendedMillerPackIds(cards, needs),
@@ -483,6 +490,15 @@ export function buildMillerMobileSharePack(response, selectedCanonicalIds = []) 
       phone: clean(resource.phone),
       website: clean(resource.website),
       access_note: clean(resource.referral_note || resource.access_note),
+      pathway: resource.access_pathway ? {
+        local_access_point: clean(resource.access_pathway.local_access_point),
+        regional_intake: clean(resource.access_pathway.regional_intake),
+        destination_service: clean(resource.access_pathway.destination_service),
+        transportation_pathway: clean(resource.access_pathway.transportation_pathway),
+        funding_pathway: clean(resource.access_pathway.funding_pathway),
+        return_home_support: Array.isArray(resource.access_pathway.return_home_support) ? resource.access_pathway.return_home_support.map(clean).filter(Boolean) : [],
+        travel_required: resource.access_pathway.travel_required === true,
+      } : null,
     }))
   const heading = resources.length === 1 ? "A resource that may help" : `${resources.length} resources that may help`
   const lines = [heading, clean(response?.guidance?.next_step), ""]
@@ -494,6 +510,9 @@ export function buildMillerMobileSharePack(response, selectedCanonicalIds = []) 
     if (resource.phone) lines.push(`Phone: ${resource.phone}`)
     if (resource.website) lines.push(`Website: ${resource.website}`)
     if (resource.access_note) lines.push(`Access: ${resource.access_note}`)
+    if (resource.pathway?.regional_intake) lines.push(`Regional intake: ${resource.pathway.regional_intake}`)
+    if (resource.pathway?.transportation_pathway) lines.push(`Travel support: ${resource.pathway.transportation_pathway}`)
+    if (resource.pathway?.return_home_support?.length) lines.push(`After returning home: ${resource.pathway.return_home_support.join("; ")}`)
     lines.push("")
   })
   lines.push("Confirm current intake, eligibility and availability directly with each service.")

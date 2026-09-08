@@ -1,0 +1,133 @@
+{
+  "schema_version": "miller-legacy-priority-verification-v3",
+  "generated_at": "2026-09-08",
+  "selection_method": [
+    "appears in current frontline benchmark results",
+    "stale verification blocked mobile readiness",
+    "current first-party source available"
+  ],
+  "verification_scope": "Bounded three-record refresh. No readiness threshold was used as an acceptance target.",
+  "deferred": [
+    {
+      "canonical_resource_id": "curated:ndlbns",
+      "reason": "The available organization database is not a sufficiently precise current service page for confident enrichment."
+    }
+  ],
+  "records": [
+    {
+      "canonical_resource_id": "curated:1drwmka",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Rice Block",
+      "organization": "Atira Women's Resource Society",
+      "categories": [
+        "Housing / Substance Use Support"
+      ],
+      "description": "Transitional supportive-recovery housing in Vancouver for women reducing or stopping substance use, including beds for women moving from detox toward treatment or from treatment toward longer-term housing.",
+      "population_served": "Women seeking supportive recovery housing; current referral and housing criteria apply.",
+      "province": "British Columbia",
+      "community": "Vancouver",
+      "address": "Vancouver",
+      "physical_location": {
+        "community": "Vancouver",
+        "address": "Vancouver",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Vancouver"
+      ],
+      "service_area": "BC",
+      "delivery_modes": [
+        "official online information",
+        "contact service"
+      ],
+      "referral_requirements": "Referrals are primarily accepted from detox and treatment centres and may be reviewed through Vancouver Coastal Health central addiction intake or the BC Housing supported housing registry.",
+      "access_pathway": "Referrals are primarily accepted from detox and treatment centres and may be reviewed through Vancouver Coastal Health central addiction intake or the BC Housing supported housing registry.",
+      "email": "riceblocksupport@atira.bc.ca",
+      "website": "https://atira.bc.ca/what-we-do/housing/rice-block-support-recovery-housing-for-women",
+      "source": {
+        "title": "Rice Block",
+        "authority": "Atira Women's Resource Society",
+        "url": "https://atira.bc.ca/what-we-do/housing/rice-block-support-recovery-housing-for-women"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:99ypto",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "name": "New Beginnings",
+      "organization": "Atira Women's Resource Society",
+      "categories": [
+        "Housing / Substance Use Support"
+      ],
+      "description": "Supportive housing in Vancouver for First Nations, Métis and Inuit women, including women with children under age two, with referrals and practical supports.",
+      "population_served": "First Nations, Métis and Inuit women; women with children under age two are also welcome. Current housing criteria apply.",
+      "province": "British Columbia",
+      "community": "Vancouver",
+      "address": "Vancouver",
+      "physical_location": {
+        "community": "Vancouver",
+        "address": "Vancouver",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Vancouver"
+      ],
+      "service_area": "BC",
+      "delivery_modes": [
+        "official online information",
+        "contact service"
+      ],
+      "referral_requirements": "Contact the program through its official email or Atira housing access pathway to confirm current referral and housing requirements.",
+      "access_pathway": "Contact the program through its official email or Atira housing access pathway to confirm current referral and housing requirements.",
+      "email": "newbeginningssupport@atira.bc.ca",
+      "website": "https://atira.bc.ca/what-we-do/housing/new-beginnings/",
+      "source": {
+        "title": "New Beginnings",
+        "authority": "Atira Women's Resource Society",
+        "url": "https://atira.bc.ca/what-we-do/housing/new-beginnings/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:kt317p",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "WISH DTES Daytime Resource Guide (2025)",
+      "organization": "WISH Drop-In Centre Society",
+      "categories": [
+        "Multiple Services / DTES Directory"
+      ],
+      "description": "Public daytime resource guide from WISH compiling practical services for women in Vancouver's Downtown Eastside; individual service details should be confirmed before use.",
+      "population_served": "Women seeking daytime practical services in Vancouver's Downtown Eastside.",
+      "province": "British Columbia",
+      "community": "Vancouver",
+      "physical_location": {
+        "community": "Vancouver",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Vancouver"
+      ],
+      "service_area": "Vancouver DTES",
+      "delivery_modes": [
+        "official online information",
+        "contact service"
+      ],
+      "referral_requirements": "Open the current official guide, then confirm service hours, access and contact details with the listed provider before relying on them.",
+      "access_pathway": "Open the current official guide, then confirm service hours, access and contact details with the listed provider before relying on them.",
+      "website": "https://wish-vancouver.net/wp-content/uploads/2025/07/2025-WISH-Daytime-Resource-Guide.pdf",
+      "source": {
+        "title": "WISH DTES Daytime Resource Guide (2025)",
+        "authority": "WISH Drop-In Centre Society",
+        "url": "https://wish-vancouver.net/wp-content/uploads/2025/07/2025-WISH-Daytime-Resource-Guide.pdf"
+      },
+      "last_verified_date": "2026-09-08"
+    }
+  ]
+}

@@ -56,15 +56,15 @@ export const MILLER_WESTERN_LOCATION_LABELS = Object.freeze({
 export const MILLER_CANADIAN_FOUNDATION_COMMUNITIES = Object.freeze([
   ...[
     ["Manitoba", "Winnipeg / South", ["Winnipeg", "Brandon", "Selkirk", "Portage la Prairie"]],
-    ["Manitoba", "Northern Manitoba", ["Thompson", "The Pas", "Flin Flon", "Churchill"]],
+    ["Manitoba", "Northern Manitoba", ["Thompson", "The Pas", "Flin Flon", "Churchill", "Norway House", "Cross Lake", "Gillam", "Swan River", "Brochet", "Garden Hill", "God's Lake", "God's River", "Lac Brochet", "Leaf Rapids", "Oxford House", "Shamattawa", "Split Lake", "Thicket Portage", "Wabowden", "Wasagamack", "York Landing"]],
     ["Ontario", "Southern Ontario", ["Toronto", "Hamilton", "London", "Windsor"]],
     ["Ontario", "Eastern Ontario", ["Ottawa"]],
-    ["Ontario", "Northern Ontario", ["Sudbury", "Thunder Bay"]],
+    ["Ontario", "Northern Ontario", ["Sudbury", "Thunder Bay", "Kenora", "Dryden", "Fort Frances", "Sioux Lookout", "Red Lake", "Timmins", "North Bay"]],
     ["Quebec", "Quebec", ["Montréal", "Québec City", "Kuujjuaq"]],
     ["New Brunswick", "New Brunswick", ["Moncton", "Saint John", "Fredericton", "Bathurst", "Campbellton", "Miramichi", "Edmundston"]],
-    ["Nova Scotia", "Nova Scotia", ["Halifax", "Dartmouth", "Springhill", "Sydney", "Truro", "Yarmouth"]],
-    ["Prince Edward Island", "Prince Edward Island", ["Charlottetown", "Summerside"]],
-    ["Newfoundland and Labrador", "Newfoundland and Labrador", ["St. John's", "Corner Brook", "Happy Valley-Goose Bay"]],
+    ["Nova Scotia", "Nova Scotia", ["Halifax", "Dartmouth", "Springhill", "Sydney", "North Sydney", "Port Hawkesbury", "New Glasgow", "Amherst", "Truro", "Lunenburg", "Middleton", "Yarmouth"]],
+    ["Prince Edward Island", "Prince Edward Island", ["Charlottetown", "Summerside", "Souris", "Montague", "Alberton"]],
+    ["Newfoundland and Labrador", "Newfoundland and Labrador", ["St. John's", "Corner Brook", "Happy Valley-Goose Bay", "Labrador City", "Churchill Falls", "St. Anthony", "Nain", "Hopedale", "Makkovik", "Postville", "Rigolet"]],
     ["Yukon", "Yukon", ["Whitehorse", "Dawson City", "Watson Lake"]],
     ["Northwest Territories", "Northwest Territories", ["Yellowknife", "Inuvik", "Fort Smith", "Hay River", "Behchokǫ̀"]],
     ["Nunavut", "Nunavut", ["Iqaluit", "Rankin Inlet", "Cambridge Bay"]],
@@ -82,8 +82,15 @@ export const MILLER_CANADIAN_REGION_PROVINCES = Object.freeze({
   ...MILLER_WESTERN_REGION_PROVINCES,
   "northern manitoba": "Manitoba",
   "northern ontario": "Ontario",
+  "northwestern ontario": "Ontario",
+  "sioux lookout region": "Ontario",
+  "nishnawbe aski nation territory": "Ontario",
   "nunavik": "Quebec",
   "labrador": "Newfoundland and Labrador",
+  "western newfoundland": "Newfoundland and Labrador",
+  "qikiqtaaluk": "Nunavut",
+  "kivalliq": "Nunavut",
+  "kitikmeot": "Nunavut",
 })
 
 export const MILLER_CANADIAN_LOCATION_PROVINCES = Object.freeze({
@@ -99,6 +106,13 @@ export const MILLER_CANADIAN_LOCATION_LABELS = Object.freeze({
   "north island": "North Island",
   "nunavik": "Nunavik",
   "labrador": "Labrador",
+  "northwestern ontario": "Northwestern Ontario",
+  "sioux lookout region": "Sioux Lookout region",
+  "nishnawbe aski nation territory": "Nishnawbe Aski Nation territory",
+  "western newfoundland": "Western Newfoundland",
+  "qikiqtaaluk": "Qikiqtaaluk",
+  "kivalliq": "Kivalliq",
+  "kitikmeot": "Kitikmeot",
 })
 
 export const MILLER_COVERAGE_MATURITY = Object.freeze({

@@ -5,19 +5,32 @@ import test from "node:test"
 import registry from "../src/data/miller-shared-resource-registry-v1.json" with { type: "json" }
 import westernRegionalPathways from "../src/data/miller-western-regional-pathways-2026-09-08.json" with { type: "json" }
 import westernPrioritySeams from "../src/data/miller-western-priority-seams-2026-09-08.json" with { type: "json" }
+import legacyPriorityVerificationV3 from "../src/data/miller-legacy-priority-verification-v3-2026-09-08.json" with { type: "json" }
 import { toMillerNorthSharedEmailResult } from "../src/millerNorthPublicSupportEmail.js"
 import { filterMillerNorthSupports } from "../src/site/millerNorthSupportFilters.js"
 import { projectSharedResources, validateSharedResourceRegistry } from "../server/sharedResourceRegistry.js"
 
 test("shared public registry validates and preserves distinct project projections", () => {
-  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 261, miller_only: 179, miller_north_only: 38, both: 44 })
+  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 281, miller_only: 194, miller_north_only: 38, both: 49 })
   assert.equal(registry.records.filter(record => !record.province).length, 0)
   const creekside = registry.records.find(record => record.canonical_resource_id === "curated:1ldala")
   assert.equal(creekside.service_scope.physical_location.community, "Surrey")
   assert.ok(creekside.service_scope.regional_service_area.includes("Burnaby"))
   assert.equal(creekside.service_scope.navigation_only, false)
-  assert.equal(projectSharedResources(registry, "miller").length, 223)
-  assert.equal(projectSharedResources(registry, "miller_north").length, 82)
+  assert.equal(projectSharedResources(registry, "miller").length, 243)
+  assert.equal(projectSharedResources(registry, "miller_north").length, 87)
+})
+
+test("high-ranking legacy refresh uses exact first-party pages and shares only qualifying Indigenous support", () => {
+  assert.equal(legacyPriorityVerificationV3.records.length, 3)
+  assert.ok(legacyPriorityVerificationV3.records.every(record => record.source.url.startsWith("https://")))
+  assert.ok(legacyPriorityVerificationV3.records.every(record => record.last_verified_date === "2026-09-08"))
+  assert.equal(legacyPriorityVerificationV3.deferred.length, 1)
+  const newBeginnings = registry.records.find(record => record.canonical_resource_id === "curated:99ypto")
+  assert.deepEqual(newBeginnings.project_visibility, ["miller", "miller_north"])
+  const riceBlock = registry.records.find(record => record.canonical_resource_id === "curated:1drwmka")
+  assert.deepEqual(riceBlock.project_visibility, ["miller"])
+  assert.match(riceBlock.referral_requirement, /detox and treatment centres/i)
 })
 
 test("five priority regional seams use first-party sources and explicit geographic scope", () => {

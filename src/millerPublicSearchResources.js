@@ -182,7 +182,23 @@ export function sharedCanonicalMillerResource(record = {}) {
     canadaWide: scope.canada_wide === true,
     virtual_service: scope.virtual === true,
     navigationOnly: scope.navigation_only === true,
+    travelRequired: scope.travel_required === true,
     scopeNote: text(scope.scope_note),
+    accessPathway: record.navigation_pathway && typeof record.navigation_pathway === "object"
+      ? {
+        origin_geographies: Array.isArray(record.navigation_pathway.origin_geographies) ? record.navigation_pathway.origin_geographies.map(text).filter(Boolean) : [],
+        local_access_point: text(record.navigation_pathway.local_access_point),
+        regional_intake: text(record.navigation_pathway.regional_intake),
+        destination_service: text(record.navigation_pathway.destination_service),
+        referral_requirement: text(record.navigation_pathway.referral_requirement),
+        transportation_pathway: text(record.navigation_pathway.transportation_pathway),
+        funding_pathway: text(record.navigation_pathway.funding_pathway),
+        virtual_alternative: text(record.navigation_pathway.virtual_alternative),
+        return_home_support: Array.isArray(record.navigation_pathway.return_home_support) ? record.navigation_pathway.return_home_support.map(text).filter(Boolean) : [],
+        travel_required: record.navigation_pathway.travel_required === true,
+        source_provenance: record.navigation_pathway.source_provenance || null,
+      }
+      : null,
     searchLocations: [...new Set([
       ...(Array.isArray(scope.search_locations) ? scope.search_locations : []),
       ...(Array.isArray(scope.local_service_area) ? scope.local_service_area : []),

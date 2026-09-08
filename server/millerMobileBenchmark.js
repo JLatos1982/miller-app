@@ -73,7 +73,7 @@ export const MILLER_MOBILE_QUERY_BENCHMARK = Object.freeze([
 ])
 
 export const MILLER_NATIONAL_QUERY_BENCHMARK = Object.freeze([
-  { id: "detox_winnipeg", query: "detox in Winnipeg", province: "Manitoba", location: "Winnipeg", terms: ["detox", "withdrawal"] },
+  { id: "detox_winnipeg", query: "detox in Winnipeg", province: "Manitoba", location: "Winnipeg", terms: ["detox", "withdrawal", "addiction intake", "substance use"] },
   { id: "oat_brandon", query: "OAT in Brandon", province: "Manitoba", location: "Brandon", terms: ["oat", "opioid agonist", "raam", "rapid access"] },
   { id: "treatment_thunder_bay", query: "addiction treatment in Thunder Bay", province: "Ontario", location: "Thunder Bay", terms: ["addiction", "treatment", "indigenous"] },
   { id: "housing_toronto", query: "housing after treatment in Toronto", province: "Ontario", location: "Toronto", terms: ["housing", "treatment", "navigation"] },
@@ -88,6 +88,19 @@ export const MILLER_NATIONAL_QUERY_BENCHMARK = Object.freeze([
   { id: "mental_health_nunavut", query: "mental health and addiction help in Nunavut", province: "Nunavut", terms: ["mental health", "addiction", "community health"] },
   { id: "indigenous_northern_ontario", query: "Indigenous treatment support in northern Ontario", province: "Ontario", location: "Northern Ontario", terms: ["indigenous", "first nations", "métis", "inuit"] },
   { id: "remote_transport", query: "transportation to treatment from a remote community", terms: ["transportation", "medical travel", "travel", "treatment"], support: "transportation" },
+])
+
+export const MILLER_NORTHERN_QUERY_BENCHMARK = Object.freeze([
+  { id: "treatment_churchill", query: "addiction treatment from Churchill", province: "Manitoba", location: "Churchill", terms: ["addiction", "treatment", "substance use"], expect_transport: true },
+  { id: "withdrawal_the_pas", query: "withdrawal help in The Pas", province: "Manitoba", location: "The Pas", terms: ["withdrawal", "raam", "addiction"] },
+  { id: "indigenous_treatment_sioux_lookout", query: "Indigenous treatment from Sioux Lookout", province: "Ontario", location: "Sioux Lookout", terms: ["indigenous", "first nations", "addiction", "mental health"], expect_transport: true },
+  { id: "oat_kenora", query: "OAT in Kenora", province: "Ontario", location: "Kenora", terms: ["oat", "opioid", "addiction", "treatment"] },
+  { id: "treatment_travel_labrador", query: "treatment and medical travel from Labrador", province: "Newfoundland and Labrador", location: "Labrador", terms: ["treatment", "addiction", "medical travel"], expect_transport: true, expect_funding: true },
+  { id: "addiction_rankin_inlet", query: "addiction help in Rankin Inlet", province: "Nunavut", location: "Rankin Inlet", terms: ["addiction", "mental health", "health access"] },
+  { id: "mental_health_cambridge_bay", query: "mental health and addiction access in Cambridge Bay", province: "Nunavut", location: "Cambridge Bay", terms: ["mental health", "addiction", "health access"] },
+  { id: "return_home_prince_rupert", query: "coming home to Prince Rupert after treatment and need housing and counselling", province: "British Columbia", location: "Prince Rupert", terms: ["housing", "counselling", "addiction"], expect_return_home: true },
+  { id: "counselling_northern_saskatchewan", query: "counselling after treatment in northern Saskatchewan", province: "Saskatchewan", location: "Northern Saskatchewan", terms: ["counselling", "mental health", "addiction"], expect_return_home: true },
+  { id: "remote_treatment_transport", query: "treatment plus transportation from a remote community", terms: ["treatment", "transportation", "medical travel"], expect_transport: true },
 ])
 
 function resourceText(resource) {
@@ -170,6 +183,69 @@ export function runMillerMobileQueryBenchmark(catalog, { now = () => new Date("2
     average_latency_ms: Number((totalLatency / Math.max(rows.length, 1)).toFixed(2)),
     p95_latency_ms: rows.length ? [...rows].sort((a, b) => a.latency_ms - b.latency_ms)[Math.ceil(rows.length * 0.95) - 1].latency_ms : 0,
     average_payload_bytes: Math.round(rows.reduce((sum, row) => sum + row.payload_bytes, 0) / Math.max(rows.length, 1)),
+    rows,
+  })
+}
+
+export function runMillerNorthernPathwayBenchmark(catalog, { now = () => new Date("2026-09-08T12:00:00.000Z"), scenarios = MILLER_NORTHERN_QUERY_BENCHMARK, limit = 10 } = {}) {
+  const rows = scenarios.map(scenario => {
+    const response = buildMillerMobileSearchResponse({ query: scenario.query, limit }, catalog, { now })
+    const results = response.results
+    const top = results[0]
+    const pathwayResults = results.filter(resource => resource.access_pathway)
+    const combinedText = results.map(resourceText).join(" ")
+    const hasTransport = results.some(resource => resource.travel_required
+      || resource.access_pathway?.transportation_pathway
+      || includesAny(resourceText(resource), ["transportation", "medical travel", "travel funding"]))
+    const hasFunding = results.some(resource => resource.access_pathway?.funding_pathway
+      || includesAny(resourceText(resource), ["funding", "benefit", "financial assistance", "grant"]))
+    const hasReturnHome = response.workflow.intent === "return_home_after_treatment"
+      && (response.workflow.pathway.some(step => /return.home|ongoing|continuity/i.test(`${step.title} ${step.detail}`))
+        || pathwayResults.some(resource => resource.access_pathway.return_home_support?.length))
+    const correctOrigin = !scenario.location || normalized(response.interpreted.location) === normalized(scenario.location)
+    const serviceAreaAccurate = !scenario.location || results.some(resource => ["located_here", "serves_community", "regional_intake", "province_navigation", "canada_wide"].includes(resource.location_relationship))
+    const hasAccessPoint = pathwayResults.some(resource => resource.access_pathway.local_access_point || resource.access_pathway.regional_intake)
+      || results.some(resource => resource.access_note || resource.referral_note)
+    const hasDestination = pathwayResults.some(resource => resource.access_pathway.destination_service)
+      || results.some(resource => resource.physical_location?.community)
+    const incorrectLocalFacilityClaims = results.filter(resource => resource.location_relationship === "located_here"
+      && normalized(resource.physical_location?.community) !== normalized(scenario.location)).length
+    const reasons = []
+    if (!results.length) reasons.push("no_results")
+    if (top && !includesAny(`${resourceText(top)} ${combinedText}`, scenario.terms)) reasons.push("no_relevant_result")
+    if (!correctOrigin) reasons.push("origin_not_recognized")
+    if (!serviceAreaAccurate) reasons.push("service_area_missing")
+    if (!hasAccessPoint) reasons.push("access_point_missing")
+    if (scenario.expect_transport && !hasTransport) reasons.push("transportation_pathway_missing")
+    if (scenario.expect_funding && !hasFunding) reasons.push("funding_pathway_missing")
+    if (scenario.expect_return_home && !hasReturnHome) reasons.push("return_home_pathway_missing")
+    if (incorrectLocalFacilityClaims) reasons.push("incorrect_local_facility_claim")
+    return {
+      id: scenario.id,
+      query: scenario.query,
+      returned_count: results.length,
+      top_result: top?.name || null,
+      correct_origin: correctOrigin,
+      access_point_identified: hasAccessPoint,
+      service_area_relationship: serviceAreaAccurate,
+      destination_identified: hasDestination,
+      transportation_identified: hasTransport,
+      funding_identified: hasFunding,
+      return_home_support: hasReturnHome,
+      workflow_intent: response.workflow.intent,
+      scope_mode: response.search_scope.mode,
+      false_local_facility_claims: incorrectLocalFacilityClaims,
+      pass: reasons.length === 0,
+      reasons,
+    }
+  })
+  return Object.freeze({
+    schema_version: "miller-northern-pathway-benchmark-v1",
+    generated_at: now().toISOString(),
+    scenario_count: rows.length,
+    passing_scenarios: rows.filter(row => row.pass).length,
+    failed_scenarios: rows.filter(row => !row.pass).map(row => ({ id: row.id, reasons: row.reasons })),
+    false_local_facility_claims: rows.reduce((sum, row) => sum + row.false_local_facility_claims, 0),
     rows,
   })
 }

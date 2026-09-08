@@ -25,12 +25,20 @@ const BARRIER_NEEDS = new Set(["transportation", "funding", "legal", "basic_need
 function inferredNeeds(query) {
   const text = normalized(query)
   const needs = []
-  if (/\b(leaving|after|discharg(?:e|ed|ing)|finishing)\b.*\b(detox|treatment|custody|jail|hospital)\b|\b(housing|somewhere to stay)\b.*\b(after|afterward|afterwards)\b.*\b(detox|treatment)|\b(detox|treatment)\b.*\b(housing|somewhere to stay)\b.*\b(after|afterward|afterwards)\b/.test(text)) needs.push("continuity")
+  if (/\b(leaving|after|discharg(?:e|ed|ing)|finishing|returning|coming (?:back )?home)\b.*\b(detox|treatment|custody|jail|hospital)\b|\b(returning|coming back|coming)\b.*\b(after treatment|after detox|from treatment|from detox)\b|\b(housing|somewhere to stay)\b.*\b(after|afterward|afterwards)\b.*\b(detox|treatment)|\b(detox|treatment)\b.*\b(housing|somewhere to stay)\b.*\b(after|afterward|afterwards)\b/.test(text)) needs.push("continuity")
   if (/\b(no|without|doesn t have|do not have)\b.*\b(family doctor|doctor|primary care|referral)\b|\bhow (?:do|can) (?:i|we|they) (?:get|access|start)\b/.test(text)) needs.push("access_navigation")
   if (/\b(doesn t drive|does not drive|no car|can t get there|cannot get there)\b/.test(text)) needs.push("transportation")
   if (/\b(can t afford|cannot afford|low cost|free option|cost is a barrier)\b/.test(text)) needs.push("funding")
   if (/\b(famil(?:y|ies)|parent|caregiver|loved one)\b/.test(text) && !/\bfamily doctor\b/.test(text)) needs.push("family_support")
   return needs
+}
+
+export function millerProfessionalWorkflowIntent(query = "", needs = []) {
+  const text = normalized(query)
+  const ids = new Set(needs.map(need => typeof need === "string" ? need : need?.need_id))
+  return ids.has("continuity") && /\b(return(?:ing)?|coming back|coming (?:back )?home|after treatment|after detox|discharg(?:e|ed|ing))\b/.test(text)
+    ? "return_home_after_treatment"
+    : "multi_need_resource_navigation"
 }
 
 export function decomposeMillerProfessionalNeeds(query = "", intents = []) {
@@ -121,6 +129,16 @@ export function buildMillerAccessPathway({ results = [], needs = [], searchScope
     if (!requested.has(needId) || needId === primary) continue
     const resource = pickFirst(results, item => item.matched_needs?.includes(needId))
     if (resource) steps.push({ step_id: needId, title, detail: `${resource.name} is included because its verified information matches this part of the request.`, resource_ids: [resource.canonical_id], basis: "deterministic_need_match" })
+  }
+  if (requested.has("continuity")) {
+    const continuity = pickFirst(results, item => item.access_pathway?.return_home_support?.length)
+      || pickFirst(results, item => item.matched_needs?.includes("continuity"))
+      || pickFirst(results, item => /aftercare|continuity|follow up|follow-up|community support/i.test(`${item.description || ""} ${item.access_note || ""}`))
+    if (continuity) {
+      const detail = continuity.access_pathway?.return_home_support?.join("; ")
+        || `${continuity.name} includes verified information relevant to support after returning home.`
+      steps.push({ step_id: "return_home_support", title: "Plan the return-home connection", detail, resource_ids: [continuity.canonical_id], basis: continuity.access_pathway?.return_home_support?.length ? "verified_access_note" : "deterministic_need_match" })
+    }
   }
   return steps.slice(0, 4).map((step, index) => ({ ...step, order: index + 1 }))
 }

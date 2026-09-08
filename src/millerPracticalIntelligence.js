@@ -123,8 +123,11 @@ function relatedCollectionLinks(primaryIntent, detectedIntents) {
   }).slice(0, 3)
 }
 
-function combinedContext(detectedIntents) {
+function combinedContext(detectedIntents, query = "") {
   const set = new Set(detectedIntents)
+  if (/\b(return(?:ing)?|coming back|coming (?:back )?home|after treatment|after detox|discharg(?:e|ed|ing))\b/.test(normalized(query)) && (set.has("treatment") || set.has("detox") || set.has("housing") || set.has("counselling"))) {
+    return "I’m checking what can support the return home, including recovery-oriented and general housing supports, counselling, addiction-care continuity, transportation, and benefits navigation where Miller has verified information. Confirm each service’s current access directly."
+  }
   if (set.has("housing") && (set.has("treatment") || set.has("detox"))) {
     return "I’m also checking recovery-oriented and general housing supports, because housing after treatment can involve more than one service system."
   }
@@ -159,7 +162,7 @@ export function buildMillerPracticalIntelligence({ query = "", intent = null, re
     primary_intent: primaryIntent,
     secondary_intents: detectedIntents.slice(1),
     guidance,
-    combined_context: combinedContext(detectedIntents),
+    combined_context: combinedContext(detectedIntents, query),
     related_collections: relatedCollectionLinks(primaryIntent, detectedIntents),
     speech_resources: speechResources,
     source_priority: ["current_results", "canonical_miller_resources", "practical_supports", "funding_assistance", "other_public_miller_collections", "bounded_external_search"],

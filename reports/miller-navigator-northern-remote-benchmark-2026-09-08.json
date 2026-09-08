@@ -1,5 +1,5 @@
 {
-  "schema_version": "miller-navigator-national-benchmark-v1",
+  "schema_version": "miller-navigator-northern-remote-benchmark-v1",
   "generated_at": "2026-09-08T12:00:00.000Z",
   "inventory": {
     "total": 524,
@@ -48,14 +48,14 @@
       }
     }
   },
-  "query_benchmark": {
+  "national_regression": {
     "schema_version": "miller-mobile-query-benchmark-v1",
     "generated_at": "2026-09-08T12:00:00.000Z",
     "query_count": 15,
     "passing_queries": 15,
     "weak_queries": [],
-    "average_latency_ms": 98.9,
-    "p95_latency_ms": 132.21,
+    "average_latency_ms": 98.73,
+    "p95_latency_ms": 130.07,
     "average_payload_bytes": 22451,
     "rows": [
       {
@@ -79,7 +79,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 105.92,
+        "latency_ms": 107.11,
         "payload_bytes": 25551
       },
       {
@@ -103,7 +103,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 92.13,
+        "latency_ms": 91.17,
         "payload_bytes": 25130
       },
       {
@@ -127,7 +127,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 104.34,
+        "latency_ms": 105.67,
         "payload_bytes": 22633
       },
       {
@@ -151,7 +151,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 132.21,
+        "latency_ms": 130.07,
         "payload_bytes": 23028
       },
       {
@@ -175,7 +175,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 78.38,
+        "latency_ms": 77.48,
         "payload_bytes": 23891
       },
       {
@@ -199,7 +199,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 87.45,
+        "latency_ms": 86.8,
         "payload_bytes": 22622
       },
       {
@@ -223,7 +223,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 90.35,
+        "latency_ms": 88.69,
         "payload_bytes": 17453
       },
       {
@@ -247,7 +247,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 78.67,
+        "latency_ms": 78.5,
         "payload_bytes": 18426
       },
       {
@@ -271,7 +271,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 94.64,
+        "latency_ms": 93.75,
         "payload_bytes": 17626
       },
       {
@@ -295,7 +295,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 90.11,
+        "latency_ms": 90.77,
         "payload_bytes": 24676
       },
       {
@@ -319,7 +319,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 87.42,
+        "latency_ms": 87.92,
         "payload_bytes": 17199
       },
       {
@@ -343,7 +343,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 93.84,
+        "latency_ms": 93.43,
         "payload_bytes": 18131
       },
       {
@@ -367,7 +367,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 107.64,
+        "latency_ms": 108.49,
         "payload_bytes": 28929
       },
       {
@@ -391,7 +391,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 112.22,
+        "latency_ms": 112.17,
         "payload_bytes": 22487
       },
       {
@@ -415,1022 +415,200 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 128.21,
+        "latency_ms": 128.99,
         "payload_bytes": 28977
       }
     ]
   },
-  "coverage": {
-    "schema_version": "miller-mobile-coverage-matrix-v1",
+  "northern_pathways": {
+    "schema_version": "miller-northern-pathway-benchmark-v1",
     "generated_at": "2026-09-08T12:00:00.000Z",
-    "catalog": {
-      "total": 524,
-      "mobile_ready": 246,
-      "not_mobile_ready": 278,
-      "readiness_rate": 0.469,
-      "reason_counts": {
-        "current_public_source": 278,
-        "no_duplicate_conflict": 2,
-        "sufficient_access_information": 4,
-        "verified_contact": 37
+    "scenario_count": 10,
+    "passing_scenarios": 10,
+    "failed_scenarios": [],
+    "false_local_facility_claims": 0,
+    "rows": [
+      {
+        "id": "treatment_churchill",
+        "query": "addiction treatment from Churchill",
+        "returned_count": 10,
+        "top_result": "Manitoba Mental Health & Addictions Connect",
+        "correct_origin": true,
+        "access_point_identified": true,
+        "service_area_relationship": true,
+        "destination_identified": true,
+        "transportation_identified": true,
+        "funding_identified": true,
+        "return_home_support": false,
+        "workflow_intent": "multi_need_resource_navigation",
+        "scope_mode": "regional_pathway",
+        "false_local_facility_claims": 0,
+        "pass": true,
+        "reasons": []
+      },
+      {
+        "id": "withdrawal_the_pas",
+        "query": "withdrawal help in The Pas",
+        "returned_count": 10,
+        "top_result": "Rosaire House Addiction Centre",
+        "correct_origin": true,
+        "access_point_identified": true,
+        "service_area_relationship": true,
+        "destination_identified": true,
+        "transportation_identified": true,
+        "funding_identified": true,
+        "return_home_support": false,
+        "workflow_intent": "multi_need_resource_navigation",
+        "scope_mode": "regional_pathway",
+        "false_local_facility_claims": 0,
+        "pass": true,
+        "reasons": []
+      },
+      {
+        "id": "indigenous_treatment_sioux_lookout",
+        "query": "Indigenous treatment from Sioux Lookout",
+        "returned_count": 10,
+        "top_result": "Ontario Indigenous Mental Health and Addiction Treatment and Healing Centres",
+        "correct_origin": true,
+        "access_point_identified": true,
+        "service_area_relationship": true,
+        "destination_identified": true,
+        "transportation_identified": true,
+        "funding_identified": true,
+        "return_home_support": false,
+        "workflow_intent": "multi_need_resource_navigation",
+        "scope_mode": "regional_pathway",
+        "false_local_facility_claims": 0,
+        "pass": true,
+        "reasons": []
+      },
+      {
+        "id": "oat_kenora",
+        "query": "OAT in Kenora",
+        "returned_count": 10,
+        "top_result": "ConnexOntario Addiction and Mental Health Navigation",
+        "correct_origin": true,
+        "access_point_identified": true,
+        "service_area_relationship": true,
+        "destination_identified": true,
+        "transportation_identified": true,
+        "funding_identified": true,
+        "return_home_support": false,
+        "workflow_intent": "multi_need_resource_navigation",
+        "scope_mode": "regional_pathway",
+        "false_local_facility_claims": 0,
+        "pass": true,
+        "reasons": []
+      },
+      {
+        "id": "treatment_travel_labrador",
+        "query": "treatment and medical travel from Labrador",
+        "returned_count": 10,
+        "top_result": "Labrador-Grenfell Opioid Dependence Treatment Hub",
+        "correct_origin": true,
+        "access_point_identified": true,
+        "service_area_relationship": true,
+        "destination_identified": true,
+        "transportation_identified": true,
+        "funding_identified": true,
+        "return_home_support": false,
+        "workflow_intent": "multi_need_resource_navigation",
+        "scope_mode": "regional_pathway",
+        "false_local_facility_claims": 0,
+        "pass": true,
+        "reasons": []
+      },
+      {
+        "id": "addiction_rankin_inlet",
+        "query": "addiction help in Rankin Inlet",
+        "returned_count": 10,
+        "top_result": "Kivalliq Community Health Access",
+        "correct_origin": true,
+        "access_point_identified": true,
+        "service_area_relationship": true,
+        "destination_identified": true,
+        "transportation_identified": true,
+        "funding_identified": true,
+        "return_home_support": false,
+        "workflow_intent": "multi_need_resource_navigation",
+        "scope_mode": "regional_pathway",
+        "false_local_facility_claims": 0,
+        "pass": true,
+        "reasons": []
+      },
+      {
+        "id": "mental_health_cambridge_bay",
+        "query": "mental health and addiction access in Cambridge Bay",
+        "returned_count": 10,
+        "top_result": "Kitikmeot Community Health Access",
+        "correct_origin": true,
+        "access_point_identified": true,
+        "service_area_relationship": true,
+        "destination_identified": true,
+        "transportation_identified": true,
+        "funding_identified": true,
+        "return_home_support": false,
+        "workflow_intent": "multi_need_resource_navigation",
+        "scope_mode": "regional_pathway",
+        "false_local_facility_claims": 0,
+        "pass": true,
+        "reasons": []
+      },
+      {
+        "id": "return_home_prince_rupert",
+        "query": "coming home to Prince Rupert after treatment and need housing and counselling",
+        "returned_count": 10,
+        "top_result": "Prince Rupert Specialized Mental Health and Substance Use Outreach",
+        "correct_origin": true,
+        "access_point_identified": true,
+        "service_area_relationship": true,
+        "destination_identified": true,
+        "transportation_identified": true,
+        "funding_identified": true,
+        "return_home_support": true,
+        "workflow_intent": "return_home_after_treatment",
+        "scope_mode": "local_first",
+        "false_local_facility_claims": 0,
+        "pass": true,
+        "reasons": []
+      },
+      {
+        "id": "counselling_northern_saskatchewan",
+        "query": "counselling after treatment in northern Saskatchewan",
+        "returned_count": 10,
+        "top_result": "Opioid Agonist Therapy - La Ronge Medical Clinic",
+        "correct_origin": true,
+        "access_point_identified": true,
+        "service_area_relationship": true,
+        "destination_identified": true,
+        "transportation_identified": false,
+        "funding_identified": true,
+        "return_home_support": true,
+        "workflow_intent": "return_home_after_treatment",
+        "scope_mode": "regional_pathway",
+        "false_local_facility_claims": 0,
+        "pass": true,
+        "reasons": []
+      },
+      {
+        "id": "remote_treatment_transport",
+        "query": "treatment plus transportation from a remote community",
+        "returned_count": 10,
+        "top_result": "Northern Patient Transportation Program",
+        "correct_origin": true,
+        "access_point_identified": true,
+        "service_area_relationship": true,
+        "destination_identified": true,
+        "transportation_identified": true,
+        "funding_identified": true,
+        "return_home_support": false,
+        "workflow_intent": "multi_need_resource_navigation",
+        "scope_mode": "canadian_foundation",
+        "false_local_facility_claims": 0,
+        "pass": true,
+        "reasons": []
       }
-    },
-    "by_province": {
-      "British Columbia": {
-        "detox": {
-          "total": 16,
-          "mobile_ready": 14
-        },
-        "residential_treatment": {
-          "total": 28,
-          "mobile_ready": 11
-        },
-        "outpatient_treatment": {
-          "total": 7,
-          "mobile_ready": 5
-        },
-        "oat": {
-          "total": 31,
-          "mobile_ready": 19
-        },
-        "counselling": {
-          "total": 103,
-          "mobile_ready": 31
-        },
-        "harm_reduction": {
-          "total": 22,
-          "mobile_ready": 9
-        },
-        "housing": {
-          "total": 63,
-          "mobile_ready": 31
-        },
-        "mental_health": {
-          "total": 74,
-          "mobile_ready": 33
-        },
-        "legal_navigation": {
-          "total": 36,
-          "mobile_ready": 17
-        },
-        "funding": {
-          "total": 19,
-          "mobile_ready": 19
-        },
-        "transportation": {
-          "total": 13,
-          "mobile_ready": 13
-        },
-        "indigenous_specific": {
-          "total": 57,
-          "mobile_ready": 15
-        },
-        "family_youth": {
-          "total": 67,
-          "mobile_ready": 29
-        },
-        "reentry_corrections": {
-          "total": 4,
-          "mobile_ready": 3
-        }
-      },
-      "Alberta": {
-        "detox": {
-          "total": 4,
-          "mobile_ready": 4
-        },
-        "residential_treatment": {
-          "total": 3,
-          "mobile_ready": 3
-        },
-        "outpatient_treatment": {
-          "total": 10,
-          "mobile_ready": 10
-        },
-        "oat": {
-          "total": 4,
-          "mobile_ready": 4
-        },
-        "counselling": {
-          "total": 15,
-          "mobile_ready": 15
-        },
-        "harm_reduction": {
-          "total": 3,
-          "mobile_ready": 3
-        },
-        "housing": {
-          "total": 8,
-          "mobile_ready": 8
-        },
-        "mental_health": {
-          "total": 13,
-          "mobile_ready": 13
-        },
-        "legal_navigation": {
-          "total": 9,
-          "mobile_ready": 9
-        },
-        "funding": {
-          "total": 5,
-          "mobile_ready": 5
-        },
-        "transportation": {
-          "total": 2,
-          "mobile_ready": 2
-        },
-        "indigenous_specific": {
-          "total": 7,
-          "mobile_ready": 7
-        },
-        "family_youth": {
-          "total": 8,
-          "mobile_ready": 8
-        },
-        "reentry_corrections": {
-          "total": 1,
-          "mobile_ready": 1
-        }
-      },
-      "Saskatchewan": {
-        "detox": {
-          "total": 10,
-          "mobile_ready": 10
-        },
-        "residential_treatment": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "outpatient_treatment": {
-          "total": 6,
-          "mobile_ready": 6
-        },
-        "oat": {
-          "total": 8,
-          "mobile_ready": 8
-        },
-        "counselling": {
-          "total": 13,
-          "mobile_ready": 13
-        },
-        "harm_reduction": {
-          "total": 5,
-          "mobile_ready": 5
-        },
-        "housing": {
-          "total": 9,
-          "mobile_ready": 9
-        },
-        "mental_health": {
-          "total": 17,
-          "mobile_ready": 17
-        },
-        "legal_navigation": {
-          "total": 7,
-          "mobile_ready": 7
-        },
-        "funding": {
-          "total": 8,
-          "mobile_ready": 8
-        },
-        "transportation": {
-          "total": 4,
-          "mobile_ready": 4
-        },
-        "indigenous_specific": {
-          "total": 8,
-          "mobile_ready": 8
-        },
-        "family_youth": {
-          "total": 10,
-          "mobile_ready": 10
-        },
-        "reentry_corrections": {
-          "total": 2,
-          "mobile_ready": 2
-        }
-      },
-      "Manitoba": {
-        "detox": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "residential_treatment": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "outpatient_treatment": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "oat": {
-          "total": 3,
-          "mobile_ready": 3
-        },
-        "counselling": {
-          "total": 3,
-          "mobile_ready": 3
-        },
-        "harm_reduction": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "housing": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "mental_health": {
-          "total": 6,
-          "mobile_ready": 6
-        },
-        "legal_navigation": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "funding": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "transportation": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "indigenous_specific": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "family_youth": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "reentry_corrections": {
-          "total": 0,
-          "mobile_ready": 0
-        }
-      },
-      "Ontario": {
-        "detox": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "residential_treatment": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "outpatient_treatment": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "oat": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "counselling": {
-          "total": 3,
-          "mobile_ready": 3
-        },
-        "harm_reduction": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "housing": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "mental_health": {
-          "total": 4,
-          "mobile_ready": 4
-        },
-        "legal_navigation": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "funding": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "transportation": {
-          "total": 3,
-          "mobile_ready": 3
-        },
-        "indigenous_specific": {
-          "total": 4,
-          "mobile_ready": 4
-        },
-        "family_youth": {
-          "total": 2,
-          "mobile_ready": 2
-        },
-        "reentry_corrections": {
-          "total": 0,
-          "mobile_ready": 0
-        }
-      },
-      "Quebec": {
-        "detox": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "residential_treatment": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "outpatient_treatment": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "oat": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "counselling": {
-          "total": 2,
-          "mobile_ready": 2
-        },
-        "harm_reduction": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "housing": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "mental_health": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "legal_navigation": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "funding": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "transportation": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "indigenous_specific": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "family_youth": {
-          "total": 3,
-          "mobile_ready": 3
-        },
-        "reentry_corrections": {
-          "total": 1,
-          "mobile_ready": 1
-        }
-      },
-      "New Brunswick": {
-        "detox": {
-          "total": 2,
-          "mobile_ready": 2
-        },
-        "residential_treatment": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "outpatient_treatment": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "oat": {
-          "total": 2,
-          "mobile_ready": 2
-        },
-        "counselling": {
-          "total": 2,
-          "mobile_ready": 2
-        },
-        "harm_reduction": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "housing": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "mental_health": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "legal_navigation": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "funding": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "transportation": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "indigenous_specific": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "family_youth": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "reentry_corrections": {
-          "total": 0,
-          "mobile_ready": 0
-        }
-      },
-      "Nova Scotia": {
-        "detox": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "residential_treatment": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "outpatient_treatment": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "oat": {
-          "total": 2,
-          "mobile_ready": 2
-        },
-        "counselling": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "harm_reduction": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "housing": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "mental_health": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "legal_navigation": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "funding": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "transportation": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "indigenous_specific": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "family_youth": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "reentry_corrections": {
-          "total": 0,
-          "mobile_ready": 0
-        }
-      },
-      "Prince Edward Island": {
-        "detox": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "residential_treatment": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "outpatient_treatment": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "oat": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "counselling": {
-          "total": 2,
-          "mobile_ready": 2
-        },
-        "harm_reduction": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "housing": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "mental_health": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "legal_navigation": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "funding": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "transportation": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "indigenous_specific": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "family_youth": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "reentry_corrections": {
-          "total": 0,
-          "mobile_ready": 0
-        }
-      },
-      "Newfoundland and Labrador": {
-        "detox": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "residential_treatment": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "outpatient_treatment": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "oat": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "counselling": {
-          "total": 5,
-          "mobile_ready": 5
-        },
-        "harm_reduction": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "housing": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "mental_health": {
-          "total": 4,
-          "mobile_ready": 4
-        },
-        "legal_navigation": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "funding": {
-          "total": 3,
-          "mobile_ready": 3
-        },
-        "transportation": {
-          "total": 2,
-          "mobile_ready": 2
-        },
-        "indigenous_specific": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "family_youth": {
-          "total": 2,
-          "mobile_ready": 2
-        },
-        "reentry_corrections": {
-          "total": 0,
-          "mobile_ready": 0
-        }
-      },
-      "Yukon": {
-        "detox": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "residential_treatment": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "outpatient_treatment": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "oat": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "counselling": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "harm_reduction": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "housing": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "mental_health": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "legal_navigation": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "funding": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "transportation": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "indigenous_specific": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "family_youth": {
-          "total": 2,
-          "mobile_ready": 2
-        },
-        "reentry_corrections": {
-          "total": 0,
-          "mobile_ready": 0
-        }
-      },
-      "Northwest Territories": {
-        "detox": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "residential_treatment": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "outpatient_treatment": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "oat": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "counselling": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "harm_reduction": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "housing": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "mental_health": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "legal_navigation": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "funding": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "transportation": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "indigenous_specific": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "family_youth": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "reentry_corrections": {
-          "total": 0,
-          "mobile_ready": 0
-        }
-      },
-      "Nunavut": {
-        "detox": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "residential_treatment": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "outpatient_treatment": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "oat": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "counselling": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "harm_reduction": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "housing": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "mental_health": {
-          "total": 5,
-          "mobile_ready": 5
-        },
-        "legal_navigation": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "funding": {
-          "total": 4,
-          "mobile_ready": 4
-        },
-        "transportation": {
-          "total": 9,
-          "mobile_ready": 9
-        },
-        "indigenous_specific": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "family_youth": {
-          "total": 4,
-          "mobile_ready": 4
-        },
-        "reentry_corrections": {
-          "total": 0,
-          "mobile_ready": 0
-        }
-      },
-      "Canada-wide": {
-        "detox": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "residential_treatment": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "outpatient_treatment": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "oat": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "counselling": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "harm_reduction": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "housing": {
-          "total": 0,
-          "mobile_ready": 0
-        },
-        "mental_health": {
-          "total": 2,
-          "mobile_ready": 2
-        },
-        "legal_navigation": {
-          "total": 1,
-          "mobile_ready": 1
-        },
-        "funding": {
-          "total": 8,
-          "mobile_ready": 8
-        },
-        "transportation": {
-          "total": 3,
-          "mobile_ready": 3
-        },
-        "indigenous_specific": {
-          "total": 8,
-          "mobile_ready": 8
-        },
-        "family_youth": {
-          "total": 3,
-          "mobile_ready": 3
-        },
-        "reentry_corrections": {
-          "total": 0,
-          "mobile_ready": 0
-        }
-      }
-    },
-    "by_city": {
-      "Vancouver": {
-        "total": 112,
-        "mobile_ready": 22,
-        "categories": {
-          "detox": 5,
-          "residential_treatment": 3,
-          "outpatient_treatment": 2,
-          "oat": 6,
-          "counselling": 30,
-          "harm_reduction": 8,
-          "housing": 10,
-          "mental_health": 11,
-          "legal_navigation": 19,
-          "funding": 3,
-          "transportation": 2,
-          "indigenous_specific": 8,
-          "family_youth": 12,
-          "reentry_corrections": 1
-        }
-      },
-      "Surrey": {
-        "total": 63,
-        "mobile_ready": 13,
-        "categories": {
-          "detox": 2,
-          "residential_treatment": 1,
-          "outpatient_treatment": 0,
-          "oat": 3,
-          "counselling": 11,
-          "harm_reduction": 4,
-          "housing": 16,
-          "mental_health": 1,
-          "legal_navigation": 3,
-          "funding": 0,
-          "transportation": 1,
-          "indigenous_specific": 6,
-          "family_youth": 6,
-          "reentry_corrections": 0
-        }
-      },
-      "Burnaby": {
-        "total": 18,
-        "mobile_ready": 12,
-        "categories": {
-          "detox": 0,
-          "residential_treatment": 1,
-          "outpatient_treatment": 1,
-          "oat": 1,
-          "counselling": 6,
-          "harm_reduction": 2,
-          "housing": 9,
-          "mental_health": 3,
-          "legal_navigation": 1,
-          "funding": 2,
-          "transportation": 0,
-          "indigenous_specific": 0,
-          "family_youth": 2,
-          "reentry_corrections": 0
-        }
-      },
-      "Victoria": {
-        "total": 3,
-        "mobile_ready": 3,
-        "categories": {
-          "detox": 2,
-          "residential_treatment": 1,
-          "outpatient_treatment": 1,
-          "oat": 1,
-          "counselling": 1,
-          "harm_reduction": 1,
-          "housing": 1,
-          "mental_health": 3,
-          "legal_navigation": 0,
-          "funding": 0,
-          "transportation": 0,
-          "indigenous_specific": 1,
-          "family_youth": 0,
-          "reentry_corrections": 0
-        }
-      },
-      "Calgary": {
-        "total": 6,
-        "mobile_ready": 6,
-        "categories": {
-          "detox": 1,
-          "residential_treatment": 0,
-          "outpatient_treatment": 3,
-          "oat": 1,
-          "counselling": 4,
-          "harm_reduction": 1,
-          "housing": 1,
-          "mental_health": 2,
-          "legal_navigation": 0,
-          "funding": 1,
-          "transportation": 0,
-          "indigenous_specific": 0,
-          "family_youth": 2,
-          "reentry_corrections": 0
-        }
-      },
-      "Edmonton": {
-        "total": 6,
-        "mobile_ready": 6,
-        "categories": {
-          "detox": 1,
-          "residential_treatment": 1,
-          "outpatient_treatment": 1,
-          "oat": 1,
-          "counselling": 4,
-          "harm_reduction": 1,
-          "housing": 3,
-          "mental_health": 2,
-          "legal_navigation": 0,
-          "funding": 0,
-          "transportation": 0,
-          "indigenous_specific": 2,
-          "family_youth": 1,
-          "reentry_corrections": 1
-        }
-      },
-      "Regina": {
-        "total": 4,
-        "mobile_ready": 4,
-        "categories": {
-          "detox": 1,
-          "residential_treatment": 0,
-          "outpatient_treatment": 2,
-          "oat": 1,
-          "counselling": 2,
-          "harm_reduction": 1,
-          "housing": 2,
-          "mental_health": 1,
-          "legal_navigation": 0,
-          "funding": 0,
-          "transportation": 0,
-          "indigenous_specific": 2,
-          "family_youth": 1,
-          "reentry_corrections": 2
-        }
-      },
-      "Saskatoon": {
-        "total": 9,
-        "mobile_ready": 9,
-        "categories": {
-          "detox": 1,
-          "residential_treatment": 0,
-          "outpatient_treatment": 1,
-          "oat": 1,
-          "counselling": 2,
-          "harm_reduction": 1,
-          "housing": 5,
-          "mental_health": 4,
-          "legal_navigation": 1,
-          "funding": 1,
-          "transportation": 1,
-          "indigenous_specific": 5,
-          "family_youth": 4,
-          "reentry_corrections": 2
-        }
-      },
-      "Prince Albert": {
-        "total": 3,
-        "mobile_ready": 3,
-        "categories": {
-          "detox": 1,
-          "residential_treatment": 0,
-          "outpatient_treatment": 1,
-          "oat": 1,
-          "counselling": 1,
-          "harm_reduction": 0,
-          "housing": 1,
-          "mental_health": 2,
-          "legal_navigation": 0,
-          "funding": 0,
-          "transportation": 0,
-          "indigenous_specific": 1,
-          "family_youth": 1,
-          "reentry_corrections": 1
-        }
-      }
-    }
+    ]
   },
   "community_coverage": {
     "schema_version": "miller-canadian-community-coverage-v1",

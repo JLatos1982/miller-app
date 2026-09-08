@@ -20,7 +20,7 @@ Request:
 
 - `query` is required, trimmed, and limited to 500 characters.
 - `location` is optional and limited to 100 characters.
-- `province` is optional: British Columbia/BC, Alberta/AB, Saskatchewan/SK, or Canada-wide.
+- `province` is optional and accepts every Canadian province/territory plus common abbreviations and Canada-wide.
 - Up to eight bounded categories are accepted.
 - `limit` is 1–20.
 
@@ -55,6 +55,19 @@ Response contract: `miller-mobile-search-v1`.
     "mode": "local_first",
     "message": ""
   },
+  "broaden_nearby": {
+    "available": true,
+    "applied": false,
+    "label": "Show regional options",
+    "behavior": "broaden_access"
+  },
+  "workflow": {
+    "intent": "multi_need_resource_navigation",
+    "needs": [],
+    "pathway": [],
+    "recommended_pack_ids": [],
+    "target": "understand_navigate_handoff"
+  },
   "result_count": 18,
   "returned_count": 12,
   "results": [],
@@ -67,7 +80,15 @@ Response contract: `miller-mobile-search-v1`.
 }
 ```
 
-Each resource card contains a canonical ID, name, organization, category/service type, concise description, province/city/region/address, public phone/email/website, `access_type`, `referral_note`, eligibility/funding/transportation notes, `verified_status`, `last_verified`, `source_url`, a derived `mobile_ready` flag, bounded tags, and compact public source verification metadata. Service scope is explicit through `physical_location`, `local_service_area`, `regional_service_area`, `province_wide`, `virtual`, `navigation_only`, `scope_note`, `location_relationship`, and a public-safe `location_label`. It never exposes ranking scores, private review metadata, incidents, investigations, legal findings, or Miller North evidence.
+Each resource card contains a canonical ID, name, organization, category/service type, concise description, province/city/region/address, public phone/email/website, `access_type`, `referral_note`, eligibility/funding/transportation notes, `verified_status`, `last_verified`, `source_url`, a derived `mobile_ready` flag, bounded tags, and compact public source verification metadata. Service scope is explicit through `physical_location`, `local_service_area`, `regional_service_area`, `province_wide`, `virtual`, `navigation_only`, `travel_required`, `scope_note`, `location_relationship`, and a public-safe `location_label`.
+
+Where an official source supports a travel-dependent pathway, a card can also include `access_pathway` with bounded public fields: `origin_geographies`, `local_access_point`, `regional_intake`, `destination_service`, `referral_requirement`, `transportation_pathway`, `funding_pathway`, `virtual_alternative`, `return_home_support`, and `travel_required`. These are navigation facts, not clinical advice or entitlement decisions. The client must continue to tell users to confirm current access, approval, eligibility and availability.
+
+Remote searches may return `broaden_nearby.behavior: "broaden_access"` and the label “Show regional options.” The request may send either `broaden_nearby: true` (backward compatible) or `broaden_access: true`. Both opt into the same bounded province-constrained broadening; it is never applied silently.
+
+`workflow.intent` can be `return_home_after_treatment` when deterministic need decomposition identifies a return-home/continuity request. The resulting pathway may connect verified housing, counselling, addiction-continuity, travel and benefits information without creating a clinical discharge plan.
+
+The API never exposes ranking scores, private review metadata, incidents, investigations, legal findings, Palantír state, or Miller North evidence.
 
 `mobile_ready` is derived, not manually asserted. It requires a stable canonical ID, current public-source verification, a verified contact path, clear geography or service scope, sufficient basic access information, and no unresolved deterministic duplicate conflict.
 
