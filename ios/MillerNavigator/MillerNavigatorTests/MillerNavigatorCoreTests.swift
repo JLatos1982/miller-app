@@ -73,4 +73,14 @@ final class MillerNavigatorCoreTests: XCTestCase {
     XCTAssertTrue(output.contains("Access: Self-referral"))
     XCTAssertFalse(output.contains("Detox in Surrey"))
   }
+
+  func testResourcePackOptionsRemoveOnlyOptionalDetails() {
+    let resource = fixtureResource(name: "Regional service")
+    let options = ResourcePackOptions(includeLocation: false, includeAccess: false, includeFundingAndTransportation: false)
+    let output = ResourcePackFormatter.plainText(guidance: guidance, resources: [resource], options: options)
+    XCTAssertTrue(output.contains("Regional service"))
+    XCTAssertTrue(output.contains("Phone: 604-555-0100"))
+    XCTAssertFalse(output.contains("Located in Surrey"))
+    XCTAssertFalse(output.contains("Access: Self-referral"))
+  }
 }
