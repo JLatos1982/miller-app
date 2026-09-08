@@ -189,7 +189,10 @@ export function sharedCanonicalMillerResource(record = {}) {
 }
 
 export function buildSharedCanonicalMillerResources(records = []) {
-  return records.map(sharedCanonicalMillerResource).filter(Boolean)
+  return records
+    .filter(record => Array.isArray(record?.project_visibility) && record.project_visibility.includes("miller"))
+    .map(sharedCanonicalMillerResource)
+    .filter(Boolean)
 }
 
 export function millerResourceSearchText(resource) {
@@ -253,7 +256,7 @@ function mergeRecord(base, extra) {
       if (extra[key]) merged[key] = extra[key]
     }
     for (const key of ["address", "city", "province", "region", "phone", "email", "website", "accessType", "eligibility"]) {
-      if (!merged[key] && extra[key]) merged[key] = extra[key]
+      if (extra[key]) merged[key] = extra[key]
     }
   }
   return merged

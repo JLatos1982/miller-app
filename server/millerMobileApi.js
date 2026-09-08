@@ -31,6 +31,7 @@ const INTENT_TERMS = Object.freeze({
   mental_health: ["mental health", "counselling", "psychiatric", "crisis"],
   basic_needs: ["basic needs", "food", "clothing", "identification", "income"],
   transportation: ["transportation", "transport", "medical travel", "transit", "ride"],
+  reentry: ["corrections reentry", "re entry", "reentry", "reintegration", "release planning"],
 })
 
 const WESTERN_CITY_PROVINCES = Object.freeze({

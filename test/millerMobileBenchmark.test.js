@@ -14,7 +14,7 @@ const fixedNow = () => new Date("2026-09-08T12:00:00.000Z")
 
 test("frontline benchmark contains all required scenarios and returns explainable quality metrics", () => {
   const report = runMillerMobileQueryBenchmark(millerMobileCatalog, { now: fixedNow })
-  assert.equal(report.query_count, 12)
+  assert.equal(report.query_count, 13)
   assert.equal(report.rows.length, MILLER_MOBILE_QUERY_BENCHMARK.length)
   assert.ok(report.rows.every(row => row.returned_count > 0))
   assert.ok(report.rows.every(row => typeof row.top_result_relevant === "boolean"))
@@ -22,6 +22,7 @@ test("frontline benchmark contains all required scenarios and returns explainabl
   assert.equal(report.rows.find(row => row.id === "oat_edmonton").top_result_relevant, true)
   assert.equal(report.rows.find(row => row.id === "counselling_calgary").province_accuracy, 1)
   assert.equal(report.rows.find(row => row.id === "detox_burnaby").geography_mode, "province_broadened")
+  assert.equal(report.rows.find(row => row.id === "corrections_reentry").top_result_relevant, true)
 })
 
 test("coverage matrix separates province, city, category, and mobile readiness", () => {
@@ -32,6 +33,23 @@ test("coverage matrix separates province, city, category, and mobile readiness",
   assert.ok(report.by_province.Saskatchewan.transportation.total > 0)
   assert.ok(report.by_city.Calgary.total > 0)
   assert.ok(report.by_city.Saskatoon.categories.family_youth > 0)
+  assert.ok(report.by_city.Burnaby.categories.detox > 0)
+  assert.ok(report.by_city.Calgary.categories.oat > 0)
+  assert.ok(report.by_city.Regina.categories.detox > 0)
+  assert.ok(report.by_city["Prince Albert"].categories.oat > 0)
+})
+
+test("verified canonical enrichment replaces stale legacy contact metadata in the mobile projection", () => {
+  const housing = millerMobileCatalog.find(resource => resource.id === "curated:1wfj0t6")
+  assert.equal(housing.phone, "604-433-2218")
+  assert.equal(housing.website, "https://www.bchousing.org/housing-assistance/housing-with-support/supportive-housing")
+  assert.equal(housing.verification_status, "verified_active")
+  assert.equal(millerMobileCatalog.filter(resource => resource.id === housing.id).length, 1)
+})
+
+test("mobile projection contains practical records only and excludes private intelligence metadata", () => {
+  const serialized = JSON.stringify(millerMobileCatalog).toLowerCase()
+  assert.doesNotMatch(serialized, /owner_review|accountability_watch|canonical_event_id|legal_record_id|palant[ií]r|samwise/)
 })
 
 test("mobile-ready requires current source, contact path, geography, access, and conflict-free identity", () => {

@@ -13,6 +13,8 @@ const shared = buildSharedCanonicalMillerResources(registry.records)
 test("shared canonical knowledge exposes verified Miller resources without changing its public product boundary", () => {
   assert.ok(shared.length > 0)
   assert.ok(shared.every(item => item.source === "shared_canonical_miller_projection" && item.verification_status === "verified_active"))
+  assert.equal(shared.some(item => item.id === "north_bc_police_accountability_unit"), false)
+  assert.ok(shared.every(item => registry.records.find(record => record.canonical_resource_id === item.id)?.project_visibility.includes("miller")))
   assert.ok(shared.some(item => /fund|benefit|assistance/i.test(`${item.category} ${item.serviceType} ${item.name}`)))
 })
 
@@ -31,6 +33,14 @@ test("housing after treatment and transportation to care retain multiple practic
   assert.match(housing.combined_context, /recovery-oriented and general housing supports/i)
   const transport = buildMillerPracticalIntelligence({ query: "transportation to OAT", resources: shared, results: shared })
   assert.match(transport.combined_context, /transportation supports/i)
+})
+
+test("re-entry guidance connects verified practical categories without exposing investigations", () => {
+  assert.equal(detectMillerPracticalIntents("leaving corrections and need help")[0], "reentry")
+  const intelligence = buildMillerPracticalIntelligence({ query: "leaving corrections and need housing", resources: shared, results: shared })
+  assert.equal(intelligence.primary_intent, "reentry")
+  assert.match(intelligence.combined_context, /re-entry support together with practical housing/i)
+  assert.ok(intelligence.related_collections.some(item => item.href === "/practical-supports"))
 })
 
 test("legal navigation uses practical services while investigative records remain excluded", () => {

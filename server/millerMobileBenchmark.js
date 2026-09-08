@@ -33,6 +33,7 @@ export const MILLER_MOBILE_QUERY_BENCHMARK = Object.freeze([
   { id: "legal_housing", query: "legal help with housing", terms: ["legal", "tenancy", "advocacy", "rights"] },
   { id: "recovery_housing", query: "recovery housing", terms: ["recovery housing", "post treatment housing", "supportive housing"] },
   { id: "family_after_treatment", query: "family support after treatment", terms: ["family", "caregiver", "loved one"] },
+  { id: "corrections_reentry", query: "corrections re-entry support", terms: ["re entry", "reentry", "corrections", "reintegration", "release planning"] },
 ])
 
 function resourceText(resource) {

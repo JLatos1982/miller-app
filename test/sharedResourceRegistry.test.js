@@ -8,9 +8,30 @@ import { filterMillerNorthSupports } from "../src/site/millerNorthSupportFilters
 import { projectSharedResources, validateSharedResourceRegistry } from "../server/sharedResourceRegistry.js"
 
 test("shared public registry validates and preserves distinct project projections", () => {
-  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 151, miller_only: 74, miller_north_only: 42, both: 35 })
-  assert.equal(projectSharedResources(registry, "miller").length, 109)
+  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 165, miller_only: 88, miller_north_only: 38, both: 39 })
+  assert.equal(projectSharedResources(registry, "miller").length, 127)
   assert.equal(projectSharedResources(registry, "miller_north").length, 77)
+})
+
+test("reconciled western resources enrich legacy identities and retain one canonical record", () => {
+  const housing = registry.records.find(record => record.canonical_resource_id === "curated:1wfj0t6")
+  assert.equal(housing.phone, "604-433-2218")
+  assert.equal(housing.verification_status, "verified_active")
+  assert.deepEqual(housing.project_visibility, ["miller"])
+  assert.equal(registry.records.filter(record => record.canonical_resource_id === "curated:1wfj0t6").length, 1)
+  assert.ok(registry.records.some(record => record.canonical_resource_id === "miller_sk_prince_albert_oat"))
+  assert.ok(registry.records.some(record => record.canonical_resource_id === "miller_bc_connective_vancouver_cso"))
+})
+
+test("Indigenous practical services may be shared without exposing evidence records", () => {
+  for (const id of ["fns_ab_indigenous_support_line", "fns_bc_fnha_virtual_substance_use", "fns_bc_fnha_mental_wellness_counselling", "fns_sk_stc_integrated_wellness"]) {
+    const record = registry.records.find(item => item.canonical_resource_id === id)
+    assert.deepEqual(record.project_visibility, ["miller", "miller_north"], id)
+    assert.equal(record.verification_status, "verified_active", id)
+    assert.ok(record.source.url.startsWith("https://"), id)
+    assert.equal("legal_record_id" in record, false, id)
+    assert.equal("owner_review" in record, false, id)
+  }
 })
 
 test("known cross-project programs share one canonical record while program-level services stay distinct", () => {

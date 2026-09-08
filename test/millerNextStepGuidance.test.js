@@ -23,6 +23,7 @@ test("next-step intent families are deterministic and cover the resource finder"
     mental_health: "mental health help",
     basic_needs: "food and basic needs",
     transportation: "medical transportation",
+    reentry: "corrections re-entry support",
   }
 
   assert.deepEqual(Object.keys(queries).sort(), [...MILLER_NEXT_STEP_INTENTS].sort())

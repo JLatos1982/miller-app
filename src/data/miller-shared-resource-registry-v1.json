@@ -636,6 +636,61 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_ab_aish_navigation",
+      "record_type": "service",
+      "organization": "Government of Alberta",
+      "program_name": "AISH Application and Benefit Navigation",
+      "categories": [
+        "financial_funding",
+        "practical_support"
+      ],
+      "subcategories": [
+        "benefits navigation",
+        "income support",
+        "disability support"
+      ],
+      "description": "Official application and contact pathway for Assured Income for the Severely Handicapped financial and health benefits.",
+      "population_served": "Alberta residents considering AISH, subject to the program's current eligibility rules",
+      "indigenous_scope": "general_public",
+      "governance_type": "not_stated",
+      "geography": "Alberta",
+      "province": "Alberta",
+      "city_community": "",
+      "address": "",
+      "service_area": "Alberta",
+      "delivery_modes": [
+        "online",
+        "phone",
+        "mail"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Apply online or use the official application form. Call Alberta Supports at 1-877-644-9992 for application help or 1-877-759-6810 for application-status questions.",
+      "phone": "1-877-644-9992",
+      "email": "",
+      "website": "https://www.alberta.ca/aish-how-to-apply",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "How to apply for AISH",
+        "authority": "Government of Alberta",
+        "url": "https://www.alberta.ca/aish-how-to-apply"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_ab_aish_navigation"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_ab_addiction_options",
       "record_type": "service",
       "organization": "Government of Alberta",
@@ -1106,8 +1161,8 @@
       "required_documents": [],
       "cost": "",
       "referral_requirement": "",
-      "access": "Request Ministry approval before incurring costs unless the official exceptional-circumstances rules apply.",
-      "phone": "",
+      "access": "Request approval before incurring costs unless the current exceptional-circumstances rules apply. Call 1-866-866-0800 or visit a Ministry or Service BC office.",
+      "phone": "1-866-866-0800",
       "email": "",
       "website": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/moving-transportation-and-living-costs",
       "funding": {
@@ -1128,7 +1183,7 @@
         "authority": "Government of British Columbia",
         "url": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/moving-transportation-and-living-costs"
       },
-      "last_verified": "2026-09-06",
+      "last_verified": "2026-09-08",
       "verification_status": "verified_active",
       "project_visibility": [
         "miller"
@@ -1247,42 +1302,50 @@
       "canonical_resource_id": "curated:1wfj0t6",
       "record_type": "service",
       "organization": "BC Housing",
-      "program_name": "BC Housing Housing Registry and regional listings",
+      "program_name": "BC Housing Supportive Housing Registration Service",
       "categories": [
-        "housing"
+        "housing",
+        "practical_support"
       ],
       "subcategories": [
-        "housing"
+        "housing",
+        "housing navigation",
+        "supportive housing"
       ],
-      "description": "Apply for subsidized housing and review regional nonprofit and co-operative housing listings.",
-      "population_served": "",
-      "indigenous_scope": "not_stated",
+      "description": "A single application pathway for supportive housing funded through BC Housing, including participating Lower Mainland developments.",
+      "population_served": "People seeking supportive housing who meet the program's current eligibility requirements",
+      "indigenous_scope": "general_public",
       "governance_type": "not_stated",
-      "geography": "Lower Mainland, including Fraser North",
-      "province": "",
+      "geography": "British Columbia, including the Lower Mainland",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
-      "service_area": "Lower Mainland, including Fraser North",
-      "delivery_modes": [],
+      "service_area": "British Columbia, including the Lower Mainland",
+      "delivery_modes": [
+        "online",
+        "phone",
+        "mail",
+        "in_person"
+      ],
       "eligibility": "Eligibility depends on the Housing Registry or individual housing provider.",
       "access_requirements": [],
       "required_documents": [],
       "cost": "",
-      "referral_requirement": "",
-      "access": "Apply through the Housing Registry and review Zone 4 or Zone 5 listings.",
-      "phone": "",
+      "referral_requirement": "Application required",
+      "access": "Complete the Supportive Housing Registry application. Call 604-433-2218 in the Lower Mainland or 1-800-257-7756 elsewhere in B.C. for current application help.",
+      "phone": "604-433-2218",
       "email": "",
-      "website": "https://www.bchousing.org/housing-assistance/rental-housing/housing-listings/housing-listings-pdfs",
+      "website": "https://www.bchousing.org/housing-assistance/housing-with-support/supportive-housing",
       "funding": null,
       "housing": null,
       "legal_support": null,
       "transportation": null,
       "source": {
-        "title": "BC Housing Housing Registry and regional listings official information",
+        "title": "Supportive Housing",
         "authority": "BC Housing",
-        "url": "https://www.bchousing.org/housing-assistance/rental-housing/housing-listings/housing-listings-pdfs"
+        "url": "https://www.bchousing.org/housing-assistance/housing-with-support/supportive-housing"
       },
-      "last_verified": "2026-09-06",
+      "last_verified": "2026-09-08",
       "verification_status": "verified_active",
       "project_visibility": [
         "miller"
@@ -1350,7 +1413,7 @@
       "canonical_resource_id": "funding:miller:mfa_canada_benefits_finder",
       "record_type": "funding",
       "organization": "Government of Canada",
-      "program_name": "Benefits Finder",
+      "program_name": "Benefits Finder – Indigenous Peoples filter",
       "categories": [
         "financial_funding",
         "practical_support"
@@ -1359,40 +1422,40 @@
         "benefit navigation",
         "income benefits"
       ],
-      "description": "income_benefits",
-      "population_served": "People seeking federal benefit navigation",
-      "indigenous_scope": "broader_program",
+      "description": "benefit navigation",
+      "population_served": "Eligibility varies by benefit; the tool helps identify federal programs.",
+      "indigenous_scope": "broader_indigenous",
       "governance_type": "not_stated",
-      "geography": "British Columbia",
-      "province": "British Columbia",
+      "geography": "Federal",
+      "province": "Canada-wide",
       "city_community": "",
       "address": "",
-      "service_area": "British Columbia",
+      "service_area": "Federal",
       "delivery_modes": [],
-      "eligibility": "People seeking federal benefit navigation",
+      "eligibility": "Eligibility varies by benefit; the tool helps identify federal programs.",
       "access_requirements": [],
       "required_documents": [],
       "cost": "",
       "referral_requirement": "",
-      "access": "Review the official page and contact the administering organization if current intake or eligibility is unclear.",
+      "access": "Use the official program page or contact the administering organization.",
       "phone": "",
       "email": "",
       "website": "https://www.canada.ca/en/services/benefits/finder.html",
       "funding": {
-        "purpose": "income_benefits",
-        "funding_type": "assistance",
+        "purpose": "benefit navigation",
+        "funding_type": "navigation",
         "amount": "",
         "status": "recurring",
         "opening_date": "",
         "deadline": "",
-        "recurring_cycle": "",
+        "recurring_cycle": "directory",
         "next_check_due": "2026-10-06"
       },
       "housing": null,
       "legal_support": null,
       "transportation": null,
       "source": {
-        "title": "Benefits Finder",
+        "title": "Benefits Finder – Indigenous Peoples filter",
         "authority": "Government of Canada",
         "url": "https://www.canada.ca/en/services/benefits/finder.html"
       },
@@ -1453,6 +1516,60 @@
       ],
       "source_record_ids": [
         "support:embers-bladerunners"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_sk_prince_albert_detox",
+      "record_type": "service",
+      "organization": "Saskatchewan Health Authority",
+      "program_name": "Brief and Social Detox - Prince Albert",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "detox",
+        "withdrawal management",
+        "addiction navigation"
+      ],
+      "description": "A medically supported withdrawal-management service in Prince Albert listed by the Saskatchewan Health Authority.",
+      "population_served": "People seeking withdrawal-management support in Prince Albert and area",
+      "indigenous_scope": "general_public",
+      "governance_type": "not_stated",
+      "geography": "Prince Albert and area",
+      "province": "Saskatchewan",
+      "city_community": "Prince Albert",
+      "address": "1200 24th Street West, Prince Albert, SK S6V 5R2",
+      "service_area": "Prince Albert and area",
+      "delivery_modes": [
+        "in_person",
+        "residential"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 306-765-6700 for current assessment and intake information. The Saskatchewan Health Authority states that withdrawal-management clients do not need a referral.",
+      "phone": "306-765-6700",
+      "email": "",
+      "website": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/mental-health-and-addictions/addiction-and-substance-use/withdrawal-management-medically-supported",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Withdrawal Management - Medically Supported",
+        "authority": "Saskatchewan Health Authority",
+        "url": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/mental-health-and-addictions/addiction-and-substance-use/withdrawal-management-medically-supported"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_sk_prince_albert_detox"
       ]
     },
     {
@@ -1732,13 +1849,13 @@
       "address": "",
       "service_area": "Canada",
       "delivery_modes": [],
-      "eligibility": "People aged 18 to 64 who meet the federal program's current eligibility requirements",
+      "eligibility": "People age 18 to 64 who meet the federal program's current eligibility requirements",
       "access_requirements": [],
       "required_documents": [],
       "cost": "",
       "referral_requirement": "",
-      "access": "Review eligibility and apply through the official Service Canada page online, by phone, in person or by form.",
-      "phone": "",
+      "access": "Apply through the official Service Canada page. Call 1-833-486-3007 for application help or general questions.",
+      "phone": "1-833-486-3007",
       "email": "",
       "website": "https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit/apply.html",
       "funding": {
@@ -1759,7 +1876,7 @@
         "authority": "Government of Canada",
         "url": "https://www.canada.ca/en/services/benefits/disability/canada-disability-benefit/apply.html"
       },
-      "last_verified": "2026-09-06",
+      "last_verified": "2026-09-08",
       "verification_status": "verified_active",
       "project_visibility": [
         "miller"
@@ -2045,8 +2162,8 @@
     {
       "canonical_resource_id": "funding:miller:mfa_community_workforce",
       "record_type": "funding",
-      "organization": "Government of British Columbia / WorkBC",
-      "program_name": "Community Workforce Response Grant participant supports",
+      "organization": "WorkBC / Government of British Columbia",
+      "program_name": "Community Workforce Response Grant",
       "categories": [
         "financial_funding",
         "practical_support"
@@ -2055,9 +2172,9 @@
         "employment training",
         "training"
       ],
-      "description": "training",
-      "population_served": "Participants in approved projects; applicants are eligible organizations",
-      "indigenous_scope": "broader_program",
+      "description": "employment training",
+      "population_served": "Eligible communities, sector organizations, employers, and training partners under the current applicant guide.",
+      "indigenous_scope": "broader_program_relevant_to_first_nations",
       "governance_type": "not_stated",
       "geography": "British Columbia",
       "province": "British Columbia",
@@ -2065,31 +2182,31 @@
       "address": "",
       "service_area": "British Columbia",
       "delivery_modes": [],
-      "eligibility": "Participants in approved projects; applicants are eligible organizations",
+      "eligibility": "Eligible communities, sector organizations, employers, and training partners under the current applicant guide.",
       "access_requirements": [],
       "required_documents": [],
       "cost": "",
       "referral_requirement": "",
-      "access": "Review the official page and contact the administering organization if current intake or eligibility is unclear.",
+      "access": "Use the official program page or contact the administering organization.",
       "phone": "",
       "email": "",
       "website": "https://www.workbc.ca/find-loans-and-grants/community/community-workforce-response-grant/whats-new",
       "funding": {
-        "purpose": "training",
-        "funding_type": "assistance",
+        "purpose": "employment training",
+        "funding_type": "grant",
         "amount": "",
-        "status": "recurring",
+        "status": "contact_to_confirm",
         "opening_date": "",
         "deadline": "",
-        "recurring_cycle": "",
+        "recurring_cycle": "periodic_intakes",
         "next_check_due": "2026-10-06"
       },
       "housing": null,
       "legal_support": null,
       "transportation": null,
       "source": {
-        "title": "Community Workforce Response Grant participant supports",
-        "authority": "Government of British Columbia / WorkBC",
+        "title": "Community Workforce Response Grant",
+        "authority": "WorkBC / Government of British Columbia",
         "url": "https://www.workbc.ca/find-loans-and-grants/community/community-workforce-response-grant/whats-new"
       },
       "last_verified": "2026-09-06",
@@ -2884,13 +3001,14 @@
         "healthcare"
       ],
       "subcategories": [
-        "substance use",
-        "opioid agonist treatment",
         "mental health",
+        "oat",
+        "opioid agonist treatment",
+        "substance use",
         "virtual support"
       ],
-      "description": "",
-      "population_served": "First Nations people and their families living in B.C.",
+      "description": "Virtual specialist support for First Nations people and families in B.C. dealing with substance use and related mental-health concerns.",
+      "population_served": "First Nations people and their families living in British Columbia",
       "indigenous_scope": "first_nations_specific",
       "governance_type": "first_nations_governed_health_authority",
       "geography": "British Columbia",
@@ -2906,9 +3024,9 @@
       "access_requirements": [],
       "required_documents": [],
       "cost": "No cost",
-      "referral_requirement": "Referral required",
-      "access": "Referral required",
-      "phone": "1-833-456-7655 (provider/referral support)",
+      "referral_requirement": "Referral from a health or wellness provider, Knowledge Keeper, or Elder; Virtual Doctor of the Day can assist",
+      "access": "Ask an eligible provider, Knowledge Keeper, or Elder for a referral, or call 1-833-456-7655 for current referral support.",
+      "phone": "1-833-456-7655",
       "email": "",
       "website": "https://fnha.ca/services-and-support/access-and-support/health-and-virtual-services/virtual-substance-use-and-psychiatry-service/",
       "funding": null,
@@ -2920,9 +3038,10 @@
         "authority": "First Nations Health Authority",
         "url": "https://fnha.ca/services-and-support/access-and-support/health-and-virtual-services/virtual-substance-use-and-psychiatry-service/"
       },
-      "last_verified": "2026-09-06",
+      "last_verified": "2026-09-08",
       "verification_status": "verified_active",
       "project_visibility": [
+        "miller",
         "miller_north"
       ],
       "source_record_ids": [
@@ -2935,14 +3054,18 @@
       "organization": "First Nations Health Authority",
       "program_name": "FNHA Mental Health and Wellness Supports",
       "categories": [
-        "healthcare"
+        "financial_funding",
+        "healthcare",
+        "practical_support"
       ],
       "subcategories": [
-        "mental health",
+        "counselling",
         "cultural support",
+        "funding navigation",
+        "mental health",
         "traditional wellness"
       ],
-      "description": "",
+      "description": "First Nations Health Authority information and navigation for mental-health counselling, cultural and emotional support, and related benefits in B.C.",
       "population_served": "Eligible First Nations clients in B.C.; some listed crisis supports serve broader Indigenous populations",
       "indigenous_scope": "first_nations_specific",
       "governance_type": "first_nations_governed_health_authority",
@@ -2953,14 +3076,15 @@
       "service_area": "British Columbia",
       "delivery_modes": [
         "in_person",
-        "virtual"
+        "virtual",
+        "phone"
       ],
       "eligibility": "Coverage eligibility varies by benefit/provider",
       "access_requirements": [],
       "required_documents": [],
       "cost": "",
       "referral_requirement": "",
-      "access": "Contact the operator using the public service page.",
+      "access": "Use the official support page or call 1-855-550-5454 to confirm the appropriate benefit or support pathway.",
       "phone": "1-855-550-5454",
       "email": "",
       "website": "https://fnha.ca/services-and-support/preventative-care/mental-health-and-wellness/mental-health-and-wellness-supports/",
@@ -2973,9 +3097,10 @@
         "authority": "First Nations Health Authority",
         "url": "https://fnha.ca/services-and-support/preventative-care/mental-health-and-wellness/mental-health-and-wellness-supports/"
       },
-      "last_verified": "2026-09-06",
+      "last_verified": "2026-09-08",
       "verification_status": "verified_active",
       "project_visibility": [
+        "miller",
         "miller_north"
       ],
       "source_record_ids": [
@@ -3097,60 +3222,59 @@
       ]
     },
     {
-      "canonical_resource_id": "curated:88k31t",
+      "canonical_resource_id": "curated:s68huf",
       "record_type": "service",
       "organization": "Fraser Health",
-      "program_name": "Fraser Health Indigenous Health Liaisons",
+      "program_name": "Fraser Health Access Line",
       "categories": [
-        "family_community",
         "healthcare",
-        "legal_rights",
         "practical_support"
       ],
       "subcategories": [
-        "advocacy navigation",
-        "cultural support",
-        "discharge navigation",
-        "family support",
-        "patient navigation"
+        "addiction navigation",
+        "withdrawal management",
+        "mental health",
+        "counselling",
+        "treatment navigation"
       ],
-      "description": "Health-system navigation, discharge support, cultural connections and care-planning support for Indigenous clients and families.",
-      "population_served": "People who self-identify as Indigenous or Aboriginal and their families",
-      "indigenous_scope": "not_stated",
+      "description": "Regional phone and callback navigation for mental-health and substance-use services, including help connecting with withdrawal-management and treatment services.",
+      "population_served": "People seeking mental-health or substance-use services in the Fraser Health region",
+      "indigenous_scope": "general_public",
       "governance_type": "not_stated",
-      "geography": "Fraser Health region",
+      "geography": "Fraser Health region, including Burnaby and Surrey",
       "province": "British Columbia",
-      "city_community": "Fraser Health region",
+      "city_community": "",
       "address": "",
-      "service_area": "Fraser Health region",
-      "delivery_modes": [],
-      "eligibility": "People who self-identify as Indigenous or Aboriginal and their families; referrals may also come from friends or health professionals.",
+      "service_area": "Fraser Health region, including Burnaby and Surrey",
+      "delivery_modes": [
+        "phone",
+        "virtual"
+      ],
+      "eligibility": "",
       "access_requirements": [],
       "required_documents": [],
       "cost": "",
       "referral_requirement": "",
-      "access": "Self-, family-, friend-, or professional referral through the liaison line; available daily 8:30 a.m.–8 p.m.",
-      "phone": "1-866-766-6960",
+      "access": "Call 1-833-866-6478 or use the official callback form. The line is open daily from 8:30 a.m. to 8:30 p.m.",
+      "phone": "1-833-866-6478",
       "email": "",
-      "website": "https://www.fraserhealth.ca/health-topics-a-to-z/indigenous-health/indigenous-health-liaisons",
+      "website": "https://www.fraserhealth.ca/Service-Directory/Locations/Burnaby/burnaby-mental-health-centre",
       "funding": null,
       "housing": null,
       "legal_support": null,
       "transportation": null,
       "source": {
-        "title": "Fraser Health Indigenous Health Liaisons official information",
+        "title": "Burnaby Community Mental Health and Substance Use Centre",
         "authority": "Fraser Health",
-        "url": "https://www.fraserhealth.ca/health-topics-a-to-z/indigenous-health/indigenous-health-liaisons"
+        "url": "https://www.fraserhealth.ca/Service-Directory/Locations/Burnaby/burnaby-mental-health-centre"
       },
-      "last_verified": "2026-09-06",
+      "last_verified": "2026-09-08",
       "verification_status": "verified_active",
       "project_visibility": [
-        "miller",
-        "miller_north"
+        "miller"
       ],
       "source_record_ids": [
-        "curated:88k31t",
-        "fns_bc_fraser_indigenous_health_liaisons"
+        "curated:s68huf"
       ]
     },
     {
@@ -3432,9 +3556,9 @@
       "subcategories": [
         "identification"
       ],
-      "description": "Help with eligible direct costs of obtaining identification documents for people receiving specified B.C. assistance.",
+      "description": "identification",
       "population_served": "Eligible recipients of B.C. income, disability, or hardship assistance",
-      "indigenous_scope": "not_stated",
+      "indigenous_scope": "broader_program",
       "governance_type": "not_stated",
       "geography": "British Columbia",
       "province": "British Columbia",
@@ -3442,30 +3566,26 @@
       "address": "",
       "service_area": "British Columbia",
       "delivery_modes": [],
-      "eligibility": "Specified recipients of B.C. income, disability or hardship assistance.",
+      "eligibility": "Eligible recipients of B.C. income, disability, or hardship assistance",
       "access_requirements": [],
       "required_documents": [],
       "cost": "",
       "referral_requirement": "",
-      "access": "Eligible recipients can request help with direct identification-document costs through the assistance program.",
+      "access": "Review the official page and contact the administering organization if current intake or eligibility is unclear.",
       "phone": "1-866-866-0800",
       "email": "",
       "website": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/identification-supplement",
       "funding": {
         "purpose": "identification",
         "funding_type": "assistance",
-        "amount": "",
         "status": "recurring",
-        "opening_date": "",
-        "deadline": "",
-        "recurring_cycle": "",
         "next_check_due": "2026-10-06"
       },
       "housing": null,
       "legal_support": null,
       "transportation": null,
       "source": {
-        "title": "Identification Supplement official information",
+        "title": "Identification Supplement",
         "authority": "Government of British Columbia",
         "url": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/identification-supplement"
       },
@@ -3763,6 +3883,66 @@
       ],
       "source_record_ids": [
         "funding:miller-north:fnfund_ab_ietp"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:88k31t",
+      "record_type": "service",
+      "organization": "Fraser Health",
+      "program_name": "Indigenous Health Liaison Program",
+      "categories": [
+        "family_community",
+        "healthcare",
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "advocacy navigation",
+        "cultural support",
+        "discharge navigation",
+        "family support",
+        "patient navigation"
+      ],
+      "description": "Health-system navigation, discharge support, cultural connections and care-planning support for Indigenous clients and families.",
+      "population_served": "People who self-identify as Indigenous or Aboriginal and their families",
+      "indigenous_scope": "broader_indigenous",
+      "governance_type": "provincial_health_authority_indigenous_support_role",
+      "geography": "Fraser Salish region, including Fraser North hospitals and communities",
+      "province": "British Columbia",
+      "city_community": "Fraser Health region",
+      "address": "",
+      "service_area": "Fraser Salish region, including Fraser North hospitals and communities",
+      "delivery_modes": [
+        "in_person",
+        "regional"
+      ],
+      "eligibility": "Self-identification; hospital or community referral/self-contact",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the operator using the public service page.",
+      "phone": "1-866-766-6960",
+      "email": "",
+      "website": "https://www.fraserhealth.ca/health-topics-a-to-z/indigenous-health/indigenous-health-liaisons",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Indigenous Health Liaison Program",
+        "authority": "Fraser Health",
+        "url": "https://www.fraserhealth.ca/health-topics-a-to-z/indigenous-health/indigenous-health-liaisons"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "curated:88k31t",
+        "fns_bc_fraser_indigenous_health_liaisons"
       ]
     },
     {
@@ -4104,6 +4284,66 @@
       ]
     },
     {
+      "canonical_resource_id": "funding:miller:mfa_iset",
+      "record_type": "funding",
+      "organization": "Employment and Social Development Canada",
+      "program_name": "Indigenous Skills and Employment Training Program",
+      "categories": [
+        "financial_funding",
+        "practical_support"
+      ],
+      "subcategories": [
+        "employment training"
+      ],
+      "description": "employment training",
+      "population_served": "Indigenous people access services through Indigenous service-delivery agreement holders; organizational agreements fund local delivery.",
+      "indigenous_scope": "distinctions_based_and_urban",
+      "governance_type": "not_stated",
+      "geography": "Federal",
+      "province": "Canada-wide",
+      "city_community": "",
+      "address": "",
+      "service_area": "Federal",
+      "delivery_modes": [],
+      "eligibility": "Indigenous people access services through Indigenous service-delivery agreement holders; organizational agreements fund local delivery.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official program page or contact the administering organization.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.canada.ca/en/employment-social-development/programs/indigenous-skills-employment-training.html",
+      "funding": {
+        "purpose": "employment training",
+        "funding_type": "training_and_employment_support",
+        "amount": "",
+        "status": "recurring",
+        "opening_date": "",
+        "deadline": "",
+        "recurring_cycle": "ongoing_program",
+        "next_check_due": "2026-10-06"
+      },
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Indigenous Skills and Employment Training Program",
+        "authority": "Employment and Social Development Canada",
+        "url": "https://www.canada.ca/en/employment-social-development/programs/indigenous-skills-employment-training.html"
+      },
+      "last_verified": "2026-09-06",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "funding:miller-north:fnfund_federal_iset",
+        "funding:miller:mfa_iset"
+      ]
+    },
+    {
       "canonical_resource_id": "support:workbc-indigenous-skills-employment-training",
       "record_type": "service",
       "organization": "WorkBC",
@@ -4152,66 +4392,6 @@
       ]
     },
     {
-      "canonical_resource_id": "funding:miller:mfa_iset",
-      "record_type": "funding",
-      "organization": "Employment and Social Development Canada",
-      "program_name": "Indigenous Skills and Employment Training services",
-      "categories": [
-        "financial_funding",
-        "practical_support"
-      ],
-      "subcategories": [
-        "employment training"
-      ],
-      "description": "employment_training",
-      "population_served": "Indigenous people through local service-delivery organizations",
-      "indigenous_scope": "broader_program",
-      "governance_type": "not_stated",
-      "geography": "British Columbia",
-      "province": "British Columbia",
-      "city_community": "",
-      "address": "",
-      "service_area": "British Columbia",
-      "delivery_modes": [],
-      "eligibility": "Indigenous people through local service-delivery organizations",
-      "access_requirements": [],
-      "required_documents": [],
-      "cost": "",
-      "referral_requirement": "",
-      "access": "Review the official page and contact the administering organization if current intake or eligibility is unclear.",
-      "phone": "",
-      "email": "",
-      "website": "https://www.canada.ca/en/employment-social-development/programs/indigenous-skills-employment-training.html",
-      "funding": {
-        "purpose": "employment_training",
-        "funding_type": "assistance",
-        "amount": "",
-        "status": "recurring",
-        "opening_date": "",
-        "deadline": "",
-        "recurring_cycle": "",
-        "next_check_due": "2026-10-06"
-      },
-      "housing": null,
-      "legal_support": null,
-      "transportation": null,
-      "source": {
-        "title": "Indigenous Skills and Employment Training services",
-        "authority": "Employment and Social Development Canada",
-        "url": "https://www.canada.ca/en/employment-social-development/programs/indigenous-skills-employment-training.html"
-      },
-      "last_verified": "2026-09-06",
-      "verification_status": "verified_active",
-      "project_visibility": [
-        "miller",
-        "miller_north"
-      ],
-      "source_record_ids": [
-        "funding:miller-north:fnfund_federal_iset",
-        "funding:miller:mfa_iset"
-      ]
-    },
-    {
       "canonical_resource_id": "fns_ab_indigenous_support_line",
       "record_type": "service",
       "organization": "Alberta Health Services / current provincial health system",
@@ -4222,14 +4402,14 @@
         "practical_support"
       ],
       "subcategories": [
-        "patient navigation",
-        "cultural support",
         "advocacy",
-        "substance use",
-        "mental health"
+        "cultural support",
+        "mental health",
+        "patient navigation",
+        "substance use"
       ],
-      "description": "",
-      "population_served": "First Nations (status and non-status), Métis, Inuit and families",
+      "description": "A confidential Alberta-wide line that helps First Nations, Métis, and Inuit people and families navigate health services and connect with culturally appropriate support.",
+      "population_served": "First Nations, Métis, and Inuit people and families in Alberta",
       "indigenous_scope": "broader_indigenous",
       "governance_type": "provincial_health_system_indigenous_support_role",
       "geography": "Alberta",
@@ -4245,8 +4425,8 @@
       "required_documents": [],
       "cost": "",
       "referral_requirement": "",
-      "access": "Contact the operator using the public service page.",
-      "phone": "1-844-944-4744 or 811",
+      "access": "Call 1-844-944-4744 or 811 for current support and navigation.",
+      "phone": "1-844-944-4744",
       "email": "",
       "website": "https://www.albertahealthservices.ca/findhealth/Service.aspx?id=1083567&serviceAtFacilityID=1138816",
       "funding": null,
@@ -4255,12 +4435,13 @@
       "transportation": null,
       "source": {
         "title": "Indigenous Support Line",
-        "authority": "Alberta Health Services / current provincial health system",
+        "authority": "Alberta Health Services",
         "url": "https://www.albertahealthservices.ca/findhealth/Service.aspx?id=1083567&serviceAtFacilityID=1138816"
       },
-      "last_verified": "2026-09-06",
+      "last_verified": "2026-09-08",
       "verification_status": "verified_active",
       "project_visibility": [
+        "miller",
         "miller_north"
       ],
       "source_record_ids": [
@@ -4329,25 +4510,25 @@
       "organization": "Saskatoon Tribal Council",
       "program_name": "Integrated Wellness",
       "categories": [
-        "healthcare",
-        "family_community"
+        "family_community",
+        "healthcare"
       ],
       "subcategories": [
+        "crisis support",
+        "family support",
         "mental health",
         "substance use",
-        "crisis support",
-        "traditional wellness",
-        "family support"
+        "traditional wellness"
       ],
-      "description": "",
-      "population_served": "STC member First Nations’ relatives across the lifespan",
+      "description": "Community-based mental-wellness and substance-use support that combines clinical, cultural, crisis, and family services across Saskatoon Tribal Council member First Nations.",
+      "population_served": "People across the lifespan in Saskatoon Tribal Council member First Nations",
       "indigenous_scope": "first_nations_specific",
       "governance_type": "first_nations_governed_tribal_council_program",
-      "geography": "Kinistin, Mistawasis, Muskeg Lake, Muskoday, One Arrow, Whitecap and Yellow Quill service points",
+      "geography": "Kinistin, Mistawasis, Muskeg Lake, Muskoday, One Arrow, Whitecap, and Yellow Quill service points",
       "province": "Saskatchewan",
       "city_community": "STC member First Nations",
       "address": "",
-      "service_area": "Kinistin, Mistawasis, Muskeg Lake, Muskoday, One Arrow, Whitecap and Yellow Quill service points",
+      "service_area": "Kinistin, Mistawasis, Muskeg Lake, Muskoday, One Arrow, Whitecap, and Yellow Quill service points",
       "delivery_modes": [
         "in_person",
         "community"
@@ -4357,7 +4538,7 @@
       "required_documents": [],
       "cost": "",
       "referral_requirement": "",
-      "access": "Contact the operator using the public service page.",
+      "access": "Call Saskatoon Tribal Council at 306-956-6100 or use the official program page to identify the appropriate member-community entry point.",
       "phone": "306-956-6100",
       "email": "",
       "website": "https://sktc.sk.ca/wellness/integrated-wellness/",
@@ -4370,9 +4551,10 @@
         "authority": "Saskatoon Tribal Council",
         "url": "https://sktc.sk.ca/wellness/integrated-wellness/"
       },
-      "last_verified": "2026-09-06",
+      "last_verified": "2026-09-08",
       "verification_status": "verified_active",
       "project_visibility": [
+        "miller",
         "miller_north"
       ],
       "source_record_ids": [
@@ -4885,6 +5067,61 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:1ysjtow",
+      "record_type": "service",
+      "organization": "Lookout Housing and Health Society",
+      "program_name": "Lookout Housing and Health Society (Powell Street Getaway)",
+      "categories": [
+        "healthcare",
+        "housing"
+      ],
+      "subcategories": [
+        "housing",
+        "basic needs",
+        "harm reduction",
+        "mental health"
+      ],
+      "description": "A Vancouver resource centre offering housing and community support alongside harm-reduction services.",
+      "population_served": "Community members seeking low-barrier housing, health, or practical support",
+      "indigenous_scope": "general_public",
+      "governance_type": "not_stated",
+      "geography": "Vancouver",
+      "province": "British Columbia",
+      "city_community": "Vancouver",
+      "address": "508-526 Powell Street, Vancouver, BC V6A 1G9",
+      "service_area": "Vancouver",
+      "delivery_modes": [
+        "in_person",
+        "phone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 604-255-7026 or visit during the resource centre's current hours. Confirm the appropriate service before travelling.",
+      "phone": "604-255-7026",
+      "email": "",
+      "website": "https://lookoutsociety.ca/contact-us/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Lookout Locations for Housing, Shelter & Support Services",
+        "authority": "Lookout Housing and Health Society",
+        "url": "https://lookoutsociety.ca/contact-us/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1ysjtow"
+      ]
+    },
+    {
       "canonical_resource_id": "north_mns_ma_faamii_navigation",
       "record_type": "service",
       "organization": "Métis Nation–Saskatchewan",
@@ -4999,12 +5236,13 @@
         "practical_support"
       ],
       "subcategories": [
+        "medical transportation",
         "medical travel",
         "transportation"
       ],
-      "description": "Financial support toward transportation, meals or accommodation when an eligible First Nations client must travel for medically necessary care unavailable in their community of residence.",
-      "population_served": "Eligible First Nations clients in B.C.",
-      "indigenous_scope": "not_stated",
+      "description": "medical_transportation",
+      "population_served": "Eligible First Nations people with Indian status living in B.C. who need medically necessary services unavailable in their community.",
+      "indigenous_scope": "first_nations_specific",
       "governance_type": "not_stated",
       "geography": "British Columbia",
       "province": "British Columbia",
@@ -5012,24 +5250,21 @@
       "address": "",
       "service_area": "British Columbia",
       "delivery_modes": [],
-      "eligibility": "First Nations people with Indian status who live in B.C., and eligible infants under the current Health Benefits rules; coverage and prior-approval requirements apply.",
+      "eligibility": "Eligible First Nations clients in B.C.; current coverage and prior-approval rules apply",
       "access_requirements": [],
       "required_documents": [],
       "cost": "",
       "referral_requirement": "",
-      "access": "Contact a Community Patient Travel Clerk or FNHA Medical Transportation assessor before travel to confirm eligibility and approval.",
-      "phone": "",
+      "access": "Contact a Community Patient Travel Clerk or call FNHA Health Benefits at 1-855-550-5454 before travel to confirm approval and arrangements.",
+      "phone": "1-855-550-5454",
       "email": "",
       "website": "https://fnha.ca/benefits/benefits-guide/medical-transport-ambulance/",
       "funding": {
-        "purpose": "transportation",
-        "funding_type": "assistance",
-        "amount": "",
+        "purpose": "medical_transportation",
+        "funding_type": "reimbursement_or_direct_support",
         "status": "recurring",
-        "opening_date": "",
-        "deadline": "",
-        "recurring_cycle": "",
-        "next_check_due": "2026-10-06"
+        "next_check_due": "2026-10-06",
+        "recurring_cycle": "recurring"
       },
       "housing": null,
       "legal_support": null,
@@ -5039,7 +5274,7 @@
         "authority": "First Nations Health Authority",
         "url": "https://fnha.ca/benefits/benefits-guide/medical-transport-ambulance/"
       },
-      "last_verified": "2026-09-06",
+      "last_verified": "2026-09-08",
       "verification_status": "verified_active",
       "project_visibility": [
         "miller",
@@ -5470,40 +5705,48 @@
       "organization": "Government of British Columbia",
       "program_name": "My Self Serve income and disability assistance access",
       "categories": [
-        "financial_funding"
+        "financial_funding",
+        "practical_support"
       ],
       "subcategories": [
-        "income benefits"
+        "benefits navigation",
+        "disability support",
+        "income benefits",
+        "income support"
       ],
-      "description": "Apply for or manage B.C. income and disability assistance online.",
-      "population_served": "",
-      "indigenous_scope": "not_stated",
+      "description": "Online, phone, and in-person access to apply for and manage B.C. income or disability assistance.",
+      "population_served": "People applying for or receiving B.C. income or disability assistance",
+      "indigenous_scope": "general_public",
       "governance_type": "not_stated",
       "geography": "British Columbia",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
-      "delivery_modes": [],
+      "delivery_modes": [
+        "online",
+        "phone",
+        "in_person"
+      ],
       "eligibility": "People applying for or managing B.C. income or disability assistance.",
       "access_requirements": [],
       "required_documents": [],
       "cost": "",
       "referral_requirement": "",
-      "access": "Apply for or manage income and disability assistance online; phone help is available.",
+      "access": "Use My Self Serve online or call 1-866-866-0800 for ministry programs, applications, and office connections.",
       "phone": "1-866-866-0800",
       "email": "",
-      "website": "https://www.myselfserve.gov.bc.ca/",
+      "website": "https://www2.gov.bc.ca/gov/content/family-social-supports/income-assistance/access-services",
       "funding": null,
       "housing": null,
       "legal_support": null,
       "transportation": null,
       "source": {
-        "title": "My Self Serve income and disability assistance access official information",
+        "title": "Access income and disability assistance services",
         "authority": "Government of British Columbia",
-        "url": "https://www.myselfserve.gov.bc.ca/"
+        "url": "https://www2.gov.bc.ca/gov/content/family-social-supports/income-assistance/access-services"
       },
-      "last_verified": "2026-09-06",
+      "last_verified": "2026-09-08",
       "verification_status": "verified_active",
       "project_visibility": [
         "miller"
@@ -6161,6 +6404,62 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_ab_calgary_opioid_dependency_program",
+      "record_type": "service",
+      "organization": "Alberta Health Services",
+      "program_name": "Opioid Dependency Program - Calgary",
+      "categories": [
+        "financial_funding",
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "oat",
+        "outpatient treatment",
+        "counselling",
+        "harm reduction",
+        "funding navigation"
+      ],
+      "description": "Voluntary outpatient opioid agonist treatment with medical care, counselling, monitoring, harm-reduction support, and links to other health and social services.",
+      "population_served": "People seeking help with opioid use",
+      "indigenous_scope": "general_public",
+      "governance_type": "not_stated",
+      "geography": "Calgary and area",
+      "province": "Alberta",
+      "city_community": "Calgary",
+      "address": "1213 4 Street SW, Calgary, AB T2R 0X7",
+      "service_area": "Calgary and area",
+      "delivery_modes": [
+        "in_person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "No fee to attend; pharmacy dispensing costs depend on coverage",
+      "referral_requirement": "",
+      "access": "Call 403-955-3600 or attend during the clinic's current walk-in intake hours. Confirm hours before travelling.",
+      "phone": "403-955-3600",
+      "email": "",
+      "website": "https://www.albertahealthservices.ca/findhealth/service.aspx?Id=1000286&facilityId=1018406",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Addiction and Mental Health - Opioid Dependency Program",
+        "authority": "Alberta Health Services",
+        "url": "https://www.albertahealthservices.ca/findhealth/service.aspx?Id=1000286&facilityId=1018406"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_ab_calgary_opioid_dependency_program"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_ab_edmonton_opioid_dependency_program",
       "record_type": "service",
       "organization": "Alberta Health Services",
@@ -6209,6 +6508,61 @@
       ],
       "source_record_ids": [
         "miller_ab_edmonton_opioid_dependency_program"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_bc_opioid_treatment_access_line",
+      "record_type": "service",
+      "organization": "Government of British Columbia",
+      "program_name": "Opioid Treatment Access Line",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "oat",
+        "addiction treatment",
+        "virtual care",
+        "treatment navigation"
+      ],
+      "description": "A free, confidential provincewide phone service that connects B.C. residents with a clinical team for opioid agonist treatment assessment and local follow-up.",
+      "population_served": "B.C. residents seeking help with opioid use",
+      "indigenous_scope": "general_public",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "address": "",
+      "service_area": "British Columbia",
+      "delivery_modes": [
+        "phone",
+        "virtual"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "Free",
+      "referral_requirement": "",
+      "access": "Call directly at 1-833-804-8111, daily from 9 a.m. to 4 p.m. Confirm the current clinical pathway with the service.",
+      "phone": "1-833-804-8111",
+      "email": "",
+      "website": "https://www2.gov.bc.ca/gov/content/health/mental-health-and-addictions/opioid-treatment-access-line",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Opioid Treatment Access Line",
+        "authority": "Government of British Columbia",
+        "url": "https://www2.gov.bc.ca/gov/content/health/mental-health-and-addictions/opioid-treatment-access-line"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_opioid_treatment_access_line"
       ]
     },
     {
@@ -6322,6 +6676,63 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:13f1azq",
+      "record_type": "service",
+      "organization": "PHS Community Services Society",
+      "program_name": "PHS Community Services Society",
+      "categories": [
+        "healthcare",
+        "housing"
+      ],
+      "subcategories": [
+        "housing",
+        "supportive housing",
+        "harm reduction",
+        "mental health",
+        "addiction support"
+      ],
+      "description": "A Vancouver and Victoria nonprofit providing supportive housing, shelter, harm reduction, health care, and community support.",
+      "population_served": "People seeking PHS housing, health, harm-reduction, or community services",
+      "indigenous_scope": "general_public",
+      "governance_type": "not_stated",
+      "geography": "Vancouver and Victoria",
+      "province": "British Columbia",
+      "city_community": "Vancouver",
+      "address": "",
+      "service_area": "Vancouver and Victoria",
+      "delivery_modes": [
+        "in_person",
+        "phone",
+        "email"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official PHS program directory or call the general office at 604-683-0073 to identify the appropriate program and current access route.",
+      "phone": "604-683-0073",
+      "email": "info@phs.ca",
+      "website": "https://www.phs.ca/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Housing, Healthcare & Harm Reduction",
+        "authority": "PHS Community Services Society",
+        "url": "https://www.phs.ca/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:13f1azq"
+      ]
+    },
+    {
       "canonical_resource_id": "north_bc_police_accountability_unit",
       "record_type": "service",
       "organization": "BC First Nations Justice Council",
@@ -6388,32 +6799,32 @@
         "education"
       ],
       "description": "education",
-      "population_served": "Eligible registered First Nations post-secondary students",
-      "indigenous_scope": "broader_program",
+      "population_served": "Registered First Nations post-secondary students apply through their First Nation, designated organization, or ISC regional office; funding is limited.",
+      "indigenous_scope": "first_nations_specific_or_distinctions_based",
       "governance_type": "not_stated",
-      "geography": "British Columbia",
-      "province": "British Columbia",
+      "geography": "Federal",
+      "province": "Canada-wide",
       "city_community": "",
       "address": "",
-      "service_area": "British Columbia",
+      "service_area": "Federal",
       "delivery_modes": [],
-      "eligibility": "Eligible registered First Nations post-secondary students",
+      "eligibility": "Registered First Nations post-secondary students apply through their First Nation, designated organization, or ISC regional office; funding is limited.",
       "access_requirements": [],
       "required_documents": [],
       "cost": "",
       "referral_requirement": "",
-      "access": "Review the official page and contact the administering organization if current intake or eligibility is unclear.",
+      "access": "Use the official program page or contact the administering organization.",
       "phone": "",
       "email": "",
       "website": "https://sac-isc.gc.ca/eng/1100100033682/1531933580211",
       "funding": {
         "purpose": "education",
-        "funding_type": "assistance",
+        "funding_type": "education_financial_assistance",
         "amount": "",
         "status": "recurring",
         "opening_date": "",
         "deadline": "",
-        "recurring_cycle": "",
+        "recurring_cycle": "annual",
         "next_check_due": "2026-10-06"
       },
       "housing": null,
@@ -6433,6 +6844,116 @@
       "source_record_ids": [
         "funding:miller-north:fnfund_federal_psssp",
         "funding:miller:mfa_psssp"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_sk_prince_albert_oat",
+      "record_type": "service",
+      "organization": "Saskatchewan Health Authority",
+      "program_name": "Prince Albert Recovery Program",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "oat",
+        "outpatient treatment",
+        "addiction navigation"
+      ],
+      "description": "Prince Albert opioid agonist treatment service listed by the Saskatchewan Health Authority.",
+      "population_served": "People seeking opioid agonist treatment in Prince Albert and area",
+      "indigenous_scope": "general_public",
+      "governance_type": "not_stated",
+      "geography": "Prince Albert and area",
+      "province": "Saskatchewan",
+      "city_community": "Prince Albert",
+      "address": "110 8th Street East, Prince Albert, SK",
+      "service_area": "Prince Albert and area",
+      "delivery_modes": [
+        "in_person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referrals and provider referrals are accepted",
+      "access": "Call 306-953-6241 for current clinic and intake information.",
+      "phone": "306-953-6241",
+      "email": "",
+      "website": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/opioid-agonist-therapy",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Opioid Agonist Therapy",
+        "authority": "Saskatchewan Health Authority",
+        "url": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/opioid-agonist-therapy"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_sk_prince_albert_oat"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_bc_connective_provincial_reintegration",
+      "record_type": "service",
+      "organization": "Connective",
+      "program_name": "Provincial Reintegration Program",
+      "categories": [
+        "financial_funding",
+        "healthcare",
+        "housing",
+        "practical_support"
+      ],
+      "subcategories": [
+        "corrections reentry",
+        "housing navigation",
+        "benefits navigation",
+        "treatment navigation",
+        "employment support"
+      ],
+      "description": "Pre-release planning and connections to housing, income assistance, identification, treatment, employment, and education resources for people at North Fraser Pretrial Centre.",
+      "population_served": "People incarcerated at North Fraser Pretrial Centre who meet the program's current admission criteria",
+      "indigenous_scope": "general_public",
+      "governance_type": "not_stated",
+      "geography": "North Fraser Pretrial Centre and Lower Mainland transition pathways",
+      "province": "British Columbia",
+      "city_community": "",
+      "address": "",
+      "service_area": "North Fraser Pretrial Centre and Lower Mainland transition pathways",
+      "delivery_modes": [
+        "in_person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Access is through a special request submitted to a Living Unit Officer at North Fraser Pretrial Centre",
+      "access": "Ask a Living Unit Officer for the program's special request form; general program questions can be sent through Connective's official contact path.",
+      "phone": "",
+      "email": "info@connective.ca",
+      "website": "https://connective.ca/services/provincial-reintegration/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Provincial Reintegration",
+        "authority": "Connective",
+        "url": "https://connective.ca/services/provincial-reintegration/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_connective_provincial_reintegration"
       ]
     },
     {
@@ -6542,6 +7063,115 @@
       ],
       "source_record_ids": [
         "miller_bc_victoria_raac"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_sk_regina_addiction_treatment",
+      "record_type": "service",
+      "organization": "Saskatchewan Health Authority",
+      "program_name": "Regina Addiction Treatment Centre",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "detox",
+        "withdrawal management",
+        "outpatient treatment",
+        "counselling",
+        "addiction navigation"
+      ],
+      "description": "Community addiction counselling, substance-use case management, and medically supported withdrawal management in Regina.",
+      "population_served": "People seeking addiction services in Regina and area",
+      "indigenous_scope": "general_public",
+      "governance_type": "not_stated",
+      "geography": "Regina and area",
+      "province": "Saskatchewan",
+      "city_community": "Regina",
+      "address": "1640 Victoria Avenue, Regina, SK S4P 0P7",
+      "service_area": "Regina and area",
+      "delivery_modes": [
+        "in_person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 306-766-6600 to confirm the appropriate service and whether a referral is required.",
+      "phone": "306-766-6600",
+      "email": "",
+      "website": "https://www.saskhealthauthority.ca/facilities-locations/regina-addiction-treatment-centre",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Regina Addiction Treatment Centre",
+        "authority": "Saskatchewan Health Authority",
+        "url": "https://www.saskhealthauthority.ca/facilities-locations/regina-addiction-treatment-centre"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_sk_regina_addiction_treatment"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_sk_regina_oat",
+      "record_type": "service",
+      "organization": "Saskatchewan Health Authority",
+      "program_name": "Regina Opioid Agonist Treatment Clinic",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "oat",
+        "outpatient treatment",
+        "harm reduction",
+        "addiction navigation"
+      ],
+      "description": "Regina clinic providing opioid agonist therapy and medication-assisted addiction treatment, with rapid-access addiction medicine available at the same location.",
+      "population_served": "People seeking opioid agonist treatment in Regina and area",
+      "indigenous_scope": "general_public",
+      "governance_type": "not_stated",
+      "geography": "Regina and area",
+      "province": "Saskatchewan",
+      "city_community": "Regina",
+      "address": "1048 Albert Street, Regina, SK S4R 2P8",
+      "service_area": "Regina and area",
+      "delivery_modes": [
+        "in_person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referrals and provider referrals are accepted",
+      "access": "Call 306-766-6350 for current clinic and intake information.",
+      "phone": "306-766-6350",
+      "email": "",
+      "website": "https://www.saskhealthauthority.ca/facilities-locations/opioid-addiction-treatment-clinic",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Opioid Addiction Treatment Clinic",
+        "authority": "Saskatchewan Health Authority",
+        "url": "https://www.saskhealthauthority.ca/facilities-locations/opioid-addiction-treatment-clinic"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_sk_regina_oat"
       ]
     },
     {
@@ -6821,6 +7451,63 @@
       ],
       "source_record_ids": [
         "north_sk_healthcare_concerns_navigation"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_sk_income_support",
+      "record_type": "service",
+      "organization": "Government of Saskatchewan",
+      "program_name": "Saskatchewan Income Support",
+      "categories": [
+        "financial_funding",
+        "housing",
+        "practical_support"
+      ],
+      "subcategories": [
+        "benefits navigation",
+        "income support",
+        "housing support",
+        "basic needs"
+      ],
+      "description": "Provincial income-support application and navigation for eligible Saskatchewan residents with low or no income.",
+      "population_served": "Saskatchewan residents age 18 or older who meet the program's current eligibility rules",
+      "indigenous_scope": "general_public",
+      "governance_type": "not_stated",
+      "geography": "Saskatchewan",
+      "province": "Saskatchewan",
+      "city_community": "",
+      "address": "",
+      "service_area": "Saskatchewan",
+      "delivery_modes": [
+        "online",
+        "phone",
+        "in_person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Apply online or by phone. Call the Client Service Centre at 1-866-221-5200 for information or application help.",
+      "phone": "1-866-221-5200",
+      "email": "",
+      "website": "https://www.saskatchewan.ca/residents/family-and-social-support/financial-help/saskatchewan-income-support-sis",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Saskatchewan Income Support",
+        "authority": "Government of Saskatchewan",
+        "url": "https://www.saskatchewan.ca/residents/family-and-social-support/financial-help/saskatchewan-income-support-sis"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_sk_income_support"
       ]
     },
     {
@@ -7659,8 +8346,8 @@
       "required_documents": [],
       "cost": "",
       "referral_requirement": "",
-      "access": "Review the official criteria and request approval through the Ministry before travel.",
-      "phone": "",
+      "access": "Request approval through the Ministry before travel. Call 1-866-866-0800 for the current application route.",
+      "phone": "1-866-866-0800",
       "email": "",
       "website": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/transportation-to-alcohol-and-drug-facilities-policy-and-procedures",
       "funding": {
@@ -7681,7 +8368,7 @@
         "authority": "Government of British Columbia",
         "url": "https://www2.gov.bc.ca/gov/content/governments/policies-for-government/bcea-policy-and-procedure-manual/general-supplements-and-programs/transportation-to-alcohol-and-drug-facilities-policy-and-procedures"
       },
-      "last_verified": "2026-09-06",
+      "last_verified": "2026-09-08",
       "verification_status": "verified_active",
       "project_visibility": [
         "miller"
@@ -7784,6 +8471,66 @@
       ],
       "source_record_ids": [
         "support:tricities-rent-bank"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_bc_connective_vancouver_cso",
+      "record_type": "service",
+      "organization": "Connective",
+      "program_name": "Vancouver Community Services Office",
+      "categories": [
+        "financial_funding",
+        "housing",
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "corrections reentry",
+        "housing navigation",
+        "benefits navigation",
+        "legal navigation",
+        "addiction navigation",
+        "basic needs"
+      ],
+      "description": "A public drop-in resource centre offering practical help with release planning, housing, income assistance, identification, employment, legal referrals, health resources, and addiction services.",
+      "population_served": "Anyone in the community needing practical resource-navigation help",
+      "indigenous_scope": "general_public",
+      "governance_type": "not_stated",
+      "geography": "Lower Mainland",
+      "province": "British Columbia",
+      "city_community": "Vancouver",
+      "address": "3360 Fraser Street, Vancouver, BC",
+      "service_area": "Lower Mainland",
+      "delivery_modes": [
+        "in_person",
+        "phone",
+        "email"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "Free drop-in access",
+      "referral_requirement": "No referral or eligibility screening for the public drop-in service",
+      "access": "Visit during current drop-in hours, call 604-872-5471, or email vancouvercso@connective.ca.",
+      "phone": "604-872-5471",
+      "email": "vancouvercso@connective.ca",
+      "website": "https://connective.ca/services/vancouver-cso/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Vancouver Community Services Office",
+        "authority": "Connective",
+        "url": "https://connective.ca/services/vancouver-cso/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_connective_vancouver_cso"
       ]
     },
     {
@@ -8041,6 +8788,60 @@
       ],
       "source_record_ids": [
         "support:sources-volunteer-wheels"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_bc_oak_care_withdrawal",
+      "record_type": "service",
+      "organization": "Vancouver Coastal Health",
+      "program_name": "Withdrawal Management at Oak Care Centre",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "detox",
+        "withdrawal management",
+        "oat",
+        "residential treatment"
+      ],
+      "description": "Adult bed-based withdrawal management with supervised care and support for opioid agonist treatment initiation or adjustment when part of the care plan.",
+      "population_served": "Adults age 19 and older who meet the service's current intake criteria",
+      "indigenous_scope": "general_public",
+      "governance_type": "not_stated",
+      "geography": "Vancouver Coastal Health region",
+      "province": "British Columbia",
+      "city_community": "Vancouver",
+      "address": "780 West 57th Avenue - Ward 4, Vancouver, BC V6P 1S1",
+      "service_area": "Vancouver Coastal Health region",
+      "delivery_modes": [
+        "in_person",
+        "residential"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self, family, and provider referrals are accepted through Access Central",
+      "access": "Call Access Central at 1-866-658-1221 for assessment and a scheduled intake. The site operates 24/7 by intake appointment.",
+      "phone": "604-322-8340",
+      "email": "",
+      "website": "https://www.vch.ca/en/location-service/withdrawal-management-oak-care-centre",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Withdrawal Management at Oak Care Centre",
+        "authority": "Vancouver Coastal Health",
+        "url": "https://www.vch.ca/en/location-service/withdrawal-management-oak-care-centre"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_oak_care_withdrawal"
       ]
     },
     {

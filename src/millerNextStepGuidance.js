@@ -14,12 +14,14 @@ export const MILLER_NEXT_STEP_INTENTS = Object.freeze([
   "mental_health",
   "basic_needs",
   "transportation",
+  "reentry",
 ])
 
 const intentRules = Object.freeze([
   ["detox", /\b(detox|withdrawal|withdrawing|withdrawal management)\b/],
   ["oat", /\b(oat|opioid agonist|methadone|suboxone|sublocade|buprenorphine)\b/],
   ["harm_reduction", /\b(harm reduction|naloxone|safer use|safe use|supplies|needle|overdose prevention)\b/],
+  ["reentry", /\b(corrections|re-?entry|reintegration|release planning|leaving (?:custody|jail|prison))\b/],
   ["housing", /\b(housing|shelter|homeless|homelessness|recovery housing|supportive housing)\b/],
   ["legal", /\b(legal|lawyer|legal aid|rights|tenant|tenancy|advocacy|complaint)\b/],
   ["funding", /\b(funding|financial|grant|benefit|income assistance|disability assistance|subsidy|bursary)\b/],
@@ -91,6 +93,11 @@ const templates = Object.freeze({
     interpretation: "Sounds like you’re looking for transportation or help getting to a service.",
     explanation: "Transportation programs can differ by service area, trip purpose, booking process, and eligibility.",
     next_step: "You could start by checking the service area and booking or eligibility details for the transportation options below.",
+  },
+  reentry: {
+    interpretation: "Sounds like you’re looking for practical support while leaving custody or returning to the community.",
+    explanation: "Re-entry services may help with release planning, identification, housing, income, treatment, employment, or connections to other community supports.",
+    next_step: "You could start with a re-entry or community-navigation service and ask which supports it can help you access.",
   },
 })
 

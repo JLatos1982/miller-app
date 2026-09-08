@@ -8,6 +8,7 @@ const INTENT_RULES = Object.freeze([
   ["detox", /\b(detox|withdrawal|withdrawing|withdrawal management)\b/],
   ["oat", /\b(oat|opioid agonist|methadone|suboxone|sublocade|buprenorphine)\b/],
   ["harm_reduction", /\b(harm reduction|naloxone|safer use|safe use|supplies|needle|overdose prevention)\b/],
+  ["reentry", /\b(corrections|re-?entry|reintegration|release planning|leaving (?:custody|jail|prison))\b/],
   ["treatment", /\b(treatment|rehab|residential|recovery program|outpatient)\b/],
   ["housing", /\b(housing|shelter|homeless|homelessness|recovery housing|supportive housing)\b/],
   ["legal", /\b(legal|lawyer|legal aid|rights|tenant|tenancy|advocacy|complaint)\b/],
@@ -32,6 +33,7 @@ const INTENT_TERMS = Object.freeze({
   mental_health: ["mental health", "counselling", "psychiatric"],
   basic_needs: ["basic needs", "food", "identification", "income"],
   transportation: ["transportation", "medical travel", "transit"],
+  reentry: ["corrections reentry", "re entry", "reentry", "reintegration", "release planning"],
 })
 
 const RELATED_INTENTS = Object.freeze({
@@ -47,6 +49,7 @@ const RELATED_INTENTS = Object.freeze({
   mental_health: ["counselling", "transportation", "funding"],
   basic_needs: ["housing", "funding", "transportation"],
   transportation: ["funding", "treatment", "healthcare"],
+  reentry: ["housing", "basic_needs", "treatment", "mental_health", "legal"],
 })
 
 const COLLECTIONS = Object.freeze({
@@ -57,6 +60,7 @@ const COLLECTIONS = Object.freeze({
   transportation: { href: "/practical-supports", label: "Transportation supports" },
   treatment: { href: "/lists", label: "Treatment and service lists" },
   counselling: { action: "private_counselling", label: "Private counselling information" },
+  reentry: { href: "/practical-supports", label: "Re-entry and practical supports" },
 })
 
 const INVESTIGATIVE_KINDS = new Set([
@@ -123,6 +127,9 @@ function combinedContext(detectedIntents) {
   }
   if (set.has("transportation") && ["treatment", "detox", "oat", "mental_health"].some(id => set.has(id))) {
     return "I’m checking the care options together with transportation supports, since getting there can be a separate part of the plan."
+  }
+  if (set.has("reentry")) {
+    return "I’m checking re-entry support together with practical housing, income, treatment, mental-health, and legal-navigation options where the verified resource data connects them."
   }
   return ""
 }

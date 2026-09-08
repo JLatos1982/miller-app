@@ -9,6 +9,7 @@ import sharedExpansion from "../src/data/miller-shared-resource-expansion-2026-0
 import sharedLegalExpansion from "../src/data/miller-shared-legal-resource-expansion-2026-09-07.json" with { type: "json" }
 import sharedInstitutionalExpansion from "../src/data/miller-shared-institutional-resource-expansion-2026-09-08.json" with { type: "json" }
 import westernMobileExpansion from "../src/data/miller-western-mobile-expansion-2026-09-08.json" with { type: "json" }
+import reconciliationExpansion from "../src/data/miller-shared-resource-reconciliation-2026-09-08.json" with { type: "json" }
 import { buildSharedResourceRegistry, validateSharedResourceRegistry } from "../server/sharedResourceRegistry.js"
 
 const records = buildSharedResourceRegistry([
@@ -25,6 +26,10 @@ const records = buildSharedResourceRegistry([
   { project: "miller", sourceKind: "service", records: sharedInstitutionalExpansion.records.filter(record => record.project_visibility.includes("miller")) },
   { project: "miller_north", sourceKind: "service", records: sharedInstitutionalExpansion.records.filter(record => record.project_visibility.includes("miller_north")) },
   { project: "miller", sourceKind: "service", records: westernMobileExpansion.records },
+  { project: "miller", sourceKind: "service", records: reconciliationExpansion.records.filter(record => record.project_visibility.includes("miller")) },
+  { project: "miller_north", sourceKind: "service", records: reconciliationExpansion.records.filter(record => record.project_visibility.includes("miller_north")) },
+  { project: "miller", sourceKind: "funding", records: reconciliationExpansion.funding_records.filter(record => record.project_visibility.includes("miller")) },
+  { project: "miller_north", sourceKind: "funding", records: reconciliationExpansion.funding_records.filter(record => record.project_visibility.includes("miller_north")) },
 ])
 const registry = {
   schema_version: "miller-shared-resource-registry-v1",

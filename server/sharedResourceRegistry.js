@@ -118,6 +118,7 @@ export function normalizeSharedResource(record, { project, sourceKind }) {
 }
 
 function mergeRecords(left, right) {
+  const rightIsCurrent = Boolean(right.last_verified && (!left.last_verified || right.last_verified >= left.last_verified))
   const merged = {
     ...left,
     categories: [...new Set([...left.categories, ...right.categories])].sort(),
@@ -125,12 +126,21 @@ function mergeRecords(left, right) {
     project_visibility: visibility([...left.project_visibility, ...right.project_visibility]),
     source_record_ids: [...new Set([...left.source_record_ids, ...right.source_record_ids])].sort(),
   }
-  for (const key of ["organization", "description", "population_served", "indigenous_scope", "governance_type", "geography", "province", "city_community", "address", "service_area", "eligibility", "cost", "referral_requirement", "access", "phone", "email", "housing", "legal_support", "transportation"]) {
-    if (!merged[key] && right[key]) merged[key] = right[key]
+  for (const key of ["program_name", "organization", "description", "population_served", "indigenous_scope", "governance_type", "geography", "province", "city_community", "address", "service_area", "eligibility", "cost", "referral_requirement", "access", "phone", "email", "website", "housing", "legal_support", "transportation"]) {
+    if (right[key] && (rightIsCurrent || !merged[key])) merged[key] = right[key]
   }
   merged.access_requirements = [...new Set([...(left.access_requirements || []), ...(right.access_requirements || [])])]
   merged.required_documents = [...new Set([...(left.required_documents || []), ...(right.required_documents || [])])]
-  if (left.funding || right.funding) merged.funding = left.funding || right.funding
+  merged.delivery_modes = [...new Set([...(left.delivery_modes || []), ...(right.delivery_modes || [])])]
+  if (left.funding || right.funding) {
+    merged.funding = { ...(left.funding || {}) }
+    for (const [key, value] of Object.entries(right.funding || {})) if (value && (rightIsCurrent || !merged.funding[key])) merged.funding[key] = value
+  }
+  if (rightIsCurrent) {
+    merged.source = right.source
+    merged.last_verified = right.last_verified
+    merged.verification_status = right.verification_status
+  }
   if (left.record_type !== right.record_type) merged.record_type = "service_and_funding"
   return merged
 }
