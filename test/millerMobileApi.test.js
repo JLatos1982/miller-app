@@ -1,0 +1,135 @@
+import assert from "node:assert/strict"
+import test from "node:test"
+
+import { millerMobileCatalog } from "../server/millerMobileCatalog.js"
+import {
+  buildMillerMobileInventory,
+  buildMillerMobileSharePack,
+  buildMillerMobileSearchResponse,
+  MILLER_MOBILE_API_VERSION,
+  validateMillerMobileSearchRequest,
+} from "../server/millerMobileApi.js"
+
+const fixedNow = () => new Date("2026-09-08T12:00:00.000Z")
+
+test("mobile request contract is bounded and normalizes Western provinces", () => {
+  assert.deepEqual(validateMillerMobileSearchRequest({
+    free_text: "Detox in Surrey",
+    province: "BC",
+    categories: ["detox", "housing", "detox"],
+    limit: 200,
+  }), {
+    query: "Detox in Surrey",
+    location: "",
+    province: "British Columbia",
+    categories: ["detox", "housing"],
+    limit: 20,
+  })
+  assert.throws(() => validateMillerMobileSearchRequest({ query: "" }), /query_required/)
+  assert.throws(() => validateMillerMobileSearchRequest({ query: "help", province: "Ontario" }), /province_invalid/)
+})
+
+test("mobile search returns compact verified Miller resources and practical guidance", () => {
+  const response = buildMillerMobileSearchResponse({ query: "Detox and housing options in Surrey", limit: 8 }, millerMobileCatalog, { now: fixedNow })
+  assert.equal(response.contract, MILLER_MOBILE_API_VERSION)
+  assert.equal(response.generated_at, "2026-09-08T12:00:00.000Z")
+  assert.equal(response.interpreted.primary_intent, "detox")
+  assert.equal(response.interpreted.location, "Surrey")
+  assert.ok(response.result_count > 0)
+  assert.ok(response.results.every(resource => resource.canonical_id && resource.name))
+  assert.ok(response.results.every(resource => !Object.hasOwn(resource, "score")))
+  assert.ok(response.results.every(resource => Object.hasOwn(resource, "referral_note")))
+  assert.ok(response.results.every(resource => Object.hasOwn(resource, "transportation_note")))
+  assert.ok(response.results.every(resource => Object.hasOwn(resource, "mobile_ready")))
+  assert.match(response.guidance.interpretation, /detox|withdrawal/i)
+  assert.equal(response.source_policy, "verified_original_miller_practical_resources_only")
+})
+
+test("mobile city detection does not depend on an existing city record and OAT matching is token bounded", () => {
+  const calgary = buildMillerMobileSearchResponse({ query: "counselling in Calgary", limit: 8 }, millerMobileCatalog, { now: fixedNow })
+  assert.equal(calgary.interpreted.location, "Calgary")
+  assert.equal(calgary.interpreted.province, "Alberta")
+  assert.match(calgary.results[0].name, /Calgary/i)
+
+  const edmonton = buildMillerMobileSearchResponse({ query: "OAT in Edmonton", limit: 8 }, millerMobileCatalog, { now: fixedNow })
+  assert.match(edmonton.results[0].name, /Opioid Dependency Program/i)
+  assert.match(JSON.stringify(edmonton.results[0]), /opioid agonist|OAT/i)
+})
+
+test("unknown sparse queries fall back to bounded verified navigation without inventing resources", () => {
+  const response = buildMillerMobileSearchResponse({ query: "specialized rare support in Moose Jaw", limit: 5 }, millerMobileCatalog, { now: fixedNow })
+  assert.equal(response.interpreted.location, "Moose Jaw")
+  assert.equal(response.interpreted.province, "Saskatchewan")
+  assert.ok(response.results.length > 0)
+  assert.equal(response.search_scope.geography_broadened, true)
+  assert.match(response.search_scope.message, /Exact matches.*limited/i)
+  assert.ok(response.results.every(resource => ["Saskatchewan", "Canada-wide"].includes(resource.province)))
+})
+
+test("mobile share pack exposes only concise practical fields", () => {
+  const response = buildMillerMobileSearchResponse({ query: "detox in Surrey", limit: 5 }, millerMobileCatalog, { now: fixedNow })
+  const pack = buildMillerMobileSharePack(response, response.results.slice(0, 2).map(resource => resource.canonical_id))
+  assert.equal(pack.resources.length, 2)
+  assert.ok(pack.resources.every(resource => resource.name && (resource.phone || resource.website)))
+  assert.match(pack.text, /Confirm current intake, eligibility and availability/i)
+  assert.equal(/owner_review|ranking_score|miller north|palant[ií]r|samwise/i.test(JSON.stringify(pack)), false)
+})
+
+test("mobile search combines practical categories without unsupported claims", () => {
+  const response = buildMillerMobileSearchResponse({ query: "Housing after treatment in Edmonton", province: "Alberta" }, millerMobileCatalog, { now: fixedNow })
+  assert.equal(response.interpreted.province, "Alberta")
+  assert.ok(response.interpreted.secondary_intents.includes("housing") || response.interpreted.secondary_intents.includes("treatment"))
+  assert.match(response.guidance.context, /housing|treatment|service system/i)
+  assert.ok(response.guidance.safeguards.some(value => /confirm current intake, eligibility, and availability/i.test(value)))
+  assert.ok(response.results.every(resource => ["Alberta", "Canada-wide"].includes(resource.province)))
+  assert.equal(/you are eligible|will be approved|bed is available/i.test(JSON.stringify(response.guidance)), false)
+})
+
+test("guidance and cards retain source-backed funding, travel, and referral details", () => {
+  const funding = buildMillerMobileSearchResponse({ query: "funding and transportation for treatment", limit: 8 }, millerMobileCatalog, { now: fixedNow })
+  assert.match(funding.guidance.context, /funding|transportation/i)
+  assert.ok(funding.results.some(resource => resource.funding_note || resource.transportation_note))
+  assert.equal(/funding is approved|travel is covered|you qualify/i.test(JSON.stringify(funding.guidance)), false)
+
+  const housing = buildMillerMobileSearchResponse({ query: "housing after treatment in Edmonton", limit: 8 }, millerMobileCatalog, { now: fixedNow })
+  assert.ok(housing.results.some(resource => /referral|required|self-referral|apply/i.test(`${resource.access_note} ${resource.referral_note}`)))
+  assert.match(housing.guidance.access_note, /referral|contact|call/i)
+})
+
+test("mobile projection excludes investigations and Miller North intelligence", () => {
+  const unsafe = [
+    { id: "case-1", name: "Police finding", kind: "investigation", source: "public records intelligence", approved: true, description: "private" },
+    { id: "case-2", name: "Watch chain", kind: "service", source: "Miller North Accountability Watch", approved: true },
+    { id: "service-1", name: "Verified legal navigation", kind: "service", source: "curated", approved: true, category: "Legal / Advocacy", province: "Alberta" },
+  ]
+  const response = buildMillerMobileSearchResponse({ query: "legal help", province: "Alberta" }, unsafe, { now: fixedNow })
+  assert.deepEqual(response.results.map(resource => resource.canonical_id), ["service-1"])
+})
+
+test("mobile response records no query or client record and catalog reports Western coverage", () => {
+  const response = buildMillerMobileSearchResponse({ query: "Funding and transportation for treatment" }, millerMobileCatalog, { now: fixedNow })
+  assert.deepEqual(response.privacy, {
+    query_stored: false,
+    client_record_created: false,
+    patient_identifiers_requested: false,
+  })
+  assert.equal(Object.hasOwn(response, "query"), false)
+  const inventory = buildMillerMobileInventory(millerMobileCatalog)
+  assert.ok(inventory.total > 100)
+  assert.ok(inventory.by_province["British Columbia"] > 0)
+  assert.ok(inventory.by_province.Alberta > 0)
+  assert.ok(inventory.by_province.Saskatchewan > 0)
+  assert.ok(inventory.by_province["Canada-wide"] > 0)
+})
+
+test("Western demo requests surface province-appropriate verified entry points", () => {
+  const alberta = buildMillerMobileSearchResponse({ query: "Housing after treatment in Edmonton", limit: 12 }, millerMobileCatalog, { now: fixedNow })
+  assert.equal(alberta.interpreted.province, "Alberta")
+  assert.ok(alberta.results.some(resource => resource.name === "211 Alberta"))
+  assert.ok(alberta.results.every(resource => ["Alberta", "Canada-wide"].includes(resource.province)))
+
+  const saskatchewan = buildMillerMobileSearchResponse({ query: "Counselling in Saskatoon", limit: 12 }, millerMobileCatalog, { now: fixedNow })
+  assert.equal(saskatchewan.interpreted.province, "Saskatchewan")
+  assert.ok(saskatchewan.results.some(resource => resource.name === "Saskatchewan Mental Health and Addictions Access"))
+  assert.ok(saskatchewan.results.every(resource => ["Saskatchewan", "Canada-wide"].includes(resource.province)))
+})

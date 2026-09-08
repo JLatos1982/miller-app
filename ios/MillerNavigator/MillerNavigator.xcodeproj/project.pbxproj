@@ -1,0 +1,102 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000000000000000000001 /* MillerNavigatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000001 /* MillerNavigatorApp.swift */; };
+		A10000000000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000002 /* ContentView.swift */; };
+		A10000000000000000000003 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000003 /* HomeView.swift */; };
+		A10000000000000000000004 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000004 /* ResultsView.swift */; };
+		A10000000000000000000005 /* ResourceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000005 /* ResourceCardView.swift */; };
+		A10000000000000000000006 /* ResourceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000006 /* ResourceDetailView.swift */; };
+		A10000000000000000000007 /* ResourcePackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000007 /* ResourcePackView.swift */; };
+		A10000000000000000000008 /* MillerGuidanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000008 /* MillerGuidanceView.swift */; };
+		A10000000000000000000009 /* MillerAPIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000009 /* MillerAPIModels.swift */; };
+		A1000000000000000000000A /* ResourcePackFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000A /* ResourcePackFormatter.swift */; };
+		A1000000000000000000000B /* DemoPrompts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000B /* DemoPrompts.swift */; };
+		A1000000000000000000000C /* MillerAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000C /* MillerAPIClient.swift */; };
+		A1000000000000000000000D /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000D /* SpeechRecognizer.swift */; };
+		A1000000000000000000000E /* PilotMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000E /* PilotMetrics.swift */; };
+		A1000000000000000000000F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000000000000000000000F /* SearchViewModel.swift */; };
+		A10000000000000000000010 /* MillerTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000010 /* MillerTheme.swift */; };
+		A10000000000000000000011 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000011 /* ShareSheet.swift */; };
+		A10000000000000000000012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000012 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B10000000000000000000001 /* MillerNavigatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillerNavigator/MillerNavigatorApp.swift; sourceTree = "<group>"; };
+		B10000000000000000000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillerNavigator/Views/ContentView.swift; sourceTree = "<group>"; };
+		B10000000000000000000003 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillerNavigator/Views/HomeView.swift; sourceTree = "<group>"; };
+		B10000000000000000000004 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillerNavigator/Views/ResultsView.swift; sourceTree = "<group>"; };
+		B10000000000000000000005 /* ResourceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillerNavigator/Views/ResourceCardView.swift; sourceTree = "<group>"; };
+		B10000000000000000000006 /* ResourceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillerNavigator/Views/ResourceDetailView.swift; sourceTree = "<group>"; };
+		B10000000000000000000007 /* ResourcePackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillerNavigator/Views/ResourcePackView.swift; sourceTree = "<group>"; };
+		B10000000000000000000008 /* MillerGuidanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillerNavigator/Views/MillerGuidanceView.swift; sourceTree = "<group>"; };
+		B10000000000000000000009 /* MillerAPIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillerNavigator/Core/MillerAPIModels.swift; sourceTree = "<group>"; };
+		B1000000000000000000000A /* ResourcePackFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillerNavigator/Core/ResourcePackFormatter.swift; sourceTree = "<group>"; };
+		B1000000000000000000000B /* DemoPrompts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillerNavigator/Core/DemoPrompts.swift; sourceTree = "<group>"; };
+		B1000000000000000000000C /* MillerAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillerNavigator/Services/MillerAPIClient.swift; sourceTree = "<group>"; };
+		B1000000000000000000000D /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillerNavigator/Services/SpeechRecognizer.swift; sourceTree = "<group>"; };
+		B1000000000000000000000E /* PilotMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillerNavigator/Services/PilotMetrics.swift; sourceTree = "<group>"; };
+		B1000000000000000000000F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillerNavigator/Services/SearchViewModel.swift; sourceTree = "<group>"; };
+		B10000000000000000000010 /* MillerTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillerNavigator/Support/MillerTheme.swift; sourceTree = "<group>"; };
+		B10000000000000000000011 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MillerNavigator/Support/ShareSheet.swift; sourceTree = "<group>"; };
+		B10000000000000000000012 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MillerNavigator/Assets.xcassets; sourceTree = "<group>"; };
+		B10000000000000000000013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MillerNavigator/Info.plist; sourceTree = "<group>"; };
+		B10000000000000000000014 /* Miller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Miller.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C10000000000000000000001 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C10000000000000000000002 = {isa = PBXGroup; children = (
+			B10000000000000000000001, B10000000000000000000002, B10000000000000000000003, B10000000000000000000004,
+			B10000000000000000000005, B10000000000000000000006, B10000000000000000000007, B10000000000000000000008,
+			B10000000000000000000009, B1000000000000000000000A, B1000000000000000000000B, B1000000000000000000000C,
+			B1000000000000000000000D, B1000000000000000000000E, B1000000000000000000000F, B10000000000000000000010,
+			B10000000000000000000011, B10000000000000000000012, B10000000000000000000013, C10000000000000000000003,
+		); sourceTree = "<group>"; };
+		C10000000000000000000003 /* Products */ = {isa = PBXGroup; children = (B10000000000000000000014,); name = Products; sourceTree = "<group>"; };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D10000000000000000000001 /* MillerNavigator */ = {isa = PBXNativeTarget; buildConfigurationList = E10000000000000000000001; buildPhases = (C10000000000000000000004, C10000000000000000000001, C10000000000000000000005,); buildRules = (); dependencies = (); name = MillerNavigator; productName = Miller; productReference = B10000000000000000000014; productType = "com.apple.product-type.application"; };
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D10000000000000000000002 /* Project object */ = {isa = PBXProject; attributes = {BuildIndependentTargetsInParallel = 1; LastSwiftUpdateCheck = 1600; LastUpgradeCheck = 1600; TargetAttributes = {D10000000000000000000001 = {CreatedOnToolsVersion = 16.0;};};}; buildConfigurationList = E10000000000000000000002; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (en, Base); mainGroup = C10000000000000000000002; productRefGroup = C10000000000000000000003; projectDirPath = ""; projectRoot = ""; targets = (D10000000000000000000001,); };
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C10000000000000000000005 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (A10000000000000000000012,); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C10000000000000000000004 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (
+			A10000000000000000000001, A10000000000000000000002, A10000000000000000000003, A10000000000000000000004,
+			A10000000000000000000005, A10000000000000000000006, A10000000000000000000007, A10000000000000000000008,
+			A10000000000000000000009, A1000000000000000000000A, A1000000000000000000000B, A1000000000000000000000C,
+			A1000000000000000000000D, A1000000000000000000000E, A1000000000000000000000F, A10000000000000000000010,
+			A10000000000000000000011,
+		); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F10000000000000000000001 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; SDKROOT = iphoneos; SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG; SWIFT_OPTIMIZATION_LEVEL = "-Onone";}; name = Debug; };
+		F10000000000000000000002 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; SDKROOT = iphoneos; SWIFT_COMPILATION_MODE = wholemodule;}; name = Release; };
+		F10000000000000000000003 /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = MillerNavigator/Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 17.0; LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks"); MARKETING_VERSION = 0.1.0; MILLER_API_BASE_URL = "http://127.0.0.1:8787"; PRODUCT_BUNDLE_IDENTIFIER = ca.miller.navigator.mvp; PRODUCT_NAME = Miller; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 6.0; TARGETED_DEVICE_FAMILY = "1,2";}; name = Debug; };
+		F10000000000000000000004 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = MillerNavigator/Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 17.0; LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks"); MARKETING_VERSION = 0.1.0; MILLER_API_BASE_URL = "https://miller-app.onrender.com"; PRODUCT_BUNDLE_IDENTIFIER = ca.miller.navigator.mvp; PRODUCT_NAME = Miller; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 6.0; TARGETED_DEVICE_FAMILY = "1,2"; VALIDATE_PRODUCT = YES;}; name = Release; };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E10000000000000000000001 = {isa = XCConfigurationList; buildConfigurations = (F10000000000000000000003, F10000000000000000000004,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		E10000000000000000000002 = {isa = XCConfigurationList; buildConfigurations = (F10000000000000000000001, F10000000000000000000002,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+	};
+	rootObject = D10000000000000000000002;
+}

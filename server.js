@@ -105,6 +105,8 @@ import publicMillerNorthFunding from "./src/data/miller-north-funding-assistance
 import publicMillerNorthSupports from "./src/data/miller-north-first-nations-supports-public-v1.json" with { type: "json" }
 import publicSharedResources from "./src/data/miller-shared-resource-registry-v1.json" with { type: "json" }
 import { toMillerNorthSharedEmailResult, toMillerNorthSupportEmailResult } from "./src/millerNorthPublicSupportEmail.js"
+import { millerMobileCatalog } from "./server/millerMobileCatalog.js"
+import { buildMillerMobileInventory, buildMillerMobileSearchResponse, MILLER_MOBILE_API_VERSION } from "./server/millerMobileApi.js"
 
 dotenv.config()
 
@@ -2093,6 +2095,33 @@ function parseResourceSubmissionMultipart(req, res, next) {
 app.post("/api/events", analyticsRateLimit, publicWriteHandlers.createEvent)
 
 app.post("/api/resource-submissions", submissionRateLimit, parseResourceSubmissionMultipart, publicWriteHandlers.createResourceSubmission)
+
+const mobileSearchRateLimit = rateLimit({ windowMs: 60 * 1000, max: 30 })
+
+app.get("/api/mobile/v1/about", (_req, res) => {
+  res.setHeader("Cache-Control", "public, max-age=300")
+  return res.json({
+    contract: MILLER_MOBILE_API_VERSION,
+    authentication: "public_read_only_rate_limited",
+    geography: ["British Columbia", "Alberta", "Saskatchewan", "Canada-wide"],
+    inventory: buildMillerMobileInventory(millerMobileCatalog),
+    privacy: { query_stored: false, client_record_created: false },
+  })
+})
+
+app.post("/api/mobile/v1/search", mobileSearchRateLimit, (req, res) => {
+  try {
+    const response = buildMillerMobileSearchResponse(req.body, millerMobileCatalog)
+    res.setHeader("Cache-Control", "no-store")
+    return res.json(response)
+  } catch (error) {
+    const code = String(error?.message || "invalid_request")
+    const publicMessage = code === "query_required"
+      ? "Tell Miller what you are looking for."
+      : "The search request was not valid."
+    return res.status(400).json({ error: publicMessage, code })
+  }
+})
 
 app.get("/api/admin/resource-submission-attachments/quarantine", requireAdmin, async (_req, res) => {
   const { data, error } = await supabase

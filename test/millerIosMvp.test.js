@@ -1,0 +1,68 @@
+import assert from "node:assert/strict"
+import { readFileSync } from "node:fs"
+import test from "node:test"
+
+const root = new URL("../ios/MillerNavigator/", import.meta.url)
+const read = path => readFileSync(new URL(path, root), "utf8")
+
+test("iOS MVP is a SwiftUI universal app with typed and voice search", () => {
+  const project = read("MillerNavigator.xcodeproj/project.pbxproj")
+  const app = read("MillerNavigator/MillerNavigatorApp.swift")
+  const home = read("MillerNavigator/Views/HomeView.swift")
+  const speech = read("MillerNavigator/Services/SpeechRecognizer.swift")
+  assert.match(project, /TARGETED_DEVICE_FAMILY = "1,2"/)
+  assert.match(project, /IPHONEOS_DEPLOYMENT_TARGET = 17\.0/)
+  assert.match(app, /import SwiftUI/)
+  assert.match(home, /TextEditor\(text: \$viewModel\.query\)/)
+  assert.match(home, /await speech\.toggle\(\)/)
+  assert.match(home, /viewModel\.query = value/)
+  assert.match(speech, /SFSpeechRecognizer/)
+})
+
+test("resource results, details, selection, share, messages and print are present", () => {
+  const results = read("MillerNavigator/Views/ResultsView.swift")
+  const card = read("MillerNavigator/Views/ResourceCardView.swift")
+  const detail = read("MillerNavigator/Views/ResourceDetailView.swift")
+  const pack = read("MillerNavigator/Views/ResourcePackView.swift")
+  const share = read("MillerNavigator/Support/ShareSheet.swift")
+  assert.match(results, /selectedResourceIDs/)
+  assert.match(card, /Label\("Call"/)
+  assert.match(card, /Label\("Website"/)
+  assert.match(detail, /Access \/ referral/)
+  assert.match(pack, /Email, Messages, or Share/)
+  assert.match(pack, /Print resource sheet/)
+  assert.match(share, /UIActivityViewController/)
+  assert.match(share, /UIPrintInteractionController/)
+})
+
+test("the mobile client contains no privileged credential or private intelligence access", () => {
+  const client = read("MillerNavigator/Services/MillerAPIClient.swift")
+  const models = read("MillerNavigator/Core/MillerAPIModels.swift")
+  const combined = `${client}\n${models}`
+  assert.doesNotMatch(combined, /service[_ -]?role|SUPABASE|HMAC|Bearer /i)
+  assert.doesNotMatch(combined, /miller[_ -]?north|palant[ií]r|accountability[_ -]?watch/i)
+  assert.match(client, /api\/mobile\/v1\/search/)
+  assert.match(client, /queryStored == false/)
+  assert.match(models, /let searchScope: MillerSearchScope/)
+  assert.match(models, /let referralNote: String/)
+  assert.match(models, /let transportationNote: String/)
+  assert.match(models, /let mobileReady: Bool/)
+})
+
+test("pilot instrumentation remains aggregate-only and resource feedback is bounded", () => {
+  const metrics = read("MillerNavigator/Services/PilotMetrics.swift")
+  const client = read("MillerNavigator/Services/MillerAPIClient.swift")
+  assert.match(metrics, /searches/)
+  assert.match(metrics, /no_results/)
+  assert.doesNotMatch(metrics, /query|transcript|client_name|patient/i)
+  assert.match(client, /MillerFeedbackReason/)
+  assert.match(client, /No client information collected/)
+})
+
+test("release configuration uses HTTPS and speech permissions explain bounded use", () => {
+  const project = read("MillerNavigator.xcodeproj/project.pbxproj")
+  const plist = read("MillerNavigator/Info.plist")
+  assert.match(project, /MILLER_API_BASE_URL = "https:\/\/miller-app\.onrender\.com"/)
+  assert.match(plist, /NSMicrophoneUsageDescription/)
+  assert.match(plist, /NSSpeechRecognitionUsageDescription/)
+})

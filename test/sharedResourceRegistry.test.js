@@ -8,8 +8,8 @@ import { filterMillerNorthSupports } from "../src/site/millerNorthSupportFilters
 import { projectSharedResources, validateSharedResourceRegistry } from "../server/sharedResourceRegistry.js"
 
 test("shared public registry validates and preserves distinct project projections", () => {
-  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 126, miller_only: 49, miller_north_only: 42, both: 35 })
-  assert.equal(projectSharedResources(registry, "miller").length, 84)
+  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 151, miller_only: 74, miller_north_only: 42, both: 35 })
+  assert.equal(projectSharedResources(registry, "miller").length, 109)
   assert.equal(projectSharedResources(registry, "miller_north").length, 77)
 })
 

@@ -4942,7 +4942,7 @@
     "Phone": "604-587-3755",
     "Alt Phone": null,
     "Email": null,
-    "Website": null,
+    "Website": "https://www.fraserhealth.ca/Service-Directory/Service-At-Location/4/1/creekside-withdrawal-management-detox-service---creekside-withdrawal-management-centre",
     "Address": "13740 94A Avenue",
     "City": "Surrey",
     "Region": "Fraser South",
@@ -4958,7 +4958,10 @@
     "Funding Type": null,
     "Program Type": null,
     "Notes": "Educational groups and referrals",
-    "Primary Source": "Creekside resource list"
+    "Primary Source": "Fraser Health official service directory",
+    "source": "Fraser Health official service directory",
+    "verification_status": "verified_active",
+    "location_last_verified": "2026-09-08"
   },
   {
     "Resource Name": "DIVERSEcity Community Resource Society",
@@ -7531,7 +7534,10 @@
     "Funding Type": null,
     "Program Type": null,
     "Notes": "Also coordinates some supported recovery housing referrals.",
-    "Primary Source": "VCH / 211 BC / HelpStartsHere"
+    "Primary Source": "Vancouver Coastal Health",
+    "source": "Vancouver Coastal Health official service directory",
+    "verification_status": "verified_active",
+    "location_last_verified": "2026-09-08"
   },
   {
     "Resource Name": "Vancouver Detox",
@@ -7547,7 +7553,7 @@
     "Alt Phone": "1-866-658-1221",
     "Email": null,
     "Website": "https://www.vch.ca/en/location/vancouver-detoxification-centre",
-    "Address": null,
+    "Address": "377 East 2nd Avenue, Vancouver, BC V5T 1B9",
     "City": "Vancouver",
     "Region": "Vancouver Coastal Health",
     "Indigenous-Specific": "No",
@@ -7562,7 +7568,10 @@
     "Funding Type": null,
     "Program Type": null,
     "Notes": "Accepts clients on methadone maintenance who are withdrawing from other drugs.",
-    "Primary Source": "211 BC / VCH"
+    "Primary Source": "Vancouver Coastal Health",
+    "source": "Vancouver Coastal Health official service directory",
+    "verification_status": "verified_active",
+    "location_last_verified": "2026-09-08"
   },
   {
     "Resource Name": "Road to Recovery - St. Paul's Hospital",
@@ -8316,13 +8325,13 @@
     "Population": "Adults experiencing homelessness and substance use / mental health challenges",
     "Age / Eligibility": "People supported in Vancouver",
     "Description": "Housing First ACT team supporting people facing homelessness, poverty, trauma, mental health challenges, and substance use challenges, with access to housing and multidisciplinary supports.",
-    "Access Type": null,
+    "Access Type": "Call the ACT team to ask about current referral and access information",
     "Hours": null,
     "Phone": "604-675-2390",
     "Alt Phone": null,
     "Email": null,
     "Website": "https://www.raincityhousing.org/programs/housing-first-act-team/",
-    "Address": "616 Powell Street",
+    "Address": "101-283 East 11th Avenue, Vancouver, BC V5T 2C4",
     "City": "Vancouver",
     "Region": "Vancouver",
     "Indigenous-Specific": "No",
@@ -8337,7 +8346,10 @@
     "Funding Type": null,
     "Program Type": null,
     "Notes": "Multidisciplinary ACT team with harm reduction and housing focus.",
-    "Primary Source": "RainCity Housing"
+    "Primary Source": "RainCity Housing and Vancouver Coastal Health",
+    "source": "RainCity Housing official program page",
+    "verification_status": "verified_active",
+    "location_last_verified": "2026-09-08"
   },
   {
     "name": "'Namgis Treatment Centre",

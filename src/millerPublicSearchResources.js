@@ -146,6 +146,12 @@ export function sharedCanonicalMillerResource(record = {}) {
   const categories = Array.isArray(record.categories) ? record.categories : []
   const subcategories = Array.isArray(record.subcategories) ? record.subcategories : []
   const access = [text(record.referral_requirement), text(record.access_requirements), text(record.access)].filter(Boolean).join(" · ")
+  const fundingNote = record.funding
+    ? [record.funding.funding_type, record.funding.amount, record.funding.deadline ? `Deadline: ${record.funding.deadline}` : ""].map(text).filter(Boolean).join(" · ")
+    : ""
+  const transportationNote = record.transportation
+    ? [record.transportation.delivery, record.transportation.eligible_trip_types, record.transportation.travel_modes].map(text).filter(Boolean).join(" · ")
+    : ""
   return {
     id: text(record.canonical_resource_id),
     kind: text(record.record_type) || "service",
@@ -157,12 +163,20 @@ export function sharedCanonicalMillerResource(record = {}) {
     eligibility: text(record.eligibility),
     description: text(record.description),
     accessType: access,
+    referralNote: text(record.referral_requirement),
+    accessRequirements: Array.isArray(record.access_requirements) ? record.access_requirements.map(text).filter(Boolean) : [],
+    fundingType: fundingNote,
+    transportationNote,
     phone: text(record.phone),
     email: text(record.email),
     website: text(record.website),
+    address: text(record.address),
     city: text(record.city_community),
+    province: text(record.province),
     region: text(record.service_area || record.geography),
     source: "shared_canonical_miller_projection",
+    sourceAuthority: text(record.source?.authority || record.organization),
+    sourceUrl: text(record.source?.url || record.website),
     approved: true,
     hidden: false,
     verification_status: "verified_active",
@@ -224,7 +238,7 @@ function namesClearlyMatch(left, right) {
 }
 
 function mergeRecord(base, extra) {
-  return {
+  const merged = {
     ...extra,
     ...base,
     tags: [...new Set([...(base.tags || []), ...(extra.tags || [])])],
@@ -234,6 +248,15 @@ function mergeRecord(base, extra) {
     virtual_service: Boolean(base.virtual_service || extra.virtual_service),
     mobile_service: Boolean(base.mobile_service || extra.mobile_service),
   }
+  if (extra.verification_status === "verified_active") {
+    for (const key of ["sourceAuthority", "sourceUrl", "verification_status", "location_last_verified", "referralNote", "accessRequirements", "fundingType", "transportationNote"]) {
+      if (extra[key]) merged[key] = extra[key]
+    }
+    for (const key of ["address", "city", "province", "region", "phone", "email", "website", "accessType", "eligibility"]) {
+      if (!merged[key] && extra[key]) merged[key] = extra[key]
+    }
+  }
+  return merged
 }
 
 export function mergeMillerSearchResources(canonicalResources = [], specializedResources = []) {

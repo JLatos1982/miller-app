@@ -70,6 +70,7 @@ export function normalizeSharedResource(record, { project, sourceKind }) {
     geography: clean(record.geography || record.area_served || record.service_area || record.province || record.jurisdiction),
     province,
     city_community: clean(record.community),
+    address: clean(record.address),
     service_area: clean(record.service_area || record.area_served || record.geography),
     delivery_modes: array(record.delivery_modes),
     eligibility: clean(record.eligibility || record.who_can_apply),
@@ -124,7 +125,7 @@ function mergeRecords(left, right) {
     project_visibility: visibility([...left.project_visibility, ...right.project_visibility]),
     source_record_ids: [...new Set([...left.source_record_ids, ...right.source_record_ids])].sort(),
   }
-  for (const key of ["organization", "description", "population_served", "indigenous_scope", "governance_type", "geography", "province", "city_community", "service_area", "eligibility", "cost", "referral_requirement", "access", "phone", "email", "housing", "legal_support", "transportation"]) {
+  for (const key of ["organization", "description", "population_served", "indigenous_scope", "governance_type", "geography", "province", "city_community", "address", "service_area", "eligibility", "cost", "referral_requirement", "access", "phone", "email", "housing", "legal_support", "transportation"]) {
     if (!merged[key] && right[key]) merged[key] = right[key]
   }
   merged.access_requirements = [...new Set([...(left.access_requirements || []), ...(right.access_requirements || [])])]
