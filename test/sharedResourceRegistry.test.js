@@ -11,14 +11,14 @@ import { filterMillerNorthSupports } from "../src/site/millerNorthSupportFilters
 import { projectSharedResources, validateSharedResourceRegistry } from "../server/sharedResourceRegistry.js"
 
 test("shared public registry validates and preserves distinct project projections", () => {
-  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 281, miller_only: 194, miller_north_only: 38, both: 49 })
+  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 309, miller_only: 216, miller_north_only: 38, both: 55 })
   assert.equal(registry.records.filter(record => !record.province).length, 0)
   const creekside = registry.records.find(record => record.canonical_resource_id === "curated:1ldala")
   assert.equal(creekside.service_scope.physical_location.community, "Surrey")
   assert.ok(creekside.service_scope.regional_service_area.includes("Burnaby"))
   assert.equal(creekside.service_scope.navigation_only, false)
-  assert.equal(projectSharedResources(registry, "miller").length, 243)
-  assert.equal(projectSharedResources(registry, "miller_north").length, 87)
+  assert.equal(projectSharedResources(registry, "miller").length, 271)
+  assert.equal(projectSharedResources(registry, "miller_north").length, 93)
 })
 
 test("high-ranking legacy refresh uses exact first-party pages and shares only qualifying Indigenous support", () => {

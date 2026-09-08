@@ -165,6 +165,22 @@ function matchesAnyIntent(resource, intents) {
   return intents.some(intent => (INTENT_TERMS[intent] || []).some(term => includesTerm(text, term)))
 }
 
+const HEALTHCARE_ADJACENT_QUERY_TERMS = Object.freeze([
+  "family doctor", "primary care", "nurse practitioner", "hospital discharge", "discharged from hospital",
+  "leaving hospital", "patient navigator", "wound", "abscess", "skin infection", "hepatitis", "hep c",
+  "hiv", "infectious disease", "stbbi", "pharmacy", "pharmacist", "pregnant", "pregnancy", "perinatal",
+  "medical travel", "health system navigation",
+])
+
+function healthcareAdjacentRelevant(resource, query, intents) {
+  if (resource?.resourceLayer !== "healthcare_adjacent_support") return true
+  const queryText = normalized(query)
+  if (HEALTHCARE_ADJACENT_QUERY_TERMS.some(term => queryText.includes(normalized(term)))) return true
+  const resourceText = intentSearchText(resource)
+  return intents.some(intent => ["detox", "oat", "treatment", "harm_reduction", "mental_health"].includes(intent)
+    && (INTENT_TERMS[intent] || []).some(term => includesTerm(resourceText, term)))
+}
+
 function directlyRepresentsIntent(resource, intent) {
   if (!intent) return true
   const text = [resource?.name, resource?.serviceType, resource?.category, ...(resource?.tags || [])].map(clean).join(" ")
@@ -302,6 +318,9 @@ function normalizedCard(resource, readiness, location = "") {
     travel_required: scope.travel_required,
     scope_note: scope.scope_note,
     access_pathway: resource?.accessPathway && typeof resource.accessPathway === "object" ? resource.accessPathway : null,
+    resource_layer: clean(resource.resourceLayer || "core"),
+    workflow_relevance: Array.isArray(resource.workflowRelevance) ? resource.workflowRelevance.map(clean).filter(Boolean) : [],
+    languages: Array.isArray(resource.languages) ? resource.languages.map(clean).filter(Boolean) : [],
     location_relationship: relationship.code,
     location_label: relationship.label,
     phone: clean(resource.phone),
@@ -360,6 +379,7 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
   const evaluatedAt = now()
   const readiness = buildMobileReadinessIndex(resources, { now: evaluatedAt })
   const ranked = resources
+    .filter(resource => healthcareAdjacentRelevant(resource, request.query, intents))
     .map(resource => ({ resource, score: scoreResource(resource, { ...request, location, province, intents, readiness: readiness.get(clean(resource.id)) }) }))
     .filter(item => item.score > 10 && matchesAnyIntent(item.resource, intents))
     .sort((left, right) => right.score - left.score || clean(left.resource.name).localeCompare(clean(right.resource.name)))
@@ -375,7 +395,9 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
     return !location && !province
   })
   const navigationFallback = resources
-    .filter(resource => isNavigationResource(resource) && (!province || [province, "Canada-wide"].includes(provinceFor(resource))))
+    .filter(resource => healthcareAdjacentRelevant(resource, request.query, intents)
+      && isNavigationResource(resource)
+      && (!province || [province, "Canada-wide"].includes(provinceFor(resource))))
     .map(resource => ({ resource, score: scoreResource(resource, { ...request, location, province, intents, readiness: readiness.get(clean(resource.id)) }) }))
     .sort((left, right) => right.score - left.score || clean(left.resource.name).localeCompare(clean(right.resource.name)))
   const localNavigationFallback = location

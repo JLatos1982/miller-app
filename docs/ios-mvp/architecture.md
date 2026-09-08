@@ -17,6 +17,8 @@ Farm listeners / Palantír
   -> canonical registry only after approval
 ```
 
+Healthcare-adjacent records are held in a bounded supporting layer. The mobile API returns one only when explicit query language or a core addiction/mental-health intent establishes a direct workflow relationship. This prevents the Navigator from drifting into a general healthcare directory while supporting hospital discharge, primary-care access, Indigenous patient navigation, and integrated wound or infectious-disease care where material.
+
 ## Reused Miller assets
 
 - Canonical legacy resource rows and stable resource IDs.

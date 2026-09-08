@@ -18,6 +18,12 @@ const NEED_LABELS = Object.freeze({
   family_support: "Family or caregiver support",
   continuity: "Continuity after discharge or treatment",
   access_navigation: "Access navigation",
+  hospital_discharge: "Hospital-to-community support",
+  primary_care: "Primary-care navigation",
+  wound_care: "Wound care",
+  infectious_disease: "HIV or hepatitis navigation",
+  pharmacy: "Pharmacy access",
+  perinatal: "Perinatal support",
 })
 
 const BARRIER_NEEDS = new Set(["transportation", "funding", "legal", "basic_needs"])
@@ -30,13 +36,21 @@ function inferredNeeds(query) {
   if (/\b(doesn t drive|does not drive|no car|can t get there|cannot get there)\b/.test(text)) needs.push("transportation")
   if (/\b(can t afford|cannot afford|low cost|free option|cost is a barrier)\b/.test(text)) needs.push("funding")
   if (/\b(famil(?:y|ies)|parent|caregiver|loved one)\b/.test(text) && !/\bfamily doctor\b/.test(text)) needs.push("family_support")
+  if (/\b(hospital|emergency department|er)\b.*\b(discharg(?:e|ed|ing)|leaving|follow up|followup)\b|\bdischarg(?:e|ed|ing)\b.*\bhospital\b/.test(text)) needs.push("hospital_discharge")
+  if (/\b(no|without|need|needs)\b.*\b(family doctor|primary care|nurse practitioner)\b|\bprimary care attachment\b/.test(text)) needs.push("primary_care")
+  if (/\b(wound|abscess|skin infection|wound care)\b/.test(text)) needs.push("wound_care")
+  if (/\b(hepatitis|hep c|hiv|infectious disease|stbbi|blood borne)\b/.test(text)) needs.push("infectious_disease")
+  if (/\b(pharmacy|pharmacist|medication pickup|prescription)\b/.test(text)) needs.push("pharmacy")
+  if (/\b(pregnan(?:t|cy)|perinatal|postpartum)\b/.test(text)) needs.push("perinatal")
   return needs
 }
 
 export function millerProfessionalWorkflowIntent(query = "", needs = []) {
   const text = normalized(query)
   const ids = new Set(needs.map(need => typeof need === "string" ? need : need?.need_id))
-  return ids.has("continuity") && /\b(return(?:ing)?|coming back|coming (?:back )?home|after treatment|after detox|discharg(?:e|ed|ing))\b/.test(text)
+  return ids.has("hospital_discharge")
+    ? "hospital_to_community"
+    : ids.has("continuity") && /\b(return(?:ing)?|coming back|coming (?:back )?home|after treatment|after detox|discharg(?:e|ed|ing))\b/.test(text)
     ? "return_home_after_treatment"
     : "multi_need_resource_navigation"
 }
@@ -70,6 +84,12 @@ const MATCH_TERMS = Object.freeze({
   basic_needs: ["basic needs", "food", "income", "identification"], reentry: ["re entry", "reentry", "reintegration", "release planning"],
   family_support: ["family", "caregiver", "parent"], continuity: ["aftercare", "transition", "continuity"],
   access_navigation: ["navigation", "intake", "access line", "service finder"],
+  hospital_discharge: ["hospital discharge", "discharge support", "patient navigation", "community follow up"],
+  primary_care: ["primary care", "family doctor", "nurse practitioner", "health system navigation"],
+  wound_care: ["wound care", "wound", "abscess", "skin infection"],
+  infectious_disease: ["hepatitis", "hiv", "infectious disease", "stbbi"],
+  pharmacy: ["pharmacy", "pharmacist", "medication"],
+  perinatal: ["perinatal", "pregnancy", "pregnant", "postpartum"],
 })
 
 function matchesNeed(resource, needId) {
@@ -138,6 +158,12 @@ export function buildMillerAccessPathway({ results = [], needs = [], searchScope
       const detail = continuity.access_pathway?.return_home_support?.join("; ")
         || `${continuity.name} includes verified information relevant to support after returning home.`
       steps.push({ step_id: "return_home_support", title: "Plan the return-home connection", detail, resource_ids: [continuity.canonical_id], basis: continuity.access_pathway?.return_home_support?.length ? "verified_access_note" : "deterministic_need_match" })
+    }
+  }
+  if (requested.has("hospital_discharge")) {
+    const navigator = pickFirst(results, item => item.matched_needs?.includes("hospital_discharge") || item.matched_needs?.includes("primary_care"))
+    if (navigator && !steps.some(step => step.resource_ids.includes(navigator.canonical_id))) {
+      steps.push({ step_id: "hospital_to_community", title: "Connect hospital and community supports", detail: `${navigator.name} has verified navigation information relevant to the transition. Confirm the current access route directly.`, resource_ids: [navigator.canonical_id], basis: "deterministic_need_match" })
     }
   }
   return steps.slice(0, 4).map((step, index) => ({ ...step, order: index + 1 }))

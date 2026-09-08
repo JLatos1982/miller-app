@@ -44,7 +44,7 @@ test("private review always overrides an otherwise valid resource route", () => 
 
 test("the canonical Miller projection accepts resource records and rejects evidence-shaped impostors", () => {
   const projected = projectSharedResources(registry, "miller")
-  assert.equal(projected.length, 243)
+  assert.equal(projected.length, 271)
   assert.ok(projected.every(isOriginalMillerPublicResource))
   const valid = projected[0]
   assert.equal(isOriginalMillerPublicResource({ ...valid, legal_record_id: "case-1" }), false)

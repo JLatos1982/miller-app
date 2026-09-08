@@ -103,6 +103,32 @@ export const MILLER_NORTHERN_QUERY_BENCHMARK = Object.freeze([
   { id: "remote_treatment_transport", query: "treatment plus transportation from a remote community", terms: ["treatment", "transportation", "medical travel"], expect_transport: true },
 ])
 
+export const MILLER_EASTERN_QUERY_BENCHMARK = Object.freeze([
+  { id: "detox_toronto", query: "detox in Toronto", province: "Ontario", location: "Toronto", terms: ["withdrawal", "detox", "addiction"] },
+  { id: "raam_london", query: "RAAM in London", province: "Ontario", location: "London", terms: ["raam", "rapid access", "addiction medicine"] },
+  { id: "oat_ottawa", query: "OAT in Ottawa", province: "Ontario", location: "Ottawa", terms: ["oat", "opioid agonist", "rapid access"] },
+  { id: "treatment_thunder_bay_east", query: "treatment in Thunder Bay", province: "Ontario", location: "Thunder Bay", terms: ["treatment", "addiction", "raam"] },
+  { id: "indigenous_sioux_lookout_east", query: "Indigenous treatment from Sioux Lookout", province: "Ontario", location: "Sioux Lookout", terms: ["indigenous", "first nations", "treatment"] },
+  { id: "housing_hamilton", query: "housing after treatment in Hamilton", province: "Ontario", location: "Hamilton", terms: ["housing", "treatment", "navigation"] },
+  { id: "addiction_montreal_east", query: "addiction help in Montreal", province: "Quebec", location: "Montréal", terms: ["dependance", "dépendance", "addiction", "toxicomanie"] },
+  { id: "withdrawal_quebec_city", query: "withdrawal help in Quebec City", province: "Quebec", location: "Québec City", terms: ["sevrage", "drogue", "toxicomanie", "addiction"] },
+  { id: "addiction_halifax_east", query: "addiction help in Halifax", province: "Nova Scotia", location: "Halifax", terms: ["addiction", "recovery", "intake"] },
+  { id: "treatment_cape_breton", query: "treatment in Cape Breton", province: "Nova Scotia", location: "Cape Breton", terms: ["treatment", "withdrawal", "recovery"] },
+  { id: "addiction_moncton_east", query: "addiction support in Moncton", province: "New Brunswick", location: "Moncton", terms: ["addiction", "withdrawal", "treatment"] },
+  { id: "francophone_nb", query: "francophone addiction support in New Brunswick", province: "New Brunswick", terms: ["addiction", "dependance", "dépendance", "french"] },
+  { id: "withdrawal_pei", query: "withdrawal in PEI", province: "Prince Edward Island", terms: ["withdrawal", "addiction"] },
+  { id: "treatment_corner_brook", query: "treatment in Corner Brook", province: "Newfoundland and Labrador", location: "Corner Brook", terms: ["treatment", "addiction", "navigation"] },
+  { id: "addiction_labrador_east", query: "addiction help in Labrador", province: "Newfoundland and Labrador", location: "Labrador", terms: ["addiction", "opioid", "treatment"] },
+])
+
+export const MILLER_HEALTHCARE_ADJACENT_QUERY_BENCHMARK = Object.freeze([
+  { id: "oat_no_family_doctor", query: "I need OAT in Toronto and do not have a family doctor", province: "Ontario", location: "Toronto", terms: ["oat", "opioid", "primary care"], expect_layer: true },
+  { id: "injection_wound", query: "addiction help and wound care in Montreal", province: "Quebec", location: "Montréal", terms: ["wound", "plaies", "toxicomanie"], expect_layer: true },
+  { id: "treatment_hepatitis", query: "addiction treatment and hepatitis navigation in Labrador", province: "Newfoundland and Labrador", location: "Labrador", terms: ["hepatitis", "opioid", "treatment"], expect_layer: true },
+  { id: "hospital_no_primary_care", query: "discharged from hospital in PEI and no primary care, need mental health support", province: "Prince Edward Island", terms: ["patient navigation", "mental health", "primary care"], expect_layer: true, expect_hospital_workflow: true },
+  { id: "indigenous_patient_navigation", query: "Indigenous patient needs health system navigation in Labrador after hospital discharge", province: "Newfoundland and Labrador", location: "Labrador", terms: ["indigenous", "patient navigation", "discharge"], expect_layer: true, expect_hospital_workflow: true },
+])
+
 function resourceText(resource) {
   return [resource.name, resource.organization, resource.category, resource.service_type, resource.description, resource.access_note, resource.eligibility_note, resource.funding_note, resource.transportation_note, ...(resource.tags || [])].join(" ")
 }
@@ -246,6 +272,41 @@ export function runMillerNorthernPathwayBenchmark(catalog, { now = () => new Dat
     passing_scenarios: rows.filter(row => row.pass).length,
     failed_scenarios: rows.filter(row => !row.pass).map(row => ({ id: row.id, reasons: row.reasons })),
     false_local_facility_claims: rows.reduce((sum, row) => sum + row.false_local_facility_claims, 0),
+    rows,
+  })
+}
+
+export function runMillerHealthcareAdjacentBenchmark(catalog, { now = () => new Date("2026-09-08T12:00:00.000Z"), scenarios = MILLER_HEALTHCARE_ADJACENT_QUERY_BENCHMARK, limit = 10 } = {}) {
+  const rows = scenarios.map(scenario => {
+    const response = buildMillerMobileSearchResponse({ query: scenario.query, limit }, catalog, { now })
+    const combinedText = response.results.map(resourceText).join(" ")
+    const supportingResults = response.results.filter(resource => resource.resource_layer === "healthcare_adjacent_support")
+    const reasons = []
+    if (!response.results.length) reasons.push("no_results")
+    if (!includesAny(combinedText, scenario.terms)) reasons.push("workflow_terms_missing")
+    if (scenario.expect_layer && !supportingResults.length) reasons.push("supporting_layer_missing")
+    if (scenario.expect_hospital_workflow && response.workflow.intent !== "hospital_to_community") reasons.push("hospital_workflow_missing")
+    if (response.results.some(resource => resource.location_relationship === "located_here"
+      && normalized(resource.physical_location?.community) !== normalized(scenario.location))) reasons.push("incorrect_local_facility_claim")
+    return {
+      id: scenario.id,
+      query: scenario.query,
+      returned_count: response.results.length,
+      supporting_results: supportingResults.map(resource => resource.canonical_id),
+      workflow_intent: response.workflow.intent,
+      pass: reasons.length === 0,
+      reasons,
+    }
+  })
+  const ordinary = buildMillerMobileSearchResponse({ query: "addiction help in Toronto", limit }, catalog, { now })
+  const ordinaryAdjacent = ordinary.results.filter(resource => resource.resource_layer === "healthcare_adjacent_support")
+  return Object.freeze({
+    schema_version: "miller-healthcare-adjacent-benchmark-v1",
+    generated_at: now().toISOString(),
+    scenario_count: rows.length,
+    passing_scenarios: rows.filter(row => row.pass).length,
+    failed_scenarios: rows.filter(row => !row.pass).map(row => ({ id: row.id, reasons: row.reasons })),
+    ordinary_addiction_query_adjacent_results: ordinaryAdjacent.map(resource => resource.canonical_id),
     rows,
   })
 }

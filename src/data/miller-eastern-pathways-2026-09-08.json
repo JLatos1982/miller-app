@@ -1,0 +1,1866 @@
+{
+  "schema_version": "miller-eastern-pathways-v1",
+  "generated_at": "2026-09-08",
+  "scope": "Bounded Eastern Canada addiction, mental-health and practical-access expansion with a gated healthcare-adjacent supporting layer.",
+  "candidate_outcomes": {
+    "accepted_new": 28,
+    "enriched_existing": 4,
+    "duplicate_avoided": 11,
+    "deferred": 9,
+    "rejected_non_workflow_healthcare": 14
+  },
+  "healthcare_adjacent_review": {
+    "discovered": 19,
+    "accepted_supporting_layer": 6,
+    "deferred": 3,
+    "rejected_no_direct_workflow_link": 14,
+    "accepted_categories": [
+      "primary-care navigation",
+      "Indigenous patient navigation",
+      "wound and infectious-disease care integrated with addiction care",
+      "hospital-to-community navigation"
+    ],
+    "publication_rule": "Supporting-layer resources are shown only when query language or a requested workflow makes the relationship material."
+  },
+  "records": [
+    {
+      "canonical_resource_id": "miller_on_connexontario",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [
+        "English",
+        "French"
+      ],
+      "name": "ConnexOntario Addiction and Mental Health Navigation",
+      "organization": "ConnexOntario",
+      "categories": [
+        "addiction_intake",
+        "mental_health",
+        "withdrawal_navigation",
+        "oat_navigation",
+        "treatment_navigation",
+        "housing_navigation",
+        "family_support"
+      ],
+      "description": "Free, confidential 24/7 phone, text, chat and email navigation for Ontario addiction, mental-health and problem-gambling treatment and support services.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Ontario",
+      "search_locations": [
+        "Toronto",
+        "Mississauga",
+        "Brampton",
+        "Vaughan",
+        "Markham",
+        "Oshawa",
+        "Oakville",
+        "Burlington",
+        "London",
+        "Windsor",
+        "Sarnia",
+        "Chatham",
+        "Kitchener",
+        "Waterloo",
+        "Guelph",
+        "Brantford",
+        "Hamilton",
+        "St. Catharines",
+        "Niagara Falls",
+        "Barrie",
+        "Peterborough",
+        "Kingston",
+        "Belleville",
+        "Ottawa",
+        "Cornwall",
+        "Sudbury",
+        "North Bay",
+        "Sault Ste. Marie",
+        "Timmins",
+        "Thunder Bay",
+        "Kenora",
+        "Dryden",
+        "Fort Frances",
+        "Sioux Lookout"
+      ],
+      "province_wide": true,
+      "navigation_only": true,
+      "virtual": true,
+      "service_area": "Ontario",
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "referral_requirements": "Call 1-866-531-2600, text CONNEX to 247247, or use web chat. A name is not required; location may be shared optionally to identify relevant services.",
+      "access_pathway": "Call 1-866-531-2600, text CONNEX to 247247, or use web chat. A name is not required; location may be shared optionally to identify relevant services.",
+      "phone": "1-866-531-2600",
+      "website": "https://connexontario.ca/our-services/",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Ontario"
+        ],
+        "local_access_point": "Contact ConnexOntario by phone, text, chat or email.",
+        "regional_intake": "A navigator identifies the relevant local or regional addiction and mental-health pathway.",
+        "return_home_support": [
+          "Use the same navigation service to identify ongoing counselling, addiction care, housing or family supports after treatment."
+        ],
+        "source_provenance": {
+          "authority": "ConnexOntario",
+          "url": "https://connexontario.ca/our-services/"
+        }
+      },
+      "source": {
+        "title": "ConnexOntario Addiction and Mental Health Navigation",
+        "authority": "ConnexOntario",
+        "url": "https://connexontario.ca/our-services/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_on_access_mha",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [
+        "English",
+        "French"
+      ],
+      "name": "AccessMHA Coordinated Mental Health and Substance Use Access",
+      "organization": "AccessMHA",
+      "categories": [
+        "addiction_intake",
+        "mental_health",
+        "treatment_navigation",
+        "counselling",
+        "oat_navigation",
+        "family_support"
+      ],
+      "description": "Coordinated access connecting people age 16 and older in participating Eastern Ontario communities with mental-health, substance-use and addiction services through one request.",
+      "population_served": "People age 16 and older in participating Eastern Ontario communities; individual services may have additional criteria.",
+      "province": "Ontario",
+      "regional_service_area": [
+        "Eastern Ontario",
+        "Ottawa",
+        "Cornwall",
+        "Kingston",
+        "Belleville",
+        "Peterborough",
+        "Oshawa"
+      ],
+      "search_locations": [
+        "Ottawa",
+        "Cornwall",
+        "Kingston",
+        "Belleville",
+        "Peterborough",
+        "Oshawa"
+      ],
+      "province_wide": false,
+      "navigation_only": true,
+      "virtual": true,
+      "service_area": "Participating Eastern Ontario communities",
+      "scope_note": "Regional coordinated access; coverage is limited to participating Eastern Ontario organizations and communities.",
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "referral_requirements": "Submit the secure online request or call for information. AccessMHA coordinates an initial conversation and connection to a participating service; it is not an emergency service.",
+      "access_pathway": "Submit the secure online request or call for information. AccessMHA coordinates an initial conversation and connection to a participating service; it is not an emergency service.",
+      "phone": "1-833-527-8207",
+      "website": "https://www.accessmha.ca/about",
+      "source": {
+        "title": "AccessMHA Coordinated Mental Health and Substance Use Access",
+        "authority": "AccessMHA",
+        "url": "https://www.accessmha.ca/about"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_on_raam_london",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "name": "Rapid Access Addiction Medicine Clinic - London",
+      "organization": "Canadian Mental Health Association Thames Valley Addiction and Mental Health Services",
+      "categories": [
+        "oat",
+        "addiction_medicine",
+        "withdrawal_navigation",
+        "counselling",
+        "treatment_navigation"
+      ],
+      "description": "Low-barrier rapid-access addiction medicine clinic providing assessment, medication options and connection to ongoing community care.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Ontario",
+      "community": "London",
+      "address": "200 Queens Avenue, 2nd Floor, London, ON",
+      "physical_location": {
+        "community": "London",
+        "address": "200 Queens Avenue, 2nd Floor, London, ON",
+        "province": "Ontario"
+      },
+      "local_service_area": [
+        "London"
+      ],
+      "regional_service_area": [
+        "Southwestern Ontario"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": false,
+      "service_area": "London and area",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "People may self-refer and attend current walk-in hours; health professionals may also refer. Confirm the posted schedule before travelling.",
+      "access_pathway": "People may self-refer and attend current walk-in hours; health professionals may also refer. Confirm the posted schedule before travelling.",
+      "phone": "519-673-3242 ext. 1281",
+      "website": "https://cmhatv.ca/programs-services/raam-clinic/",
+      "source": {
+        "title": "Rapid Access Addiction Medicine Clinic - London",
+        "authority": "Canadian Mental Health Association Thames Valley Addiction and Mental Health Services",
+        "url": "https://cmhatv.ca/programs-services/raam-clinic/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_on_raam_waterloo",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "name": "Rapid Access Addiction Medicine Clinic - Waterloo",
+      "organization": "House of Friendship",
+      "categories": [
+        "oat",
+        "addiction_medicine",
+        "withdrawal_navigation",
+        "counselling",
+        "treatment_navigation"
+      ],
+      "description": "Walk-in rapid-access addiction medicine clinic for people seeking help with alcohol or other drug use, including medication and connection to ongoing support.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Ontario",
+      "community": "Waterloo",
+      "address": "190 Weber Street North, Waterloo, ON",
+      "physical_location": {
+        "community": "Waterloo",
+        "address": "190 Weber Street North, Waterloo, ON",
+        "province": "Ontario"
+      },
+      "local_service_area": [
+        "Waterloo",
+        "Kitchener"
+      ],
+      "regional_service_area": [
+        "Waterloo Region"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": false,
+      "service_area": "Waterloo Region",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "Attend the current walk-in registration period or call before travelling; no appointment is required for posted walk-in access.",
+      "access_pathway": "Attend the current walk-in registration period or call before travelling; no appointment is required for posted walk-in access.",
+      "phone": "519-957-5000",
+      "website": "https://houseoffriendship.org/raam-clinic/location-and-hours/house-of-friendship-sheltercare/",
+      "source": {
+        "title": "Rapid Access Addiction Medicine Clinic - Waterloo",
+        "authority": "House of Friendship",
+        "url": "https://houseoffriendship.org/raam-clinic/location-and-hours/house-of-friendship-sheltercare/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_on_raam_hamilton",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "name": "Rapid Access Addiction Medicine Clinic - Hamilton",
+      "organization": "St. Joseph's Healthcare Hamilton",
+      "categories": [
+        "oat",
+        "addiction_medicine",
+        "withdrawal_navigation",
+        "counselling",
+        "treatment_navigation"
+      ],
+      "description": "Rapid-access addiction medicine clinic providing assessment, medication and connection to ongoing treatment for adults in Hamilton.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Ontario",
+      "community": "Hamilton",
+      "address": "225 James Street South, Hamilton, ON",
+      "physical_location": {
+        "community": "Hamilton",
+        "address": "225 James Street South, Hamilton, ON",
+        "province": "Ontario"
+      },
+      "local_service_area": [
+        "Hamilton"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": false,
+      "service_area": "Hamilton",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "Call to self-refer and confirm the current appointment or walk-in pathway before attending; the official page notes a current focus on appointments.",
+      "access_pathway": "Call to self-refer and confirm the current appointment or walk-in pathway before attending; the official page notes a current focus on appointments.",
+      "phone": "905-522-1155 ext. 35800",
+      "website": "https://www.stjoes.ca/hospital-services/mental-health-addiction-services/rapid-access-addiction-medicine-raam-clinic",
+      "source": {
+        "title": "Rapid Access Addiction Medicine Clinic - Hamilton",
+        "authority": "St. Joseph's Healthcare Hamilton",
+        "url": "https://www.stjoes.ca/hospital-services/mental-health-addiction-services/rapid-access-addiction-medicine-raam-clinic"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_on_raam_thunder_bay",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "name": "Rapid Access Addiction Medicine Clinic - Thunder Bay",
+      "organization": "Thunder Bay Counselling / NorWest Community Health Centres / Dilico Anishinabek Family Care",
+      "categories": [
+        "oat",
+        "addiction_medicine",
+        "withdrawal_navigation",
+        "counselling",
+        "indigenous_support",
+        "virtual_support"
+      ],
+      "description": "Self-referral addiction medicine access with in-person, telephone and video options, medication, counselling and cultural or healer support where requested.",
+      "population_served": "People age 16 and older seeking substance-use health support; Indigenous cultural support is available through the named partner site.",
+      "province": "Ontario",
+      "community": "Thunder Bay",
+      "physical_location": {
+        "community": "Thunder Bay",
+        "province": "Ontario"
+      },
+      "local_service_area": [
+        "Thunder Bay"
+      ],
+      "regional_service_area": [
+        "Northwestern Ontario"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": true,
+      "service_area": "Thunder Bay and Northwestern Ontario",
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "referral_requirements": "Call the centralized number or use the listed walk-in locations. Self-referral is accepted; confirm current site hours before attending.",
+      "access_pathway": "Call the centralized number or use the listed walk-in locations. Self-referral is accepted; confirm current site hours before attending.",
+      "phone": "807-626-8478",
+      "website": "https://www.tbaycounselling.com/services/adults/substance-use-health-services/raam/",
+      "source": {
+        "title": "Rapid Access Addiction Medicine Clinic - Thunder Bay",
+        "authority": "Thunder Bay Counselling / NorWest Community Health Centres / Dilico Anishinabek Family Care",
+        "url": "https://www.tbaycounselling.com/services/adults/substance-use-health-services/raam/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_on_sault_addictions_continuum",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "name": "Sault Area Hospital Addictions Continuum of Care",
+      "organization": "Sault Area Hospital",
+      "categories": [
+        "addiction_intake",
+        "withdrawal_management",
+        "oat_navigation",
+        "treatment_navigation",
+        "counselling",
+        "aftercare",
+        "family_support"
+      ],
+      "description": "Regional continuum including rapid-access addiction medicine, residential withdrawal management, treatment, aftercare and family support.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Ontario",
+      "community": "Sault Ste. Marie",
+      "physical_location": {
+        "community": "Sault Ste. Marie",
+        "province": "Ontario"
+      },
+      "local_service_area": [
+        "Sault Ste. Marie"
+      ],
+      "regional_service_area": [
+        "East Algoma",
+        "North Algoma",
+        "Northern Ontario"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": false,
+      "service_area": "Sault Ste. Marie, East Algoma and North Algoma",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "Call the Addictions Treatment Clinic to confirm the appropriate service and current intake. Individual components have distinct age and referral requirements.",
+      "access_pathway": "Call the Addictions Treatment Clinic to confirm the appropriate service and current intake. Individual components have distinct age and referral requirements.",
+      "phone": "705-759-6684",
+      "website": "https://sah.on.ca/programs-services/mental-health-addictions/addictions-services/continuum-of-care-service-components/",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Sault Ste. Marie",
+          "East Algoma",
+          "North Algoma"
+        ],
+        "local_access_point": "Call the Addictions Treatment Clinic.",
+        "regional_intake": "Staff identify the appropriate rapid-access, withdrawal, treatment or aftercare component.",
+        "return_home_support": [
+          "Aftercare and family support are included in the regional continuum."
+        ],
+        "source_provenance": {
+          "authority": "Sault Area Hospital",
+          "url": "https://sah.on.ca/programs-services/mental-health-addictions/addictions-services/continuum-of-care-service-components/"
+        }
+      },
+      "source": {
+        "title": "Sault Area Hospital Addictions Continuum of Care",
+        "authority": "Sault Area Hospital",
+        "url": "https://sah.on.ca/programs-services/mental-health-addictions/addictions-services/continuum-of-care-service-components/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_on_ontario_works",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "name": "Ontario Works Financial Assistance",
+      "organization": "Government of Ontario",
+      "categories": [
+        "income_support",
+        "housing_support",
+        "benefits_navigation",
+        "medical_transportation_funding",
+        "return_home_support"
+      ],
+      "description": "Provincial application pathway for financial assistance with basic needs and shelter, with additional benefits that may apply to an individual's circumstances.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Ontario",
+      "search_locations": [
+        "Toronto",
+        "Mississauga",
+        "Brampton",
+        "Vaughan",
+        "Markham",
+        "Oshawa",
+        "Oakville",
+        "Burlington",
+        "London",
+        "Windsor",
+        "Sarnia",
+        "Chatham",
+        "Kitchener",
+        "Waterloo",
+        "Guelph",
+        "Brantford",
+        "Hamilton",
+        "St. Catharines",
+        "Niagara Falls",
+        "Barrie",
+        "Peterborough",
+        "Kingston",
+        "Belleville",
+        "Ottawa",
+        "Cornwall",
+        "Sudbury",
+        "North Bay",
+        "Sault Ste. Marie",
+        "Timmins",
+        "Thunder Bay",
+        "Kenora",
+        "Dryden",
+        "Fort Frances",
+        "Sioux Lookout"
+      ],
+      "province_wide": true,
+      "navigation_only": true,
+      "virtual": true,
+      "service_area": "Ontario",
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "referral_requirements": "Apply online, by phone, or through the local Ontario Works office. Eligibility and any additional benefit, including medical transportation, must be determined by the program.",
+      "access_pathway": "Apply online, by phone, or through the local Ontario Works office. Eligibility and any additional benefit, including medical transportation, must be determined by the program.",
+      "eligibility": "Ontario residency, financial-need and current program requirements apply; the official application determines eligibility.",
+      "phone": "1-888-999-1142",
+      "website": "https://www.ontario.ca/page/ontario-works",
+      "source": {
+        "title": "Ontario Works Financial Assistance",
+        "authority": "Government of Ontario",
+        "url": "https://www.ontario.ca/page/ontario-works"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_on_health_811",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "healthcare_adjacent_support",
+      "workflow_relevance": [
+        "hospital_discharge",
+        "no_primary_care",
+        "addiction_follow_up"
+      ],
+      "languages": [],
+      "name": "Health811",
+      "organization": "Government of Ontario",
+      "categories": [
+        "health_system_navigation",
+        "primary_care_navigation",
+        "mental_health_navigation"
+      ],
+      "description": "Province-wide health information and navigation by phone and online, including help identifying appropriate health services.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Ontario",
+      "search_locations": [
+        "Toronto",
+        "Mississauga",
+        "Brampton",
+        "Vaughan",
+        "Markham",
+        "Oshawa",
+        "Oakville",
+        "Burlington",
+        "London",
+        "Windsor",
+        "Sarnia",
+        "Chatham",
+        "Kitchener",
+        "Waterloo",
+        "Guelph",
+        "Brantford",
+        "Hamilton",
+        "St. Catharines",
+        "Niagara Falls",
+        "Barrie",
+        "Peterborough",
+        "Kingston",
+        "Belleville",
+        "Ottawa",
+        "Cornwall",
+        "Sudbury",
+        "North Bay",
+        "Sault Ste. Marie",
+        "Timmins",
+        "Thunder Bay",
+        "Kenora",
+        "Dryden",
+        "Fort Frances",
+        "Sioux Lookout"
+      ],
+      "province_wide": true,
+      "navigation_only": true,
+      "virtual": true,
+      "service_area": "Ontario",
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "referral_requirements": "Call 811 or use the official online service. It can provide health-system navigation but does not replace emergency services.",
+      "access_pathway": "Call 811 or use the official online service. It can provide health-system navigation but does not replace emergency services.",
+      "phone": "811",
+      "website": "https://health811.ontario.ca/static/guest/home",
+      "source": {
+        "title": "Health811",
+        "authority": "Government of Ontario",
+        "url": "https://health811.ontario.ca/static/guest/home"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_qc_montreal_addiction_access",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [
+        "French"
+      ],
+      "name": "Accès aux services en dépendance — Montréal",
+      "organization": "CIUSSS du Centre-Sud-de-l'Île-de-Montréal",
+      "categories": [
+        "addiction_intake",
+        "treatment_navigation",
+        "withdrawal_navigation",
+        "oat_navigation",
+        "counselling"
+      ],
+      "description": "Guichet régional d'accès qui oriente les jeunes et adultes de Montréal vers le service public en dépendance le plus approprié.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Quebec",
+      "regional_service_area": [
+        "Montréal"
+      ],
+      "search_locations": [
+        "Montréal",
+        "Montreal"
+      ],
+      "province_wide": false,
+      "navigation_only": true,
+      "virtual": false,
+      "service_area": "Montréal",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "Appelez le guichet d'accès régional. L'équipe détermine le point de service approprié; vérifiez la langue et les modalités du service lors de l'appel.",
+      "access_pathway": "Appelez le guichet d'accès régional. L'équipe détermine le point de service approprié; vérifiez la langue et les modalités du service lors de l'appel.",
+      "phone": "514-385-1232",
+      "website": "https://ciusss-centresudmtl.gouv.qc.ca/soins-et-services/problemes-de-consommation-ou-de-dependance",
+      "source": {
+        "title": "Accès aux services en dépendance — Montréal",
+        "authority": "CIUSSS du Centre-Sud-de-l'Île-de-Montréal",
+        "url": "https://ciusss-centresudmtl.gouv.qc.ca/soins-et-services/problemes-de-consommation-ou-de-dependance"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_qc_montreal_stmu",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "healthcare_adjacent_support",
+      "workflow_relevance": [
+        "oat",
+        "wound_care",
+        "hepatitis",
+        "hospital_to_community"
+      ],
+      "languages": [
+        "French"
+      ],
+      "name": "Service de toxicomanie et de médecine urbaine (STMU/CARD)",
+      "organization": "CIUSSS du Centre-Sud-de-l'Île-de-Montréal",
+      "categories": [
+        "addiction_medicine",
+        "oat",
+        "withdrawal_management",
+        "harm_reduction",
+        "wound_care",
+        "infectious_disease",
+        "social_navigation"
+      ],
+      "description": "Service montréalais intégré de médecine des dépendances, incluant sevrage, traitement par agonistes opioïdes, soins de plaies, ITSS/hépatite et soutien psychosocial.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Quebec",
+      "community": "Montréal",
+      "address": "1560, rue Sherbrooke Est, Montréal, QC",
+      "physical_location": {
+        "community": "Montréal",
+        "address": "1560, rue Sherbrooke Est, Montréal, QC",
+        "province": "Quebec"
+      },
+      "local_service_area": [
+        "Montréal"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": false,
+      "service_area": "Montréal",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "Communiquez avec le service pour confirmer les plages avec ou sans rendez-vous et l'admissibilité avant de vous déplacer.",
+      "access_pathway": "Communiquez avec le service pour confirmer les plages avec ou sans rendez-vous et l'admissibilité avant de vous déplacer.",
+      "phone": "514-413-8736",
+      "website": "https://ciusss-centresudmtl.gouv.qc.ca/soins-et-services/consultation-avec-un-medecin-ou-une-infirmiere/consultation-avec-un-medecin-specialiste/dependance-lalcool-ou-aux-drogues",
+      "source": {
+        "title": "Service de toxicomanie et de médecine urbaine (STMU/CARD)",
+        "authority": "CIUSSS du Centre-Sud-de-l'Île-de-Montréal",
+        "url": "https://ciusss-centresudmtl.gouv.qc.ca/soins-et-services/consultation-avec-un-medecin-ou-une-infirmiere/consultation-avec-un-medecin-specialiste/dependance-lalcool-ou-aux-drogues"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_qc_clinique_relais",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "healthcare_adjacent_support",
+      "workflow_relevance": [
+        "oat",
+        "no_primary_care",
+        "homelessness",
+        "legal_navigation"
+      ],
+      "languages": [
+        "French"
+      ],
+      "name": "Clinique Relais",
+      "organization": "CIUSSS du Centre-Sud-de-l'Île-de-Montréal",
+      "categories": [
+        "oat",
+        "addiction_medicine",
+        "primary_care",
+        "legal_navigation",
+        "social_navigation",
+        "harm_reduction"
+      ],
+      "description": "Clinique montréalaise à faible seuil pour adultes en situation de précarité, offrant traitement par agonistes opioïdes et soutien de santé, psychosocial et juridique.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Quebec",
+      "community": "Montréal",
+      "address": "1560, rue Sherbrooke Est, Montréal, QC",
+      "physical_location": {
+        "community": "Montréal",
+        "address": "1560, rue Sherbrooke Est, Montréal, QC",
+        "province": "Quebec"
+      },
+      "local_service_area": [
+        "Montréal"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": false,
+      "service_area": "Montréal",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "Présentez-vous ou appelez selon les modalités officielles actuelles; confirmez les heures avant le déplacement.",
+      "access_pathway": "Présentez-vous ou appelez selon les modalités officielles actuelles; confirmez les heures avant le déplacement.",
+      "phone": "514-847-9300",
+      "website": "https://ciusss-centresudmtl.gouv.qc.ca/soins-et-services/problemes-de-consommation-ou-de-dependance/clinique-relais",
+      "source": {
+        "title": "Clinique Relais",
+        "authority": "CIUSSS du Centre-Sud-de-l'Île-de-Montréal",
+        "url": "https://ciusss-centresudmtl.gouv.qc.ca/soins-et-services/problemes-de-consommation-ou-de-dependance/clinique-relais"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_qc_nunavik_substance_pathway",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [
+        "English",
+        "French"
+      ],
+      "name": "Services en dépendance et prévention des surdoses au Nunavik",
+      "organization": "Régie régionale de la santé et des services sociaux du Nunavik",
+      "categories": [
+        "indigenous_addiction_navigation",
+        "counselling",
+        "treatment_referral",
+        "aftercare",
+        "harm_reduction"
+      ],
+      "description": "Voie régionale décrivant l'accès par les intervenants CLSC, l'orientation vers Isuarsivik ou d'autres centres et le suivi au retour dans la communauté.",
+      "population_served": "Inuit and other Nunavik residents seeking substance-use support; program-specific rules apply.",
+      "province": "Quebec",
+      "regional_service_area": [
+        "Nunavik",
+        "Kuujjuaq"
+      ],
+      "search_locations": [
+        "Nunavik",
+        "Kuujjuaq"
+      ],
+      "province_wide": false,
+      "navigation_only": true,
+      "virtual": false,
+      "service_area": "Nunavik",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "Communiquez avec l'intervenant en dépendance du CLSC local pour l'évaluation, l'orientation et le suivi; les destinations dépendent du plan d'accès confirmé.",
+      "access_pathway": "Communiquez avec l'intervenant en dépendance du CLSC local pour l'évaluation, l'orientation et le suivi; les destinations dépendent du plan d'accès confirmé.",
+      "website": "https://www.nrbhss.ca/en/nrbhss/planning-and-programming/psychosocial-affairs/substance-use-addiction-and-overdose",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Nunavik communities"
+        ],
+        "local_access_point": "Contact the local CLSC substance-use worker.",
+        "regional_intake": "The worker assesses and coordinates referral to Isuarsivik or another appropriate treatment centre.",
+        "destination_service": "Treatment may be within Nunavik or elsewhere in Quebec/Canada depending on the documented referral.",
+        "return_home_support": [
+          "The local CLSC substance-use worker provides follow-up after treatment."
+        ],
+        "source_provenance": {
+          "authority": "Régie régionale de la santé et des services sociaux du Nunavik",
+          "url": "https://www.nrbhss.ca/en/nrbhss/planning-and-programming/psychosocial-affairs/substance-use-addiction-and-overdose"
+        }
+      },
+      "source": {
+        "title": "Services en dépendance et prévention des surdoses au Nunavik",
+        "authority": "Régie régionale de la santé et des services sociaux du Nunavik",
+        "url": "https://www.nrbhss.ca/en/nrbhss/planning-and-programming/psychosocial-affairs/substance-use-addiction-and-overdose"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_qc_nunavik_health_transport",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "name": "Nunavik Health-Related Transportation",
+      "organization": "Régie régionale de la santé et des services sociaux du Nunavik",
+      "categories": [
+        "indigenous_medical_transportation",
+        "travel_funding",
+        "treatment_transportation",
+        "remote_access"
+      ],
+      "description": "Regional NIHB transportation administration for eligible Nunavik residents travelling for approved health services outside their community.",
+      "population_served": "Eligible JBNQA beneficiaries resident in Nunavik; current program rules apply.",
+      "province": "Quebec",
+      "regional_service_area": [
+        "Nunavik",
+        "Kuujjuaq"
+      ],
+      "search_locations": [
+        "Nunavik",
+        "Kuujjuaq"
+      ],
+      "province_wide": false,
+      "navigation_only": true,
+      "virtual": false,
+      "service_area": "Nunavik",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "Contact the regional program and confirm referral, approval, escort and travel arrangements before travel.",
+      "access_pathway": "Contact the regional program and confirm referral, approval, escort and travel arrangements before travel.",
+      "eligibility": "JBNQA beneficiary, Nunavik residency, referral and current benefit rules apply.",
+      "phone": "1-844-442-6442",
+      "website": "https://www.nrbhss.ca/en/nrbhss/out-region-services/non-insured-health-benefits-nihb-nunavik/health-related-transport",
+      "transportation": {
+        "funding_source": "Nunavik NIHB administration",
+        "eligible_trip_types": [
+          "Approved health-related travel"
+        ],
+        "delivery": "Regional authorization and coordination",
+        "travel_modes": [
+          "Approved air and ground travel"
+        ]
+      },
+      "source": {
+        "title": "Nunavik Health-Related Transportation",
+        "authority": "Régie régionale de la santé et des services sociaux du Nunavik",
+        "url": "https://www.nrbhss.ca/en/nrbhss/out-region-services/non-insured-health-benefits-nihb-nunavik/health-related-transport"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_qc_cree_mental_health",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "name": "Maanuuhiikuu Mental Health Services",
+      "organization": "Cree Board of Health and Social Services of James Bay",
+      "categories": [
+        "indigenous_mental_health",
+        "counselling",
+        "cultural_support",
+        "family_support",
+        "crisis_support"
+      ],
+      "description": "Culturally safe mental-health service for Eeyou Istchee communities, with a 24/7 helpline and Cree speakers or Elders available on request.",
+      "population_served": "People and families in Eeyou Istchee communities.",
+      "province": "Quebec",
+      "regional_service_area": [
+        "Eeyou Istchee",
+        "Cree territory"
+      ],
+      "province_wide": false,
+      "navigation_only": true,
+      "virtual": true,
+      "service_area": "Eeyou Istchee",
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "referral_requirements": "Call the 24/7 helpline or contact the local CMC; request a Cree speaker or Elder if desired and available.",
+      "access_pathway": "Call the 24/7 helpline or contact the local CMC; request a Cree speaker or Elder if desired and available.",
+      "phone": "1-833-632-4357",
+      "website": "https://creehealth.org/index.php/mental-health",
+      "source": {
+        "title": "Maanuuhiikuu Mental Health Services",
+        "authority": "Cree Board of Health and Social Services of James Bay",
+        "url": "https://creehealth.org/index.php/mental-health"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_qc_cree_off_territory_mh",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "name": "Off-Territory Mental Health Services",
+      "organization": "Cree Board of Health and Social Services of James Bay",
+      "categories": [
+        "indigenous_mental_health",
+        "treatment_navigation",
+        "medical_transportation",
+        "counselling"
+      ],
+      "description": "Referral pathway for Eeyou Istchee residents who require specialized mental-health services outside the territory, with case-by-case travel and accommodation coordination.",
+      "population_served": "Eligible Eeyou Istchee residents referred for specialized off-territory mental-health care.",
+      "province": "Quebec",
+      "regional_service_area": [
+        "Eeyou Istchee",
+        "Cree territory"
+      ],
+      "province_wide": false,
+      "navigation_only": true,
+      "virtual": false,
+      "service_area": "Eeyou Istchee and approved off-territory care",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "Begin with the local Community Miyupimaatisiiun Centre. A clinician referral and program approval are required before off-territory arrangements.",
+      "access_pathway": "Begin with the local Community Miyupimaatisiiun Centre. A clinician referral and program approval are required before off-territory arrangements.",
+      "phone": "819-855-9029 ext. 22813",
+      "website": "https://www.creehealth.org/services/mental-health-services-territory",
+      "transportation": {
+        "funding_source": "Wiichiihiituun / applicable benefits",
+        "eligible_trip_types": [
+          "Approved specialized off-territory mental-health care"
+        ],
+        "delivery": "Case-by-case referral, travel and accommodation coordination",
+        "travel_modes": [
+          "Approved travel"
+        ]
+      },
+      "source": {
+        "title": "Off-Territory Mental Health Services",
+        "authority": "Cree Board of Health and Social Services of James Bay",
+        "url": "https://www.creehealth.org/services/mental-health-services-territory"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_qc_treatment_stay_benefit",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [
+        "French"
+      ],
+      "name": "Prestation spéciale pour frais de séjour en toxicomanie",
+      "organization": "Gouvernement du Québec",
+      "categories": [
+        "treatment_funding",
+        "benefits_navigation",
+        "residential_treatment"
+      ],
+      "description": "Special benefit pathway that may help eligible social-assistance recipients with costs of a recognized residential addiction-treatment stay.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Quebec",
+      "search_locations": [
+        "Montréal",
+        "Québec City",
+        "Nunavik"
+      ],
+      "province_wide": true,
+      "navigation_only": true,
+      "virtual": true,
+      "service_area": "Québec",
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "referral_requirements": "Review the official requirements and submit the required form through the social-assistance program; approval is not automatic.",
+      "access_pathway": "Review the official requirements and submit the required form through the social-assistance program; approval is not automatic.",
+      "eligibility": "Current social-assistance program, recognized-centre and authorization requirements apply.",
+      "website": "https://www.quebec.ca/famille-et-soutien-aux-personnes/aide-sociale-et-solidarite-sociale/prestations-de-base/toxicomanie-frais-sejour",
+      "source": {
+        "title": "Prestation spéciale pour frais de séjour en toxicomanie",
+        "authority": "Gouvernement du Québec",
+        "url": "https://www.quebec.ca/famille-et-soutien-aux-personnes/aide-sociale-et-solidarite-sociale/prestations-de-base/toxicomanie-frais-sejour"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_ns_inpatient_withdrawal",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "name": "Nova Scotia Inpatient Withdrawal Management",
+      "organization": "Nova Scotia Health",
+      "categories": [
+        "withdrawal_management",
+        "addiction_intake",
+        "treatment_navigation",
+        "aftercare"
+      ],
+      "description": "Regional inpatient withdrawal-management program with current sites in Dartmouth, Sydney and Springhill and connection to community follow-up.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Nova Scotia",
+      "regional_service_area": [
+        "Halifax",
+        "Dartmouth",
+        "Cape Breton",
+        "Sydney",
+        "Springhill",
+        "Northern Zone",
+        "Eastern Zone",
+        "Central Zone"
+      ],
+      "search_locations": [
+        "Halifax",
+        "Dartmouth",
+        "Cape Breton",
+        "Sydney",
+        "Springhill",
+        "Truro",
+        "New Glasgow",
+        "Amherst"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": false,
+      "service_area": "Nova Scotia health zones",
+      "scope_note": "Physical beds are at listed regional sites; the service is not represented as physically present in every community.",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "Call provincial intake or the relevant regional program to confirm assessment, referral and current admission arrangements before travel.",
+      "access_pathway": "Call provincial intake or the relevant regional program to confirm assessment, referral and current admission arrangements before travel.",
+      "phone": "1-855-922-1122",
+      "website": "https://mha.nshealth.ca/en/services/inpatient-withdrawal-management-program",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Nova Scotia health zones"
+        ],
+        "local_access_point": "Call provincial intake or the zone contact.",
+        "regional_intake": "The health zone confirms whether inpatient withdrawal is the appropriate access route.",
+        "destination_service": "Current physical sites are listed on the official program page.",
+        "return_home_support": [
+          "The program connects people to community follow-up services."
+        ],
+        "source_provenance": {
+          "authority": "Nova Scotia Health",
+          "url": "https://mha.nshealth.ca/en/services/inpatient-withdrawal-management-program"
+        }
+      },
+      "source": {
+        "title": "Nova Scotia Inpatient Withdrawal Management",
+        "authority": "Nova Scotia Health",
+        "url": "https://mha.nshealth.ca/en/services/inpatient-withdrawal-management-program"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_ns_opioid_recovery_program",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "name": "Nova Scotia Opioid Recovery Program",
+      "organization": "Nova Scotia Health",
+      "categories": [
+        "oat",
+        "addiction_medicine",
+        "counselling",
+        "recovery_support",
+        "treatment_navigation"
+      ],
+      "description": "Zone-based opioid-use treatment program offering medication, counselling and recovery support through locations across Nova Scotia.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Nova Scotia",
+      "search_locations": [
+        "Halifax",
+        "Dartmouth",
+        "Cape Breton",
+        "Sydney",
+        "Truro",
+        "New Glasgow",
+        "Amherst",
+        "Yarmouth",
+        "Middleton"
+      ],
+      "province_wide": true,
+      "navigation_only": false,
+      "virtual": false,
+      "service_area": "Nova Scotia",
+      "scope_note": "One provincial program with multiple listed sites; city eligibility is not represented as a physical clinic without a listed address.",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "Call provincial intake, contact a listed location, or ask a provider to refer. Confirm the nearest current location and intake method.",
+      "access_pathway": "Call provincial intake, contact a listed location, or ask a provider to refer. Confirm the nearest current location and intake method.",
+      "phone": "1-855-922-1122",
+      "website": "https://mha.nshealth.ca/en/opioid-recovery-program",
+      "source": {
+        "title": "Nova Scotia Opioid Recovery Program",
+        "authority": "Nova Scotia Health",
+        "url": "https://mha.nshealth.ca/en/opioid-recovery-program"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nb_addiction_services",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [
+        "English",
+        "French"
+      ],
+      "name": "New Brunswick Addiction Services",
+      "organization": "Government of New Brunswick",
+      "categories": [
+        "addiction_intake",
+        "withdrawal_navigation",
+        "oat_navigation",
+        "outpatient_treatment",
+        "residential_treatment",
+        "counselling",
+        "family_support"
+      ],
+      "description": "Provincial pathway to Horizon and Vitalité addiction services, including open-access therapy, withdrawal management, outpatient care, addiction medicine and live-in treatment.",
+      "population_served": "People seeking the listed practical service",
+      "province": "New Brunswick",
+      "search_locations": [
+        "Moncton",
+        "Saint John",
+        "Fredericton",
+        "Bathurst",
+        "Campbellton",
+        "Miramichi",
+        "Edmundston",
+        "Grand Falls",
+        "Tracadie"
+      ],
+      "province_wide": true,
+      "navigation_only": true,
+      "virtual": true,
+      "service_area": "New Brunswick",
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "referral_requirements": "Call the free 24/7 provincial helpline or a regional centre listed on the official English or French page to confirm current access.",
+      "access_pathway": "Call the free 24/7 provincial helpline or a regional centre listed on the official English or French page to confirm current access.",
+      "phone": "1-866-355-5550",
+      "website": "https://www.gnb.ca/en/topic/health-wellness/addictions-substance-abuse/addiction-services.html",
+      "source": {
+        "title": "New Brunswick Addiction Services",
+        "authority": "Government of New Brunswick",
+        "url": "https://www.gnb.ca/en/topic/health-wellness/addictions-substance-abuse/addiction-services.html"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nb_horizon_withdrawal",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [
+        "English",
+        "French"
+      ],
+      "name": "Horizon Inpatient Addiction Detoxification Services",
+      "organization": "Horizon Health Network",
+      "categories": [
+        "withdrawal_management",
+        "addiction_intake",
+        "treatment_navigation"
+      ],
+      "description": "Appointment-based inpatient addiction detoxification service at Horizon sites in Fredericton, Miramichi, Moncton and Saint John.",
+      "population_served": "People seeking the listed practical service",
+      "province": "New Brunswick",
+      "regional_service_area": [
+        "Fredericton",
+        "Miramichi",
+        "Moncton",
+        "Saint John"
+      ],
+      "search_locations": [
+        "Fredericton",
+        "Miramichi",
+        "Moncton",
+        "Saint John"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": false,
+      "service_area": "Horizon Health Network regions",
+      "scope_note": "Regional parent program; consult the official site list for the correct physical location and phone.",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "Call the specific site listed on the official page for an appointment and current admission requirements before travel.",
+      "access_pathway": "Call the specific site listed on the official page for an appointment and current admission requirements before travel.",
+      "phone": "506-856-2333",
+      "website": "https://horizonnb.ca/services/addictions-mental-health/adult-services/inpatient-addiction-detoxification-services/",
+      "source": {
+        "title": "Horizon Inpatient Addiction Detoxification Services",
+        "authority": "Horizon Health Network",
+        "url": "https://horizonnb.ca/services/addictions-mental-health/adult-services/inpatient-addiction-detoxification-services/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nb_horizon_oat",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [
+        "English",
+        "French"
+      ],
+      "name": "Horizon Opioid Replacement Treatment Program",
+      "organization": "Horizon Health Network",
+      "categories": [
+        "oat",
+        "addiction_medicine",
+        "counselling",
+        "virtual_support"
+      ],
+      "description": "Regional opioid agonist treatment program with in-person, telephone and virtual access through listed Horizon locations.",
+      "population_served": "People seeking the listed practical service",
+      "province": "New Brunswick",
+      "regional_service_area": [
+        "Fredericton",
+        "Miramichi",
+        "Saint John",
+        "Moncton"
+      ],
+      "search_locations": [
+        "Fredericton",
+        "Miramichi",
+        "Saint John",
+        "Moncton"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": true,
+      "service_area": "Horizon Health Network regions",
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "referral_requirements": "Contact the nearest listed site directly or use a provider referral; confirm current intake and location before attending.",
+      "access_pathway": "Contact the nearest listed site directly or use a provider referral; confirm current intake and location before attending.",
+      "phone": "506-869-6655",
+      "website": "https://horizonnb.ca/services/addictions-mental-health/adult-services/opioid-replacement-treatment-program/",
+      "source": {
+        "title": "Horizon Opioid Replacement Treatment Program",
+        "authority": "Horizon Health Network",
+        "url": "https://horizonnb.ca/services/addictions-mental-health/adult-services/opioid-replacement-treatment-program/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nb_vitalite_addictions",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [
+        "French"
+      ],
+      "name": "Traitement des dépendances — Réseau de santé Vitalité",
+      "organization": "Réseau de santé Vitalité",
+      "categories": [
+        "addiction_intake",
+        "withdrawal_management",
+        "oat",
+        "outpatient_treatment",
+        "residential_treatment",
+        "counselling",
+        "family_support",
+        "aftercare"
+      ],
+      "description": "Voie francophone régionale offrant consultation externe, traitement des opioïdes, désintoxication, traitement résidentiel et soutien à la famille.",
+      "population_served": "People seeking the listed practical service",
+      "province": "New Brunswick",
+      "regional_service_area": [
+        "Bathurst",
+        "Campbellton",
+        "Edmundston",
+        "Grand Falls",
+        "Tracadie",
+        "Acadie-Bathurst",
+        "Restigouche",
+        "Nord-Ouest"
+      ],
+      "search_locations": [
+        "Bathurst",
+        "Campbellton",
+        "Edmundston",
+        "Grand Falls",
+        "Tracadie"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": false,
+      "service_area": "Zones francophones du Nouveau-Brunswick",
+      "scope_note": "Regional parent program; consult the official French site list for the correct physical location and phone.",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "Appelez directement le point de service officiel approprié. La page indique les numéros de Bathurst, Campbellton, Edmundston, Grand-Sault, Kedgwick et Tracadie.",
+      "access_pathway": "Appelez directement le point de service officiel approprié. La page indique les numéros de Bathurst, Campbellton, Edmundston, Grand-Sault, Kedgwick et Tracadie.",
+      "phone": "1-844-735-2092",
+      "website": "https://vitalitenb.ca/fr/services-et-emplacement/repertoire-des-services/traitement-des-dependances",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Vitalité health zones"
+        ],
+        "local_access_point": "Call the relevant official service point directly.",
+        "regional_intake": "A social worker or nurse assesses the request and proposes outpatient or other addiction services.",
+        "destination_service": "Residential withdrawal and rehabilitation are provided only at the physical centres identified on the official page.",
+        "return_home_support": [
+          "The regional service describes outpatient follow-up and family supports after withdrawal or treatment."
+        ],
+        "source_provenance": {
+          "authority": "Réseau de santé Vitalité",
+          "url": "https://vitalitenb.ca/fr/services-et-emplacement/repertoire-des-services/traitement-des-dependances"
+        }
+      },
+      "source": {
+        "title": "Traitement des dépendances — Réseau de santé Vitalité",
+        "authority": "Réseau de santé Vitalité",
+        "url": "https://vitalitenb.ca/fr/services-et-emplacement/repertoire-des-services/traitement-des-dependances"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nb_community_transport",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [
+        "English",
+        "French"
+      ],
+      "name": "New Brunswick Community Transportation Services",
+      "organization": "Government of New Brunswick / Regional Service Commissions",
+      "categories": [
+        "transportation",
+        "medical_transportation",
+        "rural_access",
+        "community_navigation"
+      ],
+      "description": "Regional community-transportation network offering essential trips, including medical appointments, through participating local organizations.",
+      "population_served": "People seeking the listed practical service",
+      "province": "New Brunswick",
+      "search_locations": [
+        "Moncton",
+        "Saint John",
+        "Fredericton",
+        "Bathurst",
+        "Campbellton",
+        "Miramichi",
+        "Edmundston"
+      ],
+      "province_wide": true,
+      "navigation_only": true,
+      "virtual": false,
+      "service_area": "Participating New Brunswick regions",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "Use the official regional map/list to contact the local provider. Trip availability, cost and eligibility vary and must be confirmed.",
+      "access_pathway": "Use the official regional map/list to contact the local provider. Trip availability, cost and eligibility vary and must be confirmed.",
+      "website": "https://www.gnb.ca/en/org/economic-social-inclusion/community-transport.html",
+      "source": {
+        "title": "New Brunswick Community Transportation Services",
+        "authority": "Government of New Brunswick / Regional Service Commissions",
+        "url": "https://www.gnb.ca/en/org/economic-social-inclusion/community-transport.html"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_pe_oat",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "name": "Health PEI Opioid Replacement Therapy Program",
+      "organization": "Health PEI",
+      "categories": [
+        "oat",
+        "addiction_medicine",
+        "counselling",
+        "treatment_navigation"
+      ],
+      "description": "Provincial opioid agonist treatment pathway with screening and clinic access in Charlottetown, Summerside and Montague.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Prince Edward Island",
+      "regional_service_area": [
+        "Charlottetown",
+        "Summerside",
+        "Montague",
+        "Prince Edward Island"
+      ],
+      "search_locations": [
+        "Charlottetown",
+        "Summerside",
+        "Montague",
+        "Souris",
+        "Alberton"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": false,
+      "service_area": "Prince Edward Island",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "Call the toll-free number for the initial screening and confirmation of the correct clinic; current PEI health coverage requirements apply.",
+      "access_pathway": "Call the toll-free number for the initial screening and confirmation of the correct clinic; current PEI health coverage requirements apply.",
+      "phone": "1-888-299-8399",
+      "website": "https://www.princeedwardisland.ca/en/information/health-pei/opioid-replacement-therapy-program",
+      "source": {
+        "title": "Health PEI Opioid Replacement Therapy Program",
+        "authority": "Health PEI",
+        "url": "https://www.princeedwardisland.ca/en/information/health-pei/opioid-replacement-therapy-program"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_pe_extended_care",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "name": "Health PEI Addictions Extended Care Residences",
+      "organization": "Health PEI",
+      "categories": [
+        "recovery_housing",
+        "aftercare",
+        "addiction_treatment",
+        "counselling",
+        "return_home_support"
+      ],
+      "description": "Structured extended-care residences in Charlottetown and Summerside for people continuing recovery after an addictions program.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Prince Edward Island",
+      "regional_service_area": [
+        "Charlottetown",
+        "Summerside",
+        "Prince Edward Island"
+      ],
+      "search_locations": [
+        "Charlottetown",
+        "Summerside"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": false,
+      "service_area": "Prince Edward Island",
+      "scope_note": "One provincial program with distinct residences and eligibility; not a general emergency shelter.",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "A community addictions worker assesses and refers. Confirm residence, current criteria and space directly; access is not automatic.",
+      "access_pathway": "A community addictions worker assesses and refers. Confirm residence, current criteria and space directly; access is not automatic.",
+      "website": "https://www.princeedwardisland.ca/en/information/health-pei/addictions-extended-care-residences",
+      "source": {
+        "title": "Health PEI Addictions Extended Care Residences",
+        "authority": "Health PEI",
+        "url": "https://www.princeedwardisland.ca/en/information/health-pei/addictions-extended-care-residences"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_pe_medical_travel_bus",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "name": "PEI Subsidized Maritime Bus Tickets for Medical Travel",
+      "organization": "Government of Prince Edward Island",
+      "categories": [
+        "medical_transportation",
+        "travel_funding",
+        "treatment_transportation"
+      ],
+      "description": "Application pathway for subsidized Maritime Bus tickets for eligible off-Island medical travel.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Prince Edward Island",
+      "province_wide": true,
+      "navigation_only": true,
+      "virtual": false,
+      "service_area": "Prince Edward Island residents travelling off-Island for eligible care",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "Apply at least 10 days before the appointment and confirm current income, health-card, referral and destination requirements.",
+      "access_pathway": "Apply at least 10 days before the appointment and confirm current income, health-card, referral and destination requirements.",
+      "eligibility": "Current PEI health-card, household-income and eligible out-of-province appointment rules apply.",
+      "phone": "902-368-5918",
+      "website": "https://www.princeedwardisland.ca/en/service/apply-for-subsidized-maritime-bus-tickets-for-out-of-province-medical-travel",
+      "transportation": {
+        "funding_source": "Government of Prince Edward Island",
+        "eligible_trip_types": [
+          "Eligible out-of-province medical appointments"
+        ],
+        "delivery": "Advance application for subsidized Maritime Bus tickets",
+        "travel_modes": [
+          "Maritime Bus"
+        ]
+      },
+      "source": {
+        "title": "PEI Subsidized Maritime Bus Tickets for Medical Travel",
+        "authority": "Government of Prince Edward Island",
+        "url": "https://www.princeedwardisland.ca/en/service/apply-for-subsidized-maritime-bus-tickets-for-out-of-province-medical-travel"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_pe_emergency_patient_navigator",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "healthcare_adjacent_support",
+      "workflow_relevance": [
+        "hospital_discharge",
+        "addiction_follow_up",
+        "mental_health_follow_up"
+      ],
+      "languages": [],
+      "name": "Health PEI Mental Health and Addictions Patient Navigator",
+      "organization": "Health PEI",
+      "categories": [
+        "hospital_patient_navigation",
+        "mental_health_navigation",
+        "addiction_navigation",
+        "discharge_support"
+      ],
+      "description": "Patient navigation contact helping people understand and connect with Health PEI mental-health and addiction services, including after an emergency-department encounter.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Prince Edward Island",
+      "province_wide": true,
+      "navigation_only": true,
+      "virtual": true,
+      "service_area": "Prince Edward Island",
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "referral_requirements": "Call the patient navigator for service navigation. The linked page states that the Short Stay Unit is not currently available; do not treat this contact as an active short-stay bed.",
+      "access_pathway": "Call the patient navigator for service navigation. The linked page states that the Short Stay Unit is not currently available; do not treat this contact as an active short-stay bed.",
+      "phone": "902-218-3289",
+      "website": "https://www.princeedwardisland.ca/en/information/health-pei/mental-health-and-addictions-emergency-department-short-stay-unit",
+      "source": {
+        "title": "Health PEI Mental Health and Addictions Patient Navigator",
+        "authority": "Health PEI",
+        "url": "https://www.princeedwardisland.ca/en/information/health-pei/mental-health-and-addictions-emergency-department-short-stay-unit"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nl_mha_systems_navigator",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "name": "Mental Health and Addictions Systems Navigator",
+      "organization": "Newfoundland and Labrador Health Services",
+      "categories": [
+        "addiction_intake",
+        "mental_health",
+        "housing_navigation",
+        "income_navigation",
+        "health_navigation",
+        "justice_navigation",
+        "family_support"
+      ],
+      "description": "Provincial navigator helping individuals, families and providers identify mental-health and addiction options and connect with related housing, income, health, community and justice services.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Newfoundland and Labrador",
+      "search_locations": [
+        "St. John's",
+        "Corner Brook",
+        "Gander",
+        "Grand Falls-Windsor",
+        "Happy Valley-Goose Bay",
+        "Labrador City",
+        "St. Anthony"
+      ],
+      "province_wide": true,
+      "navigation_only": true,
+      "virtual": true,
+      "service_area": "Newfoundland and Labrador",
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "referral_requirements": "Call the toll-free navigator line or email MHAnavigation@nlhealthservices.ca. This is a navigation service, not emergency response.",
+      "access_pathway": "Call the toll-free navigator line or email MHAnavigation@nlhealthservices.ca. This is a navigation service, not emergency response.",
+      "phone": "1-877-999-7589",
+      "website": "https://nlhealthservices.ca/patient-resources/patient-navigation-services/",
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Newfoundland and Labrador"
+        ],
+        "local_access_point": "Contact the provincial navigator.",
+        "regional_intake": "The navigator identifies and connects the appropriate regional addiction, mental-health and related practical supports.",
+        "return_home_support": [
+          "The navigator can reconnect housing, income, health, community and justice supports after treatment or discharge."
+        ],
+        "source_provenance": {
+          "authority": "Newfoundland and Labrador Health Services",
+          "url": "https://nlhealthservices.ca/patient-resources/patient-navigation-services/"
+        }
+      },
+      "source": {
+        "title": "Mental Health and Addictions Systems Navigator",
+        "authority": "Newfoundland and Labrador Health Services",
+        "url": "https://nlhealthservices.ca/patient-resources/patient-navigation-services/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nl_indigenous_patient_navigators",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "resource_layer": "healthcare_adjacent_support",
+      "workflow_relevance": [
+        "hospital_discharge",
+        "medical_travel",
+        "indigenous_health_navigation",
+        "return_home"
+      ],
+      "languages": [],
+      "name": "NL Health Services Indigenous Patient Navigators",
+      "organization": "Newfoundland and Labrador Health Services",
+      "categories": [
+        "indigenous_patient_navigation",
+        "medical_travel_navigation",
+        "hospital_discharge",
+        "cultural_support"
+      ],
+      "description": "Indigenous patient navigators supporting access, discharge planning, appointments, travel, accommodation and culturally appropriate health-system navigation in Eastern, Western and Labrador regions.",
+      "population_served": "Indigenous patients and families accessing health services in the listed Newfoundland and Labrador regions.",
+      "province": "Newfoundland and Labrador",
+      "regional_service_area": [
+        "St. John's",
+        "Western Newfoundland",
+        "Corner Brook",
+        "Labrador",
+        "Happy Valley-Goose Bay",
+        "Labrador City",
+        "St. Anthony"
+      ],
+      "province_wide": false,
+      "navigation_only": true,
+      "virtual": false,
+      "service_area": "Eastern, Western and Labrador regions",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "Use the regional phone or email listed on the official page; confirm the navigator serving the relevant community and current referral route.",
+      "access_pathway": "Use the regional phone or email listed on the official page; confirm the navigator serving the relevant community and current referral route.",
+      "website": "https://nlhealthservices.ca/patient-resources/patient-navigation-services/",
+      "source": {
+        "title": "NL Health Services Indigenous Patient Navigators",
+        "authority": "Newfoundland and Labrador Health Services",
+        "url": "https://nlhealthservices.ca/patient-resources/patient-navigation-services/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nl_labrador_odt_hub",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "healthcare_adjacent_support",
+      "workflow_relevance": [
+        "oat",
+        "withdrawal",
+        "no_primary_care",
+        "hepatitis",
+        "hospital_to_community"
+      ],
+      "languages": [],
+      "name": "Labrador-Grenfell Opioid Dependence Treatment Hub",
+      "organization": "Newfoundland and Labrador Health Services",
+      "categories": [
+        "oat",
+        "withdrawal_support",
+        "addiction_counselling",
+        "family_support",
+        "harm_reduction",
+        "hepatitis_c",
+        "virtual_support"
+      ],
+      "description": "Regional opioid dependence treatment hub providing OAT, withdrawal and counselling support, naloxone and safer supplies, family support, and hepatitis C/STBBI screening and treatment.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Newfoundland and Labrador",
+      "community": "Happy Valley-Goose Bay",
+      "physical_location": {
+        "community": "Happy Valley-Goose Bay",
+        "province": "Newfoundland and Labrador"
+      },
+      "local_service_area": [
+        "Happy Valley-Goose Bay"
+      ],
+      "regional_service_area": [
+        "Labrador",
+        "Labrador-Grenfell Zone",
+        "Labrador City",
+        "St. Anthony"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": true,
+      "service_area": "Labrador-Grenfell Zone",
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "referral_requirements": "Call the hub directly; appointment, walk-in, telephone and Telehealth access are described for the zone. Confirm current hours before travelling.",
+      "access_pathway": "Call the hub directly; appointment, walk-in, telephone and Telehealth access are described for the zone. Confirm current hours before travelling.",
+      "phone": "709-897-2125",
+      "website": "https://nlhealthservices.ca/story/holistic-approach-to-care-improves-access-to-services/",
+      "source": {
+        "title": "Labrador-Grenfell Opioid Dependence Treatment Hub",
+        "authority": "Newfoundland and Labrador Health Services",
+        "url": "https://nlhealthservices.ca/story/holistic-approach-to-care-improves-access-to-services/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "miller_nl_gander_odt",
+      "project_visibility": [
+        "miller"
+      ],
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "name": "Gander Opioid Dependence Treatment Clinic",
+      "organization": "Newfoundland and Labrador Health Services",
+      "categories": [
+        "oat",
+        "addiction_medicine",
+        "counselling",
+        "treatment_navigation"
+      ],
+      "description": "Central Newfoundland opioid dependence treatment clinic listed by NL Health Services at the Gander Community Health Centre.",
+      "population_served": "People seeking the listed practical service",
+      "province": "Newfoundland and Labrador",
+      "community": "Gander",
+      "physical_location": {
+        "community": "Gander",
+        "province": "Newfoundland and Labrador"
+      },
+      "local_service_area": [
+        "Gander"
+      ],
+      "regional_service_area": [
+        "Central Newfoundland",
+        "Grand Falls-Windsor"
+      ],
+      "province_wide": false,
+      "navigation_only": false,
+      "virtual": false,
+      "service_area": "Gander and Central Newfoundland",
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "referral_requirements": "Call the clinic to confirm current intake, referral requirements and appointment options.",
+      "access_pathway": "Call the clinic to confirm current intake, referral requirements and appointment options.",
+      "phone": "709-256-1356",
+      "website": "https://nlhealthservices.ca/contact-us/phone-directory/",
+      "source": {
+        "title": "Gander Opioid Dependence Treatment Clinic",
+        "authority": "Newfoundland and Labrador Health Services",
+        "url": "https://nlhealthservices.ca/contact-us/phone-directory/"
+      },
+      "last_verified_date": "2026-09-08"
+    }
+  ]
+}

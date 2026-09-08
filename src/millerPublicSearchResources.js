@@ -199,6 +199,9 @@ export function sharedCanonicalMillerResource(record = {}) {
         source_provenance: record.navigation_pathway.source_provenance || null,
       }
       : null,
+    resourceLayer: text(record.resource_layer || "core"),
+    workflowRelevance: Array.isArray(record.workflow_relevance) ? record.workflow_relevance.map(text).filter(Boolean) : [],
+    languages: Array.isArray(record.languages) ? record.languages.map(text).filter(Boolean) : [],
     searchLocations: [...new Set([
       ...(Array.isArray(scope.search_locations) ? scope.search_locations : []),
       ...(Array.isArray(scope.local_service_area) ? scope.local_service_area : []),
@@ -246,6 +249,8 @@ export function millerResourceSearchText(resource) {
     ...(resource?.localServiceArea || []),
     ...(resource?.regionalServiceArea || []),
     ...(resource?.tags || []),
+    ...(resource?.workflowRelevance || []),
+    ...(resource?.languages || []),
     ...(resource?.searchLocations || []),
     ...(resource?.collectionLinks || []).map(link => link.label),
   ].map(text).join(" ").toLowerCase().replace(/\s+/g, " ")
@@ -286,6 +291,8 @@ function mergeRecord(base, extra) {
     navigationOnly: Boolean(base.navigationOnly || extra.navigationOnly),
     localServiceArea: [...new Set([...(base.localServiceArea || []), ...(extra.localServiceArea || [])])],
     regionalServiceArea: [...new Set([...(base.regionalServiceArea || []), ...(extra.regionalServiceArea || [])])],
+    workflowRelevance: [...new Set([...(base.workflowRelevance || []), ...(extra.workflowRelevance || [])])],
+    languages: [...new Set([...(base.languages || []), ...(extra.languages || [])])],
   }
   if (extra.verification_status === "verified_active") {
     for (const key of ["sourceAuthority", "sourceUrl", "verification_status", "location_last_verified", "referralNote", "accessRequirements", "fundingType", "transportationNote", "physicalLocation", "scopeNote"]) {

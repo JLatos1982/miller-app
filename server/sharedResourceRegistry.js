@@ -165,6 +165,9 @@ export function normalizeSharedResource(record, { project, sourceKind }) {
       travel_modes: array(record.transportation.travel_modes).map(clean),
     }) : null,
     navigation_pathway: navigationPathway(record),
+    resource_layer: clean(record.resource_layer || "core"),
+    workflow_relevance: [...new Set(array(record.workflow_relevance).map(clean).filter(Boolean))],
+    languages: [...new Set(array(record.languages).map(clean).filter(Boolean))],
     source: { title: clean(record.source?.title || name), authority: clean(record.source?.authority || organization), url: clean(record.source?.url || website) },
     last_verified: clean(record.last_verified_date || record.last_verified_at),
     verification_status: funding && !ACTIVE_FUNDING.has(record.status) ? "expired_closed" : "verified_active",
@@ -182,7 +185,7 @@ function mergeRecords(left, right) {
     project_visibility: visibility([...left.project_visibility, ...right.project_visibility]),
     source_record_ids: [...new Set([...left.source_record_ids, ...right.source_record_ids])].sort(),
   }
-  for (const key of ["program_name", "organization", "description", "population_served", "indigenous_scope", "governance_type", "geography", "province", "city_community", "address", "service_area", "eligibility", "cost", "referral_requirement", "access", "phone", "email", "website", "housing", "legal_support", "transportation", "navigation_pathway"]) {
+  for (const key of ["program_name", "organization", "description", "population_served", "indigenous_scope", "governance_type", "geography", "province", "city_community", "address", "service_area", "eligibility", "cost", "referral_requirement", "access", "phone", "email", "website", "housing", "legal_support", "transportation", "navigation_pathway", "resource_layer"]) {
     if (right[key] && (rightIsCurrent || !merged[key])) merged[key] = right[key]
   }
   const leftScope = left.service_scope || {}
@@ -203,6 +206,8 @@ function mergeRecords(left, right) {
   merged.access_requirements = [...new Set([...(left.access_requirements || []), ...(right.access_requirements || [])])]
   merged.required_documents = [...new Set([...(left.required_documents || []), ...(right.required_documents || [])])]
   merged.delivery_modes = [...new Set([...(left.delivery_modes || []), ...(right.delivery_modes || [])])]
+  merged.workflow_relevance = [...new Set([...(left.workflow_relevance || []), ...(right.workflow_relevance || [])])]
+  merged.languages = [...new Set([...(left.languages || []), ...(right.languages || [])])]
   if (left.funding || right.funding) {
     merged.funding = { ...(left.funding || {}) }
     for (const [key, value] of Object.entries(right.funding || {})) if (value && (rightIsCurrent || !merged.funding[key])) merged.funding[key] = value
@@ -253,6 +258,8 @@ export function validateSharedResourceRegistry(registry) {
     if (record.housing && !record.categories.includes("housing")) throw new Error("invalid_housing_taxonomy")
     if (record.legal_support && !record.categories.includes("legal_rights")) throw new Error("invalid_legal_taxonomy")
     if (!record.service_scope || typeof record.service_scope !== "object") throw new Error("invalid_service_scope")
+    if (!["core", "healthcare_adjacent_support"].includes(record.resource_layer)) throw new Error("invalid_resource_layer")
+    if (!Array.isArray(record.workflow_relevance) || !Array.isArray(record.languages)) throw new Error("invalid_resource_support_metadata")
     if (![record.service_scope.local_service_area, record.service_scope.regional_service_area, record.service_scope.search_locations].every(Array.isArray)) throw new Error("invalid_service_scope_areas")
     if (![record.service_scope.province_wide, record.service_scope.canada_wide, record.service_scope.virtual, record.service_scope.navigation_only, record.service_scope.travel_required].every(value => typeof value === "boolean")) throw new Error("invalid_service_scope_flags")
     if (record.navigation_pathway) {
