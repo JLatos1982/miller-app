@@ -25,7 +25,7 @@ const BARRIER_NEEDS = new Set(["transportation", "funding", "legal", "basic_need
 function inferredNeeds(query) {
   const text = normalized(query)
   const needs = []
-  if (/\b(leaving|after|discharg(?:e|ed|ing)|finishing)\b.*\b(detox|treatment|custody|jail|hospital)\b|\b(housing|somewhere to stay)\b.*\bafter\b.*\b(detox|treatment)/.test(text)) needs.push("continuity")
+  if (/\b(leaving|after|discharg(?:e|ed|ing)|finishing)\b.*\b(detox|treatment|custody|jail|hospital)\b|\b(housing|somewhere to stay)\b.*\b(after|afterward|afterwards)\b.*\b(detox|treatment)|\b(detox|treatment)\b.*\b(housing|somewhere to stay)\b.*\b(after|afterward|afterwards)\b/.test(text)) needs.push("continuity")
   if (/\b(no|without|doesn t have|do not have)\b.*\b(family doctor|doctor|primary care|referral)\b|\bhow (?:do|can) (?:i|we|they) (?:get|access|start)\b/.test(text)) needs.push("access_navigation")
   if (/\b(doesn t drive|does not drive|no car|can t get there|cannot get there)\b/.test(text)) needs.push("transportation")
   if (/\b(can t afford|cannot afford|low cost|free option|cost is a barrier)\b/.test(text)) needs.push("funding")

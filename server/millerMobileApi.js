@@ -2,7 +2,7 @@ import { buildMillerPracticalIntelligence, detectMillerPracticalIntents, isMille
 import { millerResourceSearchText } from "../src/millerPublicSearchResources.js"
 import { conciseResourceDescription } from "../src/millerResultPresentation.js"
 import { buildMobileReadinessIndex, mobileReadinessSummary } from "./millerMobileReadiness.js"
-import { MILLER_WESTERN_CITY_PROVINCES } from "./millerWesternCommunities.js"
+import { MILLER_WESTERN_LOCATION_LABELS, MILLER_WESTERN_LOCATION_PROVINCES } from "./millerWesternCommunities.js"
 import { buildMillerAccessPathway, decomposeMillerProfessionalNeeds, explainMillerProfessionalResults, recommendedMillerPackIds } from "./millerProfessionalWorkflow.js"
 
 export const MILLER_MOBILE_API_VERSION = "miller-mobile-search-v1"
@@ -88,16 +88,15 @@ function cityFor(resource) {
 
 function detectedLocation(query, resources) {
   const haystack = ` ${normalized(query)} `
-  const cities = [...new Set([...resources.map(cityFor).filter(Boolean), ...Object.keys(MILLER_WESTERN_CITY_PROVINCES)])]
+  const cities = [...new Set([...resources.map(cityFor).filter(Boolean), ...Object.keys(MILLER_WESTERN_LOCATION_PROVINCES)])]
     .sort((left, right) => right.length - left.length)
   const match = cities.find(city => haystack.includes(` ${normalized(city)} `)) || ""
-  if (!match || !Object.hasOwn(MILLER_WESTERN_CITY_PROVINCES, normalized(match))) return match
-  return Object.keys(MILLER_WESTERN_CITY_PROVINCES).find(city => normalized(city) === normalized(match))
-    ?.split(" ").map(word => `${word[0].toUpperCase()}${word.slice(1)}`).join(" ") || match
+  if (!match || !Object.hasOwn(MILLER_WESTERN_LOCATION_PROVINCES, normalized(match))) return match
+  return MILLER_WESTERN_LOCATION_LABELS[normalized(match)] || match
 }
 
 function provinceForLocation(location) {
-  return MILLER_WESTERN_CITY_PROVINCES[normalized(location)] || ""
+  return MILLER_WESTERN_LOCATION_PROVINCES[normalized(location)] || ""
 }
 
 function detectedProvince(query) {
@@ -328,7 +327,7 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
     .map(resource => ({ resource, score: scoreResource(resource, { ...request, location, province, intents, readiness: readiness.get(clean(resource.id)) }) }))
     .filter(item => item.score > 10 && matchesAnyIntent(item.resource, intents))
     .sort((left, right) => right.score - left.score || clean(left.resource.name).localeCompare(clean(right.resource.name)))
-  const exactLocation = ranked.filter(({ resource }) => isExactLocationResource(resource, location) && directlyRepresentsIntent(resource, intents[0]))
+  const exactLocation = ranked.filter(({ resource }) => resource?.navigationOnly !== true && isExactLocationResource(resource, location) && directlyRepresentsIntent(resource, intents[0]))
   const directlyRelevant = ranked.filter(({ resource }) => {
     if (isExactLocationResource(resource, location)) return true
     if (servesLocation(resource, location)) return true

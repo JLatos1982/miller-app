@@ -1,5 +1,10 @@
 # Western Canada regional data-readiness review — 2026-09-08
 
+> Follow-up: the targeted five-seam and 25-record legacy refresh later on
+> 2026-09-08 supersedes the counts below: the shared canonical registry is 227,
+> the mobile projection is 482, and 192/482 (39.8%) are mobile-ready. See
+> `western-priority-seams-2026-09-08.md` for the bounded follow-up.
+
 This report covers the public practical-resource projection consumed by Miller
 and its mobile API. It excludes Miller North evidence, Palantír intelligence,
 owner-review records, and unpublished legal or investigative material.

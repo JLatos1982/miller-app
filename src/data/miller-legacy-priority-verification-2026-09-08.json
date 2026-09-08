@@ -1,0 +1,957 @@
+{
+  "schema_version": "miller-legacy-priority-verification-v1",
+  "generated_at": "2026-09-08",
+  "selection_method": [
+    "common frontline category",
+    "benchmark or top-result relevance",
+    "service-area importance",
+    "no stronger current alternative"
+  ],
+  "verification_scope": "A bounded 25-record refresh using current first-party or official HTTPS service/provider pages; missing facts were not inferred.",
+  "records": [
+    {
+      "canonical_resource_id": "curated:wka1fv",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Crawford Manor",
+      "organization": "Lookout Society / Crawford Manor (STLR)",
+      "categories": [
+        "Treatment Programs"
+      ],
+      "description": "Younger adult stabilization and transitional living home for men with current or recent mild to moderate substance use issues. Offers recovery groups, exercise groups, life skills, and goal setting.",
+      "population_served": "Men 19-35",
+      "province": "British Columbia",
+      "community": "Surrey",
+      "address": "10008 & 10010 128 St",
+      "physical_location": {
+        "community": "Surrey",
+        "address": "10008 & 10010 128 St",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Surrey"
+      ],
+      "service_area": "Fraser South",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Contact program directly",
+      "access_pathway": "Contact program directly",
+      "phone": "604-589-0248",
+      "website": "https://www.lookoutsociety.ca",
+      "source": {
+        "title": "Crawford Manor",
+        "authority": "Lookout Society / Crawford Manor (STLR)",
+        "url": "https://www.lookoutsociety.ca"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:1e7gz3l",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Westminster House",
+      "organization": "Westminster House (STLR)",
+      "categories": [
+        "Treatment Programs"
+      ],
+      "description": "90-day residential treatment program for women healing from addiction. Social model, 12-step based, with therapy groups, AA/NA meetings, family support groups, and relapse prevention for alumni.",
+      "population_served": "Women 19+",
+      "province": "British Columbia",
+      "community": "New Westminster",
+      "address": "228 7th St",
+      "physical_location": {
+        "community": "New Westminster",
+        "address": "228 7th St",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "New Westminster"
+      ],
+      "service_area": "Fraser North",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Contact program directly",
+      "access_pathway": "Contact program directly",
+      "phone": "604-524-5633",
+      "website": "https://www.westminsterhouse.ca",
+      "source": {
+        "title": "Westminster House",
+        "authority": "Westminster House (STLR)",
+        "url": "https://www.westminsterhouse.ca"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:1i84h63",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Substance Use Services Access Team (SUSAT) - Fraser North",
+      "organization": "Fraser Health",
+      "categories": [
+        "Addiction Services Navigation"
+      ],
+      "description": "Centralized Fraser Health navigation and referral service for treatment centres, OAT, counselling, and community substance use supports.",
+      "population_served": "Adults",
+      "province": "British Columbia",
+      "community": "New Westminster",
+      "address": "Fraser Health regional service",
+      "physical_location": {
+        "community": "New Westminster",
+        "address": "Fraser Health regional service",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "New Westminster"
+      ],
+      "service_area": "Fraser North",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Self-referral / provider referral",
+      "access_pathway": "Self-referral / provider referral",
+      "eligibility": "19+",
+      "phone": "1-833-866-6478",
+      "website": "https://www.fraserhealth.ca",
+      "source": {
+        "title": "Substance Use Services Access Team (SUSAT) - Fraser North",
+        "authority": "Fraser Health",
+        "url": "https://www.fraserhealth.ca"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:1ivoapt",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Pacifica Treatment Centre",
+      "organization": "Pacifica",
+      "categories": [
+        "Treatment Programs"
+      ],
+      "description": "Private residential treatment centre with psychoeducation, process group therapy, individual counselling, wellness programming, medical services, case management, family days, alumni support, and peer recovery supports.",
+      "population_served": "Adults",
+      "province": "British Columbia",
+      "community": "Vancouver",
+      "address": "1755 11th Ave E",
+      "physical_location": {
+        "community": "Vancouver",
+        "address": "1755 11th Ave E",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Vancouver"
+      ],
+      "service_area": "BC",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Self-referral / Intake",
+      "access_pathway": "Self-referral / Intake",
+      "eligibility": "Adults",
+      "phone": "1-866-446-0668",
+      "website": "https://www.pacificatreatment.ca/",
+      "source": {
+        "title": "Pacifica Treatment Centre",
+        "authority": "Pacifica",
+        "url": "https://www.pacificatreatment.ca/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:1dh7k5m",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Richmond Community Mental Health and Substance Use - Central Intake",
+      "organization": "Vancouver Coastal Health",
+      "categories": [
+        "Mental Health and Substance Use Intake"
+      ],
+      "description": "Single Richmond intake line for non-life-threatening mental health and substance use support. Intake available in English, Cantonese and Mandarin, with interpreting available in other languages.",
+      "population_served": "Children, youth, adults, older adults",
+      "province": "British Columbia",
+      "community": "Richmond",
+      "address": "8100 Granville Avenue",
+      "physical_location": {
+        "community": "Richmond",
+        "address": "8100 Granville Avenue",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Richmond"
+      ],
+      "service_area": "VCH",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Call / Drop-in",
+      "access_pathway": "Call / Drop-in",
+      "eligibility": "All ages",
+      "phone": "604-204-1111",
+      "website": "https://www.vch.ca/en/service/richmond-community-mental-health-and-substance-use-central-intake",
+      "source": {
+        "title": "Richmond Community Mental Health and Substance Use - Central Intake",
+        "authority": "Vancouver Coastal Health",
+        "url": "https://www.vch.ca/en/service/richmond-community-mental-health-and-substance-use-central-intake"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:11bjp0",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Anne Vogel Clinic",
+      "organization": "Vancouver Coastal Health",
+      "categories": [
+        "OAT / Substance Use Treatment"
+      ],
+      "description": "Clinic providing comprehensive assessment, support and opioid agonist treatment.",
+      "population_served": "Adults",
+      "province": "British Columbia",
+      "community": "Richmond",
+      "address": "7671 Alderbridge Way, Unit 210",
+      "physical_location": {
+        "community": "Richmond",
+        "address": "7671 Alderbridge Way, Unit 210",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Richmond"
+      ],
+      "service_area": "VCH",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Self-referral",
+      "access_pathway": "Self-referral",
+      "eligibility": "Adults",
+      "phone": "604-675-3975",
+      "website": "https://www.vch.ca/en/location-service/anne-vogel-clinic",
+      "source": {
+        "title": "Anne Vogel Clinic",
+        "authority": "Vancouver Coastal Health",
+        "url": "https://www.vch.ca/en/location-service/anne-vogel-clinic"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:1hv0r9e",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Richmond Substance Use Outreach Team",
+      "organization": "Vancouver Coastal Health",
+      "categories": [
+        "Substance Use Outreach"
+      ],
+      "description": "Client-centered recovery-oriented outreach for Richmond residents with complex substance use and difficulty engaging in office-based counselling. Services may include case management, counselling, psychiatry, and general medicine.",
+      "population_served": "Richmond residents 19+",
+      "province": "British Columbia",
+      "community": "Richmond",
+      "address": "8100 Granville Avenue, Unit 600",
+      "physical_location": {
+        "community": "Richmond",
+        "address": "8100 Granville Avenue, Unit 600",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Richmond"
+      ],
+      "service_area": "VCH",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Call Richmond Central Intake",
+      "access_pathway": "Call Richmond Central Intake",
+      "eligibility": "19+",
+      "phone": "604-244-5486",
+      "website": "https://www.vch.ca/en/location-service/richmond-substance-use-outreach-team",
+      "source": {
+        "title": "Richmond Substance Use Outreach Team",
+        "authority": "Vancouver Coastal Health",
+        "url": "https://www.vch.ca/en/location-service/richmond-substance-use-outreach-team"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:1b5l8nx",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "The CORE (Community Outpatient Recovery Experience)",
+      "organization": "Vancouver Coastal Health",
+      "categories": [
+        "Outpatient Treatment"
+      ],
+      "description": "Free 12-week community-based substance recovery program offering assessment, individual and group counselling, psychoeducational groups, ACT, CPT, life skills training, mindfulness, and acupuncture.",
+      "population_served": "Adults 19+ in Vancouver or Richmond",
+      "province": "British Columbia",
+      "community": "Vancouver",
+      "address": "Robert and Lily Lee Family Community Health Centre",
+      "physical_location": {
+        "community": "Vancouver",
+        "address": "Robert and Lily Lee Family Community Health Centre",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Vancouver"
+      ],
+      "service_area": "Vancouver Coastal Health",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Intake via Access Central or walk-in during business hours",
+      "access_pathway": "Intake via Access Central or walk-in during business hours",
+      "eligibility": "19+ living in Vancouver or Richmond",
+      "phone": "604-675-2455",
+      "website": "https://www.vch.ca/en/location-service/core-community-outpatient-recovery-experience",
+      "source": {
+        "title": "The CORE (Community Outpatient Recovery Experience)",
+        "authority": "Vancouver Coastal Health",
+        "url": "https://www.vch.ca/en/location-service/core-community-outpatient-recovery-experience"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:kmj3p2",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Substance Use Services Access Team (SUSAT) - Fraser South",
+      "organization": "Fraser Health",
+      "categories": [
+        "Addiction Services Navigation"
+      ],
+      "description": "Centralized Fraser Health navigation and referral service for treatment centres, OAT, counselling, and community substance use supports.",
+      "population_served": "Adults",
+      "province": "British Columbia",
+      "community": "Surrey",
+      "address": "Fraser Health regional service",
+      "physical_location": {
+        "community": "Surrey",
+        "address": "Fraser Health regional service",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Surrey"
+      ],
+      "service_area": "Fraser South",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Self-referral / provider referral",
+      "access_pathway": "Self-referral / provider referral",
+      "eligibility": "19+",
+      "phone": "1-833-866-6478",
+      "website": "https://www.fraserhealth.ca",
+      "source": {
+        "title": "Substance Use Services Access Team (SUSAT) - Fraser South",
+        "authority": "Fraser Health",
+        "url": "https://www.fraserhealth.ca"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:1cger74",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Substance Use Services Access Team (SUSAT) - Fraser East",
+      "organization": "Fraser Health",
+      "categories": [
+        "Addiction Services Navigation"
+      ],
+      "description": "Centralized Fraser Health navigation and referral service for treatment centres, OAT, counselling, and community substance use supports.",
+      "population_served": "Adults",
+      "province": "British Columbia",
+      "community": "Abbotsford",
+      "address": "Fraser Health regional service",
+      "physical_location": {
+        "community": "Abbotsford",
+        "address": "Fraser Health regional service",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Abbotsford"
+      ],
+      "service_area": "Fraser East",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Self-referral / provider referral",
+      "access_pathway": "Self-referral / provider referral",
+      "eligibility": "19+",
+      "phone": "1-833-866-6478",
+      "website": "https://www.fraserhealth.ca",
+      "source": {
+        "title": "Substance Use Services Access Team (SUSAT) - Fraser East",
+        "authority": "Fraser Health",
+        "url": "https://www.fraserhealth.ca"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:dyguya",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Macmillan House",
+      "organization": "Lookout Society",
+      "categories": [
+        "Treatment Programs"
+      ],
+      "description": "Recovery home listing.",
+      "population_served": "Men 19+",
+      "province": "British Columbia",
+      "community": "Surrey",
+      "address": "11184 143A St",
+      "physical_location": {
+        "community": "Surrey",
+        "address": "11184 143A St",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Surrey"
+      ],
+      "service_area": "Fraser South",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Contact program directly",
+      "access_pathway": "Contact program directly",
+      "phone": "604-255-0340",
+      "website": "https://www.lookoutsociety.ca",
+      "source": {
+        "title": "Macmillan House",
+        "authority": "Lookout Society",
+        "url": "https://www.lookoutsociety.ca"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:m3vmmy",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Kackaamin Family Healing Centre",
+      "organization": "Kackaamin",
+      "categories": [
+        "Treatment Programs"
+      ],
+      "description": "6-week treatment with family and couples programming",
+      "population_served": "Adults, couples, families",
+      "province": "British Columbia",
+      "community": "Port Alberni",
+      "physical_location": {
+        "community": "Port Alberni",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Port Alberni"
+      ],
+      "service_area": "BC",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Application / Referral",
+      "access_pathway": "Application / Referral",
+      "eligibility": "Adults",
+      "phone": "250-723-7789",
+      "website": "https://www.kackaamin.org/",
+      "source": {
+        "title": "Kackaamin Family Healing Centre",
+        "authority": "Kackaamin",
+        "url": "https://www.kackaamin.org/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:7y4ggo",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Nenqayni Wellness Centre",
+      "organization": "Nenqayni",
+      "categories": [
+        "Treatment Programs"
+      ],
+      "description": "7–8 week residential treatment; OAT supported; family-inclusive model",
+      "population_served": "Families, couples with children",
+      "province": "British Columbia",
+      "community": "Williams Lake",
+      "physical_location": {
+        "community": "Williams Lake",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Williams Lake"
+      ],
+      "service_area": "BC",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Application / Referral",
+      "access_pathway": "Application / Referral",
+      "eligibility": "Adults / families",
+      "phone": "250-989-0301",
+      "website": "https://nenqayni.com/",
+      "source": {
+        "title": "Nenqayni Wellness Centre",
+        "authority": "Nenqayni",
+        "url": "https://nenqayni.com/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:1q03oev",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "FNHA Regional Mental Health & Wellness Liaison",
+      "organization": "First Nations Health Authority",
+      "categories": [
+        "Indigenous Support"
+      ],
+      "description": "Connects people to internal FNHA programs and external partners for wraparound culturally safe support",
+      "population_served": "Individuals, families, communities, service providers",
+      "province": "British Columbia",
+      "community": "Abbotsford",
+      "address": "PO Box 19, Stn Matsqui",
+      "physical_location": {
+        "community": "Abbotsford",
+        "address": "PO Box 19, Stn Matsqui",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Abbotsford"
+      ],
+      "service_area": "Fraser East",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Contact liaison",
+      "access_pathway": "Contact liaison",
+      "eligibility": "All",
+      "website": "https://www.fnha.ca/",
+      "source": {
+        "title": "FNHA Regional Mental Health & Wellness Liaison",
+        "authority": "First Nations Health Authority",
+        "url": "https://www.fnha.ca/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:24f7i8",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Community Health Driver Program",
+      "organization": "Pacific Community Resources Society",
+      "categories": [
+        "Access Support"
+      ],
+      "description": "Transportation to harm reduction, RAAC, OAT, IOAT, treatment and ancillary care",
+      "population_served": "People who use substances / people in recovery",
+      "province": "British Columbia",
+      "community": "Chilliwack",
+      "address": "45921 Hocking Avenue",
+      "physical_location": {
+        "community": "Chilliwack",
+        "address": "45921 Hocking Avenue",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Chilliwack"
+      ],
+      "service_area": "Fraser East",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Provider-initiated / contact program",
+      "access_pathway": "Provider-initiated / contact program",
+      "eligibility": "Adults",
+      "phone": "604-795-5994",
+      "website": "https://www.pcrs.ca/",
+      "source": {
+        "title": "Community Health Driver Program",
+        "authority": "Pacific Community Resources Society",
+        "url": "https://www.pcrs.ca/"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:1ik39ab",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Opioid Agonist Treatment - Burnaby",
+      "organization": "Fraser Health",
+      "categories": [
+        "Addiction Medicine"
+      ],
+      "description": "Outpatient opioid agonist treatment clinic providing ongoing care with medications such as methadone or buprenorphine/naloxone.",
+      "population_served": "Adults",
+      "province": "British Columbia",
+      "community": "Burnaby",
+      "address": "#320-7155 Kingsway",
+      "physical_location": {
+        "community": "Burnaby",
+        "address": "#320-7155 Kingsway",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Burnaby"
+      ],
+      "service_area": "Fraser North",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "RAAC referral / Call clinic",
+      "access_pathway": "RAAC referral / Call clinic",
+      "eligibility": "19+ / opioid use disorder",
+      "phone": "604-777-6884",
+      "website": "https://www.fraserhealth.ca/Service-Directory/Services/mental-health-and-substance-use/substance-use/opioid-agonist-treatment",
+      "source": {
+        "title": "Opioid Agonist Treatment - Burnaby",
+        "authority": "Fraser Health",
+        "url": "https://www.fraserhealth.ca/Service-Directory/Services/mental-health-and-substance-use/substance-use/opioid-agonist-treatment"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:1l3naic",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Hyland House Shelter - Cloverdale",
+      "organization": "Options Community Services",
+      "categories": [
+        "Housing"
+      ],
+      "description": "Emergency shelter with outreach, referrals and emotional supports.",
+      "population_served": "Adults",
+      "province": "British Columbia",
+      "community": "Surrey",
+      "address": "17910 Colebrook Road",
+      "physical_location": {
+        "community": "Surrey",
+        "address": "17910 Colebrook Road",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Surrey"
+      ],
+      "service_area": "Fraser South",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Phone intake / Self-referral",
+      "access_pathway": "Phone intake / Self-referral",
+      "eligibility": "Adults needing emergency shelter",
+      "phone": "604-574-4341",
+      "website": "https://www.options.bc.ca",
+      "source": {
+        "title": "Hyland House Shelter - Cloverdale",
+        "authority": "Options Community Services",
+        "url": "https://www.options.bc.ca"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:nrr6d3",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Hyland House Shelter - Surrey",
+      "organization": "Options Community Services",
+      "categories": [
+        "Housing"
+      ],
+      "description": "Emergency shelter with outreach, referrals and emotional supports.",
+      "population_served": "Adults",
+      "province": "British Columbia",
+      "community": "Surrey",
+      "address": "6595 King George Boulevard",
+      "physical_location": {
+        "community": "Surrey",
+        "address": "6595 King George Boulevard",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Surrey"
+      ],
+      "service_area": "Fraser South",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Phone intake / Self-referral",
+      "access_pathway": "Phone intake / Self-referral",
+      "eligibility": "Adults needing emergency shelter",
+      "phone": "604-599-8900",
+      "website": "https://www.options.bc.ca",
+      "source": {
+        "title": "Hyland House Shelter - Surrey",
+        "authority": "Options Community Services",
+        "url": "https://www.options.bc.ca"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:19557cr",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Downtown Eastside Connections Clinic",
+      "organization": "Vancouver Coastal Health",
+      "categories": [
+        "Addiction Medicine"
+      ],
+      "description": "Low-barrier addiction medicine clinic offering same-day assessment and treatment for substance use disorders, including opioids, alcohol, nicotine, GHB, cannabis, stimulants and benzodiazepines.",
+      "population_served": "Adults",
+      "province": "British Columbia",
+      "community": "Vancouver",
+      "physical_location": {
+        "community": "Vancouver",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Vancouver"
+      ],
+      "service_area": "Vancouver Coastal Health",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Walk-in / same-day care",
+      "access_pathway": "Walk-in / same-day care",
+      "eligibility": "People with substance use disorders",
+      "website": "https://www.vch.ca/en/location-service/addiction-medicine-downtown-eastside-connections-clinic",
+      "source": {
+        "title": "Downtown Eastside Connections Clinic",
+        "authority": "Vancouver Coastal Health",
+        "url": "https://www.vch.ca/en/location-service/addiction-medicine-downtown-eastside-connections-clinic"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:f5j1nn",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Lighthouse Virtual Substance Use Care Clinic",
+      "organization": "Providence Health Care",
+      "categories": [
+        "Addiction Medicine"
+      ],
+      "description": "Free virtual clinic providing telephone-based medical treatment and short-term stabilization for people who use substances, with addiction medicine, nursing, and social work support.",
+      "population_served": "Adults",
+      "province": "British Columbia",
+      "community": "Vancouver",
+      "address": "Virtual / telephone service",
+      "physical_location": {
+        "community": "Vancouver",
+        "address": "Virtual / telephone service",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Vancouver"
+      ],
+      "service_area": "Vancouver Coastal Health",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Self-referral / provider referral / emergency services referral",
+      "access_pathway": "Self-referral / provider referral / emergency services referral",
+      "eligibility": "VCH region",
+      "phone": "604-806-8223",
+      "website": "https://www.vch.ca/en/service/lighthouse-virtual-substance-use-care-clinic",
+      "source": {
+        "title": "Lighthouse Virtual Substance Use Care Clinic",
+        "authority": "Providence Health Care",
+        "url": "https://www.vch.ca/en/service/lighthouse-virtual-substance-use-care-clinic"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:1m1irlv",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Substance Use Services - Three Bridges Community Health Centre",
+      "organization": "Vancouver Coastal Health",
+      "categories": [
+        "Treatment Programs"
+      ],
+      "description": "Groups, counselling, care coordination, intake consultation, and connections to Daytox/residential treatment and addiction medicine for OAT and safe supply.",
+      "population_served": "Adults",
+      "province": "British Columbia",
+      "community": "Vancouver",
+      "address": "Three Bridges Community Health Centre",
+      "physical_location": {
+        "community": "Vancouver",
+        "address": "Three Bridges Community Health Centre",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Vancouver"
+      ],
+      "service_area": "Vancouver Coastal Health",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Intake / consultation",
+      "access_pathway": "Intake / consultation",
+      "eligibility": "Adults living in Vancouver",
+      "website": "https://www.vch.ca/en/location-service/substance-use-services-three-bridges-community-health-centre-west-end",
+      "source": {
+        "title": "Substance Use Services - Three Bridges Community Health Centre",
+        "authority": "Vancouver Coastal Health",
+        "url": "https://www.vch.ca/en/location-service/substance-use-services-three-bridges-community-health-centre-west-end"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:1251m2b",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Access and Assessment Centre (AAC)",
+      "organization": "Vancouver Coastal Health",
+      "categories": [
+        "Navigation"
+      ],
+      "description": "Central access point for mental health and substance use services including assessment and referral.",
+      "population_served": "Adults",
+      "province": "British Columbia",
+      "community": "Vancouver",
+      "physical_location": {
+        "community": "Vancouver",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Vancouver"
+      ],
+      "service_area": "VCH",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Walk-in / Call",
+      "access_pathway": "Walk-in / Call",
+      "phone": "604-675-3700",
+      "website": "https://www.vch.ca/en/location-service/access-and-assessment-centre-aac",
+      "source": {
+        "title": "Access and Assessment Centre (AAC)",
+        "authority": "Vancouver Coastal Health",
+        "url": "https://www.vch.ca/en/location-service/access-and-assessment-centre-aac"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:1nsty6",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Central Addiction Intake Team (CAIT)",
+      "organization": "Vancouver Coastal Health",
+      "categories": [
+        "Navigation"
+      ],
+      "description": "Coordinates placement into treatment and recovery bed programs.",
+      "population_served": "Adults",
+      "province": "British Columbia",
+      "community": "Vancouver",
+      "physical_location": {
+        "community": "Vancouver",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Vancouver"
+      ],
+      "service_area": "VCH",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Referral / Self-referral",
+      "access_pathway": "Referral / Self-referral",
+      "phone": "604-675-2455",
+      "website": "https://www.vch.ca/en/service/central-addiction-intake-team",
+      "source": {
+        "title": "Central Addiction Intake Team (CAIT)",
+        "authority": "Vancouver Coastal Health",
+        "url": "https://www.vch.ca/en/service/central-addiction-intake-team"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:1nc33ya",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Ministry of Social Development",
+      "organization": "Government of BC",
+      "categories": [
+        "Financial"
+      ],
+      "description": "Income assistance and disability benefits.",
+      "population_served": "Adults",
+      "province": "British Columbia",
+      "service_area": "BC",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Online / Phone",
+      "access_pathway": "Online / Phone",
+      "phone": "1-866-866-0800",
+      "website": "https://www2.gov.bc.ca/gov/content/family-social-supports/income-assistance",
+      "source": {
+        "title": "Ministry of Social Development",
+        "authority": "Government of BC",
+        "url": "https://www2.gov.bc.ca/gov/content/family-social-supports/income-assistance"
+      },
+      "last_verified_date": "2026-09-08"
+    },
+    {
+      "canonical_resource_id": "curated:1iy3aud",
+      "project_visibility": [
+        "miller"
+      ],
+      "name": "Options Family Counselling (Surrey)",
+      "organization": "Options Community Services",
+      "categories": [
+        "Family Counselling"
+      ],
+      "description": "Free short-term counselling for families in Surrey",
+      "population_served": "Families",
+      "province": "British Columbia",
+      "community": "Surrey",
+      "physical_location": {
+        "community": "Surrey",
+        "province": "British Columbia"
+      },
+      "local_service_area": [
+        "Surrey"
+      ],
+      "service_area": "Fraser",
+      "delivery_modes": [
+        "contact service"
+      ],
+      "referral_requirements": "Self-referral",
+      "access_pathway": "Self-referral",
+      "eligibility": "Children under 18",
+      "phone": "604-584-5811",
+      "website": "https://options.bc.ca",
+      "source": {
+        "title": "Options Family Counselling (Surrey)",
+        "authority": "Options Community Services",
+        "url": "https://options.bc.ca"
+      },
+      "last_verified_date": "2026-09-08"
+    }
+  ]
+}

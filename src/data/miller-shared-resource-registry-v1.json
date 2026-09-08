@@ -537,6 +537,72 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:1251m2b",
+      "record_type": "service",
+      "organization": "Vancouver Coastal Health",
+      "program_name": "Access and Assessment Centre (AAC)",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "navigation"
+      ],
+      "description": "Central access point for mental health and substance use services including assessment and referral.",
+      "population_served": "Adults",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "VCH",
+      "province": "British Columbia",
+      "city_community": "Vancouver",
+      "address": "",
+      "service_area": "VCH",
+      "service_scope": {
+        "physical_location": {
+          "community": "Vancouver",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Vancouver"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "VCH"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Walk-in / Call",
+      "access": "Walk-in / Call",
+      "phone": "604-675-3700",
+      "email": "",
+      "website": "https://www.vch.ca/en/location-service/access-and-assessment-centre-aac",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Access and Assessment Centre (AAC)",
+        "authority": "Vancouver Coastal Health",
+        "url": "https://www.vch.ca/en/location-service/access-and-assessment-centre-aac"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1251m2b"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_ab_calgary_access_mental_health",
       "record_type": "service",
       "organization": "Alberta Health Services",
@@ -655,6 +721,161 @@
       ],
       "source_record_ids": [
         "support:success-active-generation-employment"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_ab_high_level_amh",
+      "record_type": "service",
+      "organization": "Recovery Alberta",
+      "program_name": "Addiction and Mental Health - High Level",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "outpatient treatment",
+        "counselling",
+        "treatment navigation"
+      ],
+      "description": "Local outpatient addiction and mental-health assessment, short-term treatment, counselling and treatment-centre referral service at Northwest Health Centre.",
+      "population_served": "Children, youth, adults and older adults with addiction or mental-health concerns",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "High Level and northwest Alberta",
+      "province": "Alberta",
+      "city_community": "High Level",
+      "address": "11202 100 Avenue, High Level, AB T0H 1Z0",
+      "service_area": "High Level and northwest Alberta",
+      "service_scope": {
+        "physical_location": {
+          "community": "High Level",
+          "address": "11202 100 Avenue, High Level, AB T0H 1Z0",
+          "province": "Alberta"
+        },
+        "local_service_area": [
+          "High Level"
+        ],
+        "regional_service_area": [
+          "Fort Vermilion",
+          "La Crete",
+          "Rainbow Lake",
+          "Paddle Prairie"
+        ],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "High Level and northwest Alberta"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone intake"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "The official service listing says no referral is required; call intake because services vary by location.",
+      "access": "Call 1-888-594-0211 for addiction and mental-health intake or 780-841-3229 for the local general and referral line.",
+      "phone": "1-888-594-0211",
+      "email": "",
+      "website": "https://www.albertahealthservices.ca/findhealth/Service.aspx?serviceAtFacilityId=1071507",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Northwest Health Centre - Addiction and Mental Health - Adult and Youth",
+        "authority": "Alberta Health Services / Recovery Alberta",
+        "url": "https://www.albertahealthservices.ca/findhealth/Service.aspx?serviceAtFacilityId=1071507"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_ab_high_level_amh"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_ab_peace_river_amh",
+      "record_type": "service",
+      "organization": "Recovery Alberta",
+      "program_name": "Addiction and Mental Health - Peace River",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "outpatient treatment",
+        "counselling",
+        "treatment navigation"
+      ],
+      "description": "Local outpatient addiction and mental-health assessment, short-term treatment, counselling and treatment-centre referral service in Peace River.",
+      "population_served": "Children, youth, adults and older adults with addiction or mental-health concerns",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Peace River and northwest Alberta",
+      "province": "Alberta",
+      "city_community": "Peace River",
+      "address": "10015 98 Street, Peace River, AB T8S 1T4",
+      "service_area": "Peace River and northwest Alberta",
+      "service_scope": {
+        "physical_location": {
+          "community": "Peace River",
+          "address": "10015 98 Street, Peace River, AB T8S 1T4",
+          "province": "Alberta"
+        },
+        "local_service_area": [
+          "Peace River"
+        ],
+        "regional_service_area": [
+          "Grimshaw",
+          "Fairview",
+          "Manning"
+        ],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "The official listing states there is no public transportation to this service.",
+        "search_locations": [],
+        "service_area": "Peace River and northwest Alberta"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone intake"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 1-888-594-0211 for addiction and mental-health intake or 780-624-6151 for the local general and referral line.",
+      "phone": "1-888-594-0211",
+      "email": "",
+      "website": "https://www.albertahealthservices.ca/findhealth/Service.aspx?id=1026203&serviceAtFacilityID=1132934",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Mental Health Centre - Addiction and Mental Health - Adult and Youth",
+        "authority": "Alberta Health Services / Recovery Alberta",
+        "url": "https://www.albertahealthservices.ca/findhealth/Service.aspx?id=1026203&serviceAtFacilityID=1132934"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_ab_peace_river_amh"
       ]
     },
     {
@@ -1446,6 +1667,73 @@
       ],
       "source_record_ids": [
         "support:alouette-outreach-services"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:11bjp0",
+      "record_type": "service",
+      "organization": "Vancouver Coastal Health",
+      "program_name": "Anne Vogel Clinic",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "oat substance use treatment"
+      ],
+      "description": "Clinic providing comprehensive assessment, support and opioid agonist treatment.",
+      "population_served": "Adults",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "VCH",
+      "province": "British Columbia",
+      "city_community": "Richmond",
+      "address": "7671 Alderbridge Way, Unit 210",
+      "service_area": "VCH",
+      "service_scope": {
+        "physical_location": {
+          "community": "Richmond",
+          "address": "7671 Alderbridge Way, Unit 210",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Richmond"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "VCH"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "Adults",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referral",
+      "access": "Self-referral",
+      "phone": "604-675-3975",
+      "email": "",
+      "website": "https://www.vch.ca/en/location-service/anne-vogel-clinic",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Anne Vogel Clinic",
+        "authority": "Vancouver Coastal Health",
+        "url": "https://www.vch.ca/en/location-service/anne-vogel-clinic"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:11bjp0"
       ]
     },
     {
@@ -2630,6 +2918,72 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:1nsty6",
+      "record_type": "service",
+      "organization": "Vancouver Coastal Health",
+      "program_name": "Central Addiction Intake Team (CAIT)",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "navigation"
+      ],
+      "description": "Coordinates placement into treatment and recovery bed programs.",
+      "population_served": "Adults",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "VCH",
+      "province": "British Columbia",
+      "city_community": "Vancouver",
+      "address": "",
+      "service_area": "VCH",
+      "service_scope": {
+        "physical_location": {
+          "community": "Vancouver",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Vancouver"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "VCH"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Referral / Self-referral",
+      "access": "Referral / Self-referral",
+      "phone": "604-675-2455",
+      "email": "",
+      "website": "https://www.vch.ca/en/service/central-addiction-intake-team",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Central Addiction Intake Team (CAIT)",
+        "authority": "Vancouver Coastal Health",
+        "url": "https://www.vch.ca/en/service/central-addiction-intake-team"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1nsty6"
+      ]
+    },
+    {
       "canonical_resource_id": "shared_sk_classic_legal_programs",
       "record_type": "service",
       "organization": "Community Legal Assistance Services for Saskatoon's Inner City",
@@ -2846,6 +3200,73 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:24f7i8",
+      "record_type": "service",
+      "organization": "Pacific Community Resources Society",
+      "program_name": "Community Health Driver Program",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "access support"
+      ],
+      "description": "Transportation to harm reduction, RAAC, OAT, IOAT, treatment and ancillary care",
+      "population_served": "People who use substances / people in recovery",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser East",
+      "province": "British Columbia",
+      "city_community": "Chilliwack",
+      "address": "45921 Hocking Avenue",
+      "service_area": "Fraser East",
+      "service_scope": {
+        "physical_location": {
+          "community": "Chilliwack",
+          "address": "45921 Hocking Avenue",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Chilliwack"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser East"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "Adults",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Provider-initiated / contact program",
+      "access": "Provider-initiated / contact program",
+      "phone": "604-795-5994",
+      "email": "",
+      "website": "https://www.pcrs.ca/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Community Health Driver Program",
+        "authority": "Pacific Community Resources Society",
+        "url": "https://www.pcrs.ca/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:24f7i8"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_bc_victoria_community_medical_detox",
       "record_type": "service",
       "organization": "Island Health",
@@ -3048,6 +3469,73 @@
       "source_record_ids": [
         "funding:miller-north:fnfund_bc_community_workforce",
         "funding:miller:mfa_community_workforce"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:wka1fv",
+      "record_type": "service",
+      "organization": "Lookout Society / Crawford Manor (STLR)",
+      "program_name": "Crawford Manor",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "treatment programs"
+      ],
+      "description": "Younger adult stabilization and transitional living home for men with current or recent mild to moderate substance use issues. Offers recovery groups, exercise groups, life skills, and goal setting.",
+      "population_served": "Men 19-35",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser South",
+      "province": "British Columbia",
+      "city_community": "Surrey",
+      "address": "10008 & 10010 128 St",
+      "service_area": "Fraser South",
+      "service_scope": {
+        "physical_location": {
+          "community": "Surrey",
+          "address": "10008 & 10010 128 St",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Surrey"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser South"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Contact program directly",
+      "access": "Contact program directly",
+      "phone": "604-589-0248",
+      "email": "",
+      "website": "https://www.lookoutsociety.ca",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Crawford Manor",
+        "authority": "Lookout Society / Crawford Manor (STLR)",
+        "url": "https://www.lookoutsociety.ca"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:wka1fv"
       ]
     },
     {
@@ -3385,6 +3873,72 @@
       ],
       "source_record_ids": [
         "curated:rgor6n"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:19557cr",
+      "record_type": "service",
+      "organization": "Vancouver Coastal Health",
+      "program_name": "Downtown Eastside Connections Clinic",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction medicine"
+      ],
+      "description": "Low-barrier addiction medicine clinic offering same-day assessment and treatment for substance use disorders, including opioids, alcohol, nicotine, GHB, cannabis, stimulants and benzodiazepines.",
+      "population_served": "Adults",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Vancouver Coastal Health",
+      "province": "British Columbia",
+      "city_community": "Vancouver",
+      "address": "",
+      "service_area": "Vancouver Coastal Health",
+      "service_scope": {
+        "physical_location": {
+          "community": "Vancouver",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Vancouver"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Vancouver Coastal Health"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "People with substance use disorders",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Walk-in / same-day care",
+      "access": "Walk-in / same-day care",
+      "phone": "",
+      "email": "",
+      "website": "https://www.vch.ca/en/location-service/addiction-medicine-downtown-eastside-connections-clinic",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Downtown Eastside Connections Clinic",
+        "authority": "Vancouver Coastal Health",
+        "url": "https://www.vch.ca/en/location-service/addiction-medicine-downtown-eastside-connections-clinic"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:19557cr"
       ]
     },
     {
@@ -4207,6 +4761,73 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:1q03oev",
+      "record_type": "service",
+      "organization": "First Nations Health Authority",
+      "program_name": "FNHA Regional Mental Health & Wellness Liaison",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "indigenous support"
+      ],
+      "description": "Connects people to internal FNHA programs and external partners for wraparound culturally safe support",
+      "population_served": "Individuals, families, communities, service providers",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser East",
+      "province": "British Columbia",
+      "city_community": "Abbotsford",
+      "address": "PO Box 19, Stn Matsqui",
+      "service_area": "Fraser East",
+      "service_scope": {
+        "physical_location": {
+          "community": "Abbotsford",
+          "address": "PO Box 19, Stn Matsqui",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Abbotsford"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser East"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "All",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Contact liaison",
+      "access": "Contact liaison",
+      "phone": "",
+      "email": "",
+      "website": "https://www.fnha.ca/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "FNHA Regional Mental Health & Wellness Liaison",
+        "authority": "First Nations Health Authority",
+        "url": "https://www.fnha.ca/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1q03oev"
+      ]
+    },
+    {
       "canonical_resource_id": "shared_fnha_treatment_centres",
       "record_type": "service",
       "organization": "First Nations Health Authority",
@@ -4824,6 +5445,140 @@
       ],
       "source_record_ids": [
         "shared_isc_hope_for_wellness"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:1l3naic",
+      "record_type": "service",
+      "organization": "Options Community Services",
+      "program_name": "Hyland House Shelter - Cloverdale",
+      "categories": [
+        "housing"
+      ],
+      "subcategories": [
+        "housing"
+      ],
+      "description": "Emergency shelter with outreach, referrals and emotional supports.",
+      "population_served": "Adults",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser South",
+      "province": "British Columbia",
+      "city_community": "Surrey",
+      "address": "17910 Colebrook Road",
+      "service_area": "Fraser South",
+      "service_scope": {
+        "physical_location": {
+          "community": "Surrey",
+          "address": "17910 Colebrook Road",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Surrey"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser South"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "Adults needing emergency shelter",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Phone intake / Self-referral",
+      "access": "Phone intake / Self-referral",
+      "phone": "604-574-4341",
+      "email": "",
+      "website": "https://www.options.bc.ca",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Hyland House Shelter - Cloverdale",
+        "authority": "Options Community Services",
+        "url": "https://www.options.bc.ca"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1l3naic"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:nrr6d3",
+      "record_type": "service",
+      "organization": "Options Community Services",
+      "program_name": "Hyland House Shelter - Surrey",
+      "categories": [
+        "housing"
+      ],
+      "subcategories": [
+        "housing"
+      ],
+      "description": "Emergency shelter with outreach, referrals and emotional supports.",
+      "population_served": "Adults",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser South",
+      "province": "British Columbia",
+      "city_community": "Surrey",
+      "address": "6595 King George Boulevard",
+      "service_area": "Fraser South",
+      "service_scope": {
+        "physical_location": {
+          "community": "Surrey",
+          "address": "6595 King George Boulevard",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Surrey"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser South"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "Adults needing emergency shelter",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Phone intake / Self-referral",
+      "access": "Phone intake / Self-referral",
+      "phone": "604-599-8900",
+      "email": "",
+      "website": "https://www.options.bc.ca",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Hyland House Shelter - Surrey",
+        "authority": "Options Community Services",
+        "url": "https://www.options.bc.ca"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:nrr6d3"
       ]
     },
     {
@@ -5974,6 +6729,158 @@
       ]
     },
     {
+      "canonical_resource_id": "shared_ab_high_level_indigenous_wellness",
+      "record_type": "service",
+      "organization": "Alberta Health Services",
+      "program_name": "Indigenous Wellness Core - High Level",
+      "categories": [
+        "healthcare",
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "cultural support",
+        "indigenous navigation",
+        "mental health",
+        "patient advocacy",
+        "substance use"
+      ],
+      "description": "Local Indigenous health navigation, advocacy and cultural support that can connect patients and families with addiction, mental-health and home-community services.",
+      "population_served": "First Nations, Métis and Inuit patients and families",
+      "indigenous_scope": "Indigenous-specific",
+      "governance_type": "not_stated",
+      "geography": "High Level and northern Alberta Indigenous health navigation",
+      "province": "Alberta",
+      "city_community": "High Level",
+      "address": "11202 100 Avenue, High Level, AB T0H 1Z0",
+      "service_area": "High Level and northern Alberta Indigenous health navigation",
+      "service_scope": {
+        "physical_location": {
+          "community": "High Level",
+          "address": "11202 100 Avenue, High Level, AB T0H 1Z0",
+          "province": "Alberta"
+        },
+        "local_service_area": [
+          "High Level"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "High Level and northern Alberta Indigenous health navigation"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone",
+        "email"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 780-814-3238 or use the official AHS listing to confirm current access and hours.",
+      "phone": "780-814-3238",
+      "email": "IndigenousWellnessCore@ahs.ca",
+      "website": "https://www.albertahealthservices.ca/findhealth/Service.aspx?id=7805&serviceAtFacilityID=1103762",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Northwest Health Centre - Indigenous Wellness Core",
+        "authority": "Alberta Health Services",
+        "url": "https://www.albertahealthservices.ca/findhealth/Service.aspx?id=7805&serviceAtFacilityID=1103762"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "shared_ab_high_level_indigenous_wellness"
+      ]
+    },
+    {
+      "canonical_resource_id": "shared_ab_peace_river_indigenous_wellness",
+      "record_type": "service",
+      "organization": "Alberta Health Services",
+      "program_name": "Indigenous Wellness Core - Peace River",
+      "categories": [
+        "healthcare",
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "cultural support",
+        "indigenous navigation",
+        "mental health",
+        "patient advocacy",
+        "substance use"
+      ],
+      "description": "Local Indigenous health navigation, advocacy and cultural support that can connect patients and families with addiction, mental-health and home-community services.",
+      "population_served": "First Nations, Métis and Inuit patients and families",
+      "indigenous_scope": "Indigenous-specific",
+      "governance_type": "not_stated",
+      "geography": "Peace River and northern Alberta Indigenous health navigation",
+      "province": "Alberta",
+      "city_community": "Peace River",
+      "address": "10101 68 Street, Peace River, AB T8S 1T6",
+      "service_area": "Peace River and northern Alberta Indigenous health navigation",
+      "service_scope": {
+        "physical_location": {
+          "community": "Peace River",
+          "address": "10101 68 Street, Peace River, AB T8S 1T6",
+          "province": "Alberta"
+        },
+        "local_service_area": [
+          "Peace River"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Peace River and northern Alberta Indigenous health navigation"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone",
+        "email"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 780-624-7281 or use the official AHS listing to confirm current access and hours.",
+      "phone": "780-624-7281",
+      "email": "IndigenousWellnessCore@ahs.ca",
+      "website": "https://www.albertahealthservices.ca/findhealth/Service.aspx?id=7805&serviceAtFacilityID=1082343",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Marshall Eliuk Peace River Community Health Centre - Indigenous Wellness Core",
+        "authority": "Alberta Health Services",
+        "url": "https://www.albertahealthservices.ca/findhealth/Service.aspx?id=7805&serviceAtFacilityID=1082343"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "shared_ab_peace_river_indigenous_wellness"
+      ]
+    },
+    {
       "canonical_resource_id": "fns_sk_stc_integrated_wellness",
       "record_type": "service",
       "organization": "Saskatoon Tribal Council",
@@ -6204,6 +7111,94 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_bc_island_health_travel_assistance",
+      "record_type": "service",
+      "organization": "Island Health",
+      "program_name": "Island Health Travel Assistance",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "medical transportation",
+        "treatment transportation",
+        "rural remote access"
+      ],
+      "description": "Free non-emergency travel assistance for eligible people attending Island Health appointments and facilities, including service in North Island communities.",
+      "population_served": "People who need eligible travel assistance to Island Health appointments or facilities",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Island Health region",
+      "province": "British Columbia",
+      "city_community": "",
+      "address": "",
+      "service_area": "Island Health region",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [
+          "Campbell River",
+          "Comox",
+          "Courtenay",
+          "Gold River",
+          "Kyuquot",
+          "Port Alice",
+          "Port Hardy",
+          "Port McNeill",
+          "Sayward",
+          "Tahsis",
+          "Woss",
+          "Zeballos"
+        ],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "Transportation service; it is not a healthcare facility. Eligibility and available routes must be confirmed with Island Health.",
+        "search_locations": [],
+        "service_area": "Island Health region"
+      },
+      "delivery_modes": [
+        "telephone",
+        "online request",
+        "shuttle"
+      ],
+      "eligibility": "Current Island Health mobility, appointment and service-area requirements apply; the service team confirms eligibility.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Register through the official online form or call 1-844-940-6617. Island Health says a service team member will follow up to arrange eligible transportation.",
+      "phone": "1-844-940-6617",
+      "email": "",
+      "website": "https://www.islandhealth.ca/services/travel-assistance",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": {
+        "funding_source": "Island Health",
+        "eligible_trip_types": [
+          "Eligible travel to Island Health appointments and facilities"
+        ],
+        "delivery": "Register online or call for eligibility review and trip arrangement",
+        "travel_modes": [
+          "Wheelchair-accessible regional transportation where available"
+        ]
+      },
+      "source": {
+        "title": "Travel assistance",
+        "authority": "Island Health",
+        "url": "https://www.islandhealth.ca/services/travel-assistance"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_island_health_travel_assistance"
+      ]
+    },
+    {
       "canonical_resource_id": "shared_isc_jordans_principle",
       "record_type": "funding",
       "organization": "Indigenous Services Canada",
@@ -6341,6 +7336,72 @@
       ],
       "source_record_ids": [
         "fns_bc_jordans_principle_coordination"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:m3vmmy",
+      "record_type": "service",
+      "organization": "Kackaamin",
+      "program_name": "Kackaamin Family Healing Centre",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "treatment programs"
+      ],
+      "description": "6-week treatment with family and couples programming",
+      "population_served": "Adults, couples, families",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "BC",
+      "province": "British Columbia",
+      "city_community": "Port Alberni",
+      "address": "",
+      "service_area": "BC",
+      "service_scope": {
+        "physical_location": {
+          "community": "Port Alberni",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Port Alberni"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "BC"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "Adults",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Application / Referral",
+      "access": "Application / Referral",
+      "phone": "250-723-7789",
+      "email": "",
+      "website": "https://www.kackaamin.org/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Kackaamin Family Healing Centre",
+        "authority": "Kackaamin",
+        "url": "https://www.kackaamin.org/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:m3vmmy"
       ]
     },
     {
@@ -6808,6 +7869,73 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:f5j1nn",
+      "record_type": "service",
+      "organization": "Providence Health Care",
+      "program_name": "Lighthouse Virtual Substance Use Care Clinic",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction medicine"
+      ],
+      "description": "Free virtual clinic providing telephone-based medical treatment and short-term stabilization for people who use substances, with addiction medicine, nursing, and social work support.",
+      "population_served": "Adults",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Vancouver Coastal Health",
+      "province": "British Columbia",
+      "city_community": "Vancouver",
+      "address": "Virtual / telephone service",
+      "service_area": "Vancouver Coastal Health",
+      "service_scope": {
+        "physical_location": {
+          "community": "Vancouver",
+          "address": "Virtual / telephone service",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Vancouver"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Vancouver Coastal Health"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "VCH region",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referral / provider referral / emergency services referral",
+      "access": "Self-referral / provider referral / emergency services referral",
+      "phone": "604-806-8223",
+      "email": "",
+      "website": "https://www.vch.ca/en/service/lighthouse-virtual-substance-use-care-clinic",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Lighthouse Virtual Substance Use Care Clinic",
+        "authority": "Providence Health Care",
+        "url": "https://www.vch.ca/en/service/lighthouse-virtual-substance-use-care-clinic"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:f5j1nn"
+      ]
+    },
+    {
       "canonical_resource_id": "curated:1ysjtow",
       "record_type": "service",
       "organization": "Lookout Housing and Health Society",
@@ -6942,6 +8070,73 @@
       ],
       "source_record_ids": [
         "north_mns_ma_faamii_navigation"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:dyguya",
+      "record_type": "service",
+      "organization": "Lookout Society",
+      "program_name": "Macmillan House",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "treatment programs"
+      ],
+      "description": "Recovery home listing.",
+      "population_served": "Men 19+",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser South",
+      "province": "British Columbia",
+      "city_community": "Surrey",
+      "address": "11184 143A St",
+      "service_area": "Fraser South",
+      "service_scope": {
+        "physical_location": {
+          "community": "Surrey",
+          "address": "11184 143A St",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Surrey"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser South"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Contact program directly",
+      "access": "Contact program directly",
+      "phone": "604-255-0340",
+      "email": "",
+      "website": "https://www.lookoutsociety.ca",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Macmillan House",
+        "authority": "Lookout Society",
+        "url": "https://www.lookoutsociety.ca"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:dyguya"
       ]
     },
     {
@@ -7304,6 +8499,387 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_bc_daajing_giids_mhsu",
+      "record_type": "service",
+      "organization": "Northern Health",
+      "program_name": "Mental Health and Substance Use Community Program - Daajing Giids",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "counselling",
+        "treatment navigation"
+      ],
+      "description": "Local Haida Gwaii community program providing assessment, trauma-informed counselling, care coordination, advocacy and referrals for adults with mental-health or substance-use concerns.",
+      "population_served": "Adults with mental-health or substance-use concerns",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "South Haida Gwaii",
+      "province": "British Columbia",
+      "city_community": "Daajing Giids",
+      "address": "3209 Oceanview Drive, Daajing Giids, BC V0T 1S0",
+      "service_area": "South Haida Gwaii",
+      "service_scope": {
+        "physical_location": {
+          "community": "Daajing Giids",
+          "address": "3209 Oceanview Drive, Daajing Giids, BC V0T 1S0",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Daajing Giids"
+        ],
+        "regional_service_area": [
+          "Haida Gwaii",
+          "Skidegate"
+        ],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "South Haida Gwaii"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 250-559-4933 for current intake and access information before travelling.",
+      "phone": "250-559-4933",
+      "email": "",
+      "website": "https://www.northernhealth.ca/services/mental-health-substance-use/services-by-community",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Mental health and substance use services by community",
+        "authority": "Northern Health",
+        "url": "https://www.northernhealth.ca/services/mental-health-substance-use/services-by-community"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_daajing_giids_mhsu"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_bc_dawson_creek_mhsu_oat",
+      "record_type": "service",
+      "organization": "Northern Health",
+      "program_name": "Mental Health and Substance Use Community Program - Dawson Creek",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "oat",
+        "counselling",
+        "treatment navigation"
+      ],
+      "description": "Local Dawson Creek community program providing intake, counselling, case management, psychiatric consultation, referrals and opioid agonist treatment.",
+      "population_served": "Adults seeking mental-health or substance-use services",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Dawson Creek and Northeast B.C.",
+      "province": "British Columbia",
+      "city_community": "Dawson Creek",
+      "address": "1001 110th Avenue, Dawson Creek, BC V1G 4X3",
+      "service_area": "Dawson Creek and Northeast B.C.",
+      "service_scope": {
+        "physical_location": {
+          "community": "Dawson Creek",
+          "address": "1001 110th Avenue, Dawson Creek, BC V1G 4X3",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Dawson Creek"
+        ],
+        "regional_service_area": [
+          "Pouce Coupe",
+          "Chetwynd",
+          "Tumbler Ridge",
+          "Hudson's Hope"
+        ],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Dawson Creek and Northeast B.C."
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 250-719-6525 or toll-free 1-888-592-2711 for current intake and access information.",
+      "phone": "250-719-6525",
+      "email": "",
+      "website": "https://www.northernhealth.ca/services/mental-health-substance-use/services-by-community",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Mental health and substance use services by community",
+        "authority": "Northern Health",
+        "url": "https://www.northernhealth.ca/services/mental-health-substance-use/services-by-community"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_dawson_creek_mhsu_oat"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_bc_fort_st_john_mhsu_oat",
+      "record_type": "service",
+      "organization": "Northern Health",
+      "program_name": "Mental Health and Substance Use Community Program - Fort St. John",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "oat",
+        "counselling",
+        "treatment navigation"
+      ],
+      "description": "Local Fort St. John community program providing intake, counselling, case management, psychiatric consultation, referrals and opioid agonist treatment.",
+      "population_served": "Adults seeking mental-health or substance-use services",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fort St. John and Northeast B.C.",
+      "province": "British Columbia",
+      "city_community": "Fort St. John",
+      "address": "10011 96th Street, Fort St. John, BC V1J 3P3",
+      "service_area": "Fort St. John and Northeast B.C.",
+      "service_scope": {
+        "physical_location": {
+          "community": "Fort St. John",
+          "address": "10011 96th Street, Fort St. John, BC V1J 3P3",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Fort St. John"
+        ],
+        "regional_service_area": [
+          "Fort Nelson",
+          "Taylor",
+          "Hudson's Hope",
+          "Tumbler Ridge",
+          "Chetwynd"
+        ],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fort St. John and Northeast B.C."
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 250-263-6080 for current intake and access information before travelling.",
+      "phone": "250-263-6080",
+      "email": "",
+      "website": "https://www.northernhealth.ca/services/mental-health-substance-use/services-by-community",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Mental health and substance use services by community",
+        "authority": "Northern Health",
+        "url": "https://www.northernhealth.ca/services/mental-health-substance-use/services-by-community"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_fort_st_john_mhsu_oat"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_bc_masset_mhsu",
+      "record_type": "service",
+      "organization": "Northern Health",
+      "program_name": "Mental Health and Substance Use Community Program - Masset",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "counselling",
+        "treatment navigation"
+      ],
+      "description": "Local Haida Gwaii community program providing assessment, trauma-informed counselling, care coordination, advocacy and referrals for adults with mental-health or substance-use concerns.",
+      "population_served": "Adults with mental-health or substance-use concerns",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "North Haida Gwaii",
+      "province": "British Columbia",
+      "city_community": "Masset",
+      "address": "2520 Harrison Avenue, Masset, BC V0T 1M0",
+      "service_area": "North Haida Gwaii",
+      "service_scope": {
+        "physical_location": {
+          "community": "Masset",
+          "address": "2520 Harrison Avenue, Masset, BC V0T 1M0",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Masset"
+        ],
+        "regional_service_area": [
+          "Haida Gwaii",
+          "Old Massett"
+        ],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "North Haida Gwaii"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 250-626-4725 for current intake and access information before travelling.",
+      "phone": "250-626-4725",
+      "email": "",
+      "website": "https://www.northernhealth.ca/services/mental-health-substance-use/services-by-community",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Mental health and substance use services by community",
+        "authority": "Northern Health",
+        "url": "https://www.northernhealth.ca/services/mental-health-substance-use/services-by-community"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_masset_mhsu"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_bc_prince_rupert_mhsu_oat",
+      "record_type": "service",
+      "organization": "Northern Health",
+      "program_name": "Mental Health and Substance Use Community Program - Prince Rupert",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "oat",
+        "counselling",
+        "treatment navigation"
+      ],
+      "description": "Prince Rupert community program providing intake, counselling, treatment planning, referrals and an opioid agonist treatment clinic with telehealth follow-up.",
+      "population_served": "Adults seeking mental-health or substance-use services; the listed OAT clinic serves adults age 19 and older",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Prince Rupert and surrounding Northwest communities",
+      "province": "British Columbia",
+      "city_community": "Prince Rupert",
+      "address": "300 3rd Avenue West, Prince Rupert, BC V8J 1L4",
+      "service_area": "Prince Rupert and surrounding Northwest communities",
+      "service_scope": {
+        "physical_location": {
+          "community": "Prince Rupert",
+          "address": "300 3rd Avenue West, Prince Rupert, BC V8J 1L4",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Prince Rupert"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Prince Rupert and surrounding Northwest communities"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone",
+        "telehealth follow-up"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "OAT intake begins with a clinician; call to confirm current access for other services.",
+      "access": "Call 250-622-6380 for intake and current service information before travelling.",
+      "phone": "250-622-6380",
+      "email": "",
+      "website": "https://www.northernhealth.ca/services/mental-health-substance-use/services-by-community",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Mental health and substance use services by community",
+        "authority": "Northern Health",
+        "url": "https://www.northernhealth.ca/services/mental-health-substance-use/services-by-community"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_prince_rupert_mhsu_oat"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_bc_terrace_mhsu",
       "record_type": "service",
       "organization": "Northern Health",
@@ -7516,6 +9092,161 @@
       ],
       "source_record_ids": [
         "shared_bc_kwakiutl_mhsu"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_sk_ile_a_la_crosse_mhsu_withdrawal",
+      "record_type": "service",
+      "organization": "Saskatchewan Health Authority",
+      "program_name": "Mental Health, Addictions and Withdrawal Services - Île-à-la-Crosse",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "withdrawal management",
+        "counselling",
+        "harm reduction",
+        "treatment navigation"
+      ],
+      "description": "St. Joseph's Hospital and Health Centre provides community counselling, recovery, harm-reduction and medically supported and non-medical withdrawal-management services.",
+      "population_served": "People seeking mental-health, addiction or withdrawal support in Île-à-la-Crosse and northwest Saskatchewan",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Île-à-la-Crosse and northwest Saskatchewan",
+      "province": "Saskatchewan",
+      "city_community": "Île-à-la-Crosse",
+      "address": "La Jeunesse Avenue, Île-à-la-Crosse, SK S0M 1C0",
+      "service_area": "Île-à-la-Crosse and northwest Saskatchewan",
+      "service_scope": {
+        "physical_location": {
+          "community": "Île-à-la-Crosse",
+          "address": "La Jeunesse Avenue, Île-à-la-Crosse, SK S0M 1C0",
+          "province": "Saskatchewan"
+        },
+        "local_service_area": [
+          "Île-à-la-Crosse"
+        ],
+        "regional_service_area": [
+          "Buffalo Narrows",
+          "La Loche",
+          "Beauval"
+        ],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Île-à-la-Crosse and northwest Saskatchewan"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone intake"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Some mental-health and addiction services may require a referral; intake confirms the pathway.",
+      "access": "Call northwest intake at 1-844-235-5595 for assessment and referral, or call St. Joseph's at 306-833-3500 to confirm current service access before travelling.",
+      "phone": "1-844-235-5595",
+      "email": "",
+      "website": "https://www.saskhealthauthority.ca/facilities-locations/st-josephs-hospital-and-health-centre",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "St. Joseph's Hospital and Health Centre",
+        "authority": "Saskatchewan Health Authority",
+        "url": "https://www.saskhealthauthority.ca/facilities-locations/st-josephs-hospital-and-health-centre"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_sk_ile_a_la_crosse_mhsu_withdrawal"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_sk_la_loche_mhsu_withdrawal",
+      "record_type": "service",
+      "organization": "Saskatchewan Health Authority",
+      "program_name": "Mental Health, Addictions and Withdrawal Services - La Loche",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "withdrawal management",
+        "counselling",
+        "harm reduction",
+        "treatment navigation"
+      ],
+      "description": "La Loche Health Centre and Hospital provides community mental-health and addiction services plus medically supported and non-medical withdrawal-management services.",
+      "population_served": "People seeking mental-health, addiction or withdrawal support in La Loche and northwest Saskatchewan",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "La Loche and northwest Saskatchewan",
+      "province": "Saskatchewan",
+      "city_community": "La Loche",
+      "address": "",
+      "service_area": "La Loche and northwest Saskatchewan",
+      "service_scope": {
+        "physical_location": {
+          "community": "La Loche",
+          "province": "Saskatchewan"
+        },
+        "local_service_area": [
+          "La Loche"
+        ],
+        "regional_service_area": [
+          "Buffalo Narrows",
+          "Île-à-la-Crosse",
+          "Beauval"
+        ],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "La Loche and northwest Saskatchewan"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone intake"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Some mental-health and addiction services may require a referral; intake confirms the pathway.",
+      "access": "Call northwest intake at 1-844-235-5595 for assessment and referral, or call the withdrawal service at 306-822-8800 to confirm current intake before travelling.",
+      "phone": "1-844-235-5595",
+      "email": "",
+      "website": "https://www.saskhealthauthority.ca/facilities-locations/la-loche-health-centre-and-hospital",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "La Loche Health Centre and Hospital",
+        "authority": "Saskatchewan Health Authority",
+        "url": "https://www.saskhealthauthority.ca/facilities-locations/la-loche-health-centre-and-hospital"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_sk_la_loche_mhsu_withdrawal"
       ]
     },
     {
@@ -7812,6 +9543,67 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:1nc33ya",
+      "record_type": "service",
+      "organization": "Government of BC",
+      "program_name": "Ministry of Social Development",
+      "categories": [
+        "financial_funding"
+      ],
+      "subcategories": [
+        "financial"
+      ],
+      "description": "Income assistance and disability benefits.",
+      "population_served": "Adults",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "BC",
+      "province": "British Columbia",
+      "city_community": "",
+      "address": "",
+      "service_area": "BC",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "BC"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Online / Phone",
+      "access": "Online / Phone",
+      "phone": "1-866-866-0800",
+      "email": "",
+      "website": "https://www2.gov.bc.ca/gov/content/family-social-supports/income-assistance",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Ministry of Social Development",
+        "authority": "Government of BC",
+        "url": "https://www2.gov.bc.ca/gov/content/family-social-supports/income-assistance"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1nc33ya"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_sk_jhss_my_place",
       "record_type": "service",
       "organization": "John Howard Society of Saskatchewan",
@@ -7947,6 +9739,72 @@
       ],
       "source_record_ids": [
         "support:my-self-serve-income-and-disability-assistance-access"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:7y4ggo",
+      "record_type": "service",
+      "organization": "Nenqayni",
+      "program_name": "Nenqayni Wellness Centre",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "treatment programs"
+      ],
+      "description": "7–8 week residential treatment; OAT supported; family-inclusive model",
+      "population_served": "Families, couples with children",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "BC",
+      "province": "British Columbia",
+      "city_community": "Williams Lake",
+      "address": "",
+      "service_area": "BC",
+      "service_scope": {
+        "physical_location": {
+          "community": "Williams Lake",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Williams Lake"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "BC"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "Adults / families",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Application / Referral",
+      "access": "Application / Referral",
+      "phone": "250-989-0301",
+      "email": "",
+      "website": "https://nenqayni.com/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Nenqayni Wellness Centre",
+        "authority": "Nenqayni",
+        "url": "https://nenqayni.com/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:7y4ggo"
       ]
     },
     {
@@ -8367,6 +10225,100 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_bc_northern_health_connections",
+      "record_type": "service",
+      "organization": "Northern Health",
+      "program_name": "Northern Health Connections",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "medical transportation",
+        "treatment transportation",
+        "rural remote access"
+      ],
+      "description": "Intercommunity transportation for eligible people travelling to non-emergency health services not available in their home community, plus specified return-home and companion travel.",
+      "population_served": "Eligible northern B.C. patients, companions and other groups described by Northern Health Connections",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Northern British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "address": "",
+      "service_area": "Northern British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [
+          "Dawson Creek",
+          "Fort St. John",
+          "Fort Nelson",
+          "Prince George",
+          "Prince Rupert",
+          "Terrace",
+          "Smithers",
+          "Burns Lake",
+          "Quesnel",
+          "Mackenzie",
+          "McBride",
+          "Valemount",
+          "Tumbler Ridge",
+          "Chetwynd",
+          "Pouce Coupe",
+          "Daajing Giids",
+          "Masset"
+        ],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "Regional transportation network; routes and stops must be confirmed and it does not imply a health service is physically located in the searched community.",
+        "search_locations": [],
+        "service_area": "Northern British Columbia"
+      },
+      "delivery_modes": [
+        "scheduled bus",
+        "telephone booking"
+      ],
+      "eligibility": "A valid BC Care Card or BC Services Card and current program eligibility rules apply; medical appointments normally require verification.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review current routes and eligibility, then call 1-888-647-4997 to book or ask about the appropriate route.",
+      "phone": "1-888-647-4997",
+      "email": "",
+      "website": "https://www.nhconnections.ca/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": {
+        "funding_source": "Northern Health",
+        "eligible_trip_types": [
+          "Non-emergency health services unavailable in the home community",
+          "Return home after eligible emergency transport",
+          "Specified companion travel"
+        ],
+        "delivery": "Reservation and eligibility confirmation required for regular routes",
+        "travel_modes": [
+          "Scheduled regional bus"
+        ]
+      },
+      "source": {
+        "title": "Northern Health Connections",
+        "authority": "Northern Health",
+        "url": "https://www.nhconnections.ca/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_northern_health_connections"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_sk_northern_medical_transportation",
       "record_type": "funding",
       "organization": "Government of Saskatchewan",
@@ -8446,6 +10398,162 @@
       ],
       "source_record_ids": [
         "miller_sk_northern_medical_transportation"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_bc_port_hardy_mhsu_access",
+      "record_type": "service",
+      "organization": "Island Health",
+      "program_name": "Northern Vancouver Island Mental Health and Substance Use - Port Hardy",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "oat navigation",
+        "withdrawal navigation",
+        "counselling",
+        "treatment navigation"
+      ],
+      "description": "Local Port Hardy access point for screening, assessment and connection to counselling, opioid agonist treatment, withdrawal management and other adult mental-health or substance-use services.",
+      "population_served": "Adults seeking mental-health or substance-use services in the Mount Waddington area",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Port Hardy and the Mount Waddington area",
+      "province": "British Columbia",
+      "city_community": "Port Hardy",
+      "address": "7070 Shorncliffe Avenue, Port Hardy, BC V0N 2P0",
+      "service_area": "Port Hardy and the Mount Waddington area",
+      "service_scope": {
+        "physical_location": {
+          "community": "Port Hardy",
+          "address": "7070 Shorncliffe Avenue, Port Hardy, BC V0N 2P0",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Port Hardy"
+        ],
+        "regional_service_area": [
+          "Port Alice",
+          "Alert Bay",
+          "Sointula"
+        ],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Port Hardy and the Mount Waddington area"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referrals and referrals from clinicians, community agencies, and health or social-service professionals are accepted.",
+      "access": "Call 250-902-6051 or use the weekday walk-in access period listed by Island Health; call before travelling to confirm current service arrangements.",
+      "phone": "250-902-6051",
+      "email": "",
+      "website": "https://www.islandhealth.ca/our-services/mental-health-substance-use-services/access-referrals-mental-health-substance-use-services/referrals-mount-waddington-mental-health-substance-use",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Northern Vancouver Island Mental Health & Substance Use",
+        "authority": "Island Health",
+        "url": "https://www.islandhealth.ca/our-services/mental-health-substance-use-services/access-referrals-mental-health-substance-use-services/referrals-mount-waddington-mental-health-substance-use"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_port_hardy_mhsu_access"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_bc_port_mcneill_mhsu_access",
+      "record_type": "service",
+      "organization": "Island Health",
+      "program_name": "Northern Vancouver Island Mental Health and Substance Use - Port McNeill",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "oat navigation",
+        "withdrawal navigation",
+        "counselling",
+        "treatment navigation"
+      ],
+      "description": "Local Port McNeill access point for screening, assessment and connection to counselling, opioid agonist treatment, withdrawal management and other adult mental-health or substance-use services.",
+      "population_served": "Adults seeking mental-health or substance-use services in the Mount Waddington area",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Port McNeill and the Mount Waddington area",
+      "province": "British Columbia",
+      "city_community": "Port McNeill",
+      "address": "2750 Kingcome Place, Port McNeill, BC V0N 2R0",
+      "service_area": "Port McNeill and the Mount Waddington area",
+      "service_scope": {
+        "physical_location": {
+          "community": "Port McNeill",
+          "address": "2750 Kingcome Place, Port McNeill, BC V0N 2R0",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Port McNeill"
+        ],
+        "regional_service_area": [
+          "Port Alice",
+          "Alert Bay",
+          "Sointula"
+        ],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Port McNeill and the Mount Waddington area"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referrals and referrals from clinicians, community agencies, and health or social-service professionals are accepted.",
+      "access": "Call 250-956-4461 or use the weekday walk-in access period listed by Island Health; call before travelling to confirm current service arrangements.",
+      "phone": "250-956-4461",
+      "email": "",
+      "website": "https://www.islandhealth.ca/our-services/mental-health-substance-use-services/access-referrals-mental-health-substance-use-services/referrals-mount-waddington-mental-health-substance-use",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Northern Vancouver Island Mental Health & Substance Use",
+        "authority": "Island Health",
+        "url": "https://www.islandhealth.ca/our-services/mental-health-substance-use-services/access-referrals-mental-health-substance-use-services/referrals-mount-waddington-mental-health-substance-use"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_port_mcneill_mhsu_access"
       ]
     },
     {
@@ -8869,6 +10977,73 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:1ik39ab",
+      "record_type": "service",
+      "organization": "Fraser Health",
+      "program_name": "Opioid Agonist Treatment - Burnaby",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction medicine"
+      ],
+      "description": "Outpatient opioid agonist treatment clinic providing ongoing care with medications such as methadone or buprenorphine/naloxone.",
+      "population_served": "Adults",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser North",
+      "province": "British Columbia",
+      "city_community": "Burnaby",
+      "address": "#320-7155 Kingsway",
+      "service_area": "Fraser North",
+      "service_scope": {
+        "physical_location": {
+          "community": "Burnaby",
+          "address": "#320-7155 Kingsway",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Burnaby"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser North"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "19+ / opioid use disorder",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "RAAC referral / Call clinic",
+      "access": "RAAC referral / Call clinic",
+      "phone": "604-777-6884",
+      "email": "",
+      "website": "https://www.fraserhealth.ca/Service-Directory/Services/mental-health-and-substance-use/substance-use/opioid-agonist-treatment",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Opioid Agonist Treatment - Burnaby",
+        "authority": "Fraser Health",
+        "url": "https://www.fraserhealth.ca/Service-Directory/Services/mental-health-and-substance-use/substance-use/opioid-agonist-treatment"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1ik39ab"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_sk_saskatoon_oars",
       "record_type": "service",
       "organization": "Saskatchewan Health Authority",
@@ -9209,6 +11384,72 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:1iy3aud",
+      "record_type": "service",
+      "organization": "Options Community Services",
+      "program_name": "Options Family Counselling (Surrey)",
+      "categories": [
+        "family_community"
+      ],
+      "subcategories": [
+        "family counselling"
+      ],
+      "description": "Free short-term counselling for families in Surrey",
+      "population_served": "Families",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser",
+      "province": "British Columbia",
+      "city_community": "Surrey",
+      "address": "",
+      "service_area": "Fraser",
+      "service_scope": {
+        "physical_location": {
+          "community": "Surrey",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Surrey"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "Children under 18",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referral",
+      "access": "Self-referral",
+      "phone": "604-584-5811",
+      "email": "",
+      "website": "https://options.bc.ca",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Options Family Counselling (Surrey)",
+        "authority": "Options Community Services",
+        "url": "https://options.bc.ca"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1iy3aud"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_ab_oxford_house_recovery_housing",
       "record_type": "service",
       "organization": "Oxford House Foundation of Canada",
@@ -9273,6 +11514,73 @@
       ],
       "source_record_ids": [
         "miller_ab_oxford_house_recovery_housing"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:1ivoapt",
+      "record_type": "service",
+      "organization": "Pacifica",
+      "program_name": "Pacifica Treatment Centre",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "treatment programs"
+      ],
+      "description": "Private residential treatment centre with psychoeducation, process group therapy, individual counselling, wellness programming, medical services, case management, family days, alumni support, and peer recovery supports.",
+      "population_served": "Adults",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "BC",
+      "province": "British Columbia",
+      "city_community": "Vancouver",
+      "address": "1755 11th Ave E",
+      "service_area": "BC",
+      "service_scope": {
+        "physical_location": {
+          "community": "Vancouver",
+          "address": "1755 11th Ave E",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Vancouver"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "BC"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "Adults",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referral / Intake",
+      "access": "Self-referral / Intake",
+      "phone": "1-866-446-0668",
+      "email": "",
+      "website": "https://www.pacificatreatment.ca/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Pacifica Treatment Centre",
+        "authority": "Pacifica",
+        "url": "https://www.pacificatreatment.ca/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1ivoapt"
       ]
     },
     {
@@ -9479,6 +11787,75 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_bc_port_hardy_sobering_shelter",
+      "record_type": "service",
+      "organization": "The Salvation Army with Island Health and BC Housing",
+      "program_name": "Port Hardy Sheltering, Sobering and Assessment Program",
+      "categories": [
+        "healthcare",
+        "housing",
+        "practical_support"
+      ],
+      "subcategories": [
+        "emergency shelter",
+        "sobering support",
+        "harm reduction",
+        "housing navigation"
+      ],
+      "description": "A Port Hardy sheltering, sobering and assessment program that provides a safer overnight setting and connection to services. It is not represented as medical withdrawal management.",
+      "population_served": "People in the Mount Waddington area who need sheltering or overnight sobering support",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Port Hardy and Mount Waddington area",
+      "province": "British Columbia",
+      "city_community": "Port Hardy",
+      "address": "",
+      "service_area": "Port Hardy and Mount Waddington area",
+      "service_scope": {
+        "physical_location": {
+          "community": "Port Hardy",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Port Hardy"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "Physical program in Port Hardy; sobering and assessment are distinct from medical withdrawal-management care.",
+        "search_locations": [],
+        "service_area": "Port Hardy and Mount Waddington area"
+      },
+      "delivery_modes": [],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official Island Health North Vancouver Island action-plan page and contact the local program to confirm current intake before travelling.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.islandhealth.ca/about-us/accountability/strategic-direction/building-health/north-vancouver-island-healthcare-sustainability-and-improvements/action-plan",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "North Vancouver Island healthcare sustainability and improvements action plan",
+        "authority": "Island Health",
+        "url": "https://www.islandhealth.ca/about-us/accountability/strategic-direction/building-health/north-vancouver-island-healthcare-sustainability-and-improvements/action-plan"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_port_hardy_sobering_shelter"
+      ]
+    },
+    {
       "canonical_resource_id": "funding:miller:mfa_psssp",
       "record_type": "funding",
       "organization": "Indigenous Services Canada",
@@ -9614,6 +11991,83 @@
       ],
       "source_record_ids": [
         "miller_sk_prince_albert_oat"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_bc_prince_rupert_mhsu_outreach",
+      "record_type": "service",
+      "organization": "Northern Health",
+      "program_name": "Prince Rupert Specialized Mental Health and Substance Use Outreach",
+      "categories": [
+        "healthcare",
+        "housing",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "harm reduction",
+        "housing navigation",
+        "outreach",
+        "treatment navigation"
+      ],
+      "description": "Assertive community outreach offering short-term transitional support, harm reduction, outreach nursing, case management and treatment planning for adults facing complex health, housing or access barriers.",
+      "population_served": "Adults with problematic substance use or mental illness who face complex barriers to health and social services",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Prince Rupert",
+      "province": "British Columbia",
+      "city_community": "Prince Rupert",
+      "address": "300 3rd Avenue West, Prince Rupert, BC V8J 1L4",
+      "service_area": "Prince Rupert",
+      "service_scope": {
+        "physical_location": {
+          "community": "Prince Rupert",
+          "address": "300 3rd Avenue West, Prince Rupert, BC V8J 1L4",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Prince Rupert"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Prince Rupert"
+      },
+      "delivery_modes": [
+        "outreach",
+        "telephone",
+        "in person",
+        "email"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Phone, email, fax and in-person referrals are accepted.",
+      "access": "Call 778-884-0262 or email PrinceRupertOutreach@northernhealth.ca; Northern Health states referrals are followed up within 72 hours.",
+      "phone": "778-884-0262",
+      "email": "PrinceRupertOutreach@northernhealth.ca",
+      "website": "https://www.northernhealth.ca/services/mental-health-substance-use/services-by-community",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Mental health and substance use services by community",
+        "authority": "Northern Health",
+        "url": "https://www.northernhealth.ca/services/mental-health-substance-use/services-by-community"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_prince_rupert_mhsu_outreach"
       ]
     },
     {
@@ -10202,6 +12656,140 @@
       ],
       "source_record_ids": [
         "shared_ab_rtdrs"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:1dh7k5m",
+      "record_type": "service",
+      "organization": "Vancouver Coastal Health",
+      "program_name": "Richmond Community Mental Health and Substance Use - Central Intake",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "mental health and substance use intake"
+      ],
+      "description": "Single Richmond intake line for non-life-threatening mental health and substance use support. Intake available in English, Cantonese and Mandarin, with interpreting available in other languages.",
+      "population_served": "Children, youth, adults, older adults",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "VCH",
+      "province": "British Columbia",
+      "city_community": "Richmond",
+      "address": "8100 Granville Avenue",
+      "service_area": "VCH",
+      "service_scope": {
+        "physical_location": {
+          "community": "Richmond",
+          "address": "8100 Granville Avenue",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Richmond"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "VCH"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "All ages",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Call / Drop-in",
+      "access": "Call / Drop-in",
+      "phone": "604-204-1111",
+      "email": "",
+      "website": "https://www.vch.ca/en/service/richmond-community-mental-health-and-substance-use-central-intake",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Richmond Community Mental Health and Substance Use - Central Intake",
+        "authority": "Vancouver Coastal Health",
+        "url": "https://www.vch.ca/en/service/richmond-community-mental-health-and-substance-use-central-intake"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1dh7k5m"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:1hv0r9e",
+      "record_type": "service",
+      "organization": "Vancouver Coastal Health",
+      "program_name": "Richmond Substance Use Outreach Team",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "substance use outreach"
+      ],
+      "description": "Client-centered recovery-oriented outreach for Richmond residents with complex substance use and difficulty engaging in office-based counselling. Services may include case management, counselling, psychiatry, and general medicine.",
+      "population_served": "Richmond residents 19+",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "VCH",
+      "province": "British Columbia",
+      "city_community": "Richmond",
+      "address": "8100 Granville Avenue, Unit 600",
+      "service_area": "VCH",
+      "service_scope": {
+        "physical_location": {
+          "community": "Richmond",
+          "address": "8100 Granville Avenue, Unit 600",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Richmond"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "VCH"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "19+",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Call Richmond Central Intake",
+      "access": "Call Richmond Central Intake",
+      "phone": "604-244-5486",
+      "email": "",
+      "website": "https://www.vch.ca/en/location-service/richmond-substance-use-outreach-team",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Richmond Substance Use Outreach Team",
+        "authority": "Vancouver Coastal Health",
+        "url": "https://www.vch.ca/en/location-service/richmond-substance-use-outreach-team"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1hv0r9e"
       ]
     },
     {
@@ -11356,6 +13944,274 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:1m1irlv",
+      "record_type": "service",
+      "organization": "Vancouver Coastal Health",
+      "program_name": "Substance Use Services - Three Bridges Community Health Centre",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "treatment programs"
+      ],
+      "description": "Groups, counselling, care coordination, intake consultation, and connections to Daytox/residential treatment and addiction medicine for OAT and safe supply.",
+      "population_served": "Adults",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Vancouver Coastal Health",
+      "province": "British Columbia",
+      "city_community": "Vancouver",
+      "address": "Three Bridges Community Health Centre",
+      "service_area": "Vancouver Coastal Health",
+      "service_scope": {
+        "physical_location": {
+          "community": "Vancouver",
+          "address": "Three Bridges Community Health Centre",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Vancouver"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Vancouver Coastal Health"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "Adults living in Vancouver",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Intake / consultation",
+      "access": "Intake / consultation",
+      "phone": "",
+      "email": "",
+      "website": "https://www.vch.ca/en/location-service/substance-use-services-three-bridges-community-health-centre-west-end",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Substance Use Services - Three Bridges Community Health Centre",
+        "authority": "Vancouver Coastal Health",
+        "url": "https://www.vch.ca/en/location-service/substance-use-services-three-bridges-community-health-centre-west-end"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1m1irlv"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:1cger74",
+      "record_type": "service",
+      "organization": "Fraser Health",
+      "program_name": "Substance Use Services Access Team (SUSAT) - Fraser East",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction services navigation"
+      ],
+      "description": "Centralized Fraser Health navigation and referral service for treatment centres, OAT, counselling, and community substance use supports.",
+      "population_served": "Adults",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser East",
+      "province": "British Columbia",
+      "city_community": "Abbotsford",
+      "address": "Fraser Health regional service",
+      "service_area": "Fraser East",
+      "service_scope": {
+        "physical_location": {
+          "community": "Abbotsford",
+          "address": "Fraser Health regional service",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Abbotsford"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser East"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "19+",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referral / provider referral",
+      "access": "Self-referral / provider referral",
+      "phone": "1-833-866-6478",
+      "email": "",
+      "website": "https://www.fraserhealth.ca",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Substance Use Services Access Team (SUSAT) - Fraser East",
+        "authority": "Fraser Health",
+        "url": "https://www.fraserhealth.ca"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1cger74"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:1i84h63",
+      "record_type": "service",
+      "organization": "Fraser Health",
+      "program_name": "Substance Use Services Access Team (SUSAT) - Fraser North",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction services navigation"
+      ],
+      "description": "Centralized Fraser Health navigation and referral service for treatment centres, OAT, counselling, and community substance use supports.",
+      "population_served": "Adults",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser North",
+      "province": "British Columbia",
+      "city_community": "New Westminster",
+      "address": "Fraser Health regional service",
+      "service_area": "Fraser North",
+      "service_scope": {
+        "physical_location": {
+          "community": "New Westminster",
+          "address": "Fraser Health regional service",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "New Westminster"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser North"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "19+",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referral / provider referral",
+      "access": "Self-referral / provider referral",
+      "phone": "1-833-866-6478",
+      "email": "",
+      "website": "https://www.fraserhealth.ca",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Substance Use Services Access Team (SUSAT) - Fraser North",
+        "authority": "Fraser Health",
+        "url": "https://www.fraserhealth.ca"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1i84h63"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:kmj3p2",
+      "record_type": "service",
+      "organization": "Fraser Health",
+      "program_name": "Substance Use Services Access Team (SUSAT) - Fraser South",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction services navigation"
+      ],
+      "description": "Centralized Fraser Health navigation and referral service for treatment centres, OAT, counselling, and community substance use supports.",
+      "population_served": "Adults",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser South",
+      "province": "British Columbia",
+      "city_community": "Surrey",
+      "address": "Fraser Health regional service",
+      "service_area": "Fraser South",
+      "service_scope": {
+        "physical_location": {
+          "community": "Surrey",
+          "address": "Fraser Health regional service",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Surrey"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser South"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "19+",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referral / provider referral",
+      "access": "Self-referral / provider referral",
+      "phone": "1-833-866-6478",
+      "email": "",
+      "website": "https://www.fraserhealth.ca",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Substance Use Services Access Team (SUSAT) - Fraser South",
+        "authority": "Fraser Health",
+        "url": "https://www.fraserhealth.ca"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:kmj3p2"
+      ]
+    },
+    {
       "canonical_resource_id": "support:surrey-housing-homelessness-navigation",
       "record_type": "service",
       "organization": "City of Surrey",
@@ -11472,6 +14328,73 @@
       ],
       "source_record_ids": [
         "support:tax-aid-dabc"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:1b5l8nx",
+      "record_type": "service",
+      "organization": "Vancouver Coastal Health",
+      "program_name": "The CORE (Community Outpatient Recovery Experience)",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "outpatient treatment"
+      ],
+      "description": "Free 12-week community-based substance recovery program offering assessment, individual and group counselling, psychoeducational groups, ACT, CPT, life skills training, mindfulness, and acupuncture.",
+      "population_served": "Adults 19+ in Vancouver or Richmond",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Vancouver Coastal Health",
+      "province": "British Columbia",
+      "city_community": "Vancouver",
+      "address": "Robert and Lily Lee Family Community Health Centre",
+      "service_area": "Vancouver Coastal Health",
+      "service_scope": {
+        "physical_location": {
+          "community": "Vancouver",
+          "address": "Robert and Lily Lee Family Community Health Centre",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Vancouver"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Vancouver Coastal Health"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "19+ living in Vancouver or Richmond",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Intake via Access Central or walk-in during business hours",
+      "access": "Intake via Access Central or walk-in during business hours",
+      "phone": "604-675-2455",
+      "email": "",
+      "website": "https://www.vch.ca/en/location-service/core-community-outpatient-recovery-experience",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "The CORE (Community Outpatient Recovery Experience)",
+        "authority": "Vancouver Coastal Health",
+        "url": "https://www.vch.ca/en/location-service/core-community-outpatient-recovery-experience"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1b5l8nx"
       ]
     },
     {
@@ -12177,6 +15100,73 @@
       ],
       "source_record_ids": [
         "support:sources-volunteer-wheels"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:1e7gz3l",
+      "record_type": "service",
+      "organization": "Westminster House (STLR)",
+      "program_name": "Westminster House",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "treatment programs"
+      ],
+      "description": "90-day residential treatment program for women healing from addiction. Social model, 12-step based, with therapy groups, AA/NA meetings, family support groups, and relapse prevention for alumni.",
+      "population_served": "Women 19+",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser North",
+      "province": "British Columbia",
+      "city_community": "New Westminster",
+      "address": "228 7th St",
+      "service_area": "Fraser North",
+      "service_scope": {
+        "physical_location": {
+          "community": "New Westminster",
+          "address": "228 7th St",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "New Westminster"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser North"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Contact program directly",
+      "access": "Contact program directly",
+      "phone": "604-524-5633",
+      "email": "",
+      "website": "https://www.westminsterhouse.ca",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Westminster House",
+        "authority": "Westminster House (STLR)",
+        "url": "https://www.westminsterhouse.ca"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1e7gz3l"
       ]
     },
     {

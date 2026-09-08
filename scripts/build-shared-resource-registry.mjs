@@ -11,6 +11,8 @@ import sharedInstitutionalExpansion from "../src/data/miller-shared-institutiona
 import westernMobileExpansion from "../src/data/miller-western-mobile-expansion-2026-09-08.json" with { type: "json" }
 import reconciliationExpansion from "../src/data/miller-shared-resource-reconciliation-2026-09-08.json" with { type: "json" }
 import westernRegionalPathways from "../src/data/miller-western-regional-pathways-2026-09-08.json" with { type: "json" }
+import westernPrioritySeams from "../src/data/miller-western-priority-seams-2026-09-08.json" with { type: "json" }
+import legacyPriorityVerification from "../src/data/miller-legacy-priority-verification-2026-09-08.json" with { type: "json" }
 import { buildSharedResourceRegistry, validateSharedResourceRegistry } from "../server/sharedResourceRegistry.js"
 
 const withDefaultProvince = (records, defaultProvince, overrides = {}) => records.map(record => ({
@@ -45,6 +47,9 @@ const records = buildSharedResourceRegistry([
   { project: "miller_north", sourceKind: "funding", records: reconciliationExpansion.funding_records.filter(record => record.project_visibility.includes("miller_north")) },
   { project: "miller", sourceKind: "service", records: westernRegionalPathways.records.filter(record => record.project_visibility.includes("miller")) },
   { project: "miller_north", sourceKind: "service", records: westernRegionalPathways.records.filter(record => record.project_visibility.includes("miller_north")) },
+  { project: "miller", sourceKind: "service", records: westernPrioritySeams.records.filter(record => record.project_visibility.includes("miller")) },
+  { project: "miller_north", sourceKind: "service", records: westernPrioritySeams.records.filter(record => record.project_visibility.includes("miller_north")) },
+  { project: "miller", sourceKind: "service", records: legacyPriorityVerification.records },
 ])
 const registry = {
   schema_version: "miller-shared-resource-registry-v1",

@@ -23,3 +23,29 @@ export const MILLER_WESTERN_COMMUNITY_INVENTORY = Object.freeze([
 export const MILLER_WESTERN_CITY_PROVINCES = Object.freeze(Object.fromEntries(
   MILLER_WESTERN_COMMUNITY_INVENTORY.map(({ community, province }) => [community.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, " ").trim(), province]),
 ))
+
+// Recognized service regions are search locations, not physical communities.
+// Keeping them separate prevents a regional query from creating a false local-facility claim.
+export const MILLER_WESTERN_REGION_PROVINCES = Object.freeze({
+  "haida gwaii": "British Columbia",
+  "mount waddington": "British Columbia",
+  "north island": "British Columbia",
+  "northern saskatchewan": "Saskatchewan",
+  "northwest saskatchewan": "Saskatchewan",
+  "northeast british columbia": "British Columbia",
+})
+
+export const MILLER_WESTERN_LOCATION_PROVINCES = Object.freeze({
+  ...MILLER_WESTERN_CITY_PROVINCES,
+  ...MILLER_WESTERN_REGION_PROVINCES,
+})
+
+export const MILLER_WESTERN_LOCATION_LABELS = Object.freeze({
+  ...Object.fromEntries(MILLER_WESTERN_COMMUNITY_INVENTORY.map(({ community }) => [community.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, " ").trim(), community])),
+  "haida gwaii": "Haida Gwaii",
+  "mount waddington": "Mount Waddington",
+  "north island": "North Island",
+  "northern saskatchewan": "Northern Saskatchewan",
+  "northwest saskatchewan": "Northwest Saskatchewan",
+  "northeast british columbia": "Northeast British Columbia",
+})

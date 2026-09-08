@@ -4,19 +4,31 @@ import test from "node:test"
 
 import registry from "../src/data/miller-shared-resource-registry-v1.json" with { type: "json" }
 import westernRegionalPathways from "../src/data/miller-western-regional-pathways-2026-09-08.json" with { type: "json" }
+import westernPrioritySeams from "../src/data/miller-western-priority-seams-2026-09-08.json" with { type: "json" }
 import { toMillerNorthSharedEmailResult } from "../src/millerNorthPublicSupportEmail.js"
 import { filterMillerNorthSupports } from "../src/site/millerNorthSupportFilters.js"
 import { projectSharedResources, validateSharedResourceRegistry } from "../server/sharedResourceRegistry.js"
 
 test("shared public registry validates and preserves distinct project projections", () => {
-  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 185, miller_only: 107, miller_north_only: 38, both: 40 })
+  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 227, miller_only: 147, miller_north_only: 38, both: 42 })
   assert.equal(registry.records.filter(record => !record.province).length, 0)
   const creekside = registry.records.find(record => record.canonical_resource_id === "curated:1ldala")
   assert.equal(creekside.service_scope.physical_location.community, "Surrey")
   assert.ok(creekside.service_scope.regional_service_area.includes("Burnaby"))
   assert.equal(creekside.service_scope.navigation_only, false)
-  assert.equal(projectSharedResources(registry, "miller").length, 147)
-  assert.equal(projectSharedResources(registry, "miller_north").length, 78)
+  assert.equal(projectSharedResources(registry, "miller").length, 189)
+  assert.equal(projectSharedResources(registry, "miller_north").length, 80)
+})
+
+test("five priority regional seams use first-party sources and explicit geographic scope", () => {
+  assert.equal(westernPrioritySeams.records.length, 17)
+  assert.ok(westernPrioritySeams.records.every(record => record.source?.url?.startsWith("https://")))
+  assert.ok(westernPrioritySeams.records.every(record => record.last_verified_date === "2026-09-08"))
+  assert.ok(westernPrioritySeams.records.every(record => record.physical_location || record.regional_service_area || record.navigation_only))
+  assert.equal(new Set(westernPrioritySeams.records.map(record => record.canonical_resource_id)).size, 17)
+  assert.equal(/canonical_event_id|legal_record_id|owner_review|accountability_watch|investigation_id/i.test(JSON.stringify(westernPrioritySeams)), false)
+  const haida = westernPrioritySeams.records.filter(record => ["miller_bc_daajing_giids_mhsu", "miller_bc_masset_mhsu"].includes(record.canonical_resource_id))
+  assert.ok(haida.every(record => record.regional_service_area.includes("Haida Gwaii")))
 })
 
 test("reconciled western resources enrich legacy identities and retain one canonical record", () => {
