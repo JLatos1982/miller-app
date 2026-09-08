@@ -7,14 +7,17 @@ import { join } from "node:path"
 import registry from "../src/data/farm-listener-registry-v1.json" with { type: "json" }
 import resources from "../src/data/miller-shared-resource-registry-v1.json" with { type: "json" }
 import { auditCanonicalResources, FARM_SELF_HEALING_POLICY } from "../server/farmDataQuality.js"
+import { analyzeListenerBatch, compareResourceSnapshots, createFarmIgorRequest, createFarmIgorResponse, dispatchFarmIgorJob, ensureFarmIgorCredential, FARM_IGOR_CAPABILITIES, handleFarmIgorEnvelope, probeFarmIgor, verifyFarmIgorRequest, verifyFarmIgorResponse } from "../server/farmIgorWorker.js"
 import { buildFarmEvidenceGraph, reconcileFarmGraphEdge, suggestLegalSupportPathways } from "../server/farmEvidenceGraph.js"
 import { executeFarmJob, farmJobDue, farmListenerInventory, planFarmJobs, runFarmCycle } from "../server/farmJobScheduler.js"
 import { createFarmOperationsStore } from "../server/farmOperationsStore.js"
 import { detectFarmListenerAnomaly, normalizeFarmListenerResult, protectFarmListenerMemory, recommendTransparentCadence, reconcileListenerDocument, transparentSourceYield, validateFarmListenerRegistry } from "../server/farmListenerFramework.js"
 import { compareLegalIndexDocuments, parseLegalDecisionIndex, runLegalIndexListener } from "../server/farmLegalListeners.js"
+import { auditMillerLocations, FARM_LOCATION_SELF_HEALING_POLICY } from "../server/farmLocationQuality.js"
+import { runExactDocumentListener, runFnhoPublicationsListener, runSaskatchewanHumanRightsListener } from "../server/farmSourceListeners.js"
 import { deterministicQwenFallback, runFarmQwenTriage, validateFarmQwenProposal, validateFarmQwenTask } from "../server/farmQwenTriage.js"
 import { inventoryFarmSecurityMaintenance, runFarmSecuritySanity } from "../server/farmSecurityMaintenance.js"
-import { buildFarmWeeklyOwnerEmail, privacySafeFarmRun } from "../server/farmWeeklyOwnerEmail.js"
+import { buildFarmWeeklyOwnerEmail, deliverFarmWeeklyOwnerEmail, privacySafeFarmRun } from "../server/farmWeeklyOwnerEmail.js"
 
 const now = new Date("2026-09-07T12:00:00.000Z")
 const listener = (overrides = {}) => ({ ...registry.listeners[0], listener_id: "test_listener", enabled: true, schedule: { kind: "interval", days: 7, first_run_at: "2026-09-01T00:00:00.000Z" }, adapter: "test", ...overrides })
@@ -26,7 +29,7 @@ test("central registry has explainable read-only schedules and no publication au
   assert.ok(registry.listeners.every(item => item.mutation_authority === false && item.publication_authority === false))
   assert.ok(registry.listeners.some(item => item.execution_target === "igor" && item.enabled))
   assert.ok(registry.listeners.some(item => item.listener_id === "farm_production_health_weekly" && item.enabled))
-  assert.ok(registry.listeners.some(item => !item.enabled && item.yield_class === "milestone_only"))
+  assert.ok(registry.listeners.some(item => item.enabled && item.yield_class === "milestone_only"))
 })
 
 test("listener results normalize to one stable contract and flag bulk anomalies", () => {
@@ -84,6 +87,49 @@ test("Igor work defers without silent Samwise takeover", async () => {
   assert.match(result.run.notes.join(" "), /did not take over/)
 })
 
+test("Igor local worker authenticates, declares only real capabilities and binds responses", async () => {
+  const root = mkdtempSync(join(tmpdir(), "farm-igor-"))
+  const health = await probeFarmIgor(root)
+  assert.equal(health.available, true)
+  assert.equal(health.authenticated, true)
+  assert.deepEqual(health.capabilities, FARM_IGOR_CAPABILITIES)
+  const result = await dispatchFarmIgorJob({ root, capability: "listener_batch_parse", payload: { items: [{ id: "one", title: "Record", url: "https://example.org/a" }] } })
+  assert.equal(result.valid, 1)
+  assert.equal(result.duplicates_suppressed, 0)
+})
+
+test("Igor rejects authentication failure and replay without changing authority", async () => {
+  const root = mkdtempSync(join(tmpdir(), "farm-igor-auth-"))
+  const credential = ensureFarmIgorCredential(root)
+  const request = createFarmIgorRequest({ credential, capability: "structured_diff", payload: { before: [], after: [] } })
+  assert.throws(() => verifyFarmIgorRequest({ ...request, signature: request.signature.replace(/^./, request.signature[0] === "a" ? "b" : "a") }, credential), /authentication/)
+  const first = await handleFarmIgorEnvelope({ request, credential, root })
+  assert.equal(first.mutation_authority, false)
+  await assert.rejects(handleFarmIgorEnvelope({ request, credential, root }), /replay/)
+})
+
+test("Igor rejects an authenticated but partial capability response", () => {
+  const root = mkdtempSync(join(tmpdir(), "farm-igor-partial-"))
+  const credential = ensureFarmIgorCredential(root)
+  const request = createFarmIgorRequest({ credential, capability: "structured_diff", payload: { before: [], after: [] } })
+  const response = createFarmIgorResponse({ request, credential, result: {} })
+  assert.throws(() => verifyFarmIgorResponse(response, request, credential), /partial/)
+})
+
+test("Igor bounded workloads detect structured changes and obvious duplicates deterministically", () => {
+  const diff = compareResourceSnapshots([{ canonical_resource_id: "r", phone: "1", website: "https://a.test" }], [{ canonical_resource_id: "r", phone: "2", website: "https://a.test" }])
+  assert.equal(diff.changed, 1)
+  assert.deepEqual(diff.records[0].changed_fields, ["phone"])
+  const batch = analyzeListenerBatch([{ id: "one", title: "Same", url: "https://a.test" }, { id: "two", title: "Same", url: "https://a.test?utm_source=x" }])
+  assert.equal(batch.duplicates_suppressed, 1)
+})
+
+test("Igor offline and malformed worker responses fail closed", async () => {
+  const root = mkdtempSync(join(tmpdir(), "farm-igor-offline-"))
+  await assert.rejects(dispatchFarmIgorJob({ root, capability: "structured_diff", workerScript: join(root, "missing-worker.mjs"), timeoutMs: 500 }), /ENOENT|exit|module/i)
+  await assert.rejects(dispatchFarmIgorJob({ root, capability: "structured_diff", workerScript: process.execPath, timeoutMs: 500 }), /malformed|exit|timeout/i)
+})
+
 test("cycle obeys max-job and lock store prevents overlap", async () => {
   const small = { schema_version: "farm-listener-registry-v1", listeners: [listener({ listener_id: "one" }), listener({ listener_id: "two" })] }
   const cycle = await runFarmCycle({ registry: small, state: { jobs: {} }, adapters: { test: async () => ({ checked: 1 }) }, now: () => now, maxJobs: 1 })
@@ -116,6 +162,18 @@ test("legal index adapter baselines existing links then detects deterministic ch
   assert.match(result.notes[0], /baseline/i)
 })
 
+test("FNHO and Saskatchewan listeners baseline public indexes without inventing incidents or merits findings", async () => {
+  const fetchImpl = async url => ({ ok: true, text: async () => String(url).includes("fnhoo") ? '<html><title>FNHO reports</title><a href="/report.pdf">Inaugural report and recommendations</a></html>' : '<html><a href="/2026/2026skhrc1">2026 SKHRC 1 decision</a></html>' })
+  const fnho = await runFnhoPublicationsListener({ fetchImpl })
+  assert.equal(fnho.new_documents, 0)
+  assert.match(fnho.notes.join(" "), /aggregate complaint themes/i)
+  const legal = await runSaskatchewanHumanRightsListener({ fetchImpl })
+  assert.equal(legal.new_documents, 0)
+  assert.match(legal.notes.join(" "), /merits finding/i)
+  const exact = await runExactDocumentListener({ records: [{ source_id: "future", title: "Future inquest", url: "https://example.org", next_check_due: "2026-10-01" }], now })
+  assert.equal(exact.memory.documents[0].milestone_status, "not_due")
+})
+
 test("Qwen output is constrained, evidence-backed and optional", async () => {
   const accepted = validateFarmQwenProposal({ task: "document_role", sourceText: "The Tribunal made a procedural decision only.", proposal: { label: "procedural_ruling", confidence: 0.9, evidence: "procedural decision" } })
   assert.equal(accepted.advisory_only, true)
@@ -137,6 +195,14 @@ test("event graph connects canonical incidents, Watch, legal evidence and suppor
   assert.ok(graph.edges.some(edge => edge.type === "judicial_review_of" && edge.owner_review))
   const proposal = reconcileFarmGraphEdge(graph.edges, { type: "same_event_as", from: "incident:a", to: "incident:b" })
   assert.equal(proposal.automatic_merge, false)
+})
+
+test("event graph does not fuzzy-link distinct accountability chains with a shared name", () => {
+  const graph = buildFarmEvidenceGraph({
+    watchChains: [{ chain_id: "silent-world", title: "The Silent World of Jordan healthcare-access recommendations" }],
+    legalRecords: [{ legal_record_id: "principle", case_name: "Jordan's Principle decision", process_role: "merits_decision", related_accountability_chain: "Jordan healthcare-access recommendations", public_disposition: "owner_review" }],
+  })
+  assert.equal(graph.edges.length, 0)
 })
 
 test("incident-to-support mapping is general, non-advisory and owner reviewed", () => {
@@ -167,11 +233,28 @@ test("weekly owner email uses bounded structured fields, reports worker deferral
   assert.equal(email.nothing_material_changed, false)
 })
 
+test("weekly owner email delivery path accepts only privacy-safe structured payloads", async () => {
+  const email = buildFarmWeeklyOwnerEmail({ runs: [], now })
+  let sent = null
+  const result = await deliverFarmWeeklyOwnerEmail({ email, recipient: "owner@example.org", send: async payload => { sent = payload } })
+  assert.equal(result.status, "sent")
+  assert.equal(sent.subject, "Farm Weekly — no material changes")
+  await assert.rejects(deliverFarmWeeklyOwnerEmail({ email: { ...email, privacy: { ...email.privacy, credentials: true } }, recipient: "owner@example.org", send: async () => {} }), /unsafe/)
+})
+
 test("data quality creates proposals, never silent production repairs", () => {
   const report = auditCanonicalResources([{ canonical_resource_id: "r", name: " Program ", organization: "Org", province: "BC", website: "https://example.org/?utm_source=x", last_verified_date: "2026-09-01" }], { now })
   assert.ok(report.safe_correction_candidates.length >= 1)
   assert.equal(report.production_mutations, 0)
   assert.equal(FARM_SELF_HEALING_POLICY.production_mutation_authority, false)
+})
+
+test("location quality is detect/propose only and leaves geocode publication owner gated", () => {
+  const report = auditMillerLocations([{ "Resource Name": "One", Address: " 1  Main St ", City: "", Region: "BC", Website: "https://example.org" }], { now })
+  assert.equal(report.production_mutations, 0)
+  assert.ok(report.safe_correction_candidates.some(item => item.rule === "known_province_alias_normalization"))
+  assert.ok(report.research_candidates.some(item => item.issue === "missing_city"))
+  assert.equal(FARM_LOCATION_SELF_HEALING_POLICY.production_mutation_authority, false)
 })
 
 test("security maintenance inventory separates active, inactive, planned and obsolete states", () => {

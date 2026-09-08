@@ -103,6 +103,7 @@ export function classifyTransparentYield(metrics) {
 }
 
 export function recommendTransparentCadence(listener, metrics) {
+  if (["operational", "operational_health"].includes(listener.yield_class)) return { action: "keep_configured", days: listener.schedule?.days || null, reason: "Operational health/reporting cadence is policy-driven rather than research-yield-driven." }
   if (listener.schedule?.kind === "milestone") return { action: "keep_milestone", reason: "A known documentary trigger is more useful than periodic polling." }
   if (listener.schedule?.kind === "manual") return { action: "keep_manual", reason: "The source requires bounded, supervised retrieval." }
   if (metrics.completed_runs < 3) return { action: "observe", days: listener.schedule?.days || null, reason: "At least three completed cycles are required before changing cadence." }

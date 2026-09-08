@@ -6,12 +6,17 @@ import { fileURLToPath } from "node:url"
 
 import registry from "../src/data/farm-listener-registry-v1.json" with { type: "json" }
 import resources from "../src/data/miller-shared-resource-registry-v1.json" with { type: "json" }
+import incidents from "../src/data/miller-north-serious-harm-public-v1.json" with { type: "json" }
+import legacyResources from "../src/vancouver_resources_merged_updated.json" with { type: "json" }
 import { auditCanonicalResources } from "../server/farmDataQuality.js"
+import { dispatchFarmIgorJob, probeFarmIgor } from "../server/farmIgorWorker.js"
 import { runLegalIndexListener } from "../server/farmLegalListeners.js"
+import { auditMillerLocations } from "../server/farmLocationQuality.js"
+import { runExactDocumentListener, runFnhoPublicationsListener, runSaskatchewanHumanRightsListener, saskatchewanMilestoneRecords } from "../server/farmSourceListeners.js"
 import { farmListenerInventory, runFarmCycle } from "../server/farmJobScheduler.js"
 import { createFarmOperationsStore } from "../server/farmOperationsStore.js"
 import { runFarmSecuritySanity } from "../server/farmSecurityMaintenance.js"
-import { buildFarmWeeklyOwnerEmail } from "../server/farmWeeklyOwnerEmail.js"
+import { buildFarmWeeklyOwnerEmail, deliverFarmWeeklyOwnerEmail } from "../server/farmWeeklyOwnerEmail.js"
 import { createEmailSender } from "../server/millerEmailResults.js"
 
 const runFile = promisify(execFile)
@@ -44,33 +49,41 @@ const commonFromMetrics = metrics => ({
   material_changes: metrics.changed_rows ?? 0,
 })
 
-async function probeIgor() {
-  const gateway = process.env.FARM_IGOR_HEALTH_URL
-  if (!gateway) return { available: false, reason: "igor_health_endpoint_not_configured" }
-  try {
-    const response = await fetch(gateway, { signal: AbortSignal.timeout(2_000) })
-    return response.ok ? { available: true } : { available: false, reason: `igor_health_${response.status}` }
-  } catch { return { available: false, reason: "igor_unreachable" } }
-}
+const compactResource = record => ({ canonical_resource_id: record.canonical_resource_id, website: record.website, source: { url: record.source?.url || "" }, phone: record.phone, eligibility: record.eligibility, population_served: record.population_served, service_area: record.service_area, description: record.description, categories: record.categories, funding: record.funding ? { deadline: record.funding.deadline || "", status: record.funding.status || "" } : null })
 
 async function resourceHealth(previous) {
-  const selected = resources.records.slice(0, 16)
-  const prior = new Map((previous?.documents || []).map(item => [item.canonical_resource_id, item]))
-  const documents = []
-  for (const record of selected) {
-    const url = record.source?.url || record.website
-    let status = "unavailable"
-    let finalUrl = url
-    try {
-      const response = await fetch(url, { method: "HEAD", redirect: "follow", signal: AbortSignal.timeout(15_000), headers: { "User-Agent": "Miller-Farm-ReadOnly/1.0" } })
-      status = response.ok ? "resolves" : `http_${response.status}`
-      finalUrl = response.url || url
-    } catch { status = "transient_failure" }
-    documents.push({ canonical_resource_id: record.canonical_resource_id, status, final_url: finalUrl })
+  const result = await dispatchFarmIgorJob({ root, capability: "resource_url_health", payload: { records: resources.records.slice(0, 16).map(compactResource), previous: previous || {} }, timeoutMs: 180_000 })
+  return { checked: result.checked, updated_documents: result.updated_documents, unchanged_documents: result.unchanged_documents, owner_review: result.closure_candidates, output_titles: result.documents.filter(item => item.potential_closure_candidate).map(item => item.canonical_resource_id), memory: { schema_version: "farm-resource-health-memory-v1", documents: result.documents }, notes: [result.baseline ? "Igor recorded the initial URL-health baseline." : `${result.successful} URLs resolved; single transient failures remain recheck signals, not closure findings.`] }
+}
+
+async function resourceSnapshotComparison(previous) {
+  const current = resources.records.slice(0, 40).map(compactResource)
+  const before = previous?.snapshot || current
+  const result = await dispatchFarmIgorJob({ root, capability: "structured_diff", payload: { before, after: current }, timeoutMs: 30_000 })
+  const changes = result.records.filter(item => item.disposition !== "likely_unchanged")
+  return { checked: result.checked, updated_documents: result.changed, unchanged_documents: result.checked - result.changed, owner_review: changes.length, output_titles: changes.map(item => `${item.canonical_resource_id}: ${item.changed_fields.join(", ") || item.disposition}`), memory: { schema_version: "farm-resource-snapshot-memory-v1", snapshot: current }, notes: ["Igor compared bounded structured fields only; semantic conclusions remain advisory and owner gated."] }
+}
+
+async function listenerBatchAnalysis(previous) {
+  const items = incidents.incidents.slice(0, 20).map(item => ({ id: item.public_incident_id, title: item.title, province: item.province, event_date: item.event_date, sources: item.sources }))
+  const result = await dispatchFarmIgorJob({ root, capability: "listener_batch_parse", payload: { items }, timeoutMs: 30_000 })
+  return { checked: result.checked, duplicates_suppressed: result.duplicates_suppressed, owner_review: result.owner_review.length, unchanged_documents: result.valid, output_titles: result.owner_review, memory: { schema_version: "farm-listener-batch-memory-v1", document_fingerprints: result.normalized.map(item => ({ id: item.id, document_fingerprint: item.document_fingerprint })) }, notes: ["Igor validated and normalized a bounded public batch; final reconciliation and publication remained with Samwise/owner review."] }
+}
+
+async function dependencyAdvisory() {
+  try {
+    const { stdout } = await runFile("npm", ["audit", "--json", "--omit=dev"], { cwd: root, timeout: 120_000, maxBuffer: 4_000_000 })
+    const audit = JSON.parse(stdout); const vulnerabilities = audit.metadata?.vulnerabilities || {}
+    const count = Number(vulnerabilities.total ?? ["info", "low", "moderate", "high", "critical"].reduce((sum, key) => sum + Number(vulnerabilities[key] || 0), 0))
+    return { checked: Number(audit.metadata?.dependencies?.prod || 0), owner_review: count, errors: Number(vulnerabilities.critical || 0) + Number(vulnerabilities.high || 0), output_titles: Object.entries(vulnerabilities).filter(([key, value]) => key !== "total" && value).map(([key, value]) => `${key}:${value}`), notes: ["Read-only npm advisory check; no dependency was upgraded or changed."], memory: { schema_version: "farm-dependency-advisory-memory-v1", vulnerabilities } }
+  } catch (error) {
+    const stdout = error?.stdout
+    if (stdout) {
+      const audit = JSON.parse(stdout); const vulnerabilities = audit.metadata?.vulnerabilities || {}; const count = Number(vulnerabilities.total ?? ["info", "low", "moderate", "high", "critical"].reduce((sum, key) => sum + Number(vulnerabilities[key] || 0), 0))
+      return { checked: Number(audit.metadata?.dependencies?.prod || 0), owner_review: count, errors: Number(vulnerabilities.critical || 0) + Number(vulnerabilities.high || 0), output_titles: Object.entries(vulnerabilities).filter(([key, value]) => key !== "total" && value).map(([key, value]) => `${key}:${value}`), notes: ["npm audit returned advisories; no dependency was upgraded or changed."], memory: { schema_version: "farm-dependency-advisory-memory-v1", vulnerabilities } }
+    }
+    throw error
   }
-  const baseline = !previous?.documents?.length
-  const changed = baseline ? [] : documents.filter(item => { const old = prior.get(item.canonical_resource_id); return old && (old.status !== item.status || old.final_url !== item.final_url) })
-  return { checked: documents.length, updated_documents: changed.length, unchanged_documents: documents.length - changed.length, owner_review: changed.filter(item => !["resolves", "transient_failure"].includes(item.status)).length, output_titles: changed.map(item => item.canonical_resource_id), memory: { schema_version: "farm-resource-health-memory-v1", documents }, notes: [baseline ? "Initial resource-health baseline recorded." : "A single transient failure is retained as a recheck signal, not a closure finding."] }
 }
 
 async function productionHealth() {
@@ -121,11 +134,18 @@ const adapters = {
   bchrt_judicial_reviews: ({ previous }) => runLegalIndexListener({ listenerId: "legal_bchrt_judicial_review_biweekly", url: "https://www.bchrt.bc.ca/law-library/judicial-reviews-of-decisions/", previous, include: /judicial|review|court|canlii/i, titlePattern: /\b(?:19|20)\d{2}\s+(?:BCHRT|BCSC|BCCA|SCC)\s+\d+\b/i }),
   alberta_human_rights: ({ previous }) => runLegalIndexListener({ listenerId: "legal_ab_human_rights_monthly", url: "https://www.albertahumanrights.ab.ca/what-are-human-rights/about-the-commission/human-rights-decisions/", previous, include: /decision|canlii|human rights/i }),
   shared_resource_health: ({ previous }) => resourceHealth(previous),
+  shared_resource_snapshot: ({ previous }) => resourceSnapshotComparison(previous),
+  igor_listener_batch: ({ previous }) => listenerBatchAnalysis(previous),
   miller_data_quality: async () => { const report = auditCanonicalResources(resources.records); return { checked: report.checked, owner_review: report.owner_review.length, material_changes: report.defects.length + report.safe_correction_candidates.length, output_titles: [...new Set(report.defects.map(item => item.defect))], memory: { schema_version: "farm-data-quality-memory-v1", audit_fingerprint: JSON.stringify(report.defect_counts), defect_counts: report.defect_counts }, notes: [`${report.safe_correction_candidates.length} deterministic correction proposal(s); zero production mutations.`] } },
+  miller_location_quality: async () => { const report = auditMillerLocations(legacyResources); return { checked: report.checked, owner_review: report.owner_review.length, material_changes: report.safe_correction_candidates.length, output_titles: Object.entries(report.defect_counts).map(([key, value]) => `${key}:${value}`), memory: { schema_version: "farm-location-quality-memory-v1", defect_counts: report.defect_counts }, notes: [`${report.research_candidates.length} research candidate(s); static detect/propose only. Geocoding and public map decisions remain owner gated.`] } },
   farm_qwen_benchmark: async () => { const result = await child("scripts/benchmark-farm-qwen.mjs"); return { checked: result.total, owner_review: result.unsupported + result.malformed + result.incorrect, material_changes: result.regression ? 1 : 0, notes: [`${result.correct}/${result.total} correct; ${result.latency_ms} ms; advisory only.`], memory: result } },
   farm_security_sanity: async () => { const report = runFarmSecuritySanity({ root }); return { checked: report.checked, owner_review: report.findings.length, errors: report.findings.filter(item => ["critical", "high"].includes(item.severity)).length, output_titles: report.findings.map(item => item.code), notes: ["Secret values were not included in the result."] } },
   production_health: async () => productionHealth(),
   listener_memory_integrity: async () => listenerMemoryIntegrity(),
+  dependency_advisory: async () => dependencyAdvisory(),
+  fnho_publications: ({ previous }) => runFnhoPublicationsListener({ previous }),
+  saskatchewan_exact_documents: ({ previous }) => runExactDocumentListener({ records: saskatchewanMilestoneRecords(), previous }),
+  saskatchewan_human_rights: ({ previous }) => runSaskatchewanHumanRightsListener({ previous }),
   weekly_owner_summary: async () => {
     const email = buildFarmWeeklyOwnerEmail({ runs: history() })
     const path = resolve(store.paths.directory, "farm-weekly-owner-email-preview-v1.json")
@@ -137,7 +157,7 @@ const adapters = {
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(recipient)) throw new Error("farm_owner_email_recipient_missing")
       const send = createEmailSender(process.env, fetch)
       if (!send) throw new Error("farm_owner_email_provider_unavailable")
-      await send({ recipient, subject: email.subject, text: email.text, html: email.html })
+      await deliverFarmWeeklyOwnerEmail({ email, recipient, send })
       delivery = "sent"
     }
     return { checked: email.sections.listeners.run_count, material_changes: email.nothing_material_changed ? 0 : 1, owner_review: email.sections.owner_attention.count, notes: [delivery === "sent" ? "Privacy-filtered weekly owner email sent." : "Weekly payload generated in preview-only mode; delivery is disabled until recipient and provider configuration are explicitly present."], memory: { generated_at: email.generated_at, delivery } }
@@ -152,7 +172,7 @@ if (!lock.acquired) {
 
 try {
   const state = store.loadState()
-  const workerHealth = { igor: await probeIgor() }
+  const workerHealth = { igor: await probeFarmIgor(root) }
   const cycle = await runFarmCycle({ registry, state, adapters, workerHealth, mode, only, maxJobs })
   store.saveState(cycle.state)
   store.appendRuns(cycle.runs)

@@ -29,8 +29,8 @@ export function buildFarmWeeklyOwnerEmail({ runs = [], now = new Date(), periodD
   const operationalAttention = items.filter(run => ["failed", "quarantined"].includes(run.status) || (run.status === "deferred" && run.target_worker === "igor"))
   const material = items.filter(run => MATERIAL.some(field => Number(run[field] || 0) > 0) || operationalAttention.includes(run))
   const total = field => items.reduce((sum, item) => sum + Number(item[field] || 0), 0)
-  const dataQualityRuns = items.filter(item => item.source_family === "miller_resource_data_quality")
-  const securityRuns = items.filter(item => ["security_and_operations", "production_health", "listener_state_integrity"].includes(item.source_family))
+  const dataQualityRuns = items.filter(item => ["miller_resource_data_quality", "miller_location_data_quality"].includes(item.source_family))
+  const securityRuns = items.filter(item => ["security_and_operations", "production_health", "listener_state_integrity", "dependency_security"].includes(item.source_family))
   const igorRuns = items.filter(item => item.target_worker === "igor")
   const sections = {
     research: { new_incidents: total("new_events"), strengthened_evidence: total("existing_events_strengthened"), new_or_updated_documents: total("new_documents") + total("updated_documents") },
@@ -58,6 +58,15 @@ export function buildFarmWeeklyOwnerEmail({ runs = [], now = new Date(), periodD
   const text = lines.join("\n")
   const html = `<main style="font-family:Arial,sans-serif;line-height:1.5;max-width:680px;margin:auto;padding:24px;color:#20231f">${lines.map(line => line ? `<p>${escapeHtml(line)}</p>` : "").join("")}</main>`
   return { schema_version: "farm-weekly-owner-email-v1", generated_at: new Date(now).toISOString(), period_days: periodDays, nothing_material_changed: nothingChanged, subject: nothingChanged ? "Farm Weekly — no material changes" : `Farm Weekly — ${sections.owner_attention.count} item(s) for review`, text, html, sections, privacy: { raw_source_bodies: false, credentials: false, personal_medical_details: false, unpublished_allegations: false } }
+}
+
+export async function deliverFarmWeeklyOwnerEmail({ email, recipient, send } = {}) {
+  const address = safeText(recipient, 254)
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(address)) throw new Error("farm_owner_email_recipient_missing")
+  if (typeof send !== "function") throw new Error("farm_owner_email_provider_unavailable")
+  if (!email || email.schema_version !== "farm-weekly-owner-email-v1" || email.privacy?.credentials !== false || email.privacy?.unpublished_allegations !== false) throw new Error("farm_owner_email_payload_unsafe")
+  await send({ recipient: address, subject: email.subject, text: email.text, html: email.html })
+  return { status: "sent", recipient_configured: true, provider_configured: true, sensitive_fields_included: false }
 }
 
 const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char])

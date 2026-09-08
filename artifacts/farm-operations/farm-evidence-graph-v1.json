@@ -1601,28 +1601,12 @@
       "source": "canonical_related_watch_chain_id"
     },
     {
-      "edge_id": "e2027b2e2631a83658811b90",
-      "owner_review": true,
-      "type": "corroborates",
-      "from": "legal:legal_ca_2016_chrt_2",
-      "to": "watch:mnaw_silent_world_jordan",
-      "source": "reviewed_accountability_link"
-    },
-    {
       "edge_id": "597a6f25db04935d730b7ca2",
       "owner_review": true,
       "type": "related_support",
       "from": "legal:legal_ca_2016_chrt_2",
       "to": "resource:shared_isc_jordans_principle",
       "source": "reviewed_resource_link"
-    },
-    {
-      "edge_id": "342d0e5ec2931ae675445039",
-      "owner_review": true,
-      "type": "judicial_review_of",
-      "from": "legal:legal_ca_2021_fc_969",
-      "to": "watch:mnaw_silent_world_jordan",
-      "source": "reviewed_accountability_link"
     },
     {
       "edge_id": "2be2de3762d7d55258d981f0",
@@ -1633,52 +1617,12 @@
       "source": "reviewed_resource_link"
     },
     {
-      "edge_id": "7074295c7c4e619f2ae2dfbb",
-      "owner_review": true,
-      "type": "corroborates",
-      "from": "legal:legal_ca_2011_scc_44",
-      "to": "watch:mnaw_in_plain_sight",
-      "source": "reviewed_accountability_link"
-    },
-    {
-      "edge_id": "19134f0c2b08045a75d40b5f",
-      "owner_review": true,
-      "type": "corroborates",
-      "from": "legal:legal_ca_2017_scc_30",
-      "to": "watch:mnaw_in_plain_sight",
-      "source": "reviewed_accountability_link"
-    },
-    {
-      "edge_id": "dc06f496080fb31a6ab5f2a1",
-      "owner_review": true,
-      "type": "corroborates",
-      "from": "legal:legal_ca_2021_scc_42",
-      "to": "watch:mnaw_in_plain_sight",
-      "source": "reviewed_accountability_link"
-    },
-    {
-      "edge_id": "ca86f64da03f5d9a12d10dab",
-      "owner_review": true,
-      "type": "corroborates",
-      "from": "legal:legal_bc_2005_bchrt_302",
-      "to": "watch:mnaw_in_plain_sight",
-      "source": "reviewed_accountability_link"
-    },
-    {
       "edge_id": "6d0f786d9161d73469f6b50c",
       "owner_review": true,
       "type": "related_support",
       "from": "legal:legal_bc_2005_bchrt_302",
       "to": "resource:shared_bc_human_rights_clinic",
       "source": "reviewed_resource_link"
-    },
-    {
-      "edge_id": "a43d56ba1bda83988d7e7077",
-      "owner_review": true,
-      "type": "corroborates",
-      "from": "legal:legal_bc_2021_bchrt_22",
-      "to": "watch:mnaw_in_plain_sight",
-      "source": "reviewed_accountability_link"
     },
     {
       "edge_id": "49f0dabfce829ee476c748ab",
@@ -1689,14 +1633,6 @@
       "source": "reviewed_resource_link"
     },
     {
-      "edge_id": "70dd6eda52c02eda7cb94cbf",
-      "owner_review": true,
-      "type": "corroborates",
-      "from": "legal:legal_bc_2018_bcca_132",
-      "to": "watch:mnaw_in_plain_sight",
-      "source": "reviewed_accountability_link"
-    },
-    {
       "edge_id": "e630bb861d4cd4cbf14af8c2",
       "owner_review": true,
       "type": "related_support",
@@ -1705,28 +1641,12 @@
       "source": "reviewed_resource_link"
     },
     {
-      "edge_id": "6c899e717a5efc36256c7294",
-      "owner_review": true,
-      "type": "corroborates",
-      "from": "legal:legal_ab_2020_ahrc_94",
-      "to": "watch:mnaw_in_plain_sight",
-      "source": "reviewed_accountability_link"
-    },
-    {
       "edge_id": "e748b6029df0566fd64047b8",
       "owner_review": true,
       "type": "related_support",
       "from": "legal:legal_ab_2020_ahrc_94",
       "to": "resource:shared_ab_human_rights_complaint_navigation",
       "source": "reviewed_resource_link"
-    },
-    {
-      "edge_id": "8a13c688b6ad83faca3b20c7",
-      "owner_review": true,
-      "type": "corroborates",
-      "from": "legal:legal_ab_2021_ahrc_95",
-      "to": "watch:mnaw_in_plain_sight",
-      "source": "reviewed_accountability_link"
     },
     {
       "edge_id": "84a144dfbd583598645efc80",
@@ -1739,7 +1659,7 @@
   ],
   "counts": {
     "nodes": 164,
-    "edges": 21,
+    "edges": 11,
     "incidents": 20,
     "watch_chains": 10,
     "legal_records": 10,
@@ -2694,6 +2614,6 @@
       "automatic_publication": false
     }
   ],
-  "generated_at": "2026-09-08T00:17:43.012Z",
+  "generated_at": "2026-09-08T00:51:27.341Z",
   "owner_review_required": true
 }

@@ -4,15 +4,20 @@ import { fileURLToPath } from "node:url"
 
 import registry from "../src/data/farm-listener-registry-v1.json" with { type: "json" }
 import resources from "../src/data/miller-shared-resource-registry-v1.json" with { type: "json" }
+import legacyResources from "../src/vancouver_resources_merged_updated.json" with { type: "json" }
 import { auditCanonicalResources } from "../server/farmDataQuality.js"
+import { auditMillerLocations, inventoryMillerLocationMachinery } from "../server/farmLocationQuality.js"
 import { inventoryFarmSecurityMaintenance } from "../server/farmSecurityMaintenance.js"
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..")
 const read = path => JSON.parse(readFileSync(resolve(root, path), "utf8"))
 const inventory = read(".farm-operations/farm-listener-inventory-v1.json").listeners
 const qwen = read("artifacts/farm-operations/farm-qwen-benchmark-v1.json")
+const qwenExtraction = read("artifacts/farm-operations/farm-qwen-narrow-extraction-benchmark-v1.json")
 const graph = read("artifacts/farm-operations/farm-evidence-graph-v1.json")
+const igorState = read(".farm-operations/igor-worker-state-v1.json")
 const dataQuality = auditCanonicalResources(resources.records)
+const locationQuality = auditMillerLocations(legacyResources)
 const security = inventoryFarmSecurityMaintenance(root)
 const enabled = inventory.filter(item => item.enabled)
 const disabled = inventory.filter(item => !item.enabled)
@@ -26,9 +31,9 @@ const report = {
   activation: { heartbeat_active: true, daily_dispatch: "06:15 local time", max_jobs_per_cycle: registry.policy.max_jobs_per_daily_tick, state_directory: ".farm-operations (local, ignored)", owner_notification_policy: "failed runs only" },
   enabled_jobs: enabled.map(item => ({ listener_id: item.listener_id, worker: item.execution_target, status: item.status, last_run_at: item.last_run_at, next_run_at: item.next_run_at, documents_checked: item.yield.documents_checked, cadence_recommendation: item.cadence_recommendation })),
   disabled_jobs: disabled.map(item => ({ listener_id: item.listener_id, worker: item.execution_target, reason: registry.listeners.find(candidate => candidate.listener_id === item.listener_id)?.yield_class || "disabled", next_expected: item.next_run_at })),
-  qwen: { model: qwen.model, total: qwen.total, correct: qwen.correct, accuracy_percent: Number((qwen.correct / qwen.total * 100).toFixed(1)), malformed: qwen.malformed, unsupported: qwen.unsupported, latency_ms: qwen.latency_ms, recurring_job_enabled: false, disposition: "bounded advisory/manual only; quality regression blocked recurring triage" },
-  igor: { configured_recurring_jobs: enabled.filter(item => item.execution_target === "igor").length, completed: enabled.filter(item => item.execution_target === "igor" && ["completed", "no_material_change"].includes(item.status)).length, deferred: enabled.filter(item => item.execution_target === "igor" && item.status === "deferred").length, health: deferred.some(item => item.execution_target === "igor") ? "not_configured_or_unreachable" : "available" },
-  data_quality: { checked: dataQuality.checked, defects: dataQuality.defects.length, safe_correction_candidates: dataQuality.safe_correction_candidates.length, owner_review: dataQuality.owner_review.length, production_mutations: dataQuality.production_mutations, legacy_location_quality: "implemented in repository but not activated here because existing paths depend on local/private database review gates" },
+  qwen: { model: qwen.model, total: qwen.total, correct: qwen.correct, accuracy_percent: Number((qwen.correct / qwen.total * 100).toFixed(1)), malformed: qwen.malformed, unsupported: qwen.unsupported, latency_ms: qwen.latency_ms, narrow_extraction: qwenExtraction, recurring_job_enabled: false, disposition: "recurring use disabled; deterministic extraction remains better" },
+  igor: { configured_recurring_jobs: enabled.filter(item => item.execution_target === "igor").length, completed: enabled.filter(item => item.execution_target === "igor" && ["completed", "no_material_change"].includes(item.status)).length, deferred: enabled.filter(item => item.execution_target === "igor" && item.status === "deferred").length, health: "authenticated_local_worker", state: igorState },
+  data_quality: { checked: dataQuality.checked, defects: dataQuality.defects.length, safe_correction_candidates: dataQuality.safe_correction_candidates.length, owner_review: dataQuality.owner_review.length, production_mutations: dataQuality.production_mutations, location: { checked: locationQuality.checked, ...locationQuality.defect_counts, production_mutations: locationQuality.production_mutations }, location_machinery: inventoryMillerLocationMachinery() },
   security,
   event_graph: { nodes: graph.nodes.length, edges: graph.edges.length, counts: graph.counts, incident_pathway_groups: graph.pathway_suggestions.length, pathway_suggestions: graph.pathway_suggestions.reduce((sum, item) => sum + item.suggestions.length, 0), automatic_merges: 0, automatic_publications: 0 },
   weekly_email: { structured_payload: true, preview_generated: true, delivery_enabled: false, blocker: "owner recipient/provider configuration is absent", privacy: ["no raw source bodies", "no secrets", "no personal medical details", "no unpublished allegations"] },
@@ -50,7 +55,7 @@ Generated ${report.generated_at}. This checkpoint describes read-only research a
 ## Operating result
 
 - ${report.registry.total} registered jobs: ${report.registry.enabled} enabled and ${report.registry.disabled} disabled.
-- ${report.registry.completed_baselines} enabled jobs completed clean baselines; ${report.registry.deferred} Igor job deferred safely.
+- ${report.registry.completed_baselines} enabled jobs have completed; ${report.registry.deferred} job(s) are currently deferred.
 - A daily local heartbeat dispatches at most ${report.activation.max_jobs_per_cycle} due jobs. Each listener retains its own cadence.
 - The activation cycle recorded ${report.current_cycle.checked} checks, no material source change, no error, and no production/publication write.
 
@@ -66,18 +71,18 @@ ${enabledLines}
 | --- | --- | --- |
 ${disabledLines}
 
-Disabled jobs remain registered so their purpose and prerequisites are explicit. Qwen recurring triage is disabled because its reviewed 12-item benchmark achieved ${report.qwen.correct}/${report.qwen.total} (${report.qwen.accuracy_percent}%) with ${report.qwen.malformed} malformed result. It remains available only for bounded advisory experiments with deterministic validation.
+Disabled jobs remain registered so their purpose and prerequisites are explicit. Qwen recurring triage is disabled because its reviewed 12-item benchmark achieved ${report.qwen.correct}/${report.qwen.total} (${report.qwen.accuracy_percent}%) with ${report.qwen.malformed} malformed result. The narrower extraction benchmark achieved ${(report.qwen.narrow_extraction.accuracy * 100).toFixed(1)}% field accuracy with ${(report.qwen.narrow_extraction.structured_compliance * 100).toFixed(1)}% structured compliance in ${report.qwen.narrow_extraction.latency_ms} ms. It remains unsuitable for recurring work.
 
 ## Igor
 
-One meaningful recurring workload—shared-resource URL health—is assigned to Igor. It deferred because no Igor health endpoint or operational worker registration is configured. Samwise did not silently take over. No autonomous publishing or mutation capability was granted.
+Igor is an authenticated, one-shot local worker with ${report.igor.state.capabilities.length} declared capabilities. ${report.igor.configured_recurring_jobs} enabled jobs are assigned to it; ${report.igor.completed} have completed at least one cycle and ${report.igor.deferred} are currently deferred. No autonomous publishing or mutation capability was granted.
 
 ## Data quality and security
 
 - Canonical resources checked: ${report.data_quality.checked}; defects: ${report.data_quality.defects}; safe correction proposals: ${report.data_quality.safe_correction_candidates}; owner-review issues: ${report.data_quality.owner_review}.
-- Existing location/geocode machinery remains implemented but inactive in this scheduler because it relies on private/local database review gates.
+- The location detect/propose job checked ${report.data_quality.location.checked} legacy rows: ${report.data_quality.location.safe_normalizations} safe normalization proposals, ${report.data_quality.location.research_candidates} research candidates and ${report.data_quality.location.owner_review_candidates} duplicate-location owner-review groups. It made zero production mutations.
 - Read-only secret/config sanity, listener-memory integrity, worker availability, and public production-health checks are enabled.
-- The older security pulse and local automation scheduler are implemented but intentionally inactive; dependency advisory and backup/recovery verification remain off pending bounded recurring policies.
+- The older security pulse and local automation scheduler are implemented but intentionally inactive. Read-only dependency advisory is now monthly; backup/recovery verification remains a documented owner decision because no off-host listener-state restore test was located.
 
 ## Evidence graph and legal/support pathways
 

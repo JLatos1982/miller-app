@@ -1,0 +1,163 @@
+{
+  "schema_version": "farm-qwen-narrow-extraction-benchmark-v1",
+  "model": "qwen2.5:3b",
+  "available": true,
+  "cases": 5,
+  "correct_fields": 12,
+  "total_fields": 25,
+  "accuracy": 0.48,
+  "structured_compliance": 1,
+  "unsupported_fields": 0,
+  "latency_ms": 31578,
+  "details": [
+    {
+      "id": "inquest",
+      "structured": true,
+      "correct_fields": 2,
+      "total_fields": 5,
+      "unsupported": 0,
+      "fields": [
+        {
+          "field": "organizations",
+          "correct": false
+        },
+        {
+          "field": "date",
+          "correct": false
+        },
+        {
+          "field": "province",
+          "correct": false
+        },
+        {
+          "field": "care_setting",
+          "correct": true
+        },
+        {
+          "field": "recommendation_ids",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": "hospital",
+      "structured": true,
+      "correct_fields": 2,
+      "total_fields": 5,
+      "unsupported": 0,
+      "fields": [
+        {
+          "field": "organizations",
+          "correct": false
+        },
+        {
+          "field": "date",
+          "correct": false
+        },
+        {
+          "field": "province",
+          "correct": false
+        },
+        {
+          "field": "care_setting",
+          "correct": true
+        },
+        {
+          "field": "recommendation_ids",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": "recommendation",
+      "structured": true,
+      "correct_fields": 3,
+      "total_fields": 5,
+      "unsupported": 0,
+      "fields": [
+        {
+          "field": "organizations",
+          "correct": false
+        },
+        {
+          "field": "date",
+          "correct": true
+        },
+        {
+          "field": "province",
+          "correct": true
+        },
+        {
+          "field": "care_setting",
+          "correct": false
+        },
+        {
+          "field": "recommendation_ids",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": "regulator",
+      "structured": true,
+      "correct_fields": 2,
+      "total_fields": 5,
+      "unsupported": 0,
+      "fields": [
+        {
+          "field": "organizations",
+          "correct": false
+        },
+        {
+          "field": "date",
+          "correct": true
+        },
+        {
+          "field": "province",
+          "correct": false
+        },
+        {
+          "field": "care_setting",
+          "correct": false
+        },
+        {
+          "field": "recommendation_ids",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": "transport",
+      "structured": true,
+      "correct_fields": 3,
+      "total_fields": 5,
+      "unsupported": 0,
+      "fields": [
+        {
+          "field": "organizations",
+          "correct": false
+        },
+        {
+          "field": "date",
+          "correct": false
+        },
+        {
+          "field": "province",
+          "correct": true
+        },
+        {
+          "field": "care_setting",
+          "correct": true
+        },
+        {
+          "field": "recommendation_ids",
+          "correct": true
+        }
+      ]
+    }
+  ],
+  "recommendation": "keep_recurring_qwen_disabled",
+  "advisory_only": true,
+  "mutation_authority": false,
+  "publication_authority": false
+}

@@ -1,17 +1,17 @@
 {
   "schema_version": "farm-operating-framework-report-v1",
-  "generated_at": "2026-09-08T00:17:43.089Z",
+  "generated_at": "2026-09-08T00:51:27.420Z",
   "authority": {
     "mutation": false,
     "publication": false,
     "credential_change": false
   },
   "registry": {
-    "total": 21,
-    "enabled": 14,
-    "disabled": 7,
-    "completed_baselines": 13,
-    "deferred": 1
+    "total": 24,
+    "enabled": 21,
+    "disabled": 3,
+    "completed_baselines": 21,
+    "deferred": 0
   },
   "activation": {
     "heartbeat_active": true,
@@ -128,10 +128,36 @@
     {
       "listener_id": "shared_resource_health_monthly",
       "worker": "igor",
-      "status": "deferred",
-      "last_run_at": "2026-09-08T00:13:24.241Z",
-      "next_run_at": "2026-09-15T13:15:00.000Z",
-      "documents_checked": 0,
+      "status": "completed",
+      "last_run_at": "2026-09-08T00:43:17.467Z",
+      "next_run_at": "2026-10-08T00:43:43.549Z",
+      "documents_checked": 32,
+      "cadence_recommendation": {
+        "action": "observe",
+        "days": 30,
+        "reason": "At least three completed cycles are required before changing cadence."
+      }
+    },
+    {
+      "listener_id": "shared_resource_snapshot_monthly",
+      "worker": "igor",
+      "status": "no_material_change",
+      "last_run_at": "2026-09-08T00:42:51.090Z",
+      "next_run_at": "2026-10-08T00:42:51.167Z",
+      "documents_checked": 40,
+      "cadence_recommendation": {
+        "action": "observe",
+        "days": 30,
+        "reason": "At least three completed cycles are required before changing cadence."
+      }
+    },
+    {
+      "listener_id": "igor_listener_batch_monthly",
+      "worker": "igor",
+      "status": "no_material_change",
+      "last_run_at": "2026-09-08T00:42:51.392Z",
+      "next_run_at": "2026-10-08T00:42:51.466Z",
+      "documents_checked": 20,
       "cadence_recommendation": {
         "action": "observe",
         "days": 30,
@@ -145,6 +171,19 @@
       "last_run_at": "2026-09-08T00:12:25.337Z",
       "next_run_at": "2026-09-15T00:12:25.341Z",
       "documents_checked": 124,
+      "cadence_recommendation": {
+        "action": "observe",
+        "days": 7,
+        "reason": "At least three completed cycles are required before changing cadence."
+      }
+    },
+    {
+      "listener_id": "miller_location_quality_weekly",
+      "worker": "samwise",
+      "status": "completed",
+      "last_run_at": "2026-09-08T00:48:24.439Z",
+      "next_run_at": "2026-09-15T00:48:24.441Z",
+      "documents_checked": 600,
       "cadence_recommendation": {
         "action": "observe",
         "days": 7,
@@ -172,9 +211,9 @@
       "next_run_at": "2026-09-15T00:17:08.754Z",
       "documents_checked": 6,
       "cadence_recommendation": {
-        "action": "observe",
+        "action": "keep_configured",
         "days": 7,
-        "reason": "At least three completed cycles are required before changing cadence."
+        "reason": "Operational health/reporting cadence is policy-driven rather than research-yield-driven."
       }
     },
     {
@@ -194,13 +233,64 @@
       "listener_id": "farm_weekly_owner_summary",
       "worker": "samwise",
       "status": "completed",
-      "last_run_at": "2026-09-08T00:14:18.030Z",
-      "next_run_at": "2026-09-15T00:14:18.033Z",
-      "documents_checked": 27,
+      "last_run_at": "2026-09-08T00:47:03.411Z",
+      "next_run_at": "2026-09-15T00:47:03.414Z",
+      "documents_checked": 52,
+      "cadence_recommendation": {
+        "action": "keep_configured",
+        "days": 7,
+        "reason": "Operational health/reporting cadence is policy-driven rather than research-yield-driven."
+      }
+    },
+    {
+      "listener_id": "mn_fnho_publications_monthly",
+      "worker": "samwise",
+      "status": "no_material_change",
+      "last_run_at": "2026-09-08T00:44:10.939Z",
+      "next_run_at": "2026-10-08T00:44:15.687Z",
+      "documents_checked": 4,
       "cadence_recommendation": {
         "action": "observe",
-        "days": 7,
+        "days": 30,
         "reason": "At least three completed cycles are required before changing cadence."
+      }
+    },
+    {
+      "listener_id": "mn_saskatchewan_exact_documents_monthly",
+      "worker": "samwise",
+      "status": "no_material_change",
+      "last_run_at": "2026-09-08T00:44:19.461Z",
+      "next_run_at": "2026-09-26T13:15:00.000Z",
+      "documents_checked": 3,
+      "cadence_recommendation": {
+        "action": "keep_milestone",
+        "reason": "A known documentary trigger is more useful than periodic polling."
+      }
+    },
+    {
+      "listener_id": "legal_saskatchewan_human_rights_monthly",
+      "worker": "samwise",
+      "status": "no_material_change",
+      "last_run_at": "2026-09-08T00:50:37.457Z",
+      "next_run_at": "2026-10-08T00:50:37.760Z",
+      "documents_checked": 8,
+      "cadence_recommendation": {
+        "action": "observe",
+        "days": 30,
+        "reason": "At least three completed cycles are required before changing cadence."
+      }
+    },
+    {
+      "listener_id": "farm_dependency_advisory_monthly",
+      "worker": "samwise",
+      "status": "no_material_change",
+      "last_run_at": "2026-09-08T00:48:24.611Z",
+      "next_run_at": "2026-10-08T00:48:25.221Z",
+      "documents_checked": 268,
+      "cadence_recommendation": {
+        "action": "keep_configured",
+        "days": 30,
+        "reason": "Operational health/reporting cadence is policy-driven rather than research-yield-driven."
       }
     }
   ],
@@ -212,34 +302,10 @@
       "next_expected": "2026-09-09T15:15:00.000Z"
     },
     {
-      "listener_id": "mn_fnho_publications_monthly",
-      "worker": "samwise",
-      "reason": "adapter_required",
-      "next_expected": "2026-10-01T13:15:00.000Z"
-    },
-    {
-      "listener_id": "mn_saskatchewan_exact_documents_monthly",
-      "worker": "samwise",
-      "reason": "milestone_only",
-      "next_expected": null
-    },
-    {
-      "listener_id": "legal_saskatchewan_human_rights_monthly",
-      "worker": "samwise",
-      "reason": "adapter_required",
-      "next_expected": "2026-10-05T13:15:00.000Z"
-    },
-    {
       "listener_id": "legal_canlii_selected_queries",
       "worker": "samwise",
       "reason": "manual_research",
       "next_expected": null
-    },
-    {
-      "listener_id": "farm_dependency_advisory_monthly",
-      "worker": "samwise",
-      "reason": "policy_review",
-      "next_expected": "2026-10-01T15:15:00.000Z"
     },
     {
       "listener_id": "mn_historical_scan_retry_quarterly",
@@ -256,14 +322,189 @@
     "malformed": 1,
     "unsupported": 0,
     "latency_ms": 65703,
+    "narrow_extraction": {
+      "schema_version": "farm-qwen-narrow-extraction-benchmark-v1",
+      "model": "qwen2.5:3b",
+      "available": true,
+      "cases": 5,
+      "correct_fields": 12,
+      "total_fields": 25,
+      "accuracy": 0.48,
+      "structured_compliance": 1,
+      "unsupported_fields": 0,
+      "latency_ms": 31578,
+      "details": [
+        {
+          "id": "inquest",
+          "structured": true,
+          "correct_fields": 2,
+          "total_fields": 5,
+          "unsupported": 0,
+          "fields": [
+            {
+              "field": "organizations",
+              "correct": false
+            },
+            {
+              "field": "date",
+              "correct": false
+            },
+            {
+              "field": "province",
+              "correct": false
+            },
+            {
+              "field": "care_setting",
+              "correct": true
+            },
+            {
+              "field": "recommendation_ids",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "hospital",
+          "structured": true,
+          "correct_fields": 2,
+          "total_fields": 5,
+          "unsupported": 0,
+          "fields": [
+            {
+              "field": "organizations",
+              "correct": false
+            },
+            {
+              "field": "date",
+              "correct": false
+            },
+            {
+              "field": "province",
+              "correct": false
+            },
+            {
+              "field": "care_setting",
+              "correct": true
+            },
+            {
+              "field": "recommendation_ids",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "recommendation",
+          "structured": true,
+          "correct_fields": 3,
+          "total_fields": 5,
+          "unsupported": 0,
+          "fields": [
+            {
+              "field": "organizations",
+              "correct": false
+            },
+            {
+              "field": "date",
+              "correct": true
+            },
+            {
+              "field": "province",
+              "correct": true
+            },
+            {
+              "field": "care_setting",
+              "correct": false
+            },
+            {
+              "field": "recommendation_ids",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "regulator",
+          "structured": true,
+          "correct_fields": 2,
+          "total_fields": 5,
+          "unsupported": 0,
+          "fields": [
+            {
+              "field": "organizations",
+              "correct": false
+            },
+            {
+              "field": "date",
+              "correct": true
+            },
+            {
+              "field": "province",
+              "correct": false
+            },
+            {
+              "field": "care_setting",
+              "correct": false
+            },
+            {
+              "field": "recommendation_ids",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "id": "transport",
+          "structured": true,
+          "correct_fields": 3,
+          "total_fields": 5,
+          "unsupported": 0,
+          "fields": [
+            {
+              "field": "organizations",
+              "correct": false
+            },
+            {
+              "field": "date",
+              "correct": false
+            },
+            {
+              "field": "province",
+              "correct": true
+            },
+            {
+              "field": "care_setting",
+              "correct": true
+            },
+            {
+              "field": "recommendation_ids",
+              "correct": true
+            }
+          ]
+        }
+      ],
+      "recommendation": "keep_recurring_qwen_disabled",
+      "advisory_only": true,
+      "mutation_authority": false,
+      "publication_authority": false
+    },
     "recurring_job_enabled": false,
-    "disposition": "bounded advisory/manual only; quality regression blocked recurring triage"
+    "disposition": "recurring use disabled; deterministic extraction remains better"
   },
   "igor": {
-    "configured_recurring_jobs": 1,
-    "completed": 0,
-    "deferred": 1,
-    "health": "not_configured_or_unreachable"
+    "configured_recurring_jobs": 3,
+    "completed": 3,
+    "deferred": 0,
+    "health": "authenticated_local_worker",
+    "state": {
+      "schema_version": "farm-igor-worker-state-v1",
+      "worker_version": "igor-farm-worker-v1.0.0",
+      "capabilities": [
+        "resource_url_health",
+        "structured_diff",
+        "listener_batch_parse"
+      ],
+      "last_heartbeat": "2026-09-08T00:50:37.450Z",
+      "last_successful_job": "resource_url_health",
+      "status": "idle"
+    }
   },
   "data_quality": {
     "checked": 124,
@@ -271,7 +512,44 @@
     "safe_correction_candidates": 0,
     "owner_review": 0,
     "production_mutations": 0,
-    "legacy_location_quality": "implemented in repository but not activated here because existing paths depend on local/private database review gates"
+    "location": {
+      "checked": 300,
+      "malformed_address": 49,
+      "research_candidates": 98,
+      "owner_review_candidates": 16,
+      "safe_normalizations": 31,
+      "production_mutations": 0
+    },
+    "location_machinery": {
+      "schema_version": "farm-location-machinery-inventory-v1",
+      "systems": [
+        {
+          "id": "legacy_location_refresh",
+          "path": "scripts/refresh-legacy-location-qc.mjs",
+          "status": "implemented_manual",
+          "integration": "scheduled static detect/propose audit"
+        },
+        {
+          "id": "location_claim_reconciliation",
+          "path": "server/locationClaimReconciliation.js",
+          "status": "implemented_owner_gated",
+          "integration": "unchanged"
+        },
+        {
+          "id": "location_qc_eligibility",
+          "path": "server/locationQcEligibility.js",
+          "status": "implemented_owner_gated",
+          "integration": "unchanged"
+        },
+        {
+          "id": "pending_location_review",
+          "path": "src/map/PendingLocationReview.jsx",
+          "status": "implemented_private_ui",
+          "integration": "unchanged"
+        }
+      ],
+      "production_mutation_authority": false
+    }
   },
   "security": {
     "schema_version": "farm-security-maintenance-inventory-v1",
@@ -303,17 +581,17 @@
       {
         "id": "dependency_advisory",
         "cadence": "monthly",
-        "path": "server/securityPulse.js",
-        "status": "implemented_inactive",
-        "detail": "Available in advisory mode; no automatic package mutation.",
+        "path": "farm_adapter",
+        "status": "activated_read_only",
+        "detail": "Runs npm's advisory read path; no automatic package mutation.",
         "mutation_authority": false
       },
       {
         "id": "worker_transport_health",
-        "cadence": "weekly",
-        "path": "farm_adapter",
+        "cadence": "each_cycle",
+        "path": "server/farmIgorWorker.js",
         "status": "activated_read_only",
-        "detail": "Checks availability only; it does not restart or reconfigure workers.",
+        "detail": "Authenticates a short-lived local capability handshake; it does not restart or reconfigure workers.",
         "mutation_authority": false
       },
       {
@@ -334,10 +612,10 @@
       },
       {
         "id": "backup_recovery_check",
-        "cadence": "monthly",
-        "path": "none",
+        "cadence": "owner_scheduled",
+        "path": "reports/farm-igor-listeners-location-security-handoff-2026-09-07.md",
         "status": "planned_only",
-        "detail": "No verified read-only backup restoration probe was located; no backup setting was changed.",
+        "detail": "Git-backed registries are recoverable, but no off-host listener-memory copy or supervised Supabase restore drill was verified.",
         "mutation_authority": false
       },
       {
@@ -352,10 +630,10 @@
   },
   "event_graph": {
     "nodes": 164,
-    "edges": 21,
+    "edges": 11,
     "counts": {
       "nodes": 164,
-      "edges": 21,
+      "edges": 11,
       "incidents": 20,
       "watch_chains": 10,
       "legal_records": 10,
@@ -379,7 +657,7 @@
     ]
   },
   "current_cycle": {
-    "checked": 1247,
+    "checked": 2247,
     "material_changes": 0,
     "errors": 0,
     "production_writes": 0,

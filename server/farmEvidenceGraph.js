@@ -33,7 +33,7 @@ export function buildFarmEvidenceGraph({ incidents = [], watchChains = [], legal
     const nodeId = id("legal", record.legal_record_id)
     addNode({ id: nodeId, type: "legal_record", canonical_id: record.legal_record_id, title: record.anonymized_title || record.case_name, public: record.public_disposition === "publication_safe", process_role: record.process_role })
     if (record.related_event_id && incidents.some(item => item.public_incident_id === record.related_event_id)) addEdge({ type: record.process_role === "judicial_review" ? "judicial_review_of" : "concerns_event", from: nodeId, to: id("incident", record.related_event_id), source: "reviewed_related_event_id", owner_review: true })
-    const chain = watchById.get(record.related_accountability_chain) || watchByTitle.get(clean(record.related_accountability_chain).toLowerCase()) || watchChains.find(item => clean(item.title).toLowerCase().includes(clean(record.related_accountability_chain).toLowerCase()))
+    const chain = watchById.get(record.related_accountability_chain) || watchByTitle.get(clean(record.related_accountability_chain).toLowerCase())
     if (chain) addEdge({ type: record.process_role === "judicial_review" ? "judicial_review_of" : "corroborates", from: nodeId, to: id("watch", chain.chain_id), source: "reviewed_accountability_link", owner_review: true })
     if (record.related_miller_resource && resourceById.has(record.related_miller_resource)) addEdge({ type: "related_support", from: nodeId, to: id("resource", record.related_miller_resource), source: "reviewed_resource_link", owner_review: true })
   }

@@ -9,9 +9,14 @@ export function nextFarmRun(listener, from = new Date()) {
 }
 
 export function farmJobDue(listener, state = {}, now = new Date()) {
-  if (!listener.enabled || listener.schedule.kind !== "interval") return false
+  if (!listener.enabled || listener.schedule.kind === "manual") return false
   const current = state.jobs?.[listener.listener_id]
-  const next = current?.next_run_at || listener.schedule.first_run_at
+  if (listener.schedule.kind === "milestone") {
+    const trigger = listener.schedule.next_expected_at
+    if (!trigger || new Date(trigger).getTime() > new Date(now).getTime()) return false
+    return !current?.last_attempted_at || new Date(current.last_attempted_at).getTime() < new Date(trigger).getTime()
+  }
+  const next = current?.next_run_at || listener.schedule.first_run_at || listener.schedule.next_expected_at
   return !next || new Date(next).getTime() <= new Date(now).getTime()
 }
 
