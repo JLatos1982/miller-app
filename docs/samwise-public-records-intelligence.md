@@ -147,6 +147,48 @@ The first implementation is a deterministic JSON/relational projection, not a gr
 
 Reviewed edges include same-event, investigation, corroboration, contradiction, judicial review, recommendation/response, implementation evidence, domain overlaps, related resources and legal pathways. Ambiguous same-event suggestions never merge automatically.
 
+## Reusable intelligence primitives
+
+Palantír now exposes fifteen independently tested primitives. The existing Farm scheduler remains the only scheduler, and existing listener IDs remain stable.
+
+- **Listener:** adapts registered Farm listeners to the full listen-through-report lifecycle, preserves memory on failure and quarantines anomalous source-volume changes.
+- **Research memory:** keeps owner request, approved plan, source checkpoints, document fingerprints, findings, branches, stopping reasons and cost; pause, continue and cancel preserve completed work.
+- **Event identity:** keeps canonical event identity separate from source-document identity. Exact IDs and exact document links can strengthen an event; title/date similarity remains an owner-review suggestion.
+- **Evidence roles:** deterministically distinguishes allegation, acknowledgement, procedure, merits, investigation, regulator/audit finding, recommendation, response, implementation, outcome, settlement, review/appeal and systemic context.
+- **Recommendation intelligence:** supports many responsible and responding organizations, multiple dated responses, independent implementation evidence, measured outcomes and an unresolved gap.
+- **Milestone intelligence:** captures an expected date or window, expected document, monitoring source and accountable institution, then recommends targeted checks around the public milestone.
+- **Coverage-gap intelligence:** distinguishes evidence scarcity from no source coverage, incomplete coding, acquisition failure, backlog and work not yet reviewed.
+- **Cross-domain relevance:** requires reviewed evidence for useful secondary relevance.
+- **Institutional mapping:** connects exact aliases, documents, events, recommendations, responses and monitored matters without reputational scoring.
+- **Owner review:** preserves owner decisions across refresh and emits an append-preserving audit record.
+- **Resource routing:** produces a resource opportunity only; a separate verified canonical resource must still pass the Miller consumer gate.
+- **Change intelligence:** separates material, non-material, uncertain and owner-review changes while ignoring review timestamps and formatting-only drift.
+- **Source yield:** reports transparent operational counts, including cross-domain discoveries, recommendations, milestones, resource opportunities and manual-review burden.
+- **Igor orchestration:** restricts worker work to bounded deterministic capabilities with no mutation or publication authority.
+- **Conversational control:** summarizes recommendations, milestones and coverage gaps through the existing private owner interface.
+
+### Recommendation accountability chain
+
+```text
+problem or finding
+  → recommendation
+  → responsible actor(s)
+  → response(s) / claimed action
+  → independent implementation evidence
+  → measured outcome
+  → unresolved gap
+```
+
+A response, acceptance, announced policy and measured outcome remain different states. Duplicate responder rows and review-date-only changes do not create material updates.
+
+### Milestone-aware monitoring
+
+A source-supported date or date window can create a private watch candidate. Palantír defers broad checking until shortly before that window, performs targeted rechecks while it is open, and slows to monthly follow-up if no document appears. Vague language such as “later this year” creates an owner-review candidate but no automatic schedule. The resulting `search_cycles_avoided` count makes the operational saving explicit.
+
+### Coverage-gap matrix
+
+A matrix can be defined over jurisdiction, domain, source family, institution type, time period, service setting, legal stage or recommendation state. Each cell has one explicit interpretation: evidence present, true evidence scarcity, no source coverage, insufficient coding, source acquisition failure, unreviewed backlog or not yet reviewed. Gap-driven research recommendations are explainable and owner-approved; they never launch a sweep automatically.
+
 ## Entity resolution
 
 Entity resolution uses a versioned exact-alias registry. For example, `VPD` resolves to Vancouver Police Department, while Vancouver Police Board remains a distinct institution. Fuzzy suggestions remain owner-review candidates. Entity matching never establishes a person's Indigenous identity.

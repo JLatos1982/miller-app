@@ -3,6 +3,7 @@ import listenerRegistry from "../src/data/farm-listener-registry-v1.json" with {
 import { validateFarmListenerRegistry } from "./farmListenerFramework.js"
 import { FARM_IGOR_CAPABILITIES } from "./farmIgorWorker.js"
 import { adaptFarmListenerToSamwise, SAMWISE_OUTPUT_ROUTES, SAMWISE_PUBLIC_RECORD_DOMAINS, SAMWISE_PUBLIC_RECORDS_CAPABILITY_ID, SAMWISE_SOURCE_FAMILIES } from "./samwisePublicRecordsIntelligence.js"
+import { PALANTIR_PRIMITIVES, validatePalantirPrimitiveRegistry } from "./palantirPrimitiveRegistry.js"
 
 const sameMembers = (left, right) => left.length === right.length && left.every(item => right.includes(item))
 
@@ -30,6 +31,7 @@ export function samwisePublicRecordsCapability(registry = capabilityRegistry) {
 export function samwiseListenerInventory({ capabilities = capabilityRegistry, listeners = listenerRegistry } = {}) {
   validateFarmListenerRegistry(listeners)
   const capability = samwisePublicRecordsCapability(capabilities)
+  validatePalantirPrimitiveRegistry()
   const integrated = listeners.listeners.map(listener => adaptFarmListenerToSamwise(listener, capability.listener_source_families)).filter(Boolean)
   return {
     capability_id: capability.capability_id,
@@ -45,6 +47,7 @@ export function samwiseListenerInventory({ capabilities = capabilityRegistry, li
       igor: integrated.filter(item => item.execution_target === "igor").length,
     },
     output_routes: SAMWISE_OUTPUT_ROUTES,
+    primitives: PALANTIR_PRIMITIVES.map(item => item.primitive_id),
     mutation_authority: false,
     publication_authority: false,
   }

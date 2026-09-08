@@ -8,7 +8,7 @@ export const FARM_RUN_STATUSES = Object.freeze(["completed", "no_material_change
 const PROJECTS = new Set(FARM_PROJECT_SCOPES)
 const WORKERS = new Set(FARM_WORKERS)
 const STATUSES = new Set(FARM_RUN_STATUSES)
-const DOMAIN_KEYS = new Set(["healthcare", "policing_custody_corrections", "government_services_funding", "child_welfare_youth_services", "housing_homelessness", "human_rights_public_services", "transportation_access", "education_exploratory"])
+const DOMAIN_KEYS = new Set(["healthcare", "policing", "corrections", "courts_legal", "human_rights", "government_services", "public_funding", "child_youth", "housing", "transportation", "education", "professional_regulation", "public_safety", "other_public_institution", "policing_custody_corrections", "government_services_funding", "child_welfare_youth_services", "housing_homelessness", "human_rights_public_services", "transportation_access", "education_exploratory"])
 const clean = (value, limit = 500) => String(value ?? "").normalize("NFKC").replace(/\s+/g, " ").trim().slice(0, limit)
 const number = value => Number.isFinite(Number(value)) && Number(value) >= 0 ? Number(value) : 0
 
@@ -53,6 +53,12 @@ export function normalizeFarmListenerResult(value = {}) {
     duplicates_suppressed: number(value.duplicates_suppressed),
     errors: number(value.errors ?? value.failed),
     material_changes: number(value.material_changes ?? value.changed_rows),
+    useful_findings: number(value.useful_findings),
+    cross_domain_discoveries: number(value.cross_domain_discoveries ?? value.cross_lane_discoveries?.length),
+    recommendations_extracted: number(value.recommendations_extracted),
+    milestones_identified: number(value.milestones_identified ?? value.live_monitor_candidates),
+    resource_discoveries: number(value.resource_discoveries),
+    manual_review_minutes: number(value.manual_review_minutes),
     cost_usd: number(value.cost_usd),
     output_titles: Array.isArray(value.output_titles) ? value.output_titles.map(item => clean(item, 160)).filter(Boolean).slice(0, 12) : [],
     owner_review_labels: Array.isArray(value.owner_review_labels) ? value.owner_review_labels.map(item => clean(item, 120)).filter(Boolean).slice(0, 12) : [],
@@ -81,7 +87,7 @@ export function transparentSourceYield(history = []) {
   const total = field => completed.reduce((sum, item) => sum + number(item[field]), 0)
   const checked = total("checked")
   const qualifying = total("new_events") + total("existing_events_strengthened") + total("publication_safe")
-  const useful = qualifying + total("material_changes")
+  const useful = Math.max(total("useful_findings"), qualifying + total("material_changes"))
   const failures = history.filter(item => item.status === "failed").length
   const metrics = {
     runs: history.length,
@@ -91,6 +97,12 @@ export function transparentSourceYield(history = []) {
     material_items: useful,
     qualifying_per_100_documents: checked ? Number((qualifying / checked * 100).toFixed(2)) : 0,
     material_items_per_cycle: completed.length ? Number((useful / completed.length).toFixed(2)) : 0,
+    cross_domain_discoveries: total("cross_domain_discoveries"),
+    recommendations_extracted: total("recommendations_extracted"),
+    milestones_identified: total("milestones_identified"),
+    resource_opportunities: total("resource_discoveries"),
+    owner_review_items: total("owner_review"),
+    manual_review_minutes: total("manual_review_minutes"),
     duplicate_rate: checked ? Number((total("duplicates_suppressed") / checked).toFixed(3)) : 0,
     failure_rate: history.length ? Number((failures / history.length).toFixed(3)) : 0,
     external_cost_usd: Number(total("cost_usd").toFixed(4)),

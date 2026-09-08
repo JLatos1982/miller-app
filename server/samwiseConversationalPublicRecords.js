@@ -21,7 +21,7 @@ export function samwiseListenerOperationalState(listener = {}) {
   return "scheduled"
 }
 
-export function buildSamwisePublicRecordsStatus({ listeners = [], history = [], reviewItems = [], researchMemories = [], researchExecutions = [], learningLedger = null, now = new Date() } = {}) {
+export function buildSamwisePublicRecordsStatus({ listeners = [], history = [], reviewItems = [], researchMemories = [], researchExecutions = [], learningLedger = null, recommendationLedgers = [], milestones = [], coverageMatrices = [], primitiveChanges = [], now = new Date() } = {}) {
   const generatedAt = new Date(now).toISOString()
   const recentCutoff = new Date(generatedAt).getTime() - 7 * 86_400_000
   const recent = history.filter(item => new Date(item.completed_at || item.timestamp || 0).getTime() >= recentCutoff)
@@ -73,6 +73,15 @@ export function buildSamwisePublicRecordsStatus({ listeners = [], history = [], 
       plans_completed: researchExecutions.filter(item => item?.state === "completed").length,
       source_checkpoints: researchExecutions.reduce((sum, item) => sum + (item?.source_checkpoints || []).filter(checkpoint => ["completed", "no_material_change"].includes(checkpoint.status)).length, 0),
       operational_lessons: learningLedger?.schema_version === "palantir-operational-learning-ledger-v1" ? learningLedger.lessons.length : 0,
+    },
+    intelligence_primitives: {
+      recommendations: recommendationLedgers.reduce((total, ledger) => total + Number(ledger?.counts?.recommendations || ledger?.recommendations?.length || 0), 0),
+      recommendation_changes: primitiveChanges.filter(item => item?.schema_version === "palantir-recommendation-change-v1").reduce((total, item) => total + Number(item.material_changes || 0), 0),
+      milestones: milestones.length,
+      upcoming_milestones: milestones.filter(item => !["document_found", "closed_public_trail", "cancelled"].includes(item.current_status)).length,
+      coverage_matrices: coverageMatrices.length,
+      coverage_gaps: coverageMatrices.reduce((total, matrix) => total + (matrix.cells || []).filter(cell => cell.gap_type !== "evidence_present").length, 0),
+      acquisition_failures: coverageMatrices.reduce((total, matrix) => total + Number(matrix.counts?.source_acquisition_failure || 0), 0),
     },
     next_scheduled: next ? { listener_id: clean(next.listener_id, 120), at: clean(next.next_run_at, 40), worker: clean(next.execution_target, 30) } : null,
     private_owner_interface: true,
@@ -136,4 +145,8 @@ export const samwisePublicRecordsConversationalQueries = Object.freeze([
   "What new funding programs appeared?",
   "Did an unrelated listener discover anything useful for Miller?",
   "Did anything strengthen an existing Miller North chain?",
+  "What recommendations changed?",
+  "What milestones are coming up?",
+  "Where are the biggest coverage gaps?",
+  "Which institutions need follow-up?",
 ])

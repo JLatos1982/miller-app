@@ -66,7 +66,16 @@
         "approve_research_plan",
         "pause_research",
         "cancel_research",
-        "execute_approved_plan"
+        "execute_approved_plan",
+        "track_recommendations",
+        "detect_recommendation_changes",
+        "track_milestones",
+        "recommend_milestone_schedule",
+        "classify_coverage_gaps",
+        "recommend_gap_research",
+        "preserve_owner_review",
+        "route_resource_opportunities",
+        "classify_material_changes"
       ],
       "output_schema": "samwise-public-records-intelligence-v1",
       "scheduler": "existing_farm_job_scheduler",
