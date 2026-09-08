@@ -1868,7 +1868,7 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
               </div>
               {searchContext.location.status !== "none" ? <p className="search-context-line">
                 {searchContext.location.status === "resolved" ? `Showing support options around ${searchContext.location.label}.` : null}
-                {searchContext.location.status === "community" ? `Showing support options in ${searchContext.location.label}.` : null}
+                {searchContext.location.status === "community" ? `Showing local and regional support options for ${searchContext.location.label}.` : null}
                 {searchContext.location.status === "ambiguous" ? searchContext.location.clarification : null}
               </p> : null}
 
@@ -1963,6 +1963,11 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
                         {resource.address && (
                           <p>
                             <strong>Address:</strong> {resource.address}
+                          </p>
+                        )}
+                        {resource.scopeNote && (
+                          <p>
+                            <strong>Service area:</strong> {resource.scopeNote}
                           </p>
                         )}
                         {resource.population && (

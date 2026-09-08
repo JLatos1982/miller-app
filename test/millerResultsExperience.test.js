@@ -21,6 +21,8 @@ test("results use a two-column destination with a single-column narrow fallback"
   assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.resource-list\s*\{[^}]*grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\)/s)
   assert.match(css, /@media \(max-width: 759px\)[\s\S]*?\.hero-layout\.has-results \.resource-list\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\)/s)
   assert.doesNotMatch(css, /\.hero-layout\.has-results \.resource-list\s*\{[^}]*overflow-x:\s*(auto|scroll)/s)
+  assert.match(app, /Showing local and regional support options for/)
+  assert.match(app, /<strong>Service area:<\/strong> \{resource\.scopeNote\}/)
 })
 
 test("the richer trained speech bubble returns without duplicating a guidance card", () => {
