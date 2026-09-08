@@ -80,3 +80,11 @@ test("broaden_access remains compatible with broaden_nearby request semantics", 
   assert.equal(response.search_scope.geography_broadened, true)
   assert.equal(response.broaden_nearby.behavior, "broaden_access")
 })
+
+test("community service-area matching cannot cross a known province boundary", () => {
+  const response = buildMillerMobileSearchResponse({ query: "addiction treatment from Churchill and transportation", limit: 12 }, millerMobileCatalog, { now })
+  assert.equal(response.interpreted.location, "Churchill")
+  assert.equal(response.interpreted.province, "Manitoba")
+  assert.equal(response.results.some(resource => resource.province === "Newfoundland and Labrador"), false)
+  assert.equal(response.results.some(resource => /Churchill Falls/i.test(resource.location_label)), false)
+})

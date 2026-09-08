@@ -200,10 +200,13 @@ function servesLocation(resource, location) {
   if (!location) return false
   const scope = scopeFor(resource)
   if (physicallyLocatedIn(resource, location)) return true
+  const locationProvince = provinceForLocation(location)
+  const resourceProvince = provinceFor(resource)
+  if (locationProvince && resourceProvince !== locationProvince) return false
   const areas = [...scope.local_service_area, ...scope.regional_service_area, ...(resource?.searchLocations || [])]
   if (areas.some(area => includesTerm(area, location))) return true
   if (includesTerm(resource?.region, location)) return true
-  return scope.province_wide && !scope.canada_wide && provinceForLocation(location) === provinceFor(resource)
+  return scope.province_wide && !scope.canada_wide && locationProvince === resourceProvince
 }
 
 function locationRelationship(resource, location) {
