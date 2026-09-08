@@ -140,6 +140,44 @@ export function buildMillerSpecializedSearchResources(practicalRecords = [], fun
   ].filter(record => record.id && record.name && record.approved && !record.hidden)
 }
 
+export function sharedCanonicalMillerResource(record = {}) {
+  const visibility = Array.isArray(record.project_visibility) ? record.project_visibility : []
+  if (!visibility.includes("miller") || record.verification_status !== "verified_active") return null
+  const categories = Array.isArray(record.categories) ? record.categories : []
+  const subcategories = Array.isArray(record.subcategories) ? record.subcategories : []
+  const access = [text(record.referral_requirement), text(record.access_requirements), text(record.access)].filter(Boolean).join(" · ")
+  return {
+    id: text(record.canonical_resource_id),
+    kind: text(record.record_type) || "service",
+    name: text(record.program_name),
+    organization: text(record.organization),
+    serviceType: text(subcategories[0]) || text(categories[0]).replaceAll("_", " ") || "Practical support",
+    category: text(categories[0]).replaceAll("_", " "),
+    population: text(record.population_served),
+    eligibility: text(record.eligibility),
+    description: text(record.description),
+    accessType: access,
+    phone: text(record.phone),
+    email: text(record.email),
+    website: text(record.website),
+    city: text(record.city_community),
+    region: text(record.service_area || record.geography),
+    source: "shared_canonical_miller_projection",
+    approved: true,
+    hidden: false,
+    verification_status: "verified_active",
+    location_last_verified: text(record.last_verified),
+    tags: [...categories, ...subcategories, text(record.indigenous_scope), text(record.delivery_modes)].filter(Boolean),
+    collectionLinks: categories.includes("financial_funding")
+      ? [collectionLink("/funding-assistance", "View in Funding & Assistance")]
+      : [collectionLink("/practical-supports", "View in Practical Supports")],
+  }
+}
+
+export function buildSharedCanonicalMillerResources(records = []) {
+  return records.map(sharedCanonicalMillerResource).filter(Boolean)
+}
+
 export function millerResourceSearchText(resource) {
   return [
     resource?.name,

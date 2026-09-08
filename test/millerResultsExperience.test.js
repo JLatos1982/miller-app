@@ -4,50 +4,44 @@ import test from "node:test"
 
 const read = relative => readFileSync(new URL(relative, import.meta.url), "utf8")
 
-test("searched state makes results the main canvas without altering the top controls", () => {
+test("searched state keeps the guide scene between stable controls and wide results", () => {
   const app = read("../src/App.jsx")
   const css = read("../src/App.css")
   assert.match(app, /hero-layout \$\{shouldShowResults \? "has-results" : ""\}/)
   assert.match(css, /\.hero-layout\.has-results\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\)/s)
-  assert.match(css, /\.hero-layout\.has-results \.hero-art\s*\{[^}]*display:\s*none !important/s)
-  assert.match(css, /\.hero-layout\.has-results \.results-panel\s*\{[^}]*max-width:\s*none/s)
+  assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.hero-art\s*\{[^}]*display:\s*block !important/s)
+  assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.results-panel\s*\{[^}]*max-width:\s*1040px/s)
   assert.match(app, /className="controls-row"/)
 })
 
-test("results use a responsive two-column grid and never force it on mobile", () => {
+test("results use one wide column at every breakpoint", () => {
   const app = read("../src/App.jsx")
   const css = read("../src/App.css")
-  assert.match(app, /data-layout="responsive-two-column"/)
-  assert.match(css, /\.hero-layout\.has-results \.resource-list\s*\{[^}]*grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\)/s)
-  assert.match(css, /@media \(max-width: 959px\)[\s\S]*?\.hero-layout\.has-results \.resource-list\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\)/)
+  assert.match(app, /data-layout="single-wide-column"/)
+  assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.resource-list\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\)/s)
   assert.doesNotMatch(css, /\.hero-layout\.has-results \.resource-list\s*\{[^}]*overflow-x:\s*(auto|scroll)/s)
 })
 
-test("the richer guidance sits beside search while result controls stay compact", () => {
+test("the richer trained speech bubble returns without duplicating a guidance card", () => {
   const app = read("../src/App.jsx")
   const css = read("../src/App.css")
-  assert.match(app, /className="miller-guidance-panel"/)
-  assert.match(app, /miller-search-guidance-row/)
-  assert.match(app, /nextStepGuidance\.interpretation/)
-  assert.match(app, /nextStepGuidance\.explanation/)
-  assert.match(app, /nextStepGuidance\.next_step/)
-  assert.match(app, />Refine search<\/button>/)
+  assert.doesNotMatch(app, /className="miller-guidance-panel"/)
+  assert.match(app, /renderMessageWithLinks\(displayedReply\)/)
+  assert.match(app, /miller-practical-context/)
+  assert.match(app, /miller-related-supports/)
   assert.match(app, />Email these results<\/button>/)
   assert.match(app, /matching resource\{results\.length === 1 \? "" : "s"\}/)
   assert.match(app, /conciseResourceDescription\(resource\.description\)/)
-  assert.match(css, /miller-search-guidance-row\.has-guidance\s*\{[^}]*grid-template-columns:\s*minmax\(440px, \.95fr\) minmax\(0, 1\.05fr\)/s)
-  assert.match(css, /max-width: 959px[\s\S]*?miller-search-guidance-row\.has-guidance\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\)/)
-  assert.match(css, /max-width: 959px[\s\S]*?\.hero-layout\.has-results \.miller-guidance-panel\s*\{[^}]*order:\s*2/)
+  assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.miller-bubble\s*\{[^}]*max-height:\s*330px/s)
 })
 
-test("the result companion is a left-rail enhancement with safe responsive exits", () => {
+test("the original character and one dog remain the results companion scene", () => {
   const app = read("../src/App.jsx")
   const css = read("../src/App.css")
-  assert.match(app, /className="miller-results-companion-rail"/)
-  assert.match(app, /key=\{`\$\{currentTheme\.name\}-results`\}/)
-  assert.match(app, /animationEnabled=\{false\}/)
-  assert.match(css, /min-width: 901px[\s\S]*?results-panel\.has-result-companion\s*\{[^}]*padding-left:\s*144px/)
-  assert.match(css, /max-width: 759px[\s\S]*?\.miller-companion-travel\s*\{[^}]*display:\s*none/)
-  assert.match(css, /max-width: 759px[\s\S]*?\.miller-results-companion-rail\s*\{[^}]*display:\s*none/)
-  assert.match(css, /prefers-reduced-motion: reduce[\s\S]*?results-panel\.has-result-companion\s*\{[^}]*padding-left:\s*24px/)
+  assert.equal((app.match(/<MillerSheepdog/g) || []).length, 1)
+  assert.doesNotMatch(app, /!shouldShowResults \? <MillerSheepdog/)
+  assert.doesNotMatch(app, /miller-results-companion-rail/)
+  assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.miller-figure\s*\{[^}]*left:\s*clamp\(/s)
+  assert.match(css, /@media \(max-width: 600px\)[\s\S]*?\.hero-layout\.has-results \.miller-figure,[\s\S]*?display:\s*none !important/s)
+  assert.match(css, /prefers-reduced-motion: reduce[\s\S]*?\.hero-layout\.has-results \.miller-figure[\s\S]*?animation:\s*none !important/s)
 })

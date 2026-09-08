@@ -2170,8 +2170,7 @@ const noCategoryMatch =
 const shouldUseAdvancedTavily =
   safeMatches.length < 5 ||
   topLocalScore < 160 ||
-  noCategoryMatch ||
-  safeQuery.length > 10
+  noCategoryMatch
 
   let tavilyMode = "basic"
 
@@ -2327,6 +2326,12 @@ ${result.content}
 `
   )
   .join("\n")}
+
+RESOURCE SOURCE ORDER
+- Use RESOURCE MATCHES first. They are Miller's verified internal practical-resource context and may include related support or funding collections beyond the cards currently visible to the user.
+- Use WEB SEARCH RESULTS only when the internal resource context is insufficient for the practical question.
+- Treat a web result as unverified unless it is also present in RESOURCE MATCHES. Never imply that an unverified result has confirmed eligibility, availability, funding, or intake.
+- Do not mention or draw from Miller North investigations, legal findings, policing evidence, coroner records, Accountability Watch, or private Samwise intelligence.
 
 
       `.trim() + `

@@ -73,9 +73,10 @@ import { millerCharacterInteraction } from "./companion/millerCompanionAdapter.j
 import { millerCharacterPose } from "./companion/millerCharacterInteractionThemes.js"
 import practicalSupports from "./data/miller-practical-supports-public-v1.json"
 import millerFunding from "./data/miller-funding-assistance-public-v1.json"
-import { buildMillerSpecializedSearchResources, mergeMillerSearchResources, millerResourceSearchText } from "./millerPublicSearchResources.js"
+import sharedResourceRegistry from "./data/miller-shared-resource-registry-v1.json"
+import { buildMillerSpecializedSearchResources, buildSharedCanonicalMillerResources, mergeMillerSearchResources, millerResourceSearchText } from "./millerPublicSearchResources.js"
 import { publicCounsellingPractitioners } from "./data/privateCounsellingPractitioners.js"
-import { buildMillerNextStepGuidance } from "./millerNextStepGuidance.js"
+import { buildMillerPracticalIntelligence } from "./millerPracticalIntelligence.js"
 import { conciseResourceDescription } from "./millerResultPresentation.js"
 
 const CATEGORY_ALIASES = {
@@ -703,6 +704,10 @@ function App() {
     cleanResources(rawResources),
     buildMillerSpecializedSearchResources(practicalSupports.records, millerFunding.records),
   )), [])
+  const millerPracticalKnowledge = useMemo(() => dedupeResources(mergeMillerSearchResources(
+    normalizedResources,
+    buildSharedCanonicalMillerResources(sharedResourceRegistry.records),
+  )), [normalizedResources])
 
   const defaultReply = MILLER_COPY.searchIntro
 
@@ -945,11 +950,13 @@ useEffect(() => {
 
   const shouldShowResults = hasSearched && !isLoading
 
-  const nextStepGuidance = useMemo(() => buildMillerNextStepGuidance({
+  const practicalIntelligence = useMemo(() => buildMillerPracticalIntelligence({
     query,
     intent: searchContext.intent,
     results,
-  }), [query, searchContext.intent, results])
+    resources: millerPracticalKnowledge,
+  }), [query, searchContext.intent, results, millerPracticalKnowledge])
+  const nextStepGuidance = practicalIntelligence.guidance
 
   useLayoutEffect(() => {
     if (currentTheme.name !== "Classic" || !bubbleRef.current || !millerFigureRef.current || !millerStageRef.current) return undefined
@@ -1192,6 +1199,15 @@ trackEvent({
     }
 
     const candidatePack = buildCandidatePack(normalizedResources, trimmedQuery, selectedCity)
+    const speechIntelligence = buildMillerPracticalIntelligence({
+      query: trimmedQuery,
+      results: candidatePack.candidatePool,
+      resources: millerPracticalKnowledge,
+    })
+    const speechMatches = uniqueResourceObjects([
+      ...candidatePack.candidatePool.slice(0, 14),
+      ...speechIntelligence.speech_resources,
+    ]).slice(0, 30)
     const resultLimit = getResultLimit(trimmedQuery, candidatePack.inferredCategories)
 
     setHasSearched(true)
@@ -1209,7 +1225,7 @@ trackEvent({
           conversationSummary,
           city: selectedCity,
           inferredCategories: candidatePack.inferredCategories,
-          matches: candidatePack.candidatePool.slice(0, 30),
+          matches: speechMatches,
           sessionId,
         }))
       const aiHints = data.searchHints || {}
@@ -1689,7 +1705,7 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
       <main className={`hero-layout ${shouldShowResults ? "has-results" : ""}`}>
         <section className="hero-copy">
 
-          <div className={`miller-search-guidance-row ${nextStepGuidance ? "has-guidance" : ""}`}>
+          <div className="miller-search-guidance-row">
           <form className="search-panel" onSubmit={handleSearch} ref={searchPanelRef}>
             <div
               className="search-bar-wrap"
@@ -1741,30 +1757,10 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
             </div>
           </form>
 
-          {shouldShowResults && nextStepGuidance ? <section className="miller-guidance-panel" aria-labelledby="miller-guidance-title" data-intent={nextStepGuidance.intent}>
-            <div className="miller-guidance-heading">
-              <p className="miller-guidance-kicker">{nextStepGuidance.interpretation_heading}</p>
-              <h2 id="miller-guidance-title">{nextStepGuidance.heading}</h2>
-            </div>
-            <p className="miller-guidance-interpretation">{nextStepGuidance.interpretation}</p>
-            <p>{nextStepGuidance.explanation}</p>
-            <div className="miller-guidance-next-step">
-              <h3>{nextStepGuidance.next_step_heading}</h3>
-              <p>{nextStepGuidance.next_step}</p>
-            </div>
-            {nextStepGuidance.access_note || nextStepGuidance.navigation_note ? <ul className="miller-guidance-notes">
-              {nextStepGuidance.access_note ? <li>{nextStepGuidance.access_note.text}</li> : null}
-              {nextStepGuidance.navigation_note ? <li>{nextStepGuidance.navigation_note.text}</li> : null}
-            </ul> : null}
-            <button type="button" className="miller-guidance-refine" onClick={() => { searchInputRef.current?.focus(); searchInputRef.current?.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "center" }) }}>Refine search</button>
-          </section> : null}
           </div>
 
           {shouldShowResults && (
-  <div className={`results-panel ${companionSearchOutcome.status === "success" ? "has-result-companion" : ""}`} ref={resultsPanelRef}>
-              {companionSearchOutcome.status === "success" ? <div className="miller-results-companion-rail" aria-hidden="true">
-                <MillerSheepdog key={`${currentTheme.name}-results`} themeName={currentTheme.name} reducedMotion={prefersReducedMotion} animationEnabled={false} presentationIntent={companionIntent} />
-              </div> : null}
+  <div className="results-panel" ref={resultsPanelRef}>
               <div className="results-head">
                 <h2><span className="results-count">{results.length === totalMatches ? results.length : `${results.length} of ${totalMatches}`}</span> matching resource{results.length === 1 ? "" : "s"}</h2>
                 {results.some(isEmailResultEligible) ? <button type="button" className="ghost-button email-results-open" onClick={() => setIsEmailResultsOpen(true)}>Email these results</button> : null}
@@ -1781,7 +1777,7 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
                   <p>{MILLER_COPY.noResultsBody}</p>
                 </div>
               ) : (
-                <div className="resource-list" data-layout="responsive-two-column">
+                <div className="resource-list" data-layout="single-wide-column">
                   {results.map((resource, index) => {
                     const publicLocation = eligiblePublicLocation(resource, mapResources)
                     const navigationContext = buildNavigationPacket({ resource, publicMapResources: mapResources, intent: searchContext.intent, locationContext: searchContext.location, relevance: deterministicRelevance(resource, searchContext.intent) })
@@ -2010,17 +2006,25 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
 
   </div>
 
-  {!shouldShowResults ? <MillerSheepdog key={currentTheme.name} themeName={currentTheme.name} scenePosition={millerReadingPosition} reducedMotion={prefersReducedMotion} onGreetingPhaseChange={setMillerGreetingPose} presentationIntent={companionIntent} overlayHost={companionOverlayHost} idleAllowed={companionIdleAllowed} /> : null}
+  <MillerSheepdog key={currentTheme.name} themeName={currentTheme.name} scenePosition={millerReadingPosition} reducedMotion={prefersReducedMotion} onGreetingPhaseChange={setMillerGreetingPose} presentationIntent={companionIntent} overlayHost={companionOverlayHost} idleAllowed={companionIdleAllowed} />
 
 </div>
 
             <div
               ref={bubbleRef}
-              className={`miller-bubble ${isBubbleTyping ? "is-typing" : ""}`}
+              className={`miller-bubble ${isBubbleTyping ? "is-typing" : ""} ${shouldShowResults ? "is-results-guidance" : ""}`}
+              data-intent={nextStepGuidance?.intent || undefined}
               aria-live="polite"
             >
               {renderMessageWithLinks(displayedReply)}
               {isBubbleTyping ? <span className="typing-cursor" /> : null}
+              {shouldShowResults && !isBubbleTyping && practicalIntelligence.combined_context ? <p className="miller-practical-context">{practicalIntelligence.combined_context}</p> : null}
+              {shouldShowResults && !isBubbleTyping && practicalIntelligence.related_collections.length ? <nav className="miller-related-supports" aria-label="Related Miller support collections">
+                <span>You could also check</span>
+                {practicalIntelligence.related_collections.map(link => link.action === "private_counselling"
+                  ? <button key={`${link.action}-${link.label}`} type="button" onClick={() => setOpenInfoModal("private-counselling")}>{link.label}</button>
+                  : <a key={`${link.href}-${link.label}`} href={link.href}>{link.label}</a>)}
+              </nav> : null}
             </div>
 
             <div className="miller-satchel-zone">
