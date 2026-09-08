@@ -66,6 +66,12 @@ export function staticCompanionPresentation({ reducedMotion = false, animationEn
   return Object.freeze({ actorId: MILLER_COMPANION.actorId, pose: MILLER_COMPANION.reducedMotionPose, reducedMotion: Boolean(reducedMotion), animationEnabled: animationEnabled !== false, decorative: true })
 }
 
+export function resultCompanionSize(viewportWidth) {
+  if (Number(viewportWidth) <= 600) return null
+  if (Number(viewportWidth) <= 900) return Object.freeze({ width: 76, height: 74 })
+  return Object.freeze({ width: 112, height: 109 })
+}
+
 // Host-only geometry adapter. It receives rectangles after Miller has already
 // selected and rendered a result; no resource fields or ranking data cross this
 // boundary. The returned point is the decorative dog's top-left position in
@@ -76,7 +82,7 @@ export function destinationBesideRenderedResult({ hostRect, resultRect, viewport
   // A host-provided left rail makes this a decisive, presentation-only
   // destination: dog | authoritative top result. There is deliberately no
   // right-side fallback that could crowd a card's actions.
-  const gap = 36
+  const gap = 18
   const margin = 16
   const left = resultRect.left - dogSize.width - gap
   const withinLeftRail = left >= Math.max(hostRect.left + margin, margin) && left + dogSize.width + gap <= resultRect.left

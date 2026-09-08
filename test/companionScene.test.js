@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
-import { destinationBesideRenderedResult, MILLER_CHARACTER_INTERACTION, MILLER_COMPANION, staticCompanionPresentation, supportsMillerDogGreeting } from '../src/companion/millerCompanionAdapter.js'
+import { destinationBesideRenderedResult, MILLER_CHARACTER_INTERACTION, MILLER_COMPANION, resultCompanionSize, staticCompanionPresentation, supportsMillerDogGreeting } from '../src/companion/millerCompanionAdapter.js'
 import { defineCompanionActor, resolveActorPose } from '../src/companion-core/index.js'
 import { MILLER_DOG_ARRIVAL, millerDogArrivalStep, millerDogIsTraveling, nextMillerDogArrivalIndex } from '../src/companion/millerCompanionSequence.js'
 import { MILLER_CLASSIC_GREETING, millerClassicGreetingStep, nextMillerClassicGreetingIndex } from '../src/companion/millerClassicGreeting.js'
@@ -113,6 +113,13 @@ test('host converts only a visible rendered result rectangle into safe geometry'
   assert.equal(destinationBesideRenderedResult({ hostRect, resultRect: { ...resultRect, left: 130, right: 670 }, viewport: { width: 1280, height: 900 } }), null)
   const dogHeadY = target.y * hostRect.height + hostRect.top + 175 * .28
   assert.ok(dogHeadY >= resultRect.top + 54 && dogHeadY <= resultRect.top + 88)
+})
+
+test('result companion yields the canvas to cards and disappears on narrow screens', () => {
+  assert.deepEqual(resultCompanionSize(1280), { width: 112, height: 109 })
+  assert.deepEqual(resultCompanionSize(820), { width: 76, height: 74 })
+  assert.equal(resultCompanionSize(600), null)
+  assert.equal(resultCompanionSize(390), null)
 })
 
 test('jog duration is bounded and reduced-motion or mobile travel fails safely', () => {

@@ -65,7 +65,7 @@ import EmailResultsDialog from "./site/EmailResultsDialog.jsx"
 import MillerPracticalSupports from "./site/MillerPracticalSupports.jsx"
 import MillerFundingAssistance from "./site/MillerFundingAssistance.jsx"
 import { isEmailResultEligible } from "./emailResultsApi.js"
-import { destinationBesideRenderedResult } from "./companion/millerCompanionAdapter.js"
+import { destinationBesideRenderedResult, resultCompanionSize } from "./companion/millerCompanionAdapter.js"
 import { isMeaningfulCompanionInput, MILLER_PRESENTATION_INTENTS, presentationIntent } from "./companion/millerCompanionLifecycle.js"
 import { bubbleNeedsMillerReadingPosition, readingStageHeight, resolveMillerReadingOffset } from "./companion/millerSceneLayout.js"
 import { MILLER_CLASSIC_READING_WALK_DURATION, millerClassicWalkStep, nextMillerClassicWalkIndex } from "./companion/millerClassicWalk.js"
@@ -75,6 +75,8 @@ import practicalSupports from "./data/miller-practical-supports-public-v1.json"
 import millerFunding from "./data/miller-funding-assistance-public-v1.json"
 import { buildMillerSpecializedSearchResources, mergeMillerSearchResources, millerResourceSearchText } from "./millerPublicSearchResources.js"
 import { publicCounsellingPractitioners } from "./data/privateCounsellingPractitioners.js"
+import { buildMillerNextStepGuidance } from "./millerNextStepGuidance.js"
+import { conciseResourceDescription } from "./millerResultPresentation.js"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -769,6 +771,7 @@ useEffect(() => {
   const searchPanelRef = useRef(null)
   const resultsPanelRef = useRef(null)
   const topResultRef = useRef(null)
+  const searchInputRef = useRef(null)
   const controlsRowRef = useRef(null)
   const bubbleRef = useRef(null)
   const millerStageRef = useRef(null)
@@ -940,8 +943,13 @@ useEffect(() => {
   const isBubbleTyping =
     isLoading || displayedReply.length < String(aiReply || "").length
 
-  const shouldShowResults =
-  hasSearched && !isBubbleTyping
+  const shouldShowResults = hasSearched && !isLoading
+
+  const nextStepGuidance = useMemo(() => buildMillerNextStepGuidance({
+    query,
+    intent: searchContext.intent,
+    results,
+  }), [query, searchContext.intent, results])
 
   useLayoutEffect(() => {
     if (currentTheme.name !== "Classic" || !bubbleRef.current || !millerFigureRef.current || !millerStageRef.current) return undefined
@@ -1010,7 +1018,7 @@ useEffect(() => {
         hostRect: appShellRef.current?.getBoundingClientRect(),
         resultRect: topResultRef.current?.getBoundingClientRect(),
         viewport: { width: window.innerWidth, height: window.innerHeight },
-        dogSize: window.innerWidth > 900 ? { width: 180, height: 175 } : { width: 108, height: 105 },
+        dogSize: resultCompanionSize(window.innerWidth) || { width: 76, height: 74 },
       })
       companionDestinationGenerationRef.current = companionSearchOutcome.generation
       emitCompanionIntent(target ? MILLER_PRESENTATION_INTENTS.DESTINATION_READY : MILLER_PRESENTATION_INTENTS.SETTLE, target)
@@ -1678,7 +1686,7 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
             </div>
           </div>
           </div>
-      <main className="hero-layout">
+      <main className={`hero-layout ${shouldShowResults ? "has-results" : ""}`}>
         <section className="hero-copy">
 
 
@@ -1691,6 +1699,7 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
               <label className="main-search-label" htmlFor="resource-search">Search for a service or type of support</label>
               <input
                 id="resource-search"
+                ref={searchInputRef}
                 className="main-search-input"
                 placeholder="e.g. detox, treatment centre, counselling, OAT, crisis, harm reduction"
                 value={query}
@@ -1734,14 +1743,20 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
 
           {shouldShowResults && (
   <div className={`results-panel ${companionSearchOutcome.status === "success" ? "has-result-companion" : ""}`} ref={resultsPanelRef}>
+              {companionSearchOutcome.status === "success" ? <div className="miller-results-companion-rail" aria-hidden="true">
+                <MillerSheepdog key={`${currentTheme.name}-results`} themeName={currentTheme.name} reducedMotion={prefersReducedMotion} animationEnabled={false} presentationIntent={companionIntent} />
+              </div> : null}
+              {nextStepGuidance ? <section className="miller-next-step" aria-labelledby="miller-next-step-title" data-intent={nextStepGuidance.intent}>
+                <div>
+                  <p className="miller-next-step-kicker">Next step</p>
+                  <h2 id="miller-next-step-title">{nextStepGuidance.heading}</h2>
+                  <p>{nextStepGuidance.text}</p>
+                  {nextStepGuidance.access_note ? <p className="miller-next-step-access">{nextStepGuidance.access_note.text}</p> : null}
+                </div>
+                <button type="button" className="miller-next-step-refine" onClick={() => { searchInputRef.current?.focus(); searchInputRef.current?.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "center" }) }}>Refine search</button>
+              </section> : null}
               <div className="results-head">
-                <h2>
-                  Matching resources
-                  <span className="results-count">
-                    {" "}
-                    {results.length} of {totalMatches}
-                  </span>
-                </h2>
+                <h2><span className="results-count">{results.length === totalMatches ? results.length : `${results.length} of ${totalMatches}`}</span> matching resource{results.length === 1 ? "" : "s"}</h2>
                 {results.some(isEmailResultEligible) ? <button type="button" className="ghost-button email-results-open" onClick={() => setIsEmailResultsOpen(true)}>Email these results</button> : null}
               </div>
               {searchContext.location.status !== "none" ? <p className="search-context-line">
@@ -1756,7 +1771,7 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
                   <p>{MILLER_COPY.noResultsBody}</p>
                 </div>
               ) : (
-                <div className="resource-list">
+                <div className="resource-list" data-layout="responsive-two-column">
                   {results.map((resource, index) => {
                     const publicLocation = eligiblePublicLocation(resource, mapResources)
                     const navigationContext = buildNavigationPacket({ resource, publicMapResources: mapResources, intent: searchContext.intent, locationContext: searchContext.location, relevance: deterministicRelevance(resource, searchContext.intent) })
@@ -1818,7 +1833,7 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
                       </div>
 
                       {resource.description && (
-                        <p className="resource-description">{resource.description}</p>
+                        <p className="resource-description">{conciseResourceDescription(resource.description)}</p>
                       )}
                       {navigationContext.explanation ? <p className="resource-context-line">{navigationContext.explanation}</p> : null}
 
@@ -1985,7 +2000,7 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
 
   </div>
 
-  <MillerSheepdog key={currentTheme.name} themeName={currentTheme.name} scenePosition={millerReadingPosition} reducedMotion={prefersReducedMotion} onGreetingPhaseChange={setMillerGreetingPose} presentationIntent={companionIntent} overlayHost={companionOverlayHost} idleAllowed={companionIdleAllowed} />
+  {!shouldShowResults ? <MillerSheepdog key={currentTheme.name} themeName={currentTheme.name} scenePosition={millerReadingPosition} reducedMotion={prefersReducedMotion} onGreetingPhaseChange={setMillerGreetingPose} presentationIntent={companionIntent} overlayHost={companionOverlayHost} idleAllowed={companionIdleAllowed} /> : null}
 
 </div>
 
