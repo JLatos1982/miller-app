@@ -23,13 +23,21 @@ test("results use a responsive two-column grid and never force it on mobile", ()
   assert.doesNotMatch(css, /\.hero-layout\.has-results \.resource-list\s*\{[^}]*overflow-x:\s*(auto|scroll)/s)
 })
 
-test("the compact guidance and result controls preserve email and refinement actions", () => {
+test("the richer guidance sits beside search while result controls stay compact", () => {
   const app = read("../src/App.jsx")
-  assert.match(app, /className="miller-next-step"/)
+  const css = read("../src/App.css")
+  assert.match(app, /className="miller-guidance-panel"/)
+  assert.match(app, /miller-search-guidance-row/)
+  assert.match(app, /nextStepGuidance\.interpretation/)
+  assert.match(app, /nextStepGuidance\.explanation/)
+  assert.match(app, /nextStepGuidance\.next_step/)
   assert.match(app, />Refine search<\/button>/)
   assert.match(app, />Email these results<\/button>/)
   assert.match(app, /matching resource\{results\.length === 1 \? "" : "s"\}/)
   assert.match(app, /conciseResourceDescription\(resource\.description\)/)
+  assert.match(css, /miller-search-guidance-row\.has-guidance\s*\{[^}]*grid-template-columns:\s*minmax\(440px, \.95fr\) minmax\(0, 1\.05fr\)/s)
+  assert.match(css, /max-width: 959px[\s\S]*?miller-search-guidance-row\.has-guidance\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\)/)
+  assert.match(css, /max-width: 959px[\s\S]*?\.hero-layout\.has-results \.miller-guidance-panel\s*\{[^}]*order:\s*2/)
 })
 
 test("the result companion is a left-rail enhancement with safe responsive exits", () => {

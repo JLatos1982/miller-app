@@ -1689,7 +1689,7 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
       <main className={`hero-layout ${shouldShowResults ? "has-results" : ""}`}>
         <section className="hero-copy">
 
-
+          <div className={`miller-search-guidance-row ${nextStepGuidance ? "has-guidance" : ""}`}>
           <form className="search-panel" onSubmit={handleSearch} ref={searchPanelRef}>
             <div
               className="search-bar-wrap"
@@ -1741,20 +1741,30 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
             </div>
           </form>
 
+          {shouldShowResults && nextStepGuidance ? <section className="miller-guidance-panel" aria-labelledby="miller-guidance-title" data-intent={nextStepGuidance.intent}>
+            <div className="miller-guidance-heading">
+              <p className="miller-guidance-kicker">{nextStepGuidance.interpretation_heading}</p>
+              <h2 id="miller-guidance-title">{nextStepGuidance.heading}</h2>
+            </div>
+            <p className="miller-guidance-interpretation">{nextStepGuidance.interpretation}</p>
+            <p>{nextStepGuidance.explanation}</p>
+            <div className="miller-guidance-next-step">
+              <h3>{nextStepGuidance.next_step_heading}</h3>
+              <p>{nextStepGuidance.next_step}</p>
+            </div>
+            {nextStepGuidance.access_note || nextStepGuidance.navigation_note ? <ul className="miller-guidance-notes">
+              {nextStepGuidance.access_note ? <li>{nextStepGuidance.access_note.text}</li> : null}
+              {nextStepGuidance.navigation_note ? <li>{nextStepGuidance.navigation_note.text}</li> : null}
+            </ul> : null}
+            <button type="button" className="miller-guidance-refine" onClick={() => { searchInputRef.current?.focus(); searchInputRef.current?.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "center" }) }}>Refine search</button>
+          </section> : null}
+          </div>
+
           {shouldShowResults && (
   <div className={`results-panel ${companionSearchOutcome.status === "success" ? "has-result-companion" : ""}`} ref={resultsPanelRef}>
               {companionSearchOutcome.status === "success" ? <div className="miller-results-companion-rail" aria-hidden="true">
                 <MillerSheepdog key={`${currentTheme.name}-results`} themeName={currentTheme.name} reducedMotion={prefersReducedMotion} animationEnabled={false} presentationIntent={companionIntent} />
               </div> : null}
-              {nextStepGuidance ? <section className="miller-next-step" aria-labelledby="miller-next-step-title" data-intent={nextStepGuidance.intent}>
-                <div>
-                  <p className="miller-next-step-kicker">Next step</p>
-                  <h2 id="miller-next-step-title">{nextStepGuidance.heading}</h2>
-                  <p>{nextStepGuidance.text}</p>
-                  {nextStepGuidance.access_note ? <p className="miller-next-step-access">{nextStepGuidance.access_note.text}</p> : null}
-                </div>
-                <button type="button" className="miller-next-step-refine" onClick={() => { searchInputRef.current?.focus(); searchInputRef.current?.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "center" }) }}>Refine search</button>
-              </section> : null}
               <div className="results-head">
                 <h2><span className="results-count">{results.length === totalMatches ? results.length : `${results.length} of ${totalMatches}`}</span> matching resource{results.length === 1 ? "" : "s"}</h2>
                 {results.some(isEmailResultEligible) ? <button type="button" className="ghost-button email-results-open" onClick={() => setIsEmailResultsOpen(true)}>Email these results</button> : null}

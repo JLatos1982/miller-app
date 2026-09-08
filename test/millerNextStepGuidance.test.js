@@ -56,6 +56,42 @@ test("guidance uses explicit access data and keeps the claim tied to its resourc
   assert.match(referral.access_note.text, /lists a referral requirement/i)
 })
 
+test("richer guidance remains bounded and deterministic for every intent", () => {
+  for (const intent of MILLER_NEXT_STEP_INTENTS) {
+    const guidance = buildMillerNextStepGuidance({ query: intent.replaceAll("_", " "), results: [sample()] })
+    assert.equal(guidance.heading, "Miller’s guide")
+    assert.ok(guidance.interpretation.length > 20)
+    assert.ok(guidance.explanation.length > 20)
+    assert.ok(guidance.next_step.length > 20)
+    assert.equal(guidance.maximum_paragraphs, 3)
+    assert.equal(guidance.maximum_supplemental_notes, 2)
+  }
+})
+
+test("live navigation copy appears only when a verified-looking 211 result is present", () => {
+  const grounded = buildMillerNextStepGuidance({
+    query: "housing",
+    results: [sample({ id: "bc-211", name: "BC 211", website: "https://bc.211.ca" })],
+  })
+  assert.equal(grounded.navigation_note.basis, "verified_navigation_resource_present")
+  assert.equal(grounded.navigation_note.resource_id, "bc-211")
+
+  const absent = buildMillerNextStepGuidance({ query: "housing", results: [sample()] })
+  assert.equal(absent.navigation_note, null)
+
+  const officialListing = buildMillerNextStepGuidance({
+    query: "housing",
+    results: [sample({ id: "city-guide", name: "City housing guide", phone: "2-1-1", accessType: "Call BC 211 for navigation" })],
+  })
+  assert.equal(officialListing.navigation_note.resource_id, "city-guide")
+
+  const unrelatedIntent = buildMillerNextStepGuidance({
+    query: "legal",
+    results: [sample({ id: "city-guide", name: "City housing guide", phone: "2-1-1", accessType: "Call BC 211 for navigation" })],
+  })
+  assert.equal(unrelatedIntent.navigation_note, null)
+})
+
 test("guidance never infers access from a description or an unknown field", () => {
   const guidance = buildMillerNextStepGuidance({
     query: "mental health",
@@ -79,7 +115,7 @@ test("controlled guidance avoids unsupported availability, eligibility, clinical
   for (const intent of MILLER_NEXT_STEP_INTENTS) {
     const guidance = buildMillerNextStepGuidance({ query: intent.replaceAll("_", " "), results: [sample()] })
     assert.ok(guidance, intent)
-    const copy = `${guidance.text} ${guidance.access_note?.text || ""}`
+    const copy = `${guidance.interpretation} ${guidance.explanation} ${guidance.next_step} ${guidance.access_note?.text || ""} ${guidance.navigation_note?.text || ""}`
     assert.doesNotMatch(copy, /available now|you are eligible|you qualify|should sue|must attend|guaranteed/i)
   }
 })

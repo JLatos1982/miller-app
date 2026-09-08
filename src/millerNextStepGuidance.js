@@ -32,18 +32,66 @@ const intentRules = Object.freeze([
 ])
 
 const templates = Object.freeze({
-  housing: "You could start with a housing-navigation service or contact one of the local providers below.",
-  detox: "A good next step might be to call a withdrawal-management service and confirm its current intake instructions.",
-  treatment: "You could start by contacting a treatment program to ask about its intake process and current requirements.",
-  oat: "You could start by contacting an OAT or medication-support service and asking how its intake process works.",
-  counselling: "You could start with a counselling option below and check whether you can contact it directly or need a referral.",
-  harm_reduction: "You could start with a harm-reduction service below and check its current access details before you go.",
-  meetings: "You could start by checking the meeting or peer-support details below for the current time and access information.",
-  legal: "You could start with a legal-navigation service to understand what kind of information, referral, or advocacy it provides.",
-  funding: "You could start by checking the program's eligibility, deadline, and application details on its official page.",
-  mental_health: "You could start with a mental-health support below and check whether it accepts direct contact or requires a referral.",
-  basic_needs: "You could start with one practical support below and check its current access details before visiting.",
-  transportation: "You could start by checking the service area and booking or eligibility details for the transportation options below.",
+  housing: {
+    interpretation: "Sounds like you’re looking for housing or shelter support.",
+    explanation: "These results may include housing navigation, shelters, outreach, or longer-term supportive housing, depending on the selected area.",
+    next_step: "You could start with a housing-navigation service or contact one of the local providers below.",
+  },
+  detox: {
+    interpretation: "Sounds like you’re looking for detox or withdrawal-management support.",
+    explanation: "Services can differ in intake, referral requirements, and whether support is residential or outpatient.",
+    next_step: "A good next step might be to call a withdrawal-management service and confirm its current intake instructions.",
+  },
+  treatment: {
+    interpretation: "Sounds like you’re looking for an addiction treatment program.",
+    explanation: "The options below may differ in setting, intake process, referral requirements, and the type of treatment they provide.",
+    next_step: "You could start by contacting a treatment program to ask about its intake process and current requirements.",
+  },
+  oat: {
+    interpretation: "Sounds like you’re looking for opioid agonist treatment or medication support.",
+    explanation: "Programs may use different intake pathways and may provide prescribing, pharmacy, counselling, or coordinated support.",
+    next_step: "You could start by contacting an OAT or medication-support service and asking how its intake process works.",
+  },
+  counselling: {
+    interpretation: "Sounds like you’re looking for counselling or someone to talk with.",
+    explanation: "The results may include individual counselling, community programs, peer support, or services connected to other care.",
+    next_step: "You could start with a counselling option below and check whether you can contact it directly or need a referral.",
+  },
+  harm_reduction: {
+    interpretation: "Sounds like you’re looking for harm-reduction support.",
+    explanation: "The options below may provide supplies, overdose-prevention support, safer-use information, outreach, or connections to care.",
+    next_step: "You could start with a harm-reduction service below and check its current access details before you go.",
+  },
+  meetings: {
+    interpretation: "Sounds like you’re looking for a meeting or peer-support option.",
+    explanation: "Groups can differ in approach, schedule, location, and whether they meet in person or online.",
+    next_step: "You could start by checking the meeting or peer-support details below for the current time and access information.",
+  },
+  legal: {
+    interpretation: "Sounds like you’re looking for legal information, advocacy, or help navigating a problem.",
+    explanation: "Some services provide information or referrals, while others may offer advocacy, advice, or representation within a defined scope.",
+    next_step: "You could start with a legal-navigation service to understand what kind of help it provides.",
+  },
+  funding: {
+    interpretation: "Sounds like you’re looking for funding, benefits, or financial assistance.",
+    explanation: "Programs can have different purposes, eligibility rules, application processes, and opening or deadline dates.",
+    next_step: "You could start by checking the program’s eligibility, deadline, and application details on its official page.",
+  },
+  mental_health: {
+    interpretation: "Sounds like you’re looking for mental-health support.",
+    explanation: "The results may include counselling, community mental-health programs, peer support, or services connected to healthcare.",
+    next_step: "You could start with a mental-health support below and check whether it accepts direct contact or requires a referral.",
+  },
+  basic_needs: {
+    interpretation: "Sounds like you’re looking for help with everyday essentials.",
+    explanation: "These results may include food, clothing, identification, outreach, or other practical supports.",
+    next_step: "You could start with one practical support below and check its current access details before visiting.",
+  },
+  transportation: {
+    interpretation: "Sounds like you’re looking for transportation or help getting to a service.",
+    explanation: "Transportation programs can differ by service area, trip purpose, booking process, and eligibility.",
+    next_step: "You could start by checking the service area and booking or eligibility details for the transportation options below.",
+  },
 })
 
 const structuredConcepts = intent => [
@@ -82,14 +130,36 @@ function sourceBackedAccessNote(results = []) {
   return null
 }
 
+function sourceBackedNavigationNote(results = [], intentId = null) {
+  if (!new Set(["housing", "funding", "basic_needs", "transportation"]).has(intentId)) return null
+  const navigation = results.find(resource => {
+    const named = /\b(?:bc\s*)?211\b/i.test(`${text(resource?.name)} ${text(resource?.organization)}`)
+    const listed211 = /^2-?1-?1$/.test(text(resource?.phone)) && /\bbc\s*211\b/i.test(text(resource?.accessType))
+    return (named || listed211) && (text(resource?.phone) || /^https:\/\//.test(text(resource?.website)))
+  })
+  if (!navigation) return null
+  return {
+    text: "BC 211 may also help with live service navigation; use the listed contact details for current information.",
+    basis: "verified_navigation_resource_present",
+    resource_id: text(navigation.id),
+  }
+}
+
 export function buildMillerNextStepGuidance({ query = "", intent = null, results = [] } = {}) {
   const intentId = inferMillerNextStepIntent({ query, intent })
   if (!intentId || !templates[intentId] || !Array.isArray(results) || results.length === 0) return null
   return Object.freeze({
     intent: intentId,
-    heading: "A good next step",
-    text: templates[intentId],
+    heading: "Miller’s guide",
+    interpretation_heading: "Miller’s read of your request",
+    interpretation: templates[intentId].interpretation,
+    explanation: templates[intentId].explanation,
+    next_step_heading: "A good next step",
+    next_step: templates[intentId].next_step,
     access_note: sourceBackedAccessNote(results),
+    navigation_note: sourceBackedNavigationNote(results, intentId),
+    maximum_paragraphs: 3,
+    maximum_supplemental_notes: 2,
     source: "deterministic_controlled_template",
   })
 }
