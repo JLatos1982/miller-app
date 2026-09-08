@@ -24,6 +24,7 @@ test("mobile request contract is bounded and normalizes Western provinces", () =
     province: "British Columbia",
     categories: ["detox", "housing"],
     limit: 20,
+    broaden_nearby: false,
   })
   assert.throws(() => validateMillerMobileSearchRequest({ query: "" }), /query_required/)
   assert.throws(() => validateMillerMobileSearchRequest({ query: "help", province: "Ontario" }), /province_invalid/)
@@ -61,9 +62,43 @@ test("unknown sparse queries fall back to bounded verified navigation without in
   assert.equal(response.interpreted.location, "Moose Jaw")
   assert.equal(response.interpreted.province, "Saskatchewan")
   assert.ok(response.results.length > 0)
-  assert.equal(response.search_scope.geography_broadened, true)
+  assert.equal(response.search_scope.geography_broadened, false)
   assert.match(response.search_scope.message, /didn't find a verified|limited/i)
   assert.ok(response.results.every(resource => ["Saskatchewan", "Canada-wide"].includes(resource.province)))
+})
+
+test("professional workflow decomposes multiple needs and explains results without exposing scores", () => {
+  const response = buildMillerMobileSearchResponse({ query: "Someone is leaving detox Friday, has nowhere to stay, and doesn't drive in Surrey", limit: 10 }, millerMobileCatalog, { now: fixedNow })
+  const needs = response.workflow.needs.map(item => item.need_id)
+  assert.ok(needs.includes("detox"))
+  assert.ok(needs.includes("housing"))
+  assert.ok(needs.includes("transportation"))
+  assert.ok(needs.includes("continuity"))
+  assert.ok(response.workflow.pathway.length > 0)
+  assert.ok(response.workflow.recommended_pack_ids.length > 0)
+  assert.ok(response.results.every(item => Array.isArray(item.why_shown) && item.why_shown.length <= 3))
+  assert.ok(response.results.every(item => !Object.hasOwn(item, "score")))
+  assert.equal(/diagnos|clinically suitable|eligible|bed available/i.test(JSON.stringify(response.workflow)), false)
+})
+
+test("broaden nearby is an explicit action and retains the requested province", () => {
+  const local = buildMillerMobileSearchResponse({ query: "counselling in High River", limit: 8 }, millerMobileCatalog, { now: fixedNow })
+  assert.equal(local.broaden_nearby.applied, false)
+  assert.equal(local.search_scope.geography_broadened, false)
+  assert.ok(local.results.every(resource => ["Alberta", "Canada-wide"].includes(resource.province)))
+
+  const broadened = buildMillerMobileSearchResponse({ query: "counselling in High River", broaden_nearby: true, limit: 8 }, millerMobileCatalog, { now: fixedNow })
+  assert.equal(broadened.broaden_nearby.applied, true)
+  assert.equal(broadened.search_scope.mode, "broadened_nearby")
+  assert.match(broadened.search_scope.message, /broadened/i)
+  assert.ok(broadened.results.every(resource => ["Alberta", "Canada-wide"].includes(resource.province)))
+})
+
+test("access pathways use only verified access notes or explicit safety confirmation", () => {
+  const response = buildMillerMobileSearchResponse({ query: "Client wants OAT in Edmonton but doesn't have a family doctor", limit: 8 }, millerMobileCatalog, { now: fixedNow })
+  assert.ok(response.workflow.needs.some(item => item.need_id === "access_navigation"))
+  assert.ok(response.workflow.pathway.every(step => ["verified_access_note", "verified_service_scope", "deterministic_need_match", "safety_confirmation"].includes(step.basis)))
+  assert.equal(/must|will qualify|guaranteed|available bed/i.test(JSON.stringify(response.workflow.pathway)), false)
 })
 
 test("Burnaby withdrawal search distinguishes the searched city from regional intake and Creekside's Surrey location", () => {
@@ -80,7 +115,7 @@ test("Burnaby withdrawal search distinguishes the searched city from regional in
   assert.match(creekside.location_label, /Located in Surrey.*serves Burnaby/i)
   assert.equal(accessLine.location_relationship, "regional_intake")
   assert.match(accessLine.location_label, /Regional intake serving Burnaby/i)
-  assert.equal(response.results.some(resource => resource.location_relationship === "located_here"), false)
+  assert.equal(response.results.some(resource => resource.location_relationship === "located_here" && /detox|withdrawal/i.test(`${resource.name} ${resource.service_type} ${resource.category}`)), false)
 })
 
 test("mobile scope fields distinguish physical, regional, province-wide, virtual, and navigation service semantics", () => {

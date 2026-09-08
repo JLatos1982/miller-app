@@ -9,8 +9,8 @@ const INTENT_RULES = Object.freeze([
   ["oat", /\b(oat|opioid agonist|methadone|suboxone|sublocade|buprenorphine)\b/],
   ["harm_reduction", /\b(harm reduction|naloxone|safer use|safe use|supplies|needle|overdose prevention)\b/],
   ["reentry", /\b(corrections|re-?entry|reintegration|release planning|leaving (?:custody|jail|prison))\b/],
-  ["treatment", /\b(treatment|rehab|residential|recovery program|outpatient)\b/],
-  ["housing", /\b(housing|shelter|homeless|homelessness|recovery housing|supportive housing)\b/],
+  ["treatment", /\b(treatment|rehab|residential|recovery program|outpatient|addiction (?:help|support|care))\b/],
+  ["housing", /\b(housing|shelter|homeless|homelessness|recovery housing|supportive housing|nowhere to stay|somewhere to stay)\b/],
   ["legal", /\b(legal|lawyer|legal aid|rights|tenant|tenancy|advocacy|complaint)\b/],
   ["funding", /\b(funding|financial|pay(?:ing)? for|cost|grant|benefit|income assistance|disability assistance|subsidy|bursary)\b/],
   ["transportation", /\b(transportation|transport|transit|bus pass|medical travel|handydart|ride|getting there)\b/],
@@ -25,7 +25,7 @@ const INTENT_TERMS = Object.freeze({
   detox: ["detox", "withdrawal management", "withdrawal"],
   treatment: ["treatment", "residential", "outpatient", "recovery program"],
   oat: ["oat", "opioid agonist", "methadone", "suboxone", "buprenorphine"],
-  counselling: ["counselling", "therapy", "mental health"],
+  counselling: ["counselling", "therapy"],
   harm_reduction: ["harm reduction", "naloxone", "overdose prevention"],
   meetings: ["peer support", "meeting", "smart recovery"],
   legal: ["legal", "advocacy", "tenancy", "rights", "navigation"],
@@ -87,8 +87,14 @@ export function detectMillerPracticalIntents(query = "", intent = null) {
     ...(intent?.normalized?.supportConcepts || []),
   ].join(" "))}`
   const found = INTENT_RULES.filter(([, rule]) => rule.test(haystack)).map(([id]) => id)
-  const primary = inferMillerNextStepIntent({ query, intent })
-  return [...new Set([primary, ...found].filter(Boolean))]
+  const inferredPrimary = inferMillerNextStepIntent({ query, intent })
+  const candidates = [...new Set([inferredPrimary, ...found].filter(Boolean))]
+  const barrierPrimary = new Set(["funding", "transportation"])
+  if (barrierPrimary.has(candidates[0])) {
+    const practicalNeed = found.find(id => !barrierPrimary.has(id))
+    if (practicalNeed) return [practicalNeed, ...candidates.filter(id => id !== practicalNeed)]
+  }
+  return candidates
 }
 
 function matchesIntent(resource, intentId) {

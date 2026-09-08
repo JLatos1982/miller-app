@@ -10,10 +10,14 @@ public enum ResourcePackFormatter {
       lines.append("\(index + 1). \(resource.name)")
       if !resource.organization.isEmpty { lines.append(resource.organization) }
       if !resource.locationLine.isEmpty { lines.append(resource.locationLine) }
+      if let scope = resource.scopeNote, !scope.isEmpty { lines.append("Service area: \(scope)") }
       if !resource.phone.isEmpty { lines.append("Phone: \(resource.phone)") }
       if !resource.website.isEmpty { lines.append("Website: \(resource.website)") }
       if !resource.address.isEmpty { lines.append("Address: \(resource.address)") }
-      if !resource.accessNote.isEmpty { lines.append("Access: \(resource.accessNote)") }
+      let access = resource.referralNote.isEmpty ? resource.accessNote : resource.referralNote
+      if !access.isEmpty { lines.append("Access: \(access)") }
+      if !resource.fundingNote.isEmpty { lines.append("Funding: \(resource.fundingNote)") }
+      if !resource.transportationNote.isEmpty { lines.append("Transportation: \(resource.transportationNote)") }
       lines.append("")
     }
     lines.append("Please confirm current intake, eligibility, and availability directly with each service.")
@@ -25,10 +29,13 @@ public enum ResourcePackFormatter {
       let details = [
         resource.organization,
         resource.locationLine,
+        (resource.scopeNote ?? "").isEmpty ? "" : "Service area: \(resource.scopeNote ?? "")",
         resource.phone.isEmpty ? "" : "Phone: \(resource.phone)",
         resource.website.isEmpty ? "" : "Website: \(resource.website)",
         resource.address.isEmpty ? "" : "Address: \(resource.address)",
-        resource.accessNote.isEmpty ? "" : "Access: \(resource.accessNote)",
+        (resource.referralNote.isEmpty ? resource.accessNote : resource.referralNote).isEmpty ? "" : "Access: \(resource.referralNote.isEmpty ? resource.accessNote : resource.referralNote)",
+        resource.fundingNote.isEmpty ? "" : "Funding: \(resource.fundingNote)",
+        resource.transportationNote.isEmpty ? "" : "Transportation: \(resource.transportationNote)",
       ].filter { !$0.isEmpty }.map { "<div>\(escape($0))</div>" }.joined()
       return "<section><h2>\(escape(resource.name))</h2>\(details)</section>"
     }.joined()

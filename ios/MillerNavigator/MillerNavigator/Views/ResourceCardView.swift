@@ -29,6 +29,16 @@ struct ResourceCardView: View {
         Label(resource.accessNote, systemImage: "door.left.hand.open")
           .font(.footnote).foregroundStyle(.secondary).lineLimit(3)
       }
+      if !resource.whyShown.isEmpty {
+        VStack(alignment: .leading, spacing: 4) {
+          Text("Why shown").font(.caption.bold()).foregroundStyle(.secondary)
+          Text(resource.whyShown.joined(separator: " · ")).font(.caption).foregroundStyle(.secondary).lineLimit(3)
+        }
+      }
+      if resource.mobileReady, !resource.lastVerified.isEmpty {
+        Label("Official source checked \(resource.lastVerified)", systemImage: "checkmark.seal")
+          .font(.caption2).foregroundStyle(.secondary)
+      }
       HStack(spacing: 18) {
         if let phone = resource.phoneURL {
           Link(destination: phone) { Label("Call", systemImage: "phone.fill") }
@@ -43,6 +53,7 @@ struct ResourceCardView: View {
     .padding(16)
     .background(Color(uiColor: .systemBackground), in: RoundedRectangle(cornerRadius: 17, style: .continuous))
     .overlay(RoundedRectangle(cornerRadius: 17).stroke(Color.secondary.opacity(0.14)))
+    .accessibilityElement(children: .contain)
   }
 }
 

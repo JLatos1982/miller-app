@@ -5,6 +5,8 @@ final class PilotMetrics: ObservableObject {
   @Published private(set) var searches: Int
   @Published private(set) var shares: Int
   @Published private(set) var noResults: Int
+  @Published private(set) var broadenNearbyUses: Int
+  @Published private(set) var suggestedSelections: Int
   @Published private(set) var averageMilliseconds: Int
   @Published private(set) var intentCounts: [String: Int]
   @Published private(set) var provinceCounts: [String: Int]
@@ -19,6 +21,8 @@ final class PilotMetrics: ObservableObject {
     searches = state["searches"] as? Int ?? 0
     shares = state["shares"] as? Int ?? 0
     noResults = state["no_results"] as? Int ?? 0
+    broadenNearbyUses = state["broaden_nearby_uses"] as? Int ?? 0
+    suggestedSelections = state["suggested_selections"] as? Int ?? 0
     durations = state["durations_ms"] as? [Int] ?? []
     intentCounts = state["intent_counts"] as? [String: Int] ?? [:]
     provinceCounts = state["province_counts"] as? [String: Int] ?? [:]
@@ -37,12 +41,16 @@ final class PilotMetrics: ObservableObject {
   }
 
   func recordShare() { shares += 1; persist() }
+  func recordBroadenNearby() { broadenNearbyUses += 1; persist() }
+  func recordSuggestedSelection() { suggestedSelections += 1; persist() }
 
   private func persist() {
     defaults.set([
       "searches": searches,
       "shares": shares,
       "no_results": noResults,
+      "broaden_nearby_uses": broadenNearbyUses,
+      "suggested_selections": suggestedSelections,
       "durations_ms": durations,
       "intent_counts": intentCounts,
       "province_counts": provinceCounts,

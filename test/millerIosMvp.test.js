@@ -33,6 +33,24 @@ test("resource results, details, selection, share, messages and print are presen
   assert.match(pack, /Print resource sheet/)
   assert.match(share, /UIActivityViewController/)
   assert.match(share, /UIPrintInteractionController/)
+  assert.match(results, /Review suggested resource pack/)
+  assert.match(results, /broadenNearby/)
+  assert.match(results, /Why shown|workflowSummary/)
+})
+
+test("professional workflow remains explicit, bounded and worker controlled in the mobile client", () => {
+  const models = read("MillerNavigator/Core/MillerAPIModels.swift")
+  const viewModel = read("MillerNavigator/Services/SearchViewModel.swift")
+  const results = read("MillerNavigator/Views/ResultsView.swift")
+  assert.match(models, /MillerProfessionalWorkflow/)
+  assert.match(models, /recommendedPackIds/)
+  assert.match(models, /whyShown/)
+  assert.match(models, /resultGroup/)
+  assert.match(viewModel, /broadenNearby: true/)
+  assert.match(viewModel, /selectedResourceIDs\.formUnion/)
+  assert.doesNotMatch(viewModel, /autoSend|sendAutomatically/i)
+  assert.match(results, /Start here/)
+  assert.match(results, /Also useful/)
 })
 
 test("the mobile client contains no privileged credential or private intelligence access", () => {
@@ -54,6 +72,7 @@ test("pilot instrumentation remains aggregate-only and resource feedback is boun
   const client = read("MillerNavigator/Services/MillerAPIClient.swift")
   assert.match(metrics, /searches/)
   assert.match(metrics, /no_results/)
+  assert.match(metrics, /broaden_nearby_uses/)
   assert.doesNotMatch(metrics, /query|transcript|client_name|patient/i)
   assert.match(client, /MillerFeedbackReason/)
   assert.match(client, /No client information collected/)

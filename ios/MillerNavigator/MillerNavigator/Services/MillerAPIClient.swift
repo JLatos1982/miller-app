@@ -23,7 +23,7 @@ struct MillerAPIClient: MillerAPIClientProtocol {
   let baseURL: URL
   let session: URLSession
 
-  init(baseURL: URL = AppConfiguration.apiBaseURL, session: URLSession = .shared) {
+  init(baseURL: URL = AppConfiguration.apiBaseURL, session: URLSession = MillerAPIClient.boundedSession()) {
     self.baseURL = baseURL
     self.session = session
   }
@@ -32,6 +32,7 @@ struct MillerAPIClient: MillerAPIClientProtocol {
     let endpoint = baseURL.appending(path: "api/mobile/v1/search")
     var urlRequest = URLRequest(url: endpoint)
     urlRequest.httpMethod = "POST"
+    urlRequest.timeoutInterval = 15
     urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
     urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
     let encoder = JSONEncoder()
@@ -54,6 +55,7 @@ struct MillerAPIClient: MillerAPIClientProtocol {
     let endpoint = baseURL.appending(path: "api/resource-submissions")
     var urlRequest = URLRequest(url: endpoint)
     urlRequest.httpMethod = "POST"
+    urlRequest.timeoutInterval = 15
     urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
     let payload = FeedbackPayload(
       resourceName: resource.name,
@@ -82,6 +84,17 @@ struct MillerAPIClient: MillerAPIClientProtocol {
     let decoder = JSONDecoder()
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     return decoder
+  }
+
+
+  static func boundedSession() -> URLSession {
+    let configuration = URLSessionConfiguration.ephemeral
+    configuration.timeoutIntervalForRequest = 15
+    configuration.timeoutIntervalForResource = 20
+    configuration.waitsForConnectivity = true
+    configuration.urlCache = nil
+    configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
+    return URLSession(configuration: configuration)
   }
 }
 

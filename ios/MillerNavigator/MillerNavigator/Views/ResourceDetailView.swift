@@ -15,9 +15,10 @@ struct ResourceDetailView: View {
         ("Phone", resource.phone), ("Email", resource.email), ("Website", resource.website), ("Address", resource.address),
       ])
       detailSection("Access", rows: [
-        ("Location", resource.locationLine), ("Service area", resource.region), ("Access / referral", resource.accessNote),
-        ("Eligibility", resource.eligibilityNote), ("Funding", resource.fundingNote),
+        ("Location", resource.locationLine), ("Service area", resource.scopeNote ?? resource.region), ("Access / referral", resource.referralNote.isEmpty ? resource.accessNote : resource.referralNote),
+        ("Eligibility", resource.eligibilityNote), ("Funding", resource.fundingNote), ("Transportation", resource.transportationNote),
       ])
+      if !resource.whyShown.isEmpty { Section("Why Miller showed this") { ForEach(resource.whyShown, id: \.self) { Text($0) } } }
       Section("Verification") {
         if !resource.source.authority.isEmpty { LabeledContent("Official source", value: resource.source.authority) }
         if !resource.source.lastVerified.isEmpty { LabeledContent("Last verified", value: resource.source.lastVerified) }

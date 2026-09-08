@@ -3,6 +3,7 @@ import SwiftUI
 struct ResourcePackView: View {
   let guidance: MillerGuidance
   let resources: [MillerResource]
+  @ObservedObject var metrics: PilotMetrics
   @Environment(\.dismiss) private var dismiss
   @State private var showShare = false
 
@@ -23,8 +24,8 @@ struct ResourcePackView: View {
           }
         }
         Section {
-          Button { showShare = true } label: { Label("Email, Messages, or Share", systemImage: "square.and.arrow.up") }
-          Button { ResourcePackPrinter.present(title: title, guidance: guidance, resources: resources) } label: { Label("Print resource sheet", systemImage: "printer") }
+          Button { metrics.recordShare(); showShare = true } label: { Label("Email, Messages, or Share", systemImage: "square.and.arrow.up") }
+          Button { metrics.recordShare(); ResourcePackPrinter.present(title: title, guidance: guidance, resources: resources) } label: { Label("Print resource sheet", systemImage: "printer") }
         }
         Section { Text("The pack contains service details only. It does not include the original request or any client information.").font(.footnote).foregroundStyle(.secondary) }
       }

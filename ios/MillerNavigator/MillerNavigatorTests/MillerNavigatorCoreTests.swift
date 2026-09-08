@@ -18,6 +18,7 @@ final class MillerNavigatorCoreTests: XCTestCase {
     XCTAssertEqual(request.query, "Detox in Surrey")
     XCTAssertEqual(request.categories, ["detox"])
     XCTAssertEqual(request.limit, 20)
+    XCTAssertFalse(request.broadenNearby)
   }
 
   func testResourcePackContainsOnlyPracticalShareFields() {
@@ -55,8 +56,21 @@ final class MillerNavigatorCoreTests: XCTestCase {
       website: "https://example.org", accessNote: "Call first", accessType: "phone_first",
       referralNote: "Self-referral", eligibilityNote: "", fundingNote: "", transportationNote: "",
       verifiedStatus: "verified_active", lastVerified: "2026-09-08", sourceUrl: "https://example.org",
-      mobileReady: true, tags: [],
+      mobileReady: true, whyShown: ["Located in Surrey", "Self-referral stated"], matchedNeeds: ["treatment"], resultGroup: "start_here", tags: [],
       source: MillerResourceSource(authority: "Example Society", url: "https://example.org", verificationStatus: "verified_active", lastVerified: "2026-09-08")
     )
+  }
+
+  func testBroadenNearbyIsExplicitInTheRequestContract() {
+    let request = MillerSearchRequest(query: "Counselling in High River", broadenNearby: true)
+    XCTAssertTrue(request.broadenNearby)
+  }
+
+  func testResourcePackIncludesScopeAccessFundingAndTransportWithoutQuery() {
+    let resource = fixtureResource(name: "Regional service")
+    let output = ResourcePackFormatter.plainText(guidance: guidance, resources: [resource])
+    XCTAssertTrue(output.contains("Service area: Located in Surrey."))
+    XCTAssertTrue(output.contains("Access: Self-referral"))
+    XCTAssertFalse(output.contains("Detox in Surrey"))
   }
 }

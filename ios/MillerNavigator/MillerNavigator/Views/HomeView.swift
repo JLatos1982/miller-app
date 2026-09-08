@@ -16,16 +16,18 @@ struct HomeView: View {
         VStack(alignment: .leading, spacing: 12) {
           Text("Tell Miller what you’re looking for").font(.headline)
           ZStack(alignment: .topLeading) {
-            TextEditor(text: $viewModel.query)
+          TextEditor(text: $viewModel.query)
               .frame(minHeight: 116)
               .padding(8)
               .scrollContentBackground(.hidden)
             if viewModel.query.isEmpty {
               Text("For example: detox and housing options in Surrey")
                 .foregroundStyle(.tertiary).padding(.horizontal, 13).padding(.vertical, 17)
-                .allowsHitTesting(false)
+              .allowsHitTesting(false)
             }
           }
+          .accessibilityLabel("Describe the practical supports needed")
+          .accessibilityHint("Use a generic request without names or health numbers.")
           .background(Color(uiColor: .systemBackground), in: RoundedRectangle(cornerRadius: 16))
           .overlay(RoundedRectangle(cornerRadius: 16).stroke(Color.secondary.opacity(0.2)))
 
@@ -40,6 +42,7 @@ struct HomeView: View {
             }
             .buttonStyle(.bordered)
             .tint(speech.isListening ? .red : MillerTheme.blue)
+            .accessibilityHint("Speech is transcribed into the same private, unsaved search field as typed input.")
             Spacer()
             Picker("Province", selection: $viewModel.selectedProvince) {
               Text("Auto").tag("")
@@ -54,6 +57,7 @@ struct HomeView: View {
           }
 
           Button {
+            speech.stop()
             Task { await viewModel.search() }
           } label: {
             HStack {
@@ -75,6 +79,7 @@ struct HomeView: View {
           Text("Demo requests").font(.headline)
           ForEach(DemoPrompts.all, id: \.self) { prompt in
             Button(prompt) {
+              speech.stop()
               viewModel.query = prompt
               Task { await viewModel.search() }
             }

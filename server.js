@@ -2106,6 +2106,12 @@ app.get("/api/mobile/v1/about", (_req, res) => {
     contract: MILLER_MOBILE_API_VERSION,
     authentication: "public_read_only_rate_limited",
     geography: ["British Columbia", "Alberta", "Saskatchewan", "Canada-wide"],
+    workflow: {
+      job: "understand_navigate_handoff",
+      multi_need: true,
+      explicit_broaden_nearby: true,
+      location_semantics: ["located_here", "serves_community", "regional_intake", "province_navigation"],
+    },
     inventory: buildMillerMobileInventory(millerMobileCatalog),
     privacy: { query_stored: false, client_record_created: false },
   })

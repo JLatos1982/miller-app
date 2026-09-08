@@ -6,13 +6,15 @@ public struct MillerSearchRequest: Codable, Equatable, Sendable {
   public let province: String?
   public let categories: [String]
   public let limit: Int
+  public let broadenNearby: Bool
 
-  public init(query: String, location: String? = nil, province: String? = nil, categories: [String] = [], limit: Int = 12) {
+  public init(query: String, location: String? = nil, province: String? = nil, categories: [String] = [], limit: Int = 12, broadenNearby: Bool = false) {
     self.query = query.trimmingCharacters(in: .whitespacesAndNewlines)
     self.location = location?.nilIfBlank
     self.province = province?.nilIfBlank
     self.categories = Array(Set(categories.map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }.filter { !$0.isEmpty })).sorted()
     self.limit = min(max(limit, 1), 20)
+    self.broadenNearby = broadenNearby
   }
 }
 
@@ -22,11 +24,45 @@ public struct MillerSearchResponse: Codable, Equatable, Sendable {
   public let interpreted: MillerInterpretation
   public let guidance: MillerGuidance
   public let searchScope: MillerSearchScope
+  public let broadenNearby: MillerBroadenNearby
+  public let workflow: MillerProfessionalWorkflow
   public let resultCount: Int
   public let returnedCount: Int
   public let results: [MillerResource]
   public let privacy: MillerPrivacyStatement
   public let sourcePolicy: String
+}
+
+public struct MillerBroadenNearby: Codable, Equatable, Sendable {
+  public let available: Bool
+  public let applied: Bool
+  public let additionalMatchCount: Int
+  public let label: String
+}
+
+public struct MillerProfessionalWorkflow: Codable, Equatable, Sendable {
+  public let needs: [MillerNeed]
+  public let pathway: [MillerPathwayStep]
+  public let recommendedPackIds: [String]
+  public let target: String
+}
+
+public struct MillerNeed: Codable, Equatable, Sendable, Identifiable {
+  public let needId: String
+  public let label: String
+  public let role: String
+  public let basis: String
+  public var id: String { needId }
+}
+
+public struct MillerPathwayStep: Codable, Equatable, Sendable, Identifiable {
+  public let stepId: String
+  public let title: String
+  public let detail: String
+  public let resourceIds: [String]
+  public let basis: String
+  public let order: Int
+  public var id: String { "\(order)-\(stepId)" }
 }
 
 public struct MillerSearchScope: Codable, Equatable, Sendable {
@@ -120,6 +156,9 @@ public struct MillerResource: Codable, Equatable, Sendable, Identifiable, Hashab
   public let lastVerified: String
   public let sourceUrl: String
   public let mobileReady: Bool
+  public let whyShown: [String]
+  public let matchedNeeds: [String]
+  public let resultGroup: String
   public let tags: [String]
   public let source: MillerResourceSource
 
@@ -133,19 +172,25 @@ public struct MillerResource: Codable, Equatable, Sendable, Identifiable, Hashab
 public enum MillerFeedbackReason: String, Codable, CaseIterable, Sendable {
   case useful
   case notUseful = "not_useful"
+  case wrongPhone = "wrong_phone"
+  case brokenLink = "broken_link"
+  case serviceClosed = "service_closed"
   case wrongLocation = "wrong_location"
   case outdatedResource = "outdated_resource"
   case missingResource = "missing_resource"
-  case unclearAccess = "unclear_access"
+  case accessInformationWrong = "access_information_wrong"
 
   public var label: String {
     switch self {
     case .useful: "Useful"
     case .notUseful: "Not useful"
+    case .wrongPhone: "Wrong phone"
+    case .brokenLink: "Link broken"
+    case .serviceClosed: "Service closed"
     case .wrongLocation: "Wrong location"
     case .outdatedResource: "Outdated resource"
     case .missingResource: "Missing resource"
-    case .unclearAccess: "Unclear access info"
+    case .accessInformationWrong: "Access information wrong"
     }
   }
 }

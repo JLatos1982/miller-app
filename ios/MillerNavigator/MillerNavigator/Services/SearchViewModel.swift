@@ -24,6 +24,21 @@ final class SearchViewModel: ObservableObject {
   }
 
   func search() async {
+    await performSearch(broadenNearby: false)
+  }
+
+  func broadenNearby() async {
+    await performSearch(broadenNearby: true)
+    metrics.recordBroadenNearby()
+  }
+
+  func selectSuggestedPack() {
+    guard let response else { return }
+    selectedResourceIDs.formUnion(response.workflow.recommendedPackIds)
+    metrics.recordSuggestedSelection()
+  }
+
+  private func performSearch(broadenNearby: Bool) async {
     let clean = query.trimmingCharacters(in: .whitespacesAndNewlines)
     guard !clean.isEmpty else { errorMessage = "Tell Miller what you’re looking for."; return }
     isLoading = true
@@ -32,7 +47,7 @@ final class SearchViewModel: ObservableObject {
     let clock = ContinuousClock()
     let started = clock.now
     do {
-      let result = try await client.search(MillerSearchRequest(query: clean, province: selectedProvince, limit: 16))
+      let result = try await client.search(MillerSearchRequest(query: clean, province: selectedProvince, limit: 16, broadenNearby: broadenNearby))
       response = result
       metrics.recordSearch(
         duration: started.duration(to: clock.now),
