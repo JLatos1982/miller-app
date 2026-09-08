@@ -2,7 +2,7 @@ import { buildMillerPracticalIntelligence, detectMillerPracticalIntents, isMille
 import { millerResourceSearchText } from "../src/millerPublicSearchResources.js"
 import { conciseResourceDescription } from "../src/millerResultPresentation.js"
 import { buildMobileReadinessIndex, mobileReadinessSummary } from "./millerMobileReadiness.js"
-import { MILLER_WESTERN_LOCATION_LABELS, MILLER_WESTERN_LOCATION_PROVINCES } from "./millerWesternCommunities.js"
+import { MILLER_CANADIAN_LOCATION_LABELS, MILLER_CANADIAN_LOCATION_PROVINCES, MILLER_COVERAGE_MATURITY } from "./millerWesternCommunities.js"
 import { buildMillerAccessPathway, decomposeMillerProfessionalNeeds, explainMillerProfessionalResults, recommendedMillerPackIds } from "./millerProfessionalWorkflow.js"
 
 export const MILLER_MOBILE_API_VERSION = "miller-mobile-search-v1"
@@ -15,6 +15,32 @@ const PROVINCES = Object.freeze({
   alberta: "Alberta",
   sk: "Saskatchewan",
   saskatchewan: "Saskatchewan",
+  mb: "Manitoba",
+  manitoba: "Manitoba",
+  on: "Ontario",
+  ontario: "Ontario",
+  qc: "Quebec",
+  pq: "Quebec",
+  quebec: "Quebec",
+  "québec": "Quebec",
+  nb: "New Brunswick",
+  "new brunswick": "New Brunswick",
+  ns: "Nova Scotia",
+  "nova scotia": "Nova Scotia",
+  pe: "Prince Edward Island",
+  pei: "Prince Edward Island",
+  "prince edward island": "Prince Edward Island",
+  nl: "Newfoundland and Labrador",
+  "newfoundland and labrador": "Newfoundland and Labrador",
+  newfoundland: "Newfoundland and Labrador",
+  labrador: "Newfoundland and Labrador",
+  yt: "Yukon",
+  yukon: "Yukon",
+  nt: "Northwest Territories",
+  nwt: "Northwest Territories",
+  "northwest territories": "Northwest Territories",
+  nu: "Nunavut",
+  nunavut: "Nunavut",
   canada: "Canada-wide",
   national: "Canada-wide",
   "canada wide": "Canada-wide",
@@ -37,7 +63,7 @@ const INTENT_TERMS = Object.freeze({
 })
 
 const clean = value => String(value ?? "").replace(/\s+/g, " ").trim()
-const normalized = value => clean(value).toLowerCase().replace(/[’']/g, "'").replace(/[^a-z0-9]+/g, " ").trim()
+const normalized = value => clean(value).toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[’']/g, "'").replace(/[^a-z0-9]+/g, " ").trim()
 
 function boundedString(value, maximum, field) {
   const result = clean(value)
@@ -76,8 +102,9 @@ function provinceFor(resource) {
   const explicit = normalizeMobileProvince(resource?.province)
   if (explicit) return explicit
   const haystack = normalized(`${resource?.region || ""} ${resource?.service_area || ""}`)
-  if (/\balberta\b|\bab\b/.test(haystack)) return "Alberta"
-  if (/\bsaskatchewan\b|\bsk\b/.test(haystack)) return "Saskatchewan"
+  for (const [alias, province] of Object.entries(PROVINCES)) {
+    if (new RegExp(`(^| )${alias}( |$)`).test(haystack)) return province
+  }
   if (/\bcanada\b|federal|national/.test(haystack)) return "Canada-wide"
   return "British Columbia"
 }
@@ -88,15 +115,15 @@ function cityFor(resource) {
 
 function detectedLocation(query, resources) {
   const haystack = ` ${normalized(query)} `
-  const cities = [...new Set([...resources.map(cityFor).filter(Boolean), ...Object.keys(MILLER_WESTERN_LOCATION_PROVINCES)])]
+  const cities = [...new Set([...resources.map(cityFor).filter(Boolean), ...Object.keys(MILLER_CANADIAN_LOCATION_PROVINCES)])]
     .sort((left, right) => right.length - left.length)
   const match = cities.find(city => haystack.includes(` ${normalized(city)} `)) || ""
-  if (!match || !Object.hasOwn(MILLER_WESTERN_LOCATION_PROVINCES, normalized(match))) return match
-  return MILLER_WESTERN_LOCATION_LABELS[normalized(match)] || match
+  if (!match || !Object.hasOwn(MILLER_CANADIAN_LOCATION_PROVINCES, normalized(match))) return match
+  return MILLER_CANADIAN_LOCATION_LABELS[normalized(match)] || match
 }
 
 function provinceForLocation(location) {
-  return MILLER_WESTERN_LOCATION_PROVINCES[normalized(location)] || ""
+  return MILLER_CANADIAN_LOCATION_PROVINCES[normalized(location)] || ""
 }
 
 function detectedProvince(query) {
@@ -155,6 +182,7 @@ function scopeFor(resource) {
     local_service_area: Array.isArray(resource?.localServiceArea) ? resource.localServiceArea.map(clean).filter(Boolean) : [],
     regional_service_area: Array.isArray(resource?.regionalServiceArea) ? resource.regionalServiceArea.map(clean).filter(Boolean) : [],
     province_wide: resource?.provinceWide === true,
+    canada_wide: resource?.canadaWide === true || provinceFor(resource) === "Canada-wide",
     virtual: resource?.virtual_service === true,
     navigation_only: resource?.navigationOnly === true,
     scope_note: clean(resource?.scopeNote),
@@ -174,7 +202,7 @@ function servesLocation(resource, location) {
   const areas = [...scope.local_service_area, ...scope.regional_service_area, ...(resource?.searchLocations || [])]
   if (areas.some(area => includesTerm(area, location))) return true
   if (includesTerm(resource?.region, location)) return true
-  return scope.province_wide && provinceForLocation(location) === provinceFor(resource)
+  return scope.province_wide && !scope.canada_wide && provinceForLocation(location) === provinceFor(resource)
 }
 
 function locationRelationship(resource, location) {
@@ -191,6 +219,7 @@ function locationRelationship(resource, location) {
       label: physicalCommunity ? `Located in ${physicalCommunity} · serves ${location}` : `Serves ${location}`,
     }
   }
+  if (scope.canada_wide) return { code: "canada_wide", label: "Canada-wide service" }
   if (scope.navigation_only && scope.province_wide) return { code: "province_navigation", label: "Province-wide navigation" }
   if (scope.province_wide) return { code: "province_wide", label: "Province-wide service" }
   if (scope.virtual) return { code: "virtual", label: "Virtual service" }
@@ -263,6 +292,7 @@ function normalizedCard(resource, readiness, location = "") {
     local_service_area: scope.local_service_area,
     regional_service_area: scope.regional_service_area,
     province_wide: scope.province_wide,
+    canada_wide: scope.canada_wide,
     virtual: scope.virtual,
     navigation_only: scope.navigation_only,
     scope_note: scope.scope_note,
@@ -331,7 +361,7 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
   const directlyRelevant = ranked.filter(({ resource }) => {
     if (isExactLocationResource(resource, location)) return true
     if (servesLocation(resource, location)) return true
-    return !location
+    return !location && (!province || [province, "Canada-wide"].includes(provinceFor(resource)))
   })
   const geographicallyRelevant = ranked.filter(({ resource }) => {
     if (directlyRelevant.some(item => item.resource === resource)) return true
@@ -369,7 +399,7 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
     no_verified_local_facility: Boolean(location && exactLocation.length === 0),
     geography_broadened: request.broaden_nearby,
     mode: !location
-      ? province ? "province" : "western_and_canada_wide"
+      ? province ? "province" : "canadian_foundation"
       : request.broaden_nearby ? "broadened_nearby"
         : exactLocation.length ? "local_first"
           : serviceAreaMatches.length ? "regional_pathway" : "navigation_only",
@@ -380,6 +410,10 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
         : "",
   }
   const broadenCandidates = location ? geographicallyRelevant.filter(item => !directlyRelevant.some(existing => existing.resource === item.resource)) : []
+  const coverageLevel = MILLER_COVERAGE_MATURITY[province] || "foundation"
+  const coverageMessage = ["foundation", "exploratory"].includes(coverageLevel)
+    ? `Miller's coverage in ${province || "this region"} is ${coverageLevel}. These are the verified options currently available.`
+    : ""
   return Object.freeze({
     contract: MILLER_MOBILE_API_VERSION,
     generated_at: evaluatedAt.toISOString(),
@@ -391,6 +425,10 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
     },
     guidance: guidancePayload(intelligence),
     search_scope: searchScope,
+    coverage_maturity: {
+      level: coverageLevel,
+      message: coverageMessage,
+    },
     broaden_nearby: {
       available: Boolean(!request.broaden_nearby && broadenCandidates.length),
       applied: request.broaden_nearby,
@@ -416,7 +454,7 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
 }
 
 export function buildMillerMobileInventory(catalog) {
-  const counts = { "British Columbia": 0, Alberta: 0, Saskatchewan: 0, "Canada-wide": 0 }
+  const counts = Object.fromEntries(Object.keys(MILLER_COVERAGE_MATURITY).map(province => [province, 0]))
   for (const resource of catalog.filter(isMillerPracticalPublicResource)) {
     const province = provinceFor(resource)
     counts[province] = (counts[province] || 0) + 1
@@ -425,6 +463,7 @@ export function buildMillerMobileInventory(catalog) {
   return Object.freeze({
     total: Object.values(counts).reduce((sum, count) => sum + count, 0),
     by_province: counts,
+    coverage_maturity: MILLER_COVERAGE_MATURITY,
     readiness: mobileReadinessSummary(publicCatalog),
   })
 }

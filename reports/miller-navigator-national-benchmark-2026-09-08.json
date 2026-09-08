@@ -1,0 +1,3542 @@
+{
+  "schema_version": "miller-navigator-national-benchmark-v1",
+  "generated_at": "2026-09-08T12:00:00.000Z",
+  "inventory": {
+    "total": 507,
+    "by_province": {
+      "British Columbia": 401,
+      "Alberta": 32,
+      "Saskatchewan": 37,
+      "Manitoba": 4,
+      "Ontario": 3,
+      "Quebec": 3,
+      "New Brunswick": 2,
+      "Nova Scotia": 2,
+      "Prince Edward Island": 2,
+      "Newfoundland and Labrador": 3,
+      "Yukon": 2,
+      "Northwest Territories": 2,
+      "Nunavut": 2,
+      "Canada-wide": 12
+    },
+    "coverage_maturity": {
+      "British Columbia": "deep",
+      "Alberta": "developing",
+      "Saskatchewan": "developing",
+      "Manitoba": "foundation",
+      "Ontario": "foundation",
+      "Quebec": "foundation",
+      "New Brunswick": "foundation",
+      "Nova Scotia": "foundation",
+      "Prince Edward Island": "foundation",
+      "Newfoundland and Labrador": "foundation",
+      "Yukon": "exploratory",
+      "Northwest Territories": "exploratory",
+      "Nunavut": "exploratory",
+      "Canada-wide": "foundation"
+    },
+    "readiness": {
+      "total": 507,
+      "mobile_ready": 226,
+      "not_mobile_ready": 281,
+      "readiness_rate": 0.446,
+      "reason_counts": {
+        "current_public_source": 281,
+        "no_duplicate_conflict": 2,
+        "sufficient_access_information": 4,
+        "verified_contact": 37
+      }
+    }
+  },
+  "query_benchmark": {
+    "schema_version": "miller-mobile-query-benchmark-v1",
+    "generated_at": "2026-09-08T12:00:00.000Z",
+    "query_count": 15,
+    "passing_queries": 13,
+    "weak_queries": [
+      {
+        "id": "mental_health_nunavut",
+        "reasons": [
+          "phone_coverage_below_50_percent"
+        ]
+      },
+      {
+        "id": "indigenous_northern_ontario",
+        "reasons": [
+          "phone_coverage_below_50_percent"
+        ]
+      }
+    ],
+    "average_latency_ms": 91.51,
+    "p95_latency_ms": 118.85,
+    "average_payload_bytes": 17453,
+    "rows": [
+      {
+        "id": "detox_winnipeg",
+        "query": "detox in Winnipeg",
+        "result_count": 10,
+        "returned_count": 8,
+        "top_result": "Manitoba Mental Health & Addictions Connect",
+        "top_result_relevant": true,
+        "province_accuracy": 1,
+        "location_accuracy": 0.125,
+        "phone_availability": 0.75,
+        "website_availability": 1,
+        "access_information": 1,
+        "funding_or_navigation_available": null,
+        "shareability": 1,
+        "mobile_ready_results": 8,
+        "geography_mode": "regional_pathway",
+        "physical_location_matches": 0,
+        "service_area_matches": 1,
+        "incorrect_local_facility_claims": 0,
+        "weak": false,
+        "weak_reasons": [],
+        "latency_ms": 100.1,
+        "payload_bytes": 18000
+      },
+      {
+        "id": "oat_brandon",
+        "query": "OAT in Brandon",
+        "result_count": 10,
+        "returned_count": 8,
+        "top_result": "Rapid Access to Addictions Medicine Clinic - Brandon",
+        "top_result_relevant": true,
+        "province_accuracy": 1,
+        "location_accuracy": 0.25,
+        "phone_availability": 0.75,
+        "website_availability": 1,
+        "access_information": 1,
+        "funding_or_navigation_available": null,
+        "shareability": 1,
+        "mobile_ready_results": 8,
+        "geography_mode": "local_first",
+        "physical_location_matches": 1,
+        "service_area_matches": 0,
+        "incorrect_local_facility_claims": 0,
+        "weak": false,
+        "weak_reasons": [],
+        "latency_ms": 84.53,
+        "payload_bytes": 17906
+      },
+      {
+        "id": "treatment_thunder_bay",
+        "query": "addiction treatment in Thunder Bay",
+        "result_count": 9,
+        "returned_count": 8,
+        "top_result": "Ontario Indigenous Mental Health and Addiction Treatment and Healing Centres",
+        "top_result_relevant": true,
+        "province_accuracy": 1,
+        "location_accuracy": 0.375,
+        "phone_availability": 0.5,
+        "website_availability": 1,
+        "access_information": 1,
+        "funding_or_navigation_available": null,
+        "shareability": 1,
+        "mobile_ready_results": 8,
+        "geography_mode": "regional_pathway",
+        "physical_location_matches": 0,
+        "service_area_matches": 3,
+        "incorrect_local_facility_claims": 0,
+        "weak": false,
+        "weak_reasons": [],
+        "latency_ms": 96.02,
+        "payload_bytes": 17728
+      },
+      {
+        "id": "housing_toronto",
+        "query": "housing after treatment in Toronto",
+        "result_count": 9,
+        "returned_count": 8,
+        "top_result": "ConnexOntario Addiction and Mental Health Navigation",
+        "top_result_relevant": true,
+        "province_accuracy": 1,
+        "location_accuracy": 0.25,
+        "phone_availability": 0.5,
+        "website_availability": 1,
+        "access_information": 1,
+        "funding_or_navigation_available": null,
+        "shareability": 1,
+        "mobile_ready_results": 8,
+        "geography_mode": "regional_pathway",
+        "physical_location_matches": 0,
+        "service_area_matches": 2,
+        "incorrect_local_facility_claims": 0,
+        "weak": false,
+        "weak_reasons": [],
+        "latency_ms": 116.73,
+        "payload_bytes": 17861
+      },
+      {
+        "id": "counselling_sudbury",
+        "query": "counselling in Sudbury",
+        "result_count": 9,
+        "returned_count": 8,
+        "top_result": "Ontario Indigenous Mental Health and Addiction Treatment and Healing Centres",
+        "top_result_relevant": true,
+        "province_accuracy": 1,
+        "location_accuracy": 0.375,
+        "phone_availability": 0.5,
+        "website_availability": 1,
+        "access_information": 1,
+        "funding_or_navigation_available": null,
+        "shareability": 1,
+        "mobile_ready_results": 8,
+        "geography_mode": "regional_pathway",
+        "physical_location_matches": 0,
+        "service_area_matches": 1,
+        "incorrect_local_facility_claims": 0,
+        "weak": false,
+        "weak_reasons": [],
+        "latency_ms": 79.15,
+        "payload_bytes": 17450
+      },
+      {
+        "id": "treatment_ottawa",
+        "query": "treatment help in Ottawa",
+        "result_count": 10,
+        "returned_count": 8,
+        "top_result": "Ontario Indigenous Mental Health and Addiction Treatment and Healing Centres",
+        "top_result_relevant": true,
+        "province_accuracy": 0.875,
+        "location_accuracy": 0.375,
+        "phone_availability": 0.5,
+        "website_availability": 1,
+        "access_information": 1,
+        "funding_or_navigation_available": null,
+        "shareability": 1,
+        "mobile_ready_results": 8,
+        "geography_mode": "regional_pathway",
+        "physical_location_matches": 0,
+        "service_area_matches": 3,
+        "incorrect_local_facility_claims": 0,
+        "weak": false,
+        "weak_reasons": [],
+        "latency_ms": 82.52,
+        "payload_bytes": 18066
+      },
+      {
+        "id": "addiction_montreal",
+        "query": "addiction help in Montreal",
+        "result_count": 9,
+        "returned_count": 8,
+        "top_result": "Drogue : aide et référence",
+        "top_result_relevant": true,
+        "province_accuracy": 1,
+        "location_accuracy": 0.375,
+        "phone_availability": 0.75,
+        "website_availability": 1,
+        "access_information": 1,
+        "funding_or_navigation_available": null,
+        "shareability": 1,
+        "mobile_ready_results": 8,
+        "geography_mode": "regional_pathway",
+        "physical_location_matches": 0,
+        "service_area_matches": 2,
+        "incorrect_local_facility_claims": 0,
+        "weak": false,
+        "weak_reasons": [],
+        "latency_ms": 81.84,
+        "payload_bytes": 17015
+      },
+      {
+        "id": "withdrawal_halifax",
+        "query": "withdrawal help in Halifax",
+        "result_count": 8,
+        "returned_count": 8,
+        "top_result": "Mental Health and Addictions Provincial Intake Service",
+        "top_result_relevant": true,
+        "province_accuracy": 1,
+        "location_accuracy": 0.25,
+        "phone_availability": 0.625,
+        "website_availability": 1,
+        "access_information": 1,
+        "funding_or_navigation_available": null,
+        "shareability": 1,
+        "mobile_ready_results": 8,
+        "geography_mode": "regional_pathway",
+        "physical_location_matches": 0,
+        "service_area_matches": 2,
+        "incorrect_local_facility_claims": 0,
+        "weak": false,
+        "weak_reasons": [],
+        "latency_ms": 73.31,
+        "payload_bytes": 16943
+      },
+      {
+        "id": "addiction_moncton",
+        "query": "addiction support in Moncton",
+        "result_count": 8,
+        "returned_count": 8,
+        "top_result": "New Brunswick Addiction Services",
+        "top_result_relevant": true,
+        "province_accuracy": 1,
+        "location_accuracy": 0.25,
+        "phone_availability": 0.625,
+        "website_availability": 1,
+        "access_information": 1,
+        "funding_or_navigation_available": null,
+        "shareability": 1,
+        "mobile_ready_results": 8,
+        "geography_mode": "regional_pathway",
+        "physical_location_matches": 0,
+        "service_area_matches": 1,
+        "incorrect_local_facility_claims": 0,
+        "weak": false,
+        "weak_reasons": [],
+        "latency_ms": 86.55,
+        "payload_bytes": 17188
+      },
+      {
+        "id": "treatment_st_johns",
+        "query": "treatment in St. John's",
+        "result_count": 9,
+        "returned_count": 8,
+        "top_result": "Recovery Centre",
+        "top_result_relevant": true,
+        "province_accuracy": 1,
+        "location_accuracy": 0.375,
+        "phone_availability": 0.75,
+        "website_availability": 1,
+        "access_information": 1,
+        "funding_or_navigation_available": null,
+        "shareability": 1,
+        "mobile_ready_results": 8,
+        "geography_mode": "local_first",
+        "physical_location_matches": 1,
+        "service_area_matches": 1,
+        "incorrect_local_facility_claims": 0,
+        "weak": false,
+        "weak_reasons": [],
+        "latency_ms": 83.7,
+        "payload_bytes": 17631
+      },
+      {
+        "id": "addiction_whitehorse",
+        "query": "addiction help in Whitehorse",
+        "result_count": 8,
+        "returned_count": 8,
+        "top_result": "Withdrawal Management Services - Whitehorse",
+        "top_result_relevant": true,
+        "province_accuracy": 1,
+        "location_accuracy": 0.25,
+        "phone_availability": 0.625,
+        "website_availability": 1,
+        "access_information": 1,
+        "funding_or_navigation_available": null,
+        "shareability": 1,
+        "mobile_ready_results": 8,
+        "geography_mode": "local_first",
+        "physical_location_matches": 1,
+        "service_area_matches": 1,
+        "incorrect_local_facility_claims": 0,
+        "weak": false,
+        "weak_reasons": [],
+        "latency_ms": 80.82,
+        "payload_bytes": 16754
+      },
+      {
+        "id": "treatment_yellowknife",
+        "query": "treatment access in Yellowknife",
+        "result_count": 8,
+        "returned_count": 8,
+        "top_result": "Northwest Territories Community Counselling Program",
+        "top_result_relevant": true,
+        "province_accuracy": 1,
+        "location_accuracy": 0.25,
+        "phone_availability": 0.5,
+        "website_availability": 1,
+        "access_information": 1,
+        "funding_or_navigation_available": null,
+        "shareability": 1,
+        "mobile_ready_results": 8,
+        "geography_mode": "regional_pathway",
+        "physical_location_matches": 0,
+        "service_area_matches": 1,
+        "incorrect_local_facility_claims": 0,
+        "weak": false,
+        "weak_reasons": [],
+        "latency_ms": 86,
+        "payload_bytes": 17686
+      },
+      {
+        "id": "mental_health_nunavut",
+        "query": "mental health and addiction help in Nunavut",
+        "result_count": 5,
+        "returned_count": 5,
+        "top_result": "Nunavut Community Health Centre Access",
+        "top_result_relevant": true,
+        "province_accuracy": 1,
+        "location_accuracy": 1,
+        "phone_availability": 0.4,
+        "website_availability": 1,
+        "access_information": 1,
+        "funding_or_navigation_available": null,
+        "shareability": 1,
+        "mobile_ready_results": 5,
+        "geography_mode": "province",
+        "physical_location_matches": 0,
+        "service_area_matches": 0,
+        "incorrect_local_facility_claims": 0,
+        "weak": true,
+        "weak_reasons": [
+          "phone_coverage_below_50_percent"
+        ],
+        "latency_ms": 98.89,
+        "payload_bytes": 12951
+      },
+      {
+        "id": "indigenous_northern_ontario",
+        "query": "Indigenous treatment support in northern Ontario",
+        "result_count": 9,
+        "returned_count": 8,
+        "top_result": "Ontario Indigenous Mental Health and Addiction Treatment and Healing Centres",
+        "top_result_relevant": true,
+        "province_accuracy": 1,
+        "location_accuracy": 0.375,
+        "phone_availability": 0.375,
+        "website_availability": 1,
+        "access_information": 1,
+        "funding_or_navigation_available": null,
+        "shareability": 1,
+        "mobile_ready_results": 8,
+        "geography_mode": "regional_pathway",
+        "physical_location_matches": 0,
+        "service_area_matches": 3,
+        "incorrect_local_facility_claims": 0,
+        "weak": true,
+        "weak_reasons": [
+          "phone_coverage_below_50_percent"
+        ],
+        "latency_ms": 103.7,
+        "payload_bytes": 17668
+      },
+      {
+        "id": "remote_transport",
+        "query": "transportation to treatment from a remote community",
+        "result_count": 205,
+        "returned_count": 8,
+        "top_result": "Northern Patient Transportation Program",
+        "top_result_relevant": true,
+        "province_accuracy": 1,
+        "location_accuracy": 1,
+        "phone_availability": 0.75,
+        "website_availability": 1,
+        "access_information": 1,
+        "funding_or_navigation_available": true,
+        "shareability": 1,
+        "mobile_ready_results": 8,
+        "geography_mode": "canadian_foundation",
+        "physical_location_matches": 0,
+        "service_area_matches": 0,
+        "incorrect_local_facility_claims": 0,
+        "weak": false,
+        "weak_reasons": [],
+        "latency_ms": 118.85,
+        "payload_bytes": 20942
+      }
+    ]
+  },
+  "coverage": {
+    "schema_version": "miller-mobile-coverage-matrix-v1",
+    "generated_at": "2026-09-08T12:00:00.000Z",
+    "catalog": {
+      "total": 507,
+      "mobile_ready": 226,
+      "not_mobile_ready": 281,
+      "readiness_rate": 0.446,
+      "reason_counts": {
+        "current_public_source": 281,
+        "no_duplicate_conflict": 2,
+        "sufficient_access_information": 4,
+        "verified_contact": 37
+      }
+    },
+    "by_province": {
+      "British Columbia": {
+        "detox": {
+          "total": 16,
+          "mobile_ready": 13
+        },
+        "residential_treatment": {
+          "total": 28,
+          "mobile_ready": 11
+        },
+        "outpatient_treatment": {
+          "total": 7,
+          "mobile_ready": 5
+        },
+        "oat": {
+          "total": 31,
+          "mobile_ready": 19
+        },
+        "counselling": {
+          "total": 103,
+          "mobile_ready": 31
+        },
+        "harm_reduction": {
+          "total": 22,
+          "mobile_ready": 8
+        },
+        "housing": {
+          "total": 63,
+          "mobile_ready": 28
+        },
+        "mental_health": {
+          "total": 74,
+          "mobile_ready": 33
+        },
+        "legal_navigation": {
+          "total": 36,
+          "mobile_ready": 17
+        },
+        "funding": {
+          "total": 19,
+          "mobile_ready": 19
+        },
+        "transportation": {
+          "total": 13,
+          "mobile_ready": 13
+        },
+        "indigenous_specific": {
+          "total": 57,
+          "mobile_ready": 14
+        },
+        "family_youth": {
+          "total": 67,
+          "mobile_ready": 29
+        },
+        "reentry_corrections": {
+          "total": 4,
+          "mobile_ready": 3
+        }
+      },
+      "Alberta": {
+        "detox": {
+          "total": 4,
+          "mobile_ready": 4
+        },
+        "residential_treatment": {
+          "total": 3,
+          "mobile_ready": 3
+        },
+        "outpatient_treatment": {
+          "total": 10,
+          "mobile_ready": 10
+        },
+        "oat": {
+          "total": 4,
+          "mobile_ready": 4
+        },
+        "counselling": {
+          "total": 15,
+          "mobile_ready": 15
+        },
+        "harm_reduction": {
+          "total": 3,
+          "mobile_ready": 3
+        },
+        "housing": {
+          "total": 8,
+          "mobile_ready": 8
+        },
+        "mental_health": {
+          "total": 13,
+          "mobile_ready": 13
+        },
+        "legal_navigation": {
+          "total": 9,
+          "mobile_ready": 9
+        },
+        "funding": {
+          "total": 5,
+          "mobile_ready": 5
+        },
+        "transportation": {
+          "total": 2,
+          "mobile_ready": 2
+        },
+        "indigenous_specific": {
+          "total": 7,
+          "mobile_ready": 7
+        },
+        "family_youth": {
+          "total": 8,
+          "mobile_ready": 8
+        },
+        "reentry_corrections": {
+          "total": 1,
+          "mobile_ready": 1
+        }
+      },
+      "Saskatchewan": {
+        "detox": {
+          "total": 10,
+          "mobile_ready": 10
+        },
+        "residential_treatment": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "outpatient_treatment": {
+          "total": 6,
+          "mobile_ready": 6
+        },
+        "oat": {
+          "total": 8,
+          "mobile_ready": 8
+        },
+        "counselling": {
+          "total": 13,
+          "mobile_ready": 13
+        },
+        "harm_reduction": {
+          "total": 5,
+          "mobile_ready": 5
+        },
+        "housing": {
+          "total": 9,
+          "mobile_ready": 9
+        },
+        "mental_health": {
+          "total": 17,
+          "mobile_ready": 17
+        },
+        "legal_navigation": {
+          "total": 7,
+          "mobile_ready": 7
+        },
+        "funding": {
+          "total": 8,
+          "mobile_ready": 8
+        },
+        "transportation": {
+          "total": 4,
+          "mobile_ready": 4
+        },
+        "indigenous_specific": {
+          "total": 8,
+          "mobile_ready": 8
+        },
+        "family_youth": {
+          "total": 10,
+          "mobile_ready": 10
+        },
+        "reentry_corrections": {
+          "total": 2,
+          "mobile_ready": 2
+        }
+      },
+      "Manitoba": {
+        "detox": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "residential_treatment": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "outpatient_treatment": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "oat": {
+          "total": 2,
+          "mobile_ready": 2
+        },
+        "counselling": {
+          "total": 2,
+          "mobile_ready": 2
+        },
+        "harm_reduction": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "housing": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "mental_health": {
+          "total": 3,
+          "mobile_ready": 3
+        },
+        "legal_navigation": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "funding": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "transportation": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "indigenous_specific": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "family_youth": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "reentry_corrections": {
+          "total": 0,
+          "mobile_ready": 0
+        }
+      },
+      "Ontario": {
+        "detox": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "residential_treatment": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "outpatient_treatment": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "oat": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "counselling": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "harm_reduction": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "housing": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "mental_health": {
+          "total": 2,
+          "mobile_ready": 2
+        },
+        "legal_navigation": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "funding": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "transportation": {
+          "total": 2,
+          "mobile_ready": 2
+        },
+        "indigenous_specific": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "family_youth": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "reentry_corrections": {
+          "total": 0,
+          "mobile_ready": 0
+        }
+      },
+      "Quebec": {
+        "detox": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "residential_treatment": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "outpatient_treatment": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "oat": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "counselling": {
+          "total": 2,
+          "mobile_ready": 2
+        },
+        "harm_reduction": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "housing": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "mental_health": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "legal_navigation": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "funding": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "transportation": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "indigenous_specific": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "family_youth": {
+          "total": 3,
+          "mobile_ready": 3
+        },
+        "reentry_corrections": {
+          "total": 1,
+          "mobile_ready": 1
+        }
+      },
+      "New Brunswick": {
+        "detox": {
+          "total": 2,
+          "mobile_ready": 2
+        },
+        "residential_treatment": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "outpatient_treatment": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "oat": {
+          "total": 2,
+          "mobile_ready": 2
+        },
+        "counselling": {
+          "total": 2,
+          "mobile_ready": 2
+        },
+        "harm_reduction": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "housing": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "mental_health": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "legal_navigation": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "funding": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "transportation": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "indigenous_specific": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "family_youth": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "reentry_corrections": {
+          "total": 0,
+          "mobile_ready": 0
+        }
+      },
+      "Nova Scotia": {
+        "detox": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "residential_treatment": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "outpatient_treatment": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "oat": {
+          "total": 2,
+          "mobile_ready": 2
+        },
+        "counselling": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "harm_reduction": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "housing": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "mental_health": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "legal_navigation": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "funding": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "transportation": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "indigenous_specific": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "family_youth": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "reentry_corrections": {
+          "total": 0,
+          "mobile_ready": 0
+        }
+      },
+      "Prince Edward Island": {
+        "detox": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "residential_treatment": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "outpatient_treatment": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "oat": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "counselling": {
+          "total": 2,
+          "mobile_ready": 2
+        },
+        "harm_reduction": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "housing": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "mental_health": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "legal_navigation": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "funding": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "transportation": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "indigenous_specific": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "family_youth": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "reentry_corrections": {
+          "total": 0,
+          "mobile_ready": 0
+        }
+      },
+      "Newfoundland and Labrador": {
+        "detox": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "residential_treatment": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "outpatient_treatment": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "oat": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "counselling": {
+          "total": 2,
+          "mobile_ready": 2
+        },
+        "harm_reduction": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "housing": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "mental_health": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "legal_navigation": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "funding": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "transportation": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "indigenous_specific": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "family_youth": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "reentry_corrections": {
+          "total": 0,
+          "mobile_ready": 0
+        }
+      },
+      "Yukon": {
+        "detox": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "residential_treatment": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "outpatient_treatment": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "oat": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "counselling": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "harm_reduction": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "housing": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "mental_health": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "legal_navigation": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "funding": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "transportation": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "indigenous_specific": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "family_youth": {
+          "total": 2,
+          "mobile_ready": 2
+        },
+        "reentry_corrections": {
+          "total": 0,
+          "mobile_ready": 0
+        }
+      },
+      "Northwest Territories": {
+        "detox": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "residential_treatment": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "outpatient_treatment": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "oat": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "counselling": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "harm_reduction": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "housing": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "mental_health": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "legal_navigation": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "funding": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "transportation": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "indigenous_specific": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "family_youth": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "reentry_corrections": {
+          "total": 0,
+          "mobile_ready": 0
+        }
+      },
+      "Nunavut": {
+        "detox": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "residential_treatment": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "outpatient_treatment": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "oat": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "counselling": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "harm_reduction": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "housing": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "mental_health": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "legal_navigation": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "funding": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "transportation": {
+          "total": 2,
+          "mobile_ready": 2
+        },
+        "indigenous_specific": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "family_youth": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "reentry_corrections": {
+          "total": 0,
+          "mobile_ready": 0
+        }
+      },
+      "Canada-wide": {
+        "detox": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "residential_treatment": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "outpatient_treatment": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "oat": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "counselling": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "harm_reduction": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "housing": {
+          "total": 0,
+          "mobile_ready": 0
+        },
+        "mental_health": {
+          "total": 2,
+          "mobile_ready": 2
+        },
+        "legal_navigation": {
+          "total": 1,
+          "mobile_ready": 1
+        },
+        "funding": {
+          "total": 8,
+          "mobile_ready": 8
+        },
+        "transportation": {
+          "total": 3,
+          "mobile_ready": 3
+        },
+        "indigenous_specific": {
+          "total": 8,
+          "mobile_ready": 8
+        },
+        "family_youth": {
+          "total": 3,
+          "mobile_ready": 3
+        },
+        "reentry_corrections": {
+          "total": 0,
+          "mobile_ready": 0
+        }
+      }
+    },
+    "by_city": {
+      "Vancouver": {
+        "total": 112,
+        "mobile_ready": 19,
+        "categories": {
+          "detox": 5,
+          "residential_treatment": 3,
+          "outpatient_treatment": 2,
+          "oat": 6,
+          "counselling": 30,
+          "harm_reduction": 8,
+          "housing": 10,
+          "mental_health": 11,
+          "legal_navigation": 19,
+          "funding": 3,
+          "transportation": 2,
+          "indigenous_specific": 8,
+          "family_youth": 12,
+          "reentry_corrections": 1
+        }
+      },
+      "Surrey": {
+        "total": 63,
+        "mobile_ready": 13,
+        "categories": {
+          "detox": 2,
+          "residential_treatment": 1,
+          "outpatient_treatment": 0,
+          "oat": 3,
+          "counselling": 11,
+          "harm_reduction": 4,
+          "housing": 16,
+          "mental_health": 1,
+          "legal_navigation": 3,
+          "funding": 0,
+          "transportation": 1,
+          "indigenous_specific": 6,
+          "family_youth": 6,
+          "reentry_corrections": 0
+        }
+      },
+      "Burnaby": {
+        "total": 18,
+        "mobile_ready": 12,
+        "categories": {
+          "detox": 0,
+          "residential_treatment": 1,
+          "outpatient_treatment": 1,
+          "oat": 1,
+          "counselling": 6,
+          "harm_reduction": 2,
+          "housing": 9,
+          "mental_health": 3,
+          "legal_navigation": 1,
+          "funding": 2,
+          "transportation": 0,
+          "indigenous_specific": 0,
+          "family_youth": 2,
+          "reentry_corrections": 0
+        }
+      },
+      "Victoria": {
+        "total": 3,
+        "mobile_ready": 3,
+        "categories": {
+          "detox": 2,
+          "residential_treatment": 1,
+          "outpatient_treatment": 1,
+          "oat": 1,
+          "counselling": 1,
+          "harm_reduction": 1,
+          "housing": 1,
+          "mental_health": 3,
+          "legal_navigation": 0,
+          "funding": 0,
+          "transportation": 0,
+          "indigenous_specific": 1,
+          "family_youth": 0,
+          "reentry_corrections": 0
+        }
+      },
+      "Calgary": {
+        "total": 6,
+        "mobile_ready": 6,
+        "categories": {
+          "detox": 1,
+          "residential_treatment": 0,
+          "outpatient_treatment": 3,
+          "oat": 1,
+          "counselling": 4,
+          "harm_reduction": 1,
+          "housing": 1,
+          "mental_health": 2,
+          "legal_navigation": 0,
+          "funding": 1,
+          "transportation": 0,
+          "indigenous_specific": 0,
+          "family_youth": 2,
+          "reentry_corrections": 0
+        }
+      },
+      "Edmonton": {
+        "total": 6,
+        "mobile_ready": 6,
+        "categories": {
+          "detox": 1,
+          "residential_treatment": 1,
+          "outpatient_treatment": 1,
+          "oat": 1,
+          "counselling": 4,
+          "harm_reduction": 1,
+          "housing": 3,
+          "mental_health": 2,
+          "legal_navigation": 0,
+          "funding": 0,
+          "transportation": 0,
+          "indigenous_specific": 2,
+          "family_youth": 1,
+          "reentry_corrections": 1
+        }
+      },
+      "Regina": {
+        "total": 4,
+        "mobile_ready": 4,
+        "categories": {
+          "detox": 1,
+          "residential_treatment": 0,
+          "outpatient_treatment": 2,
+          "oat": 1,
+          "counselling": 2,
+          "harm_reduction": 1,
+          "housing": 2,
+          "mental_health": 1,
+          "legal_navigation": 0,
+          "funding": 0,
+          "transportation": 0,
+          "indigenous_specific": 2,
+          "family_youth": 1,
+          "reentry_corrections": 2
+        }
+      },
+      "Saskatoon": {
+        "total": 9,
+        "mobile_ready": 9,
+        "categories": {
+          "detox": 1,
+          "residential_treatment": 0,
+          "outpatient_treatment": 1,
+          "oat": 1,
+          "counselling": 2,
+          "harm_reduction": 1,
+          "housing": 5,
+          "mental_health": 4,
+          "legal_navigation": 1,
+          "funding": 1,
+          "transportation": 1,
+          "indigenous_specific": 5,
+          "family_youth": 4,
+          "reentry_corrections": 2
+        }
+      },
+      "Prince Albert": {
+        "total": 3,
+        "mobile_ready": 3,
+        "categories": {
+          "detox": 1,
+          "residential_treatment": 0,
+          "outpatient_treatment": 1,
+          "oat": 1,
+          "counselling": 1,
+          "harm_reduction": 0,
+          "housing": 1,
+          "mental_health": 2,
+          "legal_navigation": 0,
+          "funding": 0,
+          "transportation": 0,
+          "indigenous_specific": 1,
+          "family_youth": 1,
+          "reentry_corrections": 1
+        }
+      }
+    }
+  },
+  "community_coverage": {
+    "schema_version": "miller-canadian-community-coverage-v1",
+    "generated_at": "2026-09-08T12:00:00.000Z",
+    "community_count": 187,
+    "by_province": {
+      "British Columbia": [
+        {
+          "community": "Abbotsford",
+          "province": "British Columbia",
+          "region": "Lower Mainland / Fraser",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 19,
+          "regional_resources": 2,
+          "provincial_navigation": 3,
+          "mobile_ready": 7
+        },
+        {
+          "community": "Burnaby",
+          "province": "British Columbia",
+          "region": "Lower Mainland / Fraser",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 10,
+          "regional_resources": 15,
+          "provincial_navigation": 3,
+          "mobile_ready": 24
+        },
+        {
+          "community": "Chilliwack",
+          "province": "British Columbia",
+          "region": "Lower Mainland / Fraser",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 11,
+          "regional_resources": 2,
+          "provincial_navigation": 3,
+          "mobile_ready": 5
+        },
+        {
+          "community": "Coquitlam",
+          "province": "British Columbia",
+          "region": "Lower Mainland / Fraser",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 15,
+          "provincial_navigation": 3,
+          "mobile_ready": 18
+        },
+        {
+          "community": "Hope",
+          "province": "British Columbia",
+          "region": "Lower Mainland / Fraser",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 5,
+          "regional_resources": 4,
+          "provincial_navigation": 3,
+          "mobile_ready": 7
+        },
+        {
+          "community": "Langley",
+          "province": "British Columbia",
+          "region": "Lower Mainland / Fraser",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 2,
+          "regional_resources": 2,
+          "provincial_navigation": 3,
+          "mobile_ready": 5
+        },
+        {
+          "community": "Maple Ridge",
+          "province": "British Columbia",
+          "region": "Lower Mainland / Fraser",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 5,
+          "regional_resources": 14,
+          "provincial_navigation": 3,
+          "mobile_ready": 16
+        },
+        {
+          "community": "Mission",
+          "province": "British Columbia",
+          "region": "Lower Mainland / Fraser",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 5,
+          "regional_resources": 2,
+          "provincial_navigation": 3,
+          "mobile_ready": 4
+        },
+        {
+          "community": "New Westminster",
+          "province": "British Columbia",
+          "region": "Lower Mainland / Fraser",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 8,
+          "regional_resources": 16,
+          "provincial_navigation": 3,
+          "mobile_ready": 21
+        },
+        {
+          "community": "Pitt Meadows",
+          "province": "British Columbia",
+          "region": "Lower Mainland / Fraser",
+          "maturity": "deep",
+          "status": "regional_coverage",
+          "local_resources": 0,
+          "regional_resources": 13,
+          "provincial_navigation": 3,
+          "mobile_ready": 15
+        },
+        {
+          "community": "Port Coquitlam",
+          "province": "British Columbia",
+          "region": "Lower Mainland / Fraser",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 4,
+          "regional_resources": 15,
+          "provincial_navigation": 3,
+          "mobile_ready": 17
+        },
+        {
+          "community": "Port Moody",
+          "province": "British Columbia",
+          "region": "Lower Mainland / Fraser",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 15,
+          "provincial_navigation": 3,
+          "mobile_ready": 17
+        },
+        {
+          "community": "Surrey",
+          "province": "British Columbia",
+          "region": "Lower Mainland / Fraser",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 47,
+          "regional_resources": 13,
+          "provincial_navigation": 3,
+          "mobile_ready": 22
+        },
+        {
+          "community": "White Rock",
+          "province": "British Columbia",
+          "region": "Lower Mainland / Fraser",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 10,
+          "provincial_navigation": 3,
+          "mobile_ready": 12
+        },
+        {
+          "community": "Powell River",
+          "province": "British Columbia",
+          "region": "Sea-to-Sky / Sunshine Coast",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Sechelt",
+          "province": "British Columbia",
+          "region": "Sea-to-Sky / Sunshine Coast",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Squamish",
+          "province": "British Columbia",
+          "region": "Sea-to-Sky / Sunshine Coast",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Whistler",
+          "province": "British Columbia",
+          "region": "Sea-to-Sky / Sunshine Coast",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Campbell River",
+          "province": "British Columbia",
+          "region": "Vancouver Island",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 2,
+          "provincial_navigation": 4,
+          "mobile_ready": 5
+        },
+        {
+          "community": "Courtenay",
+          "province": "British Columbia",
+          "region": "Vancouver Island",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 2,
+          "provincial_navigation": 4,
+          "mobile_ready": 4
+        },
+        {
+          "community": "Duncan",
+          "province": "British Columbia",
+          "region": "Vancouver Island",
+          "maturity": "deep",
+          "status": "regional_coverage",
+          "local_resources": 0,
+          "regional_resources": 2,
+          "provincial_navigation": 3,
+          "mobile_ready": 4
+        },
+        {
+          "community": "Nanaimo",
+          "province": "British Columbia",
+          "region": "Vancouver Island",
+          "maturity": "deep",
+          "status": "regional_coverage",
+          "local_resources": 0,
+          "regional_resources": 2,
+          "provincial_navigation": 3,
+          "mobile_ready": 4
+        },
+        {
+          "community": "Parksville",
+          "province": "British Columbia",
+          "region": "Vancouver Island",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Port Alberni",
+          "province": "British Columbia",
+          "region": "Vancouver Island",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 4
+        },
+        {
+          "community": "Port Hardy",
+          "province": "British Columbia",
+          "region": "Vancouver Island",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 2,
+          "regional_resources": 2,
+          "provincial_navigation": 5,
+          "mobile_ready": 6
+        },
+        {
+          "community": "Port McNeill",
+          "province": "British Columbia",
+          "region": "Vancouver Island",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 2,
+          "provincial_navigation": 5,
+          "mobile_ready": 5
+        },
+        {
+          "community": "Ucluelet",
+          "province": "British Columbia",
+          "region": "Vancouver Island",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Victoria",
+          "province": "British Columbia",
+          "region": "Vancouver Island",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 2,
+          "regional_resources": 2,
+          "provincial_navigation": 3,
+          "mobile_ready": 6
+        },
+        {
+          "community": "100 Mile House",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Castlegar",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Clearwater",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Cranbrook",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 4
+        },
+        {
+          "community": "Creston",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Grand Forks",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Invermere",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Kamloops",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Kelowna",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Kimberley",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Nelson",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "regional_coverage",
+          "local_resources": 0,
+          "regional_resources": 3,
+          "provincial_navigation": 4,
+          "mobile_ready": 5
+        },
+        {
+          "community": "Osoyoos",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Penticton",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Revelstoke",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Salmon Arm",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Sparwood",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Trail",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Vernon",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Williams Lake",
+          "province": "British Columbia",
+          "region": "Interior / Okanagan / Kootenays",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 4
+        },
+        {
+          "community": "Atlin",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Burns Lake",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Daajing Giids",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 4
+        },
+        {
+          "community": "Dawson Creek",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 4
+        },
+        {
+          "community": "Fort Nelson",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "regional_coverage",
+          "local_resources": 0,
+          "regional_resources": 2,
+          "provincial_navigation": 3,
+          "mobile_ready": 4
+        },
+        {
+          "community": "Fort St. James",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Fort St. John",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 4
+        },
+        {
+          "community": "Hazelton",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Kitimat",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Mackenzie",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Masset",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 4
+        },
+        {
+          "community": "Prince George",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 4,
+          "mobile_ready": 4
+        },
+        {
+          "community": "Prince Rupert",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 2,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 5
+        },
+        {
+          "community": "Quesnel",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Smithers",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Terrace",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 4
+        },
+        {
+          "community": "Tumbler Ridge",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "regional_coverage",
+          "local_resources": 0,
+          "regional_resources": 3,
+          "provincial_navigation": 3,
+          "mobile_ready": 5
+        },
+        {
+          "community": "Valemount",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Vanderhoof",
+          "province": "British Columbia",
+          "region": "Northern B.C. / North Coast",
+          "maturity": "deep",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 0,
+          "provincial_navigation": 2,
+          "mobile_ready": 3
+        }
+      ],
+      "Alberta": [
+        {
+          "community": "Airdrie",
+          "province": "Alberta",
+          "region": "Calgary / South",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Banff",
+          "province": "Alberta",
+          "region": "Calgary / South",
+          "maturity": "developing",
+          "status": "regional_coverage",
+          "local_resources": 0,
+          "regional_resources": 2,
+          "provincial_navigation": 2,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Brooks",
+          "province": "Alberta",
+          "region": "Calgary / South",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Canmore",
+          "province": "Alberta",
+          "region": "Calgary / South",
+          "maturity": "developing",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Chestermere",
+          "province": "Alberta",
+          "region": "Calgary / South",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Claresholm",
+          "province": "Alberta",
+          "region": "Calgary / South",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Cochrane",
+          "province": "Alberta",
+          "region": "Calgary / South",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Didsbury",
+          "province": "Alberta",
+          "region": "Calgary / South",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "High River",
+          "province": "Alberta",
+          "region": "Calgary / South",
+          "maturity": "developing",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Lethbridge",
+          "province": "Alberta",
+          "region": "Calgary / South",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Medicine Hat",
+          "province": "Alberta",
+          "region": "Calgary / South",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Okotoks",
+          "province": "Alberta",
+          "region": "Calgary / South",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Pincher Creek",
+          "province": "Alberta",
+          "region": "Calgary / South",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Strathmore",
+          "province": "Alberta",
+          "region": "Calgary / South",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Vulcan",
+          "province": "Alberta",
+          "region": "Calgary / South",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Camrose",
+          "province": "Alberta",
+          "region": "Central",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Drumheller",
+          "province": "Alberta",
+          "region": "Central",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Leduc",
+          "province": "Alberta",
+          "region": "Central",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Olds",
+          "province": "Alberta",
+          "region": "Central",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Red Deer",
+          "province": "Alberta",
+          "region": "Central",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Rocky Mountain House",
+          "province": "Alberta",
+          "region": "Central",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Stettler",
+          "province": "Alberta",
+          "region": "Central",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Wetaskiwin",
+          "province": "Alberta",
+          "region": "Central",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Edson",
+          "province": "Alberta",
+          "region": "Edmonton / West",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Fort Saskatchewan",
+          "province": "Alberta",
+          "region": "Edmonton / West",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Hinton",
+          "province": "Alberta",
+          "region": "Edmonton / West",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Spruce Grove",
+          "province": "Alberta",
+          "region": "Edmonton / West",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "St. Albert",
+          "province": "Alberta",
+          "region": "Edmonton / West",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Whitecourt",
+          "province": "Alberta",
+          "region": "Edmonton / West",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Bonnyville",
+          "province": "Alberta",
+          "region": "North / Northeast",
+          "maturity": "developing",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Cold Lake",
+          "province": "Alberta",
+          "region": "North / Northeast",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Fairview",
+          "province": "Alberta",
+          "region": "North / Northeast",
+          "maturity": "developing",
+          "status": "regional_coverage",
+          "local_resources": 0,
+          "regional_resources": 2,
+          "provincial_navigation": 2,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Fort McMurray",
+          "province": "Alberta",
+          "region": "North / Northeast",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Grande Prairie",
+          "province": "Alberta",
+          "region": "North / Northeast",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "High Level",
+          "province": "Alberta",
+          "region": "North / Northeast",
+          "maturity": "developing",
+          "status": "verified_coverage",
+          "local_resources": 2,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 4
+        },
+        {
+          "community": "High Prairie",
+          "province": "Alberta",
+          "region": "North / Northeast",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Lac La Biche",
+          "province": "Alberta",
+          "region": "North / Northeast",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Lloydminster",
+          "province": "Alberta",
+          "region": "North / Northeast",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Manning",
+          "province": "Alberta",
+          "region": "North / Northeast",
+          "maturity": "developing",
+          "status": "regional_coverage",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Peace River",
+          "province": "Alberta",
+          "region": "North / Northeast",
+          "maturity": "developing",
+          "status": "verified_coverage",
+          "local_resources": 2,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 4
+        },
+        {
+          "community": "Slave Lake",
+          "province": "Alberta",
+          "region": "North / Northeast",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Valleyview",
+          "province": "Alberta",
+          "region": "North / Northeast",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        }
+      ],
+      "Saskatchewan": [
+        {
+          "community": "Assiniboia",
+          "province": "Saskatchewan",
+          "region": "South / Southwest",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Carlyle",
+          "province": "Saskatchewan",
+          "region": "South / Southwest",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Estevan",
+          "province": "Saskatchewan",
+          "region": "South / Southwest",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Maple Creek",
+          "province": "Saskatchewan",
+          "region": "South / Southwest",
+          "maturity": "developing",
+          "status": "regional_coverage",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 4
+        },
+        {
+          "community": "Moose Jaw",
+          "province": "Saskatchewan",
+          "region": "South / Southwest",
+          "maturity": "developing",
+          "status": "regional_coverage",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 4
+        },
+        {
+          "community": "Shaunavon",
+          "province": "Saskatchewan",
+          "region": "South / Southwest",
+          "maturity": "developing",
+          "status": "regional_coverage",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 4
+        },
+        {
+          "community": "Swift Current",
+          "province": "Saskatchewan",
+          "region": "South / Southwest",
+          "maturity": "developing",
+          "status": "verified_coverage",
+          "local_resources": 2,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 5
+        },
+        {
+          "community": "Weyburn",
+          "province": "Saskatchewan",
+          "region": "South / Southwest",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Biggar",
+          "province": "Saskatchewan",
+          "region": "Central / West Central",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Humboldt",
+          "province": "Saskatchewan",
+          "region": "Central / West Central",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Kindersley",
+          "province": "Saskatchewan",
+          "region": "Central / West Central",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "North Battleford",
+          "province": "Saskatchewan",
+          "region": "Central / West Central",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Outlook",
+          "province": "Saskatchewan",
+          "region": "Central / West Central",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Rosetown",
+          "province": "Saskatchewan",
+          "region": "Central / West Central",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Saskatoon",
+          "province": "Saskatchewan",
+          "region": "Central / West Central",
+          "maturity": "developing",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 8,
+          "provincial_navigation": 3,
+          "mobile_ready": 12
+        },
+        {
+          "community": "Broadview",
+          "province": "Saskatchewan",
+          "region": "East / Northeast",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Canora",
+          "province": "Saskatchewan",
+          "region": "East / Northeast",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Esterhazy",
+          "province": "Saskatchewan",
+          "region": "East / Northeast",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Fort Qu'Appelle",
+          "province": "Saskatchewan",
+          "region": "East / Northeast",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Kamsack",
+          "province": "Saskatchewan",
+          "region": "East / Northeast",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Melville",
+          "province": "Saskatchewan",
+          "region": "East / Northeast",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Melfort",
+          "province": "Saskatchewan",
+          "region": "East / Northeast",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Nipawin",
+          "province": "Saskatchewan",
+          "region": "East / Northeast",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Tisdale",
+          "province": "Saskatchewan",
+          "region": "East / Northeast",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Yorkton",
+          "province": "Saskatchewan",
+          "region": "East / Northeast",
+          "maturity": "developing",
+          "status": "verified_coverage",
+          "local_resources": 2,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 5
+        },
+        {
+          "community": "Big River",
+          "province": "Saskatchewan",
+          "region": "North / Far North",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Buffalo Narrows",
+          "province": "Saskatchewan",
+          "region": "North / Far North",
+          "maturity": "developing",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 2,
+          "provincial_navigation": 3,
+          "mobile_ready": 6
+        },
+        {
+          "community": "Île-à-la-Crosse",
+          "province": "Saskatchewan",
+          "region": "North / Far North",
+          "maturity": "developing",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 5
+        },
+        {
+          "community": "La Loche",
+          "province": "Saskatchewan",
+          "region": "North / Far North",
+          "maturity": "developing",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 5
+        },
+        {
+          "community": "La Ronge",
+          "province": "Saskatchewan",
+          "region": "North / Far North",
+          "maturity": "developing",
+          "status": "verified_coverage",
+          "local_resources": 2,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 5
+        },
+        {
+          "community": "Meadow Lake",
+          "province": "Saskatchewan",
+          "region": "North / Far North",
+          "maturity": "developing",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 0,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Prince Albert",
+          "province": "Saskatchewan",
+          "region": "North / Far North",
+          "maturity": "developing",
+          "status": "verified_coverage",
+          "local_resources": 2,
+          "regional_resources": 1,
+          "provincial_navigation": 3,
+          "mobile_ready": 6
+        }
+      ],
+      "Manitoba": [
+        {
+          "community": "Winnipeg",
+          "province": "Manitoba",
+          "region": "Winnipeg / South",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 1
+        },
+        {
+          "community": "Brandon",
+          "province": "Manitoba",
+          "region": "Winnipeg / South",
+          "maturity": "foundation",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Selkirk",
+          "province": "Manitoba",
+          "region": "Winnipeg / South",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 1
+        },
+        {
+          "community": "Portage la Prairie",
+          "province": "Manitoba",
+          "region": "Winnipeg / South",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 1
+        },
+        {
+          "community": "Thompson",
+          "province": "Manitoba",
+          "region": "Northern Manitoba",
+          "maturity": "foundation",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 2,
+          "provincial_navigation": 2,
+          "mobile_ready": 3
+        },
+        {
+          "community": "The Pas",
+          "province": "Manitoba",
+          "region": "Northern Manitoba",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 2,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Flin Flon",
+          "province": "Manitoba",
+          "region": "Northern Manitoba",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 2,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Churchill",
+          "province": "Manitoba",
+          "region": "Northern Manitoba",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 2,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        }
+      ],
+      "Ontario": [
+        {
+          "community": "Toronto",
+          "province": "Ontario",
+          "region": "Southern Ontario",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 2,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Hamilton",
+          "province": "Ontario",
+          "region": "Southern Ontario",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "London",
+          "province": "Ontario",
+          "region": "Southern Ontario",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Windsor",
+          "province": "Ontario",
+          "region": "Southern Ontario",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Ottawa",
+          "province": "Ontario",
+          "region": "Eastern Ontario",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 2,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Sudbury",
+          "province": "Ontario",
+          "region": "Northern Ontario",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 3,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Thunder Bay",
+          "province": "Ontario",
+          "region": "Northern Ontario",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 3,
+          "provincial_navigation": 3,
+          "mobile_ready": 3
+        }
+      ],
+      "Quebec": [
+        {
+          "community": "Montréal",
+          "province": "Quebec",
+          "region": "Quebec",
+          "maturity": "foundation",
+          "status": "regional_coverage",
+          "local_resources": 0,
+          "regional_resources": 3,
+          "provincial_navigation": 2,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Québec City",
+          "province": "Quebec",
+          "region": "Quebec",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 2,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Kuujjuaq",
+          "province": "Quebec",
+          "region": "Quebec",
+          "maturity": "foundation",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 2
+        }
+      ],
+      "New Brunswick": [
+        {
+          "community": "Moncton",
+          "province": "New Brunswick",
+          "region": "New Brunswick",
+          "maturity": "foundation",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Saint John",
+          "province": "New Brunswick",
+          "region": "New Brunswick",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 1
+        },
+        {
+          "community": "Fredericton",
+          "province": "New Brunswick",
+          "region": "New Brunswick",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 1
+        },
+        {
+          "community": "Bathurst",
+          "province": "New Brunswick",
+          "region": "New Brunswick",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 1
+        },
+        {
+          "community": "Campbellton",
+          "province": "New Brunswick",
+          "region": "New Brunswick",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 1
+        },
+        {
+          "community": "Miramichi",
+          "province": "New Brunswick",
+          "region": "New Brunswick",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 1
+        },
+        {
+          "community": "Edmundston",
+          "province": "New Brunswick",
+          "region": "New Brunswick",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 1
+        }
+      ],
+      "Nova Scotia": [
+        {
+          "community": "Halifax",
+          "province": "Nova Scotia",
+          "region": "Nova Scotia",
+          "maturity": "foundation",
+          "status": "regional_coverage",
+          "local_resources": 0,
+          "regional_resources": 2,
+          "provincial_navigation": 1,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Dartmouth",
+          "province": "Nova Scotia",
+          "region": "Nova Scotia",
+          "maturity": "foundation",
+          "status": "regional_coverage",
+          "local_resources": 0,
+          "regional_resources": 2,
+          "provincial_navigation": 1,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Springhill",
+          "province": "Nova Scotia",
+          "region": "Nova Scotia",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 1
+        },
+        {
+          "community": "Sydney",
+          "province": "Nova Scotia",
+          "region": "Nova Scotia",
+          "maturity": "foundation",
+          "status": "regional_coverage",
+          "local_resources": 0,
+          "regional_resources": 2,
+          "provincial_navigation": 1,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Truro",
+          "province": "Nova Scotia",
+          "region": "Nova Scotia",
+          "maturity": "foundation",
+          "status": "regional_coverage",
+          "local_resources": 0,
+          "regional_resources": 2,
+          "provincial_navigation": 1,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Yarmouth",
+          "province": "Nova Scotia",
+          "region": "Nova Scotia",
+          "maturity": "foundation",
+          "status": "regional_coverage",
+          "local_resources": 0,
+          "regional_resources": 2,
+          "provincial_navigation": 1,
+          "mobile_ready": 2
+        }
+      ],
+      "Prince Edward Island": [
+        {
+          "community": "Charlottetown",
+          "province": "Prince Edward Island",
+          "region": "Prince Edward Island",
+          "maturity": "foundation",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Summerside",
+          "province": "Prince Edward Island",
+          "region": "Prince Edward Island",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 1
+        }
+      ],
+      "Newfoundland and Labrador": [
+        {
+          "community": "St. John's",
+          "province": "Newfoundland and Labrador",
+          "region": "Newfoundland and Labrador",
+          "maturity": "foundation",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 3
+        },
+        {
+          "community": "Corner Brook",
+          "province": "Newfoundland and Labrador",
+          "region": "Newfoundland and Labrador",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Happy Valley-Goose Bay",
+          "province": "Newfoundland and Labrador",
+          "region": "Newfoundland and Labrador",
+          "maturity": "foundation",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        }
+      ],
+      "Yukon": [
+        {
+          "community": "Whitehorse",
+          "province": "Yukon",
+          "region": "Yukon",
+          "maturity": "exploratory",
+          "status": "verified_coverage",
+          "local_resources": 1,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Dawson City",
+          "province": "Yukon",
+          "region": "Yukon",
+          "maturity": "exploratory",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 1
+        },
+        {
+          "community": "Watson Lake",
+          "province": "Yukon",
+          "region": "Yukon",
+          "maturity": "exploratory",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 1,
+          "mobile_ready": 1
+        }
+      ],
+      "Northwest Territories": [
+        {
+          "community": "Yellowknife",
+          "province": "Northwest Territories",
+          "region": "Northwest Territories",
+          "maturity": "exploratory",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Inuvik",
+          "province": "Northwest Territories",
+          "region": "Northwest Territories",
+          "maturity": "exploratory",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Fort Smith",
+          "province": "Northwest Territories",
+          "region": "Northwest Territories",
+          "maturity": "exploratory",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Hay River",
+          "province": "Northwest Territories",
+          "region": "Northwest Territories",
+          "maturity": "exploratory",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Behchokǫ̀",
+          "province": "Northwest Territories",
+          "region": "Northwest Territories",
+          "maturity": "exploratory",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        }
+      ],
+      "Nunavut": [
+        {
+          "community": "Iqaluit",
+          "province": "Nunavut",
+          "region": "Nunavut",
+          "maturity": "exploratory",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Rankin Inlet",
+          "province": "Nunavut",
+          "region": "Nunavut",
+          "maturity": "exploratory",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        },
+        {
+          "community": "Cambridge Bay",
+          "province": "Nunavut",
+          "region": "Nunavut",
+          "maturity": "exploratory",
+          "status": "navigation_only",
+          "local_resources": 0,
+          "regional_resources": 1,
+          "provincial_navigation": 2,
+          "mobile_ready": 2
+        }
+      ]
+    }
+  }
+}

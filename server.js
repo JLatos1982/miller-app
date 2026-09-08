@@ -2101,18 +2101,20 @@ app.post("/api/resource-submissions", submissionRateLimit, parseResourceSubmissi
 const mobileSearchRateLimit = rateLimit({ windowMs: 60 * 1000, max: 30 })
 
 app.get("/api/mobile/v1/about", (_req, res) => {
+  const inventory = buildMillerMobileInventory(millerMobileCatalog)
   res.setHeader("Cache-Control", "public, max-age=300")
   return res.json({
     contract: MILLER_MOBILE_API_VERSION,
     authentication: "public_read_only_rate_limited",
-    geography: ["British Columbia", "Alberta", "Saskatchewan", "Canada-wide"],
+    geography: Object.keys(inventory.by_province),
+    coverage_maturity: inventory.coverage_maturity,
     workflow: {
       job: "understand_navigate_handoff",
       multi_need: true,
       explicit_broaden_nearby: true,
-      location_semantics: ["located_here", "serves_community", "regional_intake", "province_navigation"],
+      location_semantics: ["located_here", "serves_community", "regional_intake", "province_navigation", "canada_wide"],
     },
-    inventory: buildMillerMobileInventory(millerMobileCatalog),
+    inventory,
     privacy: { query_stored: false, client_record_created: false },
   })
 })

@@ -87,6 +87,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": true,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": true,
         "scope_note": "",
@@ -158,6 +159,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": true,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": true,
         "scope_note": "",
@@ -230,6 +232,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": true,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": true,
         "scope_note": "",
@@ -294,6 +297,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -362,6 +366,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": true,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -430,6 +435,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": true,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -502,6 +508,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -566,6 +573,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -630,6 +638,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -689,6 +698,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -764,6 +774,7 @@
           "Paddle Prairie"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -841,6 +852,7 @@
           "Manning"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "The official listing states there is no public transportation to this service.",
@@ -909,6 +921,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -944,6 +957,78 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_nb_moncton_withdrawal",
+      "record_type": "service",
+      "organization": "Government of New Brunswick / Horizon Health Network",
+      "program_name": "Addiction Services - Moncton Withdrawal Management",
+      "categories": [
+        "practical_support"
+      ],
+      "subcategories": [
+        "withdrawal management",
+        "addiction intake",
+        "counselling",
+        "oat navigation"
+      ],
+      "description": "Moncton Addiction Services location listed by New Brunswick for withdrawal management and connection to other addiction services.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Moncton region",
+      "province": "New Brunswick",
+      "city_community": "Moncton",
+      "address": "125 Mapleton Road, Moncton, NB E1C 9G6",
+      "service_area": "Moncton region",
+      "service_scope": {
+        "physical_location": {
+          "community": "Moncton",
+          "address": "125 Mapleton Road, Moncton, NB E1C 9G6",
+          "province": "New Brunswick"
+        },
+        "local_service_area": [
+          "Moncton"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Moncton region"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call the Moncton centre to confirm current withdrawal-management intake before travelling.",
+      "phone": "506-856-2333",
+      "email": "",
+      "website": "https://www.gnb.ca/en/topic/health-wellness/addictions-substance-abuse/addiction-services.html",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Addiction Services - Moncton Withdrawal Management",
+        "authority": "Government of New Brunswick / Horizon Health Network",
+        "url": "https://www.gnb.ca/en/topic/health-wellness/addictions-substance-abuse/addiction-services.html"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_nb_moncton_withdrawal"
+      ]
+    },
+    {
       "canonical_resource_id": "support:sources-admin-accounting-works",
       "record_type": "service",
       "organization": "Sources Community Resource Centres",
@@ -968,6 +1053,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -1036,6 +1122,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -1102,6 +1189,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -1167,6 +1255,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -1236,6 +1325,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -1300,6 +1390,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -1366,6 +1457,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -1435,6 +1527,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -1506,6 +1599,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -1571,6 +1665,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -1635,6 +1730,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -1700,6 +1796,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -1737,6 +1834,74 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:thfx53",
+      "record_type": "service",
+      "organization": "Archway Community Services",
+      "program_name": "Archway Abbotsford Addictions Centre",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "outpatient substance use"
+      ],
+      "description": "Free outpatient alcohol and drug counselling, recovery groups and referrals for youth, adults, couples and families affected by substance use.",
+      "population_served": "Youth and adults with substance-use concerns, and people affected by another person's substance use.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser East",
+      "province": "British Columbia",
+      "city_community": "Abbotsford",
+      "address": "202-31943 South Fraser Way, Abbotsford, BC V2T 1V5",
+      "service_area": "Fraser East",
+      "service_scope": {
+        "physical_location": {
+          "community": "Abbotsford",
+          "address": "202-31943 South Fraser Way, Abbotsford, BC V2T 1V5",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Abbotsford"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser East"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "Youth and adults with substance-use concerns, and people affected by another person's substance use.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referral and professional referral are accepted; call the centre to start.",
+      "access": "Self-referral and professional referral are accepted; call the centre to start.",
+      "phone": "604-850-5106",
+      "email": "",
+      "website": "https://archway.ca/program/abbotsford-addictions-centre/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Archway Abbotsford Addictions Centre",
+        "authority": "Archway Community Services",
+        "url": "https://archway.ca/program/abbotsford-addictions-centre/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:thfx53"
+      ]
+    },
+    {
       "canonical_resource_id": "funding:miller:bc_crisis_supplement",
       "record_type": "funding",
       "organization": "Government of British Columbia",
@@ -1761,6 +1926,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -1830,6 +1996,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -1899,6 +2066,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -1967,6 +2135,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -2029,6 +2198,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -2096,6 +2266,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -2161,6 +2332,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": true,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -2231,6 +2403,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -2297,6 +2470,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -2360,6 +2534,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -2425,6 +2600,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -2486,6 +2662,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -2545,6 +2722,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -2604,6 +2782,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -2667,6 +2846,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -2737,6 +2917,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": true,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -2806,6 +2987,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -2879,6 +3061,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": true,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -2918,6 +3101,74 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:193xiju",
+      "record_type": "service",
+      "organization": "Carrier Sekani Family Services",
+      "program_name": "Carrier Sekani Substance Use Recovery Program",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "treatment programs"
+      ],
+      "description": "Culturally grounded seasonal residential, community and after-care programming for Indigenous adults in British Columbia and Yukon.",
+      "population_served": "Indigenous adults residing in British Columbia or Yukon; current program criteria apply.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "BC",
+      "province": "British Columbia",
+      "city_community": "Vanderhoof",
+      "address": "240 West Stewart Street, Vanderhoof, BC V0J 3A0",
+      "service_area": "BC",
+      "service_scope": {
+        "physical_location": {
+          "community": "Vanderhoof",
+          "address": "240 West Stewart Street, Vanderhoof, BC V0J 3A0",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Vanderhoof"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "BC"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "Indigenous adults residing in British Columbia or Yukon; current program criteria apply.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Review the official application steps, complete the treatment-centre application and medical sections, and contact a wellness worker or the program for current intake dates.",
+      "access": "Review the official application steps, complete the treatment-centre application and medical sections, and contact a wellness worker or the program for current intake dates.",
+      "phone": "250-567-2900",
+      "email": "",
+      "website": "https://www.csfs.org/programs/substance-use-recovery-program/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Carrier Sekani Substance Use Recovery Program",
+        "authority": "Carrier Sekani Family Services",
+        "url": "https://www.csfs.org/programs/substance-use-recovery-program/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:193xiju"
+      ]
+    },
+    {
       "canonical_resource_id": "curated:1nsty6",
       "record_type": "service",
       "organization": "Vancouver Coastal Health",
@@ -2947,6 +3198,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -2984,6 +3236,74 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:1kgx1i3",
+      "record_type": "service",
+      "organization": "Charlford House (STLR)",
+      "program_name": "Charlford House",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "treatment programs"
+      ],
+      "description": "Structured residential recovery program in Burnaby for women age 19 and older seeking support with substance use.",
+      "population_served": "Women age 19 and older; current admission and funding requirements apply.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser North",
+      "province": "British Columbia",
+      "city_community": "Burnaby",
+      "address": "6845 Kitchener St",
+      "service_area": "Fraser North",
+      "service_scope": {
+        "physical_location": {
+          "community": "Burnaby",
+          "address": "6845 Kitchener St",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Burnaby"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser North"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "Women age 19 and older; current admission and funding requirements apply.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Contact intake, complete the referral package and required medical sections, then confirm current eligibility, funding and bed availability with the program.",
+      "access": "Contact intake, complete the referral package and required medical sections, then confirm current eligibility, funding and bed availability with the program.",
+      "phone": "604-420-4626",
+      "email": "",
+      "website": "https://www.charlfordhouse.ca/admissions",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Charlford House",
+        "authority": "Charlford House (STLR)",
+        "url": "https://www.charlfordhouse.ca/admissions"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1kgx1i3"
+      ]
+    },
+    {
       "canonical_resource_id": "shared_sk_classic_legal_programs",
       "record_type": "service",
       "organization": "Community Legal Assistance Services for Saskatoon's Inner City",
@@ -3012,6 +3332,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -3089,6 +3410,7 @@
           "Lake Louise"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -3162,6 +3484,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -3230,6 +3553,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -3298,6 +3622,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -3365,6 +3690,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -3426,6 +3752,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -3472,6 +3799,87 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_on_connexontario",
+      "record_type": "service",
+      "organization": "ConnexOntario",
+      "program_name": "ConnexOntario Addiction and Mental Health Navigation",
+      "categories": [
+        "healthcare",
+        "housing",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction intake",
+        "mental health",
+        "withdrawal navigation",
+        "oat navigation",
+        "treatment navigation",
+        "housing navigation",
+        "family support"
+      ],
+      "description": "Free, confidential 24/7 phone, text, chat and email navigation for Ontario addiction, mental-health and problem-gambling treatment and support services.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Ontario",
+      "province": "Ontario",
+      "city_community": "",
+      "address": "",
+      "service_area": "Ontario",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [
+          "Toronto",
+          "Ottawa",
+          "Hamilton",
+          "London",
+          "Windsor",
+          "Sudbury",
+          "Thunder Bay",
+          "Northern Ontario"
+        ],
+        "service_area": "Ontario"
+      },
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 1-866-531-2600, text CONNEX to 247247, or use web chat. A name is not required; location may be shared optionally to find nearby services.",
+      "phone": "1-866-531-2600",
+      "email": "",
+      "website": "https://connexontario.ca/our-services/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "ConnexOntario Addiction and Mental Health Navigation",
+        "authority": "ConnexOntario",
+        "url": "https://connexontario.ca/our-services/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_on_connexontario"
+      ]
+    },
+    {
       "canonical_resource_id": "curated:wka1fv",
       "record_type": "service",
       "organization": "Lookout Society / Crawford Manor (STLR)",
@@ -3502,6 +3910,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -3588,6 +3997,7 @@
           "White Rock"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "Located in Surrey; regional access is coordinated through Fraser Health.",
@@ -3658,6 +4068,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -3723,6 +4134,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -3782,6 +4194,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": true,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -3817,6 +4230,74 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:1ko4u58",
+      "record_type": "service",
+      "organization": "Dixon Transition House Society",
+      "program_name": "Dixon Transition House",
+      "categories": [
+        "housing"
+      ],
+      "subcategories": [
+        "housing"
+      ],
+      "description": "24-hour transition-house intake for women and children seeking safety from violence, with housing and support navigation.",
+      "population_served": "Women and children fleeing abuse",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser North",
+      "province": "British Columbia",
+      "city_community": "Burnaby",
+      "address": "Burnaby (confidential location)",
+      "service_area": "Fraser North",
+      "service_scope": {
+        "physical_location": {
+          "community": "Burnaby",
+          "address": "Burnaby (confidential location)",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Burnaby"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser North"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "Women with or without children",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Call the 24-hour Dixon House intake line. The website contact form is not monitored continuously.",
+      "access": "Call the 24-hour Dixon House intake line. The website contact form is not monitored continuously.",
+      "phone": "604-298-3454",
+      "email": "",
+      "website": "https://dixonsociety.ca/contact-us/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Dixon Transition House",
+        "authority": "Dixon Transition House Society",
+        "url": "https://dixonsociety.ca/contact-us/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1ko4u58"
+      ]
+    },
+    {
       "canonical_resource_id": "curated:rgor6n",
       "record_type": "service",
       "organization": "Progressive Housing Society",
@@ -3841,6 +4322,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -3905,6 +4387,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -3942,6 +4425,79 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_qc_drogue_aide_reference",
+      "record_type": "service",
+      "organization": "Centre de référence du Grand Montréal",
+      "program_name": "Drogue : aide et référence",
+      "categories": [
+        "healthcare",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction intake",
+        "treatment navigation",
+        "family support",
+        "counselling navigation"
+      ],
+      "description": "Service bilingue, gratuit, confidentiel et anonyme d'information, d'écoute et de référence concernant l'alcool, les drogues et les médicaments.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Québec",
+      "province": "Quebec",
+      "city_community": "",
+      "address": "",
+      "service_area": "Québec",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [
+          "Montréal",
+          "Québec City",
+          "Kuujjuaq",
+          "Nunavik"
+        ],
+        "service_area": "Québec"
+      },
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Appelez le 1 800 265-2626 partout au Québec ou le 514 527-2626 à Montréal; le clavardage est aussi offert aux résidents du Québec.",
+      "phone": "1-800-265-2626",
+      "email": "",
+      "website": "https://www.aidedrogue.ca/a-propos/nous-joindre/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Drogue : aide et référence",
+        "authority": "Centre de référence du Grand Montréal",
+        "url": "https://www.aidedrogue.ca/a-propos/nous-joindre/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_qc_drogue_aide_reference"
+      ]
+    },
+    {
       "canonical_resource_id": "funding:miller-north:fnfund_ab_epp",
       "record_type": "funding",
       "organization": "Government of Alberta",
@@ -3967,6 +4523,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -4036,6 +4593,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": true,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -4105,6 +4663,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -4179,6 +4738,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": true,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -4247,6 +4807,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -4309,6 +4870,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -4378,6 +4940,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -4447,6 +5010,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -4520,6 +5084,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -4586,6 +5151,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -4652,6 +5218,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -4721,6 +5288,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -4791,6 +5359,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -4857,6 +5426,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -4926,6 +5496,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -5011,6 +5582,7 @@
           "White Rock"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": true,
         "scope_note": "Regional intake; this phone line is not a physical withdrawal-management facility.",
@@ -5083,6 +5655,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -5149,6 +5722,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -5184,6 +5758,78 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_pe_mha_access",
+      "record_type": "service",
+      "organization": "Health PEI",
+      "program_name": "Health PEI Mental Health and Addictions Access",
+      "categories": [
+        "healthcare",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction intake",
+        "mental health",
+        "treatment navigation",
+        "counselling",
+        "family support"
+      ],
+      "description": "Province-wide phone access and patient navigation for mental-health and addiction programs, including open-access counselling and referral support.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Prince Edward Island",
+      "province": "Prince Edward Island",
+      "city_community": "",
+      "address": "",
+      "service_area": "Prince Edward Island",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [
+          "Charlottetown",
+          "Summerside"
+        ],
+        "service_area": "Prince Edward Island"
+      },
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call the Mental Health and Addictions Phone Line. The official page also lists a patient navigator at 902-218-3289 and open-access counselling locations.",
+      "phone": "1-833-553-6983",
+      "email": "",
+      "website": "https://www.princeedwardisland.ca/en/information/health-pei/mental-health-and-addictions-services",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Health PEI Mental Health and Addictions Access",
+        "authority": "Health PEI",
+        "url": "https://www.princeedwardisland.ca/en/information/health-pei/mental-health-and-addictions-services"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_pe_mha_access"
+      ]
+    },
+    {
       "canonical_resource_id": "funding:miller-north:fnfund_bc_health_bursary",
       "record_type": "funding",
       "organization": "StudentAid BC",
@@ -5208,6 +5854,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -5285,6 +5932,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": true,
         "scope_note": "",
@@ -5347,6 +5995,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": true,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -5382,6 +6031,75 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:1e3mcco",
+      "record_type": "service",
+      "organization": "Hope and Area Transition Society",
+      "program_name": "Hope and Area Transition Society Substance Use Services",
+      "categories": [
+        "healthcare",
+        "family_community"
+      ],
+      "subcategories": [
+        "community substance use"
+      ],
+      "description": "Adult and youth substance-use support, community-based mental-health/substance-use services and connection to housing, family and recovery supports in Hope and surrounding communities.",
+      "population_served": "Adults, Youth, Families",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser East",
+      "province": "British Columbia",
+      "city_community": "Hope",
+      "address": "400 Park Street, Hope, BC V0X 1L0",
+      "service_area": "Fraser East",
+      "service_scope": {
+        "physical_location": {
+          "community": "Hope",
+          "address": "400 Park Street, Hope, BC V0X 1L0",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Hope"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser East"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "Mixed",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Call the main office or use the official service inquiry form to confirm the appropriate substance-use program and current access route.",
+      "access": "Call the main office or use the official service inquiry form to confirm the appropriate substance-use program and current access route.",
+      "phone": "604-869-5111",
+      "email": "",
+      "website": "https://hopetransition.org/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Hope and Area Transition Society Substance Use Services",
+        "authority": "Hope and Area Transition Society",
+        "url": "https://hopetransition.org/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1e3mcco"
+      ]
+    },
+    {
       "canonical_resource_id": "shared_isc_hope_for_wellness",
       "record_type": "service",
       "organization": "Indigenous Services Canada / Hope for Wellness",
@@ -5409,6 +6127,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": true,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -5478,6 +6197,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -5545,6 +6265,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -5607,6 +6328,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -5677,6 +6399,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -5738,6 +6461,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -5813,6 +6537,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -5881,6 +6606,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -5945,6 +6671,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -6020,6 +6747,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -6088,6 +6816,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -6149,6 +6878,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -6225,6 +6955,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -6295,6 +7026,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -6360,6 +7092,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -6426,6 +7159,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -6489,6 +7223,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": true,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -6559,6 +7294,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -6624,6 +7360,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -6692,6 +7429,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -6765,6 +7503,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -6841,6 +7580,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -6881,6 +7621,81 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_qc_info_social_811",
+      "record_type": "service",
+      "organization": "Gouvernement du Québec",
+      "program_name": "Info-Social 811",
+      "categories": [
+        "healthcare",
+        "housing",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "social service navigation",
+        "housing navigation",
+        "family support"
+      ],
+      "description": "Service gratuit et confidentiel de consultation téléphonique psychosociale et d'orientation vers les ressources appropriées.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Régions du Québec sauf les Terres-Cries-de-la-Baie-James et le Nunavik",
+      "province": "Quebec",
+      "city_community": "",
+      "address": "",
+      "service_area": "Régions du Québec sauf les Terres-Cries-de-la-Baie-James et le Nunavik",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [
+          "Montréal",
+          "Québec City"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "Province-wide in most Quebec regions, but not offered in the Terres-Cries-de-la-Baie-James or Nunavik.",
+        "search_locations": [
+          "Montréal",
+          "Québec City"
+        ],
+        "service_area": "Régions du Québec sauf les Terres-Cries-de-la-Baie-James et le Nunavik"
+      },
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Composez le 811, option 2, depuis le Québec. Le service est offert 24 heures sur 24; les exclusions territoriales officielles demeurent applicables.",
+      "phone": "811",
+      "email": "",
+      "website": "https://www.quebec.ca/sante/trouver-une-ressource/info-social-811",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Info-Social 811",
+        "authority": "Gouvernement du Québec",
+        "url": "https://www.quebec.ca/sante/trouver-une-ressource/info-social-811"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_qc_info_social_811"
+      ]
+    },
+    {
       "canonical_resource_id": "fns_sk_stc_integrated_wellness",
       "record_type": "service",
       "organization": "Saskatoon Tribal Council",
@@ -6910,6 +7725,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -6996,6 +7812,7 @@
           "Williams Lake"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": true,
         "scope_note": "Regional telephone assessment and navigation; it is not a physical facility in each listed community.",
@@ -7074,6 +7891,7 @@
           "Victoria"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": true,
         "scope_note": "Regional phone navigation; service facilities are located separately across Vancouver Island.",
@@ -7151,6 +7969,7 @@
           "Zeballos"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": true,
         "scope_note": "Transportation service; it is not a healthcare facility. Eligibility and available routes must be confirmed with Island Health.",
@@ -7199,6 +8018,85 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_qc_isuarsivik",
+      "record_type": "service",
+      "organization": "Isuarsivik Regional Recovery Centre",
+      "program_name": "Isuarsivik Regional Recovery Centre",
+      "categories": [
+        "family_community",
+        "healthcare"
+      ],
+      "subcategories": [
+        "counselling",
+        "family support",
+        "indigenous addiction treatment",
+        "reentry support",
+        "remote support",
+        "residential treatment"
+      ],
+      "description": "Inuit-governed Nunavik recovery centre offering an eight-week in-house program in Kuujjuaq plus in-person or remote community, pre-care, after-care, cultural and detention supports.",
+      "population_served": "James Bay and Northern Quebec Agreement beneficiaries age 18 or older; current program requirements apply.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Nunavik and eligible JBNQA beneficiaries living elsewhere",
+      "province": "Quebec",
+      "city_community": "Kuujjuaq",
+      "address": "",
+      "service_area": "Nunavik and eligible JBNQA beneficiaries living elsewhere",
+      "service_scope": {
+        "physical_location": {
+          "community": "Kuujjuaq",
+          "province": "Quebec"
+        },
+        "local_service_area": [
+          "Kuujjuaq"
+        ],
+        "regional_service_area": [
+          "Nunavik",
+          "Montréal",
+          "Ottawa"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Nunavik and eligible JBNQA beneficiaries living elsewhere"
+      },
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "eligibility": "JBNQA beneficiaries age 18 or older. The official application page also describes access for eligible beneficiaries living in Montréal, Québec or Ottawa.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Complete the applicable adult and medical forms and submit them to intake@isuarsivik.ca, or call a liaison worker for help with the process.",
+      "phone": "1-844-964-5646",
+      "email": "",
+      "website": "https://isuarsivik.ca/apply/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Isuarsivik Regional Recovery Centre",
+        "authority": "Isuarsivik Regional Recovery Centre",
+        "url": "https://isuarsivik.ca/apply/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "miller_qc_isuarsivik"
+      ]
+    },
+    {
       "canonical_resource_id": "shared_isc_jordans_principle",
       "record_type": "funding",
       "organization": "Indigenous Services Canada",
@@ -7227,6 +8125,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": true,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -7300,6 +8199,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -7368,6 +8268,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -7435,6 +8336,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -7499,6 +8401,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -7568,6 +8471,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -7635,6 +8539,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -7673,6 +8578,143 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:13pq95v",
+      "record_type": "service",
+      "organization": "LCSS",
+      "program_name": "Langley Community Services Substance Use Services",
+      "categories": [
+        "healthcare",
+        "family_community"
+      ],
+      "subcategories": [
+        "community substance use"
+      ],
+      "description": "Free outpatient information, counselling, groups, after-care and referrals for people affected by their own or another person's substance use.",
+      "population_served": "Children, youth, adults and seniors residing in Langley City, Langley Township or Aldergrove.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser South",
+      "province": "British Columbia",
+      "city_community": "Langley",
+      "address": "5339 207 Street, Langley, BC V3A 2E6",
+      "service_area": "Fraser South",
+      "service_scope": {
+        "physical_location": {
+          "community": "Langley",
+          "address": "5339 207 Street, Langley, BC V3A 2E6",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Langley"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser South"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "Children, youth, adults and seniors residing in Langley City, Langley Township or Aldergrove.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Call the intake worker to start the self-referral process.",
+      "access": "Call the intake worker to start the self-referral process.",
+      "phone": "604-534-7230 ext. 1108",
+      "email": "",
+      "website": "https://www.lcss.ca/programs-and-services/substance-use-services/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Langley Community Services Substance Use Services",
+        "authority": "LCSS",
+        "url": "https://www.lcss.ca/programs-and-services/substance-use-services/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:13pq95v"
+      ]
+    },
+    {
+      "canonical_resource_id": "curated:1ykkt91",
+      "record_type": "service",
+      "organization": "Last Door Recovery Centre (STLR)",
+      "program_name": "Last Door Recovery Centre",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "treatment programs"
+      ],
+      "description": "Youth and adult addiction treatment and recovery programs for males, with direct intake contact through Last Door Recovery Society.",
+      "population_served": "Men 19+",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser North",
+      "province": "British Columbia",
+      "city_community": "New Westminster",
+      "address": "323 8th Street, New Westminster, BC V3M 3R3",
+      "service_area": "Fraser North",
+      "service_scope": {
+        "physical_location": {
+          "community": "New Westminster",
+          "address": "323 8th Street, New Westminster, BC V3M 3R3",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "New Westminster"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser North"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Call the program or use its official contact form to ask about current admissions, program fit and cost.",
+      "access": "Call the program or use its official contact form to ask about current admissions, program fit and cost.",
+      "phone": "604-525-9771",
+      "email": "",
+      "website": "https://lastdoor.org/contact/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Last Door Recovery Centre",
+        "authority": "Last Door Recovery Centre (STLR)",
+        "url": "https://lastdoor.org/contact/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1ykkt91"
+      ]
+    },
+    {
       "canonical_resource_id": "shared_ab_legal_aid",
       "record_type": "service",
       "organization": "Legal Aid Alberta",
@@ -7702,6 +8744,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -7766,6 +8809,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -7830,6 +8874,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -7899,6 +8944,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -7968,6 +9014,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -8038,6 +9085,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -8103,6 +9151,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -8140,6 +9189,85 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_mb_mha_connect",
+      "record_type": "service",
+      "organization": "Shared Health Manitoba",
+      "program_name": "Manitoba Mental Health & Addictions Connect",
+      "categories": [
+        "healthcare",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction intake",
+        "mental health",
+        "substance use",
+        "withdrawal navigation",
+        "treatment navigation",
+        "family support"
+      ],
+      "description": "Provincial intake and referral pathway connecting individuals, caregivers and service providers with community mental-health, substance-use and problem-gambling services.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Manitoba",
+      "province": "Manitoba",
+      "city_community": "",
+      "address": "",
+      "service_area": "Manitoba",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [
+          "Winnipeg",
+          "Brandon",
+          "Selkirk",
+          "Portage la Prairie",
+          "Thompson",
+          "The Pas",
+          "Flin Flon",
+          "Churchill"
+        ],
+        "service_area": "Manitoba"
+      },
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call the toll-free provincial access point. Individuals, caregivers and providers may initiate a referral; consent is required when a provider refers.",
+      "phone": "1-877-710-3999",
+      "email": "",
+      "website": "https://healthproviders.sharedhealthmb.ca/services/mental-health-and-addictions/mha-connect/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Manitoba Mental Health & Addictions Connect",
+        "authority": "Shared Health Manitoba",
+        "url": "https://healthproviders.sharedhealthmb.ca/services/mental-health-and-addictions/mha-connect/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_mb_mha_connect"
+      ]
+    },
+    {
       "canonical_resource_id": "support:maple-ridge-pitt-meadows-rent-bank",
       "record_type": "service",
       "organization": "Lower Mainland Purpose Society / BC Rent Bank",
@@ -8164,6 +9292,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -8199,6 +9328,86 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_nl_mtap",
+      "record_type": "service",
+      "organization": "Government of Newfoundland and Labrador",
+      "program_name": "Medical Transportation Assistance Program",
+      "categories": [
+        "financial_funding",
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "medical transportation",
+        "travel funding",
+        "rural remote access"
+      ],
+      "description": "Financial assistance for eligible Medical Care Plan beneficiaries who must travel for specialized insured medical services unavailable in their area.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Newfoundland and Labrador",
+      "province": "Newfoundland and Labrador",
+      "city_community": "",
+      "address": "",
+      "service_area": "Newfoundland and Labrador",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Newfoundland and Labrador"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "Current MCP, service, geography, other-coverage and documentation requirements apply.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review the current claim guide, register for direct deposit, and submit the applicable claim or prepayment request with required documentation.",
+      "phone": "1-877-475-2412",
+      "email": "",
+      "website": "https://www.gov.nl.ca/la/medical-transportation-assistance-program-mtap/medical-transportation-assistance-program/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": {
+        "funding_source": "Government of Newfoundland and Labrador",
+        "eligible_trip_types": [
+          "Eligible specialized insured medical services unavailable locally"
+        ],
+        "delivery": "Claim, reimbursement or approved prepayment process",
+        "travel_modes": [
+          "Economy airfare",
+          "bus",
+          "ferry",
+          "private vehicle",
+          "eligible ground transport"
+        ]
+      },
+      "source": {
+        "title": "Medical Transportation Assistance Program",
+        "authority": "Government of Newfoundland and Labrador",
+        "url": "https://www.gov.nl.ca/la/medical-transportation-assistance-program-mtap/medical-transportation-assistance-program/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_nl_mtap"
+      ]
+    },
+    {
       "canonical_resource_id": "support:fnha-medical-transportation-benefit",
       "record_type": "service_and_funding",
       "organization": "First Nations Health Authority",
@@ -8229,6 +9438,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": true,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": true,
         "scope_note": "",
@@ -8313,6 +9523,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -8381,6 +9592,7 @@
           "Northern Saskatchewan"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -8460,6 +9672,7 @@
           "Southwest Saskatchewan"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -8496,6 +9709,83 @@
       ],
       "source_record_ids": [
         "miller_sk_swift_current_community_health"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_ns_provincial_mha_intake",
+      "record_type": "service",
+      "organization": "Nova Scotia Health",
+      "program_name": "Mental Health and Addictions Provincial Intake Service",
+      "categories": [
+        "healthcare",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction intake",
+        "mental health",
+        "withdrawal navigation",
+        "oat navigation",
+        "treatment navigation",
+        "family youth"
+      ],
+      "description": "Centralized entry point for Nova Scotia Health adult and child/youth mental-health and addiction services, with intake assessment and connection to treatment options.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Nova Scotia",
+      "province": "Nova Scotia",
+      "city_community": "",
+      "address": "",
+      "service_area": "Nova Scotia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [
+          "Halifax",
+          "Dartmouth",
+          "Springhill",
+          "Sydney",
+          "Truro",
+          "Yarmouth"
+        ],
+        "service_area": "Nova Scotia"
+      },
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call the provincial intake line. People may self-refer, and service providers may refer with the person's consent.",
+      "phone": "1-855-922-1122",
+      "email": "",
+      "website": "https://mha.nshealth.ca/en/provincialmhaintakeservice",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Mental Health and Addictions Provincial Intake Service",
+        "authority": "Nova Scotia Health",
+        "url": "https://mha.nshealth.ca/en/provincialmhaintakeservice"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_ns_provincial_mha_intake"
       ]
     },
     {
@@ -8536,6 +9826,7 @@
           "Skidegate"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -8614,6 +9905,7 @@
           "Hudson's Hope"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -8693,6 +9985,7 @@
           "Chetwynd"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -8768,6 +10061,7 @@
           "Old Massett"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -8841,6 +10135,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -8919,6 +10214,7 @@
           "Lax Kw'alaams"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -8985,6 +10281,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -9057,6 +10354,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -9135,6 +10433,7 @@
           "Beauval"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -9212,6 +10511,7 @@
           "Beauval"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -9275,6 +10575,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -9345,6 +10646,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -9416,6 +10718,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -9508,6 +10811,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -9567,6 +10871,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -9633,6 +10938,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -9703,6 +11009,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -9771,6 +11078,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -9808,6 +11116,85 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_nb_addiction_services",
+      "record_type": "service",
+      "organization": "Government of New Brunswick",
+      "program_name": "New Brunswick Addiction Services",
+      "categories": [
+        "healthcare",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction intake",
+        "withdrawal navigation",
+        "oat navigation",
+        "outpatient treatment",
+        "residential treatment",
+        "counselling",
+        "family support"
+      ],
+      "description": "Provincial pathway to Horizon and Vitalité addiction services, including withdrawal management, outpatient counselling, addiction medicine and live-in treatment.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "New Brunswick",
+      "province": "New Brunswick",
+      "city_community": "",
+      "address": "",
+      "service_area": "New Brunswick",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [
+          "Moncton",
+          "Saint John",
+          "Fredericton",
+          "Bathurst",
+          "Campbellton",
+          "Miramichi",
+          "Edmundston"
+        ],
+        "service_area": "New Brunswick"
+      },
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call the free 24/7 provincial addiction and mental-health helpline or the regional centre listed on the official page to confirm current access.",
+      "phone": "1-866-355-5550",
+      "email": "",
+      "website": "https://www.gnb.ca/en/topic/health-wellness/addictions-substance-abuse/addiction-services.html",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "New Brunswick Addiction Services",
+        "authority": "Government of New Brunswick",
+        "url": "https://www.gnb.ca/en/topic/health-wellness/addictions-substance-abuse/addiction-services.html"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_nb_addiction_services"
+      ]
+    },
+    {
       "canonical_resource_id": "funding:miller-north:fnfund_federal_new_fiscal",
       "record_type": "funding",
       "organization": "Indigenous Services Canada",
@@ -9833,6 +11220,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": true,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -9901,6 +11289,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -9960,6 +11349,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -10020,6 +11410,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -10055,6 +11446,78 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_nl_healthline_mha",
+      "record_type": "service",
+      "organization": "Government of Newfoundland and Labrador",
+      "program_name": "Newfoundland and Labrador HealthLine Mental Health and Addictions Access",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction intake",
+        "mental health",
+        "treatment navigation",
+        "counselling navigation"
+      ],
+      "description": "24/7 provincial HealthLine access for mental-health or addiction services and support from a registered nurse.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Newfoundland and Labrador",
+      "province": "Newfoundland and Labrador",
+      "city_community": "",
+      "address": "",
+      "service_area": "Newfoundland and Labrador",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [
+          "St. John's",
+          "Corner Brook",
+          "Happy Valley-Goose Bay",
+          "Labrador"
+        ],
+        "service_area": "Newfoundland and Labrador"
+      },
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call the HealthLine for 24/7 access and navigation. The official page separately lists regional and facility contact numbers.",
+      "phone": "1-888-709-2929",
+      "email": "",
+      "website": "https://www.gov.nl.ca/hcs/mentalhealth-committee/mentalhealth/help-now/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Newfoundland and Labrador HealthLine Mental Health and Addictions Access",
+        "authority": "Government of Newfoundland and Labrador",
+        "url": "https://www.gov.nl.ca/hcs/mentalhealth-committee/mentalhealth/help-now/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_nl_healthline_mha"
+      ]
+    },
+    {
       "canonical_resource_id": "shared_isc_nihb_medical_transportation",
       "record_type": "funding",
       "organization": "Indigenous Services Canada",
@@ -10083,6 +11546,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": true,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -10177,6 +11641,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": true,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -10270,6 +11735,7 @@
           "Masset"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": true,
         "scope_note": "Regional transportation network; routes and stops must be confirmed and it does not imply a health service is physically located in the searched community.",
@@ -10319,6 +11785,87 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_on_northern_health_travel_grant",
+      "record_type": "service",
+      "organization": "Ontario Ministry of Health",
+      "program_name": "Northern Health Travel Grant Program",
+      "categories": [
+        "financial_funding",
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "medical transportation",
+        "treatment transportation",
+        "travel funding",
+        "rural remote access"
+      ],
+      "description": "Financial assistance for eligible Northern Ontario residents travelling long distances to the nearest medical specialist or ministry-funded healthcare facility for services unavailable locally.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Northern Ontario",
+      "province": "Ontario",
+      "city_community": "",
+      "address": "",
+      "service_area": "Northern Ontario",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [
+          "Northern Ontario",
+          "Sudbury",
+          "Thunder Bay"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Northern Ontario"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "Ontario's current distance, residency, insured-service and application requirements apply; the official page states a 100 km one-way minimum for the nearest eligible service.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review eligibility and submit the official online or paper application within the stated deadline. Each round trip requires a separate application.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.ontario.ca/page/northern-health-travel-grant-program",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": {
+        "funding_source": "Ontario Ministry of Health",
+        "eligible_trip_types": [
+          "Eligible specialist or ministry-funded healthcare services unavailable locally"
+        ],
+        "delivery": "Online or paper grant application",
+        "travel_modes": [
+          "Eligible personal, public, rail or air travel under current program rules"
+        ]
+      },
+      "source": {
+        "title": "Northern Health Travel Grant Program",
+        "authority": "Ontario Ministry of Health",
+        "url": "https://www.ontario.ca/page/northern-health-travel-grant-program"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_on_northern_health_travel_grant"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_sk_northern_medical_transportation",
       "record_type": "funding",
       "organization": "Government of Saskatchewan",
@@ -10347,6 +11894,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -10401,6 +11949,89 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_mb_northern_patient_transport",
+      "record_type": "service",
+      "organization": "Manitoba Health",
+      "program_name": "Northern Patient Transportation Program",
+      "categories": [
+        "financial_funding",
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "medical transportation",
+        "treatment transportation",
+        "rural remote access",
+        "funding"
+      ],
+      "description": "Subsidizes eligible medical transportation for northern Manitoba residents who must travel for medical or hospital care unavailable in their home community.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Eligible areas of northern Manitoba",
+      "province": "Manitoba",
+      "city_community": "",
+      "address": "",
+      "service_area": "Eligible areas of northern Manitoba",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [
+          "Northern Manitoba",
+          "Thompson",
+          "The Pas",
+          "Flin Flon",
+          "Churchill"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Eligible areas of northern Manitoba"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "Manitoba residents in the geographic areas listed by Manitoba Health who need eligible care unavailable in their home community; other coverage can affect eligibility.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "A physician must approve the travel and current program eligibility must be confirmed with the appropriate northern office before arrangements are made.",
+      "phone": "1-800-290-1098",
+      "email": "",
+      "website": "https://www.gov.mb.ca/health/mhsip/healthcoverage.html",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": {
+        "funding_source": "Manitoba Health",
+        "eligible_trip_types": [
+          "Eligible medical or hospital care unavailable in the home community"
+        ],
+        "delivery": "Physician approval and regional-office coordination required",
+        "travel_modes": [
+          "Approved ground or air travel"
+        ]
+      },
+      "source": {
+        "title": "Northern Patient Transportation Program",
+        "authority": "Manitoba Health",
+        "url": "https://www.gov.mb.ca/health/mhsip/healthcoverage.html"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_mb_northern_patient_transport"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_bc_port_hardy_mhsu_access",
       "record_type": "service",
       "organization": "Island Health",
@@ -10441,6 +12072,7 @@
           "Sointula"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": true,
         "scope_note": "",
@@ -10519,6 +12151,7 @@
           "Sointula"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": true,
         "scope_note": "",
@@ -10557,6 +12190,381 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_nt_community_counselling",
+      "record_type": "service",
+      "organization": "Government of the Northwest Territories",
+      "program_name": "Northwest Territories Community Counselling Program",
+      "categories": [
+        "healthcare",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "addiction counselling",
+        "treatment navigation",
+        "family youth",
+        "rural remote access"
+      ],
+      "description": "Territorial community-counselling access with local or regional telephone contacts for adult, child, youth and family mental-health and addiction support.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Northwest Territories",
+      "province": "Northwest Territories",
+      "city_community": "",
+      "address": "",
+      "service_area": "Northwest Territories",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "One territorial program with community-specific contacts; the Yellowknife number is not presented as the contact for every community.",
+        "search_locations": [
+          "Yellowknife",
+          "Inuvik",
+          "Fort Smith",
+          "Hay River",
+          "Behchokǫ̀"
+        ],
+        "service_area": "Northwest Territories"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official community list to call the local or regional counsellor, or submit the external referral form. The displayed phone is the Yellowknife contact; other communities have distinct numbers.",
+      "phone": "867-767-9110",
+      "email": "",
+      "website": "https://www.hss.gov.nt.ca/en/contact/community-counsellor",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Northwest Territories Community Counselling Program",
+        "authority": "Government of the Northwest Territories",
+        "url": "https://www.hss.gov.nt.ca/en/contact/community-counsellor"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_nt_community_counselling"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_nt_medical_travel",
+      "record_type": "service",
+      "organization": "Government of the Northwest Territories",
+      "program_name": "Northwest Territories Medical Travel",
+      "categories": [
+        "financial_funding",
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "medical transportation",
+        "travel funding",
+        "rural remote access",
+        "benefits navigation"
+      ],
+      "description": "Navigation for NTHSSA-administered medical travel supports when insured care is unavailable in a person's home community, including information about coverage providers and appeals.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Northwest Territories",
+      "province": "Northwest Territories",
+      "city_community": "",
+      "address": "",
+      "service_area": "Northwest Territories",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Northwest Territories"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "Current NWT health-card, benefit-provider, insured-service, referral and pre-approval rules apply.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "A healthcare provider submits the referral to the regional medical-travel office. Travel must be approved in advance; use the official page to identify the correct coverage route.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.hss.gov.nt.ca/en/services/medical-travel",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": {
+        "funding_source": "GNWT/NTHSSA or the applicable coverage provider",
+        "eligible_trip_types": [
+          "Insured medical services unavailable in the home community"
+        ],
+        "delivery": "Provider referral and regional medical-travel approval",
+        "travel_modes": [
+          "Approved travel to the closest available care"
+        ]
+      },
+      "source": {
+        "title": "Northwest Territories Medical Travel",
+        "authority": "Government of the Northwest Territories",
+        "url": "https://www.hss.gov.nt.ca/en/services/medical-travel"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_nt_medical_travel"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_ns_recovery_support_centres",
+      "record_type": "service",
+      "organization": "Nova Scotia Health",
+      "program_name": "Nova Scotia Recovery Support Centres",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction treatment",
+        "recovery support",
+        "harm reduction",
+        "withdrawal navigation",
+        "oat navigation",
+        "counselling"
+      ],
+      "description": "Regional recovery-support centres providing education, harm reduction, individual and group support, and connection to withdrawal, opioid treatment and community services.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Nova Scotia health zones",
+      "province": "Nova Scotia",
+      "city_community": "",
+      "address": "",
+      "service_area": "Nova Scotia health zones",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "One provincial program with multiple physical locations; consult the official location list rather than assuming a centre is in every community.",
+        "search_locations": [
+          "Halifax",
+          "Dartmouth",
+          "Sydney",
+          "Truro",
+          "Yarmouth"
+        ],
+        "service_area": "Nova Scotia health zones"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call a listed centre directly, call provincial intake, or use walk-in access where the official location listing permits it.",
+      "phone": "1-855-922-1122",
+      "email": "",
+      "website": "https://mha.nshealth.ca/en/rsc",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Nova Scotia Recovery Support Centres",
+        "authority": "Nova Scotia Health",
+        "url": "https://mha.nshealth.ca/en/rsc"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_ns_recovery_support_centres"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_nu_community_health_access",
+      "record_type": "service",
+      "organization": "Government of Nunavut Department of Health",
+      "program_name": "Nunavut Community Health Centre Access",
+      "categories": [
+        "healthcare",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health navigation",
+        "addiction navigation",
+        "community health",
+        "rural remote access"
+      ],
+      "description": "Community health-centre access pathway for Nunavummiut seeking local health-provider support and connection to mental-health, addiction or travelling-care pathways.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Nunavut communities",
+      "province": "Nunavut",
+      "city_community": "",
+      "address": "",
+      "service_area": "Nunavut communities",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "Territorial navigation record backed by the official community health-centre contact list; it is not a claim that treatment is physically available in every community.",
+        "search_locations": [
+          "Iqaluit",
+          "Rankin Inlet",
+          "Cambridge Bay"
+        ],
+        "service_area": "Nunavut communities"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the health centre in the person's home community using the official community list. Centre phone numbers differ by community; no single local facility is implied.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Nunavut Community Health Centre Access",
+        "authority": "Government of Nunavut Department of Health",
+        "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_nu_community_health_access"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_nu_medical_travel",
+      "record_type": "service",
+      "organization": "Government of Nunavut Department of Health",
+      "program_name": "Nunavut Medical Travel",
+      "categories": [
+        "financial_funding",
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "medical transportation",
+        "rural remote access",
+        "benefits navigation"
+      ],
+      "description": "Regional medical-travel coordination for Nunavummiut who need care outside their home community, with separate Qikiqtaaluk, Kivalliq and Kitikmeot contacts.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Nunavut",
+      "province": "Nunavut",
+      "city_community": "",
+      "address": "",
+      "service_area": "Nunavut",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Nunavut"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "Current territorial medical-travel referral, approval and regional requirements apply.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official handbook and home-community health centre to reach the correct regional office. The displayed number is for Qikiqtaaluk; Kivalliq and Kitikmeot have separate toll-free numbers.",
+      "phone": "1-866-371-3305",
+      "email": "",
+      "website": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": {
+        "funding_source": "Government of Nunavut",
+        "eligible_trip_types": [
+          "Approved care outside the home community"
+        ],
+        "delivery": "Community health-centre and regional medical-travel coordination",
+        "travel_modes": [
+          "Approved scheduled or charter travel"
+        ]
+      },
+      "source": {
+        "title": "Nunavut Medical Travel",
+        "authority": "Government of Nunavut Department of Health",
+        "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_nu_medical_travel"
+      ]
+    },
+    {
       "canonical_resource_id": "funding:miller-north:fnfund_bc_nursing_tuition",
       "record_type": "funding",
       "organization": "StudentAid BC",
@@ -10581,6 +12589,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -10653,6 +12662,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -10726,6 +12736,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -10765,6 +12776,82 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_on_indigenous_mha_navigation",
+      "record_type": "service",
+      "organization": "Government of Ontario",
+      "program_name": "Ontario Indigenous Mental Health and Addiction Treatment and Healing Centres",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction treatment",
+        "counselling",
+        "indigenous navigation",
+        "mental health",
+        "residential treatment",
+        "transportation navigation"
+      ],
+      "description": "Official Ontario pathway listing Indigenous mental-health and addiction treatment and healing centres, including residential and non-residential programs and northern crisis-team supports.",
+      "population_served": "First Nations, Métis and Inuit people seeking culturally grounded mental-health or addiction services; individual provider rules apply.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Ontario",
+      "province": "Ontario",
+      "city_community": "",
+      "address": "",
+      "service_area": "Ontario",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [
+          "Toronto",
+          "Ottawa",
+          "Sudbury",
+          "Thunder Bay",
+          "Northern Ontario"
+        ],
+        "service_area": "Ontario"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official list to contact the identified provider directly and confirm its current intake, eligibility and location before travel.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.ontario.ca/page/mental-health-and-addiction-services-indigenous-individuals-and-families",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Ontario Indigenous Mental Health and Addiction Treatment and Healing Centres",
+        "authority": "Government of Ontario",
+        "url": "https://www.ontario.ca/page/mental-health-and-addiction-services-indigenous-individuals-and-families"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "miller_on_indigenous_mha_navigation"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_sk_buffalo_narrows_oat",
       "record_type": "service",
       "organization": "Saskatchewan Health Authority",
@@ -10798,6 +12885,7 @@
           "Northwest Saskatchewan"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -10869,6 +12957,7 @@
           "Northern Saskatchewan"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -10940,6 +13029,7 @@
           "Southwest Saskatchewan"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -11007,6 +13097,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -11075,6 +13166,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -11144,6 +13236,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -11215,6 +13308,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -11283,6 +13377,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -11346,6 +13441,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -11413,6 +13509,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -11482,6 +13579,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -11547,6 +13645,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -11609,6 +13708,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -11682,6 +13782,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -11749,6 +13850,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -11821,6 +13923,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "Physical program in Port Hardy; sobering and assessment are distinct from medical withdrawal-management care.",
@@ -11880,6 +13983,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": true,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -11957,6 +14061,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -12031,6 +14136,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -12071,6 +14177,82 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_pe_provincial_addictions_facility",
+      "record_type": "service",
+      "organization": "Health PEI",
+      "program_name": "Provincial Addictions Treatment Facility",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "withdrawal management",
+        "outpatient withdrawal",
+        "oat navigation",
+        "addiction counselling",
+        "transition support"
+      ],
+      "description": "Provincial facility providing medically supervised inpatient withdrawal management and connection to community counselling, opioid agonist treatment and outpatient withdrawal services.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Prince Edward Island",
+      "province": "Prince Edward Island",
+      "city_community": "Charlottetown",
+      "address": "2814 Route 215, Mount Herbert, Charlottetown, PE C1A 7N8",
+      "service_area": "Prince Edward Island",
+      "service_scope": {
+        "physical_location": {
+          "community": "Charlottetown",
+          "address": "2814 Route 215, Mount Herbert, Charlottetown, PE C1A 7N8",
+          "province": "Prince Edward Island"
+        },
+        "local_service_area": [
+          "Charlottetown"
+        ],
+        "regional_service_area": [
+          "Prince Edward Island"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Prince Edward Island"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call the toll-free line to request admission and confirm current intake. Separate contact numbers are listed for community and transition services.",
+      "phone": "1-888-299-8399",
+      "email": "",
+      "website": "https://www.princeedwardisland.ca/en/information/health-pei/provincial-addictions-treatment-facility",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Provincial Addictions Treatment Facility",
+        "authority": "Health PEI",
+        "url": "https://www.princeedwardisland.ca/en/information/health-pei/provincial-addictions-treatment-facility"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_pe_provincial_addictions_facility"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_bc_connective_provincial_reintegration",
       "record_type": "service",
       "organization": "Connective",
@@ -12102,6 +14284,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -12168,6 +14351,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -12239,6 +14423,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -12271,6 +14456,156 @@
       ],
       "source_record_ids": [
         "miller_bc_victoria_raac"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_mb_raam_brandon",
+      "record_type": "service",
+      "organization": "Shared Health Manitoba",
+      "program_name": "Rapid Access to Addictions Medicine Clinic - Brandon",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "oat",
+        "addiction medicine",
+        "counselling",
+        "treatment navigation"
+      ],
+      "description": "Walk-in rapid-access addiction medicine clinic offering assessment, counselling, addiction medications including opioid agonist treatment, and connection to ongoing care.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Brandon and Prairie Mountain Health region",
+      "province": "Manitoba",
+      "city_community": "Brandon",
+      "address": "",
+      "service_area": "Brandon and Prairie Mountain Health region",
+      "service_scope": {
+        "physical_location": {
+          "community": "Brandon",
+          "province": "Manitoba"
+        },
+        "local_service_area": [
+          "Brandon"
+        ],
+        "regional_service_area": [
+          "Prairie Mountain Health region"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Brandon and Prairie Mountain Health region"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review current registration times on the official RAAM page or call the clinic; no formal referral is required for the walk-in clinic.",
+      "phone": "204-578-4800",
+      "email": "",
+      "website": "https://sharedhealthmb.ca/services/mental-health/mha-services/where-can-i-find-a-raam-clinic/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Rapid Access to Addictions Medicine Clinic - Brandon",
+        "authority": "Shared Health Manitoba",
+        "url": "https://sharedhealthmb.ca/services/mental-health/mha-services/where-can-i-find-a-raam-clinic/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_mb_raam_brandon"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_mb_raam_thompson",
+      "record_type": "service",
+      "organization": "Shared Health Manitoba",
+      "program_name": "Rapid Access to Addictions Medicine Clinic - Thompson",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "oat",
+        "addiction medicine",
+        "counselling",
+        "treatment navigation",
+        "northern access"
+      ],
+      "description": "Northern Manitoba rapid-access addiction medicine clinic offering assessment, counselling, addiction medications including opioid agonist treatment, and connection to ongoing care.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Thompson and Northern Manitoba",
+      "province": "Manitoba",
+      "city_community": "Thompson",
+      "address": "90 Princeton Drive, Thompson, MB",
+      "service_area": "Thompson and Northern Manitoba",
+      "service_scope": {
+        "physical_location": {
+          "community": "Thompson",
+          "address": "90 Princeton Drive, Thompson, MB",
+          "province": "Manitoba"
+        },
+        "local_service_area": [
+          "Thompson"
+        ],
+        "regional_service_area": [
+          "Northern Manitoba"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Thompson and Northern Manitoba"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review current registration times on the official RAAM page or call Eaglewood Treatment Centre before travelling.",
+      "phone": "1-866-291-7774",
+      "email": "",
+      "website": "https://sharedhealthmb.ca/services/mental-health/mha-services/where-can-i-find-a-raam-clinic/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Rapid Access to Addictions Medicine Clinic - Thompson",
+        "authority": "Shared Health Manitoba",
+        "url": "https://sharedhealthmb.ca/services/mental-health/mha-services/where-can-i-find-a-raam-clinic/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_mb_raam_thompson"
       ]
     },
     {
@@ -12345,6 +14680,7 @@
           "Whitecourt"
         ],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": true,
         "scope_note": "Provincial/regional intake line; callers are connected to available services rather than a physical clinic at the searched location.",
@@ -12382,6 +14718,80 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_nl_recovery_centre",
+      "record_type": "service",
+      "organization": "Newfoundland and Labrador Health Services",
+      "program_name": "Recovery Centre",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "withdrawal management",
+        "addiction counselling",
+        "discharge planning",
+        "treatment navigation"
+      ],
+      "description": "Provincial inpatient withdrawal-management service in St. John's with stabilization, counselling, education and discharge planning.",
+      "population_served": "People age 16 and older seeking withdrawal-management support; current intake requirements apply.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Newfoundland and Labrador",
+      "province": "Newfoundland and Labrador",
+      "city_community": "St. John's",
+      "address": "",
+      "service_area": "Newfoundland and Labrador",
+      "service_scope": {
+        "physical_location": {
+          "community": "St. John's",
+          "province": "Newfoundland and Labrador"
+        },
+        "local_service_area": [
+          "St. John's"
+        ],
+        "regional_service_area": [
+          "Newfoundland and Labrador"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Newfoundland and Labrador"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call the centre or provincial HealthLine to confirm current self-referral, admission and travel arrangements.",
+      "phone": "709-752-4980",
+      "email": "",
+      "website": "https://www.gov.nl.ca/hcs/mentalhealth-committee/mentalhealth/provincial-programs-services/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Recovery Centre",
+        "authority": "Newfoundland and Labrador Health Services",
+        "url": "https://www.gov.nl.ca/hcs/mentalhealth-committee/mentalhealth/provincial-programs-services/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_nl_recovery_centre"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_sk_regina_addiction_treatment",
       "record_type": "service",
       "organization": "Saskatchewan Health Authority",
@@ -12415,6 +14825,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -12484,6 +14895,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -12552,6 +14964,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -12615,6 +15028,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -12689,6 +15103,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -12756,6 +15171,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -12822,6 +15238,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -12891,6 +15308,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -12955,6 +15373,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -13022,6 +15441,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -13088,6 +15508,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": true,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": true,
         "scope_note": "Provincial location directory; each listed facility has its own physical location and intake process.",
@@ -13153,6 +15574,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": true,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": true,
         "scope_note": "Province-wide navigation; HealthLine is not a physical treatment facility.",
@@ -13219,6 +15641,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -13282,6 +15705,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -13350,6 +15774,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -13409,6 +15834,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -13468,6 +15894,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -13527,6 +15954,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -13587,6 +16015,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -13651,6 +16080,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -13717,6 +16147,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -13776,6 +16207,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -13845,6 +16277,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -13909,6 +16342,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -13974,6 +16408,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -14041,6 +16476,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -14108,6 +16544,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -14175,6 +16612,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -14237,6 +16675,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -14272,6 +16711,73 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:l9m2tc",
+      "record_type": "service",
+      "organization": "Talitha Koum Society",
+      "program_name": "Talitha Koum Society (Starr House)",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "treatment programs"
+      ],
+      "description": "Residential recovery programming for women through Starr House and Gianna House in Coquitlam.",
+      "population_served": "Women 20+ and children under 6",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser North",
+      "province": "British Columbia",
+      "city_community": "Coquitlam",
+      "address": "",
+      "service_area": "Fraser North",
+      "service_scope": {
+        "physical_location": {
+          "community": "Coquitlam",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Coquitlam"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser North"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Contact the society to confirm current referral, admission and program requirements.",
+      "access": "Contact the society to confirm current referral, admission and program requirements.",
+      "phone": "604-492-3393",
+      "email": "",
+      "website": "https://talithakoumsociety.org/program/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Talitha Koum Society (Starr House)",
+        "authority": "Talitha Koum Society",
+        "url": "https://talithakoumsociety.org/program/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:l9m2tc"
+      ]
+    },
+    {
       "canonical_resource_id": "support:tax-aid-dabc",
       "record_type": "service",
       "organization": "Disability Alliance BC",
@@ -14296,6 +16802,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -14361,6 +16868,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -14423,6 +16931,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -14484,6 +16993,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -14552,6 +17062,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -14611,6 +17122,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -14679,6 +17191,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -14752,6 +17265,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -14819,6 +17333,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": true,
         "navigation_only": false,
         "scope_note": "",
@@ -14888,6 +17403,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -14950,6 +17466,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -15009,6 +17526,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -15068,6 +17586,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -15103,6 +17622,74 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:ldowha",
+      "record_type": "service",
+      "organization": "Dixon Transition House Society",
+      "program_name": "Wenda's Place",
+      "categories": [
+        "housing"
+      ],
+      "subcategories": [
+        "housing"
+      ],
+      "description": "Second-stage supportive housing for women, children and pets, with counselling, life-skills and resource navigation.",
+      "population_served": "Women and children",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser North",
+      "province": "British Columbia",
+      "city_community": "Burnaby",
+      "address": "Burnaby (confidential location)",
+      "service_area": "Fraser North",
+      "service_scope": {
+        "physical_location": {
+          "community": "Burnaby",
+          "address": "Burnaby (confidential location)",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Burnaby"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser North"
+      },
+      "delivery_modes": [
+        "contact service"
+      ],
+      "eligibility": "Families typically admitted through Dixon Transition House",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Call the program for current access information. The official page states that Wenda's Place does not maintain a waitlist and the office line is monitored on weekdays.",
+      "access": "Call the program for current access information. The official page states that Wenda's Place does not maintain a waitlist and the office line is monitored on weekdays.",
+      "phone": "604-298-6046",
+      "email": "",
+      "website": "https://dixonsociety.ca/programs/wendas-place/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Wenda's Place",
+        "authority": "Dixon Transition House Society",
+        "url": "https://dixonsociety.ca/programs/wendas-place/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:ldowha"
+      ]
+    },
+    {
       "canonical_resource_id": "curated:1e7gz3l",
       "record_type": "service",
       "organization": "Westminster House (STLR)",
@@ -15133,6 +17720,7 @@
         ],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -15201,6 +17789,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -15239,6 +17828,81 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_yt_whitehorse_withdrawal",
+      "record_type": "service",
+      "organization": "Government of Yukon",
+      "program_name": "Withdrawal Management Services - Whitehorse",
+      "categories": [
+        "healthcare",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "withdrawal management",
+        "detox",
+        "treatment navigation",
+        "youth support"
+      ],
+      "description": "Live-in 24-hour withdrawal-support program in Whitehorse for adults and youth, serving Whitehorse and Yukon communities.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Yukon",
+      "province": "Yukon",
+      "city_community": "Whitehorse",
+      "address": "",
+      "service_area": "Yukon",
+      "service_scope": {
+        "physical_location": {
+          "community": "Whitehorse",
+          "province": "Yukon"
+        },
+        "local_service_area": [
+          "Whitehorse"
+        ],
+        "regional_service_area": [
+          "Yukon"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Yukon"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call Withdrawal Management Services or the territorial intake worker to confirm current access before travelling.",
+      "phone": "867-667-8473",
+      "email": "",
+      "website": "https://yukon.ca/en/health-and-wellness/health-concerns-diseases-and-conditions/get-help-alcohol-and-drug-addiction",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Withdrawal Management Services - Whitehorse",
+        "authority": "Government of Yukon",
+        "url": "https://yukon.ca/en/health-and-wellness/health-concerns-diseases-and-conditions/get-help-alcohol-and-drug-addiction"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_yt_whitehorse_withdrawal"
+      ]
+    },
+    {
       "canonical_resource_id": "support:workbc-centre-burnaby-metrotown",
       "record_type": "service",
       "organization": "WorkBC",
@@ -15263,6 +17927,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -15322,6 +17987,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -15381,6 +18047,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -15440,6 +18107,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -15500,6 +18168,7 @@
         "local_service_area": [],
         "regional_service_area": [],
         "province_wide": false,
+        "canada_wide": false,
         "virtual": false,
         "navigation_only": false,
         "scope_note": "",
@@ -15541,6 +18210,81 @@
       ],
       "source_record_ids": [
         "funding:miller:mfa_workbc_training"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_yt_mwsus",
+      "record_type": "service",
+      "organization": "Government of Yukon",
+      "program_name": "Yukon Mental Wellness and Substance Use Services",
+      "categories": [
+        "healthcare",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction intake",
+        "withdrawal navigation",
+        "residential treatment",
+        "counselling",
+        "mental health",
+        "family support",
+        "rural remote access"
+      ],
+      "description": "Territorial access to free counselling, safe withdrawal support, intensive treatment and family support, including connection to community counsellors outside Whitehorse.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Yukon",
+      "province": "Yukon",
+      "city_community": "",
+      "address": "",
+      "service_area": "Yukon",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [
+          "Whitehorse",
+          "Dawson City",
+          "Watson Lake"
+        ],
+        "service_area": "Yukon"
+      },
+      "delivery_modes": [
+        "telephone",
+        "online"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call the territorial line for a counsellor or intake information. People in communities can use the same toll-free number to locate their community counsellor.",
+      "phone": "1-866-456-3838",
+      "email": "",
+      "website": "https://yukon.ca/en/health-and-wellness/health-concerns-diseases-and-conditions/get-help-alcohol-and-drug-addiction",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Yukon Mental Wellness and Substance Use Services",
+        "authority": "Government of Yukon",
+        "url": "https://yukon.ca/en/health-and-wellness/health-concerns-diseases-and-conditions/get-help-alcohol-and-drug-addiction"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_yt_mwsus"
       ]
     }
   ]

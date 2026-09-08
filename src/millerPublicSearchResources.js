@@ -179,6 +179,7 @@ export function sharedCanonicalMillerResource(record = {}) {
     localServiceArea: Array.isArray(scope.local_service_area) ? scope.local_service_area.map(text).filter(Boolean) : [],
     regionalServiceArea: Array.isArray(scope.regional_service_area) ? scope.regional_service_area.map(text).filter(Boolean) : [],
     provinceWide: scope.province_wide === true,
+    canadaWide: scope.canada_wide === true,
     virtual_service: scope.virtual === true,
     navigationOnly: scope.navigation_only === true,
     scopeNote: text(scope.scope_note),

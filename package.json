@@ -30,6 +30,7 @@
     "palantir:workplace-safety": "node scripts/run-palantir-workplace-safety-cycle.mjs",
     "benchmark:miller-navigator": "node scripts/benchmark-miller-navigator-workflows.mjs",
     "benchmark:miller-navigator-rural": "node scripts/benchmark-miller-navigator-rural.mjs",
+    "benchmark:miller-navigator-national": "node scripts/benchmark-miller-navigator-national.mjs",
     "configure-prepared-action-conveyor": "node --env-file-if-exists=.env scripts/configure-prepared-action-conveyor.mjs"
   },
   "dependencies": {

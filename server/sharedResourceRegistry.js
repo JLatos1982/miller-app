@@ -64,6 +64,7 @@ function serviceScope(record, { province, community, address, serviceArea, deliv
     local_service_area: [...new Set(array(record.local_service_area).map(clean).filter(Boolean))],
     regional_service_area: [...new Set(array(record.regional_service_area).map(clean).filter(Boolean))],
     province_wide: record.province_wide === true,
+    canada_wide: record.canada_wide === true || province === "Canada-wide",
     virtual: record.virtual === true || deliveryModes.some(mode => /virtual|online|telephone/i.test(clean(mode))),
     navigation_only: record.navigation_only === true,
     scope_note: clean(record.scope_note),
@@ -164,6 +165,7 @@ function mergeRecords(left, right) {
     local_service_area: [...new Set([...(leftScope.local_service_area || []), ...(rightScope.local_service_area || [])])],
     regional_service_area: [...new Set([...(leftScope.regional_service_area || []), ...(rightScope.regional_service_area || [])])],
     province_wide: Boolean(leftScope.province_wide || rightScope.province_wide),
+    canada_wide: Boolean(leftScope.canada_wide || rightScope.canada_wide),
     virtual: Boolean(leftScope.virtual || rightScope.virtual),
     navigation_only: Boolean(leftScope.navigation_only || rightScope.navigation_only),
     scope_note: rightScope.scope_note && (rightIsCurrent || !leftScope.scope_note) ? rightScope.scope_note : leftScope.scope_note || "",
@@ -224,7 +226,7 @@ export function validateSharedResourceRegistry(registry) {
     if (record.legal_support && !record.categories.includes("legal_rights")) throw new Error("invalid_legal_taxonomy")
     if (!record.service_scope || typeof record.service_scope !== "object") throw new Error("invalid_service_scope")
     if (![record.service_scope.local_service_area, record.service_scope.regional_service_area, record.service_scope.search_locations].every(Array.isArray)) throw new Error("invalid_service_scope_areas")
-    if (![record.service_scope.province_wide, record.service_scope.virtual, record.service_scope.navigation_only].every(value => typeof value === "boolean")) throw new Error("invalid_service_scope_flags")
+    if (![record.service_scope.province_wide, record.service_scope.canada_wide, record.service_scope.virtual, record.service_scope.navigation_only].every(value => typeof value === "boolean")) throw new Error("invalid_service_scope_flags")
     ids.add(record.canonical_resource_id)
   }
   const counts = {

@@ -10,14 +10,14 @@ import { filterMillerNorthSupports } from "../src/site/millerNorthSupportFilters
 import { projectSharedResources, validateSharedResourceRegistry } from "../server/sharedResourceRegistry.js"
 
 test("shared public registry validates and preserves distinct project projections", () => {
-  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 227, miller_only: 147, miller_north_only: 38, both: 42 })
+  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 261, miller_only: 179, miller_north_only: 38, both: 44 })
   assert.equal(registry.records.filter(record => !record.province).length, 0)
   const creekside = registry.records.find(record => record.canonical_resource_id === "curated:1ldala")
   assert.equal(creekside.service_scope.physical_location.community, "Surrey")
   assert.ok(creekside.service_scope.regional_service_area.includes("Burnaby"))
   assert.equal(creekside.service_scope.navigation_only, false)
-  assert.equal(projectSharedResources(registry, "miller").length, 189)
-  assert.equal(projectSharedResources(registry, "miller_north").length, 80)
+  assert.equal(projectSharedResources(registry, "miller").length, 223)
+  assert.equal(projectSharedResources(registry, "miller_north").length, 82)
 })
 
 test("five priority regional seams use first-party sources and explicit geographic scope", () => {

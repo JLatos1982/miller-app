@@ -12,7 +12,7 @@ import {
 
 const fixedNow = () => new Date("2026-09-08T12:00:00.000Z")
 
-test("mobile request contract is bounded and normalizes Western provinces", () => {
+test("mobile request contract is bounded and normalizes Canadian provinces and territories", () => {
   assert.deepEqual(validateMillerMobileSearchRequest({
     free_text: "Detox in Surrey",
     province: "BC",
@@ -27,7 +27,9 @@ test("mobile request contract is bounded and normalizes Western provinces", () =
     broaden_nearby: false,
   })
   assert.throws(() => validateMillerMobileSearchRequest({ query: "" }), /query_required/)
-  assert.throws(() => validateMillerMobileSearchRequest({ query: "help", province: "Ontario" }), /province_invalid/)
+  assert.equal(validateMillerMobileSearchRequest({ query: "help", province: "Ontario" }).province, "Ontario")
+  assert.equal(validateMillerMobileSearchRequest({ query: "help", province: "NWT" }).province, "Northwest Territories")
+  assert.throws(() => validateMillerMobileSearchRequest({ query: "help", province: "Atlantis" }), /province_invalid/)
 })
 
 test("mobile search returns compact verified Miller resources and practical guidance", () => {

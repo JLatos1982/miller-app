@@ -4,10 +4,10 @@ import { buildMillerMobileSearchResponse, buildMillerMobileSharePack } from "./m
 import { buildMobileReadinessIndex, mobileReadinessSummary } from "./millerMobileReadiness.js"
 import { isMillerPracticalPublicResource } from "../src/millerPracticalIntelligence.js"
 import { millerResourceSearchText } from "../src/millerPublicSearchResources.js"
-import { MILLER_WESTERN_COMMUNITY_INVENTORY } from "./millerWesternCommunities.js"
+import { MILLER_CANADIAN_COMMUNITY_INVENTORY, MILLER_COVERAGE_MATURITY, MILLER_WESTERN_COMMUNITY_INVENTORY } from "./millerWesternCommunities.js"
 
 const clean = value => String(value ?? "").replace(/\s+/g, " ").trim()
-const normalized = value => clean(value).toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, " ").trim()
+const normalized = value => clean(value).toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim()
 const ratio = (part, total) => total ? Number((part / total).toFixed(3)) : 0
 const includesAny = (value, terms) => terms.some(term => ` ${normalized(value)} `.includes(` ${normalized(term)} `))
 const canonicalProvince = value => ({
@@ -17,6 +17,29 @@ const canonicalProvince = value => ({
   alberta: "Alberta",
   sk: "Saskatchewan",
   saskatchewan: "Saskatchewan",
+  mb: "Manitoba",
+  manitoba: "Manitoba",
+  on: "Ontario",
+  ontario: "Ontario",
+  qc: "Quebec",
+  quebec: "Quebec",
+  "québec": "Quebec",
+  nb: "New Brunswick",
+  "new brunswick": "New Brunswick",
+  ns: "Nova Scotia",
+  "nova scotia": "Nova Scotia",
+  pe: "Prince Edward Island",
+  pei: "Prince Edward Island",
+  "prince edward island": "Prince Edward Island",
+  nl: "Newfoundland and Labrador",
+  "newfoundland and labrador": "Newfoundland and Labrador",
+  yt: "Yukon",
+  yukon: "Yukon",
+  nt: "Northwest Territories",
+  nwt: "Northwest Territories",
+  "northwest territories": "Northwest Territories",
+  nu: "Nunavut",
+  nunavut: "Nunavut",
   canada: "Canada-wide",
   "canada wide": "Canada-wide",
 }[normalized(value)] || "Unknown")
@@ -49,8 +72,26 @@ export const MILLER_MOBILE_QUERY_BENCHMARK = Object.freeze([
   { id: "indigenous_northern_sk", query: "Indigenous treatment support in northern Saskatchewan", province: "Saskatchewan", terms: ["indigenous", "first nations", "treatment"] },
 ])
 
+export const MILLER_NATIONAL_QUERY_BENCHMARK = Object.freeze([
+  { id: "detox_winnipeg", query: "detox in Winnipeg", province: "Manitoba", location: "Winnipeg", terms: ["detox", "withdrawal"] },
+  { id: "oat_brandon", query: "OAT in Brandon", province: "Manitoba", location: "Brandon", terms: ["oat", "opioid agonist", "raam", "rapid access"] },
+  { id: "treatment_thunder_bay", query: "addiction treatment in Thunder Bay", province: "Ontario", location: "Thunder Bay", terms: ["addiction", "treatment", "indigenous"] },
+  { id: "housing_toronto", query: "housing after treatment in Toronto", province: "Ontario", location: "Toronto", terms: ["housing", "treatment", "navigation"] },
+  { id: "counselling_sudbury", query: "counselling in Sudbury", province: "Ontario", location: "Sudbury", terms: ["counselling", "mental health", "navigation"] },
+  { id: "treatment_ottawa", query: "treatment help in Ottawa", province: "Ontario", location: "Ottawa", terms: ["treatment", "addiction", "navigation"] },
+  { id: "addiction_montreal", query: "addiction help in Montreal", province: "Quebec", location: "Montréal", terms: ["drogue", "addiction", "reference", "référence"] },
+  { id: "withdrawal_halifax", query: "withdrawal help in Halifax", province: "Nova Scotia", location: "Halifax", terms: ["withdrawal", "addiction", "intake"] },
+  { id: "addiction_moncton", query: "addiction support in Moncton", province: "New Brunswick", location: "Moncton", terms: ["addiction", "withdrawal", "treatment"] },
+  { id: "treatment_st_johns", query: "treatment in St. John's", province: "Newfoundland and Labrador", location: "St. John's", terms: ["treatment", "withdrawal", "addiction"] },
+  { id: "addiction_whitehorse", query: "addiction help in Whitehorse", province: "Yukon", location: "Whitehorse", terms: ["addiction", "withdrawal", "substance use"] },
+  { id: "treatment_yellowknife", query: "treatment access in Yellowknife", province: "Northwest Territories", location: "Yellowknife", terms: ["treatment", "addiction", "counselling"] },
+  { id: "mental_health_nunavut", query: "mental health and addiction help in Nunavut", province: "Nunavut", terms: ["mental health", "addiction", "community health"] },
+  { id: "indigenous_northern_ontario", query: "Indigenous treatment support in northern Ontario", province: "Ontario", location: "Northern Ontario", terms: ["indigenous", "first nations", "métis", "inuit"] },
+  { id: "remote_transport", query: "transportation to treatment from a remote community", terms: ["transportation", "medical travel", "travel", "treatment"], support: "transportation" },
+])
+
 function resourceText(resource) {
-  return [resource.name, resource.organization, resource.category, resource.service_type, resource.description, resource.access_note, resource.eligibility_note, ...(resource.tags || [])].join(" ")
+  return [resource.name, resource.organization, resource.category, resource.service_type, resource.description, resource.access_note, resource.eligibility_note, resource.funding_note, resource.transportation_note, ...(resource.tags || [])].join(" ")
 }
 
 function locationRelevant(resource, scenario) {
@@ -153,7 +194,7 @@ const COVERAGE_BUCKETS = Object.freeze({
 export function buildMillerMobileCoverageMatrix(catalog, { now = new Date("2026-09-08T12:00:00.000Z") } = {}) {
   const resources = catalog.filter(isMillerPracticalPublicResource)
   const readiness = buildMobileReadinessIndex(resources, { now })
-  const provinces = ["British Columbia", "Alberta", "Saskatchewan", "Canada-wide"]
+  const provinces = Object.keys(MILLER_COVERAGE_MATURITY)
   const byProvince = Object.fromEntries(provinces.map(province => [province, {}]))
   for (const province of provinces) {
     const provincial = resources.filter(resource => canonicalProvince(resource.province) === province)
@@ -180,6 +221,33 @@ export function buildMillerMobileCoverageMatrix(catalog, { now = new Date("2026-
     catalog: mobileReadinessSummary(resources, { now }),
     by_province: byProvince,
     by_city: byCity,
+  })
+}
+
+export function buildMillerCanadianCommunityCoverageMatrix(catalog, { now = new Date("2026-09-08T12:00:00.000Z") } = {}) {
+  const resources = catalog.filter(isMillerPracticalPublicResource)
+  const readiness = buildMobileReadinessIndex(resources, { now })
+  const rows = MILLER_CANADIAN_COMMUNITY_INVENTORY.map(entry => {
+    const provincial = resources.filter(resource => canonicalProvince(resource.province) === entry.province)
+    const local = provincial.filter(resource => normalized(explicitPhysicalCommunity(resource)) === normalized(entry.community))
+    const regional = provincial.filter(resource => !local.includes(resource) && explicitlyServes(resource, entry.community))
+    const navigation = provincial.filter(resource => resource.navigationOnly === true && (resource.provinceWide === true || explicitlyServes(resource, entry.community)))
+    const relevant = [...new Set([...local, ...regional, ...navigation])]
+    return {
+      ...entry,
+      maturity: MILLER_COVERAGE_MATURITY[entry.province] || "foundation",
+      status: local.length ? "verified_coverage" : regional.some(resource => resource.navigationOnly !== true) ? "regional_coverage" : navigation.length ? "navigation_only" : "research_gap",
+      local_resources: local.length,
+      regional_resources: regional.length,
+      provincial_navigation: navigation.length,
+      mobile_ready: relevant.filter(resource => readiness.get(clean(resource.id))?.mobile_ready).length,
+    }
+  })
+  return Object.freeze({
+    schema_version: "miller-canadian-community-coverage-v1",
+    generated_at: now.toISOString(),
+    community_count: rows.length,
+    by_province: Object.fromEntries(Object.keys(MILLER_COVERAGE_MATURITY).filter(province => province !== "Canada-wide").map(province => [province, rows.filter(row => row.province === province)])),
   })
 }
 

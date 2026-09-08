@@ -49,3 +49,71 @@ export const MILLER_WESTERN_LOCATION_LABELS = Object.freeze({
   "northwest saskatchewan": "Northwest Saskatchewan",
   "northeast british columbia": "Northeast British Columbia",
 })
+
+// A bounded national inventory used for place recognition and coverage reporting.
+// It does not claim complete municipal coverage. Regions remain search/service
+// areas rather than physical facilities.
+export const MILLER_CANADIAN_FOUNDATION_COMMUNITIES = Object.freeze([
+  ...[
+    ["Manitoba", "Winnipeg / South", ["Winnipeg", "Brandon", "Selkirk", "Portage la Prairie"]],
+    ["Manitoba", "Northern Manitoba", ["Thompson", "The Pas", "Flin Flon", "Churchill"]],
+    ["Ontario", "Southern Ontario", ["Toronto", "Hamilton", "London", "Windsor"]],
+    ["Ontario", "Eastern Ontario", ["Ottawa"]],
+    ["Ontario", "Northern Ontario", ["Sudbury", "Thunder Bay"]],
+    ["Quebec", "Quebec", ["Montréal", "Québec City", "Kuujjuaq"]],
+    ["New Brunswick", "New Brunswick", ["Moncton", "Saint John", "Fredericton", "Bathurst", "Campbellton", "Miramichi", "Edmundston"]],
+    ["Nova Scotia", "Nova Scotia", ["Halifax", "Dartmouth", "Springhill", "Sydney", "Truro", "Yarmouth"]],
+    ["Prince Edward Island", "Prince Edward Island", ["Charlottetown", "Summerside"]],
+    ["Newfoundland and Labrador", "Newfoundland and Labrador", ["St. John's", "Corner Brook", "Happy Valley-Goose Bay"]],
+    ["Yukon", "Yukon", ["Whitehorse", "Dawson City", "Watson Lake"]],
+    ["Northwest Territories", "Northwest Territories", ["Yellowknife", "Inuvik", "Fort Smith", "Hay River", "Behchokǫ̀"]],
+    ["Nunavut", "Nunavut", ["Iqaluit", "Rankin Inlet", "Cambridge Bay"]],
+  ].flatMap(([province, region, communities]) => communities.map(community => Object.freeze({ community, province, region }))),
+])
+
+const normalizedLocation = value => String(value || "").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim()
+
+export const MILLER_CANADIAN_COMMUNITY_INVENTORY = Object.freeze([
+  ...MILLER_WESTERN_COMMUNITY_INVENTORY,
+  ...MILLER_CANADIAN_FOUNDATION_COMMUNITIES,
+])
+
+export const MILLER_CANADIAN_REGION_PROVINCES = Object.freeze({
+  ...MILLER_WESTERN_REGION_PROVINCES,
+  "northern manitoba": "Manitoba",
+  "northern ontario": "Ontario",
+  "nunavik": "Quebec",
+  "labrador": "Newfoundland and Labrador",
+})
+
+export const MILLER_CANADIAN_LOCATION_PROVINCES = Object.freeze({
+  ...Object.fromEntries(MILLER_CANADIAN_COMMUNITY_INVENTORY.map(({ community, province }) => [normalizedLocation(community), province])),
+  ...MILLER_CANADIAN_REGION_PROVINCES,
+})
+
+export const MILLER_CANADIAN_LOCATION_LABELS = Object.freeze({
+  ...Object.fromEntries(MILLER_CANADIAN_COMMUNITY_INVENTORY.map(({ community }) => [normalizedLocation(community), community])),
+  ...Object.fromEntries(Object.keys(MILLER_CANADIAN_REGION_PROVINCES).map(region => [region, region.replace(/\b\w/g, character => character.toUpperCase())])),
+  "haida gwaii": "Haida Gwaii",
+  "mount waddington": "Mount Waddington",
+  "north island": "North Island",
+  "nunavik": "Nunavik",
+  "labrador": "Labrador",
+})
+
+export const MILLER_COVERAGE_MATURITY = Object.freeze({
+  "British Columbia": "deep",
+  Alberta: "developing",
+  Saskatchewan: "developing",
+  Manitoba: "foundation",
+  Ontario: "foundation",
+  Quebec: "foundation",
+  "New Brunswick": "foundation",
+  "Nova Scotia": "foundation",
+  "Prince Edward Island": "foundation",
+  "Newfoundland and Labrador": "foundation",
+  Yukon: "exploratory",
+  "Northwest Territories": "exploratory",
+  Nunavut: "exploratory",
+  "Canada-wide": "foundation",
+})
