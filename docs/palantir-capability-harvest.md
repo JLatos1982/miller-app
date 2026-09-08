@@ -19,6 +19,7 @@ Palantír — Samwise Public Records Intelligence — owns reusable public-recor
 | Owner review | Farm private interface | Partially generic | Promoted with durable decisions and an append-preserving audit record |
 | Resource discovery | Shared resource pipeline | Partially generic | Promoted as an opportunity only; verified resource records still pass consumer gates |
 | Change detection | Watch/resource ledgers | Scattered | Promoted with material, non-material, uncertain and owner-review classes |
+| Claim and provenance tracking | Legal, audit, ombuds, recommendation and accountability records | Scattered inside domain records | Promoted to addressable claims, source locators, reviewed claim relationships, temporal status and consumer-safe routing |
 | `farmEvidenceGraph` | Farm | Partially generic / compatibility | Existing artifacts remain valid; new Palantír relationships use the Samwise graph primitive |
 | Miller North coverage and Watch presentation | Miller North | Product-specific | Remains downstream; only its structural gap and milestone lessons were harvested |
 | Original Miller coverage hypotheses and guidance | Original Miller | Product-specific | Remains downstream and is not imported by Palantír |
@@ -34,6 +35,7 @@ Palantír — Samwise Public Records Intelligence — owns reusable public-recor
 registered source → listener → document fingerprint → event identity
                                              ↓
 evidence role → recommendation chain → milestone/watch → coverage matrix
+             ↘ claim + provenance → reviewed claim relationship → claim timeline
                                              ↓
 cross-domain relevance → institution map → owner review → consumer candidate
 ```
@@ -51,6 +53,7 @@ The listener adapter uses the existing Farm scheduler. There is no second timer 
 - Secondary relevance requires explicit source support, a reviewed citation, or a deterministic canonical match.
 - Owner review decisions survive refresh and continuation.
 - Research may reveal a practical service, but the research record never becomes a public Miller resource.
+- An institution's implementation claim is not independent implementation evidence. Later claims qualify, contradict or supersede earlier claims without deleting them.
 
 ## Boundaries
 

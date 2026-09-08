@@ -21,7 +21,7 @@ export function samwiseListenerOperationalState(listener = {}) {
   return "scheduled"
 }
 
-export function buildSamwisePublicRecordsStatus({ listeners = [], history = [], reviewItems = [], researchMemories = [], researchExecutions = [], learningLedger = null, recommendationLedgers = [], milestones = [], coverageMatrices = [], primitiveChanges = [], now = new Date() } = {}) {
+export function buildSamwisePublicRecordsStatus({ listeners = [], history = [], reviewItems = [], researchMemories = [], researchExecutions = [], learningLedger = null, recommendationLedgers = [], claimLedgers = [], milestones = [], coverageMatrices = [], primitiveChanges = [], now = new Date() } = {}) {
   const generatedAt = new Date(now).toISOString()
   const recentCutoff = new Date(generatedAt).getTime() - 7 * 86_400_000
   const recent = history.filter(item => new Date(item.completed_at || item.timestamp || 0).getTime() >= recentCutoff)
@@ -75,6 +75,15 @@ export function buildSamwisePublicRecordsStatus({ listeners = [], history = [], 
       operational_lessons: learningLedger?.schema_version === "palantir-operational-learning-ledger-v1" ? learningLedger.lessons.length : 0,
     },
     intelligence_primitives: {
+      claims: claimLedgers.reduce((total, ledger) => total + Number(ledger?.counts?.claims || ledger?.claims?.length || 0), 0),
+      claim_relationships: claimLedgers.reduce((total, ledger) => total + Number(ledger?.counts?.relationships || 0), 0),
+      claim_contradictions: claimLedgers.reduce((total, ledger) => total + Number(ledger?.counts?.contradictions || 0), 0),
+      unresolved_claim_conflicts: claimLedgers.reduce((total, ledger) => total + Number(ledger?.counts?.unresolved_conflicts || 0), 0),
+      unresolved_claim_gaps: claimLedgers.reduce((total, ledger) => total + (ledger?.claims || []).filter(claim => ["partially_supported", "disputed", "contradicted", "unresolved"].includes(claim.claim_status)).length, 0),
+      institutional_claims_without_independent_evidence: claimLedgers.reduce((total, ledger) => {
+        const independent = new Set((ledger?.claims || []).filter(claim => ["independent_follow_up", "formal_finding"].includes(claim.verification_state)).map(claim => claim.claim_id))
+        return total + (ledger?.claims || []).filter(claim => claim.verification_state === "institution_self_report" && !(ledger.relationships || []).some(relation => relation.to_claim_id === claim.claim_id && independent.has(relation.from_claim_id) && relation.review_state === "confirmed")).length
+      }, 0),
       recommendations: recommendationLedgers.reduce((total, ledger) => total + Number(ledger?.counts?.recommendations || ledger?.recommendations?.length || 0), 0),
       recommendation_changes: primitiveChanges.filter(item => item?.schema_version === "palantir-recommendation-change-v1").reduce((total, item) => total + Number(item.material_changes || 0), 0),
       milestones: milestones.length,
@@ -149,4 +158,10 @@ export const samwisePublicRecordsConversationalQueries = Object.freeze([
   "What milestones are coming up?",
   "Where are the biggest coverage gaps?",
   "Which institutions need follow-up?",
+  "Who is claiming this recommendation is implemented?",
+  "What source supports that claim?",
+  "Is there independent implementation evidence?",
+  "Which claims contradict or qualify each other?",
+  "Which institutional claims remain unverified?",
+  "What claim and provenance changes need my review?",
 ])

@@ -75,7 +75,11 @@
         "recommend_gap_research",
         "preserve_owner_review",
         "route_resource_opportunities",
-        "classify_material_changes"
+        "classify_material_changes",
+        "track_claims",
+        "track_claim_provenance",
+        "detect_claim_changes",
+        "review_claim_relationships"
       ],
       "output_schema": "samwise-public-records-intelligence-v1",
       "scheduler": "existing_farm_job_scheduler",
@@ -88,7 +92,8 @@
           "listener_batch_parse",
           "legal_citation_normalization",
           "institutional_alias_comparison",
-          "listener_manifest_validation"
+          "listener_manifest_validation",
+          "claim_batch_normalization"
         ],
         "local_model_recurring": false
       },

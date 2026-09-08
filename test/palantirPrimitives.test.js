@@ -33,7 +33,7 @@ const baseRecommendation = {
 
 test("harvest registry exposes independent read-only Palantír primitives", () => {
   const result = validatePalantirPrimitiveRegistry()
-  assert.equal(result.primitives, 15)
+  assert.equal(result.primitives, 16)
   assert.equal(result.mutation_authority, false)
   const moduleSources = Object.fromEntries(PALANTIR_PRIMITIVES.map(item => [item.module, readFileSync(new URL(`../server/${item.module}.js`, import.meta.url), "utf8")]))
   assert.deepEqual(palantirPrimitiveIndependence({ moduleSources }).product_ui_dependencies, [])
@@ -166,7 +166,7 @@ test("private conversational status summarizes recommendations, milestones and c
   const milestone = normalizePalantirMilestone({ milestone_type: "audit_follow_up", expected_date: "2026-12-01", monitoring_source: "https://example.org/audit", expected_document: "follow-up" })
   const matrix = buildPalantirCoverageMatrix({ matrixId: "coverage:benefits", domain: "government_services", dimensions: ["jurisdiction"], cells: [{ coordinates: { jurisdiction: "Saskatchewan" }, acquisition_failures: 1, review_started: true, source_coverage: true }] })
   const status = buildSamwisePublicRecordsStatus({ recommendationLedgers: [recommendation], milestones: [milestone], coverageMatrices: [matrix] })
-  assert.deepEqual(status.intelligence_primitives, { recommendations: 1, recommendation_changes: 0, milestones: 1, upcoming_milestones: 1, coverage_matrices: 1, coverage_gaps: 1, acquisition_failures: 1 })
+  assert.deepEqual(status.intelligence_primitives, { claims: 0, claim_relationships: 0, claim_contradictions: 0, unresolved_claim_conflicts: 0, unresolved_claim_gaps: 0, institutional_claims_without_independent_evidence: 0, recommendations: 1, recommendation_changes: 0, milestones: 1, upcoming_milestones: 1, coverage_matrices: 1, coverage_gaps: 1, acquisition_failures: 1 })
   assert.ok(samwisePublicRecordsConversationalQueries.includes("What recommendations changed?"))
   assert.equal(status.mutation_authority, false)
 })

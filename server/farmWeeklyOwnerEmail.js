@@ -1,5 +1,5 @@
 const safeText = (value, limit = 180) => String(value ?? "").normalize("NFKC").replace(/[\r\n\t]+/g, " ").replace(/\s+/g, " ").trim().slice(0, limit)
-const MATERIAL = ["new_documents", "updated_documents", "new_events", "existing_events_strengthened", "publication_safe", "material_changes", "owner_review", "errors", "recommendation_changes", "milestones_identified", "coverage_gaps"]
+const MATERIAL = ["new_documents", "updated_documents", "new_events", "existing_events_strengthened", "publication_safe", "material_changes", "owner_review", "errors", "recommendation_changes", "milestones_identified", "coverage_gaps", "claim_changes", "claim_contradictions", "independent_claim_verifications", "unresolved_claim_gaps"]
 
 export function privacySafeFarmRun(run = {}) {
   const domainCounts = Object.fromEntries(Object.entries(run.domain_counts || {}).map(([domain, metrics]) => [safeText(domain, 60), { checked: Number(metrics?.checked || 0), changed: Number(metrics?.changed || 0), relevant: Number(metrics?.relevant || 0), owner_review: Number(metrics?.owner_review || 0) }]))
@@ -36,6 +36,11 @@ export function privacySafeFarmRun(run = {}) {
     recommendation_changes: Number(run.recommendation_changes || 0),
     milestones_identified: Number(run.milestones_identified || 0),
     coverage_gaps: Number(run.coverage_gaps || 0),
+    claim_changes: Number(run.claim_changes || 0),
+    claim_contradictions: Number(run.claim_contradictions || 0),
+    independent_claim_verifications: Number(run.independent_claim_verifications || 0),
+    unverified_institutional_claims: Number(run.unverified_institutional_claims || 0),
+    unresolved_claim_gaps: Number(run.unresolved_claim_gaps || 0),
     resource_opportunities: Number(run.resource_opportunities || run.resource_discoveries || 0),
   }
 }
@@ -72,6 +77,11 @@ export function buildFarmWeeklyOwnerEmail({ runs = [], now = new Date(), periodD
       recommendation_changes: samwiseRuns.reduce((sum, item) => sum + item.recommendation_changes, 0),
       milestones_identified: samwiseRuns.reduce((sum, item) => sum + item.milestones_identified, 0),
       coverage_gaps: samwiseRuns.reduce((sum, item) => sum + item.coverage_gaps, 0),
+      claim_changes: samwiseRuns.reduce((sum, item) => sum + item.claim_changes, 0),
+      claim_contradictions: samwiseRuns.reduce((sum, item) => sum + item.claim_contradictions, 0),
+      independent_claim_verifications: samwiseRuns.reduce((sum, item) => sum + item.independent_claim_verifications, 0),
+      unverified_institutional_claims: samwiseRuns.reduce((sum, item) => sum + item.unverified_institutional_claims, 0),
+      unresolved_claim_gaps: samwiseRuns.reduce((sum, item) => sum + item.unresolved_claim_gaps, 0),
     },
   }
   const nothingChanged = material.length === 0
@@ -80,7 +90,7 @@ export function buildFarmWeeklyOwnerEmail({ runs = [], now = new Date(), periodD
     : [
         "Farm Weekly", "",
         "Research", `- New incidents: ${sections.research.new_incidents}`, `- Existing evidence strengthened: ${sections.research.strengthened_evidence}`, `- New or updated documents: ${sections.research.new_or_updated_documents}`, "",
-        ...(sections.samwise_intelligence.research_requests || sections.samwise_intelligence.useful_findings || sections.samwise_intelligence.cross_domain_discoveries || sections.samwise_intelligence.recommendation_changes || sections.samwise_intelligence.milestones_identified || sections.samwise_intelligence.coverage_gaps ? ["Palantír", `- Research requests: ${sections.samwise_intelligence.research_requests}; useful findings: ${sections.samwise_intelligence.useful_findings}; cross-domain discoveries: ${sections.samwise_intelligence.cross_domain_discoveries}`, `- Recommendation changes: ${sections.samwise_intelligence.recommendation_changes}; upcoming milestones found: ${sections.samwise_intelligence.milestones_identified}; coverage gaps: ${sections.samwise_intelligence.coverage_gaps}`, `- Resource opportunities: ${sections.samwise_intelligence.resources_discovered}; live monitoring: ${sections.samwise_intelligence.live_monitor_candidates}`, ""] : []),
+        ...(sections.samwise_intelligence.research_requests || sections.samwise_intelligence.useful_findings || sections.samwise_intelligence.cross_domain_discoveries || sections.samwise_intelligence.recommendation_changes || sections.samwise_intelligence.milestones_identified || sections.samwise_intelligence.coverage_gaps || sections.samwise_intelligence.claim_changes || sections.samwise_intelligence.claim_contradictions || sections.samwise_intelligence.independent_claim_verifications || sections.samwise_intelligence.unresolved_claim_gaps ? ["Palantír", `- Research requests: ${sections.samwise_intelligence.research_requests}; useful findings: ${sections.samwise_intelligence.useful_findings}; cross-domain discoveries: ${sections.samwise_intelligence.cross_domain_discoveries}`, `- Recommendation changes: ${sections.samwise_intelligence.recommendation_changes}; upcoming milestones found: ${sections.samwise_intelligence.milestones_identified}; coverage gaps: ${sections.samwise_intelligence.coverage_gaps}`, `- Material claim changes: ${sections.samwise_intelligence.claim_changes}; contradictions: ${sections.samwise_intelligence.claim_contradictions}; independent verifications: ${sections.samwise_intelligence.independent_claim_verifications}; unresolved claim gaps: ${sections.samwise_intelligence.unresolved_claim_gaps}; unverified institutional claims: ${sections.samwise_intelligence.unverified_institutional_claims}`, `- Resource opportunities: ${sections.samwise_intelligence.resources_discovered}; live monitoring: ${sections.samwise_intelligence.live_monitor_candidates}`, ""] : []),
         "Domains", ...Object.entries(sections.domains).filter(([, value]) => value.changed || value.relevant || value.owner_review).map(([domain, value]) => `- ${domain.replaceAll("_", " ")}: ${value.changed} changed; ${value.relevant} relevant; ${value.owner_review} for review`), "",
         ...(sections.cross_lane.count ? ["Cross-lane discoveries", ...sections.cross_lane.discoveries.map(item => `- ${item.public_label || item.primary_domain}: ${item.outcome}; also relevant to ${item.secondary_domains.join(", ")}`), ""] : []),
         "Resources", `- Publication-safe resource changes: ${sections.resources.publication_safe}`, "",

@@ -19,6 +19,7 @@ Samwise owns:
 - source and evidence roles;
 - domain and secondary-domain classification;
 - legal citation relationships;
+- canonical claims, source locators and reviewed claim relationships;
 - milestones, yield metrics and owner-review packets;
 - the private public-record relationship graph.
 
@@ -147,9 +148,31 @@ The first implementation is a deterministic JSON/relational projection, not a gr
 
 Reviewed edges include same-event, investigation, corroboration, contradiction, judicial review, recommendation/response, implementation evidence, domain overlaps, related resources and legal pathways. Ambiguous same-event suggestions never merge automatically.
 
+### Claim & Provenance Intelligence
+
+Palantír represents each material public assertion as a concise normalized proposition rather than storing a long source passage. A claim retains its canonical event and source-document IDs, claimant, date or applicable period, jurisdiction and domains, evidence/source roles, verification state, public/private class, related recommendation or milestone, and an HTTPS URL or legal citation. Where the source supports it, the locator records a page, section, paragraph, row, recommendation number or decision paragraph.
+
+Claim types distinguish allegations, institutional statements, formal/regulator/audit/court findings, recommendations, responses, claimed actions, implementation claims, independent implementation evidence, measured outcomes, policy announcements, funding commitments, service-availability claims, procedural legal status, settlement positions and statistical context. Transparent verification states are derived from source and evidence roles: direct official source, formal finding, institution self-report, independent follow-up, secondary reporting or unverified lead. They are not model-generated confidence scores.
+
+Reviewed claim relationships include support, corroboration, contradiction, narrowing, qualification, supersession, repetition, independent verification, institutional response, implementation evidence and outcome evidence. Conflict-like relationships require a material basis, named review actor, and confirmed comparable scope and time period. Weak keyword overlap is rejected; ambiguous scope or time becomes owner review. A confirmed contradiction can remain unresolved or record resolving evidence, date and rationale. Earlier claims are retained as disputed, contradicted, superseded or historical rather than overwritten.
+
+```text
+document → contains claim ← asserted by institution
+                         ↓
+                     concerns event
+                         ↓
+recommendation ← response / implementation claim
+                         ↓
+          independent evidence → outcome evidence
+```
+
+Recommendation Intelligence can project recommendation propositions, responses, claimed actions, implementation evidence and measured outcomes into separate claims. A milestone document creates new claims and relationships; finding the expected document closes retrieval, not accountability. Legal claims preserve allegation, summarized evidence, procedure, merits, remedy, settlement and review/appeal roles, including paragraph-level provenance where available.
+
+Claim routing is private by default. A source-supported Indigenous accountability claim may become a Miller North review candidate but never auto-publishes. Claims never enter public Miller. An official service-availability or program-funding claim can only trigger a shared resource-verification candidate; the separately verified resource must still pass the Miller gate.
+
 ## Reusable intelligence primitives
 
-Palantír now exposes fifteen independently tested primitives. The existing Farm scheduler remains the only scheduler, and existing listener IDs remain stable.
+Palantír now exposes sixteen independently tested primitives. The existing Farm scheduler remains the only scheduler, and existing listener IDs remain stable.
 
 - **Listener:** adapts registered Farm listeners to the full listen-through-report lifecycle, preserves memory on failure and quarantines anomalous source-volume changes.
 - **Research memory:** keeps owner request, approved plan, source checkpoints, document fingerprints, findings, branches, stopping reasons and cost; pause, continue and cancel preserve completed work.
@@ -163,6 +186,7 @@ Palantír now exposes fifteen independently tested primitives. The existing Farm
 - **Owner review:** preserves owner decisions across refresh and emits an append-preserving audit record.
 - **Resource routing:** produces a resource opportunity only; a separate verified canonical resource must still pass the Miller consumer gate.
 - **Change intelligence:** separates material, non-material, uncertain and owner-review changes while ignoring review timestamps and formatting-only drift.
+- **Claim and provenance intelligence:** preserves individually addressable assertions, precise source references, institutional self-reports, independent follow-up, reviewed conflicts and temporal claim status without rewriting history.
 - **Source yield:** reports transparent operational counts, including cross-domain discoveries, recommendations, milestones, resource opportunities and manual-review burden.
 - **Igor orchestration:** restricts worker work to bounded deterministic capabilities with no mutation or publication authority.
 - **Conversational control:** summarizes recommendations, milestones and coverage gaps through the existing private owner interface.
@@ -195,7 +219,7 @@ Entity resolution uses a versioned exact-alias registry. For example, `VPD` reso
 
 ## Workers and models
 
-Samwise coordinates source access, validation, reconciliation, routing and owner reporting. Igor may perform bounded index diffing, parsing, citation normalization, deterministic entity matching, URL checks, duplicate-document analysis and manifest validation.
+Samwise coordinates source access, validation, reconciliation, routing and owner reporting. Igor may perform bounded index diffing, parsing, citation normalization, deterministic entity matching, URL checks, duplicate-document analysis, claim-row normalization and manifest validation.
 
 Igor cannot determine discrimination, racism, legal liability, Indigenous identity, publication eligibility or final event merges. Qwen remains disabled for recurring public-record classification; model seams remain available only for a future bounded task that passes a reviewed benchmark.
 
@@ -207,7 +231,7 @@ The typed `research_public_records`, `approve_research_plan`, `continue_research
 
 The coordinator converts a new typed request into a draft plan and persists it without execution. A separate valid approval request may start that exact plan through registered adapters. Pause and cancel requests are bound to the canonical plan ID; cancellation retains completed checkpoints. This owner workflow is a library boundary used by the private coordinator, not a generic command endpoint.
 
-Owner questions can cover activity, non-Miller findings, cross-domain discoveries, running/paused/completed plans, checkpoint progress, operational lessons, institution history, new funding, resource opportunities and effects on existing Miller North chains. Status projections expose counts, canonical IDs and bounded labels rather than private narratives.
+Owner questions can cover activity, non-Miller findings, cross-domain discoveries, running/paused/completed plans, checkpoint progress, operational lessons, institution history, new funding, resource opportunities, effects on existing Miller North chains, claim provenance, independent verification, contradictions and institutional claims awaiting evidence. Status projections expose counts, canonical IDs and bounded labels rather than private narratives.
 
 ## Security and publication
 

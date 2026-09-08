@@ -4,8 +4,10 @@ import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "
 import { resolve } from "node:path"
 import { fileURLToPath } from "node:url"
 
+import { normalizePalantirClaimBatch } from "./palantirClaimProvenance.js"
+
 export const FARM_IGOR_PROTOCOL_VERSION = "farm-igor-local-worker-v1"
-export const FARM_IGOR_WORKER_VERSION = "igor-farm-worker-v1.0.0"
+export const FARM_IGOR_WORKER_VERSION = "igor-farm-worker-v1.1.0"
 export const FARM_IGOR_CAPABILITIES = Object.freeze([
   "resource_url_health",
   "structured_diff",
@@ -13,6 +15,7 @@ export const FARM_IGOR_CAPABILITIES = Object.freeze([
   "legal_citation_normalization",
   "institutional_alias_comparison",
   "listener_manifest_validation",
+  "claim_batch_normalization",
 ])
 
 const MAX_BODY_BYTES = 128 * 1024
@@ -114,6 +117,7 @@ export function validateFarmIgorCapabilityResult(capability, result) {
   if (capability === "legal_citation_normalization" && !(Number.isInteger(result.checked) && Number.isInteger(result.valid) && Number.isInteger(result.duplicates_suppressed) && Array.isArray(result.records) && Array.isArray(result.owner_review))) throw new Error("igor_result_partial")
   if (capability === "institutional_alias_comparison" && !(Number.isInteger(result.checked) && Number.isInteger(result.matched) && Array.isArray(result.records) && Array.isArray(result.owner_review))) throw new Error("igor_result_partial")
   if (capability === "listener_manifest_validation" && !(typeof result.valid === "boolean" && Number.isInteger(result.checked) && Array.isArray(result.errors))) throw new Error("igor_result_partial")
+  if (capability === "claim_batch_normalization" && !(Number.isInteger(result.checked) && Number.isInteger(result.valid) && Number.isInteger(result.duplicates_suppressed) && Array.isArray(result.records) && Array.isArray(result.owner_review) && result.truth_determinations === 0 && result.publication_actions === 0)) throw new Error("igor_result_partial")
   return true
 }
 
@@ -235,6 +239,7 @@ export async function executeFarmIgorCapability(capability, payload = {}) {
   if (capability === "legal_citation_normalization") return normalizeLegalCitations(payload.items || [])
   if (capability === "institutional_alias_comparison") return compareInstitutionalAliases(payload.items || [], payload.entities || [])
   if (capability === "listener_manifest_validation") return validateListenerManifest(payload)
+  if (capability === "claim_batch_normalization") return normalizePalantirClaimBatch(payload.items || [])
   throw new Error("igor_capability_unsupported")
 }
 
