@@ -3,14 +3,20 @@ import { readFileSync } from "node:fs"
 import test from "node:test"
 
 import registry from "../src/data/miller-shared-resource-registry-v1.json" with { type: "json" }
+import westernRegionalPathways from "../src/data/miller-western-regional-pathways-2026-09-08.json" with { type: "json" }
 import { toMillerNorthSharedEmailResult } from "../src/millerNorthPublicSupportEmail.js"
 import { filterMillerNorthSupports } from "../src/site/millerNorthSupportFilters.js"
 import { projectSharedResources, validateSharedResourceRegistry } from "../server/sharedResourceRegistry.js"
 
 test("shared public registry validates and preserves distinct project projections", () => {
-  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 165, miller_only: 88, miller_north_only: 38, both: 39 })
-  assert.equal(projectSharedResources(registry, "miller").length, 127)
-  assert.equal(projectSharedResources(registry, "miller_north").length, 77)
+  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 185, miller_only: 107, miller_north_only: 38, both: 40 })
+  assert.equal(registry.records.filter(record => !record.province).length, 0)
+  const creekside = registry.records.find(record => record.canonical_resource_id === "curated:1ldala")
+  assert.equal(creekside.service_scope.physical_location.community, "Surrey")
+  assert.ok(creekside.service_scope.regional_service_area.includes("Burnaby"))
+  assert.equal(creekside.service_scope.navigation_only, false)
+  assert.equal(projectSharedResources(registry, "miller").length, 147)
+  assert.equal(projectSharedResources(registry, "miller_north").length, 78)
 })
 
 test("reconciled western resources enrich legacy identities and retain one canonical record", () => {
@@ -21,6 +27,15 @@ test("reconciled western resources enrich legacy identities and retain one canon
   assert.equal(registry.records.filter(record => record.canonical_resource_id === "curated:1wfj0t6").length, 1)
   assert.ok(registry.records.some(record => record.canonical_resource_id === "miller_sk_prince_albert_oat"))
   assert.ok(registry.records.some(record => record.canonical_resource_id === "miller_bc_connective_vancouver_cso"))
+})
+
+test("Western regional pathways are verified practical resources with explicit scope and no evidence projection fields", () => {
+  assert.equal(westernRegionalPathways.records.length, 25)
+  assert.ok(westernRegionalPathways.records.every(record => record.source?.url?.startsWith("https://")))
+  assert.ok(westernRegionalPathways.records.every(record => record.last_verified_date === "2026-09-08"))
+  assert.ok(westernRegionalPathways.records.every(record => record.physical_location || record.local_service_area || record.regional_service_area || record.province_wide || record.virtual || record.navigation_only))
+  assert.equal(/canonical_event_id|legal_record_id|owner_review|accountability_watch|investigation_id/i.test(JSON.stringify(westernRegionalPathways)), false)
+  assert.equal(new Set(westernRegionalPathways.records.map(record => record.canonical_resource_id)).size, 25)
 })
 
 test("Indigenous practical services may be shared without exposing evidence records", () => {

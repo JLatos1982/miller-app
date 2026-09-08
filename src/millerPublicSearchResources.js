@@ -152,6 +152,7 @@ export function sharedCanonicalMillerResource(record = {}) {
   const transportationNote = record.transportation
     ? [record.transportation.delivery, record.transportation.eligible_trip_types, record.transportation.travel_modes].map(text).filter(Boolean).join(" · ")
     : ""
+  const scope = record.service_scope && typeof record.service_scope === "object" ? record.service_scope : {}
   return {
     id: text(record.canonical_resource_id),
     kind: text(record.record_type) || "service",
@@ -174,6 +175,18 @@ export function sharedCanonicalMillerResource(record = {}) {
     city: text(record.city_community),
     province: text(record.province),
     region: text(record.service_area || record.geography),
+    physicalLocation: scope.physical_location || null,
+    localServiceArea: Array.isArray(scope.local_service_area) ? scope.local_service_area.map(text).filter(Boolean) : [],
+    regionalServiceArea: Array.isArray(scope.regional_service_area) ? scope.regional_service_area.map(text).filter(Boolean) : [],
+    provinceWide: scope.province_wide === true,
+    virtual_service: scope.virtual === true,
+    navigationOnly: scope.navigation_only === true,
+    scopeNote: text(scope.scope_note),
+    searchLocations: [...new Set([
+      ...(Array.isArray(scope.search_locations) ? scope.search_locations : []),
+      ...(Array.isArray(scope.local_service_area) ? scope.local_service_area : []),
+      ...(Array.isArray(scope.regional_service_area) ? scope.regional_service_area : []),
+    ].map(text).filter(Boolean))],
     source: "shared_canonical_miller_projection",
     sourceAuthority: text(record.source?.authority || record.organization),
     sourceUrl: text(record.source?.url || record.website),
@@ -211,7 +224,10 @@ export function millerResourceSearchText(resource) {
     resource?.address,
     resource?.city,
     resource?.region,
+    resource?.scopeNote,
     resource?.fundingType,
+    ...(resource?.localServiceArea || []),
+    ...(resource?.regionalServiceArea || []),
     ...(resource?.tags || []),
     ...(resource?.searchLocations || []),
     ...(resource?.collectionLinks || []).map(link => link.label),
@@ -250,9 +266,12 @@ function mergeRecord(base, extra) {
     provinceWide: Boolean(base.provinceWide || extra.provinceWide),
     virtual_service: Boolean(base.virtual_service || extra.virtual_service),
     mobile_service: Boolean(base.mobile_service || extra.mobile_service),
+    navigationOnly: Boolean(base.navigationOnly || extra.navigationOnly),
+    localServiceArea: [...new Set([...(base.localServiceArea || []), ...(extra.localServiceArea || [])])],
+    regionalServiceArea: [...new Set([...(base.regionalServiceArea || []), ...(extra.regionalServiceArea || [])])],
   }
   if (extra.verification_status === "verified_active") {
-    for (const key of ["sourceAuthority", "sourceUrl", "verification_status", "location_last_verified", "referralNote", "accessRequirements", "fundingType", "transportationNote"]) {
+    for (const key of ["sourceAuthority", "sourceUrl", "verification_status", "location_last_verified", "referralNote", "accessRequirements", "fundingType", "transportationNote", "physicalLocation", "scopeNote"]) {
       if (extra[key]) merged[key] = extra[key]
     }
     for (const key of ["address", "city", "province", "region", "phone", "email", "website", "accessType", "eligibility"]) {

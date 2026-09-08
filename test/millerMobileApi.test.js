@@ -62,8 +62,39 @@ test("unknown sparse queries fall back to bounded verified navigation without in
   assert.equal(response.interpreted.province, "Saskatchewan")
   assert.ok(response.results.length > 0)
   assert.equal(response.search_scope.geography_broadened, true)
-  assert.match(response.search_scope.message, /Exact matches.*limited/i)
+  assert.match(response.search_scope.message, /didn't find a verified|limited/i)
   assert.ok(response.results.every(resource => ["Saskatchewan", "Canada-wide"].includes(resource.province)))
+})
+
+test("Burnaby withdrawal search distinguishes the searched city from regional intake and Creekside's Surrey location", () => {
+  const response = buildMillerMobileSearchResponse({ query: "detox in Burnaby", limit: 8 }, millerMobileCatalog, { now: fixedNow })
+  const creekside = response.results.find(resource => resource.name === "Creekside Withdrawal Management Centre")
+  const accessLine = response.results.find(resource => resource.name === "Fraser Health Access Line")
+
+  assert.equal(response.search_scope.physical_location_matches, 0)
+  assert.equal(response.search_scope.no_verified_local_facility, true)
+  assert.equal(response.search_scope.mode, "regional_pathway")
+  assert.match(response.search_scope.message, /didn't find a verified detox facility physically located in Burnaby/i)
+  assert.equal(creekside.physical_location.community, "Surrey")
+  assert.equal(creekside.location_relationship, "serves_community")
+  assert.match(creekside.location_label, /Located in Surrey.*serves Burnaby/i)
+  assert.equal(accessLine.location_relationship, "regional_intake")
+  assert.match(accessLine.location_label, /Regional intake serving Burnaby/i)
+  assert.equal(response.results.some(resource => resource.location_relationship === "located_here"), false)
+})
+
+test("mobile scope fields distinguish physical, regional, province-wide, virtual, and navigation service semantics", () => {
+  const response = buildMillerMobileSearchResponse({ query: "withdrawal help in La Ronge", limit: 8 }, millerMobileCatalog, { now: fixedNow })
+  const local = response.results.find(resource => resource.name === "Medically Supported Withdrawal Management - La Ronge")
+  const provincial = response.results.find(resource => resource.name === "Saskatchewan Medically Supported Withdrawal Management")
+
+  assert.equal(local.location_relationship, "located_here")
+  assert.equal(local.physical_location.community, "La Ronge")
+  assert.ok(local.regional_service_area.includes("Northern Saskatchewan"))
+  assert.equal(provincial.province_wide, true)
+  assert.equal(provincial.navigation_only, true)
+  assert.equal(provincial.location_relationship, "regional_intake")
+  assert.ok(response.results.every(resource => Object.hasOwn(resource, "scope_note")))
 })
 
 test("mobile share pack exposes only concise practical fields", () => {
@@ -73,6 +104,16 @@ test("mobile share pack exposes only concise practical fields", () => {
   assert.ok(pack.resources.every(resource => resource.name && (resource.phone || resource.website)))
   assert.match(pack.text, /Confirm current intake, eligibility and availability/i)
   assert.equal(/owner_review|ranking_score|miller north|palant[ií]r|samwise/i.test(JSON.stringify(pack)), false)
+})
+
+test("shared resource packs retain accurate regional location wording", () => {
+  const response = buildMillerMobileSearchResponse({ query: "detox in Burnaby", limit: 5 }, millerMobileCatalog, { now: fixedNow })
+  const selected = response.results.slice(0, 2).map(resource => resource.canonical_id)
+  const pack = buildMillerMobileSharePack(response, selected)
+  assert.match(pack.text, /Creekside Withdrawal Management Centre/)
+  assert.match(pack.text, /Located in Surrey.*serves Burnaby/i)
+  assert.match(pack.text, /Regional intake serving Burnaby/i)
+  assert.doesNotMatch(pack.text, /Burnaby detox facility/i)
 })
 
 test("mobile search combines practical categories without unsupported claims", () => {

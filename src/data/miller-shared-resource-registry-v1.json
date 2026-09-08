@@ -56,27 +56,48 @@
       "organization": "211 Alberta",
       "program_name": "211 Alberta",
       "categories": [
+        "financial_funding",
         "healthcare",
         "housing",
+        "legal_rights",
         "practical_support"
       ],
       "subcategories": [
-        "navigation",
-        "housing",
-        "mental health",
         "addiction support",
-        "basic needs"
+        "basic needs",
+        "benefits navigation",
+        "housing",
+        "housing navigation",
+        "legal navigation",
+        "mental health",
+        "mental health navigation",
+        "navigation"
       ],
       "description": "Live navigation to community, social, health and government services across Alberta by phone, text and online search.",
       "population_served": "People looking for services in Alberta",
-      "indigenous_scope": "general_public",
+      "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Alberta",
       "province": "Alberta",
       "city_community": "",
       "address": "",
       "service_area": "Alberta",
-      "delivery_modes": [],
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
+      "delivery_modes": [
+        "telephone",
+        "text",
+        "online directory"
+      ],
       "eligibility": "",
       "access_requirements": [],
       "required_documents": [],
@@ -105,6 +126,150 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_bc_211_navigation",
+      "record_type": "service",
+      "organization": "United Way British Columbia",
+      "program_name": "211 British Columbia",
+      "categories": [
+        "financial_funding",
+        "healthcare",
+        "housing",
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "basic needs",
+        "housing navigation",
+        "benefits navigation",
+        "legal navigation",
+        "mental health navigation"
+      ],
+      "description": "Free, confidential navigation to non-emergency community, government, health and social services across British Columbia.",
+      "population_served": "People seeking non-emergency community and social-service information in British Columbia",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "British Columbia",
+      "province": "British Columbia",
+      "city_community": "",
+      "address": "",
+      "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
+      "delivery_modes": [
+        "telephone",
+        "text",
+        "web chat",
+        "online directory"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call or text 2-1-1, use web chat, or search the online directory. Live navigator hours are posted on the official site.",
+      "phone": "211",
+      "email": "",
+      "website": "https://bc.211.ca/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "211 British Columbia",
+        "authority": "United Way British Columbia",
+        "url": "https://bc.211.ca/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_211_navigation"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_sk_211_navigation",
+      "record_type": "service",
+      "organization": "211 Saskatchewan",
+      "program_name": "211 Saskatchewan",
+      "categories": [
+        "financial_funding",
+        "healthcare",
+        "housing",
+        "legal_rights",
+        "practical_support"
+      ],
+      "subcategories": [
+        "basic needs",
+        "housing navigation",
+        "benefits navigation",
+        "legal navigation",
+        "mental health navigation"
+      ],
+      "description": "Free, confidential navigation to health, social, government and community services across Saskatchewan.",
+      "population_served": "People seeking community and social-service information in Saskatchewan",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Saskatchewan",
+      "province": "Saskatchewan",
+      "city_community": "",
+      "address": "",
+      "service_area": "Saskatchewan",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatchewan"
+      },
+      "delivery_modes": [
+        "telephone",
+        "text",
+        "web chat",
+        "online directory"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call or text 2-1-1. The toll-free line is 1-855-275-1197; current chat details are on the official site.",
+      "phone": "1-855-275-1197",
+      "email": "",
+      "website": "https://sk.211.ca/get-help-now/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Get Help Now",
+        "authority": "211 Saskatchewan",
+        "url": "https://sk.211.ca/get-help-now/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_sk_211_navigation"
+      ]
+    },
+    {
       "canonical_resource_id": "funding:miller-north:fnfund_ab_abif",
       "record_type": "funding",
       "organization": "Government of Alberta",
@@ -124,6 +289,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
       "delivery_modes": [],
       "eligibility": "Indigenous community-owned businesses in Alberta with shovel-ready capital projects.",
       "access_requirements": [],
@@ -181,6 +357,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Federal",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Federal"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible Indigenous organizations proposing regional or national entrepreneurship-support initiatives; not individual business startups.",
       "access_requirements": [],
@@ -238,6 +425,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Federal",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Federal"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible Indigenous entrepreneurs, Indigenous-owned businesses, organizations, and associations through participating Indigenous Financial Institutions and Métis Capital Corporations.",
       "access_requirements": [],
@@ -299,6 +497,17 @@
       "city_community": "Edmonton",
       "address": "",
       "service_area": "Edmonton and area",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Edmonton and area"
+      },
       "delivery_modes": [],
       "eligibility": "Adults age 18 and older",
       "access_requirements": [],
@@ -350,6 +559,17 @@
       "city_community": "Calgary",
       "address": "",
       "service_area": "Calgary and area",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Calgary and area"
+      },
       "delivery_modes": [],
       "eligibility": "",
       "access_requirements": [],
@@ -394,10 +614,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Metro Vancouver",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Metro Vancouver",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Metro Vancouver"
+      },
       "delivery_modes": [],
       "eligibility": "Unemployed or precariously employed Metro Vancouver residents age 55 or older who meet the published work-authorization and labour-program criteria and face employment barriers.",
       "access_requirements": [],
@@ -448,6 +679,21 @@
       "city_community": "Edmonton",
       "address": "17480 Fort Road, Edmonton, AB T5Y 6A8",
       "service_area": "Edmonton and area",
+      "service_scope": {
+        "physical_location": {
+          "community": "Edmonton",
+          "address": "17480 Fort Road, Edmonton, AB T5Y 6A8",
+          "province": "Alberta"
+        },
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Edmonton and area"
+      },
       "delivery_modes": [],
       "eligibility": "Age 17 and older with addiction or mental-health concerns requiring medical detoxification",
       "access_requirements": [],
@@ -492,10 +738,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "British Columbia; virtual program administered from Surrey",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "British Columbia; virtual program administered from Surrey",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia; virtual program administered from Surrey"
+      },
       "delivery_modes": [],
       "eligibility": "B.C. residents age 50 or older who meet the published work-status and immigration or work-authorization criteria.",
       "access_requirements": [],
@@ -549,6 +806,21 @@
       "city_community": "Calgary",
       "address": "707 10 Avenue SW, Calgary, AB T2R 0B3",
       "service_area": "Calgary and area",
+      "service_scope": {
+        "physical_location": {
+          "community": "Calgary",
+          "address": "707 10 Avenue SW, Calgary, AB T2R 0B3",
+          "province": "Alberta"
+        },
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Calgary and area"
+      },
       "delivery_modes": [],
       "eligibility": "Adults age 18 and older",
       "access_requirements": [],
@@ -604,6 +876,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Prince Albert, Regina and Saskatoon, Saskatchewan",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Prince Albert, Regina and Saskatoon, Saskatchewan"
+      },
       "delivery_modes": [
         "in_person",
         "phone"
@@ -658,6 +941,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
       "delivery_modes": [
         "online",
         "phone",
@@ -716,6 +1010,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
       "delivery_modes": [],
       "eligibility": "",
       "access_requirements": [],
@@ -769,6 +1074,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
       "delivery_modes": [],
       "eligibility": "Jurisdiction depends on the issue and the statutory authority of the relevant Advocate; other concerns may be referred elsewhere.",
       "access_requirements": [],
@@ -824,6 +1140,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
       "delivery_modes": [],
       "eligibility": "The complaint must fall within the Act and generally be made within one year of the alleged discriminatory act. Acceptance is not a finding on the merits.",
       "access_requirements": [],
@@ -882,6 +1209,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
       "delivery_modes": [],
       "eligibility": "Income Support is income and asset tested; eligibility and the assistance available depend on current circumstances and program rules.",
       "access_requirements": [],
@@ -942,6 +1280,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
       "delivery_modes": [],
       "eligibility": "",
       "access_requirements": [],
@@ -996,6 +1345,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
       "delivery_modes": [],
       "eligibility": "Available complaint and appeal routes normally must be completed first. The office does not act as an advocate or court and does not investigate police conduct.",
       "access_requirements": [],
@@ -1045,10 +1405,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Maple Ridge and Pitt Meadows",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Maple Ridge and Pitt Meadows",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Maple Ridge and Pitt Meadows"
+      },
       "delivery_modes": [],
       "eligibility": "People experiencing or at risk of homelessness in Maple Ridge or Pitt Meadows; contact the operator to confirm the appropriate outreach pathway.",
       "access_requirements": [],
@@ -1097,6 +1468,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible recipients of income, disability or hardship assistance facing an unexpected emergency need within the program rules",
       "access_requirements": [],
@@ -1155,6 +1537,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible recipients of income, disability or hardship assistance with no other resources for a qualifying move or transportation need",
       "access_requirements": [],
@@ -1213,6 +1606,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible recipients of income, disability or hardship assistance who need a security deposit for rental accommodation",
       "access_requirements": [],
@@ -1266,10 +1670,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "British Columbia, including TransLink service areas",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "British Columbia, including TransLink service areas",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia, including TransLink service areas"
+      },
       "delivery_modes": [],
       "eligibility": "Specified low-income seniors and people receiving disability assistance.",
       "access_requirements": [],
@@ -1321,6 +1736,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia, including the Lower Mainland",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia, including the Lower Mainland"
+      },
       "delivery_modes": [
         "online",
         "phone",
@@ -1377,6 +1803,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "A free initial appointment is available for advice. Representation requires an accepted complaint that is proceeding at the B.C. Human Rights Tribunal and the clinic's intake approval.",
       "access_requirements": [],
@@ -1431,6 +1868,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Federal",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Federal"
+      },
       "delivery_modes": [],
       "eligibility": "Eligibility varies by benefit; the tool helps identify federal programs.",
       "access_requirements": [],
@@ -1486,10 +1934,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Lower Mainland, with current training listed in Surrey",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Lower Mainland, with current training listed in Surrey",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Lower Mainland, with current training listed in Surrey"
+      },
       "delivery_modes": [],
       "eligibility": "People age 15–29 who meet the program's published work-authorization, school-status, employment-search and language criteria.",
       "access_requirements": [],
@@ -1541,6 +2000,21 @@
       "city_community": "Prince Albert",
       "address": "1200 24th Street West, Prince Albert, SK S6V 5R2",
       "service_area": "Prince Albert and area",
+      "service_scope": {
+        "physical_location": {
+          "community": "Prince Albert",
+          "address": "1200 24th Street West, Prince Albert, SK S6V 5R2",
+          "province": "Saskatchewan"
+        },
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Prince Albert and area"
+      },
       "delivery_modes": [
         "in_person",
         "residential"
@@ -1593,6 +2067,17 @@
       "city_community": "Saskatoon",
       "address": "",
       "service_area": "Saskatoon and area",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatoon and area"
+      },
       "delivery_modes": [],
       "eligibility": "",
       "access_requirements": [],
@@ -1622,6 +2107,73 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_sk_yorkton_brunos_place",
+      "record_type": "service",
+      "organization": "Saskatchewan Health Authority",
+      "program_name": "Bruno's Place Brief Detox",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "detox",
+        "withdrawal management"
+      ],
+      "description": "Non-medical structured withdrawal-management service for people assessed as low risk who do not require 24-hour medical staff on site.",
+      "population_served": "People assessed as appropriate for non-medical withdrawal management",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Yorkton and area",
+      "province": "Saskatchewan",
+      "city_community": "Yorkton",
+      "address": "",
+      "service_area": "Yorkton and area",
+      "service_scope": {
+        "physical_location": {
+          "community": "Yorkton",
+          "province": "Saskatchewan"
+        },
+        "local_service_area": [
+          "Yorkton"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Yorkton and area"
+      },
+      "delivery_modes": [
+        "in person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 306-782-7866 to confirm current assessment and intake instructions.",
+      "phone": "306-782-7866",
+      "email": "",
+      "website": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/mental-health-and-addictions/addiction-and-substance-use/withdrawal-management-non-medical",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Withdrawal Management - Non-Medical",
+        "authority": "Saskatchewan Health Authority",
+        "url": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/mental-health-and-addictions/addiction-and-substance-use/withdrawal-management-non-medical"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_sk_yorkton_brunos_place"
+      ]
+    },
+    {
       "canonical_resource_id": "curated:4sdrnc",
       "record_type": "service",
       "organization": "Progressive Housing Society",
@@ -1637,10 +2189,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Burnaby",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Burnaby",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Burnaby"
+      },
       "delivery_modes": [],
       "eligibility": "Contact the outreach team to discuss housing needs and program eligibility.",
       "access_requirements": [],
@@ -1685,10 +2248,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Burnaby",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Burnaby",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Burnaby"
+      },
       "delivery_modes": [],
       "eligibility": "People seeking low-barrier practical necessities and social-service connections.",
       "access_requirements": [],
@@ -1733,10 +2307,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Burnaby",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Burnaby",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Burnaby"
+      },
       "delivery_modes": [],
       "eligibility": "Burnaby renters facing a temporary financial crisis; the program confirms eligibility through its application process.",
       "access_requirements": [],
@@ -1789,6 +2374,17 @@
       "city_community": "Saskatoon",
       "address": "",
       "service_area": "Saskatoon",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatoon"
+      },
       "delivery_modes": [],
       "eligibility": "Household circumstances and income determine program eligibility; supported living has additional Reaching Home and homelessness criteria.",
       "access_requirements": [],
@@ -1848,6 +2444,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Canada",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Canada"
+      },
       "delivery_modes": [],
       "eligibility": "People age 18 to 64 who meet the federal program's current eligibility requirements",
       "access_requirements": [],
@@ -1906,6 +2513,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible Alberta employers, including First Nations and Métis Settlements, funding approved training for employees.",
       "access_requirements": [],
@@ -1968,6 +2586,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Canada-wide for matters within federal jurisdiction",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Canada-wide for matters within federal jurisdiction"
+      },
       "delivery_modes": [],
       "eligibility": "The complaint must fall within federal human-rights jurisdiction and meet current filing requirements. Intake or acceptance is not a merits finding.",
       "access_requirements": [],
@@ -2024,6 +2653,17 @@
       "city_community": "Saskatoon",
       "address": "",
       "service_area": "Saskatoon and telephone-based access as offered by the program",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatoon and telephone-based access as offered by the program"
+      },
       "delivery_modes": [],
       "eligibility": "Eligibility is assessed case by case. Criminal and family applicants must first be denied Legal Aid before applying for certain CLASSIC services.",
       "access_requirements": [],
@@ -2057,6 +2697,155 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_ab_canmore_amh",
+      "record_type": "service",
+      "organization": "Alberta Health Services",
+      "program_name": "Community Addiction and Mental Health Services - Canmore",
+      "categories": [
+        "healthcare",
+        "family_community"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "outpatient treatment",
+        "counselling",
+        "family support"
+      ],
+      "description": "Bow Valley assessment, short-term treatment, counselling and follow-up for moderate to severe addiction and mental-health concerns.",
+      "population_served": "Children, youth, adults and older adults who meet the program's current clinical scope",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Bow Valley",
+      "province": "Alberta",
+      "city_community": "Canmore",
+      "address": "743 Railway Avenue, Canmore, AB T1W 1P2",
+      "service_area": "Bow Valley",
+      "service_scope": {
+        "physical_location": {
+          "community": "Canmore",
+          "address": "743 Railway Avenue, Canmore, AB T1W 1P2",
+          "province": "Alberta"
+        },
+        "local_service_area": [
+          "Canmore"
+        ],
+        "regional_service_area": [
+          "Banff",
+          "Lake Louise"
+        ],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Bow Valley"
+      },
+      "delivery_modes": [
+        "in person",
+        "outreach"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Contact Access Mental Health for individual counselling or therapy intake information.",
+      "access": "Call 403-678-4696 for the Canmore service or 1-844-943-1500 for Access Mental Health.",
+      "phone": "403-678-4696",
+      "email": "",
+      "website": "https://www.albertahealthservices.ca/findhealth/Service.aspx?id=1015555&serviceAtFacilityID=1112963",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Community Addiction and Mental Health Services - Rural at Canmore",
+        "authority": "Alberta Health Services",
+        "url": "https://www.albertahealthservices.ca/findhealth/Service.aspx?id=1015555&serviceAtFacilityID=1112963"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_ab_canmore_amh"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_ab_high_river_amh",
+      "record_type": "service",
+      "organization": "Alberta Health Services",
+      "program_name": "Community Addiction and Mental Health Services - High River",
+      "categories": [
+        "healthcare",
+        "family_community"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "outpatient treatment",
+        "counselling",
+        "family support"
+      ],
+      "description": "Assessment, short-term treatment, counselling and follow-up for moderate to severe addiction and mental-health concerns.",
+      "population_served": "Children, youth, adults and older adults who meet the program's current clinical scope",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "High River and Calgary rural zone",
+      "province": "Alberta",
+      "city_community": "High River",
+      "address": "Suite 200, 617 1 Street W, High River, AB T1V 1M5",
+      "service_area": "High River and Calgary rural zone",
+      "service_scope": {
+        "physical_location": {
+          "community": "High River",
+          "address": "Suite 200, 617 1 Street W, High River, AB T1V 1M5",
+          "province": "Alberta"
+        },
+        "local_service_area": [
+          "High River"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "High River and Calgary rural zone"
+      },
+      "delivery_modes": [
+        "in person",
+        "outreach"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Contact Access Mental Health for individual counselling or therapy intake information.",
+      "access": "Call 403-652-8340 for general inquiries or 1-844-943-1500 for Access Mental Health.",
+      "phone": "403-652-8340",
+      "email": "",
+      "website": "https://www.albertahealthservices.ca/findhealth/Service.aspx?serviceAtFacilityId=1094186",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Community Addiction and Mental Health Services - Rural at High River",
+        "authority": "Alberta Health Services",
+        "url": "https://www.albertahealthservices.ca/findhealth/Service.aspx?serviceAtFacilityId=1094186"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_ab_high_river_amh"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_bc_victoria_community_medical_detox",
       "record_type": "service",
       "organization": "Island Health",
@@ -2079,6 +2868,21 @@
       "city_community": "Victoria",
       "address": "Eric Martin Pavilion, 2334 Trent Street, Victoria, BC V8R 4Z3",
       "service_area": "Greater Victoria",
+      "service_scope": {
+        "physical_location": {
+          "community": "Victoria",
+          "address": "Eric Martin Pavilion, 2334 Trent Street, Victoria, BC V8R 4Z3",
+          "province": "British Columbia"
+        },
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Greater Victoria"
+      },
       "delivery_modes": [],
       "eligibility": "Program assessment and ability to manage basic self-care requirements apply",
       "access_requirements": [],
@@ -2131,6 +2935,21 @@
       "city_community": "Burnaby",
       "address": "#320-7155 Kingsway, Burnaby, BC V4E 2V1",
       "service_area": "Burnaby and Fraser Health region",
+      "service_scope": {
+        "physical_location": {
+          "community": "Burnaby",
+          "address": "#320-7155 Kingsway, Burnaby, BC V4E 2V1",
+          "province": "British Columbia"
+        },
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Burnaby and Fraser Health region"
+      },
       "delivery_modes": [],
       "eligibility": "",
       "access_requirements": [],
@@ -2181,6 +3000,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible communities, sector organizations, employers, and training partners under the current applicant guide.",
       "access_requirements": [],
@@ -2221,6 +3051,99 @@
       ]
     },
     {
+      "canonical_resource_id": "curated:1ldala",
+      "record_type": "service",
+      "organization": "Fraser Health",
+      "program_name": "Creekside Withdrawal Management Centre",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "detox",
+        "withdrawal management",
+        "addiction treatment"
+      ],
+      "description": "Medically monitored withdrawal-management service physically located in Surrey and available through the Fraser Health regional pathway.",
+      "population_served": "Adults and youth seeking withdrawal-management support in the Fraser Health region",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Fraser Health region",
+      "province": "British Columbia",
+      "city_community": "Surrey",
+      "address": "13740 94A Avenue, Surrey, BC V3V 1N1",
+      "service_area": "Fraser Health region",
+      "service_scope": {
+        "physical_location": {
+          "community": "Surrey",
+          "address": "13740 94A Avenue, Surrey, BC V3V 1N1",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Surrey"
+        ],
+        "regional_service_area": [
+          "Abbotsford",
+          "Agassiz",
+          "Burnaby",
+          "Chilliwack",
+          "Coquitlam",
+          "Delta",
+          "Hope",
+          "Langley",
+          "Maple Ridge",
+          "Mission",
+          "New Westminster",
+          "Pitt Meadows",
+          "Port Coquitlam",
+          "Port Moody",
+          "Surrey",
+          "White Rock"
+        ],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "Located in Surrey; regional access is coordinated through Fraser Health.",
+        "search_locations": [],
+        "service_area": "Fraser Health region"
+      },
+      "delivery_modes": [],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Contact the Fraser Health Access Line to confirm assessment and current intake.",
+      "access": "Call Creekside at 604-587-3755 or the Fraser Health Access Line at 1-833-866-6478 before travelling.",
+      "phone": "604-587-3755",
+      "email": "",
+      "website": "https://www.fraserhealth.ca/Service-Directory/Locations/Surrey/creekside-withdrawal-management-centre",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": {
+        "funding_source": "Fraser Health",
+        "eligible_trip_types": [
+          "Travel to Creekside after assessment for bed-based withdrawal management"
+        ],
+        "delivery": "Transportation needs are assessed during intake for accepted clients facing travel barriers",
+        "travel_modes": [
+          "Booked Fraser Health client transportation van where arranged"
+        ]
+      },
+      "source": {
+        "title": "Expanding addictions care in Lower Mainland",
+        "authority": "Fraser Health",
+        "url": "https://www.fraserhealth.ca/news/2026/Feb/Expanding-addictions-care-in-Lower-Mainland"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "curated:1ldala"
+      ]
+    },
+    {
       "canonical_resource_id": "shared_sk_cress_housing",
       "record_type": "service",
       "organization": "Cress Housing Corporation / Saskatoon Tribal Council",
@@ -2242,6 +3165,17 @@
       "city_community": "Saskatoon",
       "address": "",
       "service_area": "Saskatoon",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatoon"
+      },
       "delivery_modes": [],
       "eligibility": "First Nations applicants living in Saskatoon; income and application documentation requirements apply.",
       "access_requirements": [],
@@ -2292,10 +3226,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "British Columbia by phone or online; in-person appointments in Vancouver",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "British Columbia by phone or online; in-person appointments in Vancouver",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia by phone or online; in-person appointments in Vancouver"
+      },
       "delivery_modes": [],
       "eligibility": "People in B.C. seeking help with disability benefits or related programs; the PWD and CPP-D advocacy waitlists have program-specific prerequisites.",
       "access_requirements": [],
@@ -2340,10 +3285,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Canada by phone or online",
-      "province": "",
+      "province": "Canada-wide",
       "city_community": "",
       "address": "",
       "service_area": "Canada by phone or online",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Canada by phone or online"
+      },
       "delivery_modes": [],
       "eligibility": "Anyone with a disability-related planning or benefit question, including disabled people, family members, friends and professionals.",
       "access_requirements": [],
@@ -2388,10 +3344,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Burnaby",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Burnaby",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Burnaby"
+      },
       "delivery_modes": [],
       "eligibility": "Confirm current intake and space directly with the shelter.",
       "access_requirements": [],
@@ -2441,6 +3408,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible Indigenous communities and organizations connecting Indigenous people to employment.",
       "access_requirements": [],
@@ -2499,6 +3477,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Federal",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Federal"
+      },
       "delivery_modes": [],
       "eligibility": "Varies by program.",
       "access_requirements": [],
@@ -2557,6 +3546,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "Programs are delivered through Indigenous partner organizations; eligibility varies by funded initiative.",
       "access_requirements": [],
@@ -2620,6 +3620,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Canada-wide, with province and program filters",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Canada-wide, with province and program filters"
+      },
       "delivery_modes": [],
       "eligibility": "Each program publishes its own age, referral and intake requirements; confirm directly with the selected treatment centre.",
       "access_requirements": [],
@@ -2677,6 +3688,17 @@
       "city_community": "Regina, Saskatoon, Prince Albert and Broadview",
       "address": "",
       "service_area": "Named Saskatchewan hospital and urgent-care sites",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Named Saskatchewan hospital and urgent-care sites"
+      },
       "delivery_modes": [
         "in_person",
         "regional"
@@ -2728,6 +3750,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible Indigenous governing bodies and authorized Indigenous organizations for community-benefit clean-energy projects.",
       "access_requirements": [],
@@ -2786,6 +3819,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
       "delivery_modes": [],
       "eligibility": "Recognized First Nations with reserve land in Alberta that have signed a grant agreement.",
       "access_requirements": [],
@@ -2844,6 +3888,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible First Nations people with Indian status living in B.C.; infant eligibility is described by FNHA.",
       "access_requirements": [],
@@ -2906,6 +3961,17 @@
       "city_community": "Provincewide",
       "address": "",
       "service_area": "Saskatchewan First Nations individuals and communities",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatchewan First Nations individuals and communities"
+      },
       "delivery_modes": [
         "phone",
         "email",
@@ -2961,6 +4027,17 @@
       "city_community": "Provincewide",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [
         "virtual",
         "phone"
@@ -3016,6 +4093,17 @@
       "city_community": "Provincewide",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [
         "virtual",
         "phone"
@@ -3074,6 +4162,17 @@
       "city_community": "Provincewide",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [
         "in_person",
         "virtual",
@@ -3132,6 +4231,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [
         "in_person",
         "residential",
@@ -3190,6 +4300,17 @@
       "city_community": "Lethbridge, Cardston, Pincher Creek and Fort Macleod",
       "address": "",
       "service_area": "South Zone",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "South Zone"
+      },
       "delivery_modes": [
         "in_person",
         "regional"
@@ -3232,41 +4353,76 @@
       ],
       "subcategories": [
         "addiction navigation",
-        "withdrawal management",
-        "mental health",
         "counselling",
-        "treatment navigation"
+        "mental health",
+        "substance use",
+        "treatment navigation",
+        "withdrawal management"
       ],
-      "description": "Regional phone and callback navigation for mental-health and substance-use services, including help connecting with withdrawal-management and treatment services.",
-      "population_served": "People seeking mental-health or substance-use services in the Fraser Health region",
-      "indigenous_scope": "general_public",
+      "description": "Regional mental-health and substance-use intake that helps people identify and connect with the Fraser Health service that fits their needs.",
+      "population_served": "People in the Fraser Health region seeking mental-health or substance-use services",
+      "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
-      "geography": "Fraser Health region, including Burnaby and Surrey",
+      "geography": "Fraser Health region",
       "province": "British Columbia",
       "city_community": "",
       "address": "",
-      "service_area": "Fraser Health region, including Burnaby and Surrey",
+      "service_area": "Fraser Health region",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [
+          "Abbotsford",
+          "Agassiz",
+          "Burnaby",
+          "Chilliwack",
+          "Coquitlam",
+          "Delta",
+          "Hope",
+          "Langley",
+          "Maple Ridge",
+          "Mission",
+          "New Westminster",
+          "Pitt Meadows",
+          "Port Coquitlam",
+          "Port Moody",
+          "Surrey",
+          "White Rock"
+        ],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "Regional intake; this phone line is not a physical withdrawal-management facility.",
+        "search_locations": [
+          "Fraser Valley",
+          "Lower Mainland",
+          "Fraser Health region"
+        ],
+        "service_area": "Fraser Health region"
+      },
       "delivery_modes": [
         "phone",
-        "virtual"
+        "virtual",
+        "telephone",
+        "online callback request"
       ],
       "eligibility": "",
       "access_requirements": [],
       "required_documents": [],
       "cost": "",
       "referral_requirement": "",
-      "access": "Call 1-833-866-6478 or use the official callback form. The line is open daily from 8:30 a.m. to 8:30 p.m.",
+      "access": "Call 1-833-866-6478 or request a callback through Fraser Health. The line is open seven days a week from 8:30 a.m. to 8:30 p.m.",
       "phone": "1-833-866-6478",
       "email": "",
-      "website": "https://www.fraserhealth.ca/Service-Directory/Locations/Burnaby/burnaby-mental-health-centre",
+      "website": "https://www.fraserhealth.ca/health-topics-a-to-z/mental-health-and-substance-use/mental-health-and-substance-use-services",
       "funding": null,
       "housing": null,
       "legal_support": null,
       "transportation": null,
       "source": {
-        "title": "Burnaby Community Mental Health and Substance Use Centre",
+        "title": "Mental health and substance use services",
         "authority": "Fraser Health",
-        "url": "https://www.fraserhealth.ca/Service-Directory/Locations/Burnaby/burnaby-mental-health-centre"
+        "url": "https://www.fraserhealth.ca/health-topics-a-to-z/mental-health-and-substance-use/mental-health-and-substance-use-services"
       },
       "last_verified": "2026-09-08",
       "verification_status": "verified_active",
@@ -3301,6 +4457,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Saskatchewan through 17 listed clinic locations and telephone appointments",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatchewan through 17 listed clinic locations and telephone appointments"
+      },
       "delivery_modes": [
         "in_person",
         "phone"
@@ -3352,10 +4519,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Metro Vancouver",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Metro Vancouver",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Metro Vancouver"
+      },
       "delivery_modes": [],
       "eligibility": "People whose physical, sensory or cognitive disability prevents independent use of conventional transit for some or all trips.",
       "access_requirements": [],
@@ -3404,6 +4582,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible self-declared Indigenous students in listed priority health programs.",
       "access_requirements": [],
@@ -3442,6 +4631,77 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_bc_prince_george_homeless_prevention",
+      "record_type": "service",
+      "organization": "Northern John Howard Society of BC",
+      "program_name": "Homeless Prevention Program Outreach - Prince George",
+      "categories": [
+        "housing",
+        "practical_support"
+      ],
+      "subcategories": [
+        "housing navigation",
+        "homelessness prevention",
+        "reentry",
+        "hospital discharge"
+      ],
+      "description": "BC Housing-funded outreach that helps eligible people at immediate risk of homelessness connect with housing and prevention supports in Prince George.",
+      "population_served": "Priority groups listed by BC Housing include people leaving corrections or hospital, Indigenous people, youth and women; the provider confirms current eligibility.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Prince George",
+      "province": "British Columbia",
+      "city_community": "Prince George",
+      "address": "",
+      "service_area": "Prince George",
+      "service_scope": {
+        "physical_location": {
+          "community": "Prince George",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Prince George"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Prince George"
+      },
+      "delivery_modes": [
+        "telephone",
+        "outreach"
+      ],
+      "eligibility": "Contact the outreach provider to confirm current Homeless Prevention Program eligibility.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 250-561-7343 and ask about the BC Housing Homeless Prevention Program outreach service.",
+      "phone": "250-561-7343",
+      "email": "",
+      "website": "https://www.bchousing.org/housing-assistance/homelessness-services/find-homeless-prevention-outreach-worker",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Find a Homeless Prevention Program Outreach Worker",
+        "authority": "BC Housing",
+        "url": "https://www.bchousing.org/housing-assistance/homelessness-services/find-homeless-prevention-outreach-worker"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_prince_george_homeless_prevention"
+      ]
+    },
+    {
       "canonical_resource_id": "support:hope-air-travel-support",
       "record_type": "service",
       "organization": "Hope Air",
@@ -3457,10 +4717,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Canada, including British Columbia",
-      "province": "",
+      "province": "Canada-wide",
       "city_community": "",
       "address": "",
       "service_area": "Canada, including British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Canada, including British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "People with a confirmed, provincially covered specialist appointment requiring long-distance travel who demonstrate financial need; detailed travel requirements apply.",
       "access_requirements": [],
@@ -3512,6 +4783,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Canada-wide",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Canada-wide"
+      },
       "delivery_modes": [
         "phone",
         "virtual"
@@ -3565,6 +4847,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible recipients of B.C. income, disability, or hardship assistance",
       "access_requirements": [],
@@ -3624,6 +4917,17 @@
       "city_community": "Saskatoon",
       "address": "",
       "service_area": "Jim Pattison Children’s Hospital Maternal Care Centre",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Jim Pattison Children’s Hospital Maternal Care Centre"
+      },
       "delivery_modes": [
         "in_person"
       ],
@@ -3674,6 +4978,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Saskatchewan",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatchewan"
+      },
       "delivery_modes": [],
       "eligibility": "Varies by listed Indigenous business-financing program.",
       "access_requirements": [],
@@ -3738,6 +5053,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Duncan and Nanaimo service locations",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Duncan and Nanaimo service locations"
+      },
       "delivery_modes": [],
       "eligibility": "Service scope includes listed family, child-protection, housing, residential-school, wills and estates matters; contact the worker about the specific issue.",
       "access_requirements": [],
@@ -3795,6 +5121,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Alberta, through courtworker locations and contacts",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta, through courtworker locations and contacts"
+      },
       "delivery_modes": [],
       "eligibility": "Indigenous clients seeking help with criminal, family or youth court matters.",
       "access_requirements": [],
@@ -3848,6 +5185,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible Indigenous organizations and partners proposing training-to-employment projects.",
       "access_requirements": [],
@@ -3912,6 +5260,17 @@
       "city_community": "Fraser Health region",
       "address": "",
       "service_area": "Fraser Salish region, including Fraser North hospitals and communities",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser Salish region, including Fraser North hospitals and communities"
+      },
       "delivery_modes": [
         "in_person",
         "regional"
@@ -3969,6 +5328,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Listed hospitals and public-health centres in Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Listed hospitals and public-health centres in Alberta"
+      },
       "delivery_modes": [],
       "eligibility": "First Nations, Métis and Inuit patients and families at a listed service location.",
       "access_requirements": [],
@@ -4019,6 +5389,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible applicants and projects must meet the current program guide, including partnership rules where applicable.",
       "access_requirements": [],
@@ -4084,6 +5465,17 @@
       "city_community": "Edmonton",
       "address": "",
       "service_area": "Edmonton",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Edmonton"
+      },
       "delivery_modes": [],
       "eligibility": "The official page lists chronic homelessness, sufficient SPDAT priority and an income source among access requirements.",
       "access_requirements": [],
@@ -4143,6 +5535,17 @@
       "city_community": "Surrey",
       "address": "",
       "service_area": "Surrey Memorial Hospital",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Surrey Memorial Hospital"
+      },
       "delivery_modes": [
         "in_person"
       ],
@@ -4197,6 +5600,17 @@
       "city_community": "Surrey, Maple Ridge/Coquitlam, Abbotsford/Mission, Chilliwack, Hope/Agassiz",
       "address": "",
       "service_area": "Fraser Health region",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser Health region"
+      },
       "delivery_modes": [
         "in_person",
         "regional"
@@ -4252,6 +5666,17 @@
       "city_community": "Surrey",
       "address": "",
       "service_area": "Surrey and outreach to Kwikwetlem, Katzie and Tsawwassen First Nations and Spirit of the Children",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Surrey and outreach to Kwikwetlem, Katzie and Tsawwassen First Nations and Spirit of the Children"
+      },
       "delivery_modes": [
         "in_person",
         "outreach"
@@ -4304,6 +5729,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Federal",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Federal"
+      },
       "delivery_modes": [],
       "eligibility": "Indigenous people access services through Indigenous service-delivery agreement holders; organizational agreements fund local delivery.",
       "access_requirements": [],
@@ -4359,10 +5795,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "British Columbia, including Lower Mainland providers",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "British Columbia, including Lower Mainland providers",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia, including Lower Mainland providers"
+      },
       "delivery_modes": [],
       "eligibility": "Indigenous people; detailed eligibility and available supports are set by each provider and may be distinctions- or community-specific.",
       "access_requirements": [],
@@ -4417,6 +5864,17 @@
       "city_community": "Provincewide",
       "address": "",
       "service_area": "Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
       "delivery_modes": [
         "phone"
       ],
@@ -4474,6 +5932,17 @@
       "city_community": "Edmonton",
       "address": "",
       "service_area": "Edmonton Zone and surrounding area",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Edmonton Zone and surrounding area"
+      },
       "delivery_modes": [
         "in_person"
       ],
@@ -4529,6 +5998,17 @@
       "city_community": "STC member First Nations",
       "address": "",
       "service_area": "Kinistin, Mistawasis, Muskeg Lake, Muskoday, One Arrow, Whitecap, and Yellow Quill service points",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Kinistin, Mistawasis, Muskeg Lake, Muskoday, One Arrow, Whitecap, and Yellow Quill service points"
+      },
       "delivery_modes": [
         "in_person",
         "community"
@@ -4562,6 +6042,168 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_bc_interior_access_central",
+      "record_type": "service",
+      "organization": "Interior Health",
+      "program_name": "Interior Health Access Central",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "substance use",
+        "addiction treatment",
+        "withdrawal management",
+        "oat",
+        "treatment navigation"
+      ],
+      "description": "Same-day telephone assessment and connection to substance-use services, including virtual, bed-based, at-home and community options across the Interior Health region.",
+      "population_served": "Adults seeking substance-use service access in the Interior Health region",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Interior Health region",
+      "province": "British Columbia",
+      "city_community": "",
+      "address": "",
+      "service_area": "Interior Health region",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [
+          "100 Mile House",
+          "Castlegar",
+          "Cranbrook",
+          "Creston",
+          "Grand Forks",
+          "Invermere",
+          "Kamloops",
+          "Kelowna",
+          "Merritt",
+          "Nelson",
+          "Osoyoos",
+          "Penticton",
+          "Revelstoke",
+          "Salmon Arm",
+          "Trail",
+          "Vernon",
+          "Williams Lake"
+        ],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "Regional telephone assessment and navigation; it is not a physical facility in each listed community.",
+        "search_locations": [],
+        "service_area": "Interior Health region"
+      },
+      "delivery_modes": [
+        "telephone",
+        "virtual assessment"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 1-866-777-1103 for same-day telephone assessment and connection to the appropriate local, regional or virtual option.",
+      "phone": "1-866-777-1103",
+      "email": "",
+      "website": "https://www.healthlinkbc.ca/find-care/find-health-services/program/access-central",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Access Central",
+        "authority": "HealthLink BC",
+        "url": "https://www.healthlinkbc.ca/find-care/find-health-services/program/access-central"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_interior_access_central"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_bc_island_mhsu_service_link",
+      "record_type": "service",
+      "organization": "Island Health",
+      "program_name": "Island Health Mental Health and Substance Use Service Link",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "withdrawal management",
+        "treatment navigation",
+        "harm reduction"
+      ],
+      "description": "Regional information line that helps people find mental-health, harm-reduction, addiction-medicine, withdrawal-management and treatment services in Island Health communities.",
+      "population_served": "People seeking adult mental-health or substance-use services in the Island Health region",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Island Health region",
+      "province": "British Columbia",
+      "city_community": "",
+      "address": "",
+      "service_area": "Island Health region",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [
+          "Campbell River",
+          "Courtenay",
+          "Duncan",
+          "Nanaimo",
+          "Parksville",
+          "Port Alberni",
+          "Port Hardy",
+          "Port McNeill",
+          "Ucluelet",
+          "Victoria"
+        ],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "Regional phone navigation; service facilities are located separately across Vancouver Island.",
+        "search_locations": [],
+        "service_area": "Island Health region"
+      },
+      "delivery_modes": [
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Self-referral is accepted. Call 1-888-885-8824 for service information and connection; after-hours messages are returned.",
+      "phone": "1-888-885-8824",
+      "email": "",
+      "website": "https://www.healthlinkbc.ca/find-care/find-health-services/program/mental-health-and-substance-use-service-link",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Mental Health and Substance Use Service Link",
+        "authority": "HealthLink BC",
+        "url": "https://www.healthlinkbc.ca/find-care/find-health-services/program/mental-health-and-substance-use-service-link"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_island_mhsu_service_link"
+      ]
+    },
+    {
       "canonical_resource_id": "shared_isc_jordans_principle",
       "record_type": "funding",
       "organization": "Indigenous Services Canada",
@@ -4585,6 +6227,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Canada-wide",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Canada-wide"
+      },
       "delivery_modes": [],
       "eligibility": "The child must meet one of the current First Nations registration, parent or guardian, Nation-recognition, or ordinary-residence-on-reserve criteria.",
       "access_requirements": [],
@@ -4647,6 +6300,17 @@
       "city_community": "Provincewide",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [
         "phone",
         "virtual",
@@ -4705,6 +6369,17 @@
       "city_community": "Pitt Meadows",
       "address": "",
       "service_area": "Katzie First Nation members and community",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Katzie First Nation members and community"
+      },
       "delivery_modes": [
         "in_person",
         "community"
@@ -4758,6 +6433,17 @@
       "city_community": "Edmonton",
       "address": "",
       "service_area": "Edmonton and Central Alberta referral pathways",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Edmonton and Central Alberta referral pathways"
+      },
       "delivery_modes": [],
       "eligibility": "Participants must be fully ambulatory and able to prepare meals and maintain a moderate level of independence.",
       "access_requirements": [],
@@ -4816,6 +6502,17 @@
       "city_community": "Provincewide",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [
         "phone"
       ],
@@ -4872,6 +6569,17 @@
       "city_community": "Coquitlam",
       "address": "",
       "service_area": "kʷikʷəƛ̓əm First Nation members and community",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "kʷikʷəƛ̓əm First Nation members and community"
+      },
       "delivery_modes": [
         "in_person",
         "community"
@@ -4928,6 +6636,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
       "delivery_modes": [],
       "eligibility": "Eligibility depends on current income and assets, the type of legal problem, and the merits and coverage rules for the service requested.",
       "access_requirements": [],
@@ -4977,10 +6696,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "New Westminster and nearby communities",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "New Westminster and nearby communities",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "New Westminster and nearby communities"
+      },
       "delivery_modes": [],
       "eligibility": "Financial and legal-issue eligibility varies; call to apply or ask about service options.",
       "access_requirements": [],
@@ -5034,6 +6764,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Saskatchewan",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatchewan"
+      },
       "delivery_modes": [],
       "eligibility": "Financial eligibility, the type of issue and the merits or coverage rules for the matter are assessed during application.",
       "access_requirements": [],
@@ -5090,6 +6831,21 @@
       "city_community": "Vancouver",
       "address": "508-526 Powell Street, Vancouver, BC V6A 1G9",
       "service_area": "Vancouver",
+      "service_scope": {
+        "physical_location": {
+          "community": "Vancouver",
+          "address": "508-526 Powell Street, Vancouver, BC V6A 1G9",
+          "province": "British Columbia"
+        },
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Vancouver"
+      },
       "delivery_modes": [
         "in_person",
         "phone"
@@ -5149,6 +6905,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Saskatchewan",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatchewan"
+      },
       "delivery_modes": [],
       "eligibility": "The navigation service can help registered citizens and people who self-identify as Métis connect with suitable programs; individual program eligibility still applies.",
       "access_requirements": [],
@@ -5193,10 +6960,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Maple Ridge and Pitt Meadows",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Maple Ridge and Pitt Meadows",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Maple Ridge and Pitt Meadows"
+      },
       "delivery_modes": [],
       "eligibility": "Maple Ridge or Pitt Meadows renters facing a temporary financial crisis; the program confirms eligibility through its application process.",
       "access_requirements": [],
@@ -5236,26 +7014,42 @@
         "practical_support"
       ],
       "subcategories": [
+        "funding",
         "medical transportation",
         "medical travel",
-        "transportation"
+        "transportation",
+        "treatment transportation"
       ],
-      "description": "medical_transportation",
-      "population_served": "Eligible First Nations people with Indian status living in B.C. who need medically necessary services unavailable in their community.",
-      "indigenous_scope": "first_nations_specific",
+      "description": "Supplemental transportation, accommodation and meal support for eligible First Nations clients travelling to medically necessary care unavailable in their community, including qualifying substance-use treatment travel.",
+      "population_served": "Eligible First Nations people with Indian status who live in British Columbia, plus eligible infants under current program rules",
+      "indigenous_scope": "First Nations-specific",
       "governance_type": "not_stated",
       "geography": "British Columbia",
       "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
-      "delivery_modes": [],
-      "eligibility": "Eligible First Nations clients in B.C.; current coverage and prior-approval rules apply",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
+      "delivery_modes": [
+        "telephone",
+        "community patient travel clerk"
+      ],
+      "eligibility": "Current FNHA Health Benefits eligibility and prior-approval rules apply; the benefit supplements eligible costs and may not cover the full cost.",
       "access_requirements": [],
       "required_documents": [],
       "cost": "",
       "referral_requirement": "",
-      "access": "Contact a Community Patient Travel Clerk or call FNHA Health Benefits at 1-855-550-5454 before travel to confirm approval and arrangements.",
+      "access": "Contact a community Patient Travel Clerk or FNHB Medical Transportation Operations at least five business days before travel where possible.",
       "phone": "1-855-550-5454",
       "email": "",
       "website": "https://fnha.ca/benefits/benefits-guide/medical-transport-ambulance/",
@@ -5268,7 +7062,20 @@
       },
       "housing": null,
       "legal_support": null,
-      "transportation": null,
+      "transportation": {
+        "funding_source": "First Nations Health Authority",
+        "eligible_trip_types": [
+          "Medically necessary care unavailable in the home community",
+          "Eligible substance-use treatment",
+          "Witnessed ingestion of opioid agonist treatment"
+        ],
+        "delivery": "Prior approval and appointment confirmation normally required",
+        "travel_modes": [
+          "Program-approved transportation",
+          "Private vehicle mileage",
+          "Accommodation and meal assistance where eligible"
+        ]
+      },
       "source": {
         "title": "Medical transportation",
         "authority": "First Nations Health Authority",
@@ -5302,10 +7109,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "British Columbia",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "Specified recipients of income assistance, disability assistance or Medical Services Only coverage, or people approved under the published life-threatening-need rules.",
       "access_requirements": [],
@@ -5335,6 +7153,234 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_sk_la_ronge_withdrawal",
+      "record_type": "service",
+      "organization": "Saskatchewan Health Authority",
+      "program_name": "Medically Supported Withdrawal Management - La Ronge",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "detox",
+        "withdrawal management"
+      ],
+      "description": "Twenty-four-hour supervised withdrawal management with medical and clinical staff at La Ronge Health Centre.",
+      "population_served": "People assessed as appropriate for medically supported withdrawal management",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "La Ronge and northern communities",
+      "province": "Saskatchewan",
+      "city_community": "La Ronge",
+      "address": "227 Backlund Street, La Ronge, SK S0J 1L0",
+      "service_area": "La Ronge and northern communities",
+      "service_scope": {
+        "physical_location": {
+          "community": "La Ronge",
+          "address": "227 Backlund Street, La Ronge, SK S0J 1L0",
+          "province": "Saskatchewan"
+        },
+        "local_service_area": [
+          "La Ronge"
+        ],
+        "regional_service_area": [
+          "Northern Saskatchewan"
+        ],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "La Ronge and northern communities"
+      },
+      "delivery_modes": [
+        "in person",
+        "bed based"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 306-822-8800 to confirm assessment, intake and current service details before travelling.",
+      "phone": "306-822-8800",
+      "email": "",
+      "website": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/mental-health-and-addictions/addiction-and-substance-use/withdrawal-management-medically-supported",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Withdrawal Management - Medically Supported",
+        "authority": "Saskatchewan Health Authority",
+        "url": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/mental-health-and-addictions/addiction-and-substance-use/withdrawal-management-medically-supported"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_sk_la_ronge_withdrawal"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_sk_swift_current_community_health",
+      "record_type": "service",
+      "organization": "Saskatchewan Health Authority",
+      "program_name": "Mental Health and Addiction Community Health Services - Swift Current",
+      "categories": [
+        "healthcare",
+        "family_community"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "outpatient treatment",
+        "counselling",
+        "withdrawal management",
+        "family support"
+      ],
+      "description": "Community mental-health and addiction services including counselling, case management, intensive outpatient care, family support and mobile or home-based withdrawal services.",
+      "population_served": "People seeking community mental-health or addiction support in Swift Current and area",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Swift Current and southwest Saskatchewan",
+      "province": "Saskatchewan",
+      "city_community": "Swift Current",
+      "address": "400-350 Cheadle Street W, Swift Current, SK S9H 4G3",
+      "service_area": "Swift Current and southwest Saskatchewan",
+      "service_scope": {
+        "physical_location": {
+          "community": "Swift Current",
+          "address": "400-350 Cheadle Street W, Swift Current, SK S9H 4G3",
+          "province": "Saskatchewan"
+        },
+        "local_service_area": [
+          "Swift Current"
+        ],
+        "regional_service_area": [
+          "Leader",
+          "Maple Creek",
+          "Shaunavon",
+          "Southwest Saskatchewan"
+        ],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Swift Current and southwest Saskatchewan"
+      },
+      "delivery_modes": [
+        "in person",
+        "mobile",
+        "home based"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Some services may require a referral; call the facility to confirm the appropriate entry point.",
+      "access": "Call 306-778-5280 for current mental-health and addiction access information.",
+      "phone": "306-778-5280",
+      "email": "",
+      "website": "https://www.saskhealthauthority.ca/facilities-locations/community-health-services",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Community Health Services - Swift Current",
+        "authority": "Saskatchewan Health Authority",
+        "url": "https://www.saskhealthauthority.ca/facilities-locations/community-health-services"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_sk_swift_current_community_health"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_bc_terrace_mhsu",
+      "record_type": "service",
+      "organization": "Northern Health",
+      "program_name": "Mental Health and Substance Use Services - Terrace",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "outpatient treatment",
+        "counselling"
+      ],
+      "description": "Community mental-health and substance-use intake, counselling, assessment, treatment and referral services based at Terrace Health Unit.",
+      "population_served": "Adults age 19 and older; services vary by location",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Terrace and listed Northwest communities",
+      "province": "British Columbia",
+      "city_community": "Terrace",
+      "address": "3412 Kalum Street, Terrace, BC V8G 4T2",
+      "service_area": "Terrace and listed Northwest communities",
+      "service_scope": {
+        "physical_location": {
+          "community": "Terrace",
+          "address": "3412 Kalum Street, Terrace, BC V8G 4T2",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Terrace"
+        ],
+        "regional_service_area": [
+          "Haisla",
+          "New Aiyansh",
+          "Greenville",
+          "Kincolith",
+          "Lax Kw'alaams"
+        ],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Terrace and listed Northwest communities"
+      },
+      "delivery_modes": [
+        "in person",
+        "outreach"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Some services may require a physician referral; not every service is offered at every location.",
+      "access": "Call Terrace Health Unit at 250-631-4202 for intake and current service information.",
+      "phone": "250-631-4202",
+      "email": "",
+      "website": "https://www.healthlinkbc.ca/find-care/find-health-services/program/mental-health-and-substance-use-services-9?location_nid=20279",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Mental Health and Substance Use Services - Terrace",
+        "authority": "HealthLink BC",
+        "url": "https://www.healthlinkbc.ca/find-care/find-health-services/program/mental-health-and-substance-use-services-9?location_nid=20279"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_terrace_mhsu"
+      ]
+    },
+    {
       "canonical_resource_id": "shared_bc_mental_health_law_program",
       "record_type": "service",
       "organization": "Community Legal Assistance Society",
@@ -5358,6 +7404,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "The person must fall within the program's stated involuntary-detention or Criminal Code mental-disorder mandate.",
       "access_requirements": [],
@@ -5391,6 +7448,77 @@
       ]
     },
     {
+      "canonical_resource_id": "shared_bc_kwakiutl_mhsu",
+      "record_type": "service",
+      "organization": "Kwakiutl District Council Society",
+      "program_name": "Mental Health Wellness and Substance Use Services",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "counselling",
+        "cultural support",
+        "mental health",
+        "substance use"
+      ],
+      "description": "Mental-health and substance-use screening, counselling, information, referral, community prevention and support groups.",
+      "population_served": "People served through the council's seven member First Nation communities; contact the program to confirm current eligibility",
+      "indigenous_scope": "First Nations-specific",
+      "governance_type": "not_stated",
+      "geography": "Member First Nation communities served by Kwakiutl District Council Society",
+      "province": "British Columbia",
+      "city_community": "Campbell River",
+      "address": "1400A Drake Road, Campbell River, BC V9W 7K6",
+      "service_area": "Member First Nation communities served by Kwakiutl District Council Society",
+      "service_scope": {
+        "physical_location": {
+          "community": "Campbell River",
+          "address": "1400A Drake Road, Campbell River, BC V9W 7K6",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Campbell River"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Member First Nation communities served by Kwakiutl District Council Society"
+      },
+      "delivery_modes": [
+        "in person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 250-286-9766 for current program and eligibility information.",
+      "phone": "250-286-9766",
+      "email": "",
+      "website": "https://www.healthlinkbc.ca/find-care/find-health-services/program/mental-health-wellness-and-substance-use-services",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Mental Health Wellness and Substance Use Services",
+        "authority": "HealthLink BC",
+        "url": "https://www.healthlinkbc.ca/find-care/find-health-services/program/mental-health-wellness-and-substance-use-services"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "shared_bc_kwakiutl_mhsu"
+      ]
+    },
+    {
       "canonical_resource_id": "funding:miller-north:fnfund_fnha_mental_wellness",
       "record_type": "funding",
       "organization": "First Nations Health Authority",
@@ -5411,6 +7539,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "Status First Nations people who meet the FNHA residency eligibility described on the program page.",
       "access_requirements": [],
@@ -5470,6 +7609,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Fourteen Alberta communities listed on the current program page",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fourteen Alberta communities listed on the current program page"
+      },
       "delivery_modes": [],
       "eligibility": "Income and program criteria vary between subsidized, affordable, seniors and other housing options.",
       "access_requirements": [],
@@ -5530,6 +7680,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Saskatchewan, for eligible travel outside the home community",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatchewan, for eligible travel outside the home community"
+      },
       "delivery_modes": [],
       "eligibility": "Registered citizenship, income or high-need assessment, an eligible appointment outside the home community, and required appointment documentation apply.",
       "access_requirements": [],
@@ -5611,6 +7772,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Saskatchewan, with current contacts listed for Saskatoon and Prince Albert",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatchewan, with current contacts listed for Saskatoon and Prince Albert"
+      },
       "delivery_modes": [],
       "eligibility": "Métis patients and families seeking support; contact the program for current coverage and availability.",
       "access_requirements": [],
@@ -5664,6 +7836,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Moose Jaw, Regina and Saskatoon, Saskatchewan",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Moose Jaw, Regina and Saskatoon, Saskatchewan"
+      },
       "delivery_modes": [
         "in_person"
       ],
@@ -5723,6 +7906,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [
         "online",
         "phone",
@@ -5776,6 +7970,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Federal",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Federal"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible First Nations, Tribal Councils, and eligible First Nations-led service-delivery entities under program requirements.",
       "access_requirements": [],
@@ -5829,10 +8034,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "New Westminster",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "New Westminster",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "New Westminster"
+      },
       "delivery_modes": [],
       "eligibility": "People in New Westminster who may need help connecting to resources related to homelessness, mental health or substance use.",
       "access_requirements": [],
@@ -5877,10 +8093,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "New Westminster",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "New Westminster",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "New Westminster"
+      },
       "delivery_modes": [],
       "eligibility": "New Westminster renters facing a temporary financial crisis; the program confirms eligibility through its application process.",
       "access_requirements": [],
@@ -5926,10 +8153,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "New Westminster",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "New Westminster",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "New Westminster"
+      },
       "delivery_modes": [],
       "eligibility": "Youth seeking a welcoming space and support; confirm current program details with the operator.",
       "access_requirements": [],
@@ -5982,6 +8220,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Canada-wide, subject to regional or community administration",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Canada-wide, subject to regional or community administration"
+      },
       "delivery_modes": [],
       "eligibility": "NIHB client eligibility and current medical-transportation rules apply; prior approval may be required.",
       "access_requirements": [
@@ -6065,6 +8314,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Canada-wide, subject to regional administration and eligibility rules",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Canada-wide, subject to regional administration and eligibility rules"
+      },
       "delivery_modes": [
         "in_person",
         "virtual"
@@ -6130,6 +8390,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Northern Saskatchewan",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Northern Saskatchewan"
+      },
       "delivery_modes": [],
       "eligibility": "Program eligibility, geographic limits and prior-approval requirements apply.",
       "access_requirements": [],
@@ -6197,6 +8468,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible self-declared Indigenous students in qualifying B.C. public post-secondary nursing programs.",
       "access_requirements": [],
@@ -6258,6 +8540,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Saskatchewan",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatchewan"
+      },
       "delivery_modes": [],
       "eligibility": "The matter must fall within the Office of Residential Tenancies' jurisdiction and filing rules.",
       "access_requirements": [],
@@ -6320,6 +8613,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Saskatchewan",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatchewan"
+      },
       "delivery_modes": [],
       "eligibility": "The complaint must fall within the Ombudsman's jurisdiction; the office advises trying available review or appeal steps first.",
       "access_requirements": [],
@@ -6353,6 +8657,218 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_sk_buffalo_narrows_oat",
+      "record_type": "service",
+      "organization": "Saskatchewan Health Authority",
+      "program_name": "Opioid Agonist Therapy - Buffalo Narrows",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "oat",
+        "opioid agonist treatment",
+        "counselling"
+      ],
+      "description": "Buffalo Narrows opioid agonist treatment service with medication, counselling and connections to other health services.",
+      "population_served": "People seeking treatment for opioid use disorder",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Buffalo Narrows and northwest Saskatchewan",
+      "province": "Saskatchewan",
+      "city_community": "Buffalo Narrows",
+      "address": "",
+      "service_area": "Buffalo Narrows and northwest Saskatchewan",
+      "service_scope": {
+        "physical_location": {
+          "community": "Buffalo Narrows",
+          "province": "Saskatchewan"
+        },
+        "local_service_area": [
+          "Buffalo Narrows"
+        ],
+        "regional_service_area": [
+          "Northwest Saskatchewan"
+        ],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Buffalo Narrows and northwest Saskatchewan"
+      },
+      "delivery_modes": [
+        "in person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 306-235-7887 for current intake and location information.",
+      "phone": "306-235-7887",
+      "email": "",
+      "website": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/mental-health-and-addictions/addiction-and-substance-use/opioid-agonist-therapy-and-medication-assisted-addiction-treatment",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Opioid Agonist Therapy and Medication Assisted Addiction Treatment",
+        "authority": "Saskatchewan Health Authority",
+        "url": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/mental-health-and-addictions/addiction-and-substance-use/opioid-agonist-therapy-and-medication-assisted-addiction-treatment"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_sk_buffalo_narrows_oat"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_sk_la_ronge_oat",
+      "record_type": "service",
+      "organization": "Saskatchewan Health Authority",
+      "program_name": "Opioid Agonist Therapy - La Ronge Medical Clinic",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "oat",
+        "opioid agonist treatment",
+        "counselling"
+      ],
+      "description": "La Ronge opioid agonist treatment service with medication, counselling and connections to other health services.",
+      "population_served": "People seeking treatment for opioid use disorder",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "La Ronge and northern area",
+      "province": "Saskatchewan",
+      "city_community": "La Ronge",
+      "address": "809 La Ronge Avenue, La Ronge, SK",
+      "service_area": "La Ronge and northern area",
+      "service_scope": {
+        "physical_location": {
+          "community": "La Ronge",
+          "address": "809 La Ronge Avenue, La Ronge, SK",
+          "province": "Saskatchewan"
+        },
+        "local_service_area": [
+          "La Ronge"
+        ],
+        "regional_service_area": [
+          "Northern Saskatchewan"
+        ],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "La Ronge and northern area"
+      },
+      "delivery_modes": [
+        "in person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referrals and health-care provider referrals are accepted.",
+      "access": "Call 306-425-2174 for current intake information.",
+      "phone": "306-425-2174",
+      "email": "",
+      "website": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/opioid-agonist-therapy",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Opioid Agonist Therapy",
+        "authority": "Saskatchewan Health Authority",
+        "url": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/opioid-agonist-therapy"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_sk_la_ronge_oat"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_sk_swift_current_oat",
+      "record_type": "service",
+      "organization": "Saskatchewan Health Authority",
+      "program_name": "Opioid Agonist Therapy - Swift Current",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "oat",
+        "opioid agonist treatment",
+        "counselling"
+      ],
+      "description": "Swift Current opioid agonist treatment service with medication, counselling and connections to other health services.",
+      "population_served": "People seeking treatment for opioid use disorder",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Swift Current and southwest Saskatchewan",
+      "province": "Saskatchewan",
+      "city_community": "Swift Current",
+      "address": "400-350 Cheadle Street W, Swift Current, SK S9H 1P4",
+      "service_area": "Swift Current and southwest Saskatchewan",
+      "service_scope": {
+        "physical_location": {
+          "community": "Swift Current",
+          "address": "400-350 Cheadle Street W, Swift Current, SK S9H 1P4",
+          "province": "Saskatchewan"
+        },
+        "local_service_area": [
+          "Swift Current"
+        ],
+        "regional_service_area": [
+          "Southwest Saskatchewan"
+        ],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Swift Current and southwest Saskatchewan"
+      },
+      "delivery_modes": [
+        "in person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referral is through central intake.",
+      "access": "Call 1-877-329-0005 for intake and current clinic information.",
+      "phone": "1-877-329-0005",
+      "email": "",
+      "website": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/opioid-agonist-therapy",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Opioid Agonist Therapy",
+        "authority": "Saskatchewan Health Authority",
+        "url": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/opioid-agonist-therapy"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_sk_swift_current_oat"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_sk_saskatoon_oars",
       "record_type": "service",
       "organization": "Saskatchewan Health Authority",
@@ -6375,6 +8891,21 @@
       "city_community": "Saskatoon",
       "address": "1611 20th Street West, Saskatoon, SK",
       "service_area": "Saskatoon and area",
+      "service_scope": {
+        "physical_location": {
+          "community": "Saskatoon",
+          "address": "1611 20th Street West, Saskatoon, SK",
+          "province": "Saskatchewan"
+        },
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatoon and area"
+      },
       "delivery_modes": [],
       "eligibility": "",
       "access_requirements": [],
@@ -6404,6 +8935,77 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_ab_bonnyville_odp",
+      "record_type": "service",
+      "organization": "Alberta Health Services",
+      "program_name": "Opioid Dependency Program - Bonnyville",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "oat",
+        "opioid agonist treatment",
+        "outpatient treatment",
+        "counselling",
+        "harm reduction"
+      ],
+      "description": "Voluntary opioid agonist treatment with medication support, monitoring, counselling, treatment planning and links to health and social supports.",
+      "population_served": "People seeking support for opioid use",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Bonnyville and area",
+      "province": "Alberta",
+      "city_community": "Bonnyville",
+      "address": "Room 201, 4902 50 Avenue, Bonnyville, AB T9N 2H4",
+      "service_area": "Bonnyville and area",
+      "service_scope": {
+        "physical_location": {
+          "community": "Bonnyville",
+          "address": "Room 201, 4902 50 Avenue, Bonnyville, AB T9N 2H4",
+          "province": "Alberta"
+        },
+        "local_service_area": [
+          "Bonnyville"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Bonnyville and area"
+      },
+      "delivery_modes": [
+        "in person"
+      ],
+      "eligibility": "Assessment determines treatment or referral options for people with opioid-use concerns.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "No referral is listed for public access; confirm current intake before attending.",
+      "access": "Call 780-826-8034 for current assessment and intake information.",
+      "phone": "780-826-8034",
+      "email": "BV.ODP@Albertahealthservices.ca",
+      "website": "https://myhealth.alberta.ca/find-health-care/Facilities/Pages/Profile.aspx?facilityid=1024651&serviceid=1000286",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Opioid Dependency Program at Bonnyville Provincial Building",
+        "authority": "Government of Alberta",
+        "url": "https://myhealth.alberta.ca/find-health-care/Facilities/Pages/Profile.aspx?facilityid=1024651&serviceid=1000286"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_ab_bonnyville_odp"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_ab_calgary_opioid_dependency_program",
       "record_type": "service",
       "organization": "Alberta Health Services",
@@ -6429,6 +9031,21 @@
       "city_community": "Calgary",
       "address": "1213 4 Street SW, Calgary, AB T2R 0X7",
       "service_area": "Calgary and area",
+      "service_scope": {
+        "physical_location": {
+          "community": "Calgary",
+          "address": "1213 4 Street SW, Calgary, AB T2R 0X7",
+          "province": "Alberta"
+        },
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Calgary and area"
+      },
       "delivery_modes": [
         "in_person"
       ],
@@ -6482,6 +9099,21 @@
       "city_community": "Edmonton",
       "address": "10225 106 Street, Edmonton, AB T5J 1H5",
       "service_area": "Edmonton and area",
+      "service_scope": {
+        "physical_location": {
+          "community": "Edmonton",
+          "address": "10225 106 Street, Edmonton, AB T5J 1H5",
+          "province": "Alberta"
+        },
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Edmonton and area"
+      },
       "delivery_modes": [],
       "eligibility": "Assessment is used to determine treatment or referral options.",
       "access_requirements": [],
@@ -6534,6 +9166,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [
         "phone",
         "virtual"
@@ -6589,6 +9232,21 @@
       "city_community": "Calgary",
       "address": "220-221 62 Avenue SE, Calgary, AB T2H 0R5",
       "service_area": "Calgary, Edmonton and other participating Alberta communities",
+      "service_scope": {
+        "physical_location": {
+          "community": "Calgary",
+          "address": "220-221 62 Avenue SE, Calgary, AB T2H 0R5",
+          "province": "Alberta"
+        },
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Calgary, Edmonton and other participating Alberta communities"
+      },
       "delivery_modes": [],
       "eligibility": "Program and house requirements apply; contact the organization for current criteria and space information.",
       "access_requirements": [],
@@ -6638,6 +9296,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Saskatchewan",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatchewan"
+      },
       "delivery_modes": [],
       "eligibility": "PBCN citizens and communities under locally designed program criteria.",
       "access_requirements": [],
@@ -6700,6 +9369,17 @@
       "city_community": "Vancouver",
       "address": "",
       "service_area": "Vancouver and Victoria",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Vancouver and Victoria"
+      },
       "delivery_modes": [
         "in_person",
         "phone",
@@ -6756,6 +9436,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "The concern must fit the unit's current police-accountability mandate and intake criteria.",
       "access_requirements": [],
@@ -6807,6 +9498,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Federal",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Federal"
+      },
       "delivery_modes": [],
       "eligibility": "Registered First Nations post-secondary students apply through their First Nation, designated organization, or ISC regional office; funding is limited.",
       "access_requirements": [],
@@ -6869,6 +9571,21 @@
       "city_community": "Prince Albert",
       "address": "110 8th Street East, Prince Albert, SK",
       "service_area": "Prince Albert and area",
+      "service_scope": {
+        "physical_location": {
+          "community": "Prince Albert",
+          "address": "110 8th Street East, Prince Albert, SK",
+          "province": "Saskatchewan"
+        },
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Prince Albert and area"
+      },
       "delivery_modes": [
         "in_person"
       ],
@@ -6926,6 +9643,17 @@
       "city_community": "",
       "address": "",
       "service_area": "North Fraser Pretrial Centre and Lower Mainland transition pathways",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "North Fraser Pretrial Centre and Lower Mainland transition pathways"
+      },
       "delivery_modes": [
         "in_person"
       ],
@@ -6981,6 +9709,17 @@
       "city_community": "Provincewide",
       "address": "",
       "service_area": "B.C. public health services, FNHA services and some FNHA-funded services",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "B.C. public health services, FNHA services and some FNHA-funded services"
+      },
       "delivery_modes": [
         "phone",
         "email",
@@ -7037,6 +9776,21 @@
       "city_community": "Victoria",
       "address": "#105-911 Yates Street, Victoria, BC V8V 4X3",
       "service_area": "Greater Victoria",
+      "service_scope": {
+        "physical_location": {
+          "community": "Victoria",
+          "address": "#105-911 Yates Street, Victoria, BC V8V 4X3",
+          "province": "British Columbia"
+        },
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Greater Victoria"
+      },
       "delivery_modes": [],
       "eligibility": "",
       "access_requirements": [],
@@ -7066,6 +9820,114 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_ab_recovery_central_intake",
+      "record_type": "service",
+      "organization": "Recovery Alberta",
+      "program_name": "Recovery Alberta Central Addiction and Mental Health Intake",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "addiction navigation",
+        "counselling",
+        "treatment navigation"
+      ],
+      "description": "Non-urgent advice, information and appointment navigation for addiction and mental-health services in North, Central and South Alberta.",
+      "population_served": "People seeking non-urgent addiction or mental-health services outside the Calgary and Edmonton intake zones",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "North, Central and South Alberta",
+      "province": "Alberta",
+      "city_community": "",
+      "address": "",
+      "service_area": "North, Central and South Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [
+          "Airdrie",
+          "Banff",
+          "Bonnyville",
+          "Brooks",
+          "Camrose",
+          "Canmore",
+          "Chestermere",
+          "Claresholm",
+          "Cochrane",
+          "Cold Lake",
+          "Didsbury",
+          "Drumheller",
+          "Edson",
+          "Fairview",
+          "Fort McMurray",
+          "Fort Saskatchewan",
+          "Grande Prairie",
+          "High Level",
+          "High Prairie",
+          "High River",
+          "Hinton",
+          "Lac La Biche",
+          "Leduc",
+          "Lethbridge",
+          "Lloydminster",
+          "Medicine Hat",
+          "Olds",
+          "Okotoks",
+          "Peace River",
+          "Pincher Creek",
+          "Red Deer",
+          "Rocky Mountain House",
+          "Slave Lake",
+          "Spruce Grove",
+          "St. Albert",
+          "Stettler",
+          "Strathmore",
+          "Valleyview",
+          "Vulcan",
+          "Wetaskiwin",
+          "Whitecourt"
+        ],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "Provincial/regional intake line; callers are connected to available services rather than a physical clinic at the searched location.",
+        "search_locations": [],
+        "service_area": "North, Central and South Alberta"
+      },
+      "delivery_modes": [
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 1-888-594-0211 for non-urgent advice, information and appointment navigation.",
+      "phone": "1-888-594-0211",
+      "email": "",
+      "website": "https://publicsearch.recoveryalberta.ca/services.aspx",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Recovery Alberta services and programs",
+        "authority": "Recovery Alberta",
+        "url": "https://publicsearch.recoveryalberta.ca/services.aspx"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_ab_recovery_central_intake"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_sk_regina_addiction_treatment",
       "record_type": "service",
       "organization": "Saskatchewan Health Authority",
@@ -7090,6 +9952,21 @@
       "city_community": "Regina",
       "address": "1640 Victoria Avenue, Regina, SK S4P 0P7",
       "service_area": "Regina and area",
+      "service_scope": {
+        "physical_location": {
+          "community": "Regina",
+          "address": "1640 Victoria Avenue, Regina, SK S4P 0P7",
+          "province": "Saskatchewan"
+        },
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Regina and area"
+      },
       "delivery_modes": [
         "in_person"
       ],
@@ -7144,6 +10021,21 @@
       "city_community": "Regina",
       "address": "1048 Albert Street, Regina, SK S4R 2P8",
       "service_area": "Regina and area",
+      "service_scope": {
+        "physical_location": {
+          "community": "Regina",
+          "address": "1048 Albert Street, Regina, SK S4R 2P8",
+          "province": "Saskatchewan"
+        },
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Regina and area"
+      },
       "delivery_modes": [
         "in_person"
       ],
@@ -7197,6 +10089,21 @@
       "city_community": "Calgary",
       "address": "1611 Remington Road NE, Calgary, AB T2E 5K6",
       "service_area": "Calgary and area",
+      "service_scope": {
+        "physical_location": {
+          "community": "Calgary",
+          "address": "1611 Remington Road NE, Calgary, AB T2E 5K6",
+          "province": "Alberta"
+        },
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Calgary and area"
+      },
       "delivery_modes": [],
       "eligibility": "Adults age 18 and older who need detoxification from substance use",
       "access_requirements": [],
@@ -7249,6 +10156,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
       "delivery_modes": [],
       "eligibility": "The dispute must fall within RTDRS jurisdiction and applicable filing limits. Filing fees and limitation periods apply unless an official fee-waiver route is available.",
       "access_requirements": [],
@@ -7311,6 +10229,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Saskatchewan through contracted tribal councils, Friendship Centres and other organizations",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatchewan through contracted tribal councils, Friendship Centres and other organizations"
+      },
       "delivery_modes": [],
       "eligibility": "Indigenous people seeking support with the criminal or family justice system.",
       "access_requirements": [],
@@ -7369,6 +10298,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Saskatchewan",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatchewan"
+      },
       "delivery_modes": [],
       "eligibility": "",
       "access_requirements": [],
@@ -7422,6 +10362,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Saskatchewan",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatchewan"
+      },
       "delivery_modes": [],
       "eligibility": "The appropriate route depends on the healthcare organization, profession and issue involved.",
       "access_requirements": [],
@@ -7478,6 +10429,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Saskatchewan",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatchewan"
+      },
       "delivery_modes": [
         "online",
         "phone",
@@ -7521,19 +10483,32 @@
       ],
       "subcategories": [
         "detox",
-        "withdrawal management",
-        "treatment navigation"
+        "treatment navigation",
+        "withdrawal management"
       ],
       "description": "Official province-wide listing of medically supported withdrawal-management locations and contact numbers.",
       "population_served": "People seeking withdrawal-management support in Saskatchewan",
-      "indigenous_scope": "general_public",
+      "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Saskatchewan",
       "province": "Saskatchewan",
       "city_community": "",
       "address": "",
       "service_area": "Saskatchewan",
-      "delivery_modes": [],
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "Provincial location directory; each listed facility has its own physical location and intake process.",
+        "search_locations": [],
+        "service_area": "Saskatchewan"
+      },
+      "delivery_modes": [
+        "online directory"
+      ],
       "eligibility": "",
       "access_requirements": [],
       "required_documents": [],
@@ -7571,20 +10546,35 @@
         "practical_support"
       ],
       "subcategories": [
-        "mental health",
         "addiction navigation",
-        "counselling"
+        "counselling",
+        "mental health",
+        "substance use"
       ],
       "description": "Official information on publicly funded mental-health and addiction services and province-wide navigation options.",
       "population_served": "Saskatchewan residents seeking mental-health or addiction support",
-      "indigenous_scope": "general_public",
+      "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Saskatchewan",
       "province": "Saskatchewan",
       "city_community": "",
       "address": "",
       "service_area": "Saskatchewan",
-      "delivery_modes": [],
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": true,
+        "virtual": true,
+        "navigation_only": true,
+        "scope_note": "Province-wide navigation; HealthLine is not a physical treatment facility.",
+        "search_locations": [],
+        "service_area": "Saskatchewan"
+      },
+      "delivery_modes": [
+        "telephone",
+        "online information"
+      ],
       "eligibility": "",
       "access_requirements": [],
       "required_documents": [],
@@ -7636,6 +10626,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Saskatchewan",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatchewan"
+      },
       "delivery_modes": [],
       "eligibility": "Provincial health coverage and individual service access requirements apply.",
       "access_requirements": [],
@@ -7688,6 +10689,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Saskatchewan, with additional northern transportation provisions",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatchewan, with additional northern transportation provisions"
+      },
       "delivery_modes": [],
       "eligibility": "Eligibility is determined through applicable Social Services programs; current program rules apply.",
       "access_requirements": [],
@@ -7741,10 +10753,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "British Columbia",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "People seeking access to participating B.C. government services; availability varies by service and office.",
       "access_requirements": [],
@@ -7789,10 +10812,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Tri-Cities",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Tri-Cities",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Tri-Cities"
+      },
       "delivery_modes": [],
       "eligibility": "Adults age 65 or older who live in the Tri-Cities; pre-registration is required and some fees vary by income.",
       "access_requirements": [],
@@ -7837,10 +10871,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Coquitlam, Port Coquitlam and Port Moody",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Coquitlam, Port Coquitlam and Port Moody",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Coquitlam, Port Coquitlam and Port Moody"
+      },
       "delivery_modes": [],
       "eligibility": "Tri-Cities residents seeking food support. Registration requires government-issued identification and recent proof of address; the operator states that no means test is required.",
       "access_requirements": [],
@@ -7885,10 +10930,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "British Columbia, with Lower Mainland programs",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "British Columbia, with Lower Mainland programs",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia, with Lower Mainland programs"
+      },
       "delivery_modes": [],
       "eligibility": "Eligibility is set by each listed provider and program.",
       "access_requirements": [],
@@ -7934,10 +10990,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Fraser Region, including Burnaby, New Westminster, Tri-Cities, Maple Ridge and Surrey",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Fraser Region, including Burnaby, New Westminster, Tri-Cities, Maple Ridge and Surrey",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Fraser Region, including Burnaby, New Westminster, Tri-Cities, Maple Ridge and Surrey"
+      },
       "delivery_modes": [],
       "eligibility": "Program criteria vary; contact Sources to identify the appropriate advocacy or housing program.",
       "access_requirements": [],
@@ -7991,6 +11058,17 @@
       "city_community": "Saskatoon",
       "address": "",
       "service_area": "Saskatoon",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatoon"
+      },
       "delivery_modes": [],
       "eligibility": "Drop-in, first-come access subject to current space and centre rules.",
       "access_requirements": [],
@@ -8042,10 +11120,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Surrey City Centre and Newton",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Surrey City Centre and Newton",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Surrey City Centre and Newton"
+      },
       "delivery_modes": [],
       "eligibility": "People experiencing homelessness in Surrey City Centre or Newton who need outreach or service connections.",
       "access_requirements": [],
@@ -8090,10 +11179,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "British Columbia",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible B.C. residents meeting the current learner and program criteria.",
       "access_requirements": [],
@@ -8123,6 +11223,78 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_bc_cranbrook_substance_use",
+      "record_type": "service",
+      "organization": "Interior Health",
+      "program_name": "Substance Use Counselling and Treatment - Cranbrook",
+      "categories": [
+        "healthcare",
+        "family_community"
+      ],
+      "subcategories": [
+        "substance use",
+        "outpatient treatment",
+        "counselling",
+        "family support"
+      ],
+      "description": "Community-based substance-use counselling and treatment, including individual, group and family counselling, outreach, assessment, case management and referrals.",
+      "population_served": "People seeking to reduce or stop substance use in the Cranbrook area",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Cranbrook",
+      "province": "British Columbia",
+      "city_community": "Cranbrook",
+      "address": "20 23rd Avenue S, Cranbrook, BC V1C 5V1",
+      "service_area": "Cranbrook",
+      "service_scope": {
+        "physical_location": {
+          "community": "Cranbrook",
+          "address": "20 23rd Avenue S, Cranbrook, BC V1C 5V1",
+          "province": "British Columbia"
+        },
+        "local_service_area": [
+          "Cranbrook"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Cranbrook"
+      },
+      "delivery_modes": [
+        "in person",
+        "outreach"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referrals are accepted; services vary by location.",
+      "access": "Call 250-420-2210 for local intake information or Interior Health Access Central at 1-866-777-1103.",
+      "phone": "250-420-2210",
+      "email": "",
+      "website": "https://www.healthlinkbc.ca/find-care/find-health-services/program/substance-use-counselling-and-treatment?location_nid=25908",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Substance Use Counselling and Treatment - Cranbrook",
+        "authority": "HealthLink BC",
+        "url": "https://www.healthlinkbc.ca/find-care/find-health-services/program/substance-use-counselling-and-treatment?location_nid=25908"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_cranbrook_substance_use"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_sk_saskatoon_substance_use_family_support",
       "record_type": "service",
       "organization": "Saskatchewan Health Authority",
@@ -8144,6 +11316,17 @@
       "city_community": "Saskatoon",
       "address": "",
       "service_area": "Saskatoon and area",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Saskatoon and area"
+      },
       "delivery_modes": [],
       "eligibility": "",
       "access_requirements": [],
@@ -8189,10 +11372,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Surrey",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Surrey",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Surrey"
+      },
       "delivery_modes": [],
       "eligibility": "People seeking Surrey housing or homelessness resources; individual programs set their own eligibility.",
       "access_requirements": [],
@@ -8237,10 +11431,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "British Columbia remotely; in-person partners include Metro Vancouver and Fraser Valley",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "British Columbia remotely; in-person partners include Metro Vancouver and Fraser Valley",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia remotely; in-person partners include Metro Vancouver and Fraser Valley"
+      },
       "delivery_modes": [],
       "eligibility": "People with disabilities in B.C. whose yearly income is under the current program threshold; confirm that the return is within the program's scope.",
       "access_requirements": [],
@@ -8286,10 +11491,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "British Columbia",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "B.C. residential tenants seeking legal information or referrals.",
       "access_requirements": [],
@@ -8340,6 +11556,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible recipients of income, disability or hardship assistance who have been accepted into an approved B.C. residential treatment program",
       "access_requirements": [],
@@ -8393,10 +11620,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "British Columbia",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "B.C. residents enrolled in MSP with an eligible referral to the closest available insured specialist service and no third-party travel coverage.",
       "access_requirements": [],
@@ -8441,10 +11679,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Anmore, Belcarra, Coquitlam, Port Coquitlam and Port Moody",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Anmore, Belcarra, Coquitlam, Port Coquitlam and Port Moody",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Anmore, Belcarra, Coquitlam, Port Coquitlam and Port Moody"
+      },
       "delivery_modes": [],
       "eligibility": "Renters in the listed Tri-Cities communities; the program confirms eligibility through its application process.",
       "access_requirements": [],
@@ -8471,6 +11720,76 @@
       ],
       "source_record_ids": [
         "support:tricities-rent-bank"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_sk_yorkton_turning_point_oat",
+      "record_type": "service",
+      "organization": "Saskatchewan Health Authority",
+      "program_name": "Turning Point Program - Yorkton",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "oat",
+        "opioid agonist treatment",
+        "counselling",
+        "harm reduction"
+      ],
+      "description": "Yorkton opioid agonist treatment clinic with counselling and connections to other health services.",
+      "population_served": "People seeking treatment for opioid use disorder",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Yorkton and area",
+      "province": "Saskatchewan",
+      "city_community": "Yorkton",
+      "address": "345 Broadway Street W, Yorkton, SK",
+      "service_area": "Yorkton and area",
+      "service_scope": {
+        "physical_location": {
+          "community": "Yorkton",
+          "address": "345 Broadway Street W, Yorkton, SK",
+          "province": "Saskatchewan"
+        },
+        "local_service_area": [
+          "Yorkton"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Yorkton and area"
+      },
+      "delivery_modes": [
+        "in person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referrals and health-care provider referrals are accepted.",
+      "access": "Call 306-786-0637 for current intake information.",
+      "phone": "306-786-0637",
+      "email": "",
+      "website": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/opioid-agonist-therapy",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Opioid Agonist Therapy",
+        "authority": "Saskatchewan Health Authority",
+        "url": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/opioid-agonist-therapy"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_sk_yorkton_turning_point_oat"
       ]
     },
     {
@@ -8501,6 +11820,21 @@
       "city_community": "Vancouver",
       "address": "3360 Fraser Street, Vancouver, BC",
       "service_area": "Lower Mainland",
+      "service_scope": {
+        "physical_location": {
+          "community": "Vancouver",
+          "address": "3360 Fraser Street, Vancouver, BC",
+          "province": "British Columbia"
+        },
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Lower Mainland"
+      },
       "delivery_modes": [
         "in_person",
         "phone",
@@ -8557,6 +11891,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [
         "phone",
         "virtual",
@@ -8615,6 +11960,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
       "delivery_modes": [],
       "eligibility": "Contact the program for current assessment and access requirements.",
       "access_requirements": [],
@@ -8666,6 +12022,17 @@
       "city_community": "",
       "address": "",
       "service_area": "Alberta",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Alberta"
+      },
       "delivery_modes": [],
       "eligibility": "",
       "access_requirements": [],
@@ -8710,10 +12077,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Burnaby",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Burnaby",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Burnaby"
+      },
       "delivery_modes": [],
       "eligibility": "Burnaby residents who meet the current household-income and tax-situation criteria and hold a Burnaby Neighbourhood House membership; fees can be waived for financial need.",
       "access_requirements": [],
@@ -8758,10 +12136,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "White Rock and South Surrey, with healthcare trips across Metro Vancouver",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "White Rock and South Surrey, with healthcare trips across Metro Vancouver",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "White Rock and South Surrey, with healthcare trips across Metro Vancouver"
+      },
       "delivery_modes": [],
       "eligibility": "Residents of White Rock or South Surrey who cannot use public transit and have no other way to reach an essential healthcare appointment.",
       "access_requirements": [],
@@ -8813,6 +12202,21 @@
       "city_community": "Vancouver",
       "address": "780 West 57th Avenue - Ward 4, Vancouver, BC V6P 1S1",
       "service_area": "Vancouver Coastal Health region",
+      "service_scope": {
+        "physical_location": {
+          "community": "Vancouver",
+          "address": "780 West 57th Avenue - Ward 4, Vancouver, BC V6P 1S1",
+          "province": "British Columbia"
+        },
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Vancouver Coastal Health region"
+      },
       "delivery_modes": [
         "in_person",
         "residential"
@@ -8860,10 +12264,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Burnaby",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Burnaby",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Burnaby"
+      },
       "delivery_modes": [],
       "eligibility": "Contact the centre; program-specific eligibility can vary.",
       "access_requirements": [],
@@ -8908,10 +12323,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Coquitlam and Tri-Cities",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Coquitlam and Tri-Cities",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Coquitlam and Tri-Cities"
+      },
       "delivery_modes": [],
       "eligibility": "Contact the centre; program-specific eligibility can vary.",
       "access_requirements": [],
@@ -8956,10 +12382,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "Maple Ridge and Pitt Meadows",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "Maple Ridge and Pitt Meadows",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Maple Ridge and Pitt Meadows"
+      },
       "delivery_modes": [],
       "eligibility": "Contact the centre; program-specific eligibility can vary.",
       "access_requirements": [],
@@ -9004,10 +12441,21 @@
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
       "geography": "New Westminster",
-      "province": "",
+      "province": "British Columbia",
       "city_community": "",
       "address": "",
       "service_area": "New Westminster",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "New Westminster"
+      },
       "delivery_modes": [],
       "eligibility": "Contact the centre; program-specific eligibility can vary.",
       "access_requirements": [],
@@ -9057,6 +12505,17 @@
       "city_community": "",
       "address": "",
       "service_area": "British Columbia",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [],
+        "province_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "British Columbia"
+      },
       "delivery_modes": [],
       "eligibility": "Eligible B.C. job seekers; supports vary by stream",
       "access_requirements": [],

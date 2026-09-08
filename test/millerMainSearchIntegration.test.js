@@ -4,10 +4,12 @@ import test from "node:test"
 import rawResources from "../src/vancouver_resources_merged_updated.json" with { type: "json" }
 import practicalSupports from "../src/data/miller-practical-supports-public-v1.json" with { type: "json" }
 import millerFunding from "../src/data/miller-funding-assistance-public-v1.json" with { type: "json" }
+import sharedRegistry from "../src/data/miller-shared-resource-registry-v1.json" with { type: "json" }
 import { isEmailResultEligible } from "../src/emailResultsApi.js"
 import { stableCuratedResourceId } from "../src/map/mapChat.js"
 import {
   buildMillerSpecializedSearchResources,
+  buildSharedCanonicalMillerResources,
   mergeMillerSearchResources,
   millerResourceSearchText,
 } from "../src/millerPublicSearchResources.js"
@@ -15,7 +17,10 @@ import { normalizedResourceRows } from "../src/resourceData.js"
 
 const canonical = normalizedResourceRows(rawResources).map(resource => ({ ...resource, id: stableCuratedResourceId(resource) }))
 const specialized = buildMillerSpecializedSearchResources(practicalSupports.records, millerFunding.records)
-const resources = mergeMillerSearchResources(canonical, specialized)
+const resources = mergeMillerSearchResources(
+  mergeMillerSearchResources(canonical, specialized),
+  buildSharedCanonicalMillerResources(sharedRegistry.records),
+)
 const search = query => resources.filter(resource => millerResourceSearchText(resource).includes(query.toLowerCase()))
 
 test("main Miller search projection includes current practical and funding records", () => {
@@ -25,6 +30,10 @@ test("main Miller search projection includes current practical and funding recor
   assert.ok(search("benefits").some(resource => resource.name === "Disability Alliance BC Direct Services"))
   assert.ok(search("transportation").some(resource => resource.name === "HandyDART and HandyCard"))
   assert.equal(search("bladerunners").filter(resource => resource.name === "BladeRunners").length, 1)
+  const creekside = search("burnaby").find(resource => resource.name === "Creekside Withdrawal Management Centre")
+  assert.equal(creekside.city, "Surrey")
+  assert.ok(creekside.regionalServiceArea.includes("Burnaby"))
+  assert.equal(resources.filter(resource => resource.id === creekside.id).length, 1)
 })
 
 test("multi-purpose programs reconcile to one result and retain specialized-page paths", () => {

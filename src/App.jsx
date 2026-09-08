@@ -701,13 +701,13 @@ function App() {
   const isOwnerRoute = typeof window !== "undefined" && window.location.pathname === "/owner/directory-health-audit"
   const isInternalRoute = isAdminRoute || isOwnerRoute
   const normalizedResources = useMemo(() => dedupeResources(mergeMillerSearchResources(
-    cleanResources(rawResources),
-    buildMillerSpecializedSearchResources(practicalSupports.records, millerFunding.records),
-  )), [])
-  const millerPracticalKnowledge = useMemo(() => dedupeResources(mergeMillerSearchResources(
-    normalizedResources,
+    mergeMillerSearchResources(
+      cleanResources(rawResources),
+      buildMillerSpecializedSearchResources(practicalSupports.records, millerFunding.records),
+    ),
     buildSharedCanonicalMillerResources(sharedResourceRegistry.records),
-  )), [normalizedResources])
+  )), [])
+  const millerPracticalKnowledge = normalizedResources
 
   const defaultReply = MILLER_COPY.searchIntro
 

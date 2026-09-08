@@ -5,6 +5,7 @@ import { millerMobileCatalog } from "../server/millerMobileCatalog.js"
 import {
   auditMillerMobileSharePacks,
   buildMillerMobileCoverageMatrix,
+  buildMillerWesternCommunityCoverageMatrix,
   MILLER_MOBILE_QUERY_BENCHMARK,
   runMillerMobileQueryBenchmark,
 } from "../server/millerMobileBenchmark.js"
@@ -14,15 +15,22 @@ const fixedNow = () => new Date("2026-09-08T12:00:00.000Z")
 
 test("frontline benchmark contains all required scenarios and returns explainable quality metrics", () => {
   const report = runMillerMobileQueryBenchmark(millerMobileCatalog, { now: fixedNow })
-  assert.equal(report.query_count, 13)
+  assert.equal(report.query_count, 25)
   assert.equal(report.rows.length, MILLER_MOBILE_QUERY_BENCHMARK.length)
   assert.ok(report.rows.every(row => row.returned_count > 0))
   assert.ok(report.rows.every(row => typeof row.top_result_relevant === "boolean"))
   assert.ok(report.rows.every(row => row.payload_bytes > 0 && row.latency_ms >= 0))
   assert.equal(report.rows.find(row => row.id === "oat_edmonton").top_result_relevant, true)
   assert.equal(report.rows.find(row => row.id === "counselling_calgary").province_accuracy, 1)
-  assert.equal(report.rows.find(row => row.id === "detox_burnaby").geography_mode, "province_broadened")
+  assert.equal(report.rows.find(row => row.id === "detox_burnaby").geography_mode, "regional_pathway")
+  assert.equal(report.rows.find(row => row.id === "detox_burnaby").physical_location_matches, 0)
+  assert.equal(report.rows.find(row => row.id === "detox_burnaby").incorrect_local_facility_claims, 0)
   assert.equal(report.rows.find(row => row.id === "corrections_reentry").top_result_relevant, true)
+  assert.equal(report.rows.find(row => row.id === "detox_yorkton").top_result_relevant, true)
+  assert.equal(report.rows.find(row => row.id === "withdrawal_la_ronge").physical_location_matches, 1)
+  assert.equal(report.rows.find(row => row.id === "oat_bonnyville").physical_location_matches, 1)
+  assert.equal(report.rows.find(row => row.id === "mental_health_port_hardy").service_area_matches > 0, true)
+  assert.equal(report.rows.reduce((sum, row) => sum + row.incorrect_local_facility_claims, 0), 0)
 })
 
 test("coverage matrix separates province, city, category, and mobile readiness", () => {
@@ -33,10 +41,27 @@ test("coverage matrix separates province, city, category, and mobile readiness",
   assert.ok(report.by_province.Saskatchewan.transportation.total > 0)
   assert.ok(report.by_city.Calgary.total > 0)
   assert.ok(report.by_city.Saskatoon.categories.family_youth > 0)
-  assert.ok(report.by_city.Burnaby.categories.detox > 0)
+  assert.equal(report.by_city.Burnaby.categories.detox, 0)
   assert.ok(report.by_city.Calgary.categories.oat > 0)
   assert.ok(report.by_city.Regina.categories.detox > 0)
   assert.ok(report.by_city["Prince Albert"].categories.oat > 0)
+})
+
+test("Western community matrix reports local, regional, and navigation coverage without treating gaps as proof of absence", () => {
+  const report = buildMillerWesternCommunityCoverageMatrix(millerMobileCatalog)
+  assert.equal(report.community_count, 140)
+  assert.deepEqual(Object.fromEntries(Object.entries(report.by_province).map(([province, rows]) => [province, rows.length])), {
+    "British Columbia": 66,
+    Alberta: 42,
+    Saskatchewan: 32,
+  })
+  const burnaby = report.by_province["British Columbia"].find(row => row.community === "Burnaby")
+  const portHardy = report.by_province["British Columbia"].find(row => row.community === "Port Hardy")
+  const laRonge = report.by_province.Saskatchewan.find(row => row.community === "La Ronge")
+  assert.ok(["verified_coverage", "regional_coverage", "navigation_only"].includes(burnaby.status))
+  assert.ok(portHardy.regional_resources > 0)
+  assert.equal(laRonge.status, "verified_coverage")
+  assert.equal(Object.values(report.status_counts).reduce((sum, count) => sum + count, 0), 140)
 })
 
 test("verified canonical enrichment replaces stale legacy contact metadata in the mobile projection", () => {

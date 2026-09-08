@@ -49,6 +49,29 @@ const compactObject = value => Object.fromEntries(Object.entries(value).filter((
   return nested !== null && nested !== undefined && nested !== ""
 }))
 
+function serviceScope(record, { province, community, address, serviceArea, deliveryModes }) {
+  const physical = record.physical_location && typeof record.physical_location === "object"
+    ? compactObject({
+      community: clean(record.physical_location.community),
+      address: clean(record.physical_location.address),
+      province: clean(record.physical_location.province || province),
+      latitude: Number.isFinite(record.physical_location.latitude) ? record.physical_location.latitude : null,
+      longitude: Number.isFinite(record.physical_location.longitude) ? record.physical_location.longitude : null,
+    })
+    : address && community ? compactObject({ community, address, province }) : null
+  return {
+    physical_location: physical && Object.keys(physical).length ? physical : null,
+    local_service_area: [...new Set(array(record.local_service_area).map(clean).filter(Boolean))],
+    regional_service_area: [...new Set(array(record.regional_service_area).map(clean).filter(Boolean))],
+    province_wide: record.province_wide === true,
+    virtual: record.virtual === true || deliveryModes.some(mode => /virtual|online|telephone/i.test(clean(mode))),
+    navigation_only: record.navigation_only === true,
+    scope_note: clean(record.scope_note),
+    search_locations: [...new Set(array(record.search_locations).map(clean).filter(Boolean))],
+    service_area: clean(serviceArea),
+  }
+}
+
 export function normalizeSharedResource(record, { project, sourceKind }) {
   const funding = (record.resource_kind || sourceKind) === "funding"
   const name = clean(record.name)
@@ -56,6 +79,10 @@ export function normalizeSharedResource(record, { project, sourceKind }) {
   const website = clean(record.website || record.application_url || record.source?.url)
   const province = clean(record.province || (record.jurisdiction === "Federal" || /canada-wide/i.test(record.service_area || record.geography) ? "Canada-wide" : record.jurisdiction))
   const categories = funding ? topCategories([], "funding", record.purpose) : topCategories(record.categories || record.category, "service")
+  const community = clean(record.community)
+  const address = clean(record.address)
+  const serviceArea = clean(record.service_area || record.area_served || record.geography)
+  const deliveryModes = array(record.delivery_modes).map(clean).filter(Boolean)
   return {
     canonical_resource_id: clean(record.canonical_resource_id || record.public_support_id || record.id),
     record_type: funding ? "funding" : "service",
@@ -69,10 +96,11 @@ export function normalizeSharedResource(record, { project, sourceKind }) {
     governance_type: clean(record.governance_type || "not_stated"),
     geography: clean(record.geography || record.area_served || record.service_area || record.province || record.jurisdiction),
     province,
-    city_community: clean(record.community),
-    address: clean(record.address),
-    service_area: clean(record.service_area || record.area_served || record.geography),
-    delivery_modes: array(record.delivery_modes),
+    city_community: community,
+    address,
+    service_area: serviceArea,
+    service_scope: serviceScope(record, { province, community, address, serviceArea, deliveryModes }),
+    delivery_modes: deliveryModes,
     eligibility: clean(record.eligibility || record.who_can_apply),
     access_requirements: array(record.access_requirements).map(clean),
     required_documents: array(record.required_documents).map(clean),
@@ -129,6 +157,19 @@ function mergeRecords(left, right) {
   for (const key of ["program_name", "organization", "description", "population_served", "indigenous_scope", "governance_type", "geography", "province", "city_community", "address", "service_area", "eligibility", "cost", "referral_requirement", "access", "phone", "email", "website", "housing", "legal_support", "transportation"]) {
     if (right[key] && (rightIsCurrent || !merged[key])) merged[key] = right[key]
   }
+  const leftScope = left.service_scope || {}
+  const rightScope = right.service_scope || {}
+  merged.service_scope = {
+    physical_location: rightScope.physical_location && (rightIsCurrent || !leftScope.physical_location) ? rightScope.physical_location : leftScope.physical_location || null,
+    local_service_area: [...new Set([...(leftScope.local_service_area || []), ...(rightScope.local_service_area || [])])],
+    regional_service_area: [...new Set([...(leftScope.regional_service_area || []), ...(rightScope.regional_service_area || [])])],
+    province_wide: Boolean(leftScope.province_wide || rightScope.province_wide),
+    virtual: Boolean(leftScope.virtual || rightScope.virtual),
+    navigation_only: Boolean(leftScope.navigation_only || rightScope.navigation_only),
+    scope_note: rightScope.scope_note && (rightIsCurrent || !leftScope.scope_note) ? rightScope.scope_note : leftScope.scope_note || "",
+    search_locations: [...new Set([...(leftScope.search_locations || []), ...(rightScope.search_locations || [])])],
+    service_area: rightScope.service_area && (rightIsCurrent || !leftScope.service_area) ? rightScope.service_area : leftScope.service_area || "",
+  }
   merged.access_requirements = [...new Set([...(left.access_requirements || []), ...(right.access_requirements || [])])]
   merged.required_documents = [...new Set([...(left.required_documents || []), ...(right.required_documents || [])])]
   merged.delivery_modes = [...new Set([...(left.delivery_modes || []), ...(right.delivery_modes || [])])]
@@ -181,6 +222,9 @@ export function validateSharedResourceRegistry(registry) {
     if (record.transportation && !record.categories.some(category => ["healthcare", "financial_funding", "practical_support"].includes(category))) throw new Error("invalid_transportation_taxonomy")
     if (record.housing && !record.categories.includes("housing")) throw new Error("invalid_housing_taxonomy")
     if (record.legal_support && !record.categories.includes("legal_rights")) throw new Error("invalid_legal_taxonomy")
+    if (!record.service_scope || typeof record.service_scope !== "object") throw new Error("invalid_service_scope")
+    if (![record.service_scope.local_service_area, record.service_scope.regional_service_area, record.service_scope.search_locations].every(Array.isArray)) throw new Error("invalid_service_scope_areas")
+    if (![record.service_scope.province_wide, record.service_scope.virtual, record.service_scope.navigation_only].every(value => typeof value === "boolean")) throw new Error("invalid_service_scope_flags")
     ids.add(record.canonical_resource_id)
   }
   const counts = {

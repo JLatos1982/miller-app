@@ -2,6 +2,7 @@ import { buildMillerPracticalIntelligence, detectMillerPracticalIntents, isMille
 import { millerResourceSearchText } from "../src/millerPublicSearchResources.js"
 import { conciseResourceDescription } from "../src/millerResultPresentation.js"
 import { buildMobileReadinessIndex, mobileReadinessSummary } from "./millerMobileReadiness.js"
+import { MILLER_WESTERN_CITY_PROVINCES } from "./millerWesternCommunities.js"
 
 export const MILLER_MOBILE_API_VERSION = "miller-mobile-search-v1"
 export const MILLER_MOBILE_RESULT_LIMIT = 20
@@ -32,27 +33,6 @@ const INTENT_TERMS = Object.freeze({
   basic_needs: ["basic needs", "food", "clothing", "identification", "income"],
   transportation: ["transportation", "transport", "medical travel", "transit", "ride"],
   reentry: ["corrections reentry", "re entry", "reentry", "reintegration", "release planning"],
-})
-
-const WESTERN_CITY_PROVINCES = Object.freeze({
-  abbotsford: "British Columbia",
-  burnaby: "British Columbia",
-  kelowna: "British Columbia",
-  nanaimo: "British Columbia",
-  surrey: "British Columbia",
-  vancouver: "British Columbia",
-  victoria: "British Columbia",
-  calgary: "Alberta",
-  edmonton: "Alberta",
-  lethbridge: "Alberta",
-  "medicine hat": "Alberta",
-  "red deer": "Alberta",
-  lloydminster: "Alberta",
-  "moose jaw": "Saskatchewan",
-  "north battleford": "Saskatchewan",
-  "prince albert": "Saskatchewan",
-  regina: "Saskatchewan",
-  saskatoon: "Saskatchewan",
 })
 
 const clean = value => String(value ?? "").replace(/\s+/g, " ").trim()
@@ -106,15 +86,16 @@ function cityFor(resource) {
 
 function detectedLocation(query, resources) {
   const haystack = ` ${normalized(query)} `
-  const cities = [...new Set([...resources.map(cityFor).filter(Boolean), ...Object.keys(WESTERN_CITY_PROVINCES)])]
+  const cities = [...new Set([...resources.map(cityFor).filter(Boolean), ...Object.keys(MILLER_WESTERN_CITY_PROVINCES)])]
     .sort((left, right) => right.length - left.length)
   const match = cities.find(city => haystack.includes(` ${normalized(city)} `)) || ""
-  if (!match || !Object.hasOwn(WESTERN_CITY_PROVINCES, normalized(match))) return match
-  return normalized(match).split(" ").map(word => `${word[0].toUpperCase()}${word.slice(1)}`).join(" ")
+  if (!match || !Object.hasOwn(MILLER_WESTERN_CITY_PROVINCES, normalized(match))) return match
+  return Object.keys(MILLER_WESTERN_CITY_PROVINCES).find(city => normalized(city) === normalized(match))
+    ?.split(" ").map(word => `${word[0].toUpperCase()}${word.slice(1)}`).join(" ") || match
 }
 
 function provinceForLocation(location) {
-  return WESTERN_CITY_PROVINCES[normalized(location)] || ""
+  return MILLER_WESTERN_CITY_PROVINCES[normalized(location)] || ""
 }
 
 function detectedProvince(query) {
@@ -156,11 +137,63 @@ function matchesAnyIntent(resource, intents) {
   return intents.some(intent => (INTENT_TERMS[intent] || []).some(term => includesTerm(text, term)))
 }
 
+function scopeFor(resource) {
+  const physical = resource?.physicalLocation && typeof resource.physicalLocation === "object"
+    ? resource.physicalLocation
+    : resource?.address && cityFor(resource)
+      ? { community: cityFor(resource), address: clean(resource.address), province: provinceFor(resource) }
+      : null
+  return {
+    physical_location: physical,
+    local_service_area: Array.isArray(resource?.localServiceArea) ? resource.localServiceArea.map(clean).filter(Boolean) : [],
+    regional_service_area: Array.isArray(resource?.regionalServiceArea) ? resource.regionalServiceArea.map(clean).filter(Boolean) : [],
+    province_wide: resource?.provinceWide === true,
+    virtual: resource?.virtual_service === true,
+    navigation_only: resource?.navigationOnly === true,
+    scope_note: clean(resource?.scopeNote),
+  }
+}
+
+function physicallyLocatedIn(resource, location) {
+  if (!location) return false
+  const scope = scopeFor(resource)
+  return normalized(scope.physical_location?.community) === normalized(location)
+}
+
+function servesLocation(resource, location) {
+  if (!location) return false
+  const scope = scopeFor(resource)
+  if (physicallyLocatedIn(resource, location)) return true
+  const areas = [...scope.local_service_area, ...scope.regional_service_area, ...(resource?.searchLocations || [])]
+  if (areas.some(area => includesTerm(area, location))) return true
+  if (includesTerm(resource?.region, location)) return true
+  return scope.province_wide && provinceForLocation(location) === provinceFor(resource)
+}
+
+function locationRelationship(resource, location) {
+  const scope = scopeFor(resource)
+  if (location && physicallyLocatedIn(resource, location)) return { code: "located_here", label: `Located in ${location}` }
+  if (location && servesLocation(resource, location)) {
+    if (scope.navigation_only) return {
+      code: "regional_intake",
+      label: scope.province_wide ? `Province-wide navigation for ${location}` : `Regional intake serving ${location}`,
+    }
+    const physicalCommunity = clean(scope.physical_location?.community)
+    return {
+      code: "serves_community",
+      label: physicalCommunity ? `Located in ${physicalCommunity} · serves ${location}` : `Serves ${location}`,
+    }
+  }
+  if (scope.navigation_only && scope.province_wide) return { code: "province_navigation", label: "Province-wide navigation" }
+  if (scope.province_wide) return { code: "province_wide", label: "Province-wide service" }
+  if (scope.virtual) return { code: "virtual", label: "Virtual service" }
+  return { code: "location_not_established", label: clean(scope.scope_note) }
+}
+
 function scoreResource(resource, { query, location, province, categories, intents, readiness }) {
   const text = millerResourceSearchText(resource)
   const intentText = intentSearchText(resource)
   const name = normalized(resource.name)
-  const resourceCity = normalized(cityFor(resource))
   const resourceProvince = provinceFor(resource)
   let score = resource.approved === false ? -1000 : 10
   for (const token of keywordTokens(query)) {
@@ -175,8 +208,9 @@ function scoreResource(resource, { query, location, province, categories, intent
     }
   }
   for (const category of categories) if (includesTerm(text, category)) score += 35
-  if (location && resourceCity === normalized(location)) score += 70
-  else if (location && text.includes(normalized(location))) score += 30
+  if (location && physicallyLocatedIn(resource, location)) score += 70
+  else if (location && servesLocation(resource, location)) score += 42
+  else if (location && text.includes(normalized(location))) score += 22
   if (province && resourceProvince === province) score += 28
   if (resourceProvince === "Canada-wide") score += 4
   if (readiness?.mobile_ready) score += 18
@@ -196,8 +230,10 @@ function compactSource(resource) {
   }
 }
 
-function normalizedCard(resource, readiness) {
+function normalizedCard(resource, readiness, location = "") {
   const source = compactSource(resource)
+  const scope = scopeFor(resource)
+  const relationship = locationRelationship(resource, location)
   return {
     canonical_id: clean(resource.id),
     name: clean(resource.name),
@@ -209,6 +245,19 @@ function normalizedCard(resource, readiness) {
     city: cityFor(resource),
     region: clean(resource.region),
     address: clean(resource.address),
+    physical_location: scope.physical_location ? {
+      community: clean(scope.physical_location.community),
+      address: clean(scope.physical_location.address),
+      province: clean(scope.physical_location.province),
+    } : null,
+    local_service_area: scope.local_service_area,
+    regional_service_area: scope.regional_service_area,
+    province_wide: scope.province_wide,
+    virtual: scope.virtual,
+    navigation_only: scope.navigation_only,
+    scope_note: scope.scope_note,
+    location_relationship: relationship.code,
+    location_label: relationship.label,
     phone: clean(resource.phone),
     email: clean(resource.email),
     website: clean(resource.website),
@@ -228,13 +277,11 @@ function normalizedCard(resource, readiness) {
 }
 
 function isExactLocationResource(resource, location) {
-  if (!location) return false
-  if (normalized(cityFor(resource)) === normalized(location)) return true
-  return includesTerm(`${resource.region || ""} ${(resource.searchLocations || []).join(" ")}`, location)
+  return physicallyLocatedIn(resource, location)
 }
 
 function isNavigationResource(resource) {
-  return /navigation|helpline|access line|service finder|211|811/.test(normalized(millerResourceSearchText(resource)))
+  return resource?.navigationOnly === true || /navigation|helpline|access line|service finder|211|811/.test(normalized(millerResourceSearchText(resource)))
 }
 
 function guidancePayload(intelligence) {
@@ -273,6 +320,7 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
   const exactLocation = ranked.filter(({ resource }) => isExactLocationResource(resource, location))
   const geographicallyRelevant = ranked.filter(({ resource }) => {
     if (isExactLocationResource(resource, location)) return true
+    if (servesLocation(resource, location)) return true
     if (province && [province, "Canada-wide"].includes(provinceFor(resource))) return true
     return !location && !province
   })
@@ -282,6 +330,7 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
     .sort((left, right) => right.score - left.score || clean(left.resource.name).localeCompare(clean(right.resource.name)))
   const pool = geographicallyRelevant.length ? geographicallyRelevant : ranked.length ? ranked : navigationFallback
   const selected = pool.slice(0, request.limit).map(item => item.resource)
+  const serviceAreaMatches = ranked.filter(({ resource }) => !isExactLocationResource(resource, location) && servesLocation(resource, location))
   const intelligence = buildMillerPracticalIntelligence({
     query: request.query,
     results: selected,
@@ -299,17 +348,23 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
     guidance: guidancePayload(intelligence),
     search_scope: {
       exact_location_matches: exactLocation.length,
+      physical_location_matches: exactLocation.length,
+      service_area_matches: serviceAreaMatches.length,
+      no_verified_local_facility: Boolean(location && exactLocation.length === 0),
       geography_broadened: Boolean(location && exactLocation.length < Math.min(3, selected.length)),
       mode: !location
         ? province ? "province" : "western_and_canada_wide"
-        : exactLocation.length >= Math.min(3, selected.length) ? "local_first" : "province_broadened",
-      message: location && exactLocation.length < Math.min(3, selected.length)
-        ? `Exact matches in ${location} are limited, so verified ${province || "regional"} and Canada-wide navigation options are also included.`
+        : exactLocation.length >= Math.min(3, selected.length) ? "local_first"
+          : serviceAreaMatches.length ? "regional_pathway" : "province_broadened",
+      message: location && exactLocation.length === 0
+        ? `I didn't find a verified ${clean(intelligence.primary_intent || "service").replaceAll("_", " ")} facility physically located in ${location} in Miller's current data. ${serviceAreaMatches.length ? "The regional services and intake options below serve the community or can help identify the appropriate option." : `Verified ${province || "provincial"} navigation options are included instead.`}`
+        : location && exactLocation.length < Math.min(3, selected.length)
+          ? `Local matches in ${location} are limited, so verified services that serve the community and ${province || "regional"} navigation options are also included.`
         : "",
     },
     result_count: pool.length,
     returned_count: selected.length,
-    results: selected.map(resource => normalizedCard(resource, readiness.get(clean(resource.id)))),
+    results: selected.map(resource => normalizedCard(resource, readiness.get(clean(resource.id)), location)),
     privacy: {
       query_stored: false,
       client_record_created: false,
@@ -340,7 +395,11 @@ export function buildMillerMobileSharePack(response, selectedCanonicalIds = []) 
     .map(resource => ({
       name: clean(resource.name),
       organization: clean(resource.organization),
-      location: clean([resource.address, resource.city, resource.province].filter(Boolean).join(" · ")),
+      location: clean(resource.location_label || [resource.address, resource.city, resource.province].filter(Boolean).join(" · ")),
+      physical_location: clean(resource.physical_location?.community
+        ? [resource.physical_location.address, resource.physical_location.community, resource.physical_location.province].filter(Boolean).join(", ")
+        : ""),
+      service_scope: clean(resource.scope_note || resource.regional_service_area?.join(", ") || resource.local_service_area?.join(", ") || (resource.province_wide ? `${resource.province} province-wide` : "")),
       phone: clean(resource.phone),
       website: clean(resource.website),
       access_note: clean(resource.referral_note || resource.access_note),
@@ -350,6 +409,8 @@ export function buildMillerMobileSharePack(response, selectedCanonicalIds = []) 
   resources.forEach((resource, index) => {
     lines.push(`${index + 1}. ${resource.name}${resource.organization ? ` — ${resource.organization}` : ""}`)
     if (resource.location) lines.push(resource.location)
+    if (resource.physical_location && !resource.location.includes(resource.physical_location)) lines.push(`Physical location: ${resource.physical_location}`)
+    if (resource.service_scope) lines.push(`Service area: ${resource.service_scope}`)
     if (resource.phone) lines.push(`Phone: ${resource.phone}`)
     if (resource.website) lines.push(`Website: ${resource.website}`)
     if (resource.access_note) lines.push(`Access: ${resource.access_note}`)

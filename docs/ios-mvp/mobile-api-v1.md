@@ -48,6 +48,9 @@ Response contract: `miller-mobile-search-v1`.
   },
   "search_scope": {
     "exact_location_matches": 4,
+    "physical_location_matches": 4,
+    "service_area_matches": 2,
+    "no_verified_local_facility": false,
     "geography_broadened": false,
     "mode": "local_first",
     "message": ""
@@ -64,11 +67,11 @@ Response contract: `miller-mobile-search-v1`.
 }
 ```
 
-Each resource card contains a canonical ID, name, organization, category/service type, concise description, province/city/region/address, public phone/email/website, `access_type`, `referral_note`, eligibility/funding/transportation notes, `verified_status`, `last_verified`, `source_url`, a derived `mobile_ready` flag, bounded tags, and compact public source verification metadata. It never exposes ranking scores, private review metadata, incidents, investigations, legal findings, or Miller North evidence.
+Each resource card contains a canonical ID, name, organization, category/service type, concise description, province/city/region/address, public phone/email/website, `access_type`, `referral_note`, eligibility/funding/transportation notes, `verified_status`, `last_verified`, `source_url`, a derived `mobile_ready` flag, bounded tags, and compact public source verification metadata. Service scope is explicit through `physical_location`, `local_service_area`, `regional_service_area`, `province_wide`, `virtual`, `navigation_only`, `scope_note`, `location_relationship`, and a public-safe `location_label`. It never exposes ranking scores, private review metadata, incidents, investigations, legal findings, or Miller North evidence.
 
 `mobile_ready` is derived, not manually asserted. It requires a stable canonical ID, current public-source verification, a verified contact path, clear geography or service scope, sufficient basic access information, and no unresolved deterministic duplicate conflict.
 
-`search_scope` explains whether local matches were available or results were safely broadened to verified provincial/Canada-wide navigation. Sparse searches never fabricate a nearby service.
+`search_scope` explains whether a physical local match was available, whether a service-area match can help the searched community, and whether results were safely broadened to verified regional, provincial, or Canada-wide navigation. A searched city is never treated as the facility location merely because a regional service accepts residents there. Sparse searches never fabricate a nearby service.
 
 `GET /api/mobile/v1/about` returns the contract name, geography, privacy posture, and current public catalog counts.
 

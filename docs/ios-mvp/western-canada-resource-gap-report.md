@@ -1,142 +1,135 @@
-# Western Canada mobile data-readiness review — 2026-09-08
+# Western Canada regional data-readiness review — 2026-09-08
 
-This report describes the public practical-resource projection consumed by the
-Miller mobile API. It does not include Miller North evidence, Farm intelligence,
-owner-review records, or unpublished legal/investigative material.
+This report covers the public practical-resource projection consumed by Miller
+and its mobile API. It excludes Miller North evidence, Palantír intelligence,
+owner-review records, and unpublished legal or investigative material.
 
-The audit is reproducible with:
+The audit is reproducible with the mobile benchmark and Western community
+coverage functions in `server/millerMobileBenchmark.js`.
 
-```sh
-node scripts/audit-miller-mobile-readiness.mjs
-```
+## Current projections
 
-## Current mobile projection
+The shared canonical registry contains 185 verified public resources: 88 in
+British Columbia, 38 in Alberta, 43 in Saskatchewan, and 16 Canada-wide. Its
+consumer projections contain 147 Miller resources and 78 Miller North Supports
+& Funding resources; 40 canonical records are legitimately shared.
 
-The projection contains 431 unique practical records:
+The combined mobile search projection contains 465 unique practical records:
 
-| Geography | Records | Share |
-|---|---:|---:|
-| British Columbia | 380 | 88.2% |
-| Alberta | 21 | 4.9% |
-| Saskatchewan | 21 | 4.9% |
-| Canada-wide | 9 | 2.1% |
+| Geography | Records |
+|---|---:|
+| British Columbia | 390 |
+| Alberta | 28 |
+| Saskatchewan | 35 |
+| Canada-wide | 12 |
 
-Counts describe records, not live intake capacity or regional completeness.
-The app continues to direct users to the service for current availability and
-eligibility.
+Counts describe records, not live intake capacity or proof that every community
+has a physical facility.
 
-## Mobile-ready definition and count
+## Mobile readiness
 
-`mobile_ready` is derived, not manually asserted. A record qualifies only when
-it has:
+`mobile_ready` remains conservative: stable ID, current public source, verified
+contact path, clear geography or service scope, sufficient access information,
+and no unresolved deterministic duplicate conflict are all required.
 
-* a stable canonical ID;
-* a current, publicly traceable official/first-party source;
-* a verified phone or website;
-* a clear location or service area;
-* sufficient access/referral information; and
-* no unresolved duplicate conflict.
+The prior baseline was 95 of 446 records (21.3%). After this pass, 150 of 465
+records qualify (32.3%). Correcting 38 explicit province gaps in the public
+support source materially improved readiness; the remaining dominant blocker is
+stale or missing current-source verification on 315 legacy records. Missing
+contact paths affect 37, insufficient access detail affects four, and two have
+unresolved duplicate conflicts.
 
-Seventy-six records (17.6%) currently qualify. The largest blocker is old or
-missing verification metadata (318 records), followed by unclear geography or
-contact fields (37 each). This intentionally conservative flag is suitable for
-pilot triage; records that do not qualify may still be legitimate public Miller
-resources.
+## Regional pathway batch
 
-## Bounded verified expansion
+Twenty-five official-source records were reconciled: 20 new canonical records
+and five enrichments of stable identities. The batch spans 10 B.C., five Alberta,
+and 10 Saskatchewan records. Twenty-three route to Miller only; two verified
+Indigenous-focused services share one canonical record with Miller North
+Supports & Funding.
 
-Twenty-five source records now live in the Western mobile expansion registry.
-Fourteen were added in this data-readiness pass, alongside deeper verification
-of four high-use B.C. records already in the main dataset.
+The 22 unique source pages are from Fraser Health, HealthLink BC and health
+authorities, FNHA, B.C. Housing, AHS/Recovery Alberta, Saskatchewan Health
+Authority and government, and provincial 211 services. A bounded live URL check
+returned HTTP 200 for all 22 on 2026-09-08.
 
-The additions cover:
+## Local, regional, and provincial meaning
 
-* Burnaby community substance-use services;
-* Calgary adult addiction intake, Access Mental Health, and Renfrew withdrawal
-  management;
-* Edmonton Access 24/7, opioid-dependency care, and medical detox;
-* Alberta recovery housing;
-* Saskatoon opioid-agonist treatment and family support;
-* Saskatchewan treatment discovery/navigation;
-* Victoria rapid-access addiction medicine and community medical detox; and
-* the Canada-wide First Nations and Inuit treatment-program directory.
+The canonical scope now keeps these facts separate:
 
-All expansion sources are official government, health-system, or first-party
-provider pages. The verification audit checks 29 expansion/high-use URLs: 27
-respond directly, two VCH pages restrict automated clients, and none is treated
-as a confirmed dead source. A restricted response never becomes a closure claim.
+* physical location;
+* local service area;
+* regional service area;
+* province-wide availability;
+* virtual delivery; and
+* navigation-only status.
+
+The shared registry currently has 32 records with an explicit physical location,
+15 with a local service area, 12 with a regional service area, six province-wide,
+23 virtual, and 11 navigation-only. These dimensions can overlap.
+
+The bounded community inventory covers 140 communities: 66 B.C., 42 Alberta,
+and 32 Saskatchewan. At current coding, 29 have at least one physical local
+resource, eight have a substantive regional service relationship, and 103 rely
+on province-wide or regional navigation in this dataset. “Navigation only” is a
+coverage description, not proof that no local service exists.
+
+## Burnaby withdrawal pathway
+
+Miller no longer describes Creekside as a Burnaby detox facility. Fraser Health
+places Creekside Withdrawal Management Centre at 13740 94A Avenue in Surrey.
+The Fraser Health Access Line is the regional intake/navigation path, and
+Creekside serves the Fraser region through that pathway. For a Burnaby detox
+query the API reports zero verified physical Burnaby withdrawal facilities in
+Miller's current data, labels Creekside “Located in Surrey · serves Burnaby,” and
+labels the Access Line “Regional intake serving Burnaby.”
 
 ## Frontline query benchmark
 
-The benchmark covers the twelve requested workflows. Eight pass every current
-threshold. Every scenario returns a relevant top result, 100% website coverage,
-100% access-note coverage, 100% shareability, and correct province/Canada-wide
-scoping.
+The benchmark now contains 25 scenarios: the original 13 workflows plus Yorkton,
+La Ronge, Swift Current, Bonnyville, High River, Canmore, Port Hardy, Terrace,
+Cranbrook, Prince George, rural transportation, and northern Saskatchewan
+Indigenous treatment support.
 
-| Query | Top result | Status | Remaining weakness |
-|---|---|---|---|
-| Detox in Surrey | Creekside Withdrawal Management Centre | Pass | — |
-| Detox in Burnaby | Access Central – Detox Referral Line | Weak | No program physically coded in Burnaby; appropriate regional intake fallback is shown |
-| Housing after treatment in Vancouver | RainCity Housing First ACT Team | Weak | Fewer than half of returned records have a phone, though all have official links/access notes |
-| OAT in Edmonton | Opioid Dependency Program – Edmonton | Pass | — |
-| Counselling in Calgary | Access Mental Health – Calgary | Pass | — |
-| Mental health and housing in Saskatoon | STC Emergency Wellness Centre | Pass | — |
-| Funding for treatment | B.C. treatment transportation supplement | Weak | Funding records are primarily web/application based, so phone coverage is below 50% |
-| Transportation to treatment | B.C. treatment transportation supplement | Weak | Transportation records are primarily web/application based, so phone coverage is below 50% |
-| Indigenous-specific treatment support | ISC treatment-program directory | Pass | — |
-| Legal help with housing | Indigenous Community Legal Workers | Pass | — |
-| Recovery housing | Oxford House Recovery Housing – Alberta | Pass | — |
-| Family support after treatment | ISC treatment-program directory | Pass | — |
+All 25 pass current relevance, province, contact/access, shareability, and
+geography thresholds. There are zero incorrect local-facility claims. On this
+workstation the in-process average is 73 ms, p95 is 101 ms, and the average
+payload is approximately 16.2 KB; these are not network timings.
 
-In-process measurements on this workstation average 66 ms per search, with an
-84 ms p95 and a 12.7 KB average JSON payload. These timings measure the search,
-guidance, readiness, and serialization pipeline; they are not network latency.
+## Meaningful improvements
 
-## Coverage gaps
+The new regional pathways improve truthful discovery for:
 
-The strongest prototype paths are Alberta/Saskatchewan navigation and the newly
-verified city-specific entries. The catalogue remains B.C.-heavy, while much of
-the older B.C. data lacks recent source/access metadata and therefore cannot yet
-receive the conservative mobile-ready flag.
+* Fraser communities, with separate Fraser Access and Surrey Creekside roles;
+* Vancouver Island communities through Island Health's MHSU Service Link;
+* 17 Interior/Okanagan/Kootenay communities through Access Central;
+* Terrace and nearby northern communities;
+* 41 Alberta communities through Recovery Alberta central intake, with local
+  High River, Canmore, and Bonnyville records where official pages support them;
+* Yorkton, La Ronge, Swift Current, and Buffalo Narrows through physical SHA
+  withdrawal, OAT, or community-service records; and
+* province-wide 211 and Saskatchewan mental-health/withdrawal navigation.
 
-Highest-priority workflow gaps:
+The Prince George Homeless Prevention Program outreach listing adds a practical
+housing pathway, and FNHA medical transportation plus a Kwakiutl District
+Council mental-health/substance-use service are shared where Indigenous-specific
+visibility is supported.
 
-1. **Burnaby withdrawal management:** verify whether a program-level local option
-   exists; until then retain the clearly labelled regional Access Central path.
-2. **Calgary and Edmonton:** add verified legal/tenancy, treatment transportation,
-   funding, and family/youth entries. Calgary also lacks a coded OAT entry.
-3. **Regina and Prince Albert:** add official withdrawal, outpatient/OAT,
-   counselling, legal-navigation, funding, and transport services.
-4. **Vancouver/Surrey legacy records:** refresh source, contact, service-area, and
-   access metadata for high-ranking records rather than indiscriminately adding
-   more records.
-5. **Recovery and re-entry:** only four Western records are coded for
-   corrections/re-entry, and B.C.'s one record is not yet mobile-ready.
-6. **Rural/remote:** service-area, referral, medical-travel, and funding metadata
-   remain inconsistent in all three provinces.
+## Remaining regional priorities
 
-## No-result and share-pack behaviour
+The next five highest-value gaps are regional, not simply the largest cities:
 
-When an exact local query has no safe match, the API keeps the requested province,
-labels the response as broadened, and offers a bounded verified provincial or
-Canada-wide navigation path. It never fabricates a local service or silently
-crosses provinces.
+1. **North Vancouver Island:** verify Port Hardy/Port McNeill withdrawal and
+   medical-travel pathways beyond general Island Health navigation.
+2. **North Coast:** deepen Prince Rupert/Haida Gwaii withdrawal, housing, and
+   transportation pathways while retaining Terrace as a distinct physical hub.
+3. **Northwest Saskatchewan:** verify La Loche/Île-à-la-Crosse treatment access,
+   travel, and local intake rather than treating northern-region labels as town
+   locations.
+4. **Northwest Alberta:** add source-specific High Level/Peace River withdrawal,
+   OAT, housing, and travel pathways beyond central intake.
+5. **Northeast B.C.:** verify Dawson Creek/Fort St. John withdrawal, recovery
+   housing, and medical-transport pathways.
 
-Three representative share packs (Surrey detox, Edmonton OAT, and Saskatoon
-mental-health/housing) contain two or three relevant resources, concise guidance,
-and a contact path for every item. The packs omit ranking data, owner-review metadata,
-Farm/Samwise content, Miller North evidence, and private fields.
-
-## Recommended next expansion
-
-The next highest-value data pass is not a broad scrape. It should refresh the
-top-ranked B.C. legacy records and add a small official-source batch for:
-
-* Burnaby withdrawal management;
-* Calgary OAT plus legal/transport navigation;
-* Edmonton legal/transport navigation;
-* Regina withdrawal/OAT/counselling; and
-* Prince Albert withdrawal/OAT/transport.
-
-Those additions directly address failed benchmark conditions and common
-frontline workflows while keeping canonical verification standards intact.
+Further work should favour access and transport enrichment of high-use regional
+records over shallow duplication. No investigation or accountability record was
+added to Miller through this work.

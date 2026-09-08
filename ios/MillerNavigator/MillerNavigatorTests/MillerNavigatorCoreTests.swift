@@ -46,7 +46,12 @@ final class MillerNavigatorCoreTests: XCTestCase {
     MillerResource(
       canonicalId: "resource-1", name: name, organization: "Example Society", category: "Treatment",
       serviceType: "Outpatient", description: "A practical service.", province: "British Columbia", city: "Surrey",
-      region: "Lower Mainland", address: "100 Main Street", phone: "604-555-0100", email: "",
+      region: "Lower Mainland", address: "100 Main Street",
+      physicalLocation: MillerPhysicalLocation(community: "Surrey", address: "100 Main Street", province: "British Columbia"),
+      localServiceArea: ["Surrey"], regionalServiceArea: ["Lower Mainland"], provinceWide: false,
+      virtual: false, navigationOnly: false, scopeNote: "Located in Surrey.",
+      locationRelationship: "located_here", locationLabel: "Located in Surrey",
+      phone: "604-555-0100", email: "",
       website: "https://example.org", accessNote: "Call first", accessType: "phone_first",
       referralNote: "Self-referral", eligibilityNote: "", fundingNote: "", transportationNote: "",
       verifiedStatus: "verified_active", lastVerified: "2026-09-08", sourceUrl: "https://example.org",

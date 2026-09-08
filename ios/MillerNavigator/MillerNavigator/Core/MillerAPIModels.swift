@@ -31,6 +31,9 @@ public struct MillerSearchResponse: Codable, Equatable, Sendable {
 
 public struct MillerSearchScope: Codable, Equatable, Sendable {
   public let exactLocationMatches: Int
+  public let physicalLocationMatches: Int?
+  public let serviceAreaMatches: Int?
+  public let noVerifiedLocalFacility: Bool?
   public let geographyBroadened: Bool
   public let mode: String
   public let message: String
@@ -78,6 +81,12 @@ public struct MillerResourceSource: Codable, Equatable, Sendable, Hashable {
   public let lastVerified: String
 }
 
+public struct MillerPhysicalLocation: Codable, Equatable, Sendable, Hashable {
+  public let community: String
+  public let address: String
+  public let province: String
+}
+
 public struct MillerResource: Codable, Equatable, Sendable, Identifiable, Hashable {
   public let canonicalId: String
   public let name: String
@@ -89,6 +98,15 @@ public struct MillerResource: Codable, Equatable, Sendable, Identifiable, Hashab
   public let city: String
   public let region: String
   public let address: String
+  public let physicalLocation: MillerPhysicalLocation?
+  public let localServiceArea: [String]?
+  public let regionalServiceArea: [String]?
+  public let provinceWide: Bool?
+  public let virtual: Bool?
+  public let navigationOnly: Bool?
+  public let scopeNote: String?
+  public let locationRelationship: String?
+  public let locationLabel: String?
   public let phone: String
   public let email: String
   public let website: String
@@ -106,7 +124,10 @@ public struct MillerResource: Codable, Equatable, Sendable, Identifiable, Hashab
   public let source: MillerResourceSource
 
   public var id: String { canonicalId }
-  public var locationLine: String { [city, province].filter { !$0.isEmpty }.joined(separator: ", ") }
+  public var locationLine: String {
+    if let locationLabel, !locationLabel.isEmpty { return locationLabel }
+    return [city, province].filter { !$0.isEmpty }.joined(separator: ", ")
+  }
 }
 
 public enum MillerFeedbackReason: String, Codable, CaseIterable, Sendable {
