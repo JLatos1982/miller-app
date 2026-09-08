@@ -1,0 +1,52 @@
+{
+  "schema_version": "miller-north-live-incident-discovery-v1",
+  "review_date": "2026-09-07",
+  "scope": "Publicly reported, individual health-care events in British Columbia, Alberta and Saskatchewan. This is a discovery protocol, not a finding register.",
+  "source_families": [
+    { "name": "Indigenous journalism", "examples": ["APTN News", "IndigiNews", "Windspeaker", "Eagle Feather News"], "purpose": "Find community-reported accounts and follow-up reporting." },
+    { "name": "Regional journalism", "examples": ["CBC News", "CTV News", "Global News", "local public-interest outlets"], "purpose": "Seek independent reporting and regional follow-up." },
+    { "name": "Official and oversight documents", "examples": ["health authorities", "coroner or medical examiner", "ombudspersons", "human-rights tribunals", "professional regulators", "patient-quality bodies"], "purpose": "Identify formal review, response, disposition or system action." }
+  ],
+  "province_focus": [
+    { "province": "British Columbia", "queries": ["site:aptnnews.ca Indigenous patient hospital British Columbia after:2025-01-01", "site:fnha.ca patient complaint racism hospital", "site:bchrt.bc.ca Indigenous health care discrimination", "British Columbia {health authority or hospital} First Nations patient review response"] },
+    { "province": "Alberta", "queries": ["site:aptnnews.ca Indigenous patient hospital Alberta after:2025-01-01", "site:albertahumanrights.ab.ca Indigenous health care discrimination", "site:albertahealthservices.ca Indigenous patient concerns annual report", "Alberta {hospital or zone} First Nations patient investigation response"] },
+    { "province": "Saskatchewan", "queries": ["site:aptnnews.ca Indigenous patient hospital Saskatchewan after:2025-01-01", "site:saskatchewanhumanrights.ca Indigenous health care discrimination", "site:saskhealthauthority.ca Indigenous patient critical incident", "Saskatchewan {hospital or community} First Nations patient investigation response"] }
+  ],
+  "query_templates": [
+    "{province} {institution} Indigenous patient emergency department reported incident",
+    "{province} {institution} First Nations patient hospital review response",
+    "{province} Indigenous patient maternity care complaint investigation",
+    "{province} Indigenous patient ambulance security hospital public report",
+    "{province} coroner medical examiner Indigenous patient health care",
+    "{province} Indigenous patient human rights tribunal health care decision"
+  ],
+  "search_strategy": {
+    "preferred_order": ["named institution or facility + bounded date", "Indigenous outlet + province + care setting", "official response or oversight body + named event", "broad province query"],
+    "date_windows": ["past 12 months for recent incident discovery", "event year through current year for follow-up", "historical only when a public accountability chain is identifiable"],
+    "query_expansion_terms": ["First Nations", "Métis", "Inuit", "emergency department", "unsafe discharge", "denied care", "security", "ambulance", "coroner", "human rights", "professional regulator"],
+    "stopping_rule": "Stop after the named official, Indigenous-led, oversight and regional-source avenues have been checked, or when additional results are reposts, non-health material or already-reconciled events."
+  },
+  "incident_record_model": {
+    "identity": ["candidate_id", "event_key", "title"],
+    "timing": ["incident_date", "incident_date_precision", "publication_date", "last_reviewed"],
+    "geography": ["province", "community_or_locality", "incident_location_basis"],
+    "healthcare_context": ["healthcare_organization", "facility", "healthcare_setting", "allegation_type"],
+    "public_person_description": ["affected_person_description"],
+    "evidence": ["source_type", "primary_source_url", "corroborating_sources", "evidence_confidence", "verification_status"],
+    "accountability": ["investigation_status", "legal_or_regulatory_status", "institutional_response", "outcome", "related_accountability_chain"],
+    "research_control": ["next_research_action", "owner_review_required"],
+    "privacy_rule": "Retain only the least identifying public description needed to understand and reconcile the event. Do not copy medical detail or infer identity from anonymized reporting."
+  },
+  "staging_policy": {
+    "single_public_report": "verification_in_progress",
+    "two_independent_public_reports_or_specific_official_follow_up": "corroborated_public_report",
+    "formal_finding": "Only a decision, report or investigation may be labeled a formal finding; journalism alone is not one.",
+    "social_only": "Keep out of public display and route only as a private lead where authorized.",
+    "public_display": "Show location, source and evidence state; do not infer cause, intent, racism, negligence or an investigation from a report alone."
+  },
+  "deduplication": {
+    "event_fingerprint": ["province", "locality", "facility", "event-date-window", "allegation-class"],
+    "rule": "A shared wire story, repost, or URL is not independent corroboration. Records sharing an event fingerprint must be reconciled before public display."
+  },
+  "exclusions": ["National sources cannot be assigned to a province without province-specific event evidence.", "Academic research cannot be labeled an official investigation.", "Institutional response material cannot by itself be labeled an incident record.", "Commentary cannot be primary evidence."]
+}

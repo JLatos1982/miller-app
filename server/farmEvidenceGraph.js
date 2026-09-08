@@ -1,7 +1,8 @@
 import { createHash } from "node:crypto"
 
-export const FARM_GRAPH_EDGE_TYPES = Object.freeze(["concerns_event", "investigated_by", "resulted_in", "recommended_to", "responded_to_by", "implementation_evidence", "judicial_review_of", "corroborates", "contradicts", "related_support", "same_event_as", "tracked_in"])
+export const FARM_GRAPH_EDGE_TYPES = Object.freeze(["concerns_event", "investigated_by", "resulted_in", "recommended_to", "responded_to_by", "implementation_evidence", "judicial_review_of", "corroborates", "contradicts", "related_support", "same_event_as", "tracked_in", "healthcare_overlap", "policing_overlap", "child_welfare_overlap", "funding_overlap", "legal_context", "support_pathway", "accountability_related"])
 const EDGE_TYPES = new Set(FARM_GRAPH_EDGE_TYPES)
+const REVIEWED_CROSS_DOMAIN_EDGE_TYPES = new Set(["healthcare_overlap", "policing_overlap", "child_welfare_overlap", "funding_overlap", "legal_context", "support_pathway", "accountability_related"])
 const clean = value => String(value || "").normalize("NFKC").replace(/\s+/g, " ").trim()
 const provinceKey = value => {
   const text = clean(value).toLowerCase().replace(/[^a-z]/g, "")
@@ -43,6 +44,8 @@ export function buildFarmEvidenceGraph({ incidents = [], watchChains = [], legal
 
 export function reconcileFarmGraphEdge(edges = [], candidate) {
   if (!EDGE_TYPES.has(candidate.type)) throw new Error("farm_graph_edge_type_invalid")
+  if (REVIEWED_CROSS_DOMAIN_EDGE_TYPES.has(candidate.type) && !["explicit_source", "reviewed_citation", "deterministic_canonical_match"].includes(candidate.evidence_basis)) throw new Error("farm_graph_cross_domain_edge_requires_reviewed_evidence")
+  if (REVIEWED_CROSS_DOMAIN_EDGE_TYPES.has(candidate.type) && !(clean(candidate.source_reference) || clean(candidate.source))) throw new Error("farm_graph_cross_domain_edge_requires_source")
   const fingerprint = edgeId(candidate)
   const duplicate = edges.some(edge => edge.edge_id === fingerprint || (candidate.type === "same_event_as" && edge.type === "same_event_as" && edge.from === candidate.to && edge.to === candidate.from))
   return { ...candidate, edge_id: fingerprint, disposition: duplicate ? "duplicate_suppressed" : "owner_review_candidate", automatic_merge: false }

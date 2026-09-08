@@ -11,6 +11,7 @@ import legacyResources from "../src/vancouver_resources_merged_updated.json" wit
 import { auditCanonicalResources } from "../server/farmDataQuality.js"
 import { dispatchFarmIgorJob, probeFarmIgor } from "../server/farmIgorWorker.js"
 import { runLegalIndexListener } from "../server/farmLegalListeners.js"
+import { PUBLIC_INSTITUTION_LISTENER_CONFIGS, runPublicInstitutionIndexListener } from "../server/farmPublicInstitutionListeners.js"
 import { auditMillerLocations } from "../server/farmLocationQuality.js"
 import { runExactDocumentListener, runFnhoPublicationsListener, runSaskatchewanHumanRightsListener, saskatchewanMilestoneRecords } from "../server/farmSourceListeners.js"
 import { farmListenerInventory, runFarmCycle } from "../server/farmJobScheduler.js"
@@ -147,6 +148,7 @@ const adapters = {
   fnho_publications: ({ previous }) => runFnhoPublicationsListener({ previous }),
   saskatchewan_exact_documents: ({ previous }) => runExactDocumentListener({ records: saskatchewanMilestoneRecords(), previous }),
   saskatchewan_human_rights: ({ previous }) => runSaskatchewanHumanRightsListener({ previous }),
+  ...Object.fromEntries(Object.entries(PUBLIC_INSTITUTION_LISTENER_CONFIGS).map(([adapter, config]) => [adapter, ({ listener, previous }) => runPublicInstitutionIndexListener({ listenerId: listener.listener_id, previous, ...config })])),
   weekly_owner_summary: async () => {
     const email = buildFarmWeeklyOwnerEmail({ runs: history() })
     const path = resolve(store.paths.directory, "farm-weekly-owner-email-preview-v1.json")

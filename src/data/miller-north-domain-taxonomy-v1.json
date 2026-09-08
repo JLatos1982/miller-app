@@ -1,0 +1,41 @@
+{
+  "schema_version": "miller-north-domain-taxonomy-v1",
+  "version": "2026-09-08",
+  "public_description_candidate": "Indigenous healthcare and public-system accountability",
+  "branding_status": "hold_until_non_healthcare_public_evidence_is_sufficient",
+  "principle": "Domain classification identifies where public accountability evidence belongs. It does not establish Indigenous identity, racism, discrimination, causation, liability, implementation or publication suitability.",
+  "domains": [
+    { "id": "healthcare", "label": "Healthcare", "status": "established", "examples": ["hospital", "emergency care", "primary care", "mental health", "substance use", "EMS", "consent", "patient security", "medical transport"] },
+    { "id": "policing_custody_corrections", "label": "Policing / custody", "status": "new_controlled_lane", "examples": ["police oversight", "custody", "corrections", "use of force", "hospital police interaction", "denial of medical care"] },
+    { "id": "government_services_funding", "label": "Government services", "status": "new_controlled_lane", "examples": ["service equality", "benefits", "public funding", "implementation obligations", "Jordan's Principle"] },
+    { "id": "child_welfare_youth_services", "label": "Child & youth", "status": "new_controlled_lane", "examples": ["child protection", "foster care", "youth services", "advocate investigations", "family-service funding"] },
+    { "id": "housing_homelessness", "label": "Housing", "status": "new_controlled_lane", "examples": ["public housing", "tenancy discrimination", "shelter systems", "supportive housing", "homelessness services"] },
+    { "id": "human_rights_public_services", "label": "Legal / human rights", "status": "established_cross_domain_lane", "examples": ["tribunal findings", "public-service discrimination", "government programs", "disability intersections"] },
+    { "id": "transportation_access", "label": "Transportation / access", "status": "established_gap_lane", "examples": ["medical transport", "EMS", "medevac", "rural travel", "essential-service access"] },
+    { "id": "education_exploratory", "label": "Education", "status": "exploratory_not_public_filter", "examples": ["public-institution discrimination", "Indigenous service inequality"] }
+  ],
+  "independent_dimensions": [
+    "indigenous_relevance",
+    "public_body_relevance",
+    "discrimination_evidence",
+    "systemic_inequity",
+    "harm",
+    "formal_finding",
+    "accountability_significance"
+  ],
+  "evidence_states": [
+    "explicit_racism_finding",
+    "explicit_discrimination_finding",
+    "indigenous_specific_systemic_inequity",
+    "credible_allegation",
+    "institutional_acknowledgement",
+    "formal_investigation",
+    "no_discrimination_finding",
+    "insufficient_evidence"
+  ],
+  "public_filter_policy": {
+    "minimum_published_records_per_domain": 3,
+    "empty_or_near_empty_domains_hidden": true,
+    "current_action": "do_not_add_filters_in_this_pass"
+  }
+}

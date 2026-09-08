@@ -8,6 +8,7 @@ export const FARM_RUN_STATUSES = Object.freeze(["completed", "no_material_change
 const PROJECTS = new Set(FARM_PROJECT_SCOPES)
 const WORKERS = new Set(FARM_WORKERS)
 const STATUSES = new Set(FARM_RUN_STATUSES)
+const DOMAIN_KEYS = new Set(["healthcare", "policing_custody_corrections", "government_services_funding", "child_welfare_youth_services", "housing_homelessness", "human_rights_public_services", "transportation_access", "education_exploratory"])
 const clean = (value, limit = 500) => String(value ?? "").normalize("NFKC").replace(/\s+/g, " ").trim().slice(0, limit)
 const number = value => Number.isFinite(Number(value)) && Number(value) >= 0 ? Number(value) : 0
 
@@ -37,6 +38,7 @@ export function farmOutputFingerprint(value) {
 }
 
 export function normalizeFarmListenerResult(value = {}) {
+  const domain_counts = Object.fromEntries(Object.entries(value.domain_counts || {}).filter(([domain, metrics]) => DOMAIN_KEYS.has(domain) && metrics && typeof metrics === "object").map(([domain, metrics]) => [domain, Object.fromEntries(Object.entries(metrics).filter(([key]) => ["checked", "changed", "relevant", "owner_review"].includes(key)).map(([key, amount]) => [key, number(amount)]))]))
   const result = {
     contract_version: FARM_LISTENER_CONTRACT_VERSION,
     status: STATUSES.has(value.status) ? value.status : "completed",
@@ -55,6 +57,7 @@ export function normalizeFarmListenerResult(value = {}) {
     output_titles: Array.isArray(value.output_titles) ? value.output_titles.map(item => clean(item, 160)).filter(Boolean).slice(0, 12) : [],
     owner_review_labels: Array.isArray(value.owner_review_labels) ? value.owner_review_labels.map(item => clean(item, 120)).filter(Boolean).slice(0, 12) : [],
     notes: Array.isArray(value.notes) ? value.notes.map(item => clean(item, 240)).filter(Boolean).slice(0, 12) : [],
+    domain_counts,
   }
   if (result.status === "completed" && result.new_documents + result.updated_documents + result.new_events + result.existing_events_strengthened + result.material_changes === 0) result.status = "no_material_change"
   result.output_fingerprint = farmOutputFingerprint(result)

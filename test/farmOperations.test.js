@@ -30,6 +30,15 @@ test("central registry has explainable read-only schedules and no publication au
   assert.ok(registry.listeners.some(item => item.execution_target === "igor" && item.enabled))
   assert.ok(registry.listeners.some(item => item.listener_id === "farm_production_health_weekly" && item.enabled))
   assert.ok(registry.listeners.some(item => item.enabled && item.yield_class === "milestone_only"))
+  for (const id of ["mn_bc_iio_public_reports_monthly", "mn_ab_asirt_releases_monthly", "mn_federal_oci_reports_monthly", "mn_bc_rcy_reports_monthly", "mn_sk_child_youth_reports_monthly"]) {
+    const publicInstitution = registry.listeners.find(item => item.listener_id === id)
+    assert.equal(publicInstitution?.enabled, true)
+    assert.equal(publicInstitution?.mutation_authority, false)
+    assert.equal(publicInstitution?.publication_authority, false)
+  }
+  const crcc = registry.listeners.find(item => item.listener_id === "mn_federal_crcc_reports_monthly")
+  assert.equal(crcc.enabled, false)
+  assert.equal(crcc.yield_class, "implemented_disabled_transport_blocker")
 })
 
 test("listener results normalize to one stable contract and flag bulk anomalies", () => {
@@ -229,6 +238,13 @@ test("event graph does not fuzzy-link distinct accountability chains with a shar
   assert.equal(graph.edges.length, 0)
 })
 
+test("cross-domain graph edges require reviewed evidence and retain owner gate", () => {
+  assert.throws(() => reconcileFarmGraphEdge([], { type: "healthcare_overlap", from: "legal:x", to: "incident:y", source: "keyword" }), /requires_reviewed_evidence/)
+  const edge = reconcileFarmGraphEdge([], { type: "healthcare_overlap", from: "legal:x", to: "incident:y", evidence_basis: "reviewed_citation", source_reference: "2019 BCHRT 275" })
+  assert.equal(edge.disposition, "owner_review_candidate")
+  assert.equal(edge.automatic_merge, false)
+})
+
 test("incident-to-support mapping is general, non-advisory and owner reviewed", () => {
   const result = suggestLegalSupportPathways({ record: { title: "Hospital discrimination complaint" }, resources: resources.records })
   assert.match(result.disclaimer, /does not determine/)
@@ -255,6 +271,26 @@ test("weekly owner email uses bounded structured fields, reports worker deferral
   assert.match(email.subject, /Farm Weekly/)
   assert.equal(email.sections.igor.deferred, 1)
   assert.equal(email.nothing_material_changed, false)
+})
+
+test("weekly owner email summarizes material domain activity without sensitive narratives", () => {
+  const email = buildFarmWeeklyOwnerEmail({
+    runs: [{ listener_id: "iio", source_family: "police_oversight", status: "completed", completed_at: now.toISOString(), checked: 9, new_documents: 1, owner_review: 1, domain_counts: { policing_custody_corrections: { checked: 9, changed: 1, relevant: 1, owner_review: 1 } }, output_titles: ["Public report 2026-001"] }],
+    now,
+  })
+  assert.deepEqual(email.sections.domains.policing_custody_corrections, { checked: 9, changed: 1, relevant: 1, owner_review: 1 })
+  assert.match(email.text, /policing custody corrections: 1 changed; 1 relevant; 1 for review/i)
+  assert.doesNotMatch(email.text, /medical narrative|private allegation/i)
+})
+
+test("weekly owner email includes only bounded material cross-lane discoveries", () => {
+  const email = buildFarmWeeklyOwnerEmail({
+    runs: [{ listener_id: "cross", source_family: "legal", status: "completed", completed_at: now.toISOString(), owner_review: 1, cross_lane_discoveries: [{ primary_domain: "policing_custody_corrections", secondary_domains: ["human_rights_public_services"], outcome: "formal finding reviewed", public_label: "Police decision", raw_narrative: "private detail" }] }],
+    now,
+  })
+  assert.equal(email.sections.cross_lane.count, 1)
+  assert.match(email.text, /Cross-lane discoveries/)
+  assert.doesNotMatch(JSON.stringify(email), /private detail/)
 })
 
 test("weekly owner email delivery path accepts only privacy-safe structured payloads", async () => {
