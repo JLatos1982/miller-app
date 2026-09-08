@@ -1,0 +1,78 @@
+{
+  "schema_version": "palantir-workplace-safety-taxonomy-v1",
+  "version": 1,
+  "primary_domain": "public_safety",
+  "explicit_indigenous_terms": [
+    "Indigenous",
+    "First Nations",
+    "Métis",
+    "Inuit",
+    "Indigenous worker",
+    "First Nations worker"
+  ],
+  "explicit_discrimination_terms": [
+    "racism",
+    "racial harassment",
+    "discrimination",
+    "poisoned workplace",
+    "discriminatory comments",
+    "retaliation"
+  ],
+  "mechanism_terms": [
+    "harassment",
+    "bullying",
+    "unequal treatment",
+    "accommodation",
+    "unsafe assignment",
+    "inadequate training",
+    "failure to protect",
+    "PPE",
+    "hazardous work",
+    "serious injury",
+    "fatality",
+    "complaint",
+    "investigation",
+    "enforcement",
+    "supervision"
+  ],
+  "public_institution_terms": [
+    "health authority",
+    "hospital",
+    "municipality",
+    "ministry",
+    "correctional facility",
+    "police",
+    "school district",
+    "public transportation",
+    "Crown corporation"
+  ],
+  "evidence_roles": [
+    "formal_investigation_finding",
+    "administrative_penalty",
+    "court_conviction_and_sentence",
+    "procedural_human_rights_decision",
+    "human_rights_merits_finding",
+    "mediated_resolution",
+    "appeal_or_review_decision",
+    "official_index"
+  ],
+  "indigenous_relevance_states": [
+    "explicit_person_or_group",
+    "explicit_indigenous_institution_only",
+    "not_established"
+  ],
+  "discrimination_states": [
+    "explicit_formal_finding",
+    "credible_allegation_procedural_only",
+    "mediated_without_merits_finding",
+    "no_discrimination_finding",
+    "not_applicable"
+  ],
+  "routing_boundaries": {
+    "indigenous_identity_inference": false,
+    "location_or_name_inference": false,
+    "automatic_miller_north_publication": false,
+    "automatic_miller_publication": false,
+    "investigation_to_miller_public": false
+  }
+}

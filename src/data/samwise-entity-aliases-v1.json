@@ -1,0 +1,212 @@
+{
+  "schema_version": "samwise-entity-aliases-v1",
+  "generated_at": "2026-09-08",
+  "policy": {
+    "matching": "exact normalized aliases only",
+    "fuzzy_matches": "owner review only",
+    "indigenous_identity_inference": false
+  },
+  "entities": [
+    {
+      "entity_id": "institution_vancouver_police_department",
+      "canonical_name": "Vancouver Police Department",
+      "entity_type": "public_institution",
+      "aliases": ["VPD", "City of Vancouver Police Department"]
+    },
+    {
+      "entity_id": "institution_vancouver_police_board",
+      "canonical_name": "Vancouver Police Board",
+      "entity_type": "public_institution",
+      "aliases": ["Vancouver Police Board Authority"]
+    },
+    {
+      "entity_id": "institution_alberta_health_services",
+      "canonical_name": "Alberta Health Services",
+      "entity_type": "health_authority",
+      "aliases": ["AHS"]
+    },
+    {
+      "entity_id": "institution_first_nations_health_authority",
+      "canonical_name": "First Nations Health Authority",
+      "entity_type": "indigenous_health_organization",
+      "aliases": ["FNHA"]
+    },
+    {
+      "entity_id": "institution_indigenous_services_canada",
+      "canonical_name": "Indigenous Services Canada",
+      "entity_type": "federal_department",
+      "aliases": ["ISC"]
+    },
+    {
+      "entity_id": "institution_correctional_service_canada",
+      "canonical_name": "Correctional Service Canada",
+      "entity_type": "federal_public_institution",
+      "aliases": ["CSC", "Correctional Services Canada"]
+    },
+    {
+      "entity_id": "institution_office_correctional_investigator",
+      "canonical_name": "Office of the Correctional Investigator",
+      "entity_type": "federal_oversight_body",
+      "aliases": ["OCI", "Correctional Investigator"]
+    },
+    {
+      "entity_id": "institution_bc_emergency_health_services",
+      "canonical_name": "BC Emergency Health Services",
+      "entity_type": "emergency_health_service",
+      "aliases": ["BCEHS", "British Columbia Emergency Health Services"]
+    },
+    {
+      "entity_id": "institution_bc_human_rights_tribunal",
+      "canonical_name": "British Columbia Human Rights Tribunal",
+      "entity_type": "human_rights_tribunal",
+      "aliases": ["BCHRT", "BC Human Rights Tribunal"]
+    },
+    {
+      "entity_id": "institution_bc_ombudsperson",
+      "canonical_name": "Office of the Ombudsperson of British Columbia",
+      "entity_type": "ombuds_office",
+      "jurisdiction": "British Columbia",
+      "aliases": ["BC Ombudsperson", "B.C. Ombudsperson"]
+    },
+    {
+      "entity_id": "institution_alberta_ombudsman",
+      "canonical_name": "Alberta Ombudsman",
+      "entity_type": "ombuds_office",
+      "jurisdiction": "Alberta",
+      "aliases": ["Office of the Alberta Ombudsman"]
+    },
+    {
+      "entity_id": "institution_saskatchewan_ombudsman",
+      "canonical_name": "Ombudsman Saskatchewan",
+      "entity_type": "ombuds_office",
+      "jurisdiction": "Saskatchewan",
+      "aliases": ["Saskatchewan Ombudsman"]
+    },
+    {
+      "entity_id": "institution_saskatchewan_auditor",
+      "canonical_name": "Provincial Auditor of Saskatchewan",
+      "entity_type": "auditor_office",
+      "jurisdiction": "Saskatchewan",
+      "aliases": ["Saskatchewan Provincial Auditor"]
+    },
+    {
+      "entity_id": "institution_bc_social_development_ministry",
+      "canonical_name": "B.C. Ministry of Social Development and Poverty Reduction",
+      "entity_type": "provincial_ministry",
+      "jurisdiction": "British Columbia",
+      "aliases": ["Ministry of Social Development and Poverty Reduction", "SDPR"]
+    },
+    {
+      "entity_id": "program_alberta_aish",
+      "canonical_name": "Assured Income for the Severely Handicapped",
+      "entity_type": "public_program",
+      "jurisdiction": "Alberta",
+      "aliases": ["AISH"]
+    },
+    {
+      "entity_id": "institution_saskatchewan_social_services",
+      "canonical_name": "Saskatchewan Ministry of Social Services",
+      "entity_type": "provincial_ministry",
+      "jurisdiction": "Saskatchewan",
+      "aliases": ["Ministry of Social Services Saskatchewan"]
+    },
+    {
+      "entity_id": "institution_worksafebc",
+      "canonical_name": "WorkSafeBC",
+      "entity_type": "workplace_safety_regulator",
+      "jurisdiction": "British Columbia",
+      "aliases": ["Workers' Compensation Board of British Columbia", "WCB BC"]
+    },
+    {
+      "entity_id": "institution_alberta_ohs",
+      "canonical_name": "Alberta Occupational Health and Safety",
+      "entity_type": "workplace_safety_regulator",
+      "jurisdiction": "Alberta",
+      "aliases": ["Alberta OHS"]
+    },
+    {
+      "entity_id": "institution_saskatchewan_ohs",
+      "canonical_name": "Saskatchewan Occupational Health and Safety",
+      "entity_type": "workplace_safety_regulator",
+      "jurisdiction": "Saskatchewan",
+      "aliases": ["Saskatchewan OHS"]
+    },
+    {
+      "entity_id": "institution_bc_wcat",
+      "canonical_name": "Workers' Compensation Appeal Tribunal",
+      "entity_type": "administrative_appeal_tribunal",
+      "jurisdiction": "British Columbia",
+      "aliases": ["WCAT", "B.C. WCAT", "BCWCAT"]
+    },
+    {
+      "entity_id": "institution_alberta_workers_comp_appeals",
+      "canonical_name": "Appeals Commission for Alberta Workers' Compensation",
+      "entity_type": "administrative_appeal_tribunal",
+      "jurisdiction": "Alberta",
+      "aliases": ["Alberta Appeals Commission", "Workers' Compensation Appeals Commission Alberta"]
+    },
+    {
+      "entity_id": "institution_saskatchewan_wcb",
+      "canonical_name": "Saskatchewan Workers' Compensation Board",
+      "entity_type": "workers_compensation_board",
+      "jurisdiction": "Saskatchewan",
+      "aliases": ["Saskatchewan WCB", "WCB Saskatchewan", "WorkSafe Saskatchewan"]
+    },
+    {
+      "entity_id": "institution_alberta_human_rights_commission",
+      "canonical_name": "Alberta Human Rights Commission",
+      "entity_type": "human_rights_body",
+      "jurisdiction": "Alberta",
+      "aliases": ["AHRC", "Alberta Human Rights Tribunal"]
+    },
+    {
+      "entity_id": "institution_saskatchewan_human_rights_commission",
+      "canonical_name": "Saskatchewan Human Rights Commission",
+      "entity_type": "human_rights_body",
+      "jurisdiction": "Saskatchewan",
+      "aliases": ["SHRC"]
+    },
+    {
+      "entity_id": "institution_saskatchewan_health_authority",
+      "canonical_name": "Saskatchewan Health Authority",
+      "entity_type": "health_authority",
+      "jurisdiction": "Saskatchewan",
+      "aliases": ["SHA"]
+    },
+    {
+      "entity_id": "institution_canada_labour_program",
+      "canonical_name": "Government of Canada Labour Program",
+      "entity_type": "federal_program",
+      "jurisdiction": "Canada-wide",
+      "aliases": ["Federal Labour Program", "ESDC Labour Program"]
+    },
+    {
+      "entity_id": "institution_bc_auditor_general",
+      "canonical_name": "Office of the Auditor General of British Columbia",
+      "entity_type": "auditor_office",
+      "jurisdiction": "British Columbia",
+      "aliases": ["Auditor General of British Columbia", "OAG BC", "OAGBC"]
+    },
+    {
+      "entity_id": "institution_alberta_auditor_general",
+      "canonical_name": "Office of the Auditor General of Alberta",
+      "entity_type": "auditor_office",
+      "jurisdiction": "Alberta",
+      "aliases": ["Auditor General of Alberta", "OAG Alberta"]
+    },
+    {
+      "entity_id": "institution_canada_auditor_general",
+      "canonical_name": "Office of the Auditor General of Canada",
+      "entity_type": "auditor_office",
+      "jurisdiction": "Canada-wide",
+      "aliases": ["Auditor General of Canada", "OAG Canada", "OAG-BVG"]
+    },
+    {
+      "entity_id": "institution_canadian_transportation_agency",
+      "canonical_name": "Canadian Transportation Agency",
+      "entity_type": "federal_regulator",
+      "jurisdiction": "Canada-wide",
+      "aliases": ["CTA", "Office des transports du Canada", "OTC"]
+    }
+  ]
+}

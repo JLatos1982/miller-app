@@ -1,0 +1,563 @@
+{
+  "schema_version": "samwise-public-record-source-registry-v1",
+  "capability_id": "samwise_public_records_intelligence",
+  "generated_at": "2026-09-08",
+  "scheduler": "existing_farm_job_scheduler",
+  "sources": [
+    {
+      "source_id": "samwise:mn_ab_fatality_responses_weekly",
+      "legacy_listener_id": "mn_ab_fatality_responses_weekly",
+      "source_family": "recommendation_response_trackers",
+      "adapter_source_family": "alberta_fatality_recommendation_responses",
+      "jurisdiction": "Alberta",
+      "public_index": "https://open.alberta.ca/opendata/responses-to-public-fatality-inquiry-recommendations",
+      "adapter": "alberta_fatality_responses",
+      "supported_domains": [
+        "government_services",
+        "healthcare",
+        "child_youth"
+      ],
+      "schedule": {
+        "kind": "interval",
+        "days": 7,
+        "first_run_at": "2026-09-08T13:15:00.000Z"
+      },
+      "enabled": true,
+      "execution_target": "samwise",
+      "consumer_hints": [
+        "miller_north_evidence_candidate"
+      ],
+      "source_yield_class": "high_yield",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    },
+    {
+      "source_id": "samwise:mn_bc_inquests_weekly",
+      "legacy_listener_id": "mn_bc_inquests_weekly",
+      "source_family": "coroners_inquests",
+      "adapter_source_family": "bc_coroners_inquests",
+      "jurisdiction": "British Columbia",
+      "public_index": "https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/inquest-schedule-jury-findings-verdicts",
+      "adapter": "bc_inquests",
+      "supported_domains": [
+        "healthcare",
+        "policing",
+        "corrections",
+        "public_safety"
+      ],
+      "schedule": {
+        "kind": "interval",
+        "days": 7,
+        "first_run_at": "2026-09-09T13:15:00.000Z"
+      },
+      "enabled": true,
+      "execution_target": "samwise",
+      "consumer_hints": [
+        "miller_north_evidence_candidate"
+      ],
+      "source_yield_class": "high_yield",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    },
+    {
+      "source_id": "samwise:legal_bchrt_recent_biweekly",
+      "legacy_listener_id": "legal_bchrt_recent_biweekly",
+      "source_family": "human_rights_tribunals",
+      "adapter_source_family": "bc_human_rights_tribunal",
+      "jurisdiction": "British Columbia",
+      "public_index": "https://www.bchrt.bc.ca/law-library/decisions/recent/",
+      "adapter": "bchrt_recent",
+      "supported_domains": [
+        "human_rights",
+        "healthcare",
+        "housing",
+        "government_services"
+      ],
+      "schedule": {
+        "kind": "interval",
+        "days": 14,
+        "first_run_at": "2026-09-10T13:15:00.000Z"
+      },
+      "enabled": true,
+      "execution_target": "samwise",
+      "consumer_hints": [
+        "miller_north_evidence_candidate",
+        "miller_resource_candidate"
+      ],
+      "source_yield_class": "useful_monitoring",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    },
+    {
+      "source_id": "samwise:legal_bchrt_judicial_review_biweekly",
+      "legacy_listener_id": "legal_bchrt_judicial_review_biweekly",
+      "source_family": "judicial_reviews",
+      "adapter_source_family": "bc_human_rights_judicial_reviews",
+      "jurisdiction": "British Columbia",
+      "public_index": "https://www.bchrt.bc.ca/law-library/judicial-reviews-of-decisions/",
+      "adapter": "bchrt_judicial_reviews",
+      "supported_domains": [
+        "courts_legal",
+        "human_rights",
+        "professional_regulation"
+      ],
+      "schedule": {
+        "kind": "interval",
+        "days": 14,
+        "first_run_at": "2026-09-11T13:15:00.000Z"
+      },
+      "enabled": true,
+      "execution_target": "samwise",
+      "consumer_hints": [
+        "miller_north_evidence_candidate",
+        "miller_resource_candidate"
+      ],
+      "source_yield_class": "useful_monitoring",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    },
+    {
+      "source_id": "samwise:legal_ab_human_rights_monthly",
+      "legacy_listener_id": "legal_ab_human_rights_monthly",
+      "source_family": "human_rights_tribunals",
+      "adapter_source_family": "alberta_human_rights_decisions",
+      "jurisdiction": "Alberta",
+      "public_index": "https://www.albertahumanrights.ab.ca/what-are-human-rights/about-the-commission/human-rights-decisions/",
+      "adapter": "alberta_human_rights",
+      "supported_domains": [
+        "human_rights",
+        "healthcare",
+        "housing",
+        "government_services"
+      ],
+      "schedule": {
+        "kind": "interval",
+        "days": 30,
+        "first_run_at": "2026-09-18T13:15:00.000Z"
+      },
+      "enabled": true,
+      "execution_target": "samwise",
+      "consumer_hints": [
+        "miller_north_evidence_candidate",
+        "miller_resource_candidate"
+      ],
+      "source_yield_class": "useful_monitoring",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    },
+    {
+      "source_id": "samwise:mn_bccnm_monthly",
+      "legacy_listener_id": "mn_bccnm_monthly",
+      "source_family": "healthcare_regulators",
+      "adapter_source_family": "bc_nursing_regulator_notices",
+      "jurisdiction": "British Columbia",
+      "public_index": "https://www.bccnm.ca/Public/complaints/Pages/Notice.aspx",
+      "adapter": "bccnm_notices",
+      "supported_domains": [
+        "healthcare",
+        "professional_regulation",
+        "human_rights"
+      ],
+      "schedule": {
+        "kind": "interval",
+        "days": 30,
+        "first_run_at": "2026-09-20T13:15:00.000Z"
+      },
+      "enabled": true,
+      "execution_target": "samwise",
+      "consumer_hints": [
+        "miller_north_evidence_candidate"
+      ],
+      "source_yield_class": "high_yield",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    },
+    {
+      "source_id": "samwise:mn_cpsbc_monthly",
+      "legacy_listener_id": "mn_cpsbc_monthly",
+      "source_family": "healthcare_regulators",
+      "adapter_source_family": "bc_physician_regulator_case_summaries",
+      "jurisdiction": "British Columbia",
+      "public_index": "https://www.cpsbc.ca/registrants/standards-guidelines/cultural-safety-humility",
+      "adapter": "cpsbc_case_summaries",
+      "supported_domains": [
+        "healthcare",
+        "professional_regulation",
+        "human_rights"
+      ],
+      "schedule": {
+        "kind": "interval",
+        "days": 30,
+        "first_run_at": "2026-09-22T13:15:00.000Z"
+      },
+      "enabled": true,
+      "execution_target": "samwise",
+      "consumer_hints": [
+        "miller_north_evidence_candidate"
+      ],
+      "source_yield_class": "high_yield",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    },
+    {
+      "source_id": "samwise:mn_alberta_ocya_monthly",
+      "legacy_listener_id": "mn_alberta_ocya_monthly",
+      "source_family": "child_youth_advocates",
+      "adapter_source_family": "alberta_child_youth_advocate",
+      "jurisdiction": "Alberta",
+      "public_index": "https://www.ocya.alberta.ca/adult/publications/recommendations/",
+      "adapter": "alberta_ocya",
+      "supported_domains": [
+        "child_youth",
+        "healthcare",
+        "government_services",
+        "public_funding"
+      ],
+      "schedule": {
+        "kind": "interval",
+        "days": 30,
+        "first_run_at": "2026-09-24T13:15:00.000Z"
+      },
+      "enabled": true,
+      "execution_target": "samwise",
+      "consumer_hints": [
+        "miller_north_evidence_candidate"
+      ],
+      "source_yield_class": "useful_monitoring",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    },
+    {
+      "source_id": "samwise:mn_fnho_publications_monthly",
+      "legacy_listener_id": "mn_fnho_publications_monthly",
+      "source_family": "indigenous_led_organizations",
+      "adapter_source_family": "fnho_indigenous_led_publications",
+      "jurisdiction": "Saskatchewan",
+      "public_index": "https://fnhoo.ca/annual-reports/",
+      "adapter": "fnho_publications",
+      "supported_domains": [
+        "healthcare",
+        "human_rights",
+        "government_services"
+      ],
+      "schedule": {
+        "kind": "interval",
+        "days": 30,
+        "first_run_at": "2026-10-01T13:15:00.000Z"
+      },
+      "enabled": true,
+      "execution_target": "samwise",
+      "consumer_hints": [
+        "miller_north_evidence_candidate"
+      ],
+      "source_yield_class": "useful_monitoring",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    },
+    {
+      "source_id": "samwise:mn_saskatchewan_exact_documents_monthly",
+      "legacy_listener_id": "mn_saskatchewan_exact_documents_monthly",
+      "source_family": "institutional_statements",
+      "adapter_source_family": "saskatchewan_milestone_documents",
+      "jurisdiction": "Saskatchewan",
+      "public_index": "https://publications.saskatchewan.ca/",
+      "adapter": "saskatchewan_exact_documents",
+      "supported_domains": [
+        "other_public_institution",
+        "healthcare",
+        "public_safety"
+      ],
+      "schedule": {
+        "kind": "milestone",
+        "next_expected_at": "2026-09-26T13:15:00.000Z"
+      },
+      "enabled": true,
+      "execution_target": "samwise",
+      "consumer_hints": [
+        "miller_north_evidence_candidate"
+      ],
+      "source_yield_class": "milestone_only",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    },
+    {
+      "source_id": "samwise:legal_saskatchewan_human_rights_monthly",
+      "legacy_listener_id": "legal_saskatchewan_human_rights_monthly",
+      "source_family": "human_rights_tribunals",
+      "adapter_source_family": "saskatchewan_human_rights",
+      "jurisdiction": "Saskatchewan",
+      "public_index": "https://saskatchewanhumanrights.ca/news-events/",
+      "adapter": "saskatchewan_human_rights",
+      "supported_domains": [
+        "human_rights",
+        "healthcare",
+        "housing",
+        "government_services"
+      ],
+      "schedule": {
+        "kind": "interval",
+        "days": 30,
+        "first_run_at": "2026-10-05T13:15:00.000Z"
+      },
+      "enabled": true,
+      "execution_target": "samwise",
+      "consumer_hints": [
+        "miller_north_evidence_candidate",
+        "miller_resource_candidate"
+      ],
+      "source_yield_class": "useful_monitoring",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    },
+    {
+      "source_id": "samwise:legal_canlii_selected_queries",
+      "legacy_listener_id": "legal_canlii_selected_queries",
+      "source_family": "courts",
+      "adapter_source_family": "canlii_selected_queries",
+      "jurisdiction": "Canada-wide",
+      "public_index": "https://www.canlii.org/",
+      "adapter": "canlii_selected_queries",
+      "supported_domains": [
+        "courts_legal",
+        "human_rights",
+        "government_services",
+        "housing"
+      ],
+      "schedule": {
+        "kind": "manual"
+      },
+      "enabled": false,
+      "execution_target": "samwise",
+      "consumer_hints": [
+        "miller_north_evidence_candidate",
+        "miller_resource_candidate"
+      ],
+      "source_yield_class": "manual_research",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    },
+    {
+      "source_id": "samwise:mn_historical_scan_retry_quarterly",
+      "legacy_listener_id": "mn_historical_scan_retry_quarterly",
+      "source_family": "coroners_inquests",
+      "adapter_source_family": "bc_historical_inquest_scans",
+      "jurisdiction": "British Columbia",
+      "public_index": "local://historical-scan-backlog",
+      "adapter": "historical_scan_retry",
+      "supported_domains": [
+        "healthcare",
+        "policing",
+        "corrections",
+        "public_safety"
+      ],
+      "schedule": {
+        "kind": "interval",
+        "days": 90,
+        "first_run_at": "2026-12-01T13:15:00.000Z"
+      },
+      "enabled": false,
+      "execution_target": "igor",
+      "consumer_hints": [
+        "miller_north_evidence_candidate"
+      ],
+      "source_yield_class": "historical_backfill",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    },
+    {
+      "source_id": "samwise:mn_bc_iio_public_reports_monthly",
+      "legacy_listener_id": "mn_bc_iio_public_reports_monthly",
+      "source_family": "police_oversight",
+      "adapter_source_family": "bc_police_serious_incident_oversight",
+      "jurisdiction": "British Columbia",
+      "public_index": "https://iiobc.ca/public-reports/",
+      "adapter": "bc_iio_public_reports",
+      "supported_domains": [
+        "policing",
+        "public_safety",
+        "healthcare",
+        "human_rights"
+      ],
+      "schedule": {
+        "kind": "interval",
+        "days": 30,
+        "first_run_at": "2026-10-08T13:15:00.000Z"
+      },
+      "enabled": true,
+      "execution_target": "samwise",
+      "consumer_hints": [
+        "miller_north_evidence_candidate"
+      ],
+      "source_yield_class": "new_baseline",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    },
+    {
+      "source_id": "samwise:mn_ab_asirt_releases_monthly",
+      "legacy_listener_id": "mn_ab_asirt_releases_monthly",
+      "source_family": "police_oversight",
+      "adapter_source_family": "alberta_police_serious_incident_oversight",
+      "jurisdiction": "Alberta",
+      "public_index": "https://www.alberta.ca/asirt-news-releases",
+      "adapter": "alberta_asirt_releases",
+      "supported_domains": [
+        "policing",
+        "public_safety",
+        "healthcare",
+        "human_rights"
+      ],
+      "schedule": {
+        "kind": "interval",
+        "days": 30,
+        "first_run_at": "2026-10-09T13:15:00.000Z"
+      },
+      "enabled": true,
+      "execution_target": "samwise",
+      "consumer_hints": [
+        "miller_north_evidence_candidate"
+      ],
+      "source_yield_class": "new_baseline",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    },
+    {
+      "source_id": "samwise:mn_federal_crcc_reports_monthly",
+      "legacy_listener_id": "mn_federal_crcc_reports_monthly",
+      "source_family": "police_oversight",
+      "adapter_source_family": "federal_rcmp_complaint_oversight",
+      "jurisdiction": "Canada-wide",
+      "public_index": "https://www.crcc.gc.ca/",
+      "adapter": "federal_crcc_reports",
+      "supported_domains": [
+        "policing",
+        "public_safety",
+        "healthcare",
+        "human_rights"
+      ],
+      "schedule": {
+        "kind": "interval",
+        "days": 30,
+        "first_run_at": "2026-10-10T13:15:00.000Z"
+      },
+      "enabled": false,
+      "execution_target": "samwise",
+      "consumer_hints": [
+        "miller_north_evidence_candidate"
+      ],
+      "source_yield_class": "implemented_disabled_transport_blocker",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    },
+    {
+      "source_id": "samwise:mn_federal_oci_reports_monthly",
+      "legacy_listener_id": "mn_federal_oci_reports_monthly",
+      "source_family": "corrections_oversight",
+      "adapter_source_family": "federal_corrections_ombuds",
+      "jurisdiction": "Canada-wide",
+      "public_index": "https://oci-bec.gc.ca/en/reports",
+      "adapter": "federal_corrections_accountability",
+      "supported_domains": [
+        "corrections",
+        "healthcare",
+        "human_rights",
+        "government_services"
+      ],
+      "schedule": {
+        "kind": "interval",
+        "days": 30,
+        "first_run_at": "2026-10-11T13:15:00.000Z"
+      },
+      "enabled": true,
+      "execution_target": "samwise",
+      "consumer_hints": [
+        "miller_north_evidence_candidate"
+      ],
+      "source_yield_class": "new_baseline",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    },
+    {
+      "source_id": "samwise:mn_bc_rcy_reports_monthly",
+      "legacy_listener_id": "mn_bc_rcy_reports_monthly",
+      "source_family": "child_youth_advocates",
+      "adapter_source_family": "bc_child_youth_advocate",
+      "jurisdiction": "British Columbia",
+      "public_index": "https://rcybc.ca/reports/",
+      "adapter": "bc_child_youth_accountability",
+      "supported_domains": [
+        "child_youth",
+        "healthcare",
+        "government_services",
+        "public_funding"
+      ],
+      "schedule": {
+        "kind": "interval",
+        "days": 30,
+        "first_run_at": "2026-10-12T13:15:00.000Z"
+      },
+      "enabled": true,
+      "execution_target": "samwise",
+      "consumer_hints": [
+        "miller_north_evidence_candidate"
+      ],
+      "source_yield_class": "new_baseline",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    },
+    {
+      "source_id": "samwise:mn_sk_child_youth_reports_monthly",
+      "legacy_listener_id": "mn_sk_child_youth_reports_monthly",
+      "source_family": "child_youth_advocates",
+      "adapter_source_family": "saskatchewan_child_youth_advocate",
+      "jurisdiction": "Saskatchewan",
+      "public_index": "https://www.saskadvocate.ca/",
+      "adapter": "saskatchewan_child_youth_accountability",
+      "supported_domains": [
+        "child_youth",
+        "healthcare",
+        "government_services",
+        "public_funding"
+      ],
+      "schedule": {
+        "kind": "interval",
+        "days": 30,
+        "first_run_at": "2026-10-13T13:15:00.000Z"
+      },
+      "enabled": true,
+      "execution_target": "samwise",
+      "consumer_hints": [
+        "miller_north_evidence_candidate"
+      ],
+      "source_yield_class": "new_baseline",
+      "privacy_class": "owner_private_metadata",
+      "mutation_authority": false,
+      "publication_authority": false
+    }
+  ],
+  "counts": {
+    "sources": 19,
+    "enabled": 16,
+    "disabled": 3,
+    "source_families": 11
+  },
+  "mutation_authority": false,
+  "publication_authority": false
+}

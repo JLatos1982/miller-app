@@ -1,0 +1,65 @@
+{
+  "schema_version": "farm-legal-query-taxonomy-v3",
+  "version": "2026-09-08",
+  "purpose": "Auditable legal discovery and routing for Miller North and Miller. Terms identify candidates only; they never establish identity, discrimination, liability, implementation, or publication suitability.",
+  "date_bands": [
+    { "id": "recent", "label": "2024-present", "priority": 1 },
+    { "id": "near_term", "label": "2020-2023", "priority": 2 },
+    { "id": "backfill", "label": "2015-2019", "priority": 3 },
+    { "id": "historical_high_value", "label": "pre-2015", "priority": 4 }
+  ],
+  "review_levels": [
+    "index_discovered",
+    "official_digest_reviewed",
+    "full_decision_reviewed"
+  ],
+  "process_roles": {
+    "complaint_allegation": "A complaint or pleading records allegations, not findings.",
+    "procedural_decision": "A ruling about whether or how a matter proceeds; not a merits finding.",
+    "interested_party_order": "A procedural order granting or limiting participation in another matter.",
+    "merits_decision": "A tribunal or court decided the substance of a claim.",
+    "settlement": "A public settlement; not an admission unless the source expressly says so.",
+    "settlement_approval_reasons": "A court or tribunal approved settlement terms; approval does not prove implementation.",
+    "regulator_agreement": "A regulator agreement or consent outcome, limited to its stated terms.",
+    "judicial_review": "A court reviewed legality or reasonableness of an administrative decision.",
+    "appeal": "An appellate step whose scope must be described from the decision.",
+    "appeal_judgment": "A completed appellate judgment.",
+    "final_judgment": "A final judgment at that court level, subject to any later appeal.",
+    "final_judgment_on_public_interest_standing": "A final judgment about standing, not underlying merits.",
+    "compliance_order": "An order addressing compliance; an order is not implementation or outcome evidence.",
+    "implementation_follow_up": "Later evidence about response or implementation, with source independence recorded separately."
+  },
+  "miller_north": {
+    "identity_terms": ["Indigenous", "First Nations", "First Nation", "Métis", "Inuit"],
+    "mechanisms": {
+      "indigenous_specific_discrimination": ["Indigenous discrimination", "anti-Indigenous racism", "race", "ancestry", "culturally unsafe"],
+      "consent": ["informed consent", "capacity", "substitute decision", "sterilization", "reproductive care"],
+      "emergency_care": ["emergency department", "emergency treatment", "discharge", "delay", "refusal of care", "repeat presentation"],
+      "hospital_security": ["hospital security", "removed from hospital", "police called", "trespass", "use of force"],
+      "restraint_mental_health": ["restraint", "seclusion", "involuntary treatment", "mental health detention", "review board"],
+      "stereotyping": ["assumed intoxication", "intoxication stereotype", "drug seeking", "pain dismissal", "non-compliant"],
+      "service_equality": ["service equality", "Jordan's Principle", "funding discrimination", "benefit access", "jurisdictional dispute"],
+      "rural_transport": ["ambulance", "medical transport", "medevac", "rural healthcare", "remote healthcare", "transfer delay"]
+    }
+  },
+  "miller": {
+    "mechanisms": {
+      "addiction_disability": ["addiction disability", "substance dependence", "alcohol dependence", "opioid use disorder", "duty to accommodate"],
+      "treatment_access": ["treatment access", "withdrawal management", "detox", "OAT", "methadone", "buprenorphine", "Suboxone"],
+      "harm_reduction": ["harm reduction", "supervised consumption", "overdose prevention", "Good Samaritan Drug Overdose Act"],
+      "housing_tenancy": ["supportive housing", "homelessness", "eviction", "tenancy", "housing discrimination"],
+      "benefits": ["income support", "disability benefits", "benefits appeal", "funding", "travel funding"],
+      "mental_health": ["mental health", "involuntary treatment", "capacity", "review board", "psychiatric detention"],
+      "justice_pathway": ["drug treatment court", "diversion", "probation treatment", "bail condition", "abstinence condition"]
+    }
+  },
+  "deterministic_boundaries": [
+    "Indigenous identity must be explicit in a reliable public source and is never inferred from name or geography.",
+    "A complaint, pleading, or allegation is not a finding.",
+    "A procedural ruling is not a merits decision.",
+    "A settlement is not an admission unless the source expressly establishes that.",
+    "A legal order is not implementation evidence and implementation is not measured outcome evidence.",
+    "A poor healthcare result or addiction-related dispute is not evidence of discrimination without the required legal or factual finding.",
+    "A legal record is not a new incident when it concerns an existing canonical event."
+  ]
+}

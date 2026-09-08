@@ -13,8 +13,22 @@
     "preview": "vite preview",
     "scan-resource-attachments": "node --env-file-if-exists=.env.local scripts/scan-resource-attachments.mjs",
     "security-sentinel": "node --env-file-if-exists=.env.local scripts/run-local-external-sentinel.mjs",
-    "scheduler": "node --env-file-if-exists=.env.local scripts/run-local-automation-scheduler.mjs"
-    ,"configure-prepared-action-conveyor": "node --env-file-if-exists=.env scripts/configure-prepared-action-conveyor.mjs"
+    "scheduler": "node --env-file-if-exists=.env.local scripts/run-local-automation-scheduler.mjs",
+    "audit:miller-north-evidence": "node scripts/apply-miller-north-evidence-audit-corrections.mjs",
+    "build:miller-north-watch": "node scripts/build-miller-north-accountability-watch-report.mjs",
+    "assess:miller-north-live-discovery": "node scripts/build-miller-north-live-incident-discovery-assessment.mjs",
+    "report:miller-north-coverage-gaps": "node scripts/build-miller-north-coverage-gap-report.mjs",
+    "build:miller-north-search-benchmark": "node scripts/build-miller-north-search-benchmark.mjs",
+    "build:miller-north-care-settings": "node scripts/build-miller-north-care-setting-enrichment.mjs",
+    "build:miller-north-listening-benchmark": "node scripts/build-miller-north-listening-benchmark.mjs",
+    "build:miller-north-coroner-listener": "node scripts/build-miller-north-coroner-serious-harm-listener.mjs",
+    "listen:miller-north-alberta-fatality": "node scripts/run-miller-north-alberta-fatality-response-listener.mjs",
+    "listen:miller-north-bc-inquests": "node scripts/run-miller-north-bc-inquest-listener.mjs",
+    "listen:miller-north-bccnm": "node scripts/run-miller-north-bccnm-listener.mjs",
+    "palantir:proof": "node scripts/run-palantir-proof-cycles.mjs",
+    "palantir:learning": "node scripts/build-palantir-learning-ledger.mjs",
+    "palantir:workplace-safety": "node scripts/run-palantir-workplace-safety-cycle.mjs",
+    "configure-prepared-action-conveyor": "node --env-file-if-exists=.env scripts/configure-prepared-action-conveyor.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.102.1",

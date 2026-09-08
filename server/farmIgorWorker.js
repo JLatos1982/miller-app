@@ -11,6 +11,8 @@ export const FARM_IGOR_CAPABILITIES = Object.freeze([
   "structured_diff",
   "listener_batch_parse",
   "legal_citation_normalization",
+  "institutional_alias_comparison",
+  "listener_manifest_validation",
 ])
 
 const MAX_BODY_BYTES = 128 * 1024
@@ -110,6 +112,8 @@ export function validateFarmIgorCapabilityResult(capability, result) {
   if (capability === "structured_diff" && !(Number.isInteger(result.checked) && Number.isInteger(result.changed) && Array.isArray(result.records))) throw new Error("igor_result_partial")
   if (capability === "listener_batch_parse" && !(Number.isInteger(result.checked) && Number.isInteger(result.duplicates_suppressed) && Array.isArray(result.normalized) && Array.isArray(result.owner_review))) throw new Error("igor_result_partial")
   if (capability === "legal_citation_normalization" && !(Number.isInteger(result.checked) && Number.isInteger(result.valid) && Number.isInteger(result.duplicates_suppressed) && Array.isArray(result.records) && Array.isArray(result.owner_review))) throw new Error("igor_result_partial")
+  if (capability === "institutional_alias_comparison" && !(Number.isInteger(result.checked) && Number.isInteger(result.matched) && Array.isArray(result.records) && Array.isArray(result.owner_review))) throw new Error("igor_result_partial")
+  if (capability === "listener_manifest_validation" && !(typeof result.valid === "boolean" && Number.isInteger(result.checked) && Array.isArray(result.errors))) throw new Error("igor_result_partial")
   return true
 }
 
@@ -166,6 +170,43 @@ export function normalizeLegalCitations(items = []) {
   return { checked: Math.min(items.length, 100), valid: records.length, duplicates_suppressed: ownerReview.filter(item => item.reason === "duplicate_citation").length, records, owner_review: ownerReview }
 }
 
+export function compareInstitutionalAliases(items = [], entities = []) {
+  const normalized = value => clean(value, 240).normalize("NFKC").toLowerCase().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ").trim()
+  const aliases = new Map(); const collisions = new Set()
+  for (const entity of entities.slice(0, 500)) {
+    for (const name of [entity.canonical_name, ...(entity.aliases || [])]) {
+      const key = normalized(name)
+      if (!key) continue
+      if (aliases.has(key) && aliases.get(key).entity_id !== entity.entity_id) collisions.add(key)
+      else aliases.set(key, { entity_id: clean(entity.entity_id, 180), canonical_name: clean(entity.canonical_name, 240) })
+    }
+  }
+  const records = []; const ownerReview = []
+  for (const item of items.slice(0, 100)) {
+    const input = clean(item.name || item.organization || item, 240)
+    const key = normalized(input)
+    if (!key || collisions.has(key) || !aliases.has(key)) { ownerReview.push({ input, reason: collisions.has(key) ? "alias_collision" : "unresolved_exact_alias" }); continue }
+    records.push({ input, ...aliases.get(key), resolution: "deterministic_exact_alias" })
+  }
+  return { checked: Math.min(items.length, 100), matched: records.length, unresolved: ownerReview.length, collisions: collisions.size, records, owner_review: ownerReview, fuzzy_matching_used: false }
+}
+
+export function validateListenerManifest(payload = {}) {
+  const sources = Array.isArray(payload.sources) ? payload.sources.slice(0, 8) : []
+  const errors = []
+  if (!/^palantir-plan:[a-f0-9]{24}$/i.test(clean(payload.plan_id, 80))) errors.push("plan_id_invalid")
+  const seen = new Set()
+  for (const source of sources) {
+    const sourceId = clean(source.source_id, 180)
+    if (!/^(research:|samwise:)[a-z0-9:_-]+$/i.test(sourceId)) errors.push(`source_id_invalid:${sourceId || "missing"}`)
+    if (seen.has(sourceId)) errors.push(`duplicate_source:${sourceId}`)
+    seen.add(sourceId)
+    if (!clean(source.adapter, 80)) errors.push(`adapter_missing:${sourceId}`)
+    if (!Number.isInteger(Number(source.document_budget)) || Number(source.document_budget) < 1 || Number(source.document_budget) > 100) errors.push(`document_budget_invalid:${sourceId}`)
+  }
+  return { valid: errors.length === 0 && sources.length > 0, checked: sources.length, errors, mutation_authority: false, publication_authority: false }
+}
+
 export async function resourceUrlHealth(records, previous = {}, fetchImpl = fetch) {
   const prior = new Map((previous.documents || []).map(item => [item.canonical_resource_id, item]))
   const documents = []
@@ -192,6 +233,8 @@ export async function executeFarmIgorCapability(capability, payload = {}) {
   if (capability === "structured_diff") return compareResourceSnapshots(payload.before || [], payload.after || [])
   if (capability === "listener_batch_parse") return analyzeListenerBatch(payload.items || [])
   if (capability === "legal_citation_normalization") return normalizeLegalCitations(payload.items || [])
+  if (capability === "institutional_alias_comparison") return compareInstitutionalAliases(payload.items || [], payload.entities || [])
+  if (capability === "listener_manifest_validation") return validateListenerManifest(payload)
   throw new Error("igor_capability_unsupported")
 }
 

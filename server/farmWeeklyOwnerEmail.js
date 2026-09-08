@@ -2,6 +2,14 @@ const safeText = (value, limit = 180) => String(value ?? "").normalize("NFKC").r
 const MATERIAL = ["new_documents", "updated_documents", "new_events", "existing_events_strengthened", "publication_safe", "material_changes", "owner_review", "errors"]
 
 export function privacySafeFarmRun(run = {}) {
+  const domainCounts = Object.fromEntries(Object.entries(run.domain_counts || {}).map(([domain, metrics]) => [safeText(domain, 60), { checked: Number(metrics?.checked || 0), changed: Number(metrics?.changed || 0), relevant: Number(metrics?.relevant || 0), owner_review: Number(metrics?.owner_review || 0) }]))
+  const discoveries = Array.isArray(run.cross_domain_discoveries) ? run.cross_domain_discoveries : run.cross_lane_discoveries
+  const crossLane = Array.isArray(discoveries) ? discoveries.map(item => ({
+    primary_domain: safeText(item?.primary_domain, 60),
+    secondary_domains: Array.isArray(item?.secondary_domains) ? item.secondary_domains.map(domain => safeText(domain, 60)).filter(Boolean).slice(0, 6) : [],
+    outcome: safeText(item?.outcome, 120),
+    public_label: safeText(item?.public_label, 140),
+  })).filter(item => item.primary_domain && item.secondary_domains.length && item.outcome).slice(0, 12) : []
   return {
     listener_id: safeText(run.listener_id, 100),
     source_family: safeText(run.source_family, 100),
@@ -20,6 +28,11 @@ export function privacySafeFarmRun(run = {}) {
     owner_review: Number(run.owner_review || 0),
     errors: Number(run.errors || 0),
     output_titles: Array.isArray(run.output_titles) ? run.output_titles.map(item => safeText(item, 120)).filter(Boolean).slice(0, 6) : [],
+    domain_counts: domainCounts,
+    cross_lane_discoveries: crossLane,
+    research_request_id: safeText(run.research_request_id, 180) || null,
+    resource_discoveries: Number(run.resource_discoveries || 0),
+    live_monitor_candidates: Number(run.live_monitor_candidates || 0),
   }
 }
 
@@ -32,6 +45,10 @@ export function buildFarmWeeklyOwnerEmail({ runs = [], now = new Date(), periodD
   const dataQualityRuns = items.filter(item => ["miller_resource_data_quality", "miller_location_data_quality"].includes(item.source_family))
   const securityRuns = items.filter(item => ["security_and_operations", "production_health", "listener_state_integrity", "dependency_security"].includes(item.source_family))
   const igorRuns = items.filter(item => item.target_worker === "igor")
+  const domainIds = ["healthcare", "policing_custody_corrections", "government_services_funding", "child_welfare_youth_services", "housing_homelessness", "human_rights_public_services", "transportation_access", "education_exploratory"]
+  const domains = Object.fromEntries(domainIds.map(domain => [domain, items.reduce((summary, item) => ({ checked: summary.checked + Number(item.domain_counts?.[domain]?.checked || 0), changed: summary.changed + Number(item.domain_counts?.[domain]?.changed || 0), relevant: summary.relevant + Number(item.domain_counts?.[domain]?.relevant || 0), owner_review: summary.owner_review + Number(item.domain_counts?.[domain]?.owner_review || 0) }), { checked: 0, changed: 0, relevant: 0, owner_review: 0 })]))
+  const crossLane = items.flatMap(item => item.cross_lane_discoveries || [])
+  const samwiseRuns = items.filter(item => item.research_request_id || item.project_scope === "samwise" || item.project_scope === "future_project")
   const sections = {
     research: { new_incidents: total("new_events"), strengthened_evidence: total("existing_events_strengthened"), new_or_updated_documents: total("new_documents") + total("updated_documents") },
     resources: { publication_safe: total("publication_safe") },
@@ -40,6 +57,15 @@ export function buildFarmWeeklyOwnerEmail({ runs = [], now = new Date(), periodD
     igor: { jobs: igorRuns.length, completed: igorRuns.filter(item => ["completed", "no_material_change"].includes(item.status)).length, deferred: igorRuns.filter(item => item.status === "deferred").length, failed: igorRuns.filter(item => item.status === "failed").length },
     security: { checks: securityRuns.length, issues: securityRuns.reduce((sum, item) => sum + item.errors + item.owner_review, 0) },
     owner_attention: { count: total("owner_review") + operationalAttention.length, labels: [...new Set([...material.flatMap(item => item.output_titles), ...operationalAttention.map(item => `${item.listener_id}: ${item.status}`)])].slice(0, 10) },
+    domains,
+    cross_lane: { count: crossLane.length, discoveries: crossLane.slice(0, 8) },
+    samwise_intelligence: {
+      research_requests: new Set(samwiseRuns.map(item => item.research_request_id).filter(Boolean)).size,
+      useful_findings: samwiseRuns.reduce((sum, item) => sum + item.new_events + item.existing_events_strengthened + item.material_changes, 0),
+      cross_domain_discoveries: samwiseRuns.flatMap(item => item.cross_lane_discoveries || []).length,
+      resources_discovered: samwiseRuns.reduce((sum, item) => sum + item.resource_discoveries, 0),
+      live_monitor_candidates: samwiseRuns.reduce((sum, item) => sum + item.live_monitor_candidates, 0),
+    },
   }
   const nothingChanged = material.length === 0
   const lines = nothingChanged
@@ -47,6 +73,9 @@ export function buildFarmWeeklyOwnerEmail({ runs = [], now = new Date(), periodD
     : [
         "Farm Weekly", "",
         "Research", `- New incidents: ${sections.research.new_incidents}`, `- Existing evidence strengthened: ${sections.research.strengthened_evidence}`, `- New or updated documents: ${sections.research.new_or_updated_documents}`, "",
+        ...(sections.samwise_intelligence.research_requests || sections.samwise_intelligence.useful_findings || sections.samwise_intelligence.cross_domain_discoveries ? ["Palantír", `- Research requests: ${sections.samwise_intelligence.research_requests}; useful findings: ${sections.samwise_intelligence.useful_findings}; cross-domain discoveries: ${sections.samwise_intelligence.cross_domain_discoveries}`, `- Resource opportunities: ${sections.samwise_intelligence.resources_discovered}; live monitoring: ${sections.samwise_intelligence.live_monitor_candidates}`, ""] : []),
+        "Domains", ...Object.entries(sections.domains).filter(([, value]) => value.changed || value.relevant || value.owner_review).map(([domain, value]) => `- ${domain.replaceAll("_", " ")}: ${value.changed} changed; ${value.relevant} relevant; ${value.owner_review} for review`), "",
+        ...(sections.cross_lane.count ? ["Cross-lane discoveries", ...sections.cross_lane.discoveries.map(item => `- ${item.public_label || item.primary_domain}: ${item.outcome}; also relevant to ${item.secondary_domains.join(", ")}`), ""] : []),
         "Resources", `- Publication-safe resource changes: ${sections.resources.publication_safe}`, "",
         "Miller data quality", `- Proposed corrections: ${sections.miller_data_quality.proposed_corrections}; owner review: ${sections.miller_data_quality.owner_review}`, "",
         "Listeners", `- Runs: ${sections.listeners.run_count}; checked: ${sections.listeners.checked}; failed: ${sections.listeners.failed}; quarantined: ${sections.listeners.quarantined}; deferred: ${sections.listeners.deferred}`, "",

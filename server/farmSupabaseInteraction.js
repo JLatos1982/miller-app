@@ -1,8 +1,9 @@
 import { createHash } from "node:crypto"
 
 const SHA = /^[a-f0-9]{64}$/
-const REQUEST_TYPES = new Set(["run_listener", "research_case", "verify_resource", "investigate_address", "refresh_legal_citation", "generate_owner_report"])
-const PARAMETER_KEYS = new Set(["jurisdiction", "date_from", "date_to", "depth", "reason"])
+const REQUEST_TYPES = new Set(["run_listener", "research_case", "research_public_records", "approve_research_plan", "continue_research", "pause_research", "cancel_research", "verify_resource", "investigate_address", "refresh_legal_citation", "generate_owner_report"])
+const PARAMETER_KEYS = new Set(["jurisdiction", "domains", "date_from", "date_to", "depth", "reason", "topic", "known_entity", "known_organization", "known_person_pseudonym", "known_case_citation", "recent_only", "historical", "max_documents", "research_request_id", "parent_research_request_id", "plan_id"])
+const PUBLIC_RECORD_DOMAINS = new Set(["healthcare", "policing", "corrections", "courts_legal", "human_rights", "government_services", "public_funding", "child_youth", "housing", "transportation", "education", "professional_regulation", "public_safety", "other_public_institution"])
 const REVIEW_TYPES = new Set(["research_candidate", "evidence_upgrade", "legal_decision_candidate", "support_resource_candidate", "data_quality_issue", "security_issue", "milestone_reached"])
 const REQUEST_RESULT_CODES = new Set(["accepted", "completed_no_change", "completed_with_review", "invalid_target", "unsupported", "duplicate", "worker_unavailable", "source_unavailable", "failed_closed"])
 const safeText = (value, limit = 180) => String(value ?? "").normalize("NFKC").replace(/[\r\n\t]+/g, " ").replace(/\s+/g, " ").trim().slice(0, limit)
@@ -18,12 +19,27 @@ export function validateFarmOwnerRequest(input = {}) {
   if (!/^[a-zA-Z0-9][a-zA-Z0-9:._/-]{1,199}$/.test(targetId)) throw new Error("farm_request_target_invalid")
   if (Object.keys(parameters).some(key => !PARAMETER_KEYS.has(key))) throw new Error("farm_request_parameters_unsupported")
   if (parameters.depth != null && !["single", "bounded", "standard"].includes(parameters.depth)) throw new Error("farm_request_depth_invalid")
-  const normalized = Object.fromEntries(Object.entries(parameters).map(([key, value]) => [key, safeText(value, key === "reason" ? 300 : 80)]).filter(([, value]) => value))
+  if (parameters.domains != null && (!Array.isArray(parameters.domains) || parameters.domains.length > 6 || parameters.domains.some(domain => !PUBLIC_RECORD_DOMAINS.has(safeText(domain, 80))))) throw new Error("farm_request_domains_invalid")
+  if (parameters.date_from != null && !/^\d{4}-\d{2}-\d{2}$/.test(String(parameters.date_from))) throw new Error("farm_request_date_invalid")
+  if (parameters.date_to != null && !/^\d{4}-\d{2}-\d{2}$/.test(String(parameters.date_to))) throw new Error("farm_request_date_invalid")
+  if (parameters.recent_only != null && ![true, false, "true", "false"].includes(parameters.recent_only)) throw new Error("farm_request_recent_only_invalid")
+  if (parameters.historical != null && ![true, false, "true", "false"].includes(parameters.historical)) throw new Error("farm_request_historical_invalid")
+  if (parameters.max_documents != null && (!Number.isInteger(Number(parameters.max_documents)) || Number(parameters.max_documents) < 1 || Number(parameters.max_documents) > 100)) throw new Error("farm_request_document_limit_invalid")
+  const normalized = Object.fromEntries(Object.entries(parameters).map(([key, value]) => [key, key === "domains" ? value.map(domain => safeText(domain, 80)) : safeText(value, key === "reason" || key === "topic" ? 300 : 120)]).filter(([, value]) => Array.isArray(value) ? value.length : value))
+  if (["research_public_records", "approve_research_plan", "continue_research", "pause_research", "cancel_research"].includes(requestType) && targetId !== "samwise_public_records_intelligence") throw new Error("farm_public_records_target_invalid")
+  if (requestType === "research_public_records" && !normalized.topic && !normalized.known_case_citation && !normalized.known_entity && !normalized.known_organization) throw new Error("farm_public_records_topic_required")
+  if (requestType === "continue_research" && !/^research:[a-z0-9][a-z0-9-]{7,99}$/i.test(normalized.research_request_id || "")) throw new Error("farm_research_continuation_id_invalid")
+  if (["approve_research_plan", "pause_research", "cancel_research"].includes(requestType) && !/^palantir-plan:[a-f0-9]{24}$/i.test(normalized.plan_id || "")) throw new Error("farm_palantir_plan_id_invalid")
   if (JSON.stringify(normalized).length > 1800) throw new Error("farm_request_parameters_too_large")
   return { schema_version: "farm-owner-request-v1", request_type: requestType, target_id: targetId, parameters: normalized, request_fingerprint: hash({ request_type: requestType, target_id: targetId, parameters: normalized }) }
 }
 
-export function buildFarmStatusSnapshot({ inventory = [], history = [], workerHealth = {}, now = new Date() } = {}) {
+export function preserveFarmReviewDecisions(existing = [], refreshed = []) {
+  const decided = new Map(existing.filter(item => item?.canonical_id && ["approved", "rejected", "needs_more_research", "deferred", "false_positive"].includes(item.review_state)).map(item => [item.canonical_id, item.review_state]))
+  return refreshed.map(item => decided.has(item.canonical_id) ? { ...item, review_state: decided.get(item.canonical_id), review_decision_preserved: true } : item)
+}
+
+export function buildFarmStatusSnapshot({ inventory = [], history = [], workerHealth = {}, samwisePublicRecords = null, now = new Date() } = {}) {
   const generatedAt = new Date(now).toISOString()
   const enabled = inventory.filter(item => item.enabled)
   const disabled = inventory.filter(item => !item.enabled)
@@ -34,6 +50,14 @@ export function buildFarmStatusSnapshot({ inventory = [], history = [], workerHe
   const failed = enabled.filter(item => ["failed", "quarantined"].includes(item.status) || Number(item.consecutive_failures || 0) > 0)
   const deferred = enabled.filter(item => item.status === "deferred")
   const reviewCount = sum(recent, "owner_review")
+  const domainIds = ["healthcare", "policing_custody_corrections", "government_services_funding", "child_welfare_youth_services", "housing_homelessness", "human_rights_public_services", "transportation_access", "education_exploratory"]
+  const domainActivity = Object.fromEntries(domainIds.map(domain => [domain, recent.reduce((summary, run) => ({ checked: summary.checked + Number(run.domain_counts?.[domain]?.checked || 0), changed: summary.changed + Number(run.domain_counts?.[domain]?.changed || 0), relevant: summary.relevant + Number(run.domain_counts?.[domain]?.relevant || 0), owner_review: summary.owner_review + Number(run.domain_counts?.[domain]?.owner_review || 0) }), { checked: 0, changed: 0, relevant: 0, owner_review: 0 })]))
+  const crossLane = recent.flatMap(run => Array.isArray(run.cross_lane_discoveries) ? run.cross_lane_discoveries : []).map(item => ({
+    primary_domain: safeText(item?.primary_domain, 60),
+    secondary_domains: Array.isArray(item?.secondary_domains) ? item.secondary_domains.map(domain => safeText(domain, 60)).filter(Boolean).slice(0, 6) : [],
+    outcome: safeText(item?.outcome, 120),
+    canonical_id: safeText(item?.canonical_id, 180),
+  })).filter(item => item.primary_domain && item.secondary_domains.length && item.outcome).slice(0, 24)
   const overallState = failed.length || igor.authenticated === false ? "degraded" : reviewCount || deferred.length ? "attention" : "healthy"
   return {
     schema_version: "farm-owner-status-v1",
@@ -49,6 +73,20 @@ export function buildFarmStatusSnapshot({ inventory = [], history = [], workerHe
       data_quality: { last_status: safeText(latest(recent, "miller_location_data_quality")?.status || "unknown", 40), checked: Number(latest(recent, "miller_location_data_quality")?.checked || 0), proposed_corrections: Number(latest(recent, "miller_location_data_quality")?.material_changes || 0), owner_review: Number(latest(recent, "miller_location_data_quality")?.owner_review || 0) },
       resource_health: { last_status: safeText(latest(recent, "shared_canonical_resources")?.status || "unknown", 40), checked: Number(latest(recent, "shared_canonical_resources")?.checked || 0), review_candidates: Number(latest(recent, "shared_canonical_resources")?.owner_review || 0) },
       owner_review: { count: reviewCount, failed_listeners: failed.map(item => safeText(item.listener_id, 100)).slice(0, 10), deferred_listeners: deferred.map(item => safeText(item.listener_id, 100)).slice(0, 10) },
+      domains: domainActivity,
+      cross_lane: { count: crossLane.length, discoveries: crossLane },
+      capabilities: samwisePublicRecords?.schema_version === "samwise-public-records-status-v1" ? {
+        samwise_public_records_intelligence: {
+          display_name: samwisePublicRecords.display_name || "Palantír",
+          listeners: samwisePublicRecords.listeners,
+          activity: samwisePublicRecords.activity,
+          domains: samwisePublicRecords.domains,
+          research: samwisePublicRecords.research,
+          next_scheduled: samwisePublicRecords.next_scheduled,
+          mutation_authority: false,
+          publication_authority: false,
+        },
+      } : {},
       next_scheduled: next ? { listener_id: safeText(next.listener_id, 100), at: safeText(next.next_run_at, 40), worker: safeText(next.execution_target, 30) } : null,
     },
   }
@@ -82,6 +120,32 @@ export function buildFarmReviewItemsFromRuns(runs = [], observedAt = new Date().
   return items
 }
 
+export function buildFarmLegalReviewItems(records = [], observedAt = new Date().toISOString()) {
+  return records.filter(record => record?.disposition && record.publication_candidate !== true).slice(0, 100).map(record => ({
+    canonical_id: `farm:legal:${safeText(record.legal_record_id, 150).toLowerCase().replace(/[^a-z0-9:_-]+/g, "-")}`,
+    item_type: "legal_decision_candidate",
+    project_scope: String(record.project_route || "").startsWith("miller_north") ? "miller_north" : String(record.project_route || "").startsWith("both") ? "both" : "miller",
+    title: safeText(`${record.citation}: ${record.case_name}`, 180),
+    summary: safeText(`${record.process_role}; ${record.review_level}. ${record.finding_boundary}`, 700),
+    jurisdiction: safeText(record.jurisdiction, 80) || null,
+    source_family: "legal_corpus_v3",
+    source_reference: /^https:\/\//.test(String(record.source_url || "")) ? safeText(record.source_url, 500) : null,
+    priority: record.project_route === "miller_north_accountability_watch" ? "high" : "normal",
+    review_state: "pending",
+    metadata: {
+      legal_record_id: safeText(record.legal_record_id, 180),
+      citation: safeText(record.citation, 80),
+      process_role: safeText(record.process_role, 80),
+      review_level: safeText(record.review_level, 80),
+      disposition: safeText(record.disposition, 120),
+      publication_authority: false,
+      mutation_authority: false,
+    },
+    first_observed_at: safeText(observedAt, 40),
+    last_observed_at: safeText(observedAt, 40),
+  }))
+}
+
 export function createFarmSupabasePublisher({ url, serviceRoleKey, ownerId, enabled = false, fetchImpl = fetch } = {}) {
   const configured = enabled && /^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(String(url || "")) && String(serviceRoleKey || "").length >= 30 && /^[0-9a-f-]{36}$/i.test(String(ownerId || ""))
   const headers = () => ({ apikey: serviceRoleKey, authorization: `Bearer ${serviceRoleKey}`, "content-type": "application/json", prefer: "return=minimal" })
@@ -101,12 +165,22 @@ export function createFarmSupabasePublisher({ url, serviceRoleKey, ownerId, enab
     async publishReviewItems(items = []) {
       if (!configured) return { status: "disabled", count: 0 }
       if (!items.length) return { status: "no_items", count: 0 }
-      await call("farm_owner_review_items?on_conflict=owner_id,canonical_id", { method: "POST", headers: { prefer: "resolution=merge-duplicates,return=minimal" }, body: JSON.stringify(items.map(item => ({ ...item, owner_id: ownerId }))) })
+      const canonicalIds = items.map(item => safeText(item.canonical_id, 200)).filter(Boolean).slice(0, 100)
+      const existingResponse = await call(`farm_owner_review_items?owner_id=eq.${encodeURIComponent(ownerId)}&canonical_id=in.(${canonicalIds.map(encodeURIComponent).join(",")})&select=canonical_id,review_state`, { method: "GET" })
+      const existing = await existingResponse.json()
+      const preserved = preserveFarmReviewDecisions(Array.isArray(existing) ? existing : [], items)
+      await call("farm_owner_review_items?on_conflict=owner_id,canonical_id", { method: "POST", headers: { prefer: "resolution=merge-duplicates,return=minimal" }, body: JSON.stringify(preserved.map(item => ({ ...item, owner_id: ownerId }))) })
       return { status: "published", count: items.length }
     },
     async fetchRunnableRequest() {
       if (!configured) return null
       const response = await call(`farm_owner_requests?owner_id=eq.${encodeURIComponent(ownerId)}&state=eq.pending&request_type=in.(run_listener,generate_owner_report)&select=id,request_type,target_id,parameters,request_fingerprint,requested_at&order=requested_at.asc&limit=1`, { method: "GET" })
+      const rows = await response.json()
+      return Array.isArray(rows) ? rows[0] || null : null
+    },
+    async fetchPendingSamwiseResearchRequest() {
+      if (!configured) return null
+      const response = await call(`farm_owner_requests?owner_id=eq.${encodeURIComponent(ownerId)}&state=eq.pending&request_type=in.(research_public_records,approve_research_plan,continue_research,pause_research,cancel_research)&target_id=eq.samwise_public_records_intelligence&select=id,request_type,target_id,parameters,request_fingerprint,requested_at&order=requested_at.asc&limit=1`, { method: "GET" })
       const rows = await response.json()
       return Array.isArray(rows) ? rows[0] || null : null
     },
@@ -131,4 +205,14 @@ export const farmConversationalExamples = Object.freeze([
   "What needs my review?",
   "Which Miller location issues are unresolved?",
   "What is the next scheduled listener?",
+  "Any new policing or custody cases?",
+  "What changed in government-service accountability?",
+  "Any child and youth recommendations needing review?",
+  "Which live public-system matters reached a milestone?",
+  "What did Palantír find in public records today?",
+  "Did a policing listener uncover healthcare evidence?",
+  "Which public-record findings need my review?",
+  "What research is running?",
+  "Pause this Palantír research.",
+  "What did Palantír learn operationally?",
 ])
