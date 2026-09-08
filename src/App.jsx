@@ -1687,7 +1687,7 @@ function previousMiller() {
   .join(" ")
 
   const millerWalkProgress = ["walking", "reading"].includes(millerReadingPosition) ? 1 : 0
-  const millerStageStyle = currentTheme.name === "Classic" && millerReadingPosition !== "home"
+  const millerStageStyle = currentTheme.name === "Classic" && (millerReadingPosition !== "home" || shouldShowResults)
     ? { "--miller-stage-min-height": `${millerStageHeight}px` }
     : undefined
   const millerStyle = currentTheme.name === "Classic"

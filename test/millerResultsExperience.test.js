@@ -36,6 +36,8 @@ test("the richer trained speech bubble returns without duplicating a guidance ca
   assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.miller-bubble\s*\{[^}]*width:\s*clamp\(440px, 50vw, 580px\)/s)
   assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.miller-bubble\s*\{[^}]*max-height:\s*none/s)
   assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.miller-bubble\s*\{[^}]*overflow:\s*visible/s)
+  assert.match(app, /millerReadingPosition !== "home" \|\| shouldShowResults/)
+  assert.match(css, /\.hero-layout\.has-results \.miller-satchel-zone\s*\{[^}]*display:\s*none !important/s)
 })
 
 test("the original character and one dog remain the results companion scene", () => {

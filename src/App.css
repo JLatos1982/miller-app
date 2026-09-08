@@ -3854,11 +3854,7 @@ body,
 }
 
 .hero-layout.has-results .miller-satchel-zone {
-  position: absolute !important;
-  top: auto !important;
-  right: 34px;
-  bottom: 8px;
-  left: auto;
+  display: none !important;
 }
 
 .hero-layout.has-results .results-panel {
