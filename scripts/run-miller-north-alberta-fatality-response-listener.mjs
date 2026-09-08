@@ -15,12 +15,24 @@ const valueAfter = flag => {
 }
 const workbookPath = valueAfter("--workbook")
 const caseName = valueAfter("--case") || "T.M.,C.L.,S.R., E.S."
-if (!workbookPath) throw new Error("Usage: npm run listen:miller-north-alberta-fatality -- --workbook /path/to/public.xlsx [--case case-name]")
+const metadataUrl = "https://open.alberta.ca/api/3/action/package_show?id=responses-to-public-fatality-inquiry-recommendations"
+
+async function currentWorkbook() {
+  if (workbookPath) return readFileSync(resolve(workbookPath))
+  const metadataResponse = await fetch(metadataUrl, { redirect: "follow", signal: AbortSignal.timeout(30_000) })
+  if (!metadataResponse.ok) throw new Error(`alberta_fatality_metadata_fetch_${metadataResponse.status}`)
+  const metadata = await metadataResponse.json()
+  const resource = metadata?.result?.resources?.find(item => /\.xlsx(?:$|\?)/i.test(item.url || "") || /excel/i.test(item.format || ""))
+  if (!resource?.url || !/^https:\/\/open\.alberta\.ca\//.test(resource.url)) throw new Error("alberta_fatality_workbook_not_located")
+  const response = await fetch(resource.url, { redirect: "follow", signal: AbortSignal.timeout(60_000) })
+  if (!response.ok) throw new Error(`alberta_fatality_workbook_fetch_${response.status}`)
+  return Buffer.from(await response.arrayBuffer())
+}
 
 const outputPath = resolve(root, "artifacts/miller-north/miller-north-alberta-fatality-response-snapshot-v1.json")
 let previous
 try { previous = JSON.parse(readFileSync(outputPath, "utf8")) } catch { previous = null }
-const current = buildAlbertaFatalityResponseSnapshot(readFileSync(resolve(workbookPath)), { caseName })
+const current = buildAlbertaFatalityResponseSnapshot(await currentWorkbook(), { caseName })
 const comparison = compareAlbertaFatalityResponseSnapshots(previous, current)
 const output = { ...current, checked_at: new Date().toISOString(), changes_since_previous: comparison }
 

@@ -1,0 +1,388 @@
+{
+  "schema_version": "farm-operating-framework-report-v1",
+  "generated_at": "2026-09-08T00:17:43.089Z",
+  "authority": {
+    "mutation": false,
+    "publication": false,
+    "credential_change": false
+  },
+  "registry": {
+    "total": 21,
+    "enabled": 14,
+    "disabled": 7,
+    "completed_baselines": 13,
+    "deferred": 1
+  },
+  "activation": {
+    "heartbeat_active": true,
+    "daily_dispatch": "06:15 local time",
+    "max_jobs_per_cycle": 3,
+    "state_directory": ".farm-operations (local, ignored)",
+    "owner_notification_policy": "failed runs only"
+  },
+  "enabled_jobs": [
+    {
+      "listener_id": "mn_ab_fatality_responses_weekly",
+      "worker": "samwise",
+      "status": "no_material_change",
+      "last_run_at": "2026-09-08T00:12:36.850Z",
+      "next_run_at": "2026-09-15T00:12:37.615Z",
+      "documents_checked": 62,
+      "cadence_recommendation": {
+        "action": "observe",
+        "days": 7,
+        "reason": "At least three completed cycles are required before changing cadence."
+      }
+    },
+    {
+      "listener_id": "mn_bc_inquests_weekly",
+      "worker": "samwise",
+      "status": "no_material_change",
+      "last_run_at": "2026-09-08T00:12:39.600Z",
+      "next_run_at": "2026-09-15T00:12:48.326Z",
+      "documents_checked": 34,
+      "cadence_recommendation": {
+        "action": "observe",
+        "days": 7,
+        "reason": "At least three completed cycles are required before changing cadence."
+      }
+    },
+    {
+      "listener_id": "legal_bchrt_recent_biweekly",
+      "worker": "samwise",
+      "status": "no_material_change",
+      "last_run_at": "2026-09-08T00:12:51.239Z",
+      "next_run_at": "2026-09-22T00:12:51.725Z",
+      "documents_checked": 106,
+      "cadence_recommendation": {
+        "action": "observe",
+        "days": 14,
+        "reason": "At least three completed cycles are required before changing cadence."
+      }
+    },
+    {
+      "listener_id": "legal_bchrt_judicial_review_biweekly",
+      "worker": "samwise",
+      "status": "no_material_change",
+      "last_run_at": "2026-09-08T00:12:56.366Z",
+      "next_run_at": "2026-09-22T00:12:56.714Z",
+      "documents_checked": 486,
+      "cadence_recommendation": {
+        "action": "observe",
+        "days": 14,
+        "reason": "At least three completed cycles are required before changing cadence."
+      }
+    },
+    {
+      "listener_id": "legal_ab_human_rights_monthly",
+      "worker": "samwise",
+      "status": "no_material_change",
+      "last_run_at": "2026-09-08T00:13:00.417Z",
+      "next_run_at": "2026-10-08T00:13:00.762Z",
+      "documents_checked": 48,
+      "cadence_recommendation": {
+        "action": "observe",
+        "days": 30,
+        "reason": "At least three completed cycles are required before changing cadence."
+      }
+    },
+    {
+      "listener_id": "mn_bccnm_monthly",
+      "worker": "samwise",
+      "status": "no_material_change",
+      "last_run_at": "2026-09-08T00:13:03.642Z",
+      "next_run_at": "2026-10-08T00:13:12.157Z",
+      "documents_checked": 133,
+      "cadence_recommendation": {
+        "action": "observe",
+        "days": 30,
+        "reason": "At least three completed cycles are required before changing cadence."
+      }
+    },
+    {
+      "listener_id": "mn_cpsbc_monthly",
+      "worker": "samwise",
+      "status": "no_material_change",
+      "last_run_at": "2026-09-08T00:13:14.387Z",
+      "next_run_at": "2026-10-08T00:13:16.553Z",
+      "documents_checked": 6,
+      "cadence_recommendation": {
+        "action": "observe",
+        "days": 30,
+        "reason": "At least three completed cycles are required before changing cadence."
+      }
+    },
+    {
+      "listener_id": "mn_alberta_ocya_monthly",
+      "worker": "samwise",
+      "status": "no_material_change",
+      "last_run_at": "2026-09-08T00:13:18.568Z",
+      "next_run_at": "2026-10-08T00:13:19.349Z",
+      "documents_checked": 204,
+      "cadence_recommendation": {
+        "action": "observe",
+        "days": 30,
+        "reason": "At least three completed cycles are required before changing cadence."
+      }
+    },
+    {
+      "listener_id": "shared_resource_health_monthly",
+      "worker": "igor",
+      "status": "deferred",
+      "last_run_at": "2026-09-08T00:13:24.241Z",
+      "next_run_at": "2026-09-15T13:15:00.000Z",
+      "documents_checked": 0,
+      "cadence_recommendation": {
+        "action": "observe",
+        "days": 30,
+        "reason": "At least three completed cycles are required before changing cadence."
+      }
+    },
+    {
+      "listener_id": "miller_data_quality_weekly",
+      "worker": "either",
+      "status": "no_material_change",
+      "last_run_at": "2026-09-08T00:12:25.337Z",
+      "next_run_at": "2026-09-15T00:12:25.341Z",
+      "documents_checked": 124,
+      "cadence_recommendation": {
+        "action": "observe",
+        "days": 7,
+        "reason": "At least three completed cycles are required before changing cadence."
+      }
+    },
+    {
+      "listener_id": "farm_security_sanity_weekly",
+      "worker": "samwise",
+      "status": "no_material_change",
+      "last_run_at": "2026-09-08T00:12:27.825Z",
+      "next_run_at": "2026-09-15T00:12:27.827Z",
+      "documents_checked": 4,
+      "cadence_recommendation": {
+        "action": "observe",
+        "days": 7,
+        "reason": "At least three completed cycles are required before changing cadence."
+      }
+    },
+    {
+      "listener_id": "farm_production_health_weekly",
+      "worker": "samwise",
+      "status": "no_material_change",
+      "last_run_at": "2026-09-08T00:17:08.392Z",
+      "next_run_at": "2026-09-15T00:17:08.754Z",
+      "documents_checked": 6,
+      "cadence_recommendation": {
+        "action": "observe",
+        "days": 7,
+        "reason": "At least three completed cycles are required before changing cadence."
+      }
+    },
+    {
+      "listener_id": "farm_listener_memory_monthly",
+      "worker": "samwise",
+      "status": "no_material_change",
+      "last_run_at": "2026-09-08T00:12:34.777Z",
+      "next_run_at": "2026-10-08T00:12:34.781Z",
+      "documents_checked": 7,
+      "cadence_recommendation": {
+        "action": "observe",
+        "days": 30,
+        "reason": "At least three completed cycles are required before changing cadence."
+      }
+    },
+    {
+      "listener_id": "farm_weekly_owner_summary",
+      "worker": "samwise",
+      "status": "completed",
+      "last_run_at": "2026-09-08T00:14:18.030Z",
+      "next_run_at": "2026-09-15T00:14:18.033Z",
+      "documents_checked": 27,
+      "cadence_recommendation": {
+        "action": "observe",
+        "days": 7,
+        "reason": "At least three completed cycles are required before changing cadence."
+      }
+    }
+  ],
+  "disabled_jobs": [
+    {
+      "listener_id": "farm_qwen_triage_weekly",
+      "worker": "igor",
+      "reason": "paused_quality_regression",
+      "next_expected": "2026-09-09T15:15:00.000Z"
+    },
+    {
+      "listener_id": "mn_fnho_publications_monthly",
+      "worker": "samwise",
+      "reason": "adapter_required",
+      "next_expected": "2026-10-01T13:15:00.000Z"
+    },
+    {
+      "listener_id": "mn_saskatchewan_exact_documents_monthly",
+      "worker": "samwise",
+      "reason": "milestone_only",
+      "next_expected": null
+    },
+    {
+      "listener_id": "legal_saskatchewan_human_rights_monthly",
+      "worker": "samwise",
+      "reason": "adapter_required",
+      "next_expected": "2026-10-05T13:15:00.000Z"
+    },
+    {
+      "listener_id": "legal_canlii_selected_queries",
+      "worker": "samwise",
+      "reason": "manual_research",
+      "next_expected": null
+    },
+    {
+      "listener_id": "farm_dependency_advisory_monthly",
+      "worker": "samwise",
+      "reason": "policy_review",
+      "next_expected": "2026-10-01T15:15:00.000Z"
+    },
+    {
+      "listener_id": "mn_historical_scan_retry_quarterly",
+      "worker": "igor",
+      "reason": "historical_backfill",
+      "next_expected": "2026-12-01T13:15:00.000Z"
+    }
+  ],
+  "qwen": {
+    "model": "qwen2.5:3b",
+    "total": 12,
+    "correct": 7,
+    "accuracy_percent": 58.3,
+    "malformed": 1,
+    "unsupported": 0,
+    "latency_ms": 65703,
+    "recurring_job_enabled": false,
+    "disposition": "bounded advisory/manual only; quality regression blocked recurring triage"
+  },
+  "igor": {
+    "configured_recurring_jobs": 1,
+    "completed": 0,
+    "deferred": 1,
+    "health": "not_configured_or_unreachable"
+  },
+  "data_quality": {
+    "checked": 124,
+    "defects": 0,
+    "safe_correction_candidates": 0,
+    "owner_review": 0,
+    "production_mutations": 0,
+    "legacy_location_quality": "implemented in repository but not activated here because existing paths depend on local/private database review gates"
+  },
+  "security": {
+    "schema_version": "farm-security-maintenance-inventory-v1",
+    "systems": [
+      {
+        "id": "security_pulse",
+        "cadence": "six_hour_capability_local_only",
+        "path": "server/securityPulse.js",
+        "status": "implemented_inactive",
+        "detail": "Bounded defensive checks exist; the production profile does not grant scheduler activation.",
+        "mutation_authority": false
+      },
+      {
+        "id": "automation_scheduler",
+        "cadence": "fifteen_minute_heartbeat_local_only",
+        "path": "server/automationScheduler.js",
+        "status": "implemented_inactive",
+        "detail": "Lease and backoff machinery exists but was designed local-only.",
+        "mutation_authority": false
+      },
+      {
+        "id": "repository_secret_scan",
+        "cadence": "weekly",
+        "path": "farm_adapter",
+        "status": "activated_read_only",
+        "detail": "Pattern and tracked-file checks only; secret values are never included in reports.",
+        "mutation_authority": false
+      },
+      {
+        "id": "dependency_advisory",
+        "cadence": "monthly",
+        "path": "server/securityPulse.js",
+        "status": "implemented_inactive",
+        "detail": "Available in advisory mode; no automatic package mutation.",
+        "mutation_authority": false
+      },
+      {
+        "id": "worker_transport_health",
+        "cadence": "weekly",
+        "path": "farm_adapter",
+        "status": "activated_read_only",
+        "detail": "Checks availability only; it does not restart or reconfigure workers.",
+        "mutation_authority": false
+      },
+      {
+        "id": "listener_memory_integrity",
+        "cadence": "monthly",
+        "path": "farm_adapter",
+        "status": "activated_read_only",
+        "detail": "Parses bounded state manifests and flags corruption without replacing prior state.",
+        "mutation_authority": false
+      },
+      {
+        "id": "production_health_probe",
+        "cadence": "weekly",
+        "path": "farm_adapter",
+        "status": "activated_read_only",
+        "detail": "GET-only public route and header check.",
+        "mutation_authority": false
+      },
+      {
+        "id": "backup_recovery_check",
+        "cadence": "monthly",
+        "path": "none",
+        "status": "planned_only",
+        "detail": "No verified read-only backup restoration probe was located; no backup setting was changed.",
+        "mutation_authority": false
+      },
+      {
+        "id": "credential_rotation",
+        "cadence": "manual",
+        "path": "none",
+        "status": "obsolete_for_automation",
+        "detail": "Credential rotation is intentionally outside autonomous Farm authority.",
+        "mutation_authority": false
+      }
+    ]
+  },
+  "event_graph": {
+    "nodes": 164,
+    "edges": 21,
+    "counts": {
+      "nodes": 164,
+      "edges": 21,
+      "incidents": 20,
+      "watch_chains": 10,
+      "legal_records": 10,
+      "support_resources": 124
+    },
+    "incident_pathway_groups": 16,
+    "pathway_suggestions": 63,
+    "automatic_merges": 0,
+    "automatic_publications": 0
+  },
+  "weekly_email": {
+    "structured_payload": true,
+    "preview_generated": true,
+    "delivery_enabled": false,
+    "blocker": "owner recipient/provider configuration is absent",
+    "privacy": [
+      "no raw source bodies",
+      "no secrets",
+      "no personal medical details",
+      "no unpublished allegations"
+    ]
+  },
+  "current_cycle": {
+    "checked": 1247,
+    "material_changes": 0,
+    "errors": 0,
+    "production_writes": 0,
+    "publication_writes": 0
+  }
+}

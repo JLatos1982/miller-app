@@ -1,0 +1,137 @@
+{
+  "model": "qwen2.5:3b",
+  "available": true,
+  "correct": 7,
+  "total": 12,
+  "malformed": 1,
+  "unsupported": 0,
+  "incorrect": 5,
+  "latency_ms": 65703,
+  "details": [
+    {
+      "id": "coroner",
+      "task": "document_role",
+      "expected": "inquest",
+      "actual": "recommendation_response",
+      "correct": false,
+      "confidence": 1,
+      "evidence_supported": true,
+      "structured": true
+    },
+    {
+      "id": "regulator",
+      "task": "document_role",
+      "expected": "regulator_decision",
+      "actual": "recommendation_response",
+      "correct": false,
+      "confidence": 1,
+      "evidence_supported": true,
+      "structured": true
+    },
+    {
+      "id": "procedural",
+      "task": "document_role",
+      "expected": "procedural_ruling",
+      "actual": "procedural_ruling",
+      "correct": true,
+      "confidence": 1,
+      "evidence_supported": true,
+      "structured": true
+    },
+    {
+      "id": "support",
+      "task": "document_role",
+      "expected": "support_resource",
+      "actual": "support_resource",
+      "correct": true,
+      "confidence": 1,
+      "evidence_supported": true,
+      "structured": true
+    },
+    {
+      "id": "north_route",
+      "task": "project_route",
+      "expected": "miller_north",
+      "actual": "irrelevant",
+      "correct": false,
+      "confidence": 1,
+      "evidence_supported": true,
+      "structured": true
+    },
+    {
+      "id": "miller_route",
+      "task": "project_route",
+      "expected": "miller",
+      "actual": "unclear",
+      "correct": false,
+      "confidence": 1,
+      "evidence_supported": true,
+      "structured": false,
+      "error": "qwen_label_invalid"
+    },
+    {
+      "id": "both_route",
+      "task": "project_route",
+      "expected": "both",
+      "actual": "both",
+      "correct": true,
+      "confidence": 1,
+      "evidence_supported": true,
+      "structured": true
+    },
+    {
+      "id": "incident",
+      "task": "evidence_kind",
+      "expected": "individual_incident",
+      "actual": "individual_incident",
+      "correct": true,
+      "confidence": 1,
+      "evidence_supported": true,
+      "structured": true
+    },
+    {
+      "id": "systemic",
+      "task": "evidence_kind",
+      "expected": "systemic_evidence",
+      "actual": "systemic_evidence",
+      "correct": true,
+      "confidence": 1,
+      "evidence_supported": true,
+      "structured": true
+    },
+    {
+      "id": "legal_context",
+      "task": "evidence_kind",
+      "expected": "legal_context",
+      "actual": "legal_context",
+      "correct": true,
+      "confidence": 1,
+      "evidence_supported": true,
+      "structured": true
+    },
+    {
+      "id": "duplicate",
+      "task": "duplicate_triage",
+      "expected": "probable_same_event",
+      "actual": "probably_distinct",
+      "correct": false,
+      "confidence": 1,
+      "evidence_supported": true,
+      "structured": true
+    },
+    {
+      "id": "distinct",
+      "task": "duplicate_triage",
+      "expected": "probably_distinct",
+      "actual": "probably_distinct",
+      "correct": true,
+      "confidence": 1,
+      "evidence_supported": true,
+      "structured": true
+    }
+  ],
+  "regression": true,
+  "advisory_only": true,
+  "mutation_authority": false,
+  "publication_authority": false
+}

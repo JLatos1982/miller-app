@@ -1,0 +1,2699 @@
+{
+  "schema_version": "farm-evidence-graph-v1",
+  "nodes": [
+    {
+      "id": "incident:mnsh_nadine_solonas_2017",
+      "type": "incident",
+      "canonical_id": "mnsh_nadine_solonas_2017",
+      "title": "Nadine Marcy Solonas inquest and Indigenous-support recommendation",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_bccnm_emergency_assessment_2021",
+      "type": "incident",
+      "canonical_id": "mnsh_bccnm_emergency_assessment_2021",
+      "title": "Emergency-department assessment and resuscitation consent agreement",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_bccnm_consent_2021",
+      "type": "incident",
+      "canonical_id": "mnsh_bccnm_consent_2021",
+      "title": "Consent and Indigenous-heritage regulatory agreement",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_trevor_dubois_2026",
+      "type": "incident",
+      "canonical_id": "mnsh_trevor_dubois_2026",
+      "title": "Trevor Dubois hospital death and ongoing reviews",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_randy_lampreau_2019",
+      "type": "incident",
+      "canonical_id": "mnsh_randy_lampreau_2019",
+      "title": "Randy Lampreau inquest and custody-health recommendations",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_lindsey_izony_2019",
+      "type": "incident",
+      "canonical_id": "mnsh_lindsey_izony_2019",
+      "title": "Lindsey Izony inquest and custody-health recommendations",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_julian_jones_2021",
+      "type": "incident",
+      "canonical_id": "mnsh_julian_jones_2021",
+      "title": "Julian Jones inquest and remote paramedic-access recommendation",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_cpsbc_rural_discharge_2024",
+      "type": "incident",
+      "canonical_id": "mnsh_cpsbc_rural_discharge_2024",
+      "title": "Anonymous Indigenous patient — rural emergency discharge review",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_cpsbc_reproductive_care_2024",
+      "type": "incident",
+      "canonical_id": "mnsh_cpsbc_reproductive_care_2024",
+      "title": "Anonymous Indigenous patient — reproductive-care cultural-safety review",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_cpsbc_procedure_consent_2025",
+      "type": "incident",
+      "canonical_id": "mnsh_cpsbc_procedure_consent_2025",
+      "title": "Anonymous Indigenous patient — procedure consent and pain review",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_cpsbc_skrenes_2022",
+      "type": "incident",
+      "canonical_id": "mnsh_cpsbc_skrenes_2022",
+      "title": "Anonymous Indigenous patient — CPSBC professional-boundaries consent agreement",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_jocelyn_george_2016",
+      "type": "incident",
+      "canonical_id": "mnsh_jocelyn_george_2016",
+      "title": "Jocelyn George inquest and custody-health recommendations",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_alyssa_george_2013",
+      "type": "incident",
+      "canonical_id": "mnsh_alyssa_george_2013",
+      "title": "Alyssa Josephine Talina George inquest and recommendation responses",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_bccnm_michell_2014",
+      "type": "incident",
+      "canonical_id": "mnsh_bccnm_michell_2014",
+      "title": "First Nations community-care documentation and supervision consent agreement",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_bccnm_liesch_2021",
+      "type": "incident",
+      "canonical_id": "mnsh_bccnm_liesch_2021",
+      "title": "Discriminatory-comments nursing consent agreement",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_jacob_setah_2014",
+      "type": "incident",
+      "canonical_id": "mnsh_jacob_setah_2014",
+      "title": "Jacob George Setah inquest and youth mental-health recommendations",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_cpsbc_trauma_informed_gynecology_2025",
+      "type": "incident",
+      "canonical_id": "mnsh_cpsbc_trauma_informed_gynecology_2025",
+      "title": "Anonymous Indigenous patient — trauma-informed gynecology review",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_cpsbc_metis_mental_health_2024",
+      "type": "incident",
+      "canonical_id": "mnsh_cpsbc_metis_mental_health_2024",
+      "title": "Anonymous Métis patient — outpatient mental-health communication review",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_cpsbc_primary_care_generalization_2025",
+      "type": "incident",
+      "canonical_id": "mnsh_cpsbc_primary_care_generalization_2025",
+      "title": "Anonymous Indigenous patient — primary-care generalization review",
+      "public": true
+    },
+    {
+      "id": "incident:mnsh_silent_world_jordan_2013",
+      "type": "incident",
+      "canonical_id": "mnsh_silent_world_jordan_2013",
+      "title": "The Silent World of Jordan — youth-custody healthcare investigation",
+      "public": true
+    },
+    {
+      "id": "watch:mnaw_in_plain_sight",
+      "type": "accountability_watch",
+      "canonical_id": "mnaw_in_plain_sight",
+      "title": "In Plain Sight implementation and reporting",
+      "public": true
+    },
+    {
+      "id": "watch:mnaw_fnho",
+      "type": "accountability_watch",
+      "canonical_id": "mnaw_fnho",
+      "title": "First Nations Health Ombudsperson Office inaugural reporting",
+      "public": true
+    },
+    {
+      "id": "watch:mnaw_alberta_patient_safety",
+      "type": "accountability_watch",
+      "canonical_id": "mnaw_alberta_patient_safety",
+      "title": "Indigenous Patient Safety Investigator and Advocate",
+      "public": true
+    },
+    {
+      "id": "watch:mnaw_saskatoon_sterilization",
+      "type": "accountability_watch",
+      "canonical_id": "mnaw_saskatoon_sterilization",
+      "title": "Saskatoon coerced-sterilization review and response",
+      "public": true
+    },
+    {
+      "id": "watch:mnaw_alberta_primary_care_panel",
+      "type": "accountability_watch",
+      "canonical_id": "mnaw_alberta_primary_care_panel",
+      "title": "Alberta Indigenous Primary Health Care Advisory Panel",
+      "public": true
+    },
+    {
+      "id": "watch:mnaw_maskwacis_youth_inquiry",
+      "type": "accountability_watch",
+      "canonical_id": "mnaw_maskwacis_youth_inquiry",
+      "title": "Maskwacis youth fatality inquiry and recommendation responses",
+      "public": true
+    },
+    {
+      "id": "watch:mnaw_solonas_support_recommendation",
+      "type": "accountability_watch",
+      "canonical_id": "mnaw_solonas_support_recommendation",
+      "title": "Solonas inquest Indigenous-support recommendation",
+      "public": true
+    },
+    {
+      "id": "watch:mnaw_jacob_setah_recommendations",
+      "type": "accountability_watch",
+      "canonical_id": "mnaw_jacob_setah_recommendations",
+      "title": "Jacob Setah youth mental-health recommendations",
+      "public": true
+    },
+    {
+      "id": "watch:mnaw_alyssa_george_recommendations",
+      "type": "accountability_watch",
+      "canonical_id": "mnaw_alyssa_george_recommendations",
+      "title": "Alyssa George inquest recommendation responses",
+      "public": true
+    },
+    {
+      "id": "watch:mnaw_silent_world_jordan",
+      "type": "accountability_watch",
+      "canonical_id": "mnaw_silent_world_jordan",
+      "title": "The Silent World of Jordan healthcare-access recommendations",
+      "public": true
+    },
+    {
+      "id": "legal:legal_ca_2016_chrt_2",
+      "type": "legal_record",
+      "canonical_id": "legal_ca_2016_chrt_2",
+      "title": "Tribunal found discriminatory federal First Nations child-and-family service funding and Jordan's Principle implementation",
+      "public": false,
+      "process_role": "merits_decision"
+    },
+    {
+      "id": "legal:legal_ca_2021_fc_969",
+      "type": "legal_record",
+      "canonical_id": "legal_ca_2021_fc_969",
+      "title": "Federal Court reviewed Tribunal compensation and Jordan's Principle eligibility orders",
+      "public": false,
+      "process_role": "judicial_review"
+    },
+    {
+      "id": "legal:legal_ca_2011_scc_44",
+      "type": "legal_record",
+      "canonical_id": "legal_ca_2011_scc_44",
+      "title": "Supreme Court required an exemption protecting continued operation of Insite",
+      "public": false,
+      "process_role": "final_judgment"
+    },
+    {
+      "id": "legal:legal_ca_2017_scc_30",
+      "type": "legal_record",
+      "canonical_id": "legal_ca_2017_scc_30",
+      "title": "Supreme Court considered addiction, workplace policy and the required connection to adverse treatment",
+      "public": false,
+      "process_role": "final_judgment"
+    },
+    {
+      "id": "legal:legal_ca_2021_scc_42",
+      "type": "legal_record",
+      "canonical_id": "legal_ca_2021_scc_42",
+      "title": "Supreme Court resolved forum jurisdiction in a unionized employee's addiction-related human-rights dispute",
+      "public": false,
+      "process_role": "final_judgment"
+    },
+    {
+      "id": "legal:legal_bc_2005_bchrt_302",
+      "type": "legal_record",
+      "canonical_id": "legal_bc_2005_bchrt_302",
+      "title": "Tribunal found race and disability discrimination in security treatment at a public mall",
+      "public": false,
+      "process_role": "merits_decision"
+    },
+    {
+      "id": "legal:legal_bc_2021_bchrt_22",
+      "type": "legal_record",
+      "canonical_id": "legal_bc_2021_bchrt_22",
+      "title": "Tribunal allowed an Indigenous healthcare discrimination complaint to proceed despite timing issues",
+      "public": false,
+      "process_role": "procedural_decision"
+    },
+    {
+      "id": "legal:legal_bc_2018_bcca_132",
+      "type": "legal_record",
+      "canonical_id": "legal_bc_2018_bcca_132",
+      "title": "Court of Appeal reviewed a representative discrimination complaint involving street homelessness and drug addiction",
+      "public": false,
+      "process_role": "appeal"
+    },
+    {
+      "id": "legal:legal_ab_2020_ahrc_94",
+      "type": "legal_record",
+      "canonical_id": "legal_ab_2020_ahrc_94",
+      "title": "Tribunal found an employer failed to accommodate a worker's alcohol addiction",
+      "public": false,
+      "process_role": "merits_decision"
+    },
+    {
+      "id": "legal:legal_ab_2021_ahrc_95",
+      "type": "legal_record",
+      "canonical_id": "legal_ab_2021_ahrc_95",
+      "title": "Tribunal sent an Indigenous nurse's race-based workplace complaint to a full hearing",
+      "public": false,
+      "process_role": "procedural_decision"
+    },
+    {
+      "id": "resource:funding:miller-north:fnfund_ab_abif",
+      "type": "support_resource",
+      "canonical_id": "funding:miller-north:fnfund_ab_abif",
+      "title": "Aboriginal Business Investment Fund",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:funding:miller-north:fnfund_federal_aep_business_opportunities",
+      "type": "support_resource",
+      "canonical_id": "funding:miller-north:fnfund_federal_aep_business_opportunities",
+      "title": "Aboriginal Entrepreneurship Program – Access to Business Opportunities",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:funding:miller-north:fnfund_federal_aep",
+      "type": "support_resource",
+      "canonical_id": "funding:miller-north:fnfund_federal_aep",
+      "title": "Aboriginal Entrepreneurship Program – Access to Capital",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:support:success-active-generation-employment",
+      "type": "support_resource",
+      "canonical_id": "support:success-active-generation-employment",
+      "title": "Active Generation for Employment",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:sources-admin-accounting-works",
+      "type": "support_resource",
+      "canonical_id": "support:sources-admin-accounting-works",
+      "title": "Admin and Accounting Works",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:north_ab_health_advocates_complaints",
+      "type": "support_resource",
+      "canonical_id": "north_ab_health_advocates_complaints",
+      "title": "Alberta Health Advocate Complaint Help",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_ab_human_rights_complaint_navigation",
+      "type": "support_resource",
+      "canonical_id": "shared_ab_human_rights_complaint_navigation",
+      "title": "Alberta Human Rights Complaint Navigation",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_ab_income_support_emergency",
+      "type": "support_resource",
+      "canonical_id": "shared_ab_income_support_emergency",
+      "title": "Alberta Income Support and Emergency Financial Assistance",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_ab_ombudsman_complaint_review",
+      "type": "support_resource",
+      "canonical_id": "shared_ab_ombudsman_complaint_review",
+      "title": "Alberta Ombudsman Complaint Review",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:support:alouette-outreach-services",
+      "type": "support_resource",
+      "canonical_id": "support:alouette-outreach-services",
+      "title": "Alouette Outreach Services",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:funding:miller:bc_crisis_supplement",
+      "type": "support_resource",
+      "canonical_id": "funding:miller:bc_crisis_supplement",
+      "title": "B.C. Crisis Supplement",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:funding:miller:bc_moving_transport_living_supplement",
+      "type": "support_resource",
+      "canonical_id": "funding:miller:bc_moving_transport_living_supplement",
+      "title": "B.C. Moving, Transportation and Living Costs Supplement",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:funding:miller:bc_security_deposit_supplement",
+      "type": "support_resource",
+      "canonical_id": "funding:miller:bc_security_deposit_supplement",
+      "title": "B.C. Security Deposit Supplement",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:bc-bus-pass-program",
+      "type": "support_resource",
+      "canonical_id": "support:bc-bus-pass-program",
+      "title": "BC Bus Pass Program",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:curated:1wfj0t6",
+      "type": "support_resource",
+      "canonical_id": "curated:1wfj0t6",
+      "title": "BC Housing Housing Registry and regional listings",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:shared_bc_human_rights_clinic",
+      "type": "support_resource",
+      "canonical_id": "shared_bc_human_rights_clinic",
+      "title": "BC Human Rights Clinic",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:funding:miller:mfa_canada_benefits_finder",
+      "type": "support_resource",
+      "canonical_id": "funding:miller:mfa_canada_benefits_finder",
+      "title": "Benefits Finder",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:support:embers-bladerunners",
+      "type": "support_resource",
+      "canonical_id": "support:embers-bladerunners",
+      "title": "BladeRunners",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:curated:4sdrnc",
+      "type": "support_resource",
+      "canonical_id": "curated:4sdrnc",
+      "title": "Burnaby Housing and Outreach Hub",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:burnaby-outreach-resource-centres",
+      "type": "support_resource",
+      "canonical_id": "support:burnaby-outreach-resource-centres",
+      "title": "Burnaby Outreach Resource Centres",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:burnaby-rent-bank",
+      "type": "support_resource",
+      "canonical_id": "support:burnaby-rent-bank",
+      "title": "Burnaby Rent Bank",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:shared_sk_camponi_housing",
+      "type": "support_resource",
+      "canonical_id": "shared_sk_camponi_housing",
+      "title": "Camponi and SaskNative Affordable Housing",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:funding:miller:canada_disability_benefit",
+      "type": "support_resource",
+      "canonical_id": "funding:miller:canada_disability_benefit",
+      "title": "Canada Disability Benefit",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:funding:miller-north:fnfund_ab_productivity",
+      "type": "support_resource",
+      "canonical_id": "funding:miller-north:fnfund_ab_productivity",
+      "title": "Canada-Alberta Productivity Grant",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_ca_human_rights_complaint_navigation",
+      "type": "support_resource",
+      "canonical_id": "shared_ca_human_rights_complaint_navigation",
+      "title": "Canadian Human Rights Complaint Navigation",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_sk_classic_legal_programs",
+      "type": "support_resource",
+      "canonical_id": "shared_sk_classic_legal_programs",
+      "title": "CLASSIC Legal Clinics",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:funding:miller:mfa_community_workforce",
+      "type": "support_resource",
+      "canonical_id": "funding:miller:mfa_community_workforce",
+      "title": "Community Workforce Response Grant participant supports",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_sk_cress_housing",
+      "type": "support_resource",
+      "canonical_id": "shared_sk_cress_housing",
+      "title": "Cress Affordable Housing",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:support:disability-alliance-bc-direct-services",
+      "type": "support_resource",
+      "canonical_id": "support:disability-alliance-bc-direct-services",
+      "title": "Disability Alliance BC Direct Services",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:plan-institute-disability-planning-helpline",
+      "type": "support_resource",
+      "canonical_id": "support:plan-institute-disability-planning-helpline",
+      "title": "Disability Planning Helpline",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:curated:rgor6n",
+      "type": "support_resource",
+      "canonical_id": "curated:rgor6n",
+      "title": "Douglas Road Emergency Shelter",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:funding:miller-north:fnfund_ab_epp",
+      "type": "support_resource",
+      "canonical_id": "funding:miller-north:fnfund_ab_epp",
+      "title": "Employment Partnerships Program",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:funding:miller-north:fnfund_federal_pss_general",
+      "type": "support_resource",
+      "canonical_id": "funding:miller-north:fnfund_federal_pss_general",
+      "title": "Federal Indigenous Funding Programs Directory",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:funding:miller-north:fnfund_bc_first_citizens",
+      "type": "support_resource",
+      "canonical_id": "funding:miller-north:fnfund_bc_first_citizens",
+      "title": "First Citizens Fund",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:fns_sk_sha_fnm_health_services",
+      "type": "support_resource",
+      "canonical_id": "fns_sk_sha_fnm_health_services",
+      "title": "First Nations and Métis Health Services",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:funding:miller-north:fnfund_bc_fncebf",
+      "type": "support_resource",
+      "canonical_id": "funding:miller-north:fnfund_bc_fncebf",
+      "title": "First Nations Clean Energy Business Fund – Equity Funding",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:funding:miller-north:fnfund_ab_fndf",
+      "type": "support_resource",
+      "canonical_id": "funding:miller-north:fnfund_ab_fndf",
+      "title": "First Nations Development Fund",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:funding:miller-north:fnfund_fnha_health_benefits",
+      "type": "support_resource",
+      "canonical_id": "funding:miller-north:fnfund_fnha_health_benefits",
+      "title": "First Nations Health Benefits",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:fns_sk_fnho",
+      "type": "support_resource",
+      "canonical_id": "fns_sk_fnho",
+      "title": "First Nations Health Ombudsperson Office",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:fns_bc_fnha_virtual_doctor",
+      "type": "support_resource",
+      "canonical_id": "fns_bc_fnha_virtual_doctor",
+      "title": "First Nations Virtual Doctor of the Day",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:fns_bc_fnha_virtual_substance_use",
+      "type": "support_resource",
+      "canonical_id": "fns_bc_fnha_virtual_substance_use",
+      "title": "First Nations Virtual Substance Use and Psychiatry Service",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:fns_bc_fnha_mental_wellness_counselling",
+      "type": "support_resource",
+      "canonical_id": "fns_bc_fnha_mental_wellness_counselling",
+      "title": "FNHA Mental Health and Wellness Supports",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_fnha_treatment_centres",
+      "type": "support_resource",
+      "canonical_id": "shared_fnha_treatment_centres",
+      "title": "FNHA-funded Treatment Centres and Recovery Services",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:fns_ab_four_winds_navigation",
+      "type": "support_resource",
+      "canonical_id": "fns_ab_four_winds_navigation",
+      "title": "Four Winds South Zone Indigenous Patient Navigation",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:curated:88k31t",
+      "type": "support_resource",
+      "canonical_id": "curated:88k31t",
+      "title": "Fraser Health Indigenous Health Liaisons",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_sk_pro_bono_legal_clinics",
+      "type": "support_resource",
+      "canonical_id": "shared_sk_pro_bono_legal_clinics",
+      "title": "Free Legal Clinics",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:support:handydart-and-handycard",
+      "type": "support_resource",
+      "canonical_id": "support:handydart-and-handycard",
+      "title": "HandyDART and HandyCard",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:funding:miller-north:fnfund_bc_health_bursary",
+      "type": "support_resource",
+      "canonical_id": "funding:miller-north:fnfund_bc_health_bursary",
+      "title": "Health Programs – Indigenous Student Recruitment Bursary",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:support:hope-air-travel-support",
+      "type": "support_resource",
+      "canonical_id": "support:hope-air-travel-support",
+      "title": "Hope Air travel support",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:shared_isc_hope_for_wellness",
+      "type": "support_resource",
+      "canonical_id": "shared_isc_hope_for_wellness",
+      "title": "Hope for Wellness Helpline",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:support:identification-supplement",
+      "type": "support_resource",
+      "canonical_id": "support:identification-supplement",
+      "title": "Identification Supplement",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:fns_sk_indigenous_birth_support",
+      "type": "support_resource",
+      "canonical_id": "fns_sk_indigenous_birth_support",
+      "title": "Indigenous Birth Support Worker Program",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:funding:miller-north:fnfund_sk_business_directory",
+      "type": "support_resource",
+      "canonical_id": "funding:miller-north:fnfund_sk_business_directory",
+      "title": "Indigenous Business Funding Programs",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_bc_indigenous_community_legal_workers",
+      "type": "support_resource",
+      "canonical_id": "shared_bc_indigenous_community_legal_workers",
+      "title": "Indigenous Community Legal Workers",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_ncsa_indigenous_courtwork",
+      "type": "support_resource",
+      "canonical_id": "shared_ncsa_indigenous_courtwork",
+      "title": "Indigenous Courtwork Program",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:funding:miller-north:fnfund_ab_ietp",
+      "type": "support_resource",
+      "canonical_id": "funding:miller-north:fnfund_ab_ietp",
+      "title": "Indigenous Employment Training Partnerships",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:north_ahs_indigenous_hospital_support",
+      "type": "support_resource",
+      "canonical_id": "north_ahs_indigenous_hospital_support",
+      "title": "Indigenous Hospital Support Services",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:north_ab_indigenous_housing_capital_program",
+      "type": "support_resource",
+      "canonical_id": "north_ab_indigenous_housing_capital_program",
+      "title": "Indigenous Housing Capital Program",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_ncsa_indigenous_housing_first",
+      "type": "support_resource",
+      "canonical_id": "shared_ncsa_indigenous_housing_first",
+      "title": "Indigenous Housing First",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:fns_bc_surrey_indigenous_maternal_liaison",
+      "type": "support_resource",
+      "canonical_id": "fns_bc_surrey_indigenous_maternal_liaison",
+      "title": "Indigenous Maternal Liaison",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:fns_bc_fraser_indigenous_mental_health_liaisons",
+      "type": "support_resource",
+      "canonical_id": "fns_bc_fraser_indigenous_mental_health_liaisons",
+      "title": "Indigenous Mental Health Liaison Program",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:fns_bc_surrey_indigenous_primary_health_clinic",
+      "type": "support_resource",
+      "canonical_id": "fns_bc_surrey_indigenous_primary_health_clinic",
+      "title": "Indigenous Primary Health and Wellness Clinic (FRAFCA)",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:support:workbc-indigenous-skills-employment-training",
+      "type": "support_resource",
+      "canonical_id": "support:workbc-indigenous-skills-employment-training",
+      "title": "Indigenous Skills and Employment Training provider directory",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:funding:miller:mfa_iset",
+      "type": "support_resource",
+      "canonical_id": "funding:miller:mfa_iset",
+      "title": "Indigenous Skills and Employment Training services",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:fns_ab_indigenous_support_line",
+      "type": "support_resource",
+      "canonical_id": "fns_ab_indigenous_support_line",
+      "title": "Indigenous Support Line",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:fns_ab_indigenous_wellness_clinic",
+      "type": "support_resource",
+      "canonical_id": "fns_ab_indigenous_wellness_clinic",
+      "title": "Indigenous Wellness Clinic",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:fns_sk_stc_integrated_wellness",
+      "type": "support_resource",
+      "canonical_id": "fns_sk_stc_integrated_wellness",
+      "title": "Integrated Wellness",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_isc_jordans_principle",
+      "type": "support_resource",
+      "canonical_id": "shared_isc_jordans_principle",
+      "title": "Jordan’s Principle Requests",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:fns_bc_jordans_principle_coordination",
+      "type": "support_resource",
+      "canonical_id": "fns_bc_jordans_principle_coordination",
+      "title": "Jordan’s Principle Service Coordination Network and Hub",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:fns_bc_katzie_health_wellness",
+      "type": "support_resource",
+      "canonical_id": "fns_bc_katzie_health_wellness",
+      "title": "Katzie Health and Wellness",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_ncsa_kisnimi_ti",
+      "type": "support_resource",
+      "canonical_id": "shared_ncsa_kisnimi_ti",
+      "title": "Kisnimi Ti Transitional Housing",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:fns_bc_kuu_us_crisis",
+      "type": "support_resource",
+      "canonical_id": "fns_bc_kuu_us_crisis",
+      "title": "KUU-US Crisis Response Service",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:fns_bc_kwikwetlem_health_wellness",
+      "type": "support_resource",
+      "canonical_id": "fns_bc_kwikwetlem_health_wellness",
+      "title": "kʷikʷəƛ̓əm Health and Wellness / Community-Based Health Clinic",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_ab_legal_aid",
+      "type": "support_resource",
+      "canonical_id": "shared_ab_legal_aid",
+      "title": "Legal Aid Alberta",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:support:legal-aid-bc-new-westminster-access",
+      "type": "support_resource",
+      "canonical_id": "support:legal-aid-bc-new-westminster-access",
+      "title": "Legal Aid BC — New Westminster access",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:shared_sk_legal_aid",
+      "type": "support_resource",
+      "canonical_id": "shared_sk_legal_aid",
+      "title": "Legal Aid Saskatchewan",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:north_mns_ma_faamii_navigation",
+      "type": "support_resource",
+      "canonical_id": "north_mns_ma_faamii_navigation",
+      "title": "Ma Faamii Citizen Support and Navigation",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:support:maple-ridge-pitt-meadows-rent-bank",
+      "type": "support_resource",
+      "canonical_id": "support:maple-ridge-pitt-meadows-rent-bank",
+      "title": "Maple Ridge–Pitt Meadows Rent Bank",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:fnha-medical-transportation-benefit",
+      "type": "support_resource",
+      "canonical_id": "support:fnha-medical-transportation-benefit",
+      "title": "Medical Transportation Benefit",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:support:bc-assistance-medical-transportation-supplement",
+      "type": "support_resource",
+      "canonical_id": "support:bc-assistance-medical-transportation-supplement",
+      "title": "Medical transportation supplement",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:shared_bc_mental_health_law_program",
+      "type": "support_resource",
+      "canonical_id": "shared_bc_mental_health_law_program",
+      "title": "Mental Health Law Program",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:funding:miller-north:fnfund_fnha_mental_wellness",
+      "type": "support_resource",
+      "canonical_id": "funding:miller-north:fnfund_fnha_mental_wellness",
+      "title": "Mental Wellness and Counselling Benefit",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_otipemisiwak_metis_housing",
+      "type": "support_resource",
+      "canonical_id": "shared_otipemisiwak_metis_housing",
+      "title": "Métis Housing Affordable and Subsidized Housing",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_mns_medical_travel_assistance",
+      "type": "support_resource",
+      "canonical_id": "shared_mns_medical_travel_assistance",
+      "title": "Métis Medical Travel Assistance Program",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:north_mns_patient_support_workers",
+      "type": "support_resource",
+      "canonical_id": "north_mns_patient_support_workers",
+      "title": "Métis Patient Support Workers",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:support:my-self-serve-income-and-disability-assistance-access",
+      "type": "support_resource",
+      "canonical_id": "support:my-self-serve-income-and-disability-assistance-access",
+      "title": "My Self Serve income and disability assistance access",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:funding:miller-north:fnfund_federal_new_fiscal",
+      "type": "support_resource",
+      "canonical_id": "funding:miller-north:fnfund_federal_new_fiscal",
+      "title": "New Fiscal Relationship Grant",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:support:new-westminster-crt-outreach",
+      "type": "support_resource",
+      "canonical_id": "support:new-westminster-crt-outreach",
+      "title": "New Westminster Crises Response Outreach Team",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:new-westminster-rent-bank",
+      "type": "support_resource",
+      "canonical_id": "support:new-westminster-rent-bank",
+      "title": "New Westminster Rent Bank",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:new-westminster-youth-hub",
+      "type": "support_resource",
+      "canonical_id": "support:new-westminster-youth-hub",
+      "title": "New Westminster Youth Hub",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:shared_isc_nihb_medical_transportation",
+      "type": "support_resource",
+      "canonical_id": "shared_isc_nihb_medical_transportation",
+      "title": "NIHB Medical Transportation Benefit",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_isc_nihb_mental_health_counselling",
+      "type": "support_resource",
+      "canonical_id": "shared_isc_nihb_mental_health_counselling",
+      "title": "NIHB Mental Health Counselling Benefit",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:funding:miller-north:fnfund_bc_nursing_tuition",
+      "type": "support_resource",
+      "canonical_id": "funding:miller-north:fnfund_bc_nursing_tuition",
+      "title": "Nursing Tuition Grant – Indigenous",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_sk_ort_dispute_resolution",
+      "type": "support_resource",
+      "canonical_id": "shared_sk_ort_dispute_resolution",
+      "title": "Office of Residential Tenancies Dispute Resolution",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_sk_ombudsman_complaints",
+      "type": "support_resource",
+      "canonical_id": "shared_sk_ombudsman_complaints",
+      "title": "Ombudsman Saskatchewan Complaint Service",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:funding:miller-north:fnfund_sk_pbcn_iset",
+      "type": "support_resource",
+      "canonical_id": "funding:miller-north:fnfund_sk_pbcn_iset",
+      "title": "Peter Ballantyne Cree Nation ISET services",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:north_bc_police_accountability_unit",
+      "type": "support_resource",
+      "canonical_id": "north_bc_police_accountability_unit",
+      "title": "Police Accountability Unit",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:funding:miller:mfa_psssp",
+      "type": "support_resource",
+      "canonical_id": "funding:miller:mfa_psssp",
+      "title": "Post-Secondary Student Support Program",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:fns_bc_fnha_quality_care_safety",
+      "type": "support_resource",
+      "canonical_id": "fns_bc_fnha_quality_care_safety",
+      "title": "Quality Care and Safety Office",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_ab_rtdrs",
+      "type": "support_resource",
+      "canonical_id": "shared_ab_rtdrs",
+      "title": "Residential Tenancy Dispute Resolution Service",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:shared_sk_aboriginal_courtworker",
+      "type": "support_resource",
+      "canonical_id": "shared_sk_aboriginal_courtworker",
+      "title": "Saskatchewan Aboriginal Courtworker Program",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:north_sk_healthcare_concerns_navigation",
+      "type": "support_resource",
+      "canonical_id": "north_sk_healthcare_concerns_navigation",
+      "title": "Saskatchewan Health Care Concern and Complaint Navigation",
+      "public": true,
+      "project_visibility": [
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:support:service-bc-navigation",
+      "type": "support_resource",
+      "canonical_id": "support:service-bc-navigation",
+      "title": "Service BC government-service navigation",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:share-better-at-home",
+      "type": "support_resource",
+      "canonical_id": "support:share-better-at-home",
+      "title": "SHARE Better at Home",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:share-food-bank-tricities",
+      "type": "support_resource",
+      "canonical_id": "support:share-food-bank-tricities",
+      "title": "SHARE Food Bank",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:skills-training-for-employment-readiness-directory",
+      "type": "support_resource",
+      "canonical_id": "support:skills-training-for-employment-readiness-directory",
+      "title": "Skills Training for Employment Readiness directory",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:sources-advocacy-housing-prevention",
+      "type": "support_resource",
+      "canonical_id": "support:sources-advocacy-housing-prevention",
+      "title": "Sources Advocacy, Housing and Prevention Services",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:shared_stc_emergency_wellness_centre",
+      "type": "support_resource",
+      "canonical_id": "shared_stc_emergency_wellness_centre",
+      "title": "STC Emergency Wellness Centre",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:support:surrey-streetsmart",
+      "type": "support_resource",
+      "canonical_id": "support:surrey-streetsmart",
+      "title": "StreetSMART",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:strongerbc-future-skills-grant",
+      "type": "support_resource",
+      "canonical_id": "support:strongerbc-future-skills-grant",
+      "title": "StrongerBC Future Skills Grant",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:surrey-housing-homelessness-navigation",
+      "type": "support_resource",
+      "canonical_id": "support:surrey-housing-homelessness-navigation",
+      "title": "Surrey housing and homelessness resource navigation",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:tax-aid-dabc",
+      "type": "support_resource",
+      "canonical_id": "support:tax-aid-dabc",
+      "title": "Tax AID DABC",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:trac-tenant-infoline",
+      "type": "support_resource",
+      "canonical_id": "support:trac-tenant-infoline",
+      "title": "TRAC Tenant Infoline",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:funding:miller:bc_transport_to_treatment",
+      "type": "support_resource",
+      "canonical_id": "funding:miller:bc_transport_to_treatment",
+      "title": "Transportation to residential alcohol and drug treatment",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:bc-travel-assistance-program",
+      "type": "support_resource",
+      "canonical_id": "support:bc-travel-assistance-program",
+      "title": "Travel Assistance Program",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:tricities-rent-bank",
+      "type": "support_resource",
+      "canonical_id": "support:tricities-rent-bank",
+      "title": "TriCities Rent Bank",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:shared_bc_virtual_indigenous_justice_centre",
+      "type": "support_resource",
+      "canonical_id": "shared_bc_virtual_indigenous_justice_centre",
+      "title": "Virtual Indigenous Justice Centre",
+      "public": true,
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ]
+    },
+    {
+      "id": "resource:support:burnaby-neighbourhood-house-tax-clinic",
+      "type": "support_resource",
+      "canonical_id": "support:burnaby-neighbourhood-house-tax-clinic",
+      "title": "Volunteer Income Tax Program",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:sources-volunteer-wheels",
+      "type": "support_resource",
+      "canonical_id": "support:sources-volunteer-wheels",
+      "title": "Volunteer Wheels",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:workbc-centre-burnaby-metrotown",
+      "type": "support_resource",
+      "canonical_id": "support:workbc-centre-burnaby-metrotown",
+      "title": "WorkBC Centre — Burnaby Metrotown",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:workbc-centre-coquitlam",
+      "type": "support_resource",
+      "canonical_id": "support:workbc-centre-coquitlam",
+      "title": "WorkBC Centre — Coquitlam",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:workbc-centre-maple-ridge",
+      "type": "support_resource",
+      "canonical_id": "support:workbc-centre-maple-ridge",
+      "title": "WorkBC Centre — Maple Ridge",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:support:workbc-centre-new-westminster",
+      "type": "support_resource",
+      "canonical_id": "support:workbc-centre-new-westminster",
+      "title": "WorkBC Centre — New Westminster",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    },
+    {
+      "id": "resource:funding:miller:mfa_workbc_training",
+      "type": "support_resource",
+      "canonical_id": "funding:miller:mfa_workbc_training",
+      "title": "WorkBC employment and training supports",
+      "public": true,
+      "project_visibility": [
+        "miller"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "6606157eab060b5127a8620d",
+      "owner_review": false,
+      "type": "tracked_in",
+      "from": "incident:mnsh_nadine_solonas_2017",
+      "to": "watch:mnaw_solonas_support_recommendation",
+      "source": "canonical_related_watch_chain_id"
+    },
+    {
+      "edge_id": "6b1d03353d7eb7a5ed38da43",
+      "owner_review": false,
+      "type": "tracked_in",
+      "from": "incident:mnsh_alyssa_george_2013",
+      "to": "watch:mnaw_alyssa_george_recommendations",
+      "source": "canonical_related_watch_chain_id"
+    },
+    {
+      "edge_id": "21995cf8f84e6e84e8d4fb14",
+      "owner_review": false,
+      "type": "tracked_in",
+      "from": "incident:mnsh_jacob_setah_2014",
+      "to": "watch:mnaw_jacob_setah_recommendations",
+      "source": "canonical_related_watch_chain_id"
+    },
+    {
+      "edge_id": "4fb633808b952cee6ada8713",
+      "owner_review": false,
+      "type": "tracked_in",
+      "from": "incident:mnsh_silent_world_jordan_2013",
+      "to": "watch:mnaw_silent_world_jordan",
+      "source": "canonical_related_watch_chain_id"
+    },
+    {
+      "edge_id": "e2027b2e2631a83658811b90",
+      "owner_review": true,
+      "type": "corroborates",
+      "from": "legal:legal_ca_2016_chrt_2",
+      "to": "watch:mnaw_silent_world_jordan",
+      "source": "reviewed_accountability_link"
+    },
+    {
+      "edge_id": "597a6f25db04935d730b7ca2",
+      "owner_review": true,
+      "type": "related_support",
+      "from": "legal:legal_ca_2016_chrt_2",
+      "to": "resource:shared_isc_jordans_principle",
+      "source": "reviewed_resource_link"
+    },
+    {
+      "edge_id": "342d0e5ec2931ae675445039",
+      "owner_review": true,
+      "type": "judicial_review_of",
+      "from": "legal:legal_ca_2021_fc_969",
+      "to": "watch:mnaw_silent_world_jordan",
+      "source": "reviewed_accountability_link"
+    },
+    {
+      "edge_id": "2be2de3762d7d55258d981f0",
+      "owner_review": true,
+      "type": "related_support",
+      "from": "legal:legal_ca_2021_fc_969",
+      "to": "resource:shared_isc_jordans_principle",
+      "source": "reviewed_resource_link"
+    },
+    {
+      "edge_id": "7074295c7c4e619f2ae2dfbb",
+      "owner_review": true,
+      "type": "corroborates",
+      "from": "legal:legal_ca_2011_scc_44",
+      "to": "watch:mnaw_in_plain_sight",
+      "source": "reviewed_accountability_link"
+    },
+    {
+      "edge_id": "19134f0c2b08045a75d40b5f",
+      "owner_review": true,
+      "type": "corroborates",
+      "from": "legal:legal_ca_2017_scc_30",
+      "to": "watch:mnaw_in_plain_sight",
+      "source": "reviewed_accountability_link"
+    },
+    {
+      "edge_id": "dc06f496080fb31a6ab5f2a1",
+      "owner_review": true,
+      "type": "corroborates",
+      "from": "legal:legal_ca_2021_scc_42",
+      "to": "watch:mnaw_in_plain_sight",
+      "source": "reviewed_accountability_link"
+    },
+    {
+      "edge_id": "ca86f64da03f5d9a12d10dab",
+      "owner_review": true,
+      "type": "corroborates",
+      "from": "legal:legal_bc_2005_bchrt_302",
+      "to": "watch:mnaw_in_plain_sight",
+      "source": "reviewed_accountability_link"
+    },
+    {
+      "edge_id": "6d0f786d9161d73469f6b50c",
+      "owner_review": true,
+      "type": "related_support",
+      "from": "legal:legal_bc_2005_bchrt_302",
+      "to": "resource:shared_bc_human_rights_clinic",
+      "source": "reviewed_resource_link"
+    },
+    {
+      "edge_id": "a43d56ba1bda83988d7e7077",
+      "owner_review": true,
+      "type": "corroborates",
+      "from": "legal:legal_bc_2021_bchrt_22",
+      "to": "watch:mnaw_in_plain_sight",
+      "source": "reviewed_accountability_link"
+    },
+    {
+      "edge_id": "49f0dabfce829ee476c748ab",
+      "owner_review": true,
+      "type": "related_support",
+      "from": "legal:legal_bc_2021_bchrt_22",
+      "to": "resource:shared_bc_human_rights_clinic",
+      "source": "reviewed_resource_link"
+    },
+    {
+      "edge_id": "70dd6eda52c02eda7cb94cbf",
+      "owner_review": true,
+      "type": "corroborates",
+      "from": "legal:legal_bc_2018_bcca_132",
+      "to": "watch:mnaw_in_plain_sight",
+      "source": "reviewed_accountability_link"
+    },
+    {
+      "edge_id": "e630bb861d4cd4cbf14af8c2",
+      "owner_review": true,
+      "type": "related_support",
+      "from": "legal:legal_bc_2018_bcca_132",
+      "to": "resource:shared_bc_human_rights_clinic",
+      "source": "reviewed_resource_link"
+    },
+    {
+      "edge_id": "6c899e717a5efc36256c7294",
+      "owner_review": true,
+      "type": "corroborates",
+      "from": "legal:legal_ab_2020_ahrc_94",
+      "to": "watch:mnaw_in_plain_sight",
+      "source": "reviewed_accountability_link"
+    },
+    {
+      "edge_id": "e748b6029df0566fd64047b8",
+      "owner_review": true,
+      "type": "related_support",
+      "from": "legal:legal_ab_2020_ahrc_94",
+      "to": "resource:shared_ab_human_rights_complaint_navigation",
+      "source": "reviewed_resource_link"
+    },
+    {
+      "edge_id": "8a13c688b6ad83faca3b20c7",
+      "owner_review": true,
+      "type": "corroborates",
+      "from": "legal:legal_ab_2021_ahrc_95",
+      "to": "watch:mnaw_in_plain_sight",
+      "source": "reviewed_accountability_link"
+    },
+    {
+      "edge_id": "84a144dfbd583598645efc80",
+      "owner_review": true,
+      "type": "related_support",
+      "from": "legal:legal_ab_2021_ahrc_95",
+      "to": "resource:shared_ab_human_rights_complaint_navigation",
+      "source": "reviewed_resource_link"
+    }
+  ],
+  "counts": {
+    "nodes": 164,
+    "edges": 21,
+    "incidents": 20,
+    "watch_chains": 10,
+    "legal_records": 10,
+    "support_resources": 124
+  },
+  "mutation_authority": false,
+  "publication_authority": false,
+  "pathway_suggestions": [
+    {
+      "public_incident_id": "mnsh_bccnm_emergency_assessment_2021",
+      "label": "Related legal and advocacy resources",
+      "disclaimer": "These resources may help people understand complaint, human-rights or legal-support options. Miller does not determine whether a person has a legal claim.",
+      "suggestions": [
+        {
+          "canonical_resource_id": "shared_bc_human_rights_clinic",
+          "name": "BC Human Rights Clinic",
+          "organization": "Community Legal Assistance Society",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_ca_human_rights_complaint_navigation",
+          "name": "Canadian Human Rights Complaint Navigation",
+          "organization": "Canadian Human Rights Commission",
+          "reason_rules": [
+            "professional_conduct",
+            "hospital_complaint",
+            "consent"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "fns_bc_fnha_virtual_substance_use",
+          "name": "First Nations Virtual Substance Use and Psychiatry Service",
+          "organization": "First Nations Health Authority",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "fns_bc_fnha_mental_wellness_counselling",
+          "name": "FNHA Mental Health and Wellness Supports",
+          "organization": "First Nations Health Authority",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        }
+      ],
+      "automatic_publication": false
+    },
+    {
+      "public_incident_id": "mnsh_bccnm_consent_2021",
+      "label": "Related legal and advocacy resources",
+      "disclaimer": "These resources may help people understand complaint, human-rights or legal-support options. Miller does not determine whether a person has a legal claim.",
+      "suggestions": [
+        {
+          "canonical_resource_id": "shared_bc_human_rights_clinic",
+          "name": "BC Human Rights Clinic",
+          "organization": "Community Legal Assistance Society",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_ca_human_rights_complaint_navigation",
+          "name": "Canadian Human Rights Complaint Navigation",
+          "organization": "Canadian Human Rights Commission",
+          "reason_rules": [
+            "professional_conduct",
+            "consent"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "fns_bc_fnha_virtual_substance_use",
+          "name": "First Nations Virtual Substance Use and Psychiatry Service",
+          "organization": "First Nations Health Authority",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "fns_bc_fnha_mental_wellness_counselling",
+          "name": "FNHA Mental Health and Wellness Supports",
+          "organization": "First Nations Health Authority",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        }
+      ],
+      "automatic_publication": false
+    },
+    {
+      "public_incident_id": "mnsh_trevor_dubois_2026",
+      "label": "Related legal and advocacy resources",
+      "disclaimer": "These resources may help people understand complaint, human-rights or legal-support options. Miller does not determine whether a person has a legal claim.",
+      "suggestions": [
+        {
+          "canonical_resource_id": "shared_ca_human_rights_complaint_navigation",
+          "name": "Canadian Human Rights Complaint Navigation",
+          "organization": "Canadian Human Rights Commission",
+          "reason_rules": [
+            "hospital_complaint"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_sk_ombudsman_complaints",
+          "name": "Ombudsman Saskatchewan Complaint Service",
+          "organization": "Ombudsman Saskatchewan",
+          "reason_rules": [
+            "hospital_complaint"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "north_sk_healthcare_concerns_navigation",
+          "name": "Saskatchewan Health Care Concern and Complaint Navigation",
+          "organization": "Government of Saskatchewan / Saskatchewan Health Authority",
+          "reason_rules": [
+            "hospital_complaint"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        }
+      ],
+      "automatic_publication": false
+    },
+    {
+      "public_incident_id": "mnsh_lindsey_izony_2019",
+      "label": "Related legal and advocacy resources",
+      "disclaimer": "These resources may help people understand complaint, human-rights or legal-support options. Miller does not determine whether a person has a legal claim.",
+      "suggestions": [
+        {
+          "canonical_resource_id": "shared_ca_human_rights_complaint_navigation",
+          "name": "Canadian Human Rights Complaint Navigation",
+          "organization": "Canadian Human Rights Commission",
+          "reason_rules": [
+            "hospital_complaint"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_bc_indigenous_community_legal_workers",
+          "name": "Indigenous Community Legal Workers",
+          "organization": "Legal Aid BC",
+          "reason_rules": [
+            "hospital_complaint"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_bc_mental_health_law_program",
+          "name": "Mental Health Law Program",
+          "organization": "Community Legal Assistance Society",
+          "reason_rules": [
+            "hospital_complaint"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "north_bc_police_accountability_unit",
+          "name": "Police Accountability Unit",
+          "organization": "BC First Nations Justice Council",
+          "reason_rules": [
+            "hospital_complaint"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        }
+      ],
+      "automatic_publication": false
+    },
+    {
+      "public_incident_id": "mnsh_cpsbc_rural_discharge_2024",
+      "label": "Related legal and advocacy resources",
+      "disclaimer": "These resources may help people understand complaint, human-rights or legal-support options. Miller does not determine whether a person has a legal claim.",
+      "suggestions": [
+        {
+          "canonical_resource_id": "shared_ca_human_rights_complaint_navigation",
+          "name": "Canadian Human Rights Complaint Navigation",
+          "organization": "Canadian Human Rights Commission",
+          "reason_rules": [
+            "professional_conduct",
+            "hospital_complaint"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_bc_indigenous_community_legal_workers",
+          "name": "Indigenous Community Legal Workers",
+          "organization": "Legal Aid BC",
+          "reason_rules": [
+            "professional_conduct",
+            "hospital_complaint"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_bc_mental_health_law_program",
+          "name": "Mental Health Law Program",
+          "organization": "Community Legal Assistance Society",
+          "reason_rules": [
+            "professional_conduct",
+            "hospital_complaint"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "north_bc_police_accountability_unit",
+          "name": "Police Accountability Unit",
+          "organization": "BC First Nations Justice Council",
+          "reason_rules": [
+            "professional_conduct",
+            "hospital_complaint"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        }
+      ],
+      "automatic_publication": false
+    },
+    {
+      "public_incident_id": "mnsh_cpsbc_procedure_consent_2025",
+      "label": "Related legal and advocacy resources",
+      "disclaimer": "These resources may help people understand complaint, human-rights or legal-support options. Miller does not determine whether a person has a legal claim.",
+      "suggestions": [
+        {
+          "canonical_resource_id": "shared_bc_human_rights_clinic",
+          "name": "BC Human Rights Clinic",
+          "organization": "Community Legal Assistance Society",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_ca_human_rights_complaint_navigation",
+          "name": "Canadian Human Rights Complaint Navigation",
+          "organization": "Canadian Human Rights Commission",
+          "reason_rules": [
+            "professional_conduct",
+            "consent"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "fns_bc_fnha_virtual_substance_use",
+          "name": "First Nations Virtual Substance Use and Psychiatry Service",
+          "organization": "First Nations Health Authority",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "fns_bc_fnha_mental_wellness_counselling",
+          "name": "FNHA Mental Health and Wellness Supports",
+          "organization": "First Nations Health Authority",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        }
+      ],
+      "automatic_publication": false
+    },
+    {
+      "public_incident_id": "mnsh_cpsbc_skrenes_2022",
+      "label": "Related legal and advocacy resources",
+      "disclaimer": "These resources may help people understand complaint, human-rights or legal-support options. Miller does not determine whether a person has a legal claim.",
+      "suggestions": [
+        {
+          "canonical_resource_id": "shared_bc_human_rights_clinic",
+          "name": "BC Human Rights Clinic",
+          "organization": "Community Legal Assistance Society",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_ca_human_rights_complaint_navigation",
+          "name": "Canadian Human Rights Complaint Navigation",
+          "organization": "Canadian Human Rights Commission",
+          "reason_rules": [
+            "professional_conduct",
+            "consent"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "fns_bc_fnha_virtual_substance_use",
+          "name": "First Nations Virtual Substance Use and Psychiatry Service",
+          "organization": "First Nations Health Authority",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "fns_bc_fnha_mental_wellness_counselling",
+          "name": "FNHA Mental Health and Wellness Supports",
+          "organization": "First Nations Health Authority",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        }
+      ],
+      "automatic_publication": false
+    },
+    {
+      "public_incident_id": "mnsh_jocelyn_george_2016",
+      "label": "Related legal and advocacy resources",
+      "disclaimer": "These resources may help people understand complaint, human-rights or legal-support options. Miller does not determine whether a person has a legal claim.",
+      "suggestions": [
+        {
+          "canonical_resource_id": "shared_bc_human_rights_clinic",
+          "name": "BC Human Rights Clinic",
+          "organization": "Community Legal Assistance Society",
+          "reason_rules": [
+            "addiction_discrimination"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_ca_human_rights_complaint_navigation",
+          "name": "Canadian Human Rights Complaint Navigation",
+          "organization": "Canadian Human Rights Commission",
+          "reason_rules": [
+            "hospital_complaint",
+            "addiction_discrimination"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_bc_indigenous_community_legal_workers",
+          "name": "Indigenous Community Legal Workers",
+          "organization": "Legal Aid BC",
+          "reason_rules": [
+            "hospital_complaint",
+            "addiction_discrimination"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_bc_mental_health_law_program",
+          "name": "Mental Health Law Program",
+          "organization": "Community Legal Assistance Society",
+          "reason_rules": [
+            "hospital_complaint",
+            "addiction_discrimination"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        }
+      ],
+      "automatic_publication": false
+    },
+    {
+      "public_incident_id": "mnsh_alyssa_george_2013",
+      "label": "Related legal and advocacy resources",
+      "disclaimer": "These resources may help people understand complaint, human-rights or legal-support options. Miller does not determine whether a person has a legal claim.",
+      "suggestions": [
+        {
+          "canonical_resource_id": "shared_ca_human_rights_complaint_navigation",
+          "name": "Canadian Human Rights Complaint Navigation",
+          "organization": "Canadian Human Rights Commission",
+          "reason_rules": [
+            "hospital_complaint"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_bc_indigenous_community_legal_workers",
+          "name": "Indigenous Community Legal Workers",
+          "organization": "Legal Aid BC",
+          "reason_rules": [
+            "hospital_complaint"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_bc_mental_health_law_program",
+          "name": "Mental Health Law Program",
+          "organization": "Community Legal Assistance Society",
+          "reason_rules": [
+            "hospital_complaint"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "north_bc_police_accountability_unit",
+          "name": "Police Accountability Unit",
+          "organization": "BC First Nations Justice Council",
+          "reason_rules": [
+            "hospital_complaint"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        }
+      ],
+      "automatic_publication": false
+    },
+    {
+      "public_incident_id": "mnsh_bccnm_michell_2014",
+      "label": "Related legal and advocacy resources",
+      "disclaimer": "These resources may help people understand complaint, human-rights or legal-support options. Miller does not determine whether a person has a legal claim.",
+      "suggestions": [
+        {
+          "canonical_resource_id": "shared_bc_human_rights_clinic",
+          "name": "BC Human Rights Clinic",
+          "organization": "Community Legal Assistance Society",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_ca_human_rights_complaint_navigation",
+          "name": "Canadian Human Rights Complaint Navigation",
+          "organization": "Canadian Human Rights Commission",
+          "reason_rules": [
+            "professional_conduct",
+            "consent"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "fns_bc_fnha_virtual_substance_use",
+          "name": "First Nations Virtual Substance Use and Psychiatry Service",
+          "organization": "First Nations Health Authority",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "fns_bc_fnha_mental_wellness_counselling",
+          "name": "FNHA Mental Health and Wellness Supports",
+          "organization": "First Nations Health Authority",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        }
+      ],
+      "automatic_publication": false
+    },
+    {
+      "public_incident_id": "mnsh_bccnm_liesch_2021",
+      "label": "Related legal and advocacy resources",
+      "disclaimer": "These resources may help people understand complaint, human-rights or legal-support options. Miller does not determine whether a person has a legal claim.",
+      "suggestions": [
+        {
+          "canonical_resource_id": "shared_bc_human_rights_clinic",
+          "name": "BC Human Rights Clinic",
+          "organization": "Community Legal Assistance Society",
+          "reason_rules": [
+            "discrimination",
+            "consent"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_ca_human_rights_complaint_navigation",
+          "name": "Canadian Human Rights Complaint Navigation",
+          "organization": "Canadian Human Rights Commission",
+          "reason_rules": [
+            "discrimination",
+            "professional_conduct",
+            "consent"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "fns_bc_fnha_virtual_substance_use",
+          "name": "First Nations Virtual Substance Use and Psychiatry Service",
+          "organization": "First Nations Health Authority",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "fns_bc_fnha_mental_wellness_counselling",
+          "name": "FNHA Mental Health and Wellness Supports",
+          "organization": "First Nations Health Authority",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        }
+      ],
+      "automatic_publication": false
+    },
+    {
+      "public_incident_id": "mnsh_jacob_setah_2014",
+      "label": "Related legal and advocacy resources",
+      "disclaimer": "These resources may help people understand complaint, human-rights or legal-support options. Miller does not determine whether a person has a legal claim.",
+      "suggestions": [
+        {
+          "canonical_resource_id": "shared_bc_human_rights_clinic",
+          "name": "BC Human Rights Clinic",
+          "organization": "Community Legal Assistance Society",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_ca_human_rights_complaint_navigation",
+          "name": "Canadian Human Rights Complaint Navigation",
+          "organization": "Canadian Human Rights Commission",
+          "reason_rules": [
+            "hospital_complaint",
+            "consent"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "fns_bc_fnha_virtual_substance_use",
+          "name": "First Nations Virtual Substance Use and Psychiatry Service",
+          "organization": "First Nations Health Authority",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "fns_bc_fnha_mental_wellness_counselling",
+          "name": "FNHA Mental Health and Wellness Supports",
+          "organization": "First Nations Health Authority",
+          "reason_rules": [
+            "consent"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        }
+      ],
+      "automatic_publication": false
+    },
+    {
+      "public_incident_id": "mnsh_cpsbc_trauma_informed_gynecology_2025",
+      "label": "Related legal and advocacy resources",
+      "disclaimer": "These resources may help people understand complaint, human-rights or legal-support options. Miller does not determine whether a person has a legal claim.",
+      "suggestions": [
+        {
+          "canonical_resource_id": "shared_ca_human_rights_complaint_navigation",
+          "name": "Canadian Human Rights Complaint Navigation",
+          "organization": "Canadian Human Rights Commission",
+          "reason_rules": [
+            "professional_conduct"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_bc_indigenous_community_legal_workers",
+          "name": "Indigenous Community Legal Workers",
+          "organization": "Legal Aid BC",
+          "reason_rules": [
+            "professional_conduct"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_bc_mental_health_law_program",
+          "name": "Mental Health Law Program",
+          "organization": "Community Legal Assistance Society",
+          "reason_rules": [
+            "professional_conduct"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "north_bc_police_accountability_unit",
+          "name": "Police Accountability Unit",
+          "organization": "BC First Nations Justice Council",
+          "reason_rules": [
+            "professional_conduct"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        }
+      ],
+      "automatic_publication": false
+    },
+    {
+      "public_incident_id": "mnsh_cpsbc_metis_mental_health_2024",
+      "label": "Related legal and advocacy resources",
+      "disclaimer": "These resources may help people understand complaint, human-rights or legal-support options. Miller does not determine whether a person has a legal claim.",
+      "suggestions": [
+        {
+          "canonical_resource_id": "shared_ca_human_rights_complaint_navigation",
+          "name": "Canadian Human Rights Complaint Navigation",
+          "organization": "Canadian Human Rights Commission",
+          "reason_rules": [
+            "professional_conduct"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_bc_indigenous_community_legal_workers",
+          "name": "Indigenous Community Legal Workers",
+          "organization": "Legal Aid BC",
+          "reason_rules": [
+            "professional_conduct"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_bc_mental_health_law_program",
+          "name": "Mental Health Law Program",
+          "organization": "Community Legal Assistance Society",
+          "reason_rules": [
+            "professional_conduct"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "north_bc_police_accountability_unit",
+          "name": "Police Accountability Unit",
+          "organization": "BC First Nations Justice Council",
+          "reason_rules": [
+            "professional_conduct"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        }
+      ],
+      "automatic_publication": false
+    },
+    {
+      "public_incident_id": "mnsh_cpsbc_primary_care_generalization_2025",
+      "label": "Related legal and advocacy resources",
+      "disclaimer": "These resources may help people understand complaint, human-rights or legal-support options. Miller does not determine whether a person has a legal claim.",
+      "suggestions": [
+        {
+          "canonical_resource_id": "shared_ca_human_rights_complaint_navigation",
+          "name": "Canadian Human Rights Complaint Navigation",
+          "organization": "Canadian Human Rights Commission",
+          "reason_rules": [
+            "professional_conduct"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_bc_indigenous_community_legal_workers",
+          "name": "Indigenous Community Legal Workers",
+          "organization": "Legal Aid BC",
+          "reason_rules": [
+            "professional_conduct"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_bc_mental_health_law_program",
+          "name": "Mental Health Law Program",
+          "organization": "Community Legal Assistance Society",
+          "reason_rules": [
+            "professional_conduct"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "north_bc_police_accountability_unit",
+          "name": "Police Accountability Unit",
+          "organization": "BC First Nations Justice Council",
+          "reason_rules": [
+            "professional_conduct"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        }
+      ],
+      "automatic_publication": false
+    },
+    {
+      "public_incident_id": "mnsh_silent_world_jordan_2013",
+      "label": "Related legal and advocacy resources",
+      "disclaimer": "These resources may help people understand complaint, human-rights or legal-support options. Miller does not determine whether a person has a legal claim.",
+      "suggestions": [
+        {
+          "canonical_resource_id": "shared_ca_human_rights_complaint_navigation",
+          "name": "Canadian Human Rights Complaint Navigation",
+          "organization": "Canadian Human Rights Commission",
+          "reason_rules": [
+            "discrimination",
+            "hospital_complaint"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_sk_classic_legal_programs",
+          "name": "CLASSIC Legal Clinics",
+          "organization": "Community Legal Assistance Services for Saskatoon's Inner City",
+          "reason_rules": [
+            "discrimination"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "shared_sk_ombudsman_complaints",
+          "name": "Ombudsman Saskatchewan Complaint Service",
+          "organization": "Ombudsman Saskatchewan",
+          "reason_rules": [
+            "discrimination",
+            "hospital_complaint"
+          ],
+          "project_visibility": [
+            "miller",
+            "miller_north"
+          ],
+          "owner_review_required": true
+        },
+        {
+          "canonical_resource_id": "north_sk_healthcare_concerns_navigation",
+          "name": "Saskatchewan Health Care Concern and Complaint Navigation",
+          "organization": "Government of Saskatchewan / Saskatchewan Health Authority",
+          "reason_rules": [
+            "discrimination",
+            "hospital_complaint"
+          ],
+          "project_visibility": [
+            "miller_north"
+          ],
+          "owner_review_required": true
+        }
+      ],
+      "automatic_publication": false
+    }
+  ],
+  "generated_at": "2026-09-08T00:17:43.012Z",
+  "owner_review_required": true
+}

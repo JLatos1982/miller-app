@@ -12,6 +12,7 @@ data/location-qc-review-decisions.local.json
 dist
 dist-ssr
 .cache
+.farm-operations/
 *.local
 *.tmp
 tmp/
