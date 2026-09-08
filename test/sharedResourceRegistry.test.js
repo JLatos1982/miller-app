@@ -8,8 +8,8 @@ import { filterMillerNorthSupports } from "../src/site/millerNorthSupportFilters
 import { projectSharedResources, validateSharedResourceRegistry } from "../server/sharedResourceRegistry.js"
 
 test("shared public registry validates and preserves distinct project projections", () => {
-  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 124, miller_only: 47, miller_north_only: 42, both: 35 })
-  assert.equal(projectSharedResources(registry, "miller").length, 82)
+  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 126, miller_only: 49, miller_north_only: 42, both: 35 })
+  assert.equal(projectSharedResources(registry, "miller").length, 84)
   assert.equal(projectSharedResources(registry, "miller_north").length, 77)
 })
 
@@ -77,4 +77,15 @@ test("verified legal-navigation services project independently into both product
   assert.ok(north.some(record => record.canonical_resource_id === "shared_bc_virtual_indigenous_justice_centre"))
   assert.equal(miller.some(record => record.canonical_resource_id === "north_bc_police_accountability_unit"), false)
   assert.equal(north.some(record => record.canonical_resource_id === "north_bc_police_accountability_unit"), true)
+})
+
+test("institutional research contributes practical re-entry resources to Miller only", () => {
+  const miller = projectSharedResources(registry, "miller")
+  const north = projectSharedResources(registry, "miller_north")
+  const arc = miller.find(record => record.canonical_resource_id === "miller_sk_jhss_adults_reintegrating_community")
+  const housing = miller.find(record => record.canonical_resource_id === "miller_sk_jhss_my_place")
+  assert.match(arc.access, /Institutional Support Line/i)
+  assert.equal(housing.housing.housing_type, "emergency_transitional_and_long_term")
+  assert.equal(north.some(record => record.canonical_resource_id === arc.canonical_resource_id), false)
+  assert.equal(north.some(record => record.canonical_resource_id === housing.canonical_resource_id), false)
 })

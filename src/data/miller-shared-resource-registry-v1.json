@@ -1,6 +1,6 @@
 {
   "schema_version": "miller-shared-resource-registry-v1",
-  "generated_at": "2026-09-07",
+  "generated_at": "2026-09-08",
   "publication_boundary": "Public-source records only. Project-specific projections remain distinct.",
   "taxonomy": {
     "healthcare": [
@@ -310,6 +310,63 @@
       ],
       "source_record_ids": [
         "support:sources-admin-accounting-works"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_sk_jhss_adults_reintegrating_community",
+      "record_type": "service",
+      "organization": "John Howard Society of Saskatchewan",
+      "program_name": "Adults Reintegrating in Community",
+      "categories": [
+        "healthcare",
+        "housing",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "corrections reentry",
+        "substance use navigation",
+        "mental health navigation",
+        "housing navigation",
+        "family support"
+      ],
+      "description": "Client-centred reintegration planning and community connections for adult men leaving incarceration, including links to organizations that can address identified support needs.",
+      "population_served": "Adult men leaving incarceration in Saskatchewan",
+      "indigenous_scope": "not_indigenous_specific",
+      "governance_type": "community_nonprofit",
+      "geography": "Prince Albert, Regina and Saskatoon, Saskatchewan",
+      "province": "Saskatchewan",
+      "city_community": "",
+      "service_area": "Prince Albert, Regina and Saskatoon, Saskatchewan",
+      "delivery_modes": [
+        "in_person",
+        "phone"
+      ],
+      "eligibility": "Adult men leaving incarceration; the program confirms current referral and participation requirements.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact a listed program office or call the provincial Institutional Support Line for current program and referral information.",
+      "phone": "1-888-540-7093",
+      "email": "",
+      "website": "https://sk.johnhoward.ca/service/adults-reintegrating-in-community/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "Adults Reintegrating in Community",
+        "authority": "John Howard Society of Saskatchewan",
+        "url": "https://sk.johnhoward.ca/service/adults-reintegrating-in-community/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_sk_jhss_adults_reintegrating_community"
       ]
     },
     {
@@ -4689,6 +4746,65 @@
       ],
       "source_record_ids": [
         "north_mns_patient_support_workers"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_sk_jhss_my_place",
+      "record_type": "service",
+      "organization": "John Howard Society of Saskatchewan",
+      "program_name": "My Place",
+      "categories": [
+        "healthcare",
+        "housing",
+        "practical_support"
+      ],
+      "subcategories": [
+        "housing",
+        "corrections reentry",
+        "health navigation",
+        "cultural support"
+      ],
+      "description": "Emergency, transitional and longer-term housing with caseworker support for people involved with the justice system who are experiencing homelessness.",
+      "population_served": "People involved with the justice system and living in homelessness",
+      "indigenous_scope": "not_indigenous_specific",
+      "governance_type": "community_nonprofit",
+      "geography": "Moose Jaw, Regina and Saskatoon, Saskatchewan",
+      "province": "Saskatchewan",
+      "city_community": "",
+      "service_area": "Moose Jaw, Regina and Saskatoon, Saskatchewan",
+      "delivery_modes": [
+        "in_person"
+      ],
+      "eligibility": "People involved with the justice system and living in homelessness; contact the program for its current intake process.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Review the program page and contact the John Howard Society of Saskatchewan for current intake information.",
+      "phone": "",
+      "email": "",
+      "website": "https://sk.johnhoward.ca/service/my-place-program/",
+      "funding": null,
+      "housing": {
+        "housing_type": "emergency_transitional_and_long_term",
+        "application_process": "Contact the program for its current intake process",
+        "availability": "Not stated on the public program page",
+        "restrictions": "For people involved with the justice system and living in homelessness"
+      },
+      "legal_support": null,
+      "transportation": null,
+      "source": {
+        "title": "My Place",
+        "authority": "John Howard Society of Saskatchewan",
+        "url": "https://sk.johnhoward.ca/service/my-place-program/"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_sk_jhss_my_place"
       ]
     },
     {

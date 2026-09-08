@@ -1,3 +1,5 @@
+import { isOriginalMillerPublicResource } from "./farmPublicationRouting.js"
+
 const PRIVATE_FIELD = /^(?:owner|private|internal|candidate|review_note|patient|complainant|confidence)/i
 const ACTIVE_FUNDING = new Set(["open", "recurring", "upcoming", "contact_to_confirm", "intake_unknown", "verify_before_applying", "paused"])
 const TOP_LEVEL = new Set(["healthcare", "housing", "legal_rights", "financial_funding", "family_community", "practical_support"])
@@ -151,6 +153,7 @@ export function buildSharedResourceRegistry(collections = []) {
 }
 
 export function projectSharedResources(registry, project) {
+  if (project === "miller") return registry.records.filter(isOriginalMillerPublicResource)
   return registry.records.filter(record => record.project_visibility.includes(project) && record.verification_status !== "needs_review")
 }
 
