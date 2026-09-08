@@ -1,0 +1,30 @@
+{
+  "schema_version": "farm-legal-query-taxonomy-v2",
+  "version": "2026-09-08",
+  "purpose": "Auditable, citation-led legal discovery for Miller North and Miller. Query terms are leads only and never determine a finding or publication state.",
+  "date_bands": ["2024-present", "2020-2023", "2015-2019", "historical_high_value"],
+  "jurisdictions": [
+    { "id": "bc", "official_surfaces": ["BCHRT", "BCSC", "BCCA", "health regulator reviews"] },
+    { "id": "ab", "official_surfaces": ["Alberta Human Rights Tribunal", "ABKB", "ABCA", "health regulator reviews"] },
+    { "id": "sk", "official_surfaces": ["Saskatchewan Human Rights Commission", "SKKB", "SKCA", "health regulator reviews"] },
+    { "id": "federal", "official_surfaces": ["CHRT", "Federal Court", "Federal Court of Appeal", "Supreme Court of Canada"] }
+  ],
+  "miller_north": {
+    "identity_terms": ["Indigenous", "First Nations", "Métis", "Inuit"],
+    "healthcare_terms": ["hospital", "health authority", "emergency department", "ambulance", "medical transport", "mental health", "substance-use care", "involuntary treatment", "consent", "reproductive care", "rural healthcare"],
+    "mechanism_terms": ["discrimination", "racism", "stereotype", "intoxication", "drug seeking", "discharge", "delay", "refusal of care", "security", "restraint", "seclusion", "cultural safety"],
+    "formal_process_terms": ["human rights", "judicial review", "appeal", "professional discipline", "consent agreement", "coroner", "inquest"]
+  },
+  "miller": {
+    "subject_terms": ["addiction", "substance use", "opioid use disorder", "methadone", "buprenorphine", "OAT", "detox", "withdrawal management", "harm reduction", "overdose prevention", "mental health"],
+    "housing_terms": ["homelessness", "eviction", "supportive housing", "tenancy", "accommodation"],
+    "legal_terms": ["disability discrimination", "treatment access", "involuntary treatment", "income support", "benefits appeal", "drug treatment court"]
+  },
+  "exclusions": [
+    "A pleading or allegation is not a finding.",
+    "A procedural ruling is not a merits decision.",
+    "A settlement is not an admission unless the source expressly says so.",
+    "Indigenous identity is never inferred from name, location, or community proximity.",
+    "A decision is not routed to Miller North without explicit Indigenous relevance and material healthcare/accountability relevance."
+  ]
+}

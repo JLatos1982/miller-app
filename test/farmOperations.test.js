@@ -7,7 +7,7 @@ import { join } from "node:path"
 import registry from "../src/data/farm-listener-registry-v1.json" with { type: "json" }
 import resources from "../src/data/miller-shared-resource-registry-v1.json" with { type: "json" }
 import { auditCanonicalResources, FARM_SELF_HEALING_POLICY } from "../server/farmDataQuality.js"
-import { analyzeListenerBatch, compareResourceSnapshots, createFarmIgorRequest, createFarmIgorResponse, dispatchFarmIgorJob, ensureFarmIgorCredential, FARM_IGOR_CAPABILITIES, handleFarmIgorEnvelope, probeFarmIgor, verifyFarmIgorRequest, verifyFarmIgorResponse } from "../server/farmIgorWorker.js"
+import { analyzeListenerBatch, compareResourceSnapshots, createFarmIgorRequest, createFarmIgorResponse, dispatchFarmIgorJob, ensureFarmIgorCredential, FARM_IGOR_CAPABILITIES, handleFarmIgorEnvelope, normalizeLegalCitations, probeFarmIgor, resourceUrlHealth, verifyFarmIgorRequest, verifyFarmIgorResponse } from "../server/farmIgorWorker.js"
 import { buildFarmEvidenceGraph, reconcileFarmGraphEdge, suggestLegalSupportPathways } from "../server/farmEvidenceGraph.js"
 import { executeFarmJob, farmJobDue, farmListenerInventory, planFarmJobs, runFarmCycle } from "../server/farmJobScheduler.js"
 import { createFarmOperationsStore } from "../server/farmOperationsStore.js"
@@ -122,6 +122,30 @@ test("Igor bounded workloads detect structured changes and obvious duplicates de
   assert.deepEqual(diff.records[0].changed_fields, ["phone"])
   const batch = analyzeListenerBatch([{ id: "one", title: "Same", url: "https://a.test" }, { id: "two", title: "Same", url: "https://a.test?utm_source=x" }])
   assert.equal(batch.duplicates_suppressed, 1)
+})
+
+test("URL health verifies a HEAD 404 with GET before suggesting closure", async () => {
+  const methods = []
+  const result = await resourceUrlHealth([{ canonical_resource_id: "r", website: "https://official.example/program" }], {}, async (_url, options) => {
+    methods.push(options.method)
+    return { status: options.method === "HEAD" ? 404 : 200, ok: options.method === "GET", url: "https://official.example/program" }
+  })
+  assert.deepEqual(methods, ["HEAD", "GET"])
+  assert.equal(result.successful, 1)
+  assert.equal(result.closure_candidates, 0)
+})
+
+test("Igor normalizes legal citations and flags duplicates or ambiguous citations", () => {
+  const result = normalizeLegalCitations([
+    { id: "one", citation: "2021 FC 969", process_role: "judicial_review" },
+    { id: "duplicate", title: "2021 FC 969" },
+    { id: "unknown", title: "Reasons without a neutral citation" },
+  ])
+  assert.equal(result.checked, 3)
+  assert.equal(result.valid, 1)
+  assert.equal(result.records[0].canonical_legal_id, "legal:2021-fc-969")
+  assert.equal(result.duplicates_suppressed, 1)
+  assert.equal(result.owner_review.length, 2)
 })
 
 test("Igor offline and malformed worker responses fail closed", async () => {

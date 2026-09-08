@@ -1,0 +1,27 @@
+{
+  "schema_version": "farm-legal-event-graph-v2",
+  "generated_at": "2026-09-08",
+  "publication_boundary": "Private reviewed-edge proposal. No automatic merge or publication.",
+  "nodes": [
+    { "id": "watch:mnaw_jordans_principle_legal_private_candidate", "type": "accountability_watch_candidate", "title": "Jordan's Principle national legal and implementation chain", "public": false },
+    { "id": "legal:legal_ca_2016_chrt_2", "type": "legal_record", "citation": "2016 CHRT 2", "process_role": "merits_decision" },
+    { "id": "legal:legal_ca_2021_fc_969", "type": "legal_record", "citation": "2021 FC 969", "process_role": "judicial_review" },
+    { "id": "legal:legal_ca_2023_chrt_44", "type": "legal_record", "citation": "2023 CHRT 44", "process_role": "settlement_approval_reasons" },
+    { "id": "legal:legal_ca_2024_chrt_95", "type": "legal_record", "citation": "2024 CHRT 95", "process_role": "compliance_order" },
+    { "id": "source:isc_2025_jordans_principle_audit", "type": "implementation_evidence", "public": false }
+  ],
+  "edges": [
+    { "from": "legal:legal_ca_2016_chrt_2", "to": "watch:mnaw_jordans_principle_legal_private_candidate", "type": "resulted_in", "owner_review": true },
+    { "from": "legal:legal_ca_2021_fc_969", "to": "legal:legal_ca_2016_chrt_2", "type": "judicial_review_of", "owner_review": true },
+    { "from": "legal:legal_ca_2023_chrt_44", "to": "watch:mnaw_jordans_principle_legal_private_candidate", "type": "corroborates", "owner_review": true },
+    { "from": "legal:legal_ca_2024_chrt_95", "to": "watch:mnaw_jordans_principle_legal_private_candidate", "type": "corroborates", "owner_review": true },
+    { "from": "source:isc_2025_jordans_principle_audit", "to": "watch:mnaw_jordans_principle_legal_private_candidate", "type": "implementation_evidence", "owner_review": true }
+  ],
+  "reconciliation": {
+    "same_as_silent_world_of_jordan": false,
+    "reason": "The Saskatchewan child-advocate incident and the national Jordan's Principle service-equality litigation are separate matters.",
+    "duplicate_events_created": 0,
+    "automatic_merges": 0,
+    "automatic_publications": 0
+  }
+}

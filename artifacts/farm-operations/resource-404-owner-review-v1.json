@@ -1,0 +1,26 @@
+{
+  "schema_version": "farm-resource-404-owner-review-v1",
+  "reviewed_at": "2026-09-08",
+  "records": [
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_federal_aep_business_opportunities",
+      "head_status": 404,
+      "get_status": 200,
+      "outcome": "active_source_head_false_positive",
+      "official_url": "https://www.sac-isc.gc.ca/eng/1582037564226/1610797399865",
+      "source_status": "open_call_deadline_2026-10-31",
+      "resource_correction_required": false
+    },
+    {
+      "canonical_resource_id": "funding:miller-north:fnfund_federal_aep",
+      "head_status": 404,
+      "get_status": 200,
+      "outcome": "active_source_head_false_positive",
+      "official_url": "https://www.sac-isc.gc.ca/eng/1375201178602/1610797286236",
+      "source_status": "ongoing_no_deadline",
+      "resource_correction_required": false
+    }
+  ],
+  "listener_change": "HEAD responses with status 403, 404 or 405 are now verified with a bounded GET before closure classification.",
+  "production_mutations": 0
+}

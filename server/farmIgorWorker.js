@@ -10,6 +10,7 @@ export const FARM_IGOR_CAPABILITIES = Object.freeze([
   "resource_url_health",
   "structured_diff",
   "listener_batch_parse",
+  "legal_citation_normalization",
 ])
 
 const MAX_BODY_BYTES = 128 * 1024
@@ -108,6 +109,7 @@ export function validateFarmIgorCapabilityResult(capability, result) {
   if (capability === "resource_url_health" && !(Number.isInteger(result.checked) && Array.isArray(result.documents))) throw new Error("igor_result_partial")
   if (capability === "structured_diff" && !(Number.isInteger(result.checked) && Number.isInteger(result.changed) && Array.isArray(result.records))) throw new Error("igor_result_partial")
   if (capability === "listener_batch_parse" && !(Number.isInteger(result.checked) && Number.isInteger(result.duplicates_suppressed) && Array.isArray(result.normalized) && Array.isArray(result.owner_review))) throw new Error("igor_result_partial")
+  if (capability === "legal_citation_normalization" && !(Number.isInteger(result.checked) && Number.isInteger(result.valid) && Number.isInteger(result.duplicates_suppressed) && Array.isArray(result.records) && Array.isArray(result.owner_review))) throw new Error("igor_result_partial")
   return true
 }
 
@@ -149,15 +151,30 @@ export function analyzeListenerBatch(items = []) {
   return { checked: Math.min(items.length, 100), valid: normalized.length, duplicates_suppressed: duplicates.length, normalized, duplicates, owner_review: normalized.filter(item => !item.source_url).map(item => item.id) }
 }
 
-async function resourceUrlHealth(records, previous = {}) {
+export function normalizeLegalCitations(items = []) {
+  const records = []; const ownerReview = []; const seen = new Map(); const citationPattern = /\b((?:19|20)\d{2})\s+([A-Z][A-Z0-9]{1,11})\s+(\d{1,6})\b/i
+  for (const item of items.slice(0, 100)) {
+    const raw = clean(item.citation || item.title || item.case_name, 240)
+    const match = raw.match(citationPattern)
+    if (!match) { ownerReview.push({ id: clean(item.id || item.legal_record_id || "missing", 180), reason: "citation_not_deterministically_parsed" }); continue }
+    const citation = `${match[1]} ${match[2].toUpperCase()} ${Number(match[3])}`
+    const canonicalId = `legal:${citation.toLowerCase().replace(/\s+/g, "-")}`
+    if (seen.has(canonicalId)) { ownerReview.push({ id: clean(item.id || canonicalId, 180), reason: "duplicate_citation", same_as: seen.get(canonicalId) }); continue }
+    seen.set(canonicalId, clean(item.id || canonicalId, 180))
+    records.push({ id: clean(item.id || item.legal_record_id || canonicalId, 180), canonical_legal_id: canonicalId, citation, decision_year: Number(match[1]), court_code: match[2].toUpperCase(), decision_number: Number(match[3]), source_url: clean(item.source_url || item.url, 500), process_role: clean(item.process_role, 80) || "owner_review_required" })
+  }
+  return { checked: Math.min(items.length, 100), valid: records.length, duplicates_suppressed: ownerReview.filter(item => item.reason === "duplicate_citation").length, records, owner_review: ownerReview }
+}
+
+export async function resourceUrlHealth(records, previous = {}, fetchImpl = fetch) {
   const prior = new Map((previous.documents || []).map(item => [item.canonical_resource_id, item]))
   const documents = []
   for (const record of records.slice(0, 20)) {
     const url = record.url || record.website || record.source?.url
     let status = "transient_failure"; let final_url = url; let http_status = null
     try {
-      let response = await fetch(url, { method: "HEAD", redirect: "follow", signal: AbortSignal.timeout(12_000), headers: { "User-Agent": "Miller-Farm-Igor-ReadOnly/1.0" } })
-      if ([403, 405].includes(response.status)) response = await fetch(url, { method: "GET", redirect: "follow", signal: AbortSignal.timeout(12_000), headers: { "User-Agent": "Miller-Farm-Igor-ReadOnly/1.0", Range: "bytes=0-2047" } })
+      let response = await fetchImpl(url, { method: "HEAD", redirect: "follow", signal: AbortSignal.timeout(12_000), headers: { "User-Agent": "Miller-Farm-Igor-ReadOnly/1.0" } })
+      if ([403, 404, 405].includes(response.status)) response = await fetchImpl(url, { method: "GET", redirect: "follow", signal: AbortSignal.timeout(12_000), headers: { "User-Agent": "Miller-Farm-Igor-ReadOnly/1.0", Range: "bytes=0-2047" } })
       http_status = response.status; final_url = response.url || url; status = response.ok ? (final_url !== url ? "redirect" : "resolves") : response.status >= 500 || response.status === 429 ? "temporary_failure" : `http_${response.status}`
     } catch { status = "transient_failure" }
     const old = prior.get(record.canonical_resource_id)
@@ -174,6 +191,7 @@ export async function executeFarmIgorCapability(capability, payload = {}) {
   if (capability === "resource_url_health") return resourceUrlHealth(payload.records || [], payload.previous || {})
   if (capability === "structured_diff") return compareResourceSnapshots(payload.before || [], payload.after || [])
   if (capability === "listener_batch_parse") return analyzeListenerBatch(payload.items || [])
+  if (capability === "legal_citation_normalization") return normalizeLegalCitations(payload.items || [])
   throw new Error("igor_capability_unsupported")
 }
 

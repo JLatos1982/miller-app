@@ -16,6 +16,7 @@ import { runExactDocumentListener, runFnhoPublicationsListener, runSaskatchewanH
 import { farmListenerInventory, runFarmCycle } from "../server/farmJobScheduler.js"
 import { createFarmOperationsStore } from "../server/farmOperationsStore.js"
 import { runFarmSecuritySanity } from "../server/farmSecurityMaintenance.js"
+import { buildFarmReviewItemsFromRuns, buildFarmStatusSnapshot, createFarmSupabasePublisher } from "../server/farmSupabaseInteraction.js"
 import { buildFarmWeeklyOwnerEmail, deliverFarmWeeklyOwnerEmail } from "../server/farmWeeklyOwnerEmail.js"
 import { createEmailSender } from "../server/millerEmailResults.js"
 
@@ -173,14 +174,48 @@ if (!lock.acquired) {
 try {
   const state = store.loadState()
   const workerHealth = { igor: await probeFarmIgor(root) }
-  const cycle = await runFarmCycle({ registry, state, adapters, workerHealth, mode, only, maxJobs })
+  const privatePublisher = createFarmSupabasePublisher({
+    url: process.env.FARM_PRIVATE_SUPABASE_URL || process.env.SUPABASE_URL,
+    serviceRoleKey: process.env.FARM_PRIVATE_SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY,
+    ownerId: process.env.FARM_PRIVATE_OWNER_ID || process.env.SAMWISE_OWNER_STATUS_OWNER_ID,
+    enabled: mode === "execute" && (process.env.FARM_PRIVATE_STATUS_PUBLISH_ENABLED === "true" || process.env.SAMWISE_OWNER_STATUS_PUBLISH_ENABLED === "true"),
+  })
+  let mailboxRequest = null
+  let mailboxTarget = null
+  if (!only && privatePublisher.configured) {
+    mailboxRequest = await privatePublisher.fetchRunnableRequest()
+    if (mailboxRequest) {
+      const requestedTarget = mailboxRequest.request_type === "generate_owner_report" ? "farm_weekly_owner_summary" : mailboxRequest.target_id
+      const registered = registry.listeners.find(item => item.listener_id === requestedTarget)
+      if (registered?.enabled && registered.mutation_authority === false && registered.publication_authority === false) mailboxTarget = requestedTarget
+      else await privatePublisher.completeRequest(mailboxRequest.id, { state: "rejected", resultCode: "invalid_target" })
+    }
+  }
+  const cycle = await runFarmCycle({ registry, state, adapters, workerHealth, mode, only: only || mailboxTarget, maxJobs: mailboxTarget ? 1 : maxJobs })
   store.saveState(cycle.state)
   store.appendRuns(cycle.runs)
   const allHistory = store.loadHistory()
   const inventory = farmListenerInventory({ registry, state: cycle.state, history: allHistory })
   store.saveInventory(inventory)
-  store.saveCycle({ ...cycle, worker_health: workerHealth, production_writes: 0, publication_writes: 0 })
-  console.log(JSON.stringify({ status: "completed", mode, selected_jobs: cycle.selected_jobs, runs: cycle.runs.map(run => ({ listener_id: run.listener_id, status: run.status, checked: run.checked, changed: run.new_documents + run.updated_documents + run.material_changes, owner_review: run.owner_review, errors: run.errors })), worker_health: workerHealth, enabled_jobs: inventory.filter(item => item.enabled).length, disabled_jobs: inventory.filter(item => !item.enabled).length, production_writes: 0, publication_writes: 0 }))
+  let privateSync = { status: "disabled", review_items: 0 }
+  if (privatePublisher.configured) {
+    const snapshot = buildFarmStatusSnapshot({ inventory, history: allHistory, workerHealth })
+    const reviewItems = buildFarmReviewItemsFromRuns(cycle.runs, snapshot.generated_at)
+    const [statusResult, reviewResult] = await Promise.all([privatePublisher.publishStatus(snapshot), privatePublisher.publishReviewItems(reviewItems)])
+    privateSync = { status: statusResult.status, review_status: reviewResult.status, review_items: reviewResult.count }
+  }
+  if (mailboxRequest && mailboxTarget) {
+    const run = cycle.runs.find(item => item.listener_id === mailboxTarget)
+    const completed = run?.status === "completed"
+    await privatePublisher.completeRequest(mailboxRequest.id, {
+      state: completed ? "completed" : "deferred",
+      resultCode: completed ? (Number(run.owner_review || 0) > 0 || Number(run.new_documents || 0) + Number(run.updated_documents || 0) + Number(run.material_changes || 0) > 0 ? "completed_with_review" : "completed_no_change") : "accepted",
+      resultReference: run?.run_id || mailboxTarget,
+    })
+    privateSync.mailbox_request = { id: mailboxRequest.id, request_type: mailboxRequest.request_type, target_id: mailboxTarget, state: completed ? "completed" : "deferred" }
+  }
+  store.saveCycle({ ...cycle, worker_health: workerHealth, private_sync: privateSync, production_writes: 0, publication_writes: 0 })
+  console.log(JSON.stringify({ status: "completed", mode, selected_jobs: cycle.selected_jobs, runs: cycle.runs.map(run => ({ listener_id: run.listener_id, status: run.status, checked: run.checked, changed: run.new_documents + run.updated_documents + run.material_changes, owner_review: run.owner_review, errors: run.errors })), worker_health: workerHealth, private_sync: privateSync, enabled_jobs: inventory.filter(item => item.enabled).length, disabled_jobs: inventory.filter(item => !item.enabled).length, production_writes: 0, publication_writes: 0 }))
 } finally {
   store.release()
 }

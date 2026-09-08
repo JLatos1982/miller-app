@@ -1,0 +1,142 @@
+{
+  "schema_version": "farm-legal-corpus-mining-v2",
+  "reviewed_at": "2026-09-08",
+  "publication_boundary": "Private owner-review corpus. No record is automatically published or treated as a factual finding beyond its stated procedural role.",
+  "scope": {
+    "index_entries_compared": 647,
+    "existing_decision_records_reconciled": 10,
+    "new_citation_led_records_reviewed": 9,
+    "jurisdictions": { "british_columbia": 8, "alberta": 4, "saskatchewan": 0, "federal_canada_wide": 7 },
+    "recent_2024_present": 2,
+    "historical_pre_2024": 17,
+    "external_api_cost_usd": 0,
+    "qwen_used": false
+  },
+  "new_records": [
+    {
+      "legal_record_id": "legal_bc_2019_bcsc_227",
+      "case_name": "A.H. v. Fraser Health Authority",
+      "citation": "2019 BCSC 227",
+      "jurisdiction": "British Columbia",
+      "process_role": "final_judgment",
+      "project_route": "miller_north_private_review",
+      "summary": "The court found that a health authority's prolonged hospital detention of an Indigenous woman could not be justified as a continuing emergency measure and addressed Charter and statutory safeguards.",
+      "indigenous_relevance": "explicit_in_public_decision",
+      "healthcare_relevance": "direct_hospital_detention_and_consent_capacity",
+      "finding_boundary": "The judgment concerns the lawfulness of detention and process. It is not a finding of Indigenous-specific racism.",
+      "disposition": "owner_review_sensitive_new_legal_evidence_candidate",
+      "source_url": "https://www.canlii.org/en/bc/bcsc/doc/2019/2019bcsc227/2019bcsc227.html"
+    },
+    {
+      "legal_record_id": "legal_bc_2020_bchrt_52",
+      "case_name": "Smith v. Mohan (No. 2)",
+      "citation": "2020 BCHRT 52",
+      "jurisdiction": "British Columbia",
+      "process_role": "merits_decision",
+      "project_route": "both_systemic_legal_context",
+      "summary": "The Tribunal found discrimination against an Indigenous tenant in housing, including conduct connected to Indigenous stereotypes and smudging, and ordered monetary remedies.",
+      "healthcare_relevance": "none",
+      "indigenous_relevance": "explicit_and_merits_finding",
+      "housing_relevance": "direct",
+      "finding_boundary": "The merits finding concerns tenancy and Indigenous discrimination; it is not a healthcare finding.",
+      "disposition": "owner_review_for_legal_context_and_support_matching",
+      "source_url": "https://www.canlii.org/en/bc/bchrt/doc/2020/2020bchrt52/2020bchrt52.html"
+    },
+    {
+      "legal_record_id": "legal_ab_2021_ahrc_5",
+      "case_name": "Abel v. Faraja Mwenebembe",
+      "citation": "2021 AHRC 5",
+      "jurisdiction": "Alberta",
+      "process_role": "procedural_decision",
+      "project_route": "both_private_review",
+      "summary": "The Chief overturned an earlier dismissal so an Indigenous tenants' complaint connected to smudging could proceed to hearing.",
+      "finding_boundary": "The decision allowed a complaint to proceed; it did not determine that discrimination occurred.",
+      "disposition": "keep_private_pending_merits_or_final_outcome",
+      "source_url": "https://www.canlii.org/en/ab/abhrc/doc/2021/2021ahrc5/2021ahrc5.html"
+    },
+    {
+      "legal_record_id": "legal_bc_2022_scc_27",
+      "case_name": "British Columbia (Attorney General) v. Council of Canadians with Disabilities",
+      "citation": "2022 SCC 27",
+      "jurisdiction": "Canada-wide / British Columbia",
+      "process_role": "final_judgment_on_public_interest_standing",
+      "project_route": "miller_systemic_legal_context",
+      "summary": "The Supreme Court granted public-interest standing for a challenge to B.C. mental-health legislation governing non-consensual psychiatric treatment.",
+      "finding_boundary": "The Court decided standing, not the merits of the underlying constitutional challenge.",
+      "disposition": "owner_review_systemic_context",
+      "source_url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/19424/1/document.do"
+    },
+    {
+      "legal_record_id": "legal_bc_2009_bcca_563",
+      "case_name": "Victoria (City) v. Adams",
+      "citation": "2009 BCCA 563",
+      "jurisdiction": "British Columbia",
+      "process_role": "appeal_judgment",
+      "project_route": "miller_systemic_legal_context",
+      "summary": "The Court of Appeal upheld a declaration concerning enforcement of an overnight-sheltering prohibition where adequate shelter space was unavailable.",
+      "finding_boundary": "This is constitutional homelessness context, not an addiction-treatment finding.",
+      "disposition": "owner_review_systemic_context",
+      "source_url": "https://www.canlii.org/en/bc/bcca/doc/2009/2009bcca563/2009bcca563.html"
+    },
+    {
+      "legal_record_id": "legal_bc_2015_bcsc_1909",
+      "case_name": "Abbotsford (City) v. Shantz",
+      "citation": "2015 BCSC 1909",
+      "jurisdiction": "British Columbia",
+      "process_role": "final_judgment",
+      "project_route": "miller_systemic_legal_context",
+      "summary": "The court addressed constitutional limits on municipal enforcement against people experiencing homelessness in encampments.",
+      "finding_boundary": "This is housing and homelessness context, not a healthcare or addiction merits finding.",
+      "disposition": "owner_review_systemic_context",
+      "source_url": "https://www.canlii.org/en/bc/bcsc/doc/2015/2015bcsc1909/2015bcsc1909.html"
+    },
+    {
+      "legal_record_id": "legal_ab_2007_abca_426",
+      "case_name": "Alberta (Human Rights and Citizenship Commission) v. Kellogg Brown & Root (Canada) Company",
+      "citation": "2007 ABCA 426",
+      "jurisdiction": "Alberta",
+      "process_role": "appeal_judgment",
+      "project_route": "miller_legal_context",
+      "summary": "The Court of Appeal rejected a perceived-disability discrimination claim arising from a positive pre-employment drug test on the record before it.",
+      "finding_boundary": "The decision distinguishes recreational drug use from an established or perceived addiction disability; it does not hold that addiction is never protected.",
+      "disposition": "owner_review_legal_limitation_context",
+      "source_url": "https://www.canlii.org/en/ab/abca/doc/2007/2007abca426/2007abca426.html"
+    },
+    {
+      "legal_record_id": "legal_ca_2023_chrt_44",
+      "case_name": "First Nations Child and Family Caring Society of Canada et al. v. Attorney General of Canada",
+      "citation": "2023 CHRT 44",
+      "jurisdiction": "Canada-wide",
+      "process_role": "settlement_approval_reasons",
+      "project_route": "miller_north_accountability_watch",
+      "proposed_accountability_chain_id": "mnaw_jordans_principle_legal_private_candidate",
+      "summary": "The Tribunal approved a revised compensation settlement connected to its earlier First Nations child-and-family services and Jordan's Principle findings.",
+      "finding_boundary": "Settlement approval is not evidence that all service-equality orders were implemented or produced outcomes.",
+      "disposition": "strengthens_existing_jordans_principle_chain_owner_review",
+      "source_url": "https://www.canlii.org/en/ca/chrt/doc/2023/2023chrt44/2023chrt44.html"
+    },
+    {
+      "legal_record_id": "legal_ca_2024_chrt_95",
+      "case_name": "First Nations Child and Family Caring Society of Canada et al. v. Attorney General of Canada",
+      "citation": "2024 CHRT 95",
+      "jurisdiction": "Canada-wide",
+      "process_role": "compliance_order",
+      "project_route": "miller_north_accountability_watch",
+      "proposed_accountability_chain_id": "mnaw_jordans_principle_legal_private_candidate",
+      "summary": "A later Tribunal order belongs to the continuing Jordan's Principle compliance chain and warrants exact-order review before any public status change.",
+      "finding_boundary": "The citation establishes a later formal step; its specific operative terms require full-text owner review before public synthesis.",
+      "disposition": "private_exact_order_review_required",
+      "source_url": "https://www.canlii.org/en/ca/chrt/doc/2024/2024chrt95/2024chrt95.html"
+    }
+  ],
+  "reconciliation": {
+    "new_miller_north_incidents": 0,
+    "existing_miller_north_events_strengthened": 0,
+    "accountability_watch_evidence_candidates": 2,
+    "proposed_private_watch_subchains": 1,
+    "miller_systemic_or_legal_context_candidates": 5,
+    "private_procedural_or_sensitive_records": 3,
+    "duplicate_incidents_created": 0,
+    "saskatchewan_result": "No new decision met the routing and evidentiary threshold in this bounded citation-led pass; the official Saskatchewan surface remains low-yield and exact-citation monitoring is retained."
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": "farm-location-research-batch-v1",
+  "reviewed_at": "2026-09-08",
+  "mode": "read_only_detect_propose",
+  "checked": 8,
+  "production_mutations": 0,
+  "proposals": [
+    {
+      "resource_id": "FNHA Virtual Substance Use & Psychiatry Service",
+      "issue": "missing_address",
+      "disposition": "address_not_applicable_virtual_service",
+      "province_proposal": "British Columbia",
+      "supporting_source": "https://fnha.ca/services-and-support/preventative-care/mental-health-and-wellness/mental-health-and-wellness-supports/",
+      "confidence": "high",
+      "owner_gate": true
+    },
+    {
+      "resource_id": "FNHA Mental Wellness & Counselling",
+      "issue": "missing_address",
+      "disposition": "address_not_required_benefit_network",
+      "province_proposal": "British Columbia",
+      "supporting_source": "https://fnha.ca/benefits/benefits-guide/mental-health/",
+      "confidence": "high",
+      "owner_gate": true
+    },
+    {
+      "resource_id": "KUU-US Crisis Response Service",
+      "issue": "missing_address",
+      "disposition": "address_not_required_provincewide_telephone_service",
+      "province_proposal": "British Columbia",
+      "supporting_source": "https://fnha.ca/services-and-support/preventative-care/mental-health-and-wellness/mental-health-and-wellness-supports/",
+      "confidence": "high",
+      "owner_gate": true
+    },
+    {
+      "resource_id": "BC Bereavement Helpline",
+      "issue": "missing_address",
+      "disposition": "address_not_required_provincewide_helpline",
+      "province_proposal": "British Columbia",
+      "supporting_source": "https://bcbereavementhelpline.com/",
+      "confidence": "high",
+      "owner_gate": true
+    },
+    {
+      "resource_id": "Talitha Koum Society (Starr House)",
+      "issue": "missing_address",
+      "disposition": "physical_program_address_intentionally_not_proposed",
+      "province_proposal": "British Columbia",
+      "city_proposal": "Coquitlam",
+      "supporting_source": "https://talithakoumsociety.org/program/",
+      "reason": "The official provider identifies residential-area program homes in Coquitlam and publishes only a mailing address; the Farm should not substitute a PO box as a service location or research a private residence address.",
+      "confidence": "high",
+      "owner_gate": true
+    },
+    {
+      "resource_id": "VisionQuest - Harte House",
+      "issue": "missing_address",
+      "disposition": "city_confirmed_exact_program_address_not_public",
+      "province_proposal": "British Columbia",
+      "city_proposal": "Surrey",
+      "supporting_source": "https://visionquestsociety.org/facilities/",
+      "reason": "The provider confirms Surrey and directs intake through head office, but does not publish the house address on the facility page.",
+      "confidence": "high",
+      "owner_gate": true
+    },
+    {
+      "resource_id": "AA Meetings",
+      "issue": "missing_address",
+      "disposition": "multi_location_directory_not_one_address",
+      "confidence": "high",
+      "owner_gate": true
+    },
+    {
+      "resource_id": "Indigenous Text Line",
+      "issue": "missing_address",
+      "disposition": "needs_source_identity_review",
+      "confidence": "low",
+      "reason": "The current generic organization label is insufficient to assign an operator or service geography beyond the existing record.",
+      "owner_gate": true
+    }
+  ],
+  "summary": {
+    "safe_normalization_or_not_applicable_proposals": 7,
+    "address_candidates_resolved_with_physical_address": 0,
+    "owner_review": 8,
+    "privacy_protected_residential_locations": 2,
+    "unresolved": 1
+  }
+}
