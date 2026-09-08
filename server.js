@@ -105,6 +105,7 @@ import publicMillerNorthFunding from "./src/data/miller-north-funding-assistance
 import publicMillerNorthSupports from "./src/data/miller-north-first-nations-supports-public-v1.json" with { type: "json" }
 import publicSharedResources from "./src/data/miller-shared-resource-registry-v1.json" with { type: "json" }
 import { toMillerNorthSharedEmailResult, toMillerNorthSupportEmailResult } from "./src/millerNorthPublicSupportEmail.js"
+import { buildSharedCanonicalMillerResources } from "./src/millerPublicSearchResources.js"
 import { millerMobileCatalog } from "./server/millerMobileCatalog.js"
 import { buildMillerMobileInventory, buildMillerMobileSearchResponse, MILLER_MOBILE_API_VERSION } from "./server/millerMobileApi.js"
 
@@ -242,6 +243,7 @@ const publicEmailRecords = [
   ...publicMillerNorthSupports.records.map(toMillerNorthSupportEmailResult).filter(Boolean),
   ...publicMillerFunding.records.map(record => ({ id: record.id, kind: "funding", name: record.name, organization: record.funder, description: record.purpose, region: record.geography, eligibility: record.who_can_apply, accessType: `${record.status}${record.deadline ? ` · deadline ${record.deadline}` : ""}. ${record.application_method}`, website: record.application_url, source: record.source.authority, last_verified_at: record.last_verified_at, approved: true })),
   ...publicMillerNorthFunding.records.map(record => ({ id: record.id, kind: "funding", name: record.name, organization: record.funder, description: record.purpose, region: record.geography, eligibility: record.who_can_apply, accessType: `${record.status}${record.deadline ? ` · deadline ${record.deadline}` : ""}. ${record.application_method}`, website: record.application_url, source: record.source.authority, last_verified_at: record.last_verified_at, approved: true })),
+  ...buildSharedCanonicalMillerResources(publicSharedResources.records),
   ...publicSharedResources.records.map(toMillerNorthSharedEmailResult).filter(Boolean),
 ]
 const emailResultIndex = buildEmailResultIndex([...curatedMapResources, ...publicEmailRecords])

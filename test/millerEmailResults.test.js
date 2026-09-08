@@ -1,6 +1,8 @@
 import assert from "node:assert/strict"
 import { readFileSync } from "node:fs"
 import test from "node:test"
+import registry from "../src/data/miller-shared-resource-registry-v1.json" with { type: "json" }
+import { buildSharedCanonicalMillerResources } from "../src/millerPublicSearchResources.js"
 import {
   buildEmailResultIndex,
   buildResultsEmail,
@@ -49,6 +51,15 @@ test("only server-authorized structured results can be emailed", () => {
   assert.throws(() => resolveEmailResults(["curated:invented"], index), /unavailable_result/)
   assert.equal(normalizeEmailResult({ ...fixture, hidden: true }), null)
   assert.equal(normalizeEmailResult({ ...fixture, approved: false }), null)
+})
+
+test("new canonical Miller resources keep their public search IDs in Email Results", () => {
+  const projected = buildSharedCanonicalMillerResources(registry.records)
+  const index = buildEmailResultIndex(projected)
+  for (const id of ["miller_ab_calgary_opioid_dependency_program", "miller_sk_regina_oat", "miller_bc_connective_vancouver_cso"]) {
+    assert.equal(resolveEmailResults([id], index)[0].id, id)
+  }
+  assert.equal(index.has("north_bc_police_accountability_unit"), false)
 })
 
 test("message generation excludes private fields and raw search text", () => {
