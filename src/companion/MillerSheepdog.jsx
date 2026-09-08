@@ -66,7 +66,7 @@ function DogCanvas({ source }) {
 // The dog is an independent, decorative canvas actor. It receives only a
 // monotonic presentation intent plus optional normalized geometry—not query,
 // result, ranking, resource, clinical, analytics, or identity data.
-export default function MillerSheepdog({ themeName, scenePosition = 'home', reducedMotion = false, animationEnabled = true, onGreetingPhaseChange, presentationIntent: incomingIntent = null, overlayHost = null, idleAllowed = false }) {
+export default function MillerSheepdog({ themeName, scenePosition = 'home', resultJourneyPhase = 'idle', reducedMotion = false, animationEnabled = true, onGreetingPhaseChange, presentationIntent: incomingIntent = null, overlayHost = null, idleAllowed = false }) {
   const actorRef = useRef(null)
   const greetingStartedRef = useRef(false)
   const handledIntentRef = useRef(0)
@@ -85,7 +85,7 @@ export default function MillerSheepdog({ themeName, scenePosition = 'home', redu
   const [followFrame, setFollowFrame] = useState('walk-1')
   const characterInteraction = interactionSupported && settled && !motionReduced && interaction
   const greetingStep = millerClassicGreetingStep(interactionIndex, { reducedMotion: motionReduced, animationEnabled })
-  const shouldFollowMiller = dogOwner === MILLER_DOG_OWNERS.SCENE && settled && !motionReduced && animationEnabled !== false && ['walking', 'returning'].includes(scenePosition)
+  const shouldFollowMiller = dogOwner === MILLER_DOG_OWNERS.SCENE && settled && !motionReduced && animationEnabled !== false && (['walking', 'returning'].includes(scenePosition) || resultJourneyPhase === 'traveling')
   const dogPose = travel?.pose || shouldFollowMiller
     ? (travel?.pose || followFrame)
     : sceneState === 'attentive' || sceneState === 'ready'
@@ -231,6 +231,6 @@ export default function MillerSheepdog({ themeName, scenePosition = 'home', redu
   const travelOverlay = dogVisuals.overlay && travel && overlayHost ? createPortal(
   <div className={`miller-companion-travel ${travel.moving ? 'is-moving' : ''} ${travel.arrived ? 'is-settled' : ''}`} aria-hidden="true" data-companion="sheepdog" data-owner="overlay" data-presentation="destination_arrived" style={{ '--dog-start-x': `${travel.start.x}px`, '--dog-start-y': `${travel.start.y}px`, '--dog-target-x': `${travel.target.x}px`, '--dog-target-y': `${travel.target.y}px`, '--dog-travel-duration': `${travel.duration}ms` }}><DogCanvas source={DOG_POSES[travel.pose] || sheepdogSit} /></div>, overlayHost) : null
 
-  const sceneDog = dogVisuals.scene ? <div ref={actorRef} className={`miller-companion-actor ${millerDogIsTraveling(step) ? 'is-approaching' : ''} ${settled ? 'is-settled' : ''} ${sceneState === 'ready' ? 'is-ready' : ''} ${shouldFollowMiller ? 'is-following' : ''}`} aria-hidden="true" data-companion={presentation.actorId} data-owner="scene" data-pose={dogPose} data-arrival-step={step?.id || 'settled'} data-greeting-step={characterInteraction ? greetingStep?.id : 'static'} data-reduced-motion={motionReduced} data-ground-anchor={`${MILLER_COMPANION.anchors.ground.x},${MILLER_COMPANION.anchors.ground.y}`} data-pet-head-anchor={`${MILLER_COMPANION.anchors.petHead.x},${MILLER_COMPANION.anchors.petHead.y}`}><DogCanvas source={source} /></div> : null
+  const sceneDog = dogVisuals.scene ? <div ref={actorRef} className={`miller-companion-actor ${millerDogIsTraveling(step) ? 'is-approaching' : ''} ${settled ? 'is-settled' : ''} ${sceneState === 'ready' ? 'is-ready' : ''} ${shouldFollowMiller ? 'is-following' : ''}`} aria-hidden="true" data-companion={presentation.actorId} data-owner="scene" data-pose={dogPose} data-arrival-step={step?.id || 'settled'} data-greeting-step={characterInteraction ? greetingStep?.id : 'static'} data-result-journey={resultJourneyPhase} data-reduced-motion={motionReduced} data-ground-anchor={`${MILLER_COMPANION.anchors.ground.x},${MILLER_COMPANION.anchors.ground.y}`} data-pet-head-anchor={`${MILLER_COMPANION.anchors.petHead.x},${MILLER_COMPANION.anchors.petHead.y}`}><DogCanvas source={source} /></div> : null
   return <>{sceneDog}{travelOverlay}</>
 }

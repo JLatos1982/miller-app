@@ -10,15 +10,16 @@ test("searched state keeps the guide scene between stable controls and wide resu
   assert.match(app, /hero-layout \$\{shouldShowResults \? "has-results" : ""\}/)
   assert.match(css, /\.hero-layout\.has-results\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\)/s)
   assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.hero-art\s*\{[^}]*display:\s*block !important/s)
-  assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.results-panel\s*\{[^}]*max-width:\s*1040px/s)
+  assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.results-panel\s*\{[^}]*max-width:\s*1120px/s)
   assert.match(app, /className="controls-row"/)
 })
 
-test("results use one wide column at every breakpoint", () => {
+test("results use a two-column destination with a single-column narrow fallback", () => {
   const app = read("../src/App.jsx")
   const css = read("../src/App.css")
-  assert.match(app, /data-layout="single-wide-column"/)
-  assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.resource-list\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\)/s)
+  assert.match(app, /data-layout="two-column-responsive"/)
+  assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.resource-list\s*\{[^}]*grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\)/s)
+  assert.match(css, /@media \(max-width: 759px\)[\s\S]*?\.hero-layout\.has-results \.resource-list\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\)/s)
   assert.doesNotMatch(css, /\.hero-layout\.has-results \.resource-list\s*\{[^}]*overflow-x:\s*(auto|scroll)/s)
 })
 
@@ -32,7 +33,9 @@ test("the richer trained speech bubble returns without duplicating a guidance ca
   assert.match(app, />Email these results<\/button>/)
   assert.match(app, /matching resource\{results\.length === 1 \? "" : "s"\}/)
   assert.match(app, /conciseResourceDescription\(resource\.description\)/)
-  assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.miller-bubble\s*\{[^}]*max-height:\s*330px/s)
+  assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.miller-bubble\s*\{[^}]*width:\s*clamp\(440px, 50vw, 580px\)/s)
+  assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.miller-bubble\s*\{[^}]*max-height:\s*none/s)
+  assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.miller-bubble\s*\{[^}]*overflow:\s*visible/s)
 })
 
 test("the original character and one dog remain the results companion scene", () => {
@@ -44,4 +47,16 @@ test("the original character and one dog remain the results companion scene", ()
   assert.match(css, /MILLER GUIDED RESULTS[\s\S]*?\.hero-layout\.has-results \.miller-figure\s*\{[^}]*left:\s*clamp\(/s)
   assert.match(css, /@media \(max-width: 600px\)[\s\S]*?\.hero-layout\.has-results \.miller-figure,[\s\S]*?display:\s*none !important/s)
   assert.match(css, /prefers-reduced-motion: reduce[\s\S]*?\.hero-layout\.has-results \.miller-figure[\s\S]*?animation:\s*none !important/s)
+})
+
+test("the existing Miller and dog nodes travel into results instead of being replaced", () => {
+  const app = read("../src/App.jsx")
+  const dog = read("../src/companion/MillerSheepdog.jsx")
+  assert.match(app, /captureResultJourneyOrigin\(companionGeneration\)/)
+  assert.match(app, /journeyKeyframes\(startRect, snapshotJourneyRect\(element\?\.getBoundingClientRect\(\)\), options\)/)
+  assert.match(app, /MILLER_RESULTS_JOURNEY\.dog/)
+  assert.match(app, /MILLER_RESULTS_JOURNEY\.character/)
+  assert.doesNotMatch(app, /destinationBesideRenderedResult/)
+  assert.equal((app.match(/<MillerSheepdog/g) || []).length, 1)
+  assert.match(dog, /resultJourneyPhase === 'traveling'/)
 })

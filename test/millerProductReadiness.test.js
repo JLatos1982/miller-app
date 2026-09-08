@@ -12,6 +12,7 @@ test("short-height fallbacks remove decorative overlap before content", () => {
   assert.match(appCss, /max-width:1180px\) and \(max-height:820px\) and \(orientation:landscape\)/)
   assert.match(appCss, /\.hero-art\{display:none!important\}/)
   assert.match(appCss, /\.miller-companion-travel\{display:none!important\}/)
+  assert.match(appCss, /max-height:760px\)[\s\S]*?\.miller-companion-actor\{left:-106px!important;width:112px!important;height:109px!important\}/)
   assert.match(appCss, /\.results-panel\.has-result-companion\{padding-left:20px\}/)
 })
 

@@ -12,6 +12,7 @@ import { mayRunMillerIdlePet, nextMillerIdleDelay } from '../src/companion/mille
 import { bubbleNeedsMillerReadingPosition, readingStageHeight, resolveMillerReadingOffset } from '../src/companion/millerSceneLayout.js'
 import { canPreviewClassicWalk, canPreviewSheepdogResultPoint, CLASSIC_WALK_POSE_SLOTS, COMPANION_POSE_PREVIEWS, SHEEPDOG_RESULT_POINT_SLOT } from '../src/companion/millerCompanionPosePreview.js'
 import { MILLER_CLASSIC_READING_WALK, MILLER_CLASSIC_READING_WALK_DURATION, millerClassicWalkStep, nextMillerClassicWalkIndex } from '../src/companion/millerClassicWalk.js'
+import { journeyKeyframes, mayAnimateResultsJourney, MILLER_RESULTS_JOURNEY, resultJourneyTransform, resultSceneMinimumHeight, snapshotJourneyRect } from '../src/companion/millerResultsJourney.js'
 
 function pngHasRgbaColorType(file) {
   return fs.readFileSync(new URL(file, import.meta.url))[25] === 6
@@ -130,6 +131,29 @@ test('jog duration is bounded and reduced-motion or mobile travel fails safely',
   assert.equal(mayTravelToResult({ target: { x: .7, y: .5 }, viewportWidth: 1280, reducedMotion: true }), false)
 })
 
+test('Miller and the dog share one bounded non-blocking journey into results', () => {
+  const start = snapshotJourneyRect({ left: 700, top: 330, width: 300, height: 450 })
+  const destination = snapshotJourneyRect({ left: 140, top: 520, width: 300, height: 450 })
+  assert.deepEqual(resultJourneyTransform(start, destination), { x: 560, y: -190, scaleX: 1, scaleY: 1 })
+  assert.deepEqual(journeyKeyframes(start, destination), [
+    { transform: 'translate(560px, -190px) scale(1, 1)', opacity: 1 },
+    { transform: 'translate(0, 0) scale(1, 1)', opacity: 1 },
+  ])
+  assert.ok(MILLER_RESULTS_JOURNEY.dog.delay < MILLER_RESULTS_JOURNEY.character.delay)
+  assert.ok(MILLER_RESULTS_JOURNEY.results.delay < MILLER_RESULTS_JOURNEY.totalDuration)
+  assert.ok(MILLER_RESULTS_JOURNEY.totalDuration < 1_000)
+  assert.equal(mayAnimateResultsJourney({ origin: { character: start, dog: start }, viewportWidth: 1440 }), true)
+  assert.equal(mayAnimateResultsJourney({ origin: { character: start, dog: start }, viewportWidth: 390 }), false)
+  assert.equal(mayAnimateResultsJourney({ origin: { character: start, dog: start }, viewportWidth: 1440, reducedMotion: true }), false)
+})
+
+test('result speech grows with ordinary content and the scene reserves its height', () => {
+  assert.equal(resultSceneMinimumHeight(280, 1440), 530)
+  assert.equal(resultSceneMinimumHeight(540, 1440), 614)
+  assert.equal(resultSceneMinimumHeight(420, 900), 494)
+  assert.equal(resultSceneMinimumHeight(420, 390), 0)
+})
+
 test('the sheepdog has one visual owner through scene, overlay, and safe reset', () => {
   assert.deepEqual(dogVisualOwnership(MILLER_DOG_OWNERS.SCENE), { scene: true, overlay: false })
   assert.deepEqual(dogVisualOwnership(MILLER_DOG_OWNERS.OVERLAY), { scene: false, overlay: true })
@@ -214,6 +238,7 @@ test('scene dog follows only the active Classic reading walk, while result trave
   assert.match(sheepdog, /scenePosition = 'home'/)
   assert.match(sheepdog, /\['walking', 'returning'\]\.includes\(scenePosition\)/)
   assert.match(sheepdog, /shouldFollowMiller/)
+  assert.match(sheepdog, /resultJourneyPhase === 'traveling'/)
   assert.match(sheepdog, /dogOwner === MILLER_DOG_OWNERS\.SCENE/)
   assert.match(app, /scenePosition=\{millerReadingPosition\}/)
   assert.match(app, /reducedMotion=\{prefersReducedMotion\}/)
