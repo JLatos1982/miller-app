@@ -3749,9 +3749,10 @@ body,
 .hero-layout.has-results .miller-figure {
   grid-column: auto;
   grid-row: auto;
-  top: 72px;
-  right: auto;
-  left: clamp(158px, 17vw, 220px);
+  top: 72px !important;
+  right: auto !important;
+  left: clamp(112px, 14vw, 168px) !important;
+  width: auto !important;
 }
 
 .hero-layout.has-results .miller-image-frame {
@@ -3764,6 +3765,23 @@ body,
   left: -146px;
   width: 150px;
   height: 146px;
+}
+
+@media (min-width: 601px) {
+  .hero-layout.has-results .miller-companion-actor {
+    display: block !important;
+  }
+}
+
+@media (min-width: 960px) {
+  .hero-layout.has-results .miller-figure.miller-reading-walking,
+  .hero-layout.has-results .miller-figure.miller-reading-reading,
+  .hero-layout.has-results .miller-figure.miller-reading-returning {
+    transform: translate(
+      clamp(-24px, var(--miller-reading-x, 0px), 42px),
+      clamp(-16px, var(--miller-reading-y, 0px), 24px)
+    ) rotate(-1deg);
+  }
 }
 
 .hero-layout.has-results .miller-bubble {
@@ -3871,7 +3889,7 @@ body,
 
 @media (min-width: 960px) and (max-width: 1180px) {
   .hero-layout.has-results .miller-figure {
-    left: 156px;
+    left: 118px !important;
   }
 
   .hero-layout.has-results .miller-bubble {
