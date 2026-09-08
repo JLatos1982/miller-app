@@ -342,10 +342,17 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
     .filter(resource => isNavigationResource(resource) && (!province || [province, "Canada-wide"].includes(provinceFor(resource))))
     .map(resource => ({ resource, score: scoreResource(resource, { ...request, location, province, intents, readiness: readiness.get(clean(resource.id)) }) }))
     .sort((left, right) => right.score - left.score || clean(left.resource.name).localeCompare(clean(right.resource.name)))
+  const localNavigationFallback = location
+    ? navigationFallback.filter(({ resource }) => servesLocation(resource, location))
+    : []
+  const orderedNavigationFallback = [
+    ...localNavigationFallback,
+    ...navigationFallback.filter(item => !localNavigationFallback.some(existing => existing.resource === item.resource)),
+  ]
   const basePool = location && !request.broaden_nearby
-    ? [...directlyRelevant, ...navigationFallback.filter(item => !directlyRelevant.some(existing => existing.resource === item.resource))]
+    ? [...directlyRelevant, ...orderedNavigationFallback.filter(item => !directlyRelevant.some(existing => existing.resource === item.resource))]
     : geographicallyRelevant
-  const pool = basePool.length ? basePool : ranked.length ? ranked : navigationFallback
+  const pool = basePool.length ? basePool : ranked.length ? ranked : orderedNavigationFallback
   const selected = pool.slice(0, request.limit).map(item => item.resource)
   const serviceAreaMatches = ranked.filter(({ resource }) => !isExactLocationResource(resource, location) && servesLocation(resource, location))
   const intelligence = buildMillerPracticalIntelligence({

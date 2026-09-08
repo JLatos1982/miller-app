@@ -108,7 +108,8 @@ export function buildMillerAccessPathway({ results = [], needs = [], searchScope
   const primary = needs[0]?.need_id
   const start = pickFirst(results, resource => resource.result_group === "start_here") || results[0]
   if (searchScope.no_verified_local_facility) {
-    const navigator = pickFirst(results, resource => ["regional_intake", "province_navigation"].includes(resource.location_relationship))
+    const navigator = pickFirst(results, resource => resource.location_relationship === "located_here")
+      || pickFirst(results, resource => ["regional_intake", "province_navigation"].includes(resource.location_relationship))
     if (navigator) steps.push({ step_id: "regional_intake", title: `Start with ${navigator.name}`, detail: navigator.location_label || "Use the verified regional navigation pathway.", resource_ids: [navigator.canonical_id], basis: "verified_service_scope" })
   }
   if (start && !steps.some(step => step.resource_ids.includes(start.canonical_id))) {

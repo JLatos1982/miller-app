@@ -132,6 +132,15 @@ test("mobile scope fields distinguish physical, regional, province-wide, virtual
   assert.ok(response.results.every(resource => Object.hasOwn(resource, "scope_note")))
 })
 
+test("a sparse local OAT search leads with the local access pathway before distant clinics", () => {
+  const response = buildMillerMobileSearchResponse({ query: "Someone in La Loche needs OAT", limit: 8 }, millerMobileCatalog, { now: fixedNow })
+  assert.equal(response.search_scope.no_verified_local_facility, true)
+  assert.equal(response.results[0].name, "Mental Health, Addictions and Withdrawal Services - La Loche")
+  assert.equal(response.results[0].location_relationship, "located_here")
+  assert.match(response.workflow.pathway[0].title, /La Loche/i)
+  assert.doesNotMatch(response.search_scope.message, /local OAT.*exists/i)
+})
+
 test("mobile share pack exposes only concise practical fields", () => {
   const response = buildMillerMobileSearchResponse({ query: "detox in Surrey", limit: 5 }, millerMobileCatalog, { now: fixedNow })
   const pack = buildMillerMobileSharePack(response, response.results.slice(0, 2).map(resource => resource.canonical_id))
