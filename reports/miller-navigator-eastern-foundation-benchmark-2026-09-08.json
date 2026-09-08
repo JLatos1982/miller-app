@@ -54,9 +54,9 @@
     "query_count": 15,
     "passing_queries": 15,
     "weak_queries": [],
-    "average_latency_ms": 99.59,
-    "p95_latency_ms": 135.96,
-    "average_payload_bytes": 22420,
+    "average_latency_ms": 98.54,
+    "p95_latency_ms": 136.38,
+    "average_payload_bytes": 22425,
     "rows": [
       {
         "id": "detox_toronto",
@@ -79,8 +79,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 114.73,
-        "payload_bytes": 24524
+        "latency_ms": 115.26,
+        "payload_bytes": 24465
       },
       {
         "id": "raam_london",
@@ -103,8 +103,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 67.21,
-        "payload_bytes": 22393
+        "latency_ms": 66.1,
+        "payload_bytes": 22365
       },
       {
         "id": "oat_ottawa",
@@ -127,8 +127,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 100.63,
-        "payload_bytes": 23438
+        "latency_ms": 99.9,
+        "payload_bytes": 23394
       },
       {
         "id": "treatment_thunder_bay_east",
@@ -151,8 +151,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 102.03,
-        "payload_bytes": 26742
+        "latency_ms": 100.93,
+        "payload_bytes": 26744
       },
       {
         "id": "indigenous_sioux_lookout_east",
@@ -175,8 +175,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 117.47,
-        "payload_bytes": 26117
+        "latency_ms": 114.12,
+        "payload_bytes": 26119
       },
       {
         "id": "housing_hamilton",
@@ -199,8 +199,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 135.96,
-        "payload_bytes": 25694
+        "latency_ms": 136.38,
+        "payload_bytes": 25651
       },
       {
         "id": "addiction_montreal_east",
@@ -223,8 +223,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 93.33,
-        "payload_bytes": 22519
+        "latency_ms": 92.3,
+        "payload_bytes": 22475
       },
       {
         "id": "withdrawal_quebec_city",
@@ -247,8 +247,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 96.08,
-        "payload_bytes": 22348
+        "latency_ms": 94.27,
+        "payload_bytes": 22290
       },
       {
         "id": "addiction_halifax_east",
@@ -271,8 +271,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 92.06,
-        "payload_bytes": 20567
+        "latency_ms": 92.32,
+        "payload_bytes": 20570
       },
       {
         "id": "treatment_cape_breton",
@@ -295,8 +295,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 98.79,
-        "payload_bytes": 21358
+        "latency_ms": 97.8,
+        "payload_bytes": 21361
       },
       {
         "id": "addiction_moncton_east",
@@ -319,8 +319,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 99.67,
-        "payload_bytes": 20223
+        "latency_ms": 97.41,
+        "payload_bytes": 20226
       },
       {
         "id": "francophone_nb",
@@ -343,8 +343,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 104.08,
-        "payload_bytes": 19941
+        "latency_ms": 103.62,
+        "payload_bytes": 20331
       },
       {
         "id": "withdrawal_pei",
@@ -367,8 +367,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 79.15,
-        "payload_bytes": 7426
+        "latency_ms": 76.32,
+        "payload_bytes": 7411
       },
       {
         "id": "treatment_corner_brook",
@@ -391,8 +391,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 99.59,
-        "payload_bytes": 25565
+        "latency_ms": 99.46,
+        "payload_bytes": 25536
       },
       {
         "id": "addiction_labrador_east",
@@ -415,8 +415,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 93.11,
-        "payload_bytes": 27443
+        "latency_ms": 91.91,
+        "payload_bytes": 27430
       }
     ]
   },
@@ -494,9 +494,9 @@
     "query_count": 15,
     "passing_queries": 15,
     "weak_queries": [],
-    "average_latency_ms": 100.41,
-    "p95_latency_ms": 138.53,
-    "average_payload_bytes": 24363,
+    "average_latency_ms": 99.33,
+    "p95_latency_ms": 137.13,
+    "average_payload_bytes": 24345,
     "rows": [
       {
         "id": "detox_winnipeg",
@@ -519,8 +519,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 82,
-        "payload_bytes": 26055
+        "latency_ms": 81.9,
+        "payload_bytes": 26011
       },
       {
         "id": "oat_brandon",
@@ -543,8 +543,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 92.51,
-        "payload_bytes": 25634
+        "latency_ms": 91.8,
+        "payload_bytes": 25606
       },
       {
         "id": "treatment_thunder_bay",
@@ -567,8 +567,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 106.01,
-        "payload_bytes": 26731
+        "latency_ms": 107.19,
+        "payload_bytes": 26718
       },
       {
         "id": "housing_toronto",
@@ -591,8 +591,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 131.46,
-        "payload_bytes": 25361
+        "latency_ms": 132.28,
+        "payload_bytes": 25302
       },
       {
         "id": "counselling_sudbury",
@@ -615,8 +615,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 83.45,
-        "payload_bytes": 27050
+        "latency_ms": 79.54,
+        "payload_bytes": 27052
       },
       {
         "id": "treatment_ottawa",
@@ -639,8 +639,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 92.16,
-        "payload_bytes": 24725
+        "latency_ms": 89.89,
+        "payload_bytes": 24666
       },
       {
         "id": "addiction_montreal",
@@ -663,8 +663,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 90.65,
-        "payload_bytes": 22519
+        "latency_ms": 90.24,
+        "payload_bytes": 22475
       },
       {
         "id": "withdrawal_halifax",
@@ -687,8 +687,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 81.98,
-        "payload_bytes": 21247
+        "latency_ms": 81.62,
+        "payload_bytes": 21250
       },
       {
         "id": "addiction_moncton",
@@ -711,8 +711,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 96.8,
-        "payload_bytes": 20223
+        "latency_ms": 95.43,
+        "payload_bytes": 20226
       },
       {
         "id": "treatment_st_johns",
@@ -735,8 +735,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 91.43,
-        "payload_bytes": 25745
+        "latency_ms": 90.25,
+        "payload_bytes": 25732
       },
       {
         "id": "addiction_whitehorse",
@@ -759,8 +759,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 90.65,
-        "payload_bytes": 17703
+        "latency_ms": 88.65,
+        "payload_bytes": 17704
       },
       {
         "id": "treatment_yellowknife",
@@ -783,8 +783,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 97.49,
-        "payload_bytes": 18635
+        "latency_ms": 94.49,
+        "payload_bytes": 18637
       },
       {
         "id": "mental_health_nunavut",
@@ -807,8 +807,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 114.16,
-        "payload_bytes": 29433
+        "latency_ms": 113.55,
+        "payload_bytes": 29434
       },
       {
         "id": "indigenous_northern_ontario",
@@ -831,8 +831,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 116.93,
-        "payload_bytes": 26714
+        "latency_ms": 115.96,
+        "payload_bytes": 26717
       },
       {
         "id": "remote_transport",
@@ -855,8 +855,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 138.53,
-        "payload_bytes": 27668
+        "latency_ms": 137.13,
+        "payload_bytes": 27639
       }
     ]
   },
@@ -866,9 +866,9 @@
     "query_count": 25,
     "passing_queries": 25,
     "weak_queries": [],
-    "average_latency_ms": 108.56,
-    "p95_latency_ms": 150.6,
-    "average_payload_bytes": 20507,
+    "average_latency_ms": 107.7,
+    "p95_latency_ms": 148.3,
+    "average_payload_bytes": 20549,
     "rows": [
       {
         "id": "detox_surrey",
@@ -891,7 +891,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 88.93,
+        "latency_ms": 88.2,
         "payload_bytes": 19042
       },
       {
@@ -915,7 +915,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 88.72,
+        "latency_ms": 88.28,
         "payload_bytes": 20526
       },
       {
@@ -939,7 +939,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 150.6,
+        "latency_ms": 148.3,
         "payload_bytes": 21002
       },
       {
@@ -963,8 +963,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 96.65,
-        "payload_bytes": 19061
+        "latency_ms": 97.15,
+        "payload_bytes": 19298
       },
       {
         "id": "counselling_calgary",
@@ -987,8 +987,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 82.92,
-        "payload_bytes": 20448
+        "latency_ms": 83.23,
+        "payload_bytes": 20685
       },
       {
         "id": "mental_health_housing_saskatoon",
@@ -1011,7 +1011,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 128.38,
+        "latency_ms": 127.55,
         "payload_bytes": 19395
       },
       {
@@ -1035,8 +1035,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 118.34,
-        "payload_bytes": 27949
+        "latency_ms": 116.99,
+        "payload_bytes": 27934
       },
       {
         "id": "transport_treatment",
@@ -1059,8 +1059,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 117.66,
-        "payload_bytes": 24367
+        "latency_ms": 116.98,
+        "payload_bytes": 24338
       },
       {
         "id": "indigenous_treatment",
@@ -1083,8 +1083,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 117.38,
-        "payload_bytes": 21566
+        "latency_ms": 115.43,
+        "payload_bytes": 21552
       },
       {
         "id": "legal_housing",
@@ -1107,7 +1107,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 125.46,
+        "latency_ms": 124.17,
         "payload_bytes": 19328
       },
       {
@@ -1131,7 +1131,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 96.4,
+        "latency_ms": 95.43,
         "payload_bytes": 18923
       },
       {
@@ -1155,7 +1155,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 117.76,
+        "latency_ms": 115.3,
         "payload_bytes": 22140
       },
       {
@@ -1179,8 +1179,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 116.03,
-        "payload_bytes": 17047
+        "latency_ms": 116.77,
+        "payload_bytes": 17032
       },
       {
         "id": "detox_yorkton",
@@ -1203,8 +1203,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 83.73,
-        "payload_bytes": 19908
+        "latency_ms": 80.97,
+        "payload_bytes": 19893
       },
       {
         "id": "withdrawal_la_ronge",
@@ -1227,8 +1227,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 84.52,
-        "payload_bytes": 20703
+        "latency_ms": 83.29,
+        "payload_bytes": 20673
       },
       {
         "id": "addiction_swift_current",
@@ -1251,7 +1251,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 98.01,
+        "latency_ms": 97.86,
         "payload_bytes": 19618
       },
       {
@@ -1275,8 +1275,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 107.18,
-        "payload_bytes": 19366
+        "latency_ms": 91.29,
+        "payload_bytes": 19496
       },
       {
         "id": "counselling_high_river",
@@ -1299,8 +1299,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 86.49,
-        "payload_bytes": 19655
+        "latency_ms": 86.69,
+        "payload_bytes": 19785
       },
       {
         "id": "addiction_canmore",
@@ -1323,8 +1323,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 89.63,
-        "payload_bytes": 19008
+        "latency_ms": 102.46,
+        "payload_bytes": 19138
       },
       {
         "id": "mental_health_port_hardy",
@@ -1347,8 +1347,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 118.67,
-        "payload_bytes": 21180
+        "latency_ms": 120.42,
+        "payload_bytes": 21182
       },
       {
         "id": "treatment_terrace",
@@ -1371,8 +1371,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 97.47,
-        "payload_bytes": 20317
+        "latency_ms": 95.52,
+        "payload_bytes": 20318
       },
       {
         "id": "addiction_cranbrook",
@@ -1395,7 +1395,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 104.84,
+        "latency_ms": 103.13,
         "payload_bytes": 19489
       },
       {
@@ -1419,8 +1419,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 153.77,
-        "payload_bytes": 21056
+        "latency_ms": 153.72,
+        "payload_bytes": 21058
       },
       {
         "id": "rural_transport",
@@ -1443,8 +1443,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 128.56,
-        "payload_bytes": 22113
+        "latency_ms": 127.49,
+        "payload_bytes": 22411
       },
       {
         "id": "indigenous_northern_sk",
@@ -1467,7 +1467,7 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 116,
+        "latency_ms": 115.96,
         "payload_bytes": 19479
       }
     ]

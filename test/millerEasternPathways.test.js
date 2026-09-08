@@ -53,6 +53,15 @@ test("French names and language metadata survive the canonical and mobile projec
   assert.ok(response.results.some(resource => resource.languages.includes("French")))
 })
 
+test("telephone contact does not turn regional in-person programs into virtual services", () => {
+  const response = buildMillerMobileSearchResponse({ query: "francophone addiction support in Bathurst", province: "New Brunswick", location: "Bathurst", limit: 10 }, millerMobileCatalog, { now })
+  const vitalite = response.results.find(resource => resource.canonical_id === "miller_nb_vitalite_addictions")
+  assert.ok(vitalite)
+  assert.equal(vitalite.virtual, false)
+  assert.equal(vitalite.location_relationship, "serves_community")
+  assert.equal(vitalite.location_label, "Serves Bathurst")
+})
+
 test("Eastern share packs contain practical data but no supporting-layer internals", () => {
   const response = buildMillerMobileSearchResponse({ query: "Indigenous patient needs health system navigation in Labrador after hospital discharge", limit: 10 }, millerMobileCatalog, { now })
   const pack = buildMillerMobileSharePack(response, response.workflow.recommended_pack_ids)

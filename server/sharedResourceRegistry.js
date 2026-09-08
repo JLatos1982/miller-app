@@ -65,7 +65,7 @@ function serviceScope(record, { province, community, address, serviceArea, deliv
     regional_service_area: [...new Set(array(record.regional_service_area).map(clean).filter(Boolean))],
     province_wide: record.province_wide === true,
     canada_wide: record.canada_wide === true || province === "Canada-wide",
-    virtual: record.virtual === true || deliveryModes.some(mode => /virtual|online|telephone/i.test(clean(mode))),
+    virtual: record.virtual === true || deliveryModes.some(mode => /virtual|online/i.test(clean(mode))),
     navigation_only: record.navigation_only === true,
     travel_required: record.travel_required === true || record.navigation_pathway?.travel_required === true,
     scope_note: clean(record.scope_note),
