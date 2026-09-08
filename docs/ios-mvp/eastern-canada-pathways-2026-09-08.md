@@ -31,7 +31,7 @@ Stable source-level verification opportunities include Ontario's provincial navi
 
 ## Healthcare-adjacent yield
 
-Nineteen candidates were evaluated. Six verified records were accepted into the supporting layer, three were deferred, and 14 were rejected because the connection to Miller's frontline workflow was too weak.
+Twenty-three candidates were evaluated. Six verified records were accepted into the supporting layer, three were deferred, and 14 were rejected because the connection to Miller's frontline workflow was too weak.
 
 Useful seams:
 

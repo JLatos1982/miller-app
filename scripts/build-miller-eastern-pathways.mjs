@@ -375,7 +375,7 @@ const output = {
     rejected_non_workflow_healthcare: 14,
   },
   healthcare_adjacent_review: {
-    discovered: 19,
+    discovered: 23,
     accepted_supporting_layer: records.filter(record => record.resource_layer === "healthcare_adjacent_support").length,
     deferred: 3,
     rejected_no_direct_workflow_link: 14,
