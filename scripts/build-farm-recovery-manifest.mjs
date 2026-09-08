@@ -9,7 +9,9 @@ const paths = [
   "src/data/farm-listener-registry-v1.json",
   "src/data/miller-legal-source-registry-v1.json",
   "src/data/miller-shared-resource-registry-v1.json",
-  "src/data/farm-legal-query-taxonomy-v2.json",
+  "src/data/farm-legal-query-taxonomy-v3.json",
+  "src/data/miller-north-domain-taxonomy-v1.json",
+  "src/data/miller-north-public-institution-source-registry-v1.json",
   ".farm-operations/farm-job-run-history-v1.ndjson",
   ".farm-operations/farm-job-state-v1.json",
   ".farm-operations/igor-worker-credential-v1.json"

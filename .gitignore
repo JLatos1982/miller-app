@@ -18,6 +18,19 @@ dist-ssr
 tmp/
 supabase/.temp/
 
+# Local owner-review and generated research outputs
+artifacts/farm-operations/farm-legal-event-graph-v2.json
+artifacts/farm-operations/farm-recovery-manifest-v1.json
+artifacts/miller-legal/farm-legal-corpus-mining-v[3-9]*.json
+artifacts/miller-legal/*-igor-verification*.json
+artifacts/miller-north/miller-north-*.json
+artifacts/miller-north/miller-north-*.md
+artifacts/miller-resources/
+artifacts/samwise-public-records/
+reports/farm-legal-corpus-mining-v[3-9]-*.md
+reports/miller-north-*.md
+reports/miller-shared-resource-foundation-*.md
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
