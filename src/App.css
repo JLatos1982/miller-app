@@ -3742,7 +3742,7 @@ body,
   top: auto;
   width: 100%;
   max-width: none;
-  min-height: 458px !important;
+  min-height: 530px !important;
   padding: 0;
 }
 
@@ -3756,8 +3756,8 @@ body,
 }
 
 .hero-layout.has-results .miller-image-frame {
-  width: 240px;
-  height: 360px;
+  width: 300px !important;
+  height: 450px !important;
 }
 
 .hero-layout.has-results .miller-companion-actor {
