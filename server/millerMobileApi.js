@@ -4,6 +4,7 @@ import { conciseResourceDescription } from "../src/millerResultPresentation.js"
 import { buildMobileReadinessIndex, mobileReadinessSummary } from "./millerMobileReadiness.js"
 import { MILLER_CANADIAN_LOCATION_LABELS, MILLER_CANADIAN_LOCATION_PROVINCES, MILLER_COVERAGE_MATURITY } from "./millerWesternCommunities.js"
 import { buildMillerAccessPathway, decomposeMillerProfessionalNeeds, explainMillerProfessionalResults, millerProfessionalWorkflowIntent, recommendedMillerPackIds } from "./millerProfessionalWorkflow.js"
+import { createMillerTavilySearcher } from "./millerExternalSearch.js"
 
 export const MILLER_MOBILE_API_VERSION = "miller-mobile-search-v1"
 export const MILLER_MOBILE_RESULT_LIMIT = 20
@@ -95,6 +96,7 @@ export function validateMillerMobileSearchRequest(body = {}) {
     categories,
     limit: Math.min(requestedLimit, MILLER_MOBILE_RESULT_LIMIT),
     broaden_nearby: body.broaden_nearby === true || body.broaden_access === true,
+    search_more_broadly: body.search_more_broadly === true,
   })
 }
 
@@ -338,6 +340,8 @@ function normalizedCard(resource, readiness, location = "") {
     mobile_ready: Boolean(readiness?.mobile_ready),
     tags: [...new Set([resource.serviceType, resource.category, ...(resource.tags || [])].map(clean).filter(Boolean))].slice(0, 8),
     source,
+    result_origin: "verified_miller",
+    external_label: "",
   }
 }
 
@@ -485,6 +489,91 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
   })
 }
 
+const EXTERNAL_GAP_NEEDS = new Set(["housing", "transportation", "funding", "counselling", "legal", "basic_needs", "reentry"])
+
+export function assessMillerExternalSearchGate(response, request = {}) {
+  const verified = Array.isArray(response?.results) ? response.results : []
+  const needs = Array.isArray(response?.workflow?.needs) ? response.workflow.needs.map(item => item.need_id).filter(Boolean) : []
+  const covered = new Set(verified.flatMap(item => item.matched_needs || []))
+  const hasLocalOrRegionalPathway = verified.some(item => ["located_here", "serves_community", "regional_intake"].includes(item.location_relationship))
+  const primary = response?.interpreted?.primary_intent
+  const hasPrimaryMatch = !primary || verified.some(item => item.matched_needs?.includes(primary))
+  const reasons = []
+  if (request.search_more_broadly) reasons.push("user_requested_broader_search")
+  if (response?.interpreted?.location && !hasLocalOrRegionalPathway) reasons.push("no_verified_local_results")
+  if (["foundation", "exploratory"].includes(response?.coverage_maturity?.level) && (!hasLocalOrRegionalPathway || !hasPrimaryMatch)) reasons.push("low_coverage_region")
+  if (needs.some(need => EXTERNAL_GAP_NEEDS.has(need) && !covered.has(need))) reasons.push("missing_need_category")
+  if (!hasPrimaryMatch || !verified.length) reasons.push("weak_match_confidence")
+  if (verified.length && !verified.some(item => item.phone || item.website || item.access_note || item.referral_note)) reasons.push("insufficient_access_information")
+  return Object.freeze({
+    should_search: reasons.length > 0,
+    reasons: [...new Set(reasons)],
+    verified_result_count: verified.length,
+    has_local_or_regional_pathway: hasLocalOrRegionalPathway,
+    primary_intent_match: hasPrimaryMatch,
+  })
+}
+
+function hybridExternalNotice(external) {
+  if (!external?.attempted) return ""
+  if (external.status === "unavailable") return external.public_message || "I couldn’t complete the broader search, but the verified Miller resources are still available."
+  if (!external.results?.length) return "I searched more broadly but did not find an additional public result suitable to show before verification."
+  return "I found verified Miller options and searched more broadly because coverage or access information was limited. External results have not yet been verified by Miller."
+}
+
+export async function buildMillerHybridSearchResponse(input, catalog, {
+  now = () => new Date(),
+  externalSearcher = createMillerTavilySearcher(),
+} = {}) {
+  const request = validateMillerMobileSearchRequest(input)
+  const internal = buildMillerMobileSearchResponse(request, catalog, { now })
+  const gate = assessMillerExternalSearchGate(internal, request)
+  const context = {
+    location: internal.interpreted.location || "",
+    province: internal.interpreted.province || "",
+    intents: internal.workflow.needs.map(item => item.need_id),
+  }
+  const external = gate.should_search
+    ? await externalSearcher.search(context, catalog)
+    : { attempted: false, status: "not_needed", cache_status: "not_used", latency_ms: 0, results: [], estimated_cost_usd: 0, cost_status: "not_incurred" }
+  const verifiedResults = internal.results.map(resource => ({ ...resource, result_origin: "verified_miller", external_label: "" }))
+  const results = [...verifiedResults, ...(external.results || [])]
+  return Object.freeze({
+    ...internal,
+    result_count: results.length,
+    returned_count: results.length,
+    results,
+    verified_result_count: verifiedResults.length,
+    external_result_count: external.results?.length || 0,
+    search_strategy: {
+      mode: external.attempted ? "verified_then_external" : "verified_deterministic",
+      external_search_required: gate.should_search,
+      external_search_reasons: gate.reasons,
+      external_search_notice: hybridExternalNotice(external),
+      deterministic_components: ["canonical_resource_lookup", "geography_semantics", "intent_matching", "verified_access_pathways", "pathway_sequencing", "resource_pack_selection"],
+    },
+    external_search: {
+      attempted: external.attempted,
+      status: external.status,
+      cache_status: external.cache_status,
+      latency_ms: external.latency_ms,
+      result_count: external.results?.length || 0,
+      estimated_cost_usd: external.estimated_cost_usd,
+      cost_status: external.cost_status,
+      failure_message: external.status === "unavailable" ? external.public_message : "",
+      raw_query_retained: false,
+    },
+    privacy: {
+      ...internal.privacy,
+      external_query_stored: false,
+      external_cache_uses_normalized_geography_and_needs_only: true,
+    },
+    source_policy: external.attempted
+      ? "verified_miller_resources_plus_clearly_labeled_external_discovery"
+      : "verified_original_miller_practical_resources_only",
+  })
+}
+
 export function buildMillerMobileInventory(catalog) {
   const counts = Object.fromEntries(Object.keys(MILLER_COVERAGE_MATURITY).map(province => [province, 0]))
   for (const resource of catalog.filter(isMillerPracticalPublicResource)) {
@@ -515,6 +604,7 @@ export function buildMillerMobileSharePack(response, selectedCanonicalIds = []) 
       phone: clean(resource.phone),
       website: clean(resource.website),
       access_note: clean(resource.referral_note || resource.access_note),
+      verification_status: clean(resource.verified_status || "verified_public"),
       pathway: resource.access_pathway ? {
         local_access_point: clean(resource.access_pathway.local_access_point),
         regional_intake: clean(resource.access_pathway.regional_intake),
@@ -529,6 +619,7 @@ export function buildMillerMobileSharePack(response, selectedCanonicalIds = []) 
   const lines = [heading, clean(response?.guidance?.next_step), ""]
   resources.forEach((resource, index) => {
     lines.push(`${index + 1}. ${resource.name}${resource.organization ? ` — ${resource.organization}` : ""}`)
+    if (resource.verification_status === "external_unverified") lines.push("External result — not yet verified by Miller")
     if (resource.location) lines.push(resource.location)
     if (resource.physical_location && !resource.location.includes(resource.physical_location)) lines.push(`Physical location: ${resource.physical_location}`)
     if (resource.service_scope) lines.push(`Service area: ${resource.service_scope}`)

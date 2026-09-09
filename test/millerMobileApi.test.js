@@ -25,6 +25,7 @@ test("mobile request contract is bounded and normalizes Canadian provinces and t
     categories: ["detox", "housing"],
     limit: 20,
     broaden_nearby: false,
+    search_more_broadly: false,
   })
   assert.throws(() => validateMillerMobileSearchRequest({ query: "" }), /query_required/)
   assert.equal(validateMillerMobileSearchRequest({ query: "help", province: "Ontario" }).province, "Ontario")

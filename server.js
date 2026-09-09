@@ -107,7 +107,8 @@ import publicSharedResources from "./src/data/miller-shared-resource-registry-v1
 import { toMillerNorthSharedEmailResult, toMillerNorthSupportEmailResult } from "./src/millerNorthPublicSupportEmail.js"
 import { buildSharedCanonicalMillerResources } from "./src/millerPublicSearchResources.js"
 import { millerMobileCatalog } from "./server/millerMobileCatalog.js"
-import { buildMillerMobileInventory, buildMillerMobileSearchResponse, MILLER_MOBILE_API_VERSION } from "./server/millerMobileApi.js"
+import { buildMillerMobileInventory, buildMillerHybridSearchResponse, MILLER_MOBILE_API_VERSION } from "./server/millerMobileApi.js"
+import { createMillerTavilySearcher } from "./server/millerExternalSearch.js"
 
 dotenv.config()
 
@@ -124,6 +125,7 @@ export function resolveMillerBindHost({ environment = process.env.NODE_ENV, conf
 const bindHost = resolveMillerBindHost()
 const applicationStartedAt = new Date().toISOString()
 let automatedLocationPublicationEnabled = false
+const millerMobileExternalSearcher = createMillerTavilySearcher()
 
 app.disable("x-powered-by")
 app.set("trust proxy", 1)
@@ -2119,9 +2121,9 @@ app.get("/api/mobile/v1/about", (_req, res) => {
   })
 })
 
-app.post("/api/mobile/v1/search", mobileSearchRateLimit, (req, res) => {
+app.post("/api/mobile/v1/search", mobileSearchRateLimit, async (req, res) => {
   try {
-    const response = buildMillerMobileSearchResponse(req.body, millerMobileCatalog)
+    const response = await buildMillerHybridSearchResponse(req.body, millerMobileCatalog, { externalSearcher: millerMobileExternalSearcher })
     res.setHeader("Cache-Control", "no-store")
     return res.json(response)
   } catch (error) {
