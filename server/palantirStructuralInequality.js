@@ -26,6 +26,7 @@ const TREATMENT_CASCADE_STAGES = new Set(["documented_need", "assessment", "with
 const SUGGESTED_FOLLOW_UP_STATUSES = new Set(["suggested", "watching_for_public_update", "resolved", "no_longer_priority"])
 const INTERVENTION_OUTCOME_CASE_STAGES = new Set(["baseline_disparity", "documented_mechanism", "institutional_acknowledgement", "intervention", "implementation", "attachment_or_continuity_outcome", "downstream_utilization_or_outcome", "remaining_disparity"])
 const INTERVENTION_OUTCOME_CASE_STATES = new Set(["supported", "suggestive", "missing", "contradicted", "not_yet_measurable"])
+const ACCESS_EQUITY_PUBLIC_ROLES = new Set(["measured_disparity", "documented_structural_barrier", "institutional_response", "implementation", "measured_outcome", "data_measurement_gap", "suggested_follow_up"])
 
 const clean = (value, limit = 600) => String(value ?? "").normalize("NFKC").replace(/\s+/g, " ").trim().slice(0, limit)
 const list = (value, limit = 240) => [...new Set((Array.isArray(value) ? value : value ? [value] : []).map(item => clean(item, limit)).filter(Boolean))]
@@ -1033,5 +1034,72 @@ export function buildInterventionOutcomeCaseStudy(input = {}) {
     private_by_default: true,
     owner_review_required: true,
     publication_authority: false,
+  })
+}
+
+// This is the only bridge from owner-approved Palantír records to a public
+// Access & Equity feed. It intentionally omits any candidate that has not
+// passed both owner and publication-state gates.
+export function buildAccessEquityPublicProjection(input = {}) {
+  const prohibited = /\b(foi|atip|email|phone|contact details|request draft|private analyst|internal note)\b/i
+  const publicText = (value, limit = 900) => {
+    const output = clean(value, limit)
+    if (!output || prohibited.test(output)) throw new Error("palantir_access_equity_public_text_invalid")
+    return output
+  }
+  const findings = (Array.isArray(input.findings) ? input.findings : []).flatMap(candidate => {
+    const record = candidate?.record?.schema_version === "palantir-structural-inequality-record-v1" ? candidate.record : normalizeStructuralInequalityRecord(candidate?.record || {})
+    const gate = assessStructuralPublicGate(record)
+    if (!gate.publishable) return []
+    const card = candidate.public_card || {}
+    const role = ACCESS_EQUITY_PUBLIC_ROLES.has(card.role) && card.role !== "suggested_follow_up" ? card.role : null
+    if (!role) throw new Error("palantir_access_equity_public_role_invalid")
+    return [Object.freeze({
+      public_id: publicText(card.public_id || record.structural_record_id, 180),
+      kind: "finding",
+      role,
+      title: publicText(card.title, 220),
+      public_summary: publicText(card.public_summary, 1200),
+      what_was_measured: publicText(card.what_was_measured, 700),
+      compared_with: publicText(card.compared_with, 700),
+      what_it_does_not_establish: publicText(card.what_it_does_not_establish, 700),
+      documented_context: clean(card.documented_context, 900) || null,
+      jurisdiction: record.jurisdiction,
+      period: record.time_period.observed || record.source.publication_date || null,
+      evidence_strength: record.evidence_strength,
+      source: Object.freeze({ organization: record.source.issuing_organization, title: record.source.title, url: record.source.url, date: record.source.publication_date, locator: record.source.locator }),
+      caveat: record.caveat,
+      related_public_links: Object.freeze(list(card.related_public_links, 500).map(httpsUrl).filter(Boolean)),
+    })]
+  })
+  const followUps = (Array.isArray(input.follow_ups) ? input.follow_ups : []).flatMap(value => {
+    const record = value?.schema_version === "palantir-suggested-follow-up-v1" ? value : buildSuggestedFollowUpRecord(value || {})
+    const gate = assessSuggestedFollowUpPublicGate(record)
+    if (!gate.publishable) return []
+    return [Object.freeze({
+      public_id: publicText(record.follow_up_id || record.title, 180),
+      kind: "suggested_follow_up",
+      role: "suggested_follow_up",
+      title: record.title,
+      jurisdiction: record.jurisdiction,
+      research_question: record.research_question,
+      why_it_matters: record.why_it_matters,
+      what_we_currently_know: record.what_we_currently_know,
+      what_is_missing: record.what_is_missing,
+      evidence_needed: record.evidence_needed,
+      governance_considerations: record.governance_considerations,
+      status: record.status,
+      source_urls: record.source_urls,
+    })]
+  })
+  if (new Set([...findings, ...followUps].map(item => item.public_id)).size !== findings.length + followUps.length) throw new Error("palantir_access_equity_public_projection_duplicate_id")
+  return Object.freeze({
+    schema_version: "palantir-access-equity-public-projection-v1",
+    findings: Object.freeze(findings),
+    suggested_follow_ups: Object.freeze(followUps),
+    search_enabled: findings.length + followUps.length > 0,
+    private_candidates_included: false,
+    automatic_publication: false,
+    generated_at: new Date(input.generated_at || Date.now()).toISOString(),
   })
 }

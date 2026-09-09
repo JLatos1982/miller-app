@@ -26,6 +26,7 @@ import {
   buildPolicyOutcomeLagChain,
   buildMeasurementInequalityMatrix,
   buildInterventionOutcomeCaseStudy,
+  buildAccessEquityPublicProjection,
   buildSuggestedFollowUpRecord,
   assessStructuralTravelBurden,
   classifyStructuralMissingData,
@@ -512,4 +513,28 @@ test("intervention outcome cases preserve outcome gaps without treating implemen
   assert.equal(study.outcome_not_yet_measurable, true)
   assert.equal(study.implementation_is_effectiveness_evidence, false)
   assert.equal(study.causal_conclusion_supported, false)
+})
+
+test("public Access & Equity projection includes only dual-gated public-safe records", () => {
+  const candidate = record({
+    structural_record_id: "bc:attachment",
+    owner_review_state: "pending",
+    publication_state: "owner_review",
+    public_projection_requested: true,
+  })
+  const card = {
+    public_id: "bc:attachment",
+    role: "measured_disparity",
+    title: "Primary-care attachment gap",
+    public_summary: "The available data show a difference in the reported population and period.",
+    what_was_measured: "Population attachment rate.",
+    compared_with: "A source-defined comparison population in the same period.",
+    what_it_does_not_establish: "It does not establish a single cause.",
+  }
+  const withheld = buildAccessEquityPublicProjection({ findings: [{ record: candidate, public_card: card }] })
+  assert.equal(withheld.findings.length, 0)
+  const released = buildAccessEquityPublicProjection({ findings: [{ record: { ...candidate, owner_review_state: "approved", publication_state: "approved_public" }, public_card: card }] })
+  assert.equal(released.findings.length, 1)
+  assert.equal(released.search_enabled, true)
+  assert.equal(released.private_candidates_included, false)
 })

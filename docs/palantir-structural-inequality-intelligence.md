@@ -91,6 +91,8 @@ Structural records use explicit public-projection states: `private_research`, `o
 
 `buildInterventionOutcomeCaseStudy` makes the policy-to-outcome question explicit: baseline disparity → documented mechanism → institutional acknowledgement → intervention → implementation → attachment or continuity outcome → downstream utilization or outcome → remaining disparity. Each link keeps its population, catchment, period, denominator, method, provenance and limitation. A supported implementation link does not set `outcome_measured`, establish effectiveness, or support a causal conclusion. The primitive is private, community-governance-aware and owner-reviewed by default.
 
+`buildAccessEquityPublicProjection` is the narrow bridge from Palantír to a public feed. It accepts a finding only after `assessStructuralPublicGate` is publishable and a follow-up only after `assessSuggestedFollowUpPublicGate` is publishable. It rejects private-strategy language and emits only public-card fields, source metadata and explicit caveats. A candidate in `owner_review` produces no public item and cannot enable site search. Follow-ups retain a lifecycle status (`suggested`, `watching_for_public_update`, `resolved`, or `no_longer_priority`) so a future public question can be revised rather than left indefinitely open.
+
 ## Operational use
 
 Recommended source handling is source-level and low-noise:
