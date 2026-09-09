@@ -44,6 +44,12 @@ export default function MillerNorthAccessEquity() {
       <p>Missing public evidence does not mean that care was equal, that a program failed, or that the underlying data do not exist. It means the public record cannot safely answer that question yet.</p>
     </section>
 
+    <section className="mn-public-section mn-access-follow-up" aria-labelledby="access-equity-follow-up-title">
+      <p className="mn-public-eyebrow">Suggested follow-up</p><h2 id="access-equity-follow-up-title">Important unanswered questions</h2>
+      <p>When an important question cannot be answered from the public record, Miller North may describe the question, why it matters, what is known and what additional evidence would help. A suggested follow-up is not an accusation, a request for personal information, or a claim about what missing data would show.</p>
+      <p className="mn-access-caveat">Any public suggested follow-up must be source-backed, privacy-conscious and separately approved for publication. None are displayed until that review is complete.</p>
+    </section>
+
     <section className="mn-public-section mn-access-links" aria-labelledby="access-equity-links-title">
       <p className="mn-public-eyebrow">Related Miller North work</p><h2 id="access-equity-links-title">Evidence, accountability and practical help</h2>
       <p>Structural questions sit alongside—not instead of—individual records, public accountability tracking and practical supports.</p>

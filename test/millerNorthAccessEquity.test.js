@@ -8,6 +8,8 @@ test("Access & Equity is a public methodology surface with no private-record imp
   assert.match(page, /No structural-healthcare finding is displayed here until it has passed source, method, privacy and owner-publication review/)
   assert.match(page, /does not expose private research or data-request planning/)
   assert.match(page, /A measurable disparity does not by itself establish discrimination or its cause/)
+  assert.match(page, /Suggested follow-up/)
+  assert.match(page, /None are displayed until that review is complete/)
   assert.doesNotMatch(page, /artifacts\/samwise|saskatchewan-governance-outreach|request_draft|private_record/i)
   assert.match(app, /indigenous-healthcare-evidence\/access-equity/)
 })
