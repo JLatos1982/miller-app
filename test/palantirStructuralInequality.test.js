@@ -3,9 +3,13 @@ import test from "node:test"
 
 import {
   assessAccessEquityPage,
+  assessCrossProvinceStructuralComparability,
   assessMatchedCommunityPair,
+  assessRemotenessAccessComparison,
+  assessStructuralClaimRelationship,
   assessStructuralComparator,
   assessStructuralPublicGate,
+  buildStructuralMechanismChain,
   buildStructuralInequalityLedger,
   buildStructuralSourceYield,
   classifyStructuralMissingData,
@@ -147,4 +151,95 @@ test("source yield recommends recurring adapters only for repeated clean high-qu
   assert.equal(strong.recommendation, "recurring_adapter")
   const thin = buildStructuralSourceYield({ source_id: "generic-search", documents_checked: 12, usable_structural_findings: 0 })
   assert.equal(thin.recommendation, "owner_triggered_or_low_yield")
+})
+
+test("cross-province comparisons cannot silently bridge incompatible identification methods", () => {
+  const assessment = assessCrossProvinceStructuralComparability({
+    indicator: "Opioid toxicity mortality rate",
+    observations: [
+      { jurisdiction: "British Columbia", indicator: "Opioid toxicity mortality rate", value: 328.7, unit: "per 100,000", denominator_class: "First Nations population", period: "2023", methodology: "Coroner linkage", indigenous_identification_method: "Client file linkage", source_url: "https://www.fnha.ca/report" },
+      { jurisdiction: "Saskatchewan", indicator: "Opioid toxicity mortality rate", value: 94.6, unit: "per 100,000", denominator_class: "First Nations population", period: "2023", methodology: "Coroner identification", indigenous_identification_method: "Family, treaty card, RCMP or health-care information", source_url: "https://www.nitha.com/report" },
+    ],
+    limitations: ["The provinces use different Indigenous identification and surveillance methods."],
+  })
+  assert.equal(assessment.comparability, "poor")
+  assert.equal(assessment.use_for_direct_cross_province_comparison, false)
+  assert.equal(assessment.forced_ranking_prohibited, true)
+})
+
+test("cross-province comparisons treat missing methods as non-alignment", () => {
+  const assessment = assessCrossProvinceStructuralComparability({
+    indicator: "Primary-care attachment",
+    observations: [
+      { jurisdiction: "British Columbia", value: 77, unit: "percent", denominator_class: "resident population", period: "2024", methodology: "linked records", indigenous_identification_method: "client file linkage", source_url: "https://www.fnha.ca/a" },
+      { jurisdiction: "Alberta", value: 74, unit: "percent", denominator_class: "resident population", period: "2024", source_url: "https://www.alberta.ca/b" },
+    ],
+    limitations: ["Alberta did not publish the method needed for alignment."],
+  })
+  assert.equal(assessment.checks.methodologies_aligned, false)
+  assert.equal(assessment.checks.indigenous_identification_aligned, false)
+  assert.equal(assessment.comparability, "poor")
+})
+
+test("revised official surveillance can supersede an earlier number without becoming a contradiction", () => {
+  const relation = assessStructuralClaimRelationship({
+    proposed_relationship: "supersedes",
+    same_series: true,
+    left: { subject: "First Nations toxic-drug deaths in 2024", scope: "British Columbia", period: "2024", denominator: "deaths", methodology: "FNHA surveillance", publication_date: "2025-02-01", source_url: "https://www.fnha.ca/earlier" },
+    right: { subject: "First Nations toxic-drug deaths in 2024", scope: "British Columbia", period: "2024", denominator: "deaths", methodology: "FNHA surveillance", publication_date: "2026-01-01", source_url: "https://www.fnha.ca/revised" },
+  })
+  assert.equal(relation.confirmed_relationship, "supersedes")
+  assert.equal(relation.later_official_revision, true)
+  assert.equal(relation.contradiction_inferred_from_wording_only, false)
+})
+
+test("contradiction requires aligned scope, period, denominator and methodology", () => {
+  const relation = assessStructuralClaimRelationship({
+    proposed_relationship: "contradicts",
+    material_semantic_conflict: true,
+    left: { subject: "Recommendation implemented", scope: "Saskatchewan northwest", period: "2024", denominator: "six recommendations", methodology: "agency self-report", source_url: "https://www.saskatchewan.ca/a" },
+    right: { subject: "Recommendation implemented", scope: "Saskatchewan northwest", period: "2025", denominator: "six recommendations", methodology: "independent audit", source_url: "https://www.saskatchewan.ca/b" },
+  })
+  assert.equal(relation.relationship_state, "owner_review")
+  assert.equal(relation.confirmed_relationship, null)
+})
+
+test("mechanism chains preserve multiple contributors without asserting a single cause", () => {
+  const chain = buildStructuralMechanismChain({
+    chain_id: "sk:toxicity:mechanisms",
+    outcome_claim_id: "sk:toxicity:2023",
+    mechanisms: [
+      { mechanism: "Toxic and unpredictable supply", source_url: "https://www.nitha.com/report", evidence_role: "formal interpretation", documented_by_source: true },
+      { mechanism: "Inadequate access to culturally safe treatment", source_url: "https://www.nitha.com/report", evidence_role: "formal interpretation", documented_by_source: true },
+    ],
+  })
+  assert.equal(chain.multiple_contributing_mechanisms_preserved, true)
+  assert.equal(chain.single_cause_asserted, false)
+  assert.equal(chain.causal_conclusion_supported, false)
+})
+
+test("remoteness matching never treats remoteness as Indigenous identity", () => {
+  const assessment = assessRemotenessAccessComparison({
+    comparison_id: "sk:pilot:v2",
+    remoteness_tolerance: 0.1,
+    left: { name: "Community A", province: "SK", population: 2500, remoteness_index: 0.61, road_access: "all-season", referral_role: "regional hub", remoteness_source_url: "https://www150.statcan.gc.ca/a" },
+    right: { name: "Community B", province: "SK", population: 3100, remoteness_index: 0.66, road_access: "all-season", referral_role: "regional hub", remoteness_source_url: "https://www150.statcan.gc.ca/b" },
+    service_measurement_aligned: true,
+    limitations: ["The pair is descriptive and has no independently verified Indigenous population contrast."],
+  })
+  assert.equal(assessment.descriptive_access_comparison_usable, true)
+  assert.equal(assessment.indigenous_identity_inferred_from_remoteness, false)
+  assert.equal(assessment.indigenous_inequality_inference_usable, false)
+})
+
+test("records retain quantitative provenance and reviewed claim relationships", () => {
+  const normalized = normalizeStructuralInequalityRecord(record({
+    exact_claim: "The later official release reports a revised value.",
+    methodology: "Linked administrative surveillance.",
+    indigenous_identification_method: "Official administrative identification.",
+    suppression_rules: "Small cells are suppressed.",
+    claim_relationships: [{ claim_id: "claim:earlier", relationship: "supersedes", rationale: "Later revision of the same series." }],
+  }))
+  assert.match(normalized.methodology, /surveillance/i)
+  assert.equal(normalized.claim_relationships[0].relationship, "supersedes")
 })

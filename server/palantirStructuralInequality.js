@@ -8,6 +8,8 @@ const SOURCE_QUALITY_STATES = new Set(["primary_official", "indigenous_governed"
 const PUBLICATION_STATES = new Set(["private_research", "owner_review", "approved", "rejected", "published"])
 const GAP_TYPES = new Set(["data_gap", "measurement_gap", "reporting_gap"])
 const TREND_STATES = new Set(["improving", "worsening", "stable", "discontinuity", "methodology_changed", "data_discontinued", "insufficient_series"])
+const COMPARABILITY_STATES = new Set(["high", "moderate", "poor", "not_comparable"])
+const CLAIM_RELATIONSHIPS = new Set(["supports", "corroborates", "contradicts", "narrows", "supersedes"])
 
 const clean = (value, limit = 600) => String(value ?? "").normalize("NFKC").replace(/\s+/g, " ").trim().slice(0, limit)
 const list = (value, limit = 240) => [...new Set((Array.isArray(value) ? value : value ? [value] : []).map(item => clean(item, limit)).filter(Boolean))]
@@ -107,6 +109,155 @@ export function assessMatchedCommunityPair(input = {}) {
   return Object.freeze({ schema_version: "palantir-matched-community-pair-v1", pair_id: clean(input.pair_id, 180), left: { ...left, name: clean(left.name, 160), source_url: httpsUrl(left.source_url) }, right: { ...right, name: clean(right.name, 160), source_url: httpsUrl(right.source_url) }, checks, matched_criteria: matchedCount, descriptive_access_comparison_usable: matchedCount >= 5 && limitations.length > 0, indigenous_inequality_inference_usable: false, limitations, owner_review_required: true })
 }
 
+export function assessRemotenessAccessComparison(input = {}) {
+  const left = input.left || {}
+  const right = input.right || {}
+  const leftRemoteness = numberOrNull(left.remoteness_index)
+  const rightRemoteness = numberOrNull(right.remoteness_index)
+  const leftPopulation = numberOrNull(left.population)
+  const rightPopulation = numberOrNull(right.population)
+  const tolerance = Math.max(0, numberOrNull(input.remoteness_tolerance) ?? 0.1)
+  const maximumPopulationRatio = Math.max(1, numberOrNull(input.maximum_population_ratio) ?? 2)
+  const populationRatio = leftPopulation > 0 && rightPopulation > 0
+    ? Math.max(leftPopulation, rightPopulation) / Math.min(leftPopulation, rightPopulation)
+    : null
+  const checks = Object.freeze({
+    same_province: Boolean(clean(left.province, 80) && clean(left.province, 80) === clean(right.province, 80)),
+    official_remoteness_source: Boolean(httpsUrl(left.remoteness_source_url) && httpsUrl(right.remoteness_source_url)),
+    remoteness_index_available: leftRemoteness !== null && rightRemoteness !== null && leftRemoteness >= 0 && leftRemoteness <= 1 && rightRemoteness >= 0 && rightRemoteness <= 1,
+    remoteness_within_tolerance: leftRemoteness !== null && rightRemoteness !== null && Math.abs(leftRemoteness - rightRemoteness) <= tolerance,
+    population_within_ratio: populationRatio !== null && populationRatio <= maximumPopulationRatio,
+    road_access_similar: Boolean(clean(left.road_access, 100) && clean(left.road_access, 100) === clean(right.road_access, 100)),
+    referral_role_similar: Boolean(clean(left.referral_role, 160) && clean(left.referral_role, 160) === clean(right.referral_role, 160)),
+    service_measurement_aligned: input.service_measurement_aligned === true,
+  })
+  const limitations = list(input.limitations, 320)
+  const accepted = Object.values(checks).every(Boolean) && limitations.length > 0
+  return Object.freeze({
+    schema_version: "palantir-remoteness-access-comparison-v1",
+    comparison_id: clean(input.comparison_id, 180),
+    left: Object.freeze({ name: clean(left.name, 160), province: clean(left.province, 80), population: leftPopulation, remoteness_index: leftRemoteness, road_access: clean(left.road_access, 100) || null, referral_role: clean(left.referral_role, 160) || null, remoteness_source_url: httpsUrl(left.remoteness_source_url) }),
+    right: Object.freeze({ name: clean(right.name, 160), province: clean(right.province, 80), population: rightPopulation, remoteness_index: rightRemoteness, road_access: clean(right.road_access, 100) || null, referral_role: clean(right.referral_role, 160) || null, remoteness_source_url: httpsUrl(right.remoteness_source_url) }),
+    checks,
+    remoteness_difference: leftRemoteness === null || rightRemoteness === null ? null : Number(Math.abs(leftRemoteness - rightRemoteness).toFixed(4)),
+    population_ratio: populationRatio === null ? null : Number(populationRatio.toFixed(4)),
+    descriptive_access_comparison_usable: accepted,
+    indigenous_identity_inferred_from_remoteness: false,
+    indigenous_inequality_inference_usable: false,
+    limitations,
+    owner_review_required: true,
+  })
+}
+
+export function assessCrossProvinceStructuralComparability(input = {}) {
+  const observations = (Array.isArray(input.observations) ? input.observations : []).map(item => Object.freeze({
+    jurisdiction: clean(item.jurisdiction, 100),
+    indicator: clean(item.indicator || input.indicator, 240),
+    value: numberOrNull(item.value),
+    unit: clean(item.unit, 100) || null,
+    denominator_class: clean(item.denominator_class || item.denominator, 180) || null,
+    period: clean(item.period, 120) || null,
+    methodology: clean(item.methodology, 240) || null,
+    indigenous_identification_method: clean(item.indigenous_identification_method, 240) || null,
+    source_url: httpsUrl(item.source_url),
+  }))
+  const unique = key => new Set(observations.map(item => item[key]).filter(Boolean)).size
+  const completeAndUnique = key => observations.length >= 2 && observations.every(item => Boolean(item[key])) && unique(key) === 1
+  const checks = Object.freeze({
+    at_least_two_jurisdictions: new Set(observations.map(item => item.jurisdiction).filter(Boolean)).size >= 2,
+    same_indicator_definition: completeAndUnique("indicator"),
+    numeric_values_present: observations.length >= 2 && observations.every(item => item.value !== null),
+    official_sources_present: observations.length >= 2 && observations.every(item => item.source_url),
+    units_aligned: completeAndUnique("unit"),
+    denominators_aligned: completeAndUnique("denominator_class") || input.denominators_comparable === true,
+    periods_aligned: completeAndUnique("period") || input.periods_comparable === true,
+    methodologies_aligned: completeAndUnique("methodology") || input.methodologies_comparable === true,
+    indigenous_identification_aligned: completeAndUnique("indigenous_identification_method") || input.identification_methods_comparable === true,
+    explicit_limitations: list(input.limitations, 320).length > 0,
+  })
+  const core = checks.at_least_two_jurisdictions && checks.same_indicator_definition && checks.numeric_values_present && checks.official_sources_present && checks.units_aligned
+  const alignment = [checks.denominators_aligned, checks.periods_aligned, checks.methodologies_aligned, checks.indigenous_identification_aligned]
+  const alignedCount = alignment.filter(Boolean).length
+  const state = !core
+    ? "not_comparable"
+    : alignedCount === alignment.length && checks.explicit_limitations
+      ? "high"
+      : alignedCount >= 3 && checks.explicit_limitations
+        ? "moderate"
+        : "poor"
+  return Object.freeze({
+    schema_version: "palantir-cross-province-comparability-v1",
+    indicator: clean(input.indicator || observations[0]?.indicator, 240),
+    observations,
+    checks,
+    comparability: COMPARABILITY_STATES.has(state) ? state : "not_comparable",
+    use_for_direct_cross_province_comparison: state === "high",
+    use_for_contextual_comparison: state === "high" || state === "moderate",
+    limitations: list(input.limitations, 320),
+    forced_ranking_prohibited: true,
+  })
+}
+
+export function assessStructuralClaimRelationship(input = {}) {
+  const proposed = CLAIM_RELATIONSHIPS.has(input.proposed_relationship) ? input.proposed_relationship : null
+  const left = input.left || {}
+  const right = input.right || {}
+  const same = field => Boolean(clean(left[field], 240) && clean(left[field], 240) === clean(right[field], 240))
+  const checks = Object.freeze({
+    recognized_relationship: Boolean(proposed),
+    official_sources: Boolean(httpsUrl(left.source_url) && httpsUrl(right.source_url)),
+    same_subject: same("subject"),
+    same_scope: same("scope"),
+    same_period: same("period"),
+    same_denominator: same("denominator"),
+    same_methodology: same("methodology"),
+    material_semantic_conflict: input.material_semantic_conflict === true,
+    same_series: input.same_series === true,
+  })
+  const leftDate = Date.parse(left.publication_date || "")
+  const rightDate = Date.parse(right.publication_date || "")
+  const laterOfficialRevision = Number.isFinite(leftDate) && Number.isFinite(rightDate) && rightDate > leftDate && checks.same_series && checks.official_sources
+  const contradictionSupported = proposed === "contradicts" && checks.same_subject && checks.same_scope && checks.same_period && checks.same_denominator && checks.same_methodology && checks.material_semantic_conflict
+  const supersessionSupported = proposed === "supersedes" && checks.same_subject && checks.same_scope && laterOfficialRevision
+  const ordinaryRelationshipSupported = ["supports", "corroborates", "narrows"].includes(proposed) && checks.same_subject && checks.official_sources
+  const accepted = contradictionSupported || supersessionSupported || ordinaryRelationshipSupported
+  return Object.freeze({
+    schema_version: "palantir-structural-claim-relationship-v1",
+    proposed_relationship: proposed,
+    relationship_state: accepted ? "accepted" : proposed ? "owner_review" : "rejected",
+    confirmed_relationship: accepted ? proposed : null,
+    checks,
+    later_official_revision: laterOfficialRevision,
+    contradiction_inferred_from_wording_only: false,
+    reasons: Object.entries(checks).filter(([, passed]) => !passed).map(([key]) => key),
+    owner_review_required: !accepted && Boolean(proposed),
+  })
+}
+
+export function buildStructuralMechanismChain(input = {}) {
+  const mechanisms = (Array.isArray(input.mechanisms) ? input.mechanisms : []).map(item => Object.freeze({
+    mechanism: clean(item.mechanism, 300),
+    source_url: httpsUrl(item.source_url),
+    evidence_role: clean(item.evidence_role, 120) || "context",
+    documented_by_source: item.documented_by_source === true,
+    formal_causal_finding: item.formal_causal_finding === true,
+    limitations: list(item.limitations, 260),
+  })).filter(item => item.mechanism)
+  const documented = mechanisms.filter(item => item.documented_by_source && item.source_url)
+  return Object.freeze({
+    schema_version: "palantir-structural-mechanism-chain-v1",
+    chain_id: clean(input.chain_id, 180),
+    outcome_claim_id: clean(input.outcome_claim_id, 180),
+    mechanisms,
+    documented_mechanism_count: documented.length,
+    multiple_contributing_mechanisms_preserved: documented.length > 1,
+    single_cause_asserted: false,
+    causal_conclusion_supported: documented.length > 0 && documented.every(item => item.formal_causal_finding),
+    caveat: clean(input.caveat, 500) || "The documented mechanisms may contribute to the observed outcome; this chain does not assign a single cause.",
+    owner_review_required: true,
+  })
+}
+
 export function buildStructuralSourceYield(input = {}) {
   const checked = Math.max(0, Number(input.documents_checked || 0))
   const usable = Math.max(0, Number(input.usable_structural_findings || 0))
@@ -178,6 +329,15 @@ export function normalizeStructuralInequalityRecord(input = {}) {
       stable: input.source?.stable !== false,
       quality: SOURCE_QUALITY_STATES.has(input.source?.quality || input.source_quality) ? input.source?.quality || input.source_quality : "official_derived",
     }),
+    exact_claim: clean(input.exact_claim, 500) || null,
+    methodology: clean(input.methodology, 500) || null,
+    indigenous_identification_method: clean(input.indigenous_identification_method, 500) || null,
+    suppression_rules: clean(input.suppression_rules, 400) || null,
+    claim_relationships: Object.freeze((Array.isArray(input.claim_relationships) ? input.claim_relationships : []).map(relationship => Object.freeze({
+      claim_id: clean(relationship.claim_id, 180),
+      relationship: CLAIM_RELATIONSHIPS.has(relationship.relationship) ? relationship.relationship : null,
+      rationale: clean(relationship.rationale, 300) || null,
+    })).filter(relationship => relationship.claim_id && relationship.relationship)),
     accountability_links: list(input.accountability_links, 180),
     practical_resource_links: list(input.practical_resource_links, 180),
     owner_review_state: reviewState,

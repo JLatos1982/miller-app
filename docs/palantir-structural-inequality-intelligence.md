@@ -30,6 +30,15 @@ Raw dollar totals, unmatched time periods, urban-versus-remote comparisons witho
 
 The v2 analysis helpers make those constraints reusable. Rate normalization retains the numerator, denominator, scale and formula. Comparator review checks jurisdiction, period, denominator, remoteness and need/population adjustment. Time-series observations remain append-only; a methodology change produces `methodology_changed`, not an invented trend. Matched-community pairs are private, limitation-bearing descriptive pilots and never automatically support an Indigenous-inequality inference.
 
+The v3 methods add four safeguards needed for deeper longitudinal work:
+
+- cross-province comparability is explicitly `high`, `moderate`, `poor` or `not_comparable`, with denominator, period, methodology and Indigenous-identification differences recorded instead of averaged away;
+- numeric remoteness matching uses an official Index of Remoteness source, population and road/referral-role constraints, but never treats remoteness as a proxy for Indigenous identity;
+- claim relationships distinguish corroboration, narrowing, contradiction and later official revision; a contradiction requires aligned subject, scope, period, denominator and methodology plus a material conflict;
+- outcome-to-mechanism chains preserve several documented contributors and do not collapse them into a single causal explanation.
+
+Structural records may retain a concise exact claim, methodology, Indigenous-identification method, suppression rules and reviewed claim relationships. This makes a changed official surveillance number explainable: the later release may supersede the earlier value while both claims remain in history.
+
 Source-yield memory records the usable finding count, Indigenous and geographic resolution, historical depth, update cadence, data cleanliness, parse difficulty and comparator quality. Only repeatedly productive, stable sources are candidates for a recurring adapter; thin or irregular sources stay citation-led or owner-triggered.
 
 ## Accountability chain
@@ -65,5 +74,25 @@ Recommended source handling is source-level and low-noise:
 - preserve the exact table, page or section locator;
 - record source yield, comparator quality, Indigenous-specific resolution and time-series continuity;
 - send ambiguous mechanisms, comparisons and apparent contradictions to owner review.
+
+## Cross-province and remoteness analysis
+
+Cross-province tables are a research aid, not a league table. Direct numeric comparison is allowed only when the indicator definition, unit, denominator, period, methodology and Indigenous-identification method are aligned. Moderate comparisons may support contextual discussion with explicit limitations; poor and non-comparable measures must not be ranked.
+
+Statistics Canada's Index of Remoteness can help select candidate comparison communities because it describes proximity and travel cost to population centres. It cannot identify Indigenous communities and cannot establish an Indigenous disparity. A matched-community pilot remains descriptive unless a separate, authoritative source supplies an explicit and methodologically valid Indigenous comparison.
+
+## Longitudinal claims
+
+New evidence should update the dossier by relationship rather than duplication:
+
+```text
+earlier official claim
+  → corroborated / narrowed / contradicted / superseded
+  → later intervention claim
+  → independent implementation review
+  → measured outcome
+```
+
+An announced grant, newly created office or completed process recommendation is an intervention or implementation fact. It is not evidence that attachment, travel burden, safety, service access or health outcomes improved. Where public aggregate outcome reporting is absent, Palantír records a reporting or measurement gap and may prepare a bounded owner-review information-request candidate.
 
 The primitive has no mutation or publication authority and has no dependency on Miller or Miller North UI code.
