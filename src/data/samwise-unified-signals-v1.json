@@ -1,0 +1,10 @@
+{
+  "schema_version": "samwise-unified-signals-v1",
+  "capability_id": "samwise_unified_signals",
+  "purpose": "A bounded, read-only owner brief that projects meaningful Owner Advisory items without creating a second semantic authority.",
+  "flow": ["security/listeners/observers/intelligence", "normalized meaningful signals", "samwise_owner_advisory_inbox", "samwise_owner_brief"],
+  "does_not": ["execute work", "change routing", "publish", "read arbitrary files", "run arbitrary SQL", "return raw logs", "return secrets", "mutate advisory state"],
+  "healthy_change_policy": "Healthy unchanged systems are available to on-demand state inspection but do not create advisories.",
+  "chatgpt_retrieval": { "tool_name": "samwise_owner_brief", "arguments": ["limit"], "maximum_limit": 20, "read_only": true },
+  "external_persistence": "not_configured"
+}

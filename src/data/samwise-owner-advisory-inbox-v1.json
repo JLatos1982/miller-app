@@ -1,0 +1,11 @@
+{
+  "schema_version": "samwise-owner-advisory-inbox-v1",
+  "capability_id": "samwise_owner_advisory_inbox",
+  "version": "1.0.0",
+  "purpose": "Private, local-first owner advisories synthesized only from meaningful operational evidence.",
+  "consumes": ["samwise_capability_intelligence", "samwise_workflow_memory", "samwise_work_observer", "native_app_build_validation"],
+  "does_not": ["execute_work", "change_routing_policy", "send_notifications_automatically", "store_raw_operational_logs", "grant_permissions"],
+  "storage": "artifacts/samwise/runtime/owner-advisories",
+  "meaningfulness": ["requires safe evidence references", "suppresses routine success and no-change noise", "suppresses provisional workflow strategies", "requires repeated evidence for patterns and capability gaps"],
+  "external_persistence": "proposal_only_not_applied"
+}

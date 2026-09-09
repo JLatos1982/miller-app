@@ -1,0 +1,14 @@
+{
+  "schema_version": "samwise-work-observer-v1",
+  "capability_id": "samwise_work_observer",
+  "owner": "samwise",
+  "purpose": "Local-first, explicitly scoped operational observation. It records sanitized structured events and advisory patterns only.",
+  "pipeline": ["observe", "normalize", "redact", "classify", "store", "summarize", "learn"],
+  "mutation_authority": false,
+  "publication_authority": false,
+  "scopes": ["xcode", "terminal", "vscode", "git", "samwise_jobs", "supabase", "project_directory"],
+  "phase_1_observers": ["native_app_build_validation_adapter", "git_repository_adapter", "samwise_codex_job_adapter", "manual_owner_note"],
+  "prohibited": ["continuous screen recording", "keylogging", "clipboard capture", "continuous microphone recording", "continuous full-screen video", "scope expansion without owner action", "automatic project mutation from historical matches"],
+  "retention_defaults": { "raw_logs_days": 14, "screenshots_days": 7, "structured_events": "durable", "pinned_artifacts": "until_explicit_removal", "screenshots_enabled": false },
+  "supabase_mode": "private_schema_prepared_not_applied"
+}

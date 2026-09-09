@@ -1,0 +1,26 @@
+{
+  "schema_version": "native-app-build-validation-v1",
+  "capability_id": "native_app_build_validation",
+  "owner": "samwise_farm",
+  "purpose": "Operational capability learning for native-app build validation. It records evidence and can perform only bounded development fixes after diagnosis; it cannot publish, release, sign, or alter credentials.",
+  "mutation_authority": "bounded_development_fixes_only",
+  "publication_authority": false,
+  "release_authority": false,
+  "lifecycle": ["inspect", "toolchain_check", "build", "diagnose", "bounded_fix", "rebuild", "test", "runtime_smoke_test", "readiness_handoff"],
+  "action_classes": ["safe_automatic", "requires_owner_approval", "human_runtime_observation"],
+  "adapters": [
+    {
+      "adapter_id": "xcode_swiftui",
+      "platform": "ios_macos_toolchain",
+      "safe_automatic": ["read project metadata", "list Xcode targets and schemes", "check installed toolchain", "run explicitly approved local build or test commands", "parse sanitized compiler/test output", "apply small source-only fixes after diagnosis", "record non-secret operational memory"],
+      "requires_owner_approval": ["certificate, provisioning profile, team, entitlement or signing changes", "physical-device installation when a signing decision is needed", "dependency additions or upgrades", "project-file restructuring", "any networked release, archive, distribution or publication action"],
+      "human_runtime_observation": ["simulator or device launch", "permission prompt choice and outcome", "speech recognition behavior", "share-sheet destinations", "AirPrint availability and result", "visual/accessibility observations", "device-only behavior"]
+    },
+    { "adapter_id": "web_app", "platform": "browser_toolchain", "status": "future_adapter" },
+    { "adapter_id": "android", "platform": "android_gradle_toolchain", "status": "future_adapter" },
+    { "adapter_id": "backend_service", "platform": "service_toolchain", "status": "future_adapter" },
+    { "adapter_id": "desktop_app", "platform": "desktop_toolchain", "status": "future_adapter" }
+  ],
+  "safety_boundaries": ["No App Store submission.", "No production publication.", "No certificate or profile changes without owner approval.", "No secret creation or rotation.", "No destructive project restructuring.", "No hidden data migration.", "No autonomous release."],
+  "operational_memory_fields": ["last_successful_build", "known_toolchain", "known_simulator", "known_build_commands", "known_test_commands", "recurring_errors", "project_specific_quirks", "critical_smoke_test_workflows"]
+}

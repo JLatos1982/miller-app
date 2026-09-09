@@ -33,7 +33,14 @@
     "benchmark:miller-navigator-national": "node scripts/benchmark-miller-navigator-national.mjs",
     "benchmark:miller-navigator-northern": "node scripts/benchmark-miller-navigator-northern.mjs",
     "benchmark:miller-navigator-eastern": "node scripts/benchmark-miller-navigator-eastern.mjs",
-    "configure-prepared-action-conveyor": "node --env-file-if-exists=.env scripts/configure-prepared-action-conveyor.mjs"
+    "benchmark:miller-navigator-hybrid": "node scripts/benchmark-miller-navigator-hybrid.mjs",
+    "configure-prepared-action-conveyor": "node --env-file-if-exists=.env scripts/configure-prepared-action-conveyor.mjs",
+    "samwise:work-observer": "node scripts/samwise-work-observer.mjs",
+    "samwise:capability-intelligence": "node scripts/samwise-capability-intelligence.mjs",
+    "samwise:workflow-memory": "node scripts/samwise-workflow-memory.mjs",
+    "samwise:advisories": "node scripts/samwise-advisories.mjs",
+    "samwise:owner-brief": "node scripts/samwise-owner-brief.mjs",
+    "samwise:steward": "node scripts/samwise-steward.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.102.1",

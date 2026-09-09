@@ -1,0 +1,27 @@
+{
+  "schema_version": "native-app-project-profile-v1",
+  "project_id": "miller_navigator_ios",
+  "adapter_id": "xcode_swiftui",
+  "reference_project_path": "ios/MillerNavigator",
+  "inspection_date": "2026-09-08",
+  "platform": "iOS",
+  "project_type": "Native SwiftUI iPhone/iPad application with a Swift Package core-test target.",
+  "xcode_structure": { "project": "MillerNavigator.xcodeproj", "app_entry": "MillerNavigatorApp.swift", "views": "MillerNavigator/Views", "core": "MillerNavigator/Core", "services": "MillerNavigator/Services", "support": "MillerNavigator/Support", "assets": "MillerNavigator/Assets.xcassets" },
+  "app_target": { "name": "MillerNavigator", "product": "Miller.app", "bundle_identifier": "ca.miller.navigator.mvp", "swift_version": "6.0", "deployment_target": "iOS 17.0", "device_families": ["iPhone", "iPad"] },
+  "test_targets": { "xcode_test_target": "not configured in the shared scheme as inspected", "swift_package_test_target": "MillerNavigatorCoreTests", "command": "swift test" },
+  "schemes": [{ "name": "MillerNavigator", "shared": true, "debug_build_configuration": "Debug", "release_build_configuration": "Release" }],
+  "package_dependencies": [],
+  "signing": { "style": "Automatic", "development_team": "empty in project file", "simulator_build": "does not require a selected development team", "physical_device": "requires an owner-selected valid team/provisioning state", "requires_owner_approval": true },
+  "simulator_requirements": { "minimum_runtime": "iOS 17-compatible simulator", "toolchain": "Xcode 16 or newer per project README", "known_simulator": null, "status": "not inspected during the manual Xcode session" },
+  "safe_candidate_commands": [
+    "xcodebuild -version",
+    "xcodebuild -list -project ios/MillerNavigator/MillerNavigator.xcodeproj",
+    "xcodebuild -project ios/MillerNavigator/MillerNavigator.xcodeproj -scheme MillerNavigator -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,name={known_simulator},OS={known_os}' build",
+    "cd ios/MillerNavigator && swift test"
+  ],
+  "commands_status": "Candidate commands only; no command outcome is asserted by this profile.",
+  "privacy_permissions": ["Microphone: requested when speech input is used.", "Speech Recognition: requested before microphone access when speech input is used.", "App Transport Security permits local networking for Debug localhost workflow."],
+  "runtime_workflows": ["Launch to the SwiftUI home/search screen.", "Optional speech input: observe Speech Recognition then Microphone consent outcome.", "Search against the configured mobile API; Debug defaults to http://127.0.0.1:8787 and a physical device needs an owner-provided reachable development endpoint.", "Select resources and form a resource pack.", "Open the system share sheet; confirm the pack excludes the original request and client information.", "Open the system print interaction; document whether an AirPrint printer is available and whether printing completes.", "Observe VoiceOver labels, Dynamic Type, contrast, touch targets and error/permission states manually."],
+  "known_unknowns": ["Installed Xcode/Swift versions were not queried to avoid interfering with the manual session.", "No simulator/device launch result has been observed by this capability.", "No build or test has been run by this capability.", "No physical-device signing state, selected team, or provisioning status has been inspected.", "No accessibility, sharing, printing, or permission-prompt outcome has been observed."],
+  "project_quirks": ["The app target is separate from the Swift Package test target.", "The shared Xcode scheme's TestAction is present but has no inspected test buildable reference.", "The full app requires Xcode frameworks (SwiftUI, UIKit, Speech and AVFoundation); Swift Package tests cover only Core.", "Debug localhost API behavior is simulator-oriented; physical devices need a reachable owner-configured development server."]
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": "samwise-workflow-memory-v1",
+  "capability_id": "samwise_workflow_memory",
+  "version": "1.0.0",
+  "purpose": "Local-first, deterministic recognition of bounded completed or incomplete workflows from approved operational records.",
+  "consumes": ["samwise_work_observer", "samwise_capability_intelligence", "native_app_build_validation"],
+  "does_not": ["execute remembered workflows", "change routing policy", "grant permissions", "store secrets or source contents", "train a model"],
+  "storage": "artifacts/samwise/runtime/workflow-memory",
+  "recommendations": "advisory_only_owner_review_required"
+}
