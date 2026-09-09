@@ -17,7 +17,7 @@ import { adaptFarmRecommendationLedgerToPalantir, buildPalantirRecommendationCha
 import { buildRecommendationLedger } from "../server/farmRecommendationLedger.js"
 import { normalizePalantirResourceOpportunity, routePalantirResourceOpportunity } from "../server/palantirResourceRouting.js"
 import { buildSamwisePublicRecordsStatus, samwisePublicRecordsConversationalQueries } from "../server/samwiseConversationalPublicRecords.js"
-import { applyPalantirQuestionEvidence, applyPalantirQuestionEvidenceBatch, assessPalantirRecommendationOutcome, buildPalantirCrossDomainQuestionPilot, buildPalantirFundingServiceOutcomeChain, buildPalantirInstitutionDossier, buildPalantirQuestionBrief, buildPalantirQuestionResearchYield, buildPalantirQuestionWatch, buildPalantirResearchQuestionLedger, classifyPalantirClaimReconciliation, evaluatePalantirQuestionEvidence, explainPalantirMaterialChange, linkPalantirQuestionToPublicFollowUp, normalizePalantirResearchQuestion, reconcilePalantirResearchQuestion, routePalantirQuestionChangeToPublicReview } from "../server/palantirQuestionResolution.js"
+import { applyPalantirQuestionEvidence, applyPalantirQuestionEvidenceBatch, assessPalantirQuestionPortfolioCandidate, assessPalantirRecommendationOutcome, buildPalantirCrossDomainQuestionPilot, buildPalantirFundingServiceOutcomeChain, buildPalantirInstitutionDossier, buildPalantirQuestionBrief, buildPalantirQuestionPortfolio, buildPalantirQuestionPortfolioBrief, buildPalantirQuestionPortfolioWatchPlan, buildPalantirQuestionResearchYield, buildPalantirQuestionWatch, buildPalantirResearchQuestionLedger, classifyPalantirClaimReconciliation, evaluatePalantirQuestionEvidence, explainPalantirMaterialChange, linkPalantirQuestionToPublicFollowUp, normalizePalantirQuestionPortfolioCandidate, normalizePalantirResearchQuestion, reconcilePalantirResearchQuestion, routePalantirQuestionChangeToPublicReview } from "../server/palantirQuestionResolution.js"
 import { buildSuggestedFollowUpRecord } from "../server/palantirStructuralInequality.js"
 import { assertSamwiseCannotBypassMiller } from "../server/samwiseConsumerAdapters.js"
 import { palantirHarvestLessons } from "./fixtures/palantirHarvestLessons.js"
@@ -107,7 +107,36 @@ test("question source yield prioritizes resolution, not document volume", () => 
   assert.equal(lowYield.source_priority, "deprioritize_until_milestone")
   const productive = buildPalantirQuestionResearchYield({ source_family: "annual_reports", documents_checked: 3, questions_advanced: 2, outcome_evidence: 1 })
   assert.equal(productive.questions_advanced_per_document, 0.667)
+  assert.equal(productive.questions_advanced_per_useful_source, 0.667)
   assert.equal(productive.source_priority, "retain_or_prioritize")
+})
+
+test("portfolio candidates are source-backed, deduplicated, finite and never schedule themselves", () => {
+  const existing = question({ question_id: "question:existing" })
+  const candidate = normalizePalantirQuestionPortfolioCandidate({
+    candidate_id: "candidate:framework",
+    origin_type: "recommendation",
+    origin_reference: "In Plain Sight recommendation 9",
+    resolution_likelihood: "medium",
+    priority_rationale: "A defined framework would make later outcome evidence interpretable.",
+    priority_factors: { importance: 3, accountability_value: 3, threshold_clarity: 3, resolution_likelihood: 2, expected_timing: 2, measure_change: 3, source_quality: 3, cross_domain_learning: 2 },
+    downstream_relevance: ["Access & Equity", "Accountability"],
+    question: question({ question_id: "question:framework", title: "Was the framework finalized?", question: "Was a governed cultural-safety measurement framework finalized and used?", subject: "cultural-safety-measurement-framework", expected_documents: ["A framework publication or annual indicator report"], known_evidence: [{ summary: "A public action update describes a working group and planned metrics.", source_url: "https://example.org/action" }] }),
+    watch_plan: { eligible: true, expected_source: "Official action-plan reporting", expected_document: "Annual framework or indicator update", cadence: "annual", cadence_rationale: "The source reports annual progress.", next_reasonable_check: "2027-03-01", existing_listener_id: "listener:action-plan" },
+  })
+  const accepted = assessPalantirQuestionPortfolioCandidate(candidate, [existing])
+  assert.equal(accepted.disposition, "accepted_candidate")
+  const duplicate = assessPalantirQuestionPortfolioCandidate({ ...candidate, candidate_id: "candidate:duplicate", question: { ...candidate.question, question_id: "question:existing", title: existing.title, question: existing.question, subject: existing.subject } }, [existing])
+  assert.equal(duplicate.disposition, "rejected_candidate")
+  assert.ok(duplicate.reasons.includes("duplicate_existing_question"))
+  assert.throws(() => normalizePalantirQuestionPortfolioCandidate({ ...candidate, question: { ...candidate.question, known_evidence: [] } }), /evidence_strategy_required/)
+  const portfolio = buildPalantirQuestionPortfolio({ ledger: buildPalantirResearchQuestionLedger([existing]), candidate_assessments: [accepted, duplicate], active_question_ids: [existing.question_id], active_candidate_ids: [candidate.candidate_id], max_active: 10, as_of: "2026-09-09T00:00:00Z" })
+  assert.equal(portfolio.active.length, 2)
+  assert.equal(portfolio.accepted_candidate_count, 1)
+  assert.equal(buildPalantirQuestionPortfolioBrief(portfolio).active_questions, 2)
+  const watch = buildPalantirQuestionPortfolioWatchPlan(portfolio)[1]
+  assert.equal(watch.disposition, "reuse_existing_listener")
+  assert.equal(watch.automatic_schedule, false)
 })
 
 test("institution, recommendation and funding chains preserve outcome boundaries", () => {

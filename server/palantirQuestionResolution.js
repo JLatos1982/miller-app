@@ -31,6 +31,9 @@ const CHANGE_TYPES = new Set(PALANTIR_MATERIAL_CHANGE_TYPES)
 const OUTCOME_STATES = new Set(PALANTIR_RECOMMENDATION_OUTCOME_STATES)
 const PUBLIC_STATES = new Set(["private_research", "owner_review", "approved_public", "rejected_public", "needs_more_research"])
 const PRIORITIES = new Set(["low", "normal", "high", "urgent"])
+const CANDIDATE_ORIGINS = new Set(["recommendation", "accountability_chain", "funding_intervention", "structural_finding", "formal_evidence", "institution_dossier", "milestone", "measurement_gap"])
+const RESOLUTION_LIKELIHOODS = new Set(["high", "medium", "low", "blocked"])
+const WATCH_CADENCES = new Set(["milestone_based", "report_release", "monthly", "quarterly", "annual", "citation_led"])
 const clean = (value, limit = 900) => String(value ?? "").normalize("NFKC").replace(/\s+/g, " ").trim().slice(0, limit)
 const safeUrl = value => /^https:\/\//.test(String(value || "")) ? clean(value, 500) : null
 const unique = (values, limit = 220) => [...new Set((values || []).map(value => clean(value, limit)).filter(Boolean))]
@@ -262,6 +265,7 @@ export function buildPalantirQuestionResearchYield(input = {}) {
   const answered = Math.max(0, Number(input.questions_answered || 0))
   const duplicates = Math.max(0, Number(input.duplicates_suppressed || 0))
   const unchanged = Math.max(0, Number(input.unchanged_sources || 0))
+  const usefulSources = Math.max(0, Number(input.useful_sources ?? Math.max(0, documentsChecked - duplicates - unchanged)))
   return Object.freeze({
     schema_version: "palantir-question-research-yield-v1",
     source_family: clean(input.source_family, 160) || "unspecified",
@@ -275,9 +279,167 @@ export function buildPalantirQuestionResearchYield(input = {}) {
     outcome_evidence: Math.max(0, Number(input.outcome_evidence || 0)),
     manual_review_burden: ["low", "moderate", "high"].includes(input.manual_review_burden) ? input.manual_review_burden : "moderate",
     questions_advanced_per_document: documentsChecked ? Number((questionAdvancements / documentsChecked).toFixed(3)) : 0,
+    useful_sources: usefulSources,
+    questions_advanced_per_useful_source: usefulSources ? Number((questionAdvancements / usefulSources).toFixed(3)) : 0,
     source_priority: questionAdvancements ? "retain_or_prioritize" : unchanged >= 3 ? "deprioritize_until_milestone" : "insufficient_history",
     automatic_schedule: false,
     mutation_authority: false,
+  })
+}
+
+// A portfolio candidate is a question-shaped, source-backed proposal. It is
+// intentionally not inserted into the canonical ledger until an owner reviews
+// it; this prevents curiosity or a single weak lead from becoming permanent
+// research work.
+export function normalizePalantirQuestionPortfolioCandidate(input = {}) {
+  const question = normalizePalantirResearchQuestion(input.question || input)
+  const originType = clean(input.origin_type, 80)
+  const originReference = clean(input.origin_reference, 260)
+  const likelihood = clean(input.resolution_likelihood, 30)
+  const cadence = clean(input.watch_plan?.cadence, 40)
+  if (!CANDIDATE_ORIGINS.has(originType) || !originReference) throw new Error("palantir_question_candidate_origin_required")
+  if (!question.why_it_matters || !question.known_evidence.length || !question.likely_sources.length || !question.expected_documents.length) throw new Error("palantir_question_candidate_evidence_strategy_required")
+  if (!RESOLUTION_LIKELIHOODS.has(likelihood)) throw new Error("palantir_question_candidate_resolution_likelihood_required")
+  if (cadence && !WATCH_CADENCES.has(cadence)) throw new Error("palantir_question_candidate_watch_cadence_invalid")
+  const factors = Object.fromEntries(["importance", "accountability_value", "threshold_clarity", "resolution_likelihood", "expected_timing", "measure_change", "source_quality", "cross_domain_learning"].map(key => [key, Math.max(0, Math.min(3, Number(input.priority_factors?.[key] || 0)))]))
+  const score = Object.values(factors).reduce((total, value) => total + value, 0)
+  return Object.freeze({
+    schema_version: "palantir-question-portfolio-candidate-v1",
+    candidate_id: clean(input.candidate_id, 180) || `question-candidate:${digest({ originType, originReference, question: question.question_id })}`,
+    question,
+    origin_type: originType,
+    origin_reference: originReference,
+    resolution_likelihood: likelihood,
+    priority_factors: factors,
+    priority_score: score,
+    priority_rationale: clean(input.priority_rationale, 1000) || null,
+    downstream_relevance: unique(input.downstream_relevance || [], 120),
+    watch_plan: Object.freeze({
+      eligible: input.watch_plan?.eligible === true,
+      expected_source: clean(input.watch_plan?.expected_source || question.watch_strategy.expected_source, 500) || null,
+      expected_document: clean(input.watch_plan?.expected_document || question.watch_strategy.expected_milestone, 500) || null,
+      cadence: cadence || null,
+      cadence_rationale: clean(input.watch_plan?.cadence_rationale || question.watch_strategy.cadence_rationale, 700) || null,
+      next_reasonable_check: date(input.watch_plan?.next_reasonable_check) || null,
+      existing_listener_id: clean(input.watch_plan?.existing_listener_id, 180) || null,
+    }),
+    candidate_state: "owner_review",
+    automatic_ledger_insert: false,
+    automatic_schedule: false,
+    automatic_publication: false,
+  })
+}
+
+export function assessPalantirQuestionPortfolioCandidate(candidate, knownQuestions = []) {
+  const item = normalizePalantirQuestionPortfolioCandidate(candidate)
+  const reconciliation = reconcilePalantirResearchQuestion(item.question, knownQuestions)
+  const reasons = []
+  if (reconciliation.disposition !== "new_question_candidate") reasons.push(reconciliation.disposition === "existing_question" ? "duplicate_existing_question" : "possible_duplicate_question")
+  if (!item.priority_rationale) reasons.push("priority_rationale_missing")
+  if (item.resolution_likelihood === "blocked") reasons.push("blocked_evidence_path")
+  if (item.watch_plan.eligible && (!item.watch_plan.expected_source || !item.watch_plan.expected_document || !item.watch_plan.cadence || !item.watch_plan.cadence_rationale)) reasons.push("watch_plan_incomplete")
+  return Object.freeze({
+    schema_version: "palantir-question-portfolio-candidate-assessment-v1",
+    candidate_id: item.candidate_id,
+    question_id: item.question.question_id,
+    disposition: reasons.length ? "rejected_candidate" : "accepted_candidate",
+    reasons,
+    candidate: item,
+    reconciliation,
+    owner_review_required: true,
+    automatic_ledger_insert: false,
+    automatic_schedule: false,
+    automatic_publication: false,
+  })
+}
+
+// The portfolio is a view over canonical questions and reviewed candidates,
+// not another identity store or scheduler. Selection is explicit and capped so
+// research attention remains finite.
+export function buildPalantirQuestionPortfolio({ ledger, candidate_assessments = [], active_question_ids = [], active_candidate_ids = [], as_of = new Date().toISOString(), max_active = 15 } = {}) {
+  if (ledger?.schema_version !== "palantir-research-question-ledger-v1") throw new Error("palantir_question_portfolio_ledger_required")
+  const limit = Math.max(1, Math.min(15, Number(max_active) || 15))
+  const accepted = candidate_assessments.filter(item => item?.schema_version === "palantir-question-portfolio-candidate-assessment-v1" && item.disposition === "accepted_candidate")
+  const candidates = new Map(accepted.map(item => [item.candidate_id, item.candidate]))
+  const questions = new Map(ledger.questions.map(item => [item.question_id, item]))
+  const selected = [...new Set([...active_question_ids.map(value => clean(value, 180)), ...active_candidate_ids.map(value => clean(value, 180))].filter(Boolean))]
+  if (selected.length > limit) throw new Error("palantir_question_portfolio_active_limit_exceeded")
+  const active = selected.map(id => {
+    if (questions.has(id)) return Object.freeze({ portfolio_item_id: id, kind: "canonical_question", question: questions.get(id), candidate: null })
+    if (candidates.has(id)) return Object.freeze({ portfolio_item_id: id, kind: "candidate_question", question: candidates.get(id).question, candidate: candidates.get(id) })
+    throw new Error("palantir_question_portfolio_unknown_active_item")
+  })
+  const activeIds = new Set(selected)
+  const today = new Date(as_of).getTime()
+  const stale = ledger.questions.filter(question => {
+    if (["answered", "superseded", "no_longer_priority", "blocked_by_missing_data", "blocked_by_governance"].includes(question.resolution_state)) return false
+    const reviewed = question.last_reviewed || question.created_at
+    return Number.isFinite(today) && reviewed && today - new Date(reviewed).getTime() > 120 * 86_400_000
+  }).map(question => question.question_id)
+  const blocked = ledger.questions.filter(question => question.resolution_state.startsWith("blocked_")).map(question => question.question_id)
+  return Object.freeze({
+    schema_version: "palantir-question-portfolio-v1",
+    as_of: date(as_of) || new Date().toISOString(),
+    canonical_question_count: ledger.questions.length,
+    accepted_candidate_count: accepted.length,
+    rejected_candidate_count: candidate_assessments.filter(item => item?.disposition === "rejected_candidate").length,
+    active,
+    backlog_question_ids: ledger.questions.filter(question => !activeIds.has(question.question_id) && !["answered", "superseded", "no_longer_priority"].includes(question.resolution_state)).map(question => question.question_id),
+    blocked_question_ids: blocked,
+    stale_question_ids: stale,
+    answered_question_ids: ledger.questions.filter(question => question.resolution_state === "answered").map(question => question.question_id),
+    candidate_assessments,
+    active_limit: limit,
+    scheduler: "farm_job_scheduler",
+    automatic_schedule: false,
+    automatic_publication: false,
+    mutation_authority: false,
+  })
+}
+
+export function buildPalantirQuestionPortfolioWatchPlan(portfolio) {
+  if (portfolio?.schema_version !== "palantir-question-portfolio-v1") throw new Error("palantir_question_portfolio_watch_plan_required")
+  return Object.freeze(portfolio.active.map(item => {
+    const candidate = item.candidate
+    if (!candidate?.watch_plan.eligible) return Object.freeze({ question_id: item.question.question_id, disposition: "research_or_backlog", reason: "No defensible public evidence milestone is specified.", automatic_schedule: false })
+    const plan = candidate.watch_plan
+    const resolved = ["answered", "superseded", "no_longer_priority"].includes(item.question.resolution_state)
+    if (resolved) return Object.freeze({ question_id: item.question.question_id, disposition: "retire_watch", reason: "Question is no longer open.", automatic_schedule: false })
+    return Object.freeze({
+      schema_version: "palantir-question-portfolio-watch-plan-v1",
+      question_id: item.question.question_id,
+      candidate_id: candidate.candidate_id,
+      disposition: plan.existing_listener_id ? "reuse_existing_listener" : "owner_review_watch_candidate",
+      existing_listener_id: plan.existing_listener_id,
+      why_watching: item.question.why_it_matters,
+      current_answer: item.question.current_answer,
+      what_would_change_the_answer: item.question.evidence_needed,
+      expected_source: plan.expected_source,
+      expected_document: plan.expected_document,
+      cadence: plan.cadence,
+      cadence_rationale: plan.cadence_rationale,
+      next_reasonable_check: plan.next_reasonable_check,
+      scheduler: "farm_job_scheduler",
+      automatic_schedule: false,
+      automatic_publication: false,
+    })
+  }))
+}
+
+export function buildPalantirQuestionPortfolioBrief(portfolio) {
+  if (portfolio?.schema_version !== "palantir-question-portfolio-v1") throw new Error("palantir_question_portfolio_brief_required")
+  return Object.freeze({
+    schema_version: "palantir-question-portfolio-brief-v1",
+    total_canonical_questions: portfolio.canonical_question_count,
+    active_questions: portfolio.active.length,
+    accepted_candidates: portfolio.accepted_candidate_count,
+    rejected_candidates: portfolio.rejected_candidate_count,
+    blocked_questions: portfolio.blocked_question_ids.length,
+    stale_questions: portfolio.stale_question_ids.length,
+    answered_questions: portfolio.answered_question_ids.length,
+    active_question_ids: portfolio.active.map(item => item.question.question_id),
+    owner_attention: portfolio.candidate_assessments.filter(item => item.disposition === "accepted_candidate").map(item => item.candidate_id),
+    automatic_publication: false,
   })
 }
 
