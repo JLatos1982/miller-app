@@ -4,7 +4,7 @@ export const SAMWISE_OPERATIONAL_HEALTH_SCHEMA = "samwise-operational-health-v1"
 export const OPERATIONAL_STATES = Object.freeze(["healthy", "attention", "degraded", "unavailable", "stale", "unknown", "intentionally_disabled", "maintenance", "completed", "idle"])
 export const OBSERVATION_AUTHORITIES = Object.freeze(["authoritative", "derived", "cached"])
 export const WARNING_LIFECYCLES = Object.freeze(["new", "active", "acknowledged", "stale", "resolved", "superseded", "false_positive"])
-export const REQUEST_LIFECYCLES = Object.freeze(["queued", "claimed", "running", "completed", "failed", "expired", "cancelled"])
+export const REQUEST_LIFECYCLES = Object.freeze(["queued", "claimed", "running", "completed", "failed", "blocked", "expired", "cancelled"])
 export const HANDOFF_LIFECYCLES = Object.freeze(["queued", "accepted", "running", "progress", "completed", "failed", "expired"])
 
 const VALID_STATES = new Set(OPERATIONAL_STATES)
@@ -127,6 +127,7 @@ export function reconcileRequestLifecycle({ request = {}, now = new Date(), defa
   const expiresAt = iso(request.expires_at) || (requestedAt ? new Date(at(requestedAt) + defaultTtlMs).toISOString() : null)
   const lifecycle = REQUEST_LIFECYCLES.includes(request.state) ? request.state : "queued"
   if (["completed", "failed", "cancelled", "expired"].includes(lifecycle)) return { ...request, state: lifecycle, expires_at: expiresAt, still_active: false }
+  if (lifecycle === "blocked") return { ...request, state: "blocked", expires_at: expiresAt, still_active: true, requires_owner_attention: true, derived_only: true }
   if (expiresAt && at(expiresAt) < new Date(now).getTime()) return { ...request, state: "expired", expires_at: expiresAt, still_active: false, resolution_reason: "request_expired_without_processing", derived_only: true }
   return { ...request, state: lifecycle, expires_at: expiresAt, still_active: true, derived_only: true }
 }

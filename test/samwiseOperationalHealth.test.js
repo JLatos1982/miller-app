@@ -41,6 +41,14 @@ test("expired control requests are derived as expired without inventing a result
   assert.equal(Object.hasOwn(result, "result_code"), false)
 })
 
+test("blocked durable requests remain visible and require owner attention", () => {
+  const result = reconcileRequestLifecycle({ request: { request_id: "stale-worker", state: "blocked", requested_at: "2026-09-09T05:00:00.000Z", blocker: "stale_worker_heartbeat" }, now })
+  assert.equal(result.state, "blocked")
+  assert.equal(result.still_active, true)
+  assert.equal(result.requires_owner_attention, true)
+  assert.equal(result.blocker, "stale_worker_heartbeat")
+})
+
 test("review reconciliation separates owner decisions from additional research", () => {
   const result = reconcileReviewItems([{ candidate_id: "a", state: "pending" }, { candidate_id: "b", state: "needs_more_research" }, { candidate_id: "c", state: "superseded" }])
   assert.equal(result.owner_attention_count, 1)

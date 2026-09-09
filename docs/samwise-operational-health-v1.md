@@ -29,7 +29,11 @@ Each observation records `observed_at`, `expected_next_at`, `stale_after`, `sour
 
 Warnings progress through `new`, `active`, `acknowledged`, `stale`, `resolved`, `superseded`, or `false_positive`. Resolution requires explicit evidence. Unconfirmed old warnings become `stale`, not silently resolved.
 
-Owner requests use `queued`, `claimed`, `running`, `completed`, `failed`, `expired`, or `cancelled`. Igor handoffs use `queued`, `accepted`, `running`, `progress`, `completed`, `failed`, or `expired`. An expiration reconciliation is a derived, audit-preserving state and never invents a result code.
+Owner requests use `queued`, `claimed`, `running`, `completed`, `failed`, `blocked`, `expired`, or `cancelled`. Igor handoffs use `queued`, `accepted`, `running`, `progress`, `completed`, `failed`, or `expired`. An expiration reconciliation is a derived, audit-preserving state and never invents a result code.
+
+`server/samwiseDurableTaskQueue.js` supplies the typed, durable envelope for owner-approved overnight work. It writes an atomic local snapshot and an append-only event journal. Queued work stays durably pending while its host is unavailable; a claimed or running task with a stale heartbeat becomes blocked and resumable instead of remaining permanently running. Resume is never automatic and requires explicit approval.
+
+Only bounded task families are accepted: approved Palantír plans and continuations, registered listener runs, named resource-verification batches, system-health reconciliation, and owner-report generation. Payloads reject arbitrary commands, shell/script/SQL fields, and credentials. The task envelope grants neither mutation nor publication authority.
 
 ## Self-healing boundary
 
