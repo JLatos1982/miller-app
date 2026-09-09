@@ -14,8 +14,8 @@ import "./IndigenousHealthcareEvidenceLaunch.css"
 
 const sourceText = (source) => [source.publisher, source.source_type, source.publication_date].filter(Boolean).join(" · ")
 const EVIDENCE_SEARCH_EXAMPLES = ["Hospital security Saskatchewan", "In Plain Sight", "Ambulance rural BC racism", "Indigenous Patient Safety Advocate"]
-const SEARCH_TYPE_OPTIONS = [["all", "All"], ["incident,listening", "Incidents"], ["evidence", "Evidence"], ["accountability", "Accountability"], ["research_report", "Research / reports"]]
-const SEARCH_TYPE_LABELS = { incident: "Incident", evidence: "Evidence", listening: "Recent development", accountability: "Accountability", research_report: "Research / report" }
+const SEARCH_TYPE_OPTIONS = [["all", "All"], ["incident,listening", "Incidents"], ["evidence", "Evidence"], ["accountability", "Accountability"], ["research_report", "Research / reports"], ["access_equity", "Access & Equity"]]
+const SEARCH_TYPE_LABELS = { incident: "Incident", evidence: "Evidence", listening: "Recent development", accountability: "Accountability", research_report: "Research / report", access_equity: "Access & Equity" }
 const LAST_VISIT_KEY = "miller_north_evidence_last_visit_v1"
 const approvedAt = record => record.publication_approved_at || ""
 const visibleDate = record => displayDateSemantics(dateSemantics(record))

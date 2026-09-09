@@ -17,10 +17,11 @@ const albertaPatientSafety = read("miller-north-alberta-patient-safety-public-v1
 const comparison = read("miller-north-accountability-comparison-public-v1.json")
 const derivedCareSettings = read("miller-north-care-setting-derived-public-v1.json")
 const seriousHarm = read("miller-north-serious-harm-public-v1.json")
+const accessEquity = read("miller-north-access-equity-public-v1.json")
 
 const ignoredTerms = new Set(["a", "about", "and", "are", "as", "at", "be", "by", "for", "from", "how", "in", "is", "it", "of", "on", "or", "the", "to", "what", "with"])
-const SEARCH_RESULT_TYPES = new Set(["incident", "evidence", "listening", "accountability", "research_report"])
-const TYPE_WEIGHT = { accountability: 1.12, incident: 1.1, evidence: 1, listening: .94, research_report: 1.04 }
+const SEARCH_RESULT_TYPES = new Set(["incident", "evidence", "listening", "accountability", "research_report", "access_equity"])
+const TYPE_WEIGHT = { accountability: 1.12, incident: 1.1, evidence: 1, listening: .94, research_report: 1.04, access_equity: 1.03 }
 const SYNONYM_GROUPS = [
   ["indigenous", "first nations", "first nation", "aboriginal", "metis", "métis", "inuit"],
   ["british columbia", "bc", "b.c."], ["alberta", "ab"], ["saskatchewan", "sk", "sask"],
@@ -70,6 +71,8 @@ export function buildMillerNorthPublicSearchIndex() {
     for (const recommendation of item.recommendations || []) values.push(result({ result_id: `recommendation:${item.slug}:${recommendation.number}`, result_type: "accountability", title: `${item.title} — recommendation ${recommendation.number}`, description: recommendation.summary, province: item.province, date: recommendation.latest_evidence_date, organization: recommendation.responsible_organizations?.join(", "), status: recommendation.status, confidence: "reviewed_public_evidence", destination_route: routeForCase(item.slug), underlying_record_id: `${item.slug}:${recommendation.number}`, search_text: compact([item.title, recommendation]).join(" ") }))
   }
   for (const item of comparison.mechanisms) values.push(result({ result_id: `comparison:${normalized(item.province).replaceAll(" ", "_")}`, result_type: "accountability", title: `${item.province}: ${item.mechanism}`, description: "A sourced comparison of complaint access, authority, reporting and public transparency.", province: item.province, date: comparison.generated_at, organization: item.mechanism, status: "documented_comparison", confidence: "reviewed", destination_route: "/indigenous-healthcare-evidence/accountability-snapshot", search_text: compact([item, item.fields?.map(field => [field.label, field.value])]).join(" ") }))
+  for (const item of accessEquity.findings) values.push(result({ result_id: `access-equity:${item.public_id}`, result_type: "access_equity", title: item.title, description: item.public_summary, province: item.jurisdiction, date: item.source?.date || item.period, organization: item.source?.organization, status: item.role, confidence: "reviewed", destination_route: `/indigenous-healthcare-evidence/access-equity#${item.public_id}`, underlying_record_id: item.public_id, search_text: compact([item.title, item.public_summary, item.what_was_measured, item.compared_with, item.documented_context, item.source, item.additional_sources]).join(" ") }))
+  for (const item of accessEquity.suggested_follow_ups) values.push(result({ result_id: `access-equity:${item.public_id}`, result_type: "access_equity", title: item.title, description: item.research_question, province: item.jurisdiction, date: item.last_reviewed, organization: item.sources?.[0]?.organization, status: "suggested_follow_up", confidence: "reviewed", destination_route: `/indigenous-healthcare-evidence/access-equity#${item.public_id}`, underlying_record_id: item.public_id, search_text: compact([item.title, item.research_question, item.why_it_matters, item.what_we_currently_know, item.what_is_missing, item.evidence_needed, item.sources]).join(" ") }))
   return Object.freeze(values)
 }
 

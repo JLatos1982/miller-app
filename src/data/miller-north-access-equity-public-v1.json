@@ -1,0 +1,170 @@
+{
+  "schema_version": "miller-north-access-equity-public-projection-v1",
+  "release": "first-substantive-release-v10",
+  "findings": [
+    {
+      "public_id": "bc-first-nations-primary-care-attachment-2017-18",
+      "kind": "finding",
+      "role": "measured_disparity",
+      "title": "First Nations primary-care attachment in B.C.",
+      "public_summary": "In 2017/18, 23.0% of First Nations people in the reported B.C. dataset were not attached to a regular primary-care provider, compared with 17.5% of Other Residents. This describes a difference in that population and period; it does not identify a single cause or show what changed later.",
+      "what_was_measured": "Age-standardized non-attachment to a regular primary-care provider in the source-defined First Nations and Other Residents populations.",
+      "compared_with": "23.0% of First Nations people compared with 17.5% of Other Residents in 2017/18.",
+      "what_it_does_not_establish": "A current rate, a local centre or catchment result, a single cause, discrimination, or the experience of all Indigenous peoples.",
+      "documented_context": "This is a historical, province-wide administrative measure using the report's population and attachment methodology.",
+      "jurisdiction": "British Columbia",
+      "period": "2017/18",
+      "evidence_strength": "D",
+      "source": {
+        "organization": "Government of British Columbia",
+        "title": "In Plain Sight: Data Report",
+        "date": "2020",
+        "locator": "pp. 107–108",
+        "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2021/02/In-Plain-Sight-Data-Report_Dec2020.pdf1_.pdf"
+      },
+      "caveat": "A measurable disparity does not by itself establish discrimination or its cause."
+    },
+    {
+      "public_id": "bc-first-nations-led-primary-care-implementation-2025",
+      "kind": "finding",
+      "role": "implementation",
+      "title": "First Nations-led primary-care implementation in B.C.",
+      "public_summary": "B.C. reported 26,599 visits, 3,601 net-new attachments and 98.73 recruited full-time equivalents across the operating First Nations-led Primary Care Centres in its December 2025 reporting. These are implementation outputs, not a population-level measure of improved attachment or continuity.",
+      "what_was_measured": "Reported visits, net-new patient attachments and recruited full-time equivalents across operating First Nations-led Primary Care Centres.",
+      "compared_with": "Not a comparison-rate measure; these are reported implementation outputs for the current fiscal year as of December 2025.",
+      "what_it_does_not_establish": "Sustained attachment, continuity, reduced emergency-department or preventable-hospital use, improved patient experience, reduced travel burden, or causal effectiveness.",
+      "documented_context": "B.C. describes the centres as First Nations-led, team-based care that can include traditional wellness, mental-health, mobile and virtual supports.",
+      "jurisdiction": "British Columbia",
+      "period": "December 2025",
+      "evidence_strength": "E",
+      "source": {
+        "organization": "Government of British Columbia",
+        "title": "Declaration Act Action 4.10",
+        "date": "2026",
+        "url": "https://declaration.gov.bc.ca/actions/4-10/"
+      },
+      "caveat": "Implementation activity is not the same as a measured population outcome."
+    },
+    {
+      "public_id": "alberta-documented-indigenous-primary-care-barriers",
+      "kind": "finding",
+      "role": "documented_structural_barrier",
+      "title": "Documented Indigenous primary-care barriers in Alberta",
+      "public_summary": "Alberta’s Indigenous Primary Health Care Advisory Panel documented barriers involving access, jurisdiction, transportation, infrastructure, workforce and cultural safety. These documented barriers help explain why access requires closer examination; they do not prove the cause of every health outcome.",
+      "what_was_measured": "A formal advisory-panel account of barriers identified in Indigenous primary health care.",
+      "compared_with": "Not a rate comparison or a quantified causal model.",
+      "what_it_does_not_establish": "The cause of every health outcome, a finding about every person or community, or that each barrier affects every setting in the same way.",
+      "documented_context": "The report provides a source-backed account of structural issues to investigate alongside measured outcomes.",
+      "jurisdiction": "Alberta",
+      "period": "2024",
+      "evidence_strength": "D",
+      "source": {
+        "organization": "Government of Alberta",
+        "title": "Honouring Our Roots: Indigenous Primary Health Care Advisory Panel final report",
+        "date": "2024",
+        "url": "https://open.alberta.ca/dataset/68717edd-5861-406e-b4ea-dd0e9051dadc/resource/da7c9aae-9cc1-48f4-bce5-6e71bd02a9c8/download/hlth-maps-indigenous-primary-health-care-advisory-panel-final-report.pdf"
+      },
+      "caveat": "Documented mechanisms help frame a question; they do not by themselves prove causation."
+    },
+    {
+      "public_id": "alberta-indigenous-primary-care-navigation-response",
+      "kind": "finding",
+      "role": "institutional_response",
+      "title": "Alberta primary-care and navigation response",
+      "public_summary": "Alberta established Indigenous-led primary-care and patient-navigation funding after documented access concerns. Public reporting confirms funding, initiatives and first-year recipient reporting; it does not yet show whether access, continuity or experience improved.",
+      "what_was_measured": "Publicly reported funding programs, initiatives and first-year recipient reporting.",
+      "compared_with": "Not a pre/post outcome comparison.",
+      "what_it_does_not_establish": "Whether access, continuity or patient experience improved, or whether the programs caused a change.",
+      "documented_context": "The Innovation Fund and Indigenous Patient Navigator Grant Program are intended to support Indigenous-led, culturally safe primary care and navigation.",
+      "jurisdiction": "Alberta",
+      "period": "2024–2025 reporting",
+      "evidence_strength": "E",
+      "source": {
+        "organization": "Government of Alberta and Alexander Deh Gáh Got’įę First Nation",
+        "title": "Indigenous primary health care funding and first-year recipient reporting",
+        "date": "2025",
+        "url": "https://www.alberta.ca/indigenous-primary-health-care-funding-innovation-fund"
+      },
+      "additional_sources": [
+        { "organization": "Government of Alberta", "title": "Indigenous Patient Navigator Grant Program", "url": "https://www.alberta.ca/indigenous-patient-navigator-grant-program" },
+        { "organization": "Indigenous Health Division, Primary and Preventative Health Services", "title": "Assistant Deputy Minister Newsletter, July 2025", "url": "https://tsuutina.com/wp-content/uploads/2025/06/ADM-Newsletter-July-2025.pdf" }
+      ],
+      "caveat": "Funding, program creation and recipient reporting do not establish effectiveness."
+    }
+  ],
+  "suggested_follow_ups": [
+    {
+      "public_id": "sk-primary-care-continuity-acsc-follow-up",
+      "kind": "suggested_follow_up",
+      "role": "suggested_follow_up",
+      "title": "Saskatchewan primary-care continuity and preventable hospitalization",
+      "jurisdiction": "Saskatchewan",
+      "research_question": "Can Saskatchewan measure First Nations/comparator primary-care continuity and potentially preventable hospitalization?",
+      "why_it_matters": "Saskatchewan has important First Nations outcome evidence, but an aligned public continuity/ACSC series was not located. Without aligned measures, public evidence cannot test the access-to-hospital-use link.",
+      "what_we_currently_know": "Important First Nations health disparities have been publicly documented, while an aligned primary-care continuity and ambulatory-care-sensitive-condition series has not been located in the public record.",
+      "what_is_missing": "An aligned Saskatchewan First Nations/comparator attachment or continuity and ACSC series.",
+      "evidence_needed": "Governed, age-standardized, privacy-suppressed aggregate measures with population definition, numerator, denominator, method and linkage limits.",
+      "governance_considerations": "An administrative Registered First Nations field is not all Indigenous people. Métis and Inuit require distinct appropriate approaches; aggregate availability would not settle governance or interpretation.",
+      "sources": [
+        { "organization": "Northern Inter-Tribal Health Authority", "title": "Health Status Reports", "url": "https://www.nitha.com/health-status-reports/" }
+      ],
+      "status": "watching_for_public_update",
+      "last_reviewed": "2026-09-09"
+    },
+    {
+      "public_id": "sk-medical-travel-burden-follow-up",
+      "kind": "suggested_follow_up",
+      "role": "suggested_follow_up",
+      "title": "Saskatchewan medical-travel burden",
+      "jurisdiction": "Saskatchewan",
+      "research_question": "What medical-travel burden is measurable for eligible First Nations patients in Saskatchewan?",
+      "why_it_matters": "NIHB expenditure documents transportation activity, but not trip volume, distance, delay, cancellation, accommodations, escort use or continuity burden.",
+      "what_we_currently_know": "Public program information confirms medical transportation as a covered benefit for eligible clients when medically necessary services are not available locally.",
+      "what_is_missing": "A public privacy-safe account of trip, distance, delay, cancellation, accommodation, escort and completed-care measures.",
+      "evidence_needed": "Privacy-safe aggregate operations measures and an eligible-population denominator where governance permits.",
+      "governance_considerations": "Program eligibility is not a First Nations/non-First Nations comparator. Aggregate reporting should respect appropriate Indigenous data governance and suppression.",
+      "sources": [
+        { "organization": "Indigenous Services Canada", "title": "Non-Insured Health Benefits: Medical transportation", "url": "https://www.sac-isc.gc.ca/eng/1639748667069/1639748703555" }
+      ],
+      "status": "watching_for_public_update",
+      "last_reviewed": "2026-09-09"
+    },
+    {
+      "public_id": "alberta-indigenous-primary-care-investment-outcomes-follow-up",
+      "kind": "suggested_follow_up",
+      "role": "suggested_follow_up",
+      "title": "Alberta Indigenous primary-care investment outcomes",
+      "jurisdiction": "Alberta",
+      "research_question": "Did Alberta’s Indigenous primary-care investments improve access, continuity or patient experience?",
+      "why_it_matters": "The programs were designed in response to documented access concerns. A public outcome series would help distinguish implementation from measurable improvement.",
+      "what_we_currently_know": "Disparities and barriers were documented, programs were funded, initiatives were implemented and recipient annual reporting exists.",
+      "what_is_missing": "Common public outcome indicators, comparable pre/post results and a population-level effect measure.",
+      "evidence_needed": "Community-governed evaluation results or a public aggregate framework with baseline, intended population, period, method and limits.",
+      "governance_considerations": "Community-led reporting may have governance or publication restrictions. Absence of a public outcome series does not show the programs failed.",
+      "sources": [
+        { "organization": "Government of Alberta", "title": "Indigenous primary health care funding – Innovation Fund", "url": "https://www.alberta.ca/indigenous-primary-health-care-funding-innovation-fund" },
+        { "organization": "Government of Alberta", "title": "Indigenous Patient Navigator Grant Program", "url": "https://www.alberta.ca/indigenous-patient-navigator-grant-program" }
+      ],
+      "status": "watching_for_public_update",
+      "last_reviewed": "2026-09-09"
+    },
+    {
+      "public_id": "bc-fnpcc-attachment-continuity-outcomes-follow-up",
+      "kind": "suggested_follow_up",
+      "role": "suggested_follow_up",
+      "title": "B.C. First Nations-led Primary Care Centre outcomes",
+      "jurisdiction": "British Columbia",
+      "research_question": "Did First Nations-led Primary Care Centres improve attachment and continuity in the populations they were designed to serve?",
+      "why_it_matters": "Implementation data establish service activity but cannot measure sustained access improvement.",
+      "what_we_currently_know": "B.C. documents centres, staff, visits and net-new attachments. It also reports a rapid formative evaluation and says additional community-led outcome indicators remain to be decided.",
+      "what_is_missing": "A consistent, baseline-aligned catchment or intended-population outcome series for attachment or continuity.",
+      "evidence_needed": "Community-governed, privacy-safe attachment and continuity measures for explicitly defined intended populations or catchments; emergency and preventable-hospitalization measures only where appropriate.",
+      "governance_considerations": "First Nations and FNHA governance is central. A public outcome measure should be interpreted within the governance and population definition set by the appropriate partners.",
+      "sources": [
+        { "organization": "Government of British Columbia", "title": "Declaration Act Action 4.10", "url": "https://declaration.gov.bc.ca/actions/4-10/" }
+      ],
+      "status": "watching_for_public_update",
+      "last_reviewed": "2026-09-09"
+    }
+  ]
+}

@@ -25,7 +25,7 @@ const roleLabels = Object.freeze({
 })
 
 function FindingCard({ finding }) {
-  return <article className="mn-access-card">
+  return <article className="mn-access-card" id={finding.public_id}>
     <p className="mn-public-eyebrow">{roleLabels[finding.role] || "Access & Equity"}</p>
     <h3>{finding.title}</h3>
     <p>{finding.public_summary}</p>
@@ -36,12 +36,13 @@ function FindingCard({ finding }) {
     </dl>
     {finding.documented_context && <p className="mn-access-context">{finding.documented_context}</p>}
     <p className="mn-access-source"><a href={finding.source.url} target="_blank" rel="noreferrer">{finding.source.organization} — {finding.source.title}</a>{finding.period ? ` · ${finding.period}` : ""}</p>
+    {finding.additional_sources?.length > 0 && <p className="mn-access-source">{finding.additional_sources.map((source, index) => <a key={source.url} href={source.url} target="_blank" rel="noreferrer">{index ? "Additional source" : "Additional source"}: {source.organization} — {source.title}</a>)}</p>}
     <p className="mn-access-caveat">{finding.caveat}</p>
   </article>
 }
 
 function FollowUpCard({ followUp }) {
-  return <article className="mn-access-card mn-access-follow-up-card">
+  return <article className="mn-access-card mn-access-follow-up-card" id={followUp.public_id}>
     <p className="mn-public-eyebrow">Suggested follow-up · {followUp.jurisdiction}</p>
     <h3>{followUp.title}</h3>
     <dl>
@@ -52,12 +53,14 @@ function FollowUpCard({ followUp }) {
       <div><dt>Evidence that would help</dt><dd>{followUp.evidence_needed}</dd></div>
       {followUp.governance_considerations && <div><dt>Governance / methodology</dt><dd>{followUp.governance_considerations}</dd></div>}
     </dl>
-    <p className="mn-access-source">{followUp.source_urls.map((url, index) => <a key={url} href={url} target="_blank" rel="noreferrer">{index ? "Additional source" : "Source"}</a>)}</p>
+    <p className="mn-access-source">{followUp.sources.map((source, index) => <a key={source.url} href={source.url} target="_blank" rel="noreferrer">{index ? "Additional source" : "Source"}: {source.organization} — {source.title}</a>)}</p>
   </article>
 }
 
 export default function MillerNorthAccessEquity() {
   const { findings, suggested_follow_ups: followUps } = ACCESS_EQUITY_PUBLIC_PROJECTION
+  const whatWeKnow = findings.filter(finding => ["measured_disparity", "documented_structural_barrier"].includes(finding.role))
+  const institutionalResponses = findings.filter(finding => ["institutional_response", "implementation"].includes(finding.role))
   return <main className="mn-public-page mn-access-equity-page">
     <header className="mn-public-header"><MillerNorthHomeLink/><MillerNorthPublicNav current="access_equity" /></header>
     <section className="mn-public-hero">
@@ -75,10 +78,21 @@ export default function MillerNorthAccessEquity() {
       {measureAreas.map(([title, text]) => <article key={title}><h2>{title}</h2><p>{text}</p></article>)}
     </section>
 
-    {findings.length > 0 && <section className="mn-public-section" aria-labelledby="access-equity-findings-title">
+    {whatWeKnow.length > 0 && <section className="mn-public-section" aria-labelledby="access-equity-findings-title">
       <p className="mn-public-eyebrow">What we know</p><h2 id="access-equity-findings-title">Publicly reviewed structural evidence</h2>
-      <div className="mn-access-card-grid">{findings.map(finding => <FindingCard key={finding.public_id} finding={finding} />)}</div>
+      <div className="mn-access-card-grid">{whatWeKnow.map(finding => <FindingCard key={finding.public_id} finding={finding} />)}</div>
     </section>}
+
+    {institutionalResponses.length > 0 && <section className="mn-public-section" aria-labelledby="access-equity-response-title">
+      <p className="mn-public-eyebrow">What institutions did</p><h2 id="access-equity-response-title">Responses and implementation</h2>
+      <p>These records document a response or its implementation. They are not evidence, by themselves, that conditions or outcomes improved.</p>
+      <div className="mn-access-card-grid">{institutionalResponses.map(finding => <FindingCard key={finding.public_id} finding={finding} />)}</div>
+    </section>}
+
+    <section className="mn-public-section" aria-labelledby="access-equity-change-title">
+      <p className="mn-public-eyebrow">Did it change?</p><h2 id="access-equity-change-title">Implementation and effectiveness are different questions</h2>
+      <p>The public records below document important work, but they do not yet supply comparable outcome measures capable of showing whether the B.C. centres or Alberta investments changed attachment, continuity or patient experience. That is an evidence limit, not a conclusion about whether a program succeeded or failed.</p>
+    </section>
 
     <section className="mn-public-section" aria-labelledby="access-equity-method-title">
       <p className="mn-public-eyebrow">Method</p><h2 id="access-equity-method-title">What a careful finding needs</h2>

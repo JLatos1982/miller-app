@@ -12,13 +12,25 @@ test("Access & Equity is a public methodology surface with no private-record imp
   assert.match(page, /None are displayed until that review is complete/)
   assert.match(page, /ACCESS_EQUITY_PUBLIC_PROJECTION/)
   assert.match(page, /What this does not establish/)
+  assert.match(page, /What institutions did/)
+  assert.match(page, /Implementation and effectiveness are different questions/)
   assert.doesNotMatch(page, /artifacts\/samwise|saskatchewan-governance-outreach|request_draft|private_record/i)
   assert.match(app, /indigenous-healthcare-evidence\/access-equity/)
 })
 
-test("Access & Equity public projection starts empty and cannot carry private review records", () => {
+test("Access & Equity public projection contains only the approved first release", () => {
   const projection = readFileSync(new URL("../src/site/accessEquityPublicProjection.js", import.meta.url), "utf8")
-  assert.match(projection, /findings: Object\.freeze\(\[\]\)/)
-  assert.match(projection, /suggested_follow_ups: Object\.freeze\(\[\]\)/)
+  const publicData = JSON.parse(readFileSync(new URL("../src/data/miller-north-access-equity-public-v1.json", import.meta.url), "utf8"))
+  assert.match(projection, /miller-north-access-equity-public-v1\.json/)
+  assert.equal(publicData.findings.length, 4)
+  assert.equal(publicData.suggested_follow_ups.length, 4)
+  assert.deepEqual(publicData.findings.map(item => item.public_id).sort(), [
+    "alberta-documented-indigenous-primary-care-barriers",
+    "alberta-indigenous-primary-care-navigation-response",
+    "bc-first-nations-led-primary-care-implementation-2025",
+    "bc-first-nations-primary-care-attachment-2017-18",
+  ])
+  assert.ok(publicData.suggested_follow_ups.every(item => item.status === "watching_for_public_update"))
+  assert.doesNotMatch(JSON.stringify(publicData), /opioid.toxicity mortality|94\.6 per 100,000|owner_review|private_research|request_draft/i)
   assert.doesNotMatch(projection, /owner_review|private_research|artifacts\/samwise|request_draft/i)
 })

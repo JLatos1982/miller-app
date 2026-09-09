@@ -4,13 +4,23 @@ import test from "node:test"
 
 import { buildMillerNorthPublicSearchIndex, expandMillerNorthQuery, retrieveMillerNorthResults, searchIndigenousHealthcareEvidence } from "../server/indigenousHealthcareEvidenceSearch.js"
 
-test("Miller North search index covers public evidence, incidents, Listening, accountability and research", () => {
+test("Miller North search index covers public evidence, incidents, Listening, accountability, research and Access & Equity", () => {
   const index = buildMillerNorthPublicSearchIndex(), types = new Set(index.map(item => item.result_type))
-  assert.deepEqual([...types].sort(), ["accountability", "evidence", "incident", "listening", "research_report"])
+  assert.deepEqual([...types].sort(), ["access_equity", "accountability", "evidence", "incident", "listening", "research_report"])
   assert.ok(index.length > 350)
   assert.ok(index.every(item => item.destination_route.startsWith("/indigenous-healthcare-evidence")))
   assert.ok(index.filter(item => item.result_type === "evidence").every(item => !/^(Official Investigation|Reported Account|Systemic Evidence|News Release|Media Release|Press Release)$/i.test(item.title)))
   assert.doesNotMatch(JSON.stringify(index), /owner_review|private_note|patient_name|ordinary_username/i)
+})
+
+test("Access & Equity search indexes only approved public records and excludes the held Saskatchewan mortality card", () => {
+  const index = buildMillerNorthPublicSearchIndex().filter(item => item.result_type === "access_equity")
+  assert.equal(index.length, 8)
+  assert.ok(index.every(item => item.destination_route.startsWith("/indigenous-healthcare-evidence/access-equity#")))
+  assert.ok(index.some(item => item.title === "First Nations primary-care attachment in B.C."))
+  assert.ok(index.some(item => /Saskatchewan primary-care continuity/i.test(item.title)))
+  assert.ok(retrieveMillerNorthResults("First Nations primary care attachment British Columbia", { resultTypes: ["access_equity"] }).some(item => item.underlying_record_id === "bc-first-nations-primary-care-attachment-2017-18"))
+  assert.ok(!JSON.stringify(index).match(/opioid.toxicity mortality|94\.6 per 100,000/i))
 })
 
 test("site search handles phrases, aliases, geography, settings and typo tolerance with stable ranking", () => {
