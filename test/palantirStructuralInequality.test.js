@@ -25,6 +25,7 @@ import {
   buildTreatmentAccessCascade,
   buildPolicyOutcomeLagChain,
   buildMeasurementInequalityMatrix,
+  buildInterventionOutcomeCaseStudy,
   buildSuggestedFollowUpRecord,
   assessStructuralTravelBurden,
   classifyStructuralMissingData,
@@ -492,4 +493,23 @@ test("suggested follow-ups are source-backed questions behind their own public g
   const approved = assessSuggestedFollowUpPublicGate({ ...followUp, owner_review_state: "approved", publication_state: "approved_public" })
   assert.equal(approved.publishable, true)
   assert.throws(() => buildSuggestedFollowUpRecord({ ...followUp, title: "Draft FOI language" }), /private_strategy_prohibited/)
+})
+
+test("intervention outcome cases preserve outcome gaps without treating implementation as effectiveness", () => {
+  const study = buildInterventionOutcomeCaseStudy({
+    case_id: "bc:fnpci:v9",
+    jurisdiction: "British Columbia",
+    intervention: "First Nations-led Primary Health Care Initiative",
+    community_governance_required: true,
+    links: [
+      { stage: "baseline_disparity", state: "supported", statement: "A pre-intervention First Nations attachment disparity was published.", population: "Source-defined First Nations and Other Residents", period: "2017/18", denominator: "Population rate", source_url: "https://www.fnha.ca/baseline" },
+      { stage: "implementation", state: "supported", statement: "Sites, visits, staffing and net-new attachments are reported.", period: "2025", source_url: "https://www2.gov.bc.ca/action" },
+      { stage: "attachment_or_continuity_outcome", state: "not_yet_measurable", statement: "No catchment-defined pre/post attachment or continuity series was located." },
+      { stage: "downstream_utilization_or_outcome", state: "missing", statement: "No centre-linked ED or ACSC series was located." },
+    ],
+  })
+  assert.equal(study.outcome_measured, false)
+  assert.equal(study.outcome_not_yet_measurable, true)
+  assert.equal(study.implementation_is_effectiveness_evidence, false)
+  assert.equal(study.causal_conclusion_supported, false)
 })

@@ -89,6 +89,8 @@ Structural records use explicit public-projection states: `private_research`, `o
 
 `buildSuggestedFollowUpRecord` provides a separate, public-safe record for an unanswered structural question. It requires a question, rationale, current public evidence, missing evidence, evidence needed, sources and governance language where the question concerns First Nations, Métis, Inuit or Indigenous data. The stored public projection deliberately excludes contact details, private analyst notes, request/FOI wording, unpublished evidence and outreach strategy. `assessSuggestedFollowUpPublicGate` requires those public-safety checks **plus** owner approval, `approved_public`, and an explicit projection request. A proposed question is not searchable or displayed merely because it is useful.
 
+`buildInterventionOutcomeCaseStudy` makes the policy-to-outcome question explicit: baseline disparity → documented mechanism → institutional acknowledgement → intervention → implementation → attachment or continuity outcome → downstream utilization or outcome → remaining disparity. Each link keeps its population, catchment, period, denominator, method, provenance and limitation. A supported implementation link does not set `outcome_measured`, establish effectiveness, or support a causal conclusion. The primitive is private, community-governance-aware and owner-reviewed by default.
+
 ## Operational use
 
 Recommended source handling is source-level and low-noise:

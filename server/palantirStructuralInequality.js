@@ -24,6 +24,8 @@ const POLICY_OUTCOME_LINK_STATES = new Set(["supported", "suggestive", "missing"
 const MEASUREMENT_INEQUALITY_STATES = new Set(["measurable", "partially_measurable", "insufficiently_disaggregated", "collected_but_unpublished", "unknown", "apparently_not_collected"])
 const TREATMENT_CASCADE_STAGES = new Set(["documented_need", "assessment", "withdrawal_or_oat", "treatment", "transportation", "housing", "aftercare", "return_home_continuity", "outcome"])
 const SUGGESTED_FOLLOW_UP_STATUSES = new Set(["suggested", "watching_for_public_update", "resolved", "no_longer_priority"])
+const INTERVENTION_OUTCOME_CASE_STAGES = new Set(["baseline_disparity", "documented_mechanism", "institutional_acknowledgement", "intervention", "implementation", "attachment_or_continuity_outcome", "downstream_utilization_or_outcome", "remaining_disparity"])
+const INTERVENTION_OUTCOME_CASE_STATES = new Set(["supported", "suggestive", "missing", "contradicted", "not_yet_measurable"])
 
 const clean = (value, limit = 600) => String(value ?? "").normalize("NFKC").replace(/\s+/g, " ").trim().slice(0, limit)
 const list = (value, limit = 240) => [...new Set((Array.isArray(value) ? value : value ? [value] : []).map(item => clean(item, limit)).filter(Boolean))]
@@ -981,5 +983,55 @@ export function assessSuggestedFollowUpPublicGate(input = {}) {
     publishable: publicSafe && checks.owner_approved && checks.approved_public_state && record.public_projection_requested,
     owner_review_required: publicSafe && !checks.owner_approved,
     automatic_publication: false,
+  })
+}
+
+// This case-study primitive is deliberately longitudinal and link-specific. It
+// can describe implementation well without converting it into effectiveness or
+// causal evidence.
+export function buildInterventionOutcomeCaseStudy(input = {}) {
+  const caseId = clean(input.case_id, 180)
+  const jurisdiction = clean(input.jurisdiction, 120)
+  const intervention = clean(input.intervention, 320)
+  if (!caseId || !jurisdiction || !intervention) throw new Error("palantir_intervention_outcome_case_required_fields_missing")
+  const links = (Array.isArray(input.links) ? input.links : []).map(link => {
+    const stage = INTERVENTION_OUTCOME_CASE_STAGES.has(link.stage) ? link.stage : null
+    const state = INTERVENTION_OUTCOME_CASE_STATES.has(link.state) ? link.state : null
+    const sourceUrl = httpsUrl(link.source_url)
+    if (!stage || !state || !clean(link.statement, 700)) throw new Error("palantir_intervention_outcome_case_link_invalid")
+    if (state === "supported" && !sourceUrl) throw new Error("palantir_intervention_outcome_case_supported_link_requires_source")
+    return Object.freeze({
+      stage,
+      state,
+      statement: clean(link.statement, 700),
+      population: clean(link.population, 320) || null,
+      geography_or_catchment: clean(link.geography_or_catchment, 320) || null,
+      period: clean(link.period, 140) || null,
+      denominator: clean(link.denominator, 260) || null,
+      methodology: clean(link.methodology, 420) || null,
+      source_url: sourceUrl,
+      source_locator: clean(link.source_locator, 220) || null,
+      limitations: list(link.limitations, 360),
+    })
+  })
+  if (new Set(links.map(link => link.stage)).size !== links.length) throw new Error("palantir_intervention_outcome_case_duplicate_stage")
+  const byStage = new Map(links.map(link => [link.stage, link]))
+  const ordered = [...INTERVENTION_OUTCOME_CASE_STAGES].map(stage => byStage.get(stage) || Object.freeze({ stage, state: "missing", statement: "No usable public evidence located for this link.", population: null, geography_or_catchment: null, period: null, denominator: null, methodology: null, source_url: null, source_locator: null, limitations: [] }))
+  const outcomeLinks = ordered.filter(link => ["attachment_or_continuity_outcome", "downstream_utilization_or_outcome"].includes(link.stage))
+  return Object.freeze({
+    schema_version: "palantir-intervention-outcome-case-study-v1",
+    case_id: caseId,
+    jurisdiction,
+    intervention,
+    links: Object.freeze(ordered),
+    supported_links: ordered.filter(link => link.state === "supported").length,
+    outcome_measured: outcomeLinks.some(link => link.state === "supported"),
+    outcome_not_yet_measurable: outcomeLinks.every(link => ["missing", "not_yet_measurable"].includes(link.state)),
+    community_governance_required: input.community_governance_required !== false,
+    causal_conclusion_supported: false,
+    implementation_is_effectiveness_evidence: false,
+    private_by_default: true,
+    owner_review_required: true,
+    publication_authority: false,
   })
 }
