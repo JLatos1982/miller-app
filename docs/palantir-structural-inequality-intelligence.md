@@ -73,6 +73,20 @@ An `Access & Equity` projection is not automatically created. The default assess
 
 Travel evidence is assessed separately. Expenditure can describe system burden, but it is not a population disparity without trips or another meaningful operational measure, a denominator, and a fair comparator. Remoteness is never treated as a proxy for Indigenous identity.
 
+## Missing-evidence acquisition
+
+`buildMissingEvidenceAcquisition` is the owner-review lifecycle for a decisive gap that public research cannot answer. It records the question, completed and failed searches, evidence that a dataset exists, its likely holder and underlying system, expected geography and years, linkage requirements, identification-method limitations, governance concerns, and its anticipated Access & Equity value.
+
+Existence states distinguish a located public dataset (A), a public aggregate indicator (B), collected-but-unpublished data (C), a holder likely to have the necessary fields (D), collection uncertainty (E), and evidence that the dataset cannot answer the question (F). C and D are rejected without a source-backed existence record; silence never becomes a claim that an institution holds data.
+
+An optional draft is accepted only when it is explicitly aggregate-only, time-bounded, identifies its numerator and denominator, asks the holder to state the Indigenous-identification method and limitations, and specifies suppression/privacy handling. The primitive stores every draft as `pending`, `not_submitted`, and with no response. It has no ability to send an email, file FOI/ATIP, request records, mutate a system, or publish an output. First Nations data require appropriate Nation or representative-organization governance; a legally possible aggregate release is not automatically appropriate to seek or publish.
+
+`ingestMissingEvidenceAcquisitionResponse` preserves a future holder reply as a bounded, private response record: clarification, methodology document, aggregate table, denial, partial response, referral, governance concern, or scope-specific non-existence. It rejects identifiers, record-level material, and small-cell material. Receipt never changes publication authority or converts a tentative classification without owner review.
+
+## Public Access & Equity gate
+
+Structural records use explicit public-projection states: `private_research`, `owner_review`, `approved_public`, `rejected_public`, and `needs_more_research`. A record is publishable only if its evidence and privacy checks pass, the owner-review decision is approved, the projection is requested, **and** its state is `approved_public`. Owner approval alone never promotes a record. A public Access & Equity page may explain method and gaps while the approved finding count remains zero; private dossiers, acquisition plans and holder responses are never page or search inputs.
+
 ## Operational use
 
 Recommended source handling is source-level and low-noise:

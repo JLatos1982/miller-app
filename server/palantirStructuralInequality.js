@@ -5,7 +5,7 @@ const DISCRIMINATION_STATES = new Set(["not_assessed", "not_established", "docum
 const MECHANISM_STATES = new Set(["none_identified", "plausible_not_established", "documented", "formal_acknowledgement", "intervention", "measured_outcome"])
 const COMPARATOR_QUALITY_STATES = new Set(["meaningful", "provisional", "misleading", "absent"])
 const SOURCE_QUALITY_STATES = new Set(["primary_official", "indigenous_governed", "independent_officer", "official_derived", "peer_reviewed_context", "secondary_context"])
-const PUBLICATION_STATES = new Set(["private_research", "owner_review", "approved", "rejected", "published"])
+const PUBLICATION_STATES = new Set(["private_research", "owner_review", "approved_public", "rejected_public", "needs_more_research"])
 const GAP_TYPES = new Set(["data_gap", "measurement_gap", "reporting_gap"])
 const TREND_STATES = new Set(["improving", "worsening", "stable", "discontinuity", "methodology_changed", "data_discontinued", "insufficient_series"])
 const COMPARABILITY_STATES = new Set(["high", "moderate", "poor", "not_comparable"])
@@ -14,6 +14,9 @@ const DATA_AVAILABILITY_STATES = new Set(["collected_public", "collected_insuffi
 const METHODOLOGY_QUALITY_STATES = new Set(["high", "moderate", "weak", "unusable", "unknown"])
 const STRUCTURAL_CHAIN_STAGES = new Set(["remoteness", "service_availability_or_travel", "primary_care_continuity", "acsc_or_preventable_hospitalization", "outcome"])
 const STRUCTURAL_LINK_STATES = new Set(["supported", "suggestive", "missing"])
+const MISSING_EVIDENCE_EXISTENCE_STATES = new Set(["A_public_dataset_located", "B_public_aggregate_indicator_located", "C_collected_not_public", "D_likely_held_required_fields", "E_collection_uncertain", "F_not_available_for_question"])
+const REQUEST_ROUTES = new Set(["published_data_inquiry", "open_data_request", "research_data_inquiry", "cihi_custom_data", "statistics_canada_custom_tabulation", "indigenous_health_partnership", "annual_report_clarification", "formal_foi_fallback", "formal_atip_fallback", "no_request"])
+const MISSING_EVIDENCE_RESPONSE_TYPES = new Set(["clarification", "methodology_document", "aggregate_table", "denial", "partial_response", "referral", "governance_concern", "data_does_not_exist"])
 
 const clean = (value, limit = 600) => String(value ?? "").normalize("NFKC").replace(/\s+/g, " ").trim().slice(0, limit)
 const list = (value, limit = 240) => [...new Set((Array.isArray(value) ? value : value ? [value] : []).map(item => clean(item, limit)).filter(Boolean))]
@@ -224,6 +227,126 @@ export function assessStructuralTravelBurden(input = {}) {
     missing_denominator: !normalized,
     missing_comparator: !comparatorAvailable,
     absence_proves_discrimination: false,
+  })
+}
+
+// This is a private, owner-review primitive. It inventories whether decisive
+// evidence appears to exist and can prepare a bounded aggregate request, but
+// deliberately has no dispatch, correspondence, or publication capability.
+export function buildMissingEvidenceAcquisition(input = {}) {
+  const acquisitionId = clean(input.acquisition_id, 180)
+  const jurisdiction = clean(input.jurisdiction, 120)
+  const indicator = clean(input.indicator, 240)
+  const existenceState = MISSING_EVIDENCE_EXISTENCE_STATES.has(input.existence_state) ? input.existence_state : null
+  const holder = input.likely_holder || {}
+  const holderName = clean(holder.name, 180)
+  const evidence = (Array.isArray(input.evidence_of_existence) ? input.evidence_of_existence : []).map(item => {
+    const sourceUrl = httpsUrl(item.source_url)
+    const claim = clean(item.claim, 500)
+    if (!sourceUrl || !claim) throw new Error("palantir_missing_evidence_existence_evidence_invalid")
+    return Object.freeze({ source_url: sourceUrl, locator: clean(item.locator, 220) || null, claim, source_type: clean(item.source_type, 100) || "source" })
+  })
+  if (!acquisitionId || !jurisdiction || !indicator || !existenceState || !holderName) throw new Error("palantir_missing_evidence_required_fields_missing")
+  if (["C_collected_not_public", "D_likely_held_required_fields"].includes(existenceState) && evidence.length === 0) throw new Error("palantir_missing_evidence_held_classification_requires_evidence")
+  const request = input.request_draft || null
+  let requestDraft = null
+  if (request) {
+    const route = REQUEST_ROUTES.has(request.preferred_route) ? request.preferred_route : null
+    const period = clean(request.period, 140)
+    const denominator = clean(request.denominator, 360)
+    const identityMethod = clean(request.indigenous_identification_method, 360)
+    const suppression = clean(request.suppression_privacy, 360)
+    const aggregateOnly = request.aggregate_only === true
+    const asksIndividualRecords = request.asks_individual_records === true
+    if (!route || !period || !denominator || !identityMethod || !suppression || !aggregateOnly || asksIndividualRecords) throw new Error("palantir_missing_evidence_request_not_privacy_safe")
+    requestDraft = Object.freeze({
+      recipient: clean(request.recipient, 180) || holderName,
+      preferred_route: route,
+      formal_fallback: REQUEST_ROUTES.has(request.formal_fallback) ? request.formal_fallback : null,
+      period,
+      requested_aggregate: clean(request.requested_aggregate, 1200),
+      numerator: clean(request.numerator, 360) || null,
+      denominator,
+      indigenous_identification_method: identityMethod,
+      geography: clean(request.geography, 360) || null,
+      suppression_privacy: suppression,
+      aggregate_only: true,
+      asks_individual_records: false,
+      owner_review_state: "pending",
+      submission_state: "not_submitted",
+      response_state: "none",
+    })
+  }
+  return Object.freeze({
+    schema_version: "palantir-missing-evidence-acquisition-v1",
+    acquisition_id: acquisitionId,
+    jurisdiction,
+    indicator,
+    research_question: clean(input.research_question, 600) || null,
+    existence_state: existenceState,
+    likely_holder: Object.freeze({
+      name: holderName,
+      underlying_system: clean(holder.underlying_system, 240) || "unknown",
+      geographic_resolution: clean(holder.geographic_resolution, 180) || "unknown",
+      indigenous_identification_method: clean(holder.indigenous_identification_method, 360) || "unknown",
+      years_available: clean(holder.years_available, 180) || "unknown",
+      linked_data_required: holder.linked_data_required === true,
+      public: holder.public === true,
+      aggregate_extraction_feasible: holder.aggregate_extraction_feasible === true ? "likely" : holder.aggregate_extraction_feasible === false ? "uncertain_or_unlikely" : "unknown",
+      governance_privacy: list(holder.governance_privacy, 360),
+    }),
+    evidence_of_existence: Object.freeze(evidence),
+    searches_completed: list(input.searches_completed, 420),
+    failed_searches_to_preserve: list(input.failed_searches_to_preserve, 420),
+    access_equity_impact: clean(input.access_equity_impact, 600) || null,
+    request_draft: requestDraft,
+    owner_review_state: "pending",
+    submission_state: "not_submitted",
+    response_state: "none",
+    identity_inference_used: false,
+    automatic_request_submission: false,
+    mutation_authority: false,
+    publication_authority: false,
+  })
+}
+
+// A holder response is evidence, not automatic authority to analyse or publish.
+// This intentionally accepts only a bounded summary and metadata: record-level
+// material belongs in the holder's governed environment, never in Palantír.
+export function ingestMissingEvidenceAcquisitionResponse(acquisition = {}, input = {}) {
+  if (!clean(acquisition.acquisition_id, 180) || acquisition.schema_version !== "palantir-missing-evidence-acquisition-v1") throw new Error("palantir_missing_evidence_response_acquisition_invalid")
+  const responseType = MISSING_EVIDENCE_RESPONSE_TYPES.has(input.response_type) ? input.response_type : null
+  const holder = clean(input.responding_holder, 180)
+  const receivedAt = isoDate(input.received_at)
+  const summary = clean(input.summary, 1200)
+  const sourceLocator = clean(input.source_locator, 700) || null
+  if (!responseType || !holder || !receivedAt || !summary) throw new Error("palantir_missing_evidence_response_required_fields_missing")
+  if (input.contains_individual_records === true || input.contains_identifiers === true || input.contains_small_cell_data === true) throw new Error("palantir_missing_evidence_response_record_level_material_prohibited")
+  const nextAction = responseType === "referral"
+    ? "Owner review of the referred holder and governance route."
+    : responseType === "governance_concern"
+      ? "Pause analysis; seek appropriate First Nations, Métis, or Inuit governance guidance."
+      : responseType === "data_does_not_exist"
+        ? "Owner review before recording a scope-specific non-existence finding."
+        : responseType === "denial"
+          ? "Preserve the reason and consider only a narrower cooperative route if appropriate."
+          : "Owner review, methodology assessment, and governed decision on any next step."
+  return Object.freeze({
+    ...acquisition,
+    response_state: "received",
+    response: Object.freeze({
+      response_type: responseType,
+      responding_holder: holder,
+      received_at: receivedAt,
+      summary,
+      source_locator: sourceLocator,
+      record_level_material_accepted: false,
+      publication_authority: false,
+      classification_update_candidate: responseType === "data_does_not_exist" ? "F_not_available_for_question" : null,
+      next_action: nextAction,
+    }),
+    owner_review_state: "pending",
+    publication_authority: false,
   })
 }
 
@@ -505,15 +628,16 @@ export function assessStructuralPublicGate(input = {}) {
     careful_caveat: Boolean(record.caveat),
     evidence_strength_c_to_f: ["C", "D", "E", "F"].includes(record.evidence_strength),
     owner_approved: record.owner_review_state === "approved",
+    approved_public_state: record.publication_state === "approved_public",
   })
-  const structuralEligibilityKeys = Object.keys(checks).filter(key => key !== "owner_approved")
+  const structuralEligibilityKeys = Object.keys(checks).filter(key => !["owner_approved", "approved_public_state"].includes(key))
   const structurallyEligible = structuralEligibilityKeys.every(key => checks[key])
   return Object.freeze({
     schema_version: "palantir-structural-public-gate-v1",
     structural_record_id: record.structural_record_id,
     checks,
     structurally_eligible: structurallyEligible,
-    publishable: structurallyEligible && checks.owner_approved && record.public_projection_requested,
+    publishable: structurallyEligible && checks.owner_approved && checks.approved_public_state && record.public_projection_requested,
     reasons: Object.entries(checks).filter(([, passed]) => !passed).map(([key]) => key),
     owner_review_required: structurallyEligible && !checks.owner_approved,
     publication_authority: false,

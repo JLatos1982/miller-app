@@ -33,7 +33,7 @@ const baseRecommendation = {
 
 test("harvest registry exposes independent read-only Palantír primitives", () => {
   const result = validatePalantirPrimitiveRegistry()
-  assert.equal(result.primitives, 17)
+  assert.equal(result.primitives, 18)
   assert.equal(result.mutation_authority, false)
   const moduleSources = Object.fromEntries(PALANTIR_PRIMITIVES.map(item => [item.module, readFileSync(new URL(`../server/${item.module}.js`, import.meta.url), "utf8")]))
   assert.deepEqual(palantirPrimitiveIndependence({ moduleSources }).product_ui_dependencies, [])

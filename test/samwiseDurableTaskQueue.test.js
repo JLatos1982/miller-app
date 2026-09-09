@@ -4,7 +4,7 @@ import { mkdtempSync, readFileSync } from "node:fs"
 import { tmpdir } from "node:os"
 import path from "node:path"
 
-import { claimDurableTask, completeDurableTask, createDurableTask, heartbeatDurableTask, persistDurableTask, readDurableTaskQueue, reconcileDurableTask, resumeDurableTask, startDurableTask } from "../server/samwiseDurableTaskQueue.js"
+import { checkpointDurableTask, claimDurableTask, completeDurableTask, createDurableTask, heartbeatDurableTask, persistDurableTask, readDurableTaskQueue, reconcileDurableTask, resumeDurableTask, startDurableTask } from "../server/samwiseDurableTaskQueue.js"
 
 const now = new Date("2026-09-09T12:00:00.000Z")
 const task = overrides => createDurableTask({ task_type: "palantir_research_plan", target_workspace: "/Users/admin/miller-app", payload: { plan_id: "palantir-plan:structural-v2" }, owner_approved: true, ...overrides }, { now })
@@ -17,6 +17,17 @@ test("an approved typed task follows the claimed, running and completed lifecycl
   assert.equal(completed.state, "completed")
   assert.equal(completed.attempts, 1)
   assert.match(completed.result_reference, /result\.json$/)
+  assert.equal(completed.publication_authority, false)
+})
+
+test("missing-evidence acquisition checkpoints before completion without gaining request authority", () => {
+  const acquisition = createDurableTask({ task_type: "palantir_missing_evidence_acquisition", target_workspace: "/Users/admin/miller-app", payload: { acquisition_id: "sk:v5" }, owner_approved: true }, { now })
+  const running = startDurableTask(claimDurableTask(acquisition, { now, workerId: "farm-local" }), { now })
+  const checkpointed = checkpointDurableTask(running, { now: new Date("2026-09-09T12:03:00Z") })
+  const completed = completeDurableTask(checkpointed, { now: new Date("2026-09-09T12:04:00Z"), resultReference: "artifacts/samwise/v5.json" })
+  assert.equal(checkpointed.state, "checkpointed")
+  assert.equal(completed.state, "completed")
+  assert.equal(completed.mutation_authority, false)
   assert.equal(completed.publication_authority, false)
 })
 

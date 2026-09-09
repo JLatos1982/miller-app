@@ -33,6 +33,14 @@ artifacts/miller-north/miller-north-*.json
 artifacts/miller-north/miller-north-*.md
 artifacts/miller-resources/
 artifacts/samwise-public-records/
+# Private owner-review evidence-acquisition dossiers and outreach drafts.
+artifacts/samwise/*missing-evidence-acquisition*.md
+artifacts/samwise/*missing-evidence-acquisition*.json
+artifacts/samwise/*governance-outreach*.md
+artifacts/samwise/*governance-outreach*.json
+artifacts/samwise/*collaborator-handoff*.md
+artifacts/samwise/*intervention-outcomes*.md
+artifacts/samwise/*intervention-outcomes*.json
 reports/farm-legal-corpus-mining-v[3-9]-*.md
 reports/miller-north-*.md
 reports/miller-shared-resource-foundation-*.md

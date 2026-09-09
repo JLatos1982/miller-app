@@ -13,6 +13,8 @@ import {
   buildStructuralDataAvailabilityMatrix,
   buildStructuralAccessChain,
   buildStructuralInequalityLedger,
+  buildMissingEvidenceAcquisition,
+  ingestMissingEvidenceAcquisitionResponse,
   buildStructuralSourceYield,
   assessStructuralTravelBurden,
   classifyStructuralMissingData,
@@ -59,8 +61,12 @@ test("the public gate requires a comparator, aligned period, denominator, safe c
   assert.equal(pending.publishable, false)
   assert.equal(pending.owner_review_required, true)
 
-  const approved = assessStructuralPublicGate(record({ owner_review_state: "approved" }))
+  const approved = assessStructuralPublicGate(record({ owner_review_state: "approved", publication_state: "approved_public" }))
   assert.equal(approved.publishable, true)
+
+  const ownerApprovedButPrivate = assessStructuralPublicGate(record({ owner_review_state: "approved", publication_state: "owner_review" }))
+  assert.equal(ownerApprovedButPrivate.publishable, false)
+  assert.ok(ownerApprovedButPrivate.reasons.includes("approved_public_state"))
 
   const missingComparator = assessStructuralPublicGate(record({ comparator: {}, comparator_type: null }))
   assert.equal(missingComparator.structurally_eligible, false)
@@ -71,7 +77,7 @@ test("the public gate requires a comparator, aligned period, denominator, safe c
   assert.equal(misleadingComparator.structurally_eligible, false)
   assert.ok(misleadingComparator.reasons.includes("meaningful_comparator"))
 
-  const smallCell = assessStructuralPublicGate(record({ small_cell_or_suppression_risk: true, owner_review_state: "approved" }))
+  const smallCell = assessStructuralPublicGate(record({ small_cell_or_suppression_risk: true, owner_review_state: "approved", publication_state: "approved_public" }))
   assert.equal(smallCell.publishable, false)
   assert.ok(smallCell.reasons.includes("privacy_safe_cell_size"))
 })
@@ -273,6 +279,71 @@ test("structural access chains expose every missing link instead of implying a c
   assert.equal(chain.missing_links, 2)
   assert.equal(chain.indigenous_specific_chain, false)
   assert.equal(chain.causal_conclusion_supported, false)
+})
+
+test("missing-evidence acquisition requires existence evidence and makes only unsent aggregate drafts", () => {
+  const acquisition = buildMissingEvidenceAcquisition({
+    acquisition_id: "sk:primary-care:attachment-continuity",
+    jurisdiction: "Saskatchewan",
+    indicator: "First Nations and non-First Nations primary-care attachment and continuity",
+    research_question: "Can a privacy-safe aggregate comparator be produced?",
+    existence_state: "D_likely_held_required_fields",
+    likely_holder: {
+      name: "Saskatchewan Health Quality Council / Ministry of Health",
+      underlying_system: "Person Health Registration System, Physician Services Claims and hospital abstracts",
+      geographic_resolution: "broad region or remoteness",
+      indigenous_identification_method: "Self-declared Registered Indian flag; limitations must be stated",
+      years_available: "To be confirmed by holder",
+      linked_data_required: true,
+      public: false,
+      aggregate_extraction_feasible: true,
+      governance_privacy: ["First Nations governance review", "small-cell suppression"],
+    },
+    evidence_of_existence: [{ source_url: "https://example.gc.ca/methods", locator: "Methods", source_type: "peer-reviewed administrative-data study", claim: "Linked Saskatchewan administrative databases and a First Nations flag were analyzed through a formal data-sharing agreement." }],
+    searches_completed: ["Public indicator and metadata search"],
+    failed_searches_to_preserve: ["No aligned public Saskatchewan series located"],
+    access_equity_impact: "Would permit a bounded access comparator, not an identity inference.",
+    request_draft: {
+      recipient: "HQC data inquiry",
+      preferred_route: "research_data_inquiry",
+      formal_fallback: "formal_foi_fallback",
+      period: "2019-20 through 2024-25",
+      requested_aggregate: "Annual aggregate attachment and continuity measures by status and broad remoteness.",
+      numerator: "Residents meeting a defined attachment or continuity threshold",
+      denominator: "Eligible Saskatchewan residents in each stated group",
+      indigenous_identification_method: "Document the self-declared Registered Indian flag, linkage and exclusions.",
+      geography: "Privacy-safe broad remoteness category only",
+      suppression_privacy: "Suppress small cells and disclose no record-level data.",
+      aggregate_only: true,
+      asks_individual_records: false,
+    },
+  })
+  assert.equal(acquisition.request_draft.submission_state, "not_submitted")
+  assert.equal(acquisition.automatic_request_submission, false)
+  assert.equal(acquisition.likely_holder.aggregate_extraction_feasible, "likely")
+  assert.throws(() => buildMissingEvidenceAcquisition({ acquisition_id: "x", jurisdiction: "SK", indicator: "x", existence_state: "C_collected_not_public", likely_holder: { name: "holder" } }), /held_classification_requires_evidence/)
+})
+
+test("holder-response ingestion preserves a privacy-safe record and cannot publish it", () => {
+  const acquisition = buildMissingEvidenceAcquisition({
+    acquisition_id: "ab:investigator:aggregate-outcomes",
+    jurisdiction: "Alberta",
+    indicator: "Indigenous Patient Safety Investigator aggregate outcomes",
+    existence_state: "D_likely_held_required_fields",
+    likely_holder: { name: "Office of Alberta Health Advocates" },
+    evidence_of_existence: [{ source_url: "https://www.alberta.ca/indigenous-patient-safety-investigator-and-advocate", claim: "The role reviews concerns and makes recommendations." }],
+  })
+  const response = ingestMissingEvidenceAcquisitionResponse(acquisition, {
+    response_type: "methodology_document",
+    responding_holder: "Office of Alberta Health Advocates",
+    received_at: "2026-09-09T12:00:00.000Z",
+    summary: "Holder supplied a methodology document for owner review.",
+    source_locator: "Owner-provided document reference",
+  })
+  assert.equal(response.response_state, "received")
+  assert.equal(response.response.response_type, "methodology_document")
+  assert.equal(response.publication_authority, false)
+  assert.throws(() => ingestMissingEvidenceAcquisitionResponse(acquisition, { response_type: "aggregate_table", responding_holder: "Office", received_at: "2026-09-09", summary: "Rows included.", contains_individual_records: true }), /record_level_material_prohibited/)
 })
 
 test("travel spending without trips, denominator or comparator is burden context rather than disparity", () => {
