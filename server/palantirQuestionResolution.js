@@ -195,6 +195,92 @@ export function applyPalantirQuestionEvidence(question, assessment, { reviewedAt
   })
 }
 
+// Farm/Igor adapters may supply a bounded, source-backed assessment for a
+// known question. This executor does not classify racism, infer identity, or
+// invent an answer: it validates the supplied effect against the question's
+// explicit threshold and returns review candidates only.
+export function applyPalantirQuestionEvidenceBatch(ledger, candidates = [], { reviewedAt = new Date().toISOString() } = {}) {
+  if (ledger?.schema_version !== "palantir-research-question-ledger-v1") throw new Error("palantir_question_batch_ledger_required")
+  const byId = new Map(ledger.questions.map(question => [question.question_id, question]))
+  const assessments = []
+  const materialChanges = []
+  const newQuestionCandidates = []
+  for (const candidate of candidates) {
+    const question = byId.get(clean(candidate.question_id, 180))
+    if (!question) throw new Error("palantir_question_batch_unknown_question")
+    const assessment = evaluatePalantirQuestionEvidence(question, candidate)
+    assessments.push(assessment)
+    const updated = applyPalantirQuestionEvidence(question, assessment, { reviewedAt })
+    byId.set(question.question_id, updated)
+    if (assessment.effect === "creates_question" && candidate.new_question) newQuestionCandidates.push(reconcilePalantirResearchQuestion(candidate.new_question, [...byId.values()]))
+    if (assessment.material) {
+      const type = assessment.next_state === "answered" ? "question_resolved" : assessment.next_state === "partially_answered" ? "question_partially_answered" : assessment.next_state === "contradicted" ? "contradiction" : "superseding_document"
+      materialChanges.push(explainPalantirMaterialChange({ change_type: type, source_url: assessment.evidence?.source_url, explanation: candidate.change_explanation }))
+    }
+  }
+  const next = buildPalantirResearchQuestionLedger([...byId.values()], { ledgerId: ledger.ledger_id, checkedAt: reviewedAt })
+  return Object.freeze({
+    schema_version: "palantir-question-evidence-batch-v1",
+    previous_ledger_id: ledger.ledger_id,
+    ledger: next,
+    assessments,
+    material_changes: materialChanges,
+    new_question_candidates: newQuestionCandidates,
+    questions_advanced: assessments.filter(item => item.material).length,
+    questions_answered: assessments.filter(item => item.next_state === "answered").length,
+    no_change_documents: assessments.filter(item => ["irrelevant", "context_only", "strengthens_existing_evidence"].includes(item.effect)).length,
+    owner_review_required: materialChanges.length > 0 || newQuestionCandidates.length > 0,
+    automatic_schedule: false,
+    automatic_publication: false,
+    mutation_authority: false,
+  })
+}
+
+// Publicly visible Recently Changed records retain their separate source and
+// owner gate. This is only a candidate routed from a materially changed
+// private question, never a direct projection.
+export function routePalantirQuestionChangeToPublicReview(question, assessment) {
+  const item = normalizePalantirResearchQuestion(question)
+  if (assessment?.schema_version !== "palantir-question-evidence-assessment-v1" || assessment.question_id !== item.question_id) throw new Error("palantir_question_change_public_route_invalid")
+  const material = assessment.material && ["partially_answered", "answered", "contradicted", "superseded"].includes(assessment.next_state)
+  return Object.freeze({
+    schema_version: "palantir-question-change-public-review-candidate-v1",
+    question_id: item.question_id,
+    linked_public_follow_up_id: item.linked_public_follow_up_id,
+    disposition: material && item.public_state === "approved_public" && item.linked_public_follow_up_id ? "owner_review_candidate" : "private_only",
+    proposed_material_change_type: assessment.next_state === "answered" ? "question_resolved" : assessment.next_state === "partially_answered" ? "question_partially_answered" : assessment.next_state === "contradicted" ? "contradiction" : "superseding_document",
+    source_url: assessment.evidence?.source_url || null,
+    requires_public_record_gate: true,
+    automatic_publication: false,
+    mutation_authority: false,
+  })
+}
+
+export function buildPalantirQuestionResearchYield(input = {}) {
+  const documentsChecked = Math.max(0, Number(input.documents_checked || 0))
+  const questionAdvancements = Math.max(0, Number(input.questions_advanced || 0))
+  const answered = Math.max(0, Number(input.questions_answered || 0))
+  const duplicates = Math.max(0, Number(input.duplicates_suppressed || 0))
+  const unchanged = Math.max(0, Number(input.unchanged_sources || 0))
+  return Object.freeze({
+    schema_version: "palantir-question-research-yield-v1",
+    source_family: clean(input.source_family, 160) || "unspecified",
+    documents_checked: documentsChecked,
+    questions_advanced: questionAdvancements,
+    questions_answered: answered,
+    duplicates_suppressed: duplicates,
+    unchanged_sources: unchanged,
+    formal_findings: Math.max(0, Number(input.formal_findings || 0)),
+    implementation_evidence: Math.max(0, Number(input.implementation_evidence || 0)),
+    outcome_evidence: Math.max(0, Number(input.outcome_evidence || 0)),
+    manual_review_burden: ["low", "moderate", "high"].includes(input.manual_review_burden) ? input.manual_review_burden : "moderate",
+    questions_advanced_per_document: documentsChecked ? Number((questionAdvancements / documentsChecked).toFixed(3)) : 0,
+    source_priority: questionAdvancements ? "retain_or_prioritize" : unchanged >= 3 ? "deprioritize_until_milestone" : "insufficient_history",
+    automatic_schedule: false,
+    mutation_authority: false,
+  })
+}
+
 export function buildPalantirQuestionWatch(question, input = {}) {
   const item = normalizePalantirResearchQuestion(question)
   const strategy = normalizeWatchStrategy({ ...item.watch_strategy, ...input })

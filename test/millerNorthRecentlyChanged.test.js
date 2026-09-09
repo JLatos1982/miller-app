@@ -21,3 +21,11 @@ test("Recently Changed rejects routine or private workflow content", () => {
   unapprovedProjection.items[0].public_record_id = "held-saskatchewan-mortality"
   assert.throws(() => validateMillerNorthRecentlyChangedProjection(unapprovedProjection, { publicRecordIds: publicIds }), /record_not_public/)
 })
+
+test("question-resolution labels are eligible only after the existing public-record gate", () => {
+  assert.equal(materialChangeLabel("question_partially_answered"), "Question partially answered")
+  assert.equal(materialChangeLabel("question_resolved"), "Question answered")
+  const candidate = structuredClone(projection)
+  candidate.items[0].material_change_type = "question_partially_answered"
+  assert.equal(validateMillerNorthRecentlyChangedProjection(candidate, { publicRecordIds: publicIds }).valid, true)
+})

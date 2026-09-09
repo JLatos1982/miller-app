@@ -9,6 +9,9 @@ export const MATERIAL_CHANGE_TYPES = Object.freeze([
   "source_correction",
   "superseding_document",
   "relationship_update",
+  "question_partially_answered",
+  "question_resolved",
+  "contradiction_resolved",
 ])
 
 const PRIVATE_OR_TECHNICAL = /owner_review|private_note|candidate_id|incident_id|patient_name|complainant_name|fingerprint|reindex|regenerat|code deploy|deployment|formatting|last_checked|last_reviewed/i
@@ -21,6 +24,9 @@ const HUMAN_LABELS = new Map([
   ["source_correction", "Corrected"],
   ["superseding_document", "New source"],
   ["relationship_update", "Evidence connection updated"],
+  ["question_partially_answered", "Question partially answered"],
+  ["question_resolved", "Question answered"],
+  ["contradiction_resolved", "Evidence conflict resolved"],
 ])
 
 const isDate = value => /^\d{4}-\d{2}-\d{2}$/.test(String(value || ""))

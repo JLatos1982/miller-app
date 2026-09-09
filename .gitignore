@@ -54,6 +54,8 @@ artifacts/samwise/*fnpcc*.md
 artifacts/samwise/*access-equity-first-publication*.md
 artifacts/samwise/*question-resolution*.md
 artifacts/samwise/*question-resolution*.json
+artifacts/samwise/*question-driven*.md
+artifacts/samwise/*question-driven*.json
 reports/farm-legal-corpus-mining-v[3-9]-*.md
 reports/miller-north-*.md
 reports/miller-shared-resource-foundation-*.md

@@ -17,7 +17,7 @@ import { adaptFarmRecommendationLedgerToPalantir, buildPalantirRecommendationCha
 import { buildRecommendationLedger } from "../server/farmRecommendationLedger.js"
 import { normalizePalantirResourceOpportunity, routePalantirResourceOpportunity } from "../server/palantirResourceRouting.js"
 import { buildSamwisePublicRecordsStatus, samwisePublicRecordsConversationalQueries } from "../server/samwiseConversationalPublicRecords.js"
-import { applyPalantirQuestionEvidence, assessPalantirRecommendationOutcome, buildPalantirCrossDomainQuestionPilot, buildPalantirFundingServiceOutcomeChain, buildPalantirInstitutionDossier, buildPalantirQuestionBrief, buildPalantirQuestionWatch, buildPalantirResearchQuestionLedger, classifyPalantirClaimReconciliation, evaluatePalantirQuestionEvidence, explainPalantirMaterialChange, linkPalantirQuestionToPublicFollowUp, normalizePalantirResearchQuestion, reconcilePalantirResearchQuestion } from "../server/palantirQuestionResolution.js"
+import { applyPalantirQuestionEvidence, applyPalantirQuestionEvidenceBatch, assessPalantirRecommendationOutcome, buildPalantirCrossDomainQuestionPilot, buildPalantirFundingServiceOutcomeChain, buildPalantirInstitutionDossier, buildPalantirQuestionBrief, buildPalantirQuestionResearchYield, buildPalantirQuestionWatch, buildPalantirResearchQuestionLedger, classifyPalantirClaimReconciliation, evaluatePalantirQuestionEvidence, explainPalantirMaterialChange, linkPalantirQuestionToPublicFollowUp, normalizePalantirResearchQuestion, reconcilePalantirResearchQuestion, routePalantirQuestionChangeToPublicReview } from "../server/palantirQuestionResolution.js"
 import { buildSuggestedFollowUpRecord } from "../server/palantirStructuralInequality.js"
 import { assertSamwiseCannotBypassMiller } from "../server/samwiseConsumerAdapters.js"
 import { palantirHarvestLessons } from "./fixtures/palantirHarvestLessons.js"
@@ -85,6 +85,29 @@ test("question resolution, changes and briefs require evidence and remain owner-
   const brief = buildPalantirQuestionBrief(buildPalantirResearchQuestionLedger([answered]), { changes: [change] })
   assert.deepEqual(brief.answered, [item.question_id])
   assert.equal(change.automatic_publication, false)
+})
+
+test("a bounded research batch advances only named questions and routes public change through review", () => {
+  const privateQuestion = question({ question_id: "question:private" })
+  const publicQuestion = question({ question_id: "question:public", title: "Did the centres improve continuity?", question: "Did First Nations-led centres improve sustained continuity?", subject: "fn-pcc-continuity", public_state: "approved_public", linked_public_follow_up_id: "follow-up:approved" })
+  const ledger = buildPalantirResearchQuestionLedger([privateQuestion, publicQuestion])
+  const batch = applyPalantirQuestionEvidenceBatch(ledger, [{ question_id: "question:private", effect: "context_only", evidence: { summary: "Implementation output was reported.", source_url: "https://example.org/output" } }, { question_id: "question:public", effect: "answers", threshold_met: false, evidence: { summary: "A report describes activity but no baseline comparison.", source_url: "https://example.org/report" } }], { reviewedAt: "2026-09-09T00:00:00Z" })
+  assert.equal(batch.questions_advanced, 1)
+  assert.equal(batch.questions_answered, 0)
+  assert.equal(batch.no_change_documents, 1)
+  const assessment = batch.assessments[1]
+  const candidate = routePalantirQuestionChangeToPublicReview(publicQuestion, assessment)
+  assert.equal(candidate.disposition, "owner_review_candidate")
+  assert.equal(candidate.automatic_publication, false)
+  assert.throws(() => applyPalantirQuestionEvidenceBatch(ledger, [{ question_id: "question:unknown", effect: "context_only", evidence: { summary: "Unknown", source_url: "https://example.org/unknown" } }]), /unknown_question/)
+})
+
+test("question source yield prioritizes resolution, not document volume", () => {
+  const lowYield = buildPalantirQuestionResearchYield({ source_family: "generic_search", documents_checked: 12, unchanged_sources: 4, duplicates_suppressed: 3 })
+  assert.equal(lowYield.source_priority, "deprioritize_until_milestone")
+  const productive = buildPalantirQuestionResearchYield({ source_family: "annual_reports", documents_checked: 3, questions_advanced: 2, outcome_evidence: 1 })
+  assert.equal(productive.questions_advanced_per_document, 0.667)
+  assert.equal(productive.source_priority, "retain_or_prioritize")
 })
 
 test("institution, recommendation and funding chains preserve outcome boundaries", () => {
