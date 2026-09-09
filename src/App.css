@@ -704,8 +704,8 @@ textarea {
 .miller-companion-travel {
   position: absolute;
   z-index: 20;
-  width: 180px;
-  height: 175px;
+  width: var(--dog-travel-width, 180px);
+  height: var(--dog-travel-height, 175px);
   left: var(--dog-start-x);
   top: var(--dog-start-y);
   pointer-events: none;
@@ -3562,8 +3562,8 @@ body,
 }
 
 .miller-companion-travel {
-  width: 112px;
-  height: 109px;
+  width: var(--dog-travel-width, 112px);
+  height: var(--dog-travel-height, 109px);
 }
 
 @media (min-width: 901px) {
@@ -3578,8 +3578,8 @@ body,
   }
 
   .miller-companion-travel {
-    width: 76px;
-    height: 74px;
+    width: var(--dog-travel-width, 76px);
+    height: var(--dog-travel-height, 74px);
   }
 
   .miller-results-companion-rail {

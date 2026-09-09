@@ -12,7 +12,7 @@ import { mayRunMillerIdlePet, nextMillerIdleDelay } from '../src/companion/mille
 import { bubbleNeedsMillerReadingPosition, readingStageHeight, resolveMillerReadingOffset } from '../src/companion/millerSceneLayout.js'
 import { canPreviewClassicWalk, canPreviewSheepdogResultPoint, CLASSIC_WALK_POSE_SLOTS, COMPANION_POSE_PREVIEWS, SHEEPDOG_RESULT_POINT_SLOT } from '../src/companion/millerCompanionPosePreview.js'
 import { MILLER_CLASSIC_READING_WALK, MILLER_CLASSIC_READING_WALK_DURATION, millerClassicWalkStep, nextMillerClassicWalkIndex } from '../src/companion/millerClassicWalk.js'
-import { journeyKeyframes, mayAnimateResultsJourney, MILLER_RESULTS_JOURNEY, resultJourneyTransform, resultSceneMinimumHeight, snapshotJourneyRect } from '../src/companion/millerResultsJourney.js'
+import { journeyKeyframes, journeyPointInHost, mayAnimateResultsJourney, MILLER_RESULTS_JOURNEY, resultJourneyTransform, resultSceneMinimumHeight, snapshotJourneyRect, walkingJourneyKeyframes } from '../src/companion/millerResultsJourney.js'
 
 function pngHasRgbaColorType(file) {
   return fs.readFileSync(new URL(file, import.meta.url))[25] === 6
@@ -139,9 +139,16 @@ test('Miller and the dog share one bounded non-blocking journey into results', (
     { transform: 'translate(560px, -190px) scale(1, 1)', opacity: 1 },
     { transform: 'translate(0, 0) scale(1, 1)', opacity: 1 },
   ])
-  assert.ok(MILLER_RESULTS_JOURNEY.dog.delay < MILLER_RESULTS_JOURNEY.character.delay)
+  const walking = walkingJourneyKeyframes(start, destination)
+  assert.equal(walking.length, 5)
+  assert.equal(walking[0].offset, 0)
+  assert.equal(walking.at(-1).offset, 1)
+  assert.equal(walking.at(-1).transform, 'translate(0px, 0px) scale(1, 1)')
+  assert.equal(MILLER_RESULTS_JOURNEY.dog.delay, MILLER_RESULTS_JOURNEY.character.delay)
+  assert.equal(MILLER_RESULTS_JOURNEY.walkFrameDuration * 4, MILLER_RESULTS_JOURNEY.character.duration)
   assert.ok(MILLER_RESULTS_JOURNEY.results.delay < MILLER_RESULTS_JOURNEY.totalDuration)
   assert.ok(MILLER_RESULTS_JOURNEY.totalDuration < 1_000)
+  assert.deepEqual(journeyPointInHost(start, { left: 100, top: 200, width: 1000, height: 1200 }), { x: .6, y: 0.10833333333333334 })
   assert.equal(mayAnimateResultsJourney({ origin: { character: start, dog: start }, viewportWidth: 1440 }), true)
   assert.equal(mayAnimateResultsJourney({ origin: { character: start, dog: start }, viewportWidth: 390 }), false)
   assert.equal(mayAnimateResultsJourney({ origin: { character: start, dog: start }, viewportWidth: 1440, reducedMotion: true }), false)
@@ -242,6 +249,13 @@ test('scene dog follows only the active Classic reading walk, while result trave
   assert.match(sheepdog, /dogOwner === MILLER_DOG_OWNERS\.SCENE/)
   assert.match(app, /scenePosition=\{millerReadingPosition\}/)
   assert.match(app, /reducedMotion=\{prefersReducedMotion\}/)
+  assert.match(app, /MILLER_PRESENTATION_INTENTS\.DESTINATION_READY/)
+  assert.match(app, /resultJourneyTravel=\{resultJourneyDogTravel\}/)
+  assert.doesNotMatch(app, /animateFromOrigin\(dog, origin\.dog/)
+  assert.match(app, /const hasApprovedWalkCycle = currentTheme\.name === "Classic"/)
+  assert.match(app, /function clearSearch\(\)[\s\S]*setResultJourneyDogTravel\(null\)[\s\S]*MILLER_PRESENTATION_INTENTS\.SETTLE/)
+  assert.match(sheepdog, /resultJourneyTravel\?\.start/)
+  assert.match(sheepdog, /data-pose=\{travel\.pose\}/)
   assert.match(app, /\["home", "reading"\]\.includes\(millerReadingPosition\)/)
 })
 

@@ -13,3 +13,13 @@ test("numeric, curated, and canonical IDs survive trusted request serialization"
 test("valid shared response contract supports normal results and no-results state", async () => { for (const noResults of [false, true]) { const data = await askMiller(buildMillerRequest({ query: "help" }), { fetchImpl: async () => ({ ok: true, status: 200, json: async () => ({ contractVersion: MILLER_CONTRACT_VERSION, mode: "main", message: noResults ? "No matches" : "Here are options", results: { resourceIds: noResults ? [] : ["curated:abc"], external: [], noResults } }) }) }); assert.equal(data.results.noResults, noResults) } })
 test("API failure, malformed response, and timeout are retryable public errors", async () => { await assert.rejects(askMiller(buildMillerRequest({ query: "help" }), { fetchImpl: async () => ({ ok: false, status: 503, json: async () => ({ code: "provider_failure" }) }) }), (error) => error instanceof MillerApiError && error.code === "provider_failure"); await assert.rejects(askMiller(buildMillerRequest({ query: "help" }), { fetchImpl: async () => ({ ok: true, status: 200, json: async () => ({ answer: "old shape" }) }) }), /unexpected response/); await assert.rejects(askMiller(buildMillerRequest({ query: "help" }), { timeoutMs: 1, fetchImpl: (_url, options) => new Promise((_resolve, reject) => options.signal.addEventListener("abort", () => reject(Object.assign(new Error(), { name: "AbortError" })))) }), (error) => error.code === "timeout") })
 test("homepage and map share server-side API helper and loading always clears", () => { const app = fs.readFileSync(new URL("../src/App.jsx", import.meta.url), "utf8"), map = fs.readFileSync(new URL("../src/map/ServiceMap.jsx", import.meta.url), "utf8"); assert.match(app, /askMiller\(buildMillerRequest/); assert.match(map, /askMiller\(buildMillerRequest/); assert.match(app, /finally\s*{\s*setIsLoading\(false\)/); assert.doesNotMatch(app, /OPENAI_API_KEY|TAVILY_API_KEY|SUPABASE_SERVICE_ROLE_KEY/) })
+
+test("web renders backend-owned external-search status without recreating a Tavily gate", () => {
+  const app = fs.readFileSync(new URL("../src/App.jsx", import.meta.url), "utf8")
+  const server = fs.readFileSync(new URL("../server.js", import.meta.url), "utf8")
+  assert.match(app, /setSearchStrategy\(data\.searchStrategy \|\| null\)/)
+  assert.match(app, /searchStrategy\?\.externalSearchNotice/)
+  assert.doesNotMatch(app, /externalSearchReasons/)
+  assert.match(server, /const shouldUseTavily = !isMapInterface && uniqueExternalSearchReasons\.length > 0/)
+  assert.match(server, /externalSearchStatus = "unavailable"/)
+})

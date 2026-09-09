@@ -70,7 +70,7 @@ import { bubbleNeedsMillerReadingPosition, readingStageHeight, resolveMillerRead
 import { MILLER_CLASSIC_READING_WALK_DURATION, millerClassicWalkStep, nextMillerClassicWalkIndex } from "./companion/millerClassicWalk.js"
 import { millerCharacterInteraction } from "./companion/millerCompanionAdapter.js"
 import { millerCharacterPose } from "./companion/millerCharacterInteractionThemes.js"
-import { journeyKeyframes, mayAnimateResultsJourney, MILLER_RESULTS_JOURNEY, resultSceneMinimumHeight, snapshotJourneyRect } from "./companion/millerResultsJourney.js"
+import { journeyKeyframes, journeyPointInHost, mayAnimateResultsJourney, MILLER_RESULTS_JOURNEY, resultSceneMinimumHeight, snapshotJourneyRect, walkingJourneyKeyframes } from "./companion/millerResultsJourney.js"
 import practicalSupports from "./data/miller-practical-supports-public-v1.json"
 import millerFunding from "./data/miller-funding-assistance-public-v1.json"
 import sharedResourceRegistry from "./data/miller-shared-resource-registry-v1.json"
@@ -771,6 +771,7 @@ useEffect(() => {
   const [pendingCount, setPendingCount] = useState(0)
   const [adminReviewStatus, setAdminReviewStatus] = useState("")
   const [totalMatches, setTotalMatches] = useState(0)
+  const [searchStrategy, setSearchStrategy] = useState(null)
 
   const chestRef = useRef(null)
   const searchPanelRef = useRef(null)
@@ -801,6 +802,7 @@ useEffect(() => {
   const [millerWalkIndex, setMillerWalkIndex] = useState(0)
   const [resultJourneyPhase, setResultJourneyPhase] = useState("idle")
   const [resultJourneyPoseIndex, setResultJourneyPoseIndex] = useState(0)
+  const [resultJourneyDogTravel, setResultJourneyDogTravel] = useState(null)
   const [millerReadingOffset, setMillerReadingOffset] = useState({ x: -96, y: 0 })
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches)
   const [millerStageHeight, setMillerStageHeight] = useState(700)
@@ -985,6 +987,7 @@ useEffect(() => {
     setMillerStageHeight(530)
     setResultJourneyPhase("preparing")
     setResultJourneyPoseIndex(0)
+    setResultJourneyDogTravel(null)
   }, [cancelResultJourney])
 
   useLayoutEffect(() => {
@@ -1049,8 +1052,6 @@ useEffect(() => {
     const origin = resultJourneyOriginRef.current
     if (!generation || origin?.generation !== generation || resultJourneyHandledRef.current === generation) return undefined
     resultJourneyHandledRef.current = generation
-    emitCompanionIntent(MILLER_PRESENTATION_INTENTS.SETTLE)
-
     const figure = millerFigureRef.current
     const character = figure?.querySelector(".miller-image-frame")
     const dog = figure?.querySelector('[data-companion="sheepdog"][data-owner="scene"]')
@@ -1059,16 +1060,31 @@ useEffect(() => {
     const resultsPanel = resultsPanelRef.current
     const animationAvailable = [character, dog, speech, resultsPanel].every(element => typeof element?.animate === "function")
 
-    if (!mayAnimateResultsJourney({ origin, reducedMotion: prefersReducedMotion, viewportWidth: window.innerWidth, animationAvailable })) {
+    // Only Classic currently has an approved walk-pose pair. Other themes
+    // retain their established static result layout rather than pretending a
+    // neutral portrait is walking.
+    const hasApprovedWalkCycle = currentTheme.name === "Classic"
+    if (!hasApprovedWalkCycle || !mayAnimateResultsJourney({ origin, reducedMotion: prefersReducedMotion, viewportWidth: window.innerWidth, animationAvailable })) {
       setResultJourneyPhase("settled")
+      setResultJourneyDogTravel(null)
       resultJourneyOriginRef.current = null
       return undefined
     }
 
     setResultJourneyPhase("traveling")
+    const hostRect = snapshotJourneyRect(companionOverlayHost?.getBoundingClientRect())
+    const finalDogRect = snapshotJourneyRect(dog?.getBoundingClientRect())
+    const dogDestination = journeyPointInHost(finalDogRect, hostRect)
+    const dogOrigin = journeyPointInHost(origin.dog, hostRect)
+    if (dogDestination && dogOrigin) {
+      setResultJourneyDogTravel({ generation, start: dogOrigin, duration: MILLER_RESULTS_JOURNEY.dog.duration, size: { width: finalDogRect.width, height: finalDogRect.height } })
+      emitCompanionIntent(MILLER_PRESENTATION_INTENTS.DESTINATION_READY, dogDestination)
+    }
     const animations = []
     const animateFromOrigin = (element, startRect, timing, options = {}) => {
-      const frames = journeyKeyframes(startRect, snapshotJourneyRect(element?.getBoundingClientRect()), options)
+      const frames = options.walking
+        ? walkingJourneyKeyframes(startRect, snapshotJourneyRect(element?.getBoundingClientRect()), options)
+        : journeyKeyframes(startRect, snapshotJourneyRect(element?.getBoundingClientRect()), options)
       if (!element || !frames) return
       animations.push(element.animate(frames, {
         delay: timing.delay,
@@ -1078,11 +1094,10 @@ useEffect(() => {
       }))
     }
 
-    // The dog takes the first small step; Miller follows without blocking the
-    // newly rendered results. These animate the existing scene nodes, not
-    // replacement character instances.
-    animateFromOrigin(dog, origin.dog, MILLER_RESULTS_JOURNEY.dog)
-    animateFromOrigin(character, origin.character, MILLER_RESULTS_JOURNEY.character)
+    // Miller's only approved post-search gait is the Classic walk cycle. The
+    // dog uses its existing exclusive overlay owner, so it cannot glide as a
+    // translated scene node beside a separate walking overlay.
+    if (currentTheme.name === "Classic") animateFromOrigin(character, origin.character, MILLER_RESULTS_JOURNEY.character, { walking: true })
     animateFromOrigin(switcher, origin.switcher, MILLER_RESULTS_JOURNEY.switcher)
     animateFromOrigin(speech, origin.speech, MILLER_RESULTS_JOURNEY.speech, { fadeIn: true })
     animations.push(resultsPanel.animate([
@@ -1102,14 +1117,15 @@ useEffect(() => {
       resultJourneyTimerRef.current = null
       setResultJourneyPhase("settled")
       setResultJourneyPoseIndex(0)
+      setResultJourneyDogTravel(null)
     }, MILLER_RESULTS_JOURNEY.totalDuration)
 
     return undefined
-  }, [companionSearchOutcome.generation, prefersReducedMotion, shouldShowResults])
+  }, [companionOverlayHost, companionSearchOutcome.generation, currentTheme.name, prefersReducedMotion, shouldShowResults])
 
   useEffect(() => {
     if (resultJourneyPhase !== "traveling" || currentTheme.name !== "Classic" || prefersReducedMotion) return undefined
-    const timer = window.setInterval(() => setResultJourneyPoseIndex(index => (index + 1) % 2), 180)
+    const timer = window.setInterval(() => setResultJourneyPoseIndex(index => (index + 1) % 2), MILLER_RESULTS_JOURNEY.walkFrameDuration)
     return () => window.clearInterval(timer)
   }, [currentTheme.name, prefersReducedMotion, resultJourneyPhase])
 
@@ -1287,6 +1303,7 @@ trackEvent({
       setTotalMatches(cityPool.length)
       setAiReply(MILLER_COPY.searchHint)
       setSearchContext({ intent: null, location: { status: "none" } })
+      setSearchStrategy(null)
       setCompanionSearchOutcome({ generation: companionGeneration, status: "empty" })
       emitCompanionIntent(MILLER_PRESENTATION_INTENTS.SETTLE)
       return
@@ -1324,6 +1341,7 @@ trackEvent({
         }))
       const aiHints = data.searchHints || {}
       setSearchContext({ intent: data.searchIntent || null, location: data.locationContext || { status: "none" } })
+      setSearchStrategy(data.searchStrategy || null)
 
       const { data: approvedMemory = [] } =
   await supabase
@@ -1447,6 +1465,7 @@ setConversationMemory((prev) =>
       setTotalMatches(fallbackPool.length)
       setAiReply(MILLER_COPY.searchUnavailable)
       setSearchContext({ intent: null, location: { status: "none" } })
+      setSearchStrategy(null)
       setCompanionSearchOutcome({ generation: companionGeneration, status: "error" })
       emitCompanionIntent(MILLER_PRESENTATION_INTENTS.SETTLE)
     } finally {
@@ -1595,11 +1614,14 @@ function renderAiReview(resource) {
     resultJourneyOriginRef.current = null
     resultJourneyHandledRef.current = 0
     setResultJourneyPhase("idle")
+    setResultJourneyDogTravel(null)
+    emitCompanionIntent(MILLER_PRESENTATION_INTENTS.SETTLE)
     setQuery("")
     setSelectedCity("All Cities")
     setHasSearched(false)
     setResults([])
     setSearchContext({ intent: null, location: { status: "none" } })
+    setSearchStrategy(null)
     setTotalMatches(0)
     setIsTyping(false)
     setMillerMood("idle")
@@ -1871,6 +1893,7 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
                 {searchContext.location.status === "community" ? `Showing local and regional support options for ${searchContext.location.label}.` : null}
                 {searchContext.location.status === "ambiguous" ? searchContext.location.clarification : null}
               </p> : null}
+              {searchStrategy?.externalSearchNotice ? <p className="search-context-line search-strategy-note">{searchStrategy.externalSearchNotice}</p> : null}
 
               {results.length === 0 ? (
                 <div className="empty-card">
@@ -2111,7 +2134,7 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
 
   </div>
 
-  <MillerSheepdog key={currentTheme.name} themeName={currentTheme.name} scenePosition={millerReadingPosition} resultJourneyPhase={resultJourneyPhase} reducedMotion={prefersReducedMotion} onGreetingPhaseChange={setMillerGreetingPose} presentationIntent={companionIntent} overlayHost={companionOverlayHost} idleAllowed={companionIdleAllowed} />
+  <MillerSheepdog key={currentTheme.name} themeName={currentTheme.name} scenePosition={millerReadingPosition} resultJourneyPhase={resultJourneyPhase} resultJourneyTravel={resultJourneyDogTravel} reducedMotion={prefersReducedMotion} onGreetingPhaseChange={setMillerGreetingPose} presentationIntent={companionIntent} overlayHost={companionOverlayHost} idleAllowed={companionIdleAllowed} />
 
 </div>
 

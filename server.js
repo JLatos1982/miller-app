@@ -729,78 +729,6 @@ function getSourceQualityScore(url = "") {
   return 40
 }
 
-function scoreResource(resource, query) {
-  const search = normalizeText(query)
-
-  const text = `
-    ${resource.name || ""}
-    ${resource.organization || ""}
-    ${resource.description || ""}
-    ${resource.category || ""}
-    ${resource.serviceType || ""}
-    ${resource.city || ""}
-  `.toLowerCase()
-
-  let score = 0
-
-  if (text.includes(search)) score += 100
-
-  const words = search.split(" ")
-
-  for (const word of words) {
-    if (word.length < 3) continue
-
-    if (text.includes(word)) {
-      score += 20
-    }
-  }
-
-  const category = normalizeText(resource.category)
-
-const inferredCategories =
-  inferCategoriesFromQuery(query)
-
-if (
-  inferredCategories.includes("Harm Reduction") &&
-  category.includes("harm reduction")
-) {
-  score += 120
-}
-
-if (
-  inferredCategories.includes("Detox / Withdrawal") &&
-  (
-    category.includes("detox") ||
-    category.includes("withdrawal")
-  )
-) {
-  score += 120
-}
-
-if (
-  inferredCategories.includes("Treatment Programs") &&
-  category.includes("treatment")
-) {
-  score += 100
-}
-
-if (
-  inferredCategories.includes("Counselling") &&
-  category.includes("counselling")
-) {
-  score += 90
-}
-
-if (
-  inferredCategories.includes("Housing / Outreach") &&
-  category.includes("housing")
-) {
-  score += 90
-}
-
-  return score
-}
-
 async function retry(fn, retries = 2, delay = 1200) {
   try {
     return await fn()
@@ -2185,17 +2113,11 @@ const finalCommunicationMode =
       : (Array.isArray(matches) ? matches.slice(0, 20) : [])
 
     let tavilyResults = []
+    let externalSearchStatus = "not_needed"
+    let externalSearchNotice = ""
 
 const inferredQueryCategories =
   inferCategoriesFromQuery(safeQuery)
-
-const topLocalScore =
-  safeMatches.length > 0
-    ? scoreResource(
-        safeMatches[0],
-        safeQuery
-      )
-    : 0
 
 const noCategoryMatch =
   inferredQueryCategories.length > 0 &&
@@ -2208,18 +2130,19 @@ const noCategoryMatch =
     )
   )
 
-const shouldUseAdvancedTavily =
-  safeMatches.length < 5 ||
-  topLocalScore < 160 ||
-  noCategoryMatch
-
-  let tavilyMode = "basic"
-
-if (shouldUseAdvancedTavily) {
-  tavilyMode = "advanced"
+const externalSearchReasons = []
+if (!isMapInterface) {
+  if (!safeMatches.length) externalSearchReasons.push("no_verified_local_results")
+  if (noCategoryMatch) externalSearchReasons.push("missing_need_category")
+  if (safeMatches.length > 0 && !safeMatches.some(resource => resource.phone || resource.website || resource.accessType)) externalSearchReasons.push("insufficient_access_information")
+  if (/\b(search|look)\s+(?:more\s+)?broadly\b|\bbroader\s+search\b/i.test(safeQuery)) externalSearchReasons.push("user_requested_broader_search")
 }
+const uniqueExternalSearchReasons = uniqueStrings(externalSearchReasons)
+const shouldUseTavily = !isMapInterface && uniqueExternalSearchReasons.length > 0
+const tavilyMode = shouldUseTavily && (!safeMatches.length || noCategoryMatch || uniqueExternalSearchReasons.includes("insufficient_access_information")) ? "advanced" : "basic"
 
-if (tavilyMode !== "none" && !isMapInterface) {
+if (shouldUseTavily) {
+  externalSearchStatus = "attempted"
   try {
     const tavilyResponse = await retry(() =>
   fetch(
@@ -2283,11 +2206,19 @@ if (tavilyMode !== "none" && !isMapInterface) {
     url.includes("luxury") ||
     url.includes("private")
   )
-})
+  })
+    externalSearchStatus = "completed"
 
   } catch (error) {
     console.error("Tavily search failed:", String(error?.message || "Unknown error").slice(0, 200))
+    externalSearchStatus = "unavailable"
+    externalSearchNotice = "I couldn’t complete the broader search, but the verified Miller resources are still available."
   }
+}
+if (shouldUseTavily && externalSearchStatus === "completed") {
+  externalSearchNotice = tavilyResults.length
+    ? "I found verified Miller options and searched more broadly because coverage or access information was limited. External results have not yet been verified by Miller."
+    : "I searched more broadly but did not find an additional public result suitable to show before verification."
 }
 
     const mergedCategories = uniqueStrings([
@@ -2449,6 +2380,13 @@ res.json({
   safetyMode,
   communicationMode: finalCommunicationMode,
   tavilyResults: formattedTavilyResults,
+  searchStrategy: isMapInterface ? null : {
+    mode: shouldUseTavily ? "verified_then_external" : "verified_deterministic",
+    externalSearchRequired: shouldUseTavily,
+    externalSearchReasons: uniqueExternalSearchReasons,
+    externalSearchStatus,
+    externalSearchNotice,
+  },
   searchIntent,
   locationContext,
   ...(isMapInterface ? { map: mapContract } : {}),

@@ -66,7 +66,7 @@ function DogCanvas({ source }) {
 // The dog is an independent, decorative canvas actor. It receives only a
 // monotonic presentation intent plus optional normalized geometry—not query,
 // result, ranking, resource, clinical, analytics, or identity data.
-export default function MillerSheepdog({ themeName, scenePosition = 'home', resultJourneyPhase = 'idle', reducedMotion = false, animationEnabled = true, onGreetingPhaseChange, presentationIntent: incomingIntent = null, overlayHost = null, idleAllowed = false }) {
+export default function MillerSheepdog({ themeName, scenePosition = 'home', resultJourneyPhase = 'idle', resultJourneyTravel = null, reducedMotion = false, animationEnabled = true, onGreetingPhaseChange, presentationIntent: incomingIntent = null, overlayHost = null, idleAllowed = false }) {
   const actorRef = useRef(null)
   const greetingStartedRef = useRef(false)
   const handledIntentRef = useRef(0)
@@ -155,14 +155,24 @@ export default function MillerSheepdog({ themeName, scenePosition = 'home', resu
     if (!host || !actor || !mayTravelToResult({ target: intent.target, reducedMotion: motionReduced, animationEnabled, viewportWidth: window.innerWidth })) return
     const hostRect = host.getBoundingClientRect(), actorRect = actor.getBoundingClientRect()
     const target = { x: hostRect.left + intent.target.x * hostRect.width, y: hostRect.top + intent.target.y * hostRect.height }
-    const start = { x: actorRect.left, y: actorRect.top }
-    const duration = jogDurationForDistance(Math.hypot(target.x - start.x, target.y - start.y))
+    const journeyStart = resultJourneyTravel?.start
+    const start = journeyStart
+      ? { x: hostRect.left + journeyStart.x * hostRect.width, y: hostRect.top + journeyStart.y * hostRect.height }
+      : { x: actorRect.left, y: actorRect.top }
+    const configuredDuration = Number(resultJourneyTravel?.duration)
+    const configuredSize = resultJourneyTravel?.size
+    const size = Number(configuredSize?.width) > 0 && Number(configuredSize?.height) > 0
+      ? { width: Number(configuredSize.width), height: Number(configuredSize.height) }
+      : null
+    const duration = Number.isFinite(configuredDuration) && configuredDuration > 0
+      ? configuredDuration
+      : jogDurationForDistance(Math.hypot(target.x - start.x, target.y - start.y))
     // One React state commit hands the same dog from the scene to the overlay.
     // The two renderers are mutually exclusive; there is never a second dog.
     setDogOwner(MILLER_DOG_OWNERS.OVERLAY)
     setSceneState('traveling')
-    setTravel({ start: { x: start.x - hostRect.left, y: start.y - hostRect.top }, target: { x: target.x - hostRect.left, y: target.y - hostRect.top }, duration, pose: 'walk-1', arrived: false })
-  }, [animationEnabled, motionReduced, overlayHost])
+    setTravel({ start: { x: start.x - hostRect.left, y: start.y - hostRect.top }, target: { x: target.x - hostRect.left, y: target.y - hostRect.top }, duration, size, pose: 'walk-1', arrived: false })
+  }, [animationEnabled, motionReduced, overlayHost, resultJourneyTravel])
 
   const consume = useCallback(intent => {
     if (!intent) return
@@ -173,12 +183,11 @@ export default function MillerSheepdog({ themeName, scenePosition = 'home', resu
       return
     }
     if (intent.type === MILLER_PRESENTATION_INTENTS.DESTINATION_READY) {
-      if (sceneState === 'ready') { queuedDestinationRef.current = intent; return }
       beginTravel(intent)
       return
     }
     if (intent.type === MILLER_PRESENTATION_INTENTS.SETTLE) { setTravel(null); setDogOwner(MILLER_DOG_OWNERS.SCENE); setSceneState('settled') }
-  }, [animationEnabled, beginTravel, motionReduced, sceneState])
+  }, [animationEnabled, beginTravel, motionReduced])
 
   useEffect(() => {
     if (!acceptsNewPresentationIntent(handledIntentRef.current, incomingIntent)) return
@@ -229,7 +238,7 @@ export default function MillerSheepdog({ themeName, scenePosition = 'home', resu
 
   const dogVisuals = dogVisualOwnership(dogOwner)
   const travelOverlay = dogVisuals.overlay && travel && overlayHost ? createPortal(
-  <div className={`miller-companion-travel ${travel.moving ? 'is-moving' : ''} ${travel.arrived ? 'is-settled' : ''}`} aria-hidden="true" data-companion="sheepdog" data-owner="overlay" data-presentation="destination_arrived" style={{ '--dog-start-x': `${travel.start.x}px`, '--dog-start-y': `${travel.start.y}px`, '--dog-target-x': `${travel.target.x}px`, '--dog-target-y': `${travel.target.y}px`, '--dog-travel-duration': `${travel.duration}ms` }}><DogCanvas source={DOG_POSES[travel.pose] || sheepdogSit} /></div>, overlayHost) : null
+  <div className={`miller-companion-travel ${travel.moving ? 'is-moving' : ''} ${travel.arrived ? 'is-settled' : ''}`} aria-hidden="true" data-companion="sheepdog" data-owner="overlay" data-pose={travel.pose} data-presentation="destination_arrived" style={{ '--dog-start-x': `${travel.start.x}px`, '--dog-start-y': `${travel.start.y}px`, '--dog-target-x': `${travel.target.x}px`, '--dog-target-y': `${travel.target.y}px`, '--dog-travel-duration': `${travel.duration}ms`, ...(travel.size ? { '--dog-travel-width': `${travel.size.width}px`, '--dog-travel-height': `${travel.size.height}px` } : {}) }}><DogCanvas source={DOG_POSES[travel.pose] || sheepdogSit} /></div>, overlayHost) : null
 
   const sceneDog = dogVisuals.scene ? <div ref={actorRef} className={`miller-companion-actor ${millerDogIsTraveling(step) ? 'is-approaching' : ''} ${settled ? 'is-settled' : ''} ${sceneState === 'ready' ? 'is-ready' : ''} ${shouldFollowMiller ? 'is-following' : ''}`} aria-hidden="true" data-companion={presentation.actorId} data-owner="scene" data-pose={dogPose} data-arrival-step={step?.id || 'settled'} data-greeting-step={characterInteraction ? greetingStep?.id : 'static'} data-result-journey={resultJourneyPhase} data-reduced-motion={motionReduced} data-ground-anchor={`${MILLER_COMPANION.anchors.ground.x},${MILLER_COMPANION.anchors.ground.y}`} data-pet-head-anchor={`${MILLER_COMPANION.anchors.petHead.x},${MILLER_COMPANION.anchors.petHead.y}`}><DogCanvas source={source} /></div> : null
   return <>{sceneDog}{travelOverlay}</>
