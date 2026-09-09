@@ -103,6 +103,20 @@ export const MILLER_NORTHERN_QUERY_BENCHMARK = Object.freeze([
   { id: "remote_treatment_transport", query: "treatment plus transportation from a remote community", terms: ["treatment", "transportation", "medical travel"], expect_transport: true },
 ])
 
+export const MILLER_HOME_COMMUNITY_HANDOFF_BENCHMARK = Object.freeze([
+  { id: "churchill_handoff", query: "addiction help in Churchill and transportation", province: "Manitoba", location: "Churchill", terms: ["addiction", "mental health"], expect_transport: true },
+  { id: "norway_house_handoff", query: "mental health and medical travel from Norway House", province: "Manitoba", location: "Norway House", terms: ["mental health", "medical travel"], expect_transport: true },
+  { id: "cross_lake_return", query: "coming home to Cross Lake after treatment and need housing", province: "Manitoba", location: "Cross Lake", terms: ["housing", "basic needs"], expect_transport: true, expect_return_home: true },
+  { id: "kenora_oat", query: "OAT in Kenora", province: "Ontario", location: "Kenora", terms: ["oat", "addiction"] },
+  { id: "red_lake_return", query: "coming home to Red Lake after treatment and need counselling and housing", province: "Ontario", location: "Red Lake", terms: ["counselling", "housing"], expect_return_home: true },
+  { id: "fort_frances_oat", query: "OAT and counselling in Fort Frances", province: "Ontario", location: "Fort Frances", terms: ["oat", "counselling"] },
+  { id: "nunatsiavut_return", query: "coming home to Nunatsiavut after treatment and need counselling", province: "Newfoundland and Labrador", location: "Nunatsiavut", terms: ["counselling", "mental health"], expect_return_home: true },
+  { id: "cape_breton_withdrawal", query: "withdrawal help in Cape Breton", province: "Nova Scotia", location: "Cape Breton", terms: ["withdrawal", "addiction"] },
+  { id: "northern_nb_withdrawal", query: "withdrawal help in northern New Brunswick", province: "New Brunswick", location: "Northern New Brunswick", terms: ["withdrawal", "addiction"] },
+  { id: "arviat_handoff", query: "addiction help in Arviat and transportation", province: "Nunavut", location: "Arviat", terms: ["addiction", "mental health"], expect_transport: true },
+  { id: "gjoa_haven_handoff", query: "mental health and addiction access in Gjoa Haven", province: "Nunavut", location: "Gjoa Haven", terms: ["mental health", "addiction"] },
+])
+
 export const MILLER_EASTERN_QUERY_BENCHMARK = Object.freeze([
   { id: "detox_toronto", query: "detox in Toronto", province: "Ontario", location: "Toronto", terms: ["withdrawal", "detox", "addiction"] },
   { id: "raam_london", query: "RAAM in London", province: "Ontario", location: "London", terms: ["raam", "rapid access", "addiction medicine"] },

@@ -69,7 +69,7 @@ export const MILLER_CANADIAN_FOUNDATION_COMMUNITIES = Object.freeze([
     ["Newfoundland and Labrador", "Newfoundland and Labrador", ["St. John's", "Corner Brook", "Gander", "Grand Falls-Windsor", "Happy Valley-Goose Bay", "Labrador City", "Churchill Falls", "St. Anthony", "Nain", "Hopedale", "Makkovik", "Postville", "Rigolet"]],
     ["Yukon", "Yukon", ["Whitehorse", "Dawson City", "Watson Lake"]],
     ["Northwest Territories", "Northwest Territories", ["Yellowknife", "Inuvik", "Fort Smith", "Hay River", "Behchokǫ̀"]],
-    ["Nunavut", "Nunavut", ["Iqaluit", "Rankin Inlet", "Cambridge Bay"]],
+    ["Nunavut", "Nunavut", ["Iqaluit", "Rankin Inlet", "Cambridge Bay", "Arviat", "Baker Lake", "Gjoa Haven", "Kugluktuk"]],
   ].flatMap(([province, region, communities]) => communities.map(community => Object.freeze({ community, province, region }))),
 ])
 
@@ -94,7 +94,9 @@ export const MILLER_CANADIAN_REGION_PROVINCES = Object.freeze({
   "eeyou istchee": "Quebec",
   "cree territory": "Quebec",
   "cape breton": "Nova Scotia",
+  "northern new brunswick": "New Brunswick",
   "labrador": "Newfoundland and Labrador",
+  "nunatsiavut": "Newfoundland and Labrador",
   "western newfoundland": "Newfoundland and Labrador",
   "qikiqtaaluk": "Nunavut",
   "kivalliq": "Nunavut",
@@ -116,7 +118,9 @@ export const MILLER_CANADIAN_LOCATION_LABELS = Object.freeze({
   "eeyou istchee": "Eeyou Istchee",
   "cree territory": "Cree territory",
   "cape breton": "Cape Breton",
+  "northern new brunswick": "Northern New Brunswick",
   "labrador": "Labrador",
+  "nunatsiavut": "Nunatsiavut",
   "northwestern ontario": "Northwestern Ontario",
   "greater toronto area": "Greater Toronto Area",
   "southwestern ontario": "Southwestern Ontario",

@@ -32,6 +32,7 @@
     "benchmark:miller-navigator-rural": "node scripts/benchmark-miller-navigator-rural.mjs",
     "benchmark:miller-navigator-national": "node scripts/benchmark-miller-navigator-national.mjs",
     "benchmark:miller-navigator-northern": "node scripts/benchmark-miller-navigator-northern.mjs",
+    "benchmark:miller-navigator-handoffs": "node scripts/benchmark-miller-navigator-home-handoffs.mjs",
     "benchmark:miller-navigator-eastern": "node scripts/benchmark-miller-navigator-eastern.mjs",
     "benchmark:miller-navigator-hybrid": "node scripts/benchmark-miller-navigator-hybrid.mjs",
     "configure-prepared-action-conveyor": "node --env-file-if-exists=.env scripts/configure-prepared-action-conveyor.mjs",

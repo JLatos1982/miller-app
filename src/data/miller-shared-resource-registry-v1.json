@@ -2297,6 +2297,105 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_nu_arviat_health_access",
+      "record_type": "service",
+      "organization": "Government of Nunavut Department of Health",
+      "program_name": "Arviat Health Centre Access",
+      "categories": [
+        "healthcare",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "addiction navigation",
+        "community health",
+        "medical transportation navigation",
+        "rural remote access"
+      ],
+      "description": "Local Arviat health-centre starting point for mental-health, addiction, referral and approved medical-travel pathways.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Arviat",
+      "province": "Nunavut",
+      "city_community": "Arviat",
+      "address": "",
+      "service_area": "Arviat",
+      "service_scope": {
+        "physical_location": {
+          "community": "Arviat",
+          "province": "Nunavut"
+        },
+        "local_service_area": [
+          "Arviat"
+        ],
+        "regional_service_area": [
+          "Kivalliq"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": true,
+        "travel_required": false,
+        "scope_note": "A local access point, not a verified local withdrawal-management or residential-treatment facility. Kivalliq regional coordination applies when travel is approved.",
+        "search_locations": [],
+        "service_area": "Arviat"
+      },
+      "delivery_modes": [
+        "in person",
+        "navigation"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Call the local health centre to speak with a nurse or doctor and determine the appropriate local, regional or out-of-territory pathway.",
+      "access": "Call the local health centre to speak with a nurse or doctor and determine the appropriate local, regional or out-of-territory pathway.",
+      "phone": "867-857-3100",
+      "email": "",
+      "website": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Arviat"
+        ],
+        "local_access_point": "Arviat Health Centre, 867-857-3100.",
+        "regional_intake": "Kivalliq regional health and medical-travel coordination when referral or travel is required.",
+        "destination_service": "The referring practitioner and regional team confirm the destination; it is not assumed to be in the home community.",
+        "referral_requirement": "A Nunavut practitioner referral is required when medical travel applies.",
+        "transportation_pathway": "The community travel team sends approved requests to the Kivalliq regional office.",
+        "funding_pathway": "Travel and escort coverage depend on current territorial and applicable NIHB rules.",
+        "return_home_support": [
+          "Follow up with the home-community health centre after returning."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Government of Nunavut Department of Health",
+          "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Arviat Health Centre Access",
+        "authority": "Government of Nunavut Department of Health",
+        "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_nu_arviat_health_access"
+      ]
+    },
+    {
       "canonical_resource_id": "funding:miller:bc_crisis_supplement",
       "record_type": "funding",
       "organization": "Government of British Columbia",
@@ -2518,6 +2617,105 @@
       ],
       "source_record_ids": [
         "funding:miller:bc_security_deposit_supplement"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_nu_baker_lake_health_access",
+      "record_type": "service",
+      "organization": "Government of Nunavut Department of Health",
+      "program_name": "Baker Lake Health Centre Access",
+      "categories": [
+        "healthcare",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "addiction navigation",
+        "community health",
+        "medical transportation navigation",
+        "rural remote access"
+      ],
+      "description": "Local Baker Lake health-centre starting point for mental-health, addiction, referral and approved medical-travel pathways.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Baker Lake",
+      "province": "Nunavut",
+      "city_community": "Baker Lake",
+      "address": "",
+      "service_area": "Baker Lake",
+      "service_scope": {
+        "physical_location": {
+          "community": "Baker Lake",
+          "province": "Nunavut"
+        },
+        "local_service_area": [
+          "Baker Lake"
+        ],
+        "regional_service_area": [
+          "Kivalliq"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": true,
+        "travel_required": false,
+        "scope_note": "A local access point, not a verified local withdrawal-management or residential-treatment facility. Kivalliq regional coordination applies when travel is approved.",
+        "search_locations": [],
+        "service_area": "Baker Lake"
+      },
+      "delivery_modes": [
+        "in person",
+        "navigation"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Call the local health centre to speak with a nurse or doctor and determine the appropriate local, regional or out-of-territory pathway.",
+      "access": "Call the local health centre to speak with a nurse or doctor and determine the appropriate local, regional or out-of-territory pathway.",
+      "phone": "867-793-2816",
+      "email": "",
+      "website": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Baker Lake"
+        ],
+        "local_access_point": "Baker Lake Health Centre, 867-793-2816.",
+        "regional_intake": "Kivalliq regional health and medical-travel coordination when referral or travel is required.",
+        "destination_service": "The referring practitioner and regional team confirm the destination; it is not assumed to be in the home community.",
+        "referral_requirement": "A Nunavut practitioner referral is required when medical travel applies.",
+        "transportation_pathway": "The community travel team sends approved requests to the Kivalliq regional office.",
+        "funding_pathway": "Travel and escort coverage depend on current territorial and applicable NIHB rules.",
+        "return_home_support": [
+          "Follow up with the home-community health centre after returning."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Government of Nunavut Department of Health",
+          "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Baker Lake Health Centre Access",
+        "authority": "Government of Nunavut Department of Health",
+        "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_nu_baker_lake_health_access"
       ]
     },
     {
@@ -3586,6 +3784,104 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_ns_cape_breton_withdrawal",
+      "record_type": "service",
+      "organization": "Nova Scotia Health",
+      "program_name": "Cape Breton Regional Hospital Withdrawal Management",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "withdrawal management",
+        "addiction intake",
+        "treatment navigation",
+        "aftercare"
+      ],
+      "description": "Cape Breton Regional Hospital access point for inpatient and outpatient withdrawal-management services.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Cape Breton",
+      "province": "Nova Scotia",
+      "city_community": "Sydney",
+      "address": "1482 George Street, Sydney, NS",
+      "service_area": "Cape Breton",
+      "service_scope": {
+        "physical_location": {
+          "community": "Sydney",
+          "address": "1482 George Street, Sydney, NS",
+          "province": "Nova Scotia"
+        },
+        "local_service_area": [
+          "Sydney"
+        ],
+        "regional_service_area": [
+          "Cape Breton"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "travel_required": false,
+        "scope_note": "",
+        "search_locations": [
+          "Sydney",
+          "Cape Breton"
+        ],
+        "service_area": "Cape Breton"
+      },
+      "delivery_modes": [
+        "in person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referral begins through Nova Scotia's provincial mental-health and addictions intake at 1-855-922-1122 or through a physician. Call before travelling to confirm the appropriate service.",
+      "access": "Self-referral begins through Nova Scotia's provincial mental-health and addictions intake at 1-855-922-1122 or through a physician. Call before travelling to confirm the appropriate service.",
+      "phone": "902-567-7701",
+      "email": "",
+      "website": "https://mha.nshealth.ca/en/clinics/cape-breton-regional-hospital",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Cape Breton"
+        ],
+        "local_access_point": "Call provincial intake or the hospital before travel.",
+        "regional_intake": "Nova Scotia Mental Health and Addictions Intake: 1-855-922-1122.",
+        "destination_service": "Cape Breton Regional Hospital in Sydney if that is the confirmed service.",
+        "referral_requirement": "Self-referral through provincial intake or physician referral, as described by Nova Scotia Health.",
+        "return_home_support": [
+          "Ask intake to connect the nearest Recovery Support Centre for ongoing support."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Nova Scotia Health",
+          "url": "https://mha.nshealth.ca/en/clinics/cape-breton-regional-hospital"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Cape Breton Regional Hospital Withdrawal Management",
+        "authority": "Nova Scotia Health",
+        "url": "https://mha.nshealth.ca/en/clinics/cape-breton-regional-hospital"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_ns_cape_breton_withdrawal"
+      ]
+    },
+    {
       "canonical_resource_id": "curated:193xiju",
       "record_type": "service",
       "organization": "Carrier Sekani Family Services",
@@ -3731,6 +4027,108 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_nb_campbellton_espoir_equilibre",
+      "record_type": "service",
+      "organization": "Réseau de santé Vitalité",
+      "program_name": "Centre Espoir et Équilibre — traitement des dépendances",
+      "categories": [
+        "healthcare"
+      ],
+      "subcategories": [
+        "withdrawal management",
+        "addiction treatment",
+        "addiction intake",
+        "counselling",
+        "aftercare"
+      ],
+      "description": "Centre de traitement des dépendances à Campbellton offrant le sevrage et la réadaptation selon le parcours confirmé par le Réseau de santé Vitalité.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Nord du Nouveau-Brunswick / Northern New Brunswick",
+      "province": "New Brunswick",
+      "city_community": "Campbellton",
+      "address": "189A, chemin Lily Lake, Campbellton, NB",
+      "service_area": "Nord du Nouveau-Brunswick / Northern New Brunswick",
+      "service_scope": {
+        "physical_location": {
+          "community": "Campbellton",
+          "address": "189A, chemin Lily Lake, Campbellton, NB",
+          "province": "New Brunswick"
+        },
+        "local_service_area": [
+          "Campbellton"
+        ],
+        "regional_service_area": [
+          "Northern New Brunswick"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "travel_required": false,
+        "scope_note": "Physical service is in Campbellton; regional search locations indicate access pathways, not a facility in each community.",
+        "search_locations": [
+          "Campbellton",
+          "Bathurst",
+          "Edmundston",
+          "Grand Falls",
+          "Kedgwick",
+          "Tracadie",
+          "Northern New Brunswick"
+        ],
+        "service_area": "Nord du Nouveau-Brunswick / Northern New Brunswick"
+      },
+      "delivery_modes": [
+        "in person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Communiquez avec le centre ou le service régional de traitement des dépendances pour confirmer l'évaluation, l'admission et les services disponibles avant le déplacement.",
+      "access": "Communiquez avec le centre ou le service régional de traitement des dépendances pour confirmer l'évaluation, l'admission et les services disponibles avant le déplacement.",
+      "phone": "506-789-7055",
+      "email": "",
+      "website": "https://vitalitenb.ca/fr/services-et-emplacement/repertoire-des-services/traitement-des-dependances",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Northern New Brunswick"
+        ],
+        "local_access_point": "Contact the nearest Vitalité addiction service or Centre Espoir et Équilibre.",
+        "regional_intake": "Vitalité confirms the appropriate regional access route.",
+        "destination_service": "Centre Espoir et Équilibre in Campbellton when confirmed.",
+        "return_home_support": [
+          "Ask the regional outpatient service to arrange follow-up near the home community."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Réseau de santé Vitalité",
+          "url": "https://vitalitenb.ca/fr/services-et-emplacement/repertoire-des-services/traitement-des-dependances"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Centre Espoir et Équilibre — traitement des dépendances",
+        "authority": "Réseau de santé Vitalité",
+        "url": "https://vitalitenb.ca/fr/services-et-emplacement/repertoire-des-services/traitement-des-dependances"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_nb_campbellton_espoir_equilibre"
+      ]
+    },
+    {
       "canonical_resource_id": "curated:1kgx1i3",
       "record_type": "service",
       "organization": "Charlford House (STLR)",
@@ -3801,6 +4199,100 @@
       ],
       "source_record_ids": [
         "curated:1kgx1i3"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_mb_churchill_health_centre_mha",
+      "record_type": "service",
+      "organization": "Winnipeg Regional Health Authority",
+      "program_name": "Churchill Health Centre Mental Health and Addiction Access",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "addiction intake",
+        "counselling",
+        "treatment navigation",
+        "rural remote access"
+      ],
+      "description": "Local Churchill health-centre access point for mental-health and addiction support and referral to services that are not available in the community.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Churchill and nearby communities",
+      "province": "Manitoba",
+      "city_community": "Churchill",
+      "address": "162 La Vérendrye Avenue, Churchill, MB",
+      "service_area": "Churchill and nearby communities",
+      "service_scope": {
+        "physical_location": {
+          "community": "Churchill",
+          "address": "162 La Vérendrye Avenue, Churchill, MB",
+          "province": "Manitoba"
+        },
+        "local_service_area": [
+          "Churchill"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "travel_required": false,
+        "scope_note": "A local health access point, not a verified fixed-site withdrawal-management facility.",
+        "search_locations": [],
+        "service_area": "Churchill and nearby communities"
+      },
+      "delivery_modes": [
+        "in person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Call the Churchill Health Centre to confirm the current local service and whether assessment, referral or travel is needed.",
+      "access": "Call the Churchill Health Centre to confirm the current local service and whether assessment, referral or travel is needed.",
+      "phone": "204-675-8881",
+      "email": "",
+      "website": "https://wrha.mb.ca/locations-services/health-centres/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Churchill"
+        ],
+        "local_access_point": "Churchill Health Centre, 204-675-8881.",
+        "regional_intake": "The health centre can identify the appropriate local or regional pathway.",
+        "destination_service": "The receiving service must be confirmed before travel.",
+        "transportation_pathway": "If eligible care is unavailable locally, ask the provider about the Northern Patient Transportation Program.",
+        "return_home_support": [
+          "Arrange local health-centre follow-up after regional care."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Winnipeg Regional Health Authority",
+          "url": "https://wrha.mb.ca/locations-services/health-centres/"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Churchill Health Centre Mental Health and Addiction Access",
+        "authority": "Winnipeg Regional Health Authority",
+        "url": "https://wrha.mb.ca/locations-services/health-centres/"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_mb_churchill_health_centre_mha"
       ]
     },
     {
@@ -4890,6 +5382,103 @@
       ],
       "source_record_ids": [
         "shared_sk_cress_housing"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_mb_cross_lake_social_development",
+      "record_type": "service",
+      "organization": "Cross Lake Band of Indians",
+      "program_name": "Cross Lake Social Development",
+      "categories": [
+        "family_community",
+        "financial_funding",
+        "housing",
+        "practical_support"
+      ],
+      "subcategories": [
+        "aftercare",
+        "basic needs",
+        "employment support",
+        "family support",
+        "housing navigation",
+        "income navigation",
+        "indigenous navigation"
+      ],
+      "description": "Community social-development access point for income, basic and special needs, adult care and employment supports that may help sustain a return home after treatment.",
+      "population_served": "Cross Lake community members who meet the applicable program requirements.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Cross Lake community",
+      "province": "Manitoba",
+      "city_community": "Cross Lake",
+      "address": "",
+      "service_area": "Cross Lake community",
+      "service_scope": {
+        "physical_location": {
+          "community": "Cross Lake",
+          "province": "Manitoba"
+        },
+        "local_service_area": [
+          "Cross Lake"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": true,
+        "travel_required": false,
+        "scope_note": "Return-home and basic-needs navigation only; no local addiction facility is claimed.",
+        "search_locations": [],
+        "service_area": "Cross Lake community"
+      },
+      "delivery_modes": [
+        "in person",
+        "navigation"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Contact Social Development to confirm the current program and eligibility. This is not an addiction-treatment or withdrawal facility.",
+      "access": "Contact Social Development to confirm the current program and eligibility. This is not an addiction-treatment or withdrawal facility.",
+      "phone": "204-676-2218",
+      "email": "",
+      "website": "https://crosslakeband.ca/social-development",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Cross Lake"
+        ],
+        "local_access_point": "Contact Cross Lake Social Development.",
+        "regional_intake": "Use Manitoba Mental Health & Addictions Connect or the local health provider for addiction-treatment access.",
+        "return_home_support": [
+          "Ask about income, basic-needs, adult-care and employment supports after returning."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Cross Lake Band of Indians",
+          "url": "https://crosslakeband.ca/social-development"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Cross Lake Social Development",
+        "authority": "Cross Lake Band of Indians",
+        "url": "https://crosslakeband.ca/social-development"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "miller_mb_cross_lake_social_development"
       ]
     },
     {
@@ -6350,6 +6939,101 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_on_fort_frances_raam",
+      "record_type": "service",
+      "organization": "Riverside Health Care",
+      "program_name": "Fort Frances Rapid Access Addiction Medicine Clinic",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction medicine",
+        "oat",
+        "harm reduction",
+        "counselling",
+        "treatment navigation"
+      ],
+      "description": "Walk-in rapid-access addiction-medicine clinic offering medication options, harm reduction, counselling and connection to ongoing care.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Rainy River District",
+      "province": "Ontario",
+      "city_community": "Fort Frances",
+      "address": "206 Victoria Avenue, Fort Frances, ON",
+      "service_area": "Rainy River District",
+      "service_scope": {
+        "physical_location": {
+          "community": "Fort Frances",
+          "address": "206 Victoria Avenue, Fort Frances, ON",
+          "province": "Ontario"
+        },
+        "local_service_area": [
+          "Fort Frances"
+        ],
+        "regional_service_area": [
+          "Rainy River District"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "travel_required": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Rainy River District"
+      },
+      "delivery_modes": [
+        "in person"
+      ],
+      "eligibility": "Age 16 or older; current clinical access and medication decisions are made by the care team.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "People aged 16 or older may attend without an appointment or formal referral. Confirm current clinic hours before travelling.",
+      "access": "People aged 16 or older may attend without an appointment or formal referral. Confirm current clinic hours before travelling.",
+      "phone": "807-274-4823",
+      "email": "",
+      "website": "https://www.riversidehealthcare.ca/RAAM",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Fort Frances",
+          "Rainy River District"
+        ],
+        "local_access_point": "Attend the RAAM clinic during current open hours or call first.",
+        "referral_requirement": "No appointment or formal referral is required.",
+        "return_home_support": [
+          "The clinic connects people to ongoing addiction care after the rapid-access visit."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Riverside Health Care",
+          "url": "https://www.riversidehealthcare.ca/RAAM"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Fort Frances Rapid Access Addiction Medicine Clinic",
+        "authority": "Riverside Health Care",
+        "url": "https://www.riversidehealthcare.ca/RAAM"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_on_fort_frances_raam"
+      ]
+    },
+    {
       "canonical_resource_id": "fns_ab_four_winds_navigation",
       "record_type": "service",
       "organization": "Alberta Health Services / Four Winds team",
@@ -6673,6 +7357,105 @@
       ],
       "source_record_ids": [
         "miller_nl_gander_odt"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_nu_gjoa_haven_health_access",
+      "record_type": "service",
+      "organization": "Government of Nunavut Department of Health",
+      "program_name": "Gjoa Haven Health Centre Access",
+      "categories": [
+        "healthcare",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "addiction navigation",
+        "community health",
+        "medical transportation navigation",
+        "rural remote access"
+      ],
+      "description": "Local Gjoa Haven health-centre starting point for mental-health, addiction, referral and approved medical-travel pathways.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Gjoa Haven",
+      "province": "Nunavut",
+      "city_community": "Gjoa Haven",
+      "address": "",
+      "service_area": "Gjoa Haven",
+      "service_scope": {
+        "physical_location": {
+          "community": "Gjoa Haven",
+          "province": "Nunavut"
+        },
+        "local_service_area": [
+          "Gjoa Haven"
+        ],
+        "regional_service_area": [
+          "Kitikmeot"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": true,
+        "travel_required": false,
+        "scope_note": "A local access point, not a verified local withdrawal-management or residential-treatment facility. Kitikmeot regional coordination applies when travel is approved.",
+        "search_locations": [],
+        "service_area": "Gjoa Haven"
+      },
+      "delivery_modes": [
+        "in person",
+        "navigation"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Call the local health centre to speak with a nurse or doctor and determine the appropriate local, regional or out-of-territory pathway.",
+      "access": "Call the local health centre to speak with a nurse or doctor and determine the appropriate local, regional or out-of-territory pathway.",
+      "phone": "867-360-7441",
+      "email": "",
+      "website": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Gjoa Haven"
+        ],
+        "local_access_point": "Gjoa Haven Health Centre, 867-360-7441.",
+        "regional_intake": "Kitikmeot regional health and medical-travel coordination when referral or travel is required.",
+        "destination_service": "The referring practitioner and regional team confirm the destination; it is not assumed to be in the home community.",
+        "referral_requirement": "A Nunavut practitioner referral is required when medical travel applies.",
+        "transportation_pathway": "The community travel team sends approved requests to the Kitikmeot regional office.",
+        "funding_pathway": "Travel and escort coverage depend on current territorial and applicable NIHB rules.",
+        "return_home_support": [
+          "Follow up with the home-community health centre after returning."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Government of Nunavut Department of Health",
+          "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Gjoa Haven Health Centre Access",
+        "authority": "Government of Nunavut Department of Health",
+        "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_nu_gjoa_haven_health_access"
       ]
     },
     {
@@ -7634,6 +8417,99 @@
       ],
       "source_record_ids": [
         "shared_isc_hope_for_wellness"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_on_fort_frances_hope_transitional",
+      "record_type": "service",
+      "organization": "Rainy River District Social Services Administration Board",
+      "program_name": "HOPE Transitional House",
+      "categories": [
+        "housing",
+        "practical_support"
+      ],
+      "subcategories": [
+        "recovery housing",
+        "transitional housing",
+        "housing navigation",
+        "aftercare"
+      ],
+      "description": "Substance-free transitional housing in Fort Frances with housing-navigation support for adults working toward stable housing.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Rainy River District",
+      "province": "Ontario",
+      "city_community": "Fort Frances",
+      "address": "324 Victoria Avenue, Fort Frances, ON",
+      "service_area": "Rainy River District",
+      "service_scope": {
+        "physical_location": {
+          "community": "Fort Frances",
+          "address": "324 Victoria Avenue, Fort Frances, ON",
+          "province": "Ontario"
+        },
+        "local_service_area": [
+          "Fort Frances"
+        ],
+        "regional_service_area": [
+          "Rainy River District"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "travel_required": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Rainy River District"
+      },
+      "delivery_modes": [
+        "in person"
+      ],
+      "eligibility": "Adults age 18 or older under the program's current Rainy River District eligibility and substance-free residence requirements.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Contact HOPE Transitional House to confirm current intake, availability and suitability. Admission is not guaranteed.",
+      "access": "Contact HOPE Transitional House to confirm current intake, availability and suitability. Admission is not guaranteed.",
+      "phone": "807-274-5349",
+      "email": "",
+      "website": "https://rrdssab.ca/hope-transitional-house/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Rainy River District"
+        ],
+        "local_access_point": "Contact HOPE Transitional House before travel or discharge.",
+        "regional_intake": "The housing navigator confirms current intake and availability.",
+        "return_home_support": [
+          "Transitional housing and housing-navigation support may assist after treatment; availability must be confirmed."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Rainy River District Social Services Administration Board",
+          "url": "https://rrdssab.ca/hope-transitional-house/"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "HOPE Transitional House",
+        "authority": "Rainy River District Social Services Administration Board",
+        "url": "https://rrdssab.ca/hope-transitional-house/"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_on_fort_frances_hope_transitional"
       ]
     },
     {
@@ -10438,6 +11314,207 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_on_kenora_hart_hub",
+      "record_type": "service",
+      "organization": "CMHA Kenora Branch",
+      "program_name": "Kenora Indigenous-led Homelessness and Addiction Recovery Treatment Hub",
+      "categories": [
+        "healthcare",
+        "housing",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction intake",
+        "basic needs",
+        "harm reduction",
+        "housing navigation",
+        "indigenous navigation",
+        "mental health",
+        "treatment navigation"
+      ],
+      "description": "No-wrong-door Kenora hub coordinating addiction, mental-health, housing, cultural and basic-needs supports through an Indigenous-led model.",
+      "population_served": "People in the Kenora area seeking coordinated homelessness, mental-health, addiction, cultural or practical support.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Kenora area",
+      "province": "Ontario",
+      "city_community": "Kenora",
+      "address": "227 Second Street South, Kenora, ON",
+      "service_area": "Kenora area",
+      "service_scope": {
+        "physical_location": {
+          "community": "Kenora",
+          "address": "227 Second Street South, Kenora, ON",
+          "province": "Ontario"
+        },
+        "local_service_area": [
+          "Kenora"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "travel_required": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Kenora area"
+      },
+      "delivery_modes": [
+        "in person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Contact or attend the hub to begin coordinated support; confirm current hours before travelling.",
+      "access": "Contact or attend the hub to begin coordinated support; confirm current hours before travelling.",
+      "phone": "807-468-1838",
+      "email": "",
+      "website": "https://cmhak.on.ca/programs-services/kenora-indigenous-led-homelessness-and-addiction-recovery-treatment-hart-hub/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Kenora"
+        ],
+        "local_access_point": "Contact the HART Hub at 807-468-1838.",
+        "regional_intake": "The no-wrong-door team coordinates the relevant services.",
+        "return_home_support": [
+          "Housing, cultural, mental-health and addiction supports can be coordinated through the same hub."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "CMHA Kenora Branch",
+          "url": "https://cmhak.on.ca/programs-services/kenora-indigenous-led-homelessness-and-addiction-recovery-treatment-hart-hub/"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Kenora Indigenous-led Homelessness and Addiction Recovery Treatment Hub",
+        "authority": "CMHA Kenora Branch",
+        "url": "https://cmhak.on.ca/programs-services/kenora-indigenous-led-homelessness-and-addiction-recovery-treatment-hart-hub/"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "miller_on_kenora_hart_hub"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_on_kenora_mobile_mha",
+      "record_type": "service",
+      "organization": "CMHA Kenora Branch",
+      "program_name": "Kenora Mobile Mental Health and Addictions Clinic",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction counselling",
+        "aftercare",
+        "indigenous navigation",
+        "mental health",
+        "mobile service",
+        "treatment navigation"
+      ],
+      "description": "Mobile clinic offering intake, brief mental-health and addiction support, referral and psychiatric follow-up in participating First Nations and rural communities around Kenora.",
+      "population_served": "People in the participating communities listed by CMHA Kenora.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Participating Kenora-area First Nations and rural communities",
+      "province": "Ontario",
+      "city_community": "Kenora",
+      "address": "",
+      "service_area": "Participating Kenora-area First Nations and rural communities",
+      "service_scope": {
+        "physical_location": {
+          "community": "Kenora",
+          "province": "Ontario"
+        },
+        "local_service_area": [
+          "Kenora"
+        ],
+        "regional_service_area": [
+          "Naotkamegwanning",
+          "Eagle Lake",
+          "Grassy Narrows",
+          "Sioux Narrows",
+          "Nestor Falls",
+          "Northwestern Ontario"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "travel_required": false,
+        "scope_note": "",
+        "search_locations": [
+          "Kenora",
+          "Sioux Narrows",
+          "Nestor Falls"
+        ],
+        "service_area": "Participating Kenora-area First Nations and rural communities"
+      },
+      "delivery_modes": [
+        "in person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Call CMHA Kenora to confirm the current community schedule and referral route. The mobile clinic is not a crisis service.",
+      "access": "Call CMHA Kenora to confirm the current community schedule and referral route. The mobile clinic is not a crisis service.",
+      "phone": "807-468-1838",
+      "email": "",
+      "website": "https://cmhak.on.ca/programs-services/mobile-mental-health-addictions-clinic/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Participating Kenora-area communities"
+        ],
+        "local_access_point": "Call CMHA Kenora to confirm when the clinic serves the community.",
+        "regional_intake": "Clinic staff provide intake, brief support and referrals.",
+        "destination_service": "Ongoing or specialist care is arranged through the relevant receiving service.",
+        "return_home_support": [
+          "The mobile clinic can provide follow-up in participating communities when scheduled."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "CMHA Kenora Branch",
+          "url": "https://cmhak.on.ca/programs-services/mobile-mental-health-addictions-clinic/"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Kenora Mobile Mental Health and Addictions Clinic",
+        "authority": "CMHA Kenora Branch",
+        "url": "https://cmhak.on.ca/programs-services/mobile-mental-health-addictions-clinic/"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "miller_on_kenora_mobile_mha"
+      ]
+    },
+    {
       "canonical_resource_id": "shared_ncsa_kisnimi_ti",
       "record_type": "service",
       "organization": "Native Counselling Services of Alberta",
@@ -10976,6 +12053,105 @@
       ],
       "source_record_ids": [
         "miller_nu_kivalliq_medical_travel"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_nu_kugluktuk_health_access",
+      "record_type": "service",
+      "organization": "Government of Nunavut Department of Health",
+      "program_name": "Kugluktuk Health Centre Access",
+      "categories": [
+        "healthcare",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "addiction navigation",
+        "community health",
+        "medical transportation navigation",
+        "rural remote access"
+      ],
+      "description": "Local Kugluktuk health-centre starting point for mental-health, addiction, referral and approved medical-travel pathways.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Kugluktuk",
+      "province": "Nunavut",
+      "city_community": "Kugluktuk",
+      "address": "",
+      "service_area": "Kugluktuk",
+      "service_scope": {
+        "physical_location": {
+          "community": "Kugluktuk",
+          "province": "Nunavut"
+        },
+        "local_service_area": [
+          "Kugluktuk"
+        ],
+        "regional_service_area": [
+          "Kitikmeot"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": true,
+        "travel_required": false,
+        "scope_note": "A local access point, not a verified local withdrawal-management or residential-treatment facility. Kitikmeot regional coordination applies when travel is approved.",
+        "search_locations": [],
+        "service_area": "Kugluktuk"
+      },
+      "delivery_modes": [
+        "in person",
+        "navigation"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Call the local health centre to speak with a nurse or doctor and determine the appropriate local, regional or out-of-territory pathway.",
+      "access": "Call the local health centre to speak with a nurse or doctor and determine the appropriate local, regional or out-of-territory pathway.",
+      "phone": "867-982-4531",
+      "email": "",
+      "website": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Kugluktuk"
+        ],
+        "local_access_point": "Kugluktuk Health Centre, 867-982-4531.",
+        "regional_intake": "Kitikmeot regional health and medical-travel coordination when referral or travel is required.",
+        "destination_service": "The referring practitioner and regional team confirm the destination; it is not assumed to be in the home community.",
+        "referral_requirement": "A Nunavut practitioner referral is required when medical travel applies.",
+        "transportation_pathway": "The community travel team sends approved requests to the Kitikmeot regional office.",
+        "funding_pathway": "Travel and escort coverage depend on current territorial and applicable NIHB rules.",
+        "return_home_support": [
+          "Follow up with the home-community health centre after returning."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Government of Nunavut Department of Health",
+          "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Kugluktuk Health Centre Access",
+        "authority": "Government of Nunavut Department of Health",
+        "url": "https://www.gov.nu.ca/sites/default/files/documents/2025-11/Health_-_NU_Medical_Travel_Handbook_EN_WEB_NOV2025.pdf"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_nu_kugluktuk_health_access"
       ]
     },
     {
@@ -15432,6 +16608,103 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_ns_north_sydney_recovery_support",
+      "record_type": "service",
+      "organization": "Nova Scotia Health",
+      "program_name": "North Sydney Recovery Support Centre",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction treatment",
+        "recovery support",
+        "harm reduction",
+        "counselling",
+        "withdrawal navigation",
+        "oat navigation",
+        "aftercare"
+      ],
+      "description": "Cape Breton Recovery Support Centre providing education, harm reduction, individual and group support and connection to withdrawal, opioid treatment and community services.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Cape Breton",
+      "province": "Nova Scotia",
+      "city_community": "North Sydney",
+      "address": "116 King Street, Suite 23A, North Sydney, NS",
+      "service_area": "Cape Breton",
+      "service_scope": {
+        "physical_location": {
+          "community": "North Sydney",
+          "address": "116 King Street, Suite 23A, North Sydney, NS",
+          "province": "Nova Scotia"
+        },
+        "local_service_area": [
+          "North Sydney"
+        ],
+        "regional_service_area": [
+          "Cape Breton"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "travel_required": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Cape Breton"
+      },
+      "delivery_modes": [
+        "in person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Call or use drop-in access where currently listed by Nova Scotia Health. Confirm hours before travelling.",
+      "access": "Call or use drop-in access where currently listed by Nova Scotia Health. Confirm hours before travelling.",
+      "phone": "902-794-3707",
+      "email": "",
+      "website": "https://mha.nshealth.ca/en/rsc",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": {
+        "origin_geographies": [
+          "North Sydney",
+          "Cape Breton"
+        ],
+        "local_access_point": "Contact the North Sydney Recovery Support Centre.",
+        "regional_intake": "Provincial intake can also identify the appropriate Cape Breton service.",
+        "return_home_support": [
+          "The centre provides ongoing community recovery and counselling connections."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Nova Scotia Health",
+          "url": "https://mha.nshealth.ca/en/rsc"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "North Sydney Recovery Support Centre",
+        "authority": "Nova Scotia Health",
+        "url": "https://mha.nshealth.ca/en/rsc"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_ns_north_sydney_recovery_support"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_bc_northern_health_connections",
       "record_type": "service",
       "organization": "Northern Health",
@@ -16333,6 +17606,210 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_mb_norway_house_medical_social_work",
+      "record_type": "service",
+      "organization": "Norway House Cree Nation Health Division",
+      "program_name": "Norway House Medical Social Work",
+      "categories": [
+        "family_community",
+        "healthcare",
+        "housing",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction navigation",
+        "aftercare",
+        "counselling",
+        "family support",
+        "housing navigation",
+        "indigenous navigation",
+        "mental health"
+      ],
+      "description": "Community medical-social-work service providing mental-health support, assessment, crisis help, referrals, follow-up, telehealth and advocacy for safe housing.",
+      "population_served": "Norway House Cree Nation members and community residents served by the Health Division.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Norway House Cree Nation",
+      "province": "Manitoba",
+      "city_community": "Norway House",
+      "address": "",
+      "service_area": "Norway House Cree Nation",
+      "service_scope": {
+        "physical_location": {
+          "community": "Norway House",
+          "province": "Manitoba"
+        },
+        "local_service_area": [
+          "Norway House"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "travel_required": false,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Norway House Cree Nation"
+      },
+      "delivery_modes": [
+        "in person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self, family and provider referrals are accepted. Call the Health Division to reach the current medical-social-work service.",
+      "access": "Self, family and provider referrals are accepted. Call the Health Division to reach the current medical-social-work service.",
+      "phone": "204-359-6721",
+      "email": "",
+      "website": "https://nhcn.ca/health-services/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Norway House"
+        ],
+        "local_access_point": "Contact Norway House Cree Nation Health Division.",
+        "regional_intake": "Medical social workers assess needs and coordinate referrals or visiting/telehealth supports.",
+        "destination_service": "Any service outside the community must be confirmed by the referring team.",
+        "return_home_support": [
+          "Medical social work provides community follow-up and liaison after outside care."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Norway House Cree Nation Health Division",
+          "url": "https://nhcn.ca/health-services/"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Norway House Medical Social Work",
+        "authority": "Norway House Cree Nation Health Division",
+        "url": "https://nhcn.ca/health-services/"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "miller_mb_norway_house_medical_social_work"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_mb_norway_house_treatment_access",
+      "record_type": "service",
+      "organization": "Norway House Cree Nation Health Division",
+      "program_name": "Norway House Treatment Access Program",
+      "categories": [
+        "financial_funding",
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "indigenous navigation",
+        "medical transportation",
+        "rural remote access",
+        "travel funding",
+        "treatment transportation"
+      ],
+      "description": "Community program coordinating eligible travel and accommodation to the nearest appropriate health service when that service is unavailable locally.",
+      "population_served": "Eligible Norway House Cree Nation clients referred for care unavailable locally.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Norway House Cree Nation",
+      "province": "Manitoba",
+      "city_community": "Norway House",
+      "address": "",
+      "service_area": "Norway House Cree Nation",
+      "service_scope": {
+        "physical_location": {
+          "community": "Norway House",
+          "province": "Manitoba"
+        },
+        "local_service_area": [
+          "Norway House"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": true,
+        "travel_required": true,
+        "scope_note": "",
+        "search_locations": [],
+        "service_area": "Norway House Cree Nation"
+      },
+      "delivery_modes": [
+        "in person",
+        "navigation"
+      ],
+      "eligibility": "Current Treatment Access Program and applicable FNIHB rules apply; air travel requires the stated medical approval.",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "A Norway House Clinic physician must sign the referral and travel must be preauthorized. Contact the Health Division before making arrangements.",
+      "access": "A Norway House Clinic physician must sign the referral and travel must be preauthorized. Contact the Health Division before making arrangements.",
+      "phone": "204-359-6721",
+      "email": "",
+      "website": "https://nhcn.ca/health-services/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": {
+        "funding_source": "Norway House Treatment Access Program / applicable FNIHB approval",
+        "eligible_trip_types": [
+          "Approved care unavailable in Norway House"
+        ],
+        "delivery": "Preauthorized travel and accommodation coordination",
+        "travel_modes": [
+          "Approved ground, bus or air travel"
+        ]
+      },
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Norway House"
+        ],
+        "local_access_point": "Start with Norway House Clinic for the required physician referral.",
+        "regional_intake": "The Treatment Access Program arranges preauthorized travel.",
+        "destination_service": "The nearest appropriate approved facility unavailable locally.",
+        "referral_requirement": "Norway House Clinic physician referral and preauthorization.",
+        "transportation_pathway": "Program clerks coordinate approved travel and accommodation; air travel also requires FNIHB approval and medical documentation.",
+        "funding_pathway": "Coverage depends on current program and FNIHB eligibility.",
+        "return_home_support": [
+          "Confirm the return itinerary and local follow-up before travel."
+        ],
+        "travel_required": true,
+        "source_provenance": {
+          "authority": "Norway House Cree Nation Health Division",
+          "url": "https://nhcn.ca/health-services/"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Norway House Treatment Access Program",
+        "authority": "Norway House Cree Nation Health Division",
+        "url": "https://nhcn.ca/health-services/"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "miller_mb_norway_house_treatment_access"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_ns_inpatient_withdrawal",
       "record_type": "service",
       "organization": "Nova Scotia Health",
@@ -16627,6 +18104,215 @@
       ],
       "source_record_ids": [
         "miller_ns_recovery_support_centres"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_nl_nunatsiavut_community_family_services",
+      "record_type": "service",
+      "organization": "Nunatsiavut Government Department of Health and Social Development",
+      "program_name": "Nunatsiavut Community Health and Family Services Offices",
+      "categories": [
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "aftercare",
+        "basic needs",
+        "community support",
+        "family support",
+        "indigenous navigation"
+      ],
+      "description": "Community DHSD offices connecting residents with local health, family, youth, community and practical supports in Nunatsiavut and Upper Lake Melville.",
+      "population_served": "Residents and families served by Nunatsiavut Government programs under current program rules.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Nunatsiavut and Upper Lake Melville",
+      "province": "Newfoundland and Labrador",
+      "city_community": "",
+      "address": "",
+      "service_area": "Nunatsiavut and Upper Lake Melville",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [
+          "Nain",
+          "Hopedale",
+          "Postville",
+          "Makkovik",
+          "Rigolet",
+          "North West River",
+          "Happy Valley-Goose Bay",
+          "Nunatsiavut"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": true,
+        "travel_required": false,
+        "scope_note": "",
+        "search_locations": [
+          "Nain",
+          "Hopedale",
+          "Postville",
+          "Makkovik",
+          "Rigolet",
+          "Nunatsiavut"
+        ],
+        "service_area": "Nunatsiavut and Upper Lake Melville"
+      },
+      "delivery_modes": [
+        "navigation"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Use the official page for the current phone number of the local DHSD office: Nain, Hopedale, Postville, Makkovik, Rigolet, North West River or Happy Valley-Goose Bay.",
+      "access": "Use the official page for the current phone number of the local DHSD office: Nain, Hopedale, Postville, Makkovik, Rigolet, North West River or Happy Valley-Goose Bay.",
+      "phone": "",
+      "email": "",
+      "website": "https://nunatsiavut.com/department/health-and-social-development/familyservices-2/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Nunatsiavut communities"
+        ],
+        "local_access_point": "Contact the DHSD office in the home community using the current official directory.",
+        "regional_intake": "The local office identifies the appropriate family, youth, health or practical program.",
+        "return_home_support": [
+          "Use the home-community office to reconnect with family, cultural and practical supports after treatment."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Nunatsiavut Government Department of Health and Social Development",
+          "url": "https://nunatsiavut.com/department/health-and-social-development/familyservices-2/"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Nunatsiavut Community Health and Family Services Offices",
+        "authority": "Nunatsiavut Government Department of Health and Social Development",
+        "url": "https://nunatsiavut.com/department/health-and-social-development/familyservices-2/"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "miller_nl_nunatsiavut_community_family_services"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_nl_nunatsiavut_mental_wellness",
+      "record_type": "service",
+      "organization": "Nunatsiavut Government Department of Health and Social Development",
+      "program_name": "Nunatsiavut Mental Wellness and Healing",
+      "categories": [
+        "family_community",
+        "healthcare"
+      ],
+      "subcategories": [
+        "addiction counselling",
+        "aftercare",
+        "counselling",
+        "family support",
+        "indigenous mental health",
+        "land based support",
+        "reentry corrections"
+      ],
+      "description": "Inuit-governed mental-wellness and addictions support with workers in each Nunatsiavut community, supportive counselling, land-based programming, referral and re-entry support.",
+      "population_served": "Inuit and families served by Nunatsiavut Government programs under current program rules.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Nunatsiavut communities",
+      "province": "Newfoundland and Labrador",
+      "city_community": "",
+      "address": "",
+      "service_area": "Nunatsiavut communities",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [
+          "Nain",
+          "Hopedale",
+          "Postville",
+          "Makkovik",
+          "Rigolet",
+          "North West River",
+          "Happy Valley-Goose Bay",
+          "Nunatsiavut"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": true,
+        "travel_required": false,
+        "scope_note": "",
+        "search_locations": [
+          "Nain",
+          "Hopedale",
+          "Postville",
+          "Makkovik",
+          "Rigolet",
+          "Nunatsiavut"
+        ],
+        "service_area": "Nunatsiavut communities"
+      },
+      "delivery_modes": [
+        "navigation"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referral and third-party referral are available. Contact the program or the local community DHSD office to reach the current worker.",
+      "access": "Self-referral and third-party referral are available. Contact the program or the local community DHSD office to reach the current worker.",
+      "phone": "709-896-0692",
+      "email": "",
+      "website": "https://nunatsiavut.com/department/health-and-social-development/public-health/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Nunatsiavut communities"
+        ],
+        "local_access_point": "Contact the mental-health and addictions worker or DHSD office in the home community.",
+        "regional_intake": "The program coordinates counselling, referrals and regional supports.",
+        "destination_service": "Any treatment outside the community must be confirmed through the referral process.",
+        "return_home_support": [
+          "Community workers, land-based programs and re-entry support may help after returning home."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Nunatsiavut Government Department of Health and Social Development",
+          "url": "https://nunatsiavut.com/department/health-and-social-development/public-health/"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Nunatsiavut Mental Wellness and Healing",
+        "authority": "Nunatsiavut Government Department of Health and Social Development",
+        "url": "https://nunatsiavut.com/department/health-and-social-development/public-health/"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "miller_nl_nunatsiavut_mental_wellness"
       ]
     },
     {
@@ -19883,6 +21569,108 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_on_rainy_river_community_counselling",
+      "record_type": "service",
+      "organization": "Riverside Health Care",
+      "program_name": "Rainy River District Community Counselling",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction intake",
+        "counselling",
+        "mental health",
+        "harm reduction",
+        "treatment navigation",
+        "aftercare"
+      ],
+      "description": "Community counselling offices providing addiction assessment, referrals, outpatient counselling, case management, harm reduction and aftercare across Rainy River District.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Rainy River District",
+      "province": "Ontario",
+      "city_community": "Fort Frances",
+      "address": "",
+      "service_area": "Rainy River District",
+      "service_scope": {
+        "physical_location": {
+          "community": "Fort Frances",
+          "province": "Ontario"
+        },
+        "local_service_area": [
+          "Fort Frances"
+        ],
+        "regional_service_area": [
+          "Emo",
+          "Rainy River",
+          "Rainy River District"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "travel_required": false,
+        "scope_note": "",
+        "search_locations": [
+          "Fort Frances",
+          "Emo",
+          "Rainy River"
+        ],
+        "service_area": "Rainy River District"
+      },
+      "delivery_modes": [
+        "in person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referral is accepted. Call and choose the official extension for the nearest office or service.",
+      "access": "Self-referral is accepted. Call and choose the official extension for the nearest office or service.",
+      "phone": "807-274-4807",
+      "email": "",
+      "website": "https://riversidehealthcare.ca/community-counselling",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Fort Frances",
+          "Emo",
+          "Rainy River"
+        ],
+        "local_access_point": "Call Community Counselling at 807-274-4807.",
+        "regional_intake": "The service identifies the suitable district office or referral.",
+        "return_home_support": [
+          "Outpatient counselling, case management and aftercare are available within the district."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Riverside Health Care",
+          "url": "https://riversidehealthcare.ca/community-counselling"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Rainy River District Community Counselling",
+        "authority": "Riverside Health Care",
+        "url": "https://riversidehealthcare.ca/community-counselling"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_on_rainy_river_community_counselling"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_bc_victoria_raac",
       "record_type": "service",
       "organization": "Island Health",
@@ -20794,6 +22582,108 @@
       ],
       "source_record_ids": [
         "miller_nl_recovery_centre"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_on_red_lake_community_counselling",
+      "record_type": "service",
+      "organization": "Red Lake Margaret Cochenour Memorial Hospital",
+      "program_name": "Red Lake Community Counselling and Addiction Services",
+      "categories": [
+        "healthcare",
+        "housing",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction intake",
+        "counselling",
+        "mental health",
+        "housing navigation",
+        "treatment navigation",
+        "aftercare",
+        "family support"
+      ],
+      "description": "Free, confidential community mental-health and addiction service providing assessment, counselling, treatment referrals, case management, housing support, aftercare and family support.",
+      "population_served": "People seeking the listed practical service",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Red Lake and Ear Falls",
+      "province": "Ontario",
+      "city_community": "Red Lake",
+      "address": "146 Howey Street, Red Lake, ON",
+      "service_area": "Red Lake and Ear Falls",
+      "service_scope": {
+        "physical_location": {
+          "community": "Red Lake",
+          "address": "146 Howey Street, Red Lake, ON",
+          "province": "Ontario"
+        },
+        "local_service_area": [
+          "Red Lake"
+        ],
+        "regional_service_area": [
+          "Ear Falls"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "travel_required": false,
+        "scope_note": "",
+        "search_locations": [
+          "Red Lake",
+          "Ear Falls"
+        ],
+        "service_area": "Red Lake and Ear Falls"
+      },
+      "delivery_modes": [
+        "in person"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "Self-referral is accepted. Call the service to confirm the appropriate program and current appointment process.",
+      "access": "Self-referral is accepted. Call the service to confirm the appropriate program and current appointment process.",
+      "phone": "807-727-1100",
+      "email": "",
+      "website": "https://www.redlakehospital.ca/mentalhealth-addictionsservices?s=1",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": {
+        "origin_geographies": [
+          "Red Lake",
+          "Ear Falls"
+        ],
+        "local_access_point": "Call Community Counselling and Addiction Services at 807-727-1100.",
+        "regional_intake": "The team assesses and connects people to local, residential or other regional options.",
+        "return_home_support": [
+          "Aftercare, case management, housing and family supports are available through the community service."
+        ],
+        "travel_required": false,
+        "source_provenance": {
+          "authority": "Red Lake Margaret Cochenour Memorial Hospital",
+          "url": "https://www.redlakehospital.ca/mentalhealth-addictionsservices?s=1"
+        }
+      },
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Red Lake Community Counselling and Addiction Services",
+        "authority": "Red Lake Margaret Cochenour Memorial Hospital",
+        "url": "https://www.redlakehospital.ca/mentalhealth-addictionsservices?s=1"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_on_red_lake_community_counselling"
       ]
     },
     {

@@ -17,6 +17,7 @@ import legacyPriorityVerificationV2 from "../src/data/miller-legacy-priority-ver
 import legacyPriorityVerificationV3 from "../src/data/miller-legacy-priority-verification-v3-2026-09-08.json" with { type: "json" }
 import canadaFoundation from "../src/data/miller-canada-foundation-2026-09-08.json" with { type: "json" }
 import northernRemotePathways from "../src/data/miller-northern-remote-pathways-2026-09-08.json" with { type: "json" }
+import northernHomeHandoffs from "../src/data/miller-northern-home-community-handoffs-2026-09-09.json" with { type: "json" }
 import easternPathways from "../src/data/miller-eastern-pathways-2026-09-08.json" with { type: "json" }
 import canadaGrowth from "../src/data/miller-canada-growth-2026-09-08.json" with { type: "json" }
 import { buildSharedResourceRegistry, validateSharedResourceRegistry } from "../server/sharedResourceRegistry.js"
@@ -63,6 +64,8 @@ const records = buildSharedResourceRegistry([
   { project: "miller_north", sourceKind: "service", records: canadaFoundation.records.filter(record => record.project_visibility.includes("miller_north")) },
   { project: "miller", sourceKind: "service", records: northernRemotePathways.records.filter(record => record.project_visibility.includes("miller")) },
   { project: "miller_north", sourceKind: "service", records: northernRemotePathways.records.filter(record => record.project_visibility.includes("miller_north")) },
+  { project: "miller", sourceKind: "service", records: northernHomeHandoffs.records.filter(record => record.project_visibility.includes("miller")) },
+  { project: "miller_north", sourceKind: "service", records: northernHomeHandoffs.records.filter(record => record.project_visibility.includes("miller_north")) },
   { project: "miller", sourceKind: "service", records: easternPathways.records.filter(record => record.project_visibility.includes("miller")) },
   { project: "miller_north", sourceKind: "service", records: easternPathways.records.filter(record => record.project_visibility.includes("miller_north")) },
   { project: "miller", sourceKind: "service", records: canadaGrowth.records.filter(record => record.project_visibility.includes("miller")) },
