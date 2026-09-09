@@ -14,6 +14,7 @@ Palantír — Samwise Public Records Intelligence — owns reusable public-recor
 | `farmRecommendationLedger` v1 rows | Farm | Superseded for new Palantír writes | Retained as a read-compatible legacy format; an adapter migrates rows without rewriting source artifacts |
 | Watching and documentary milestones | Miller North Watching | Miller North-specific but reusable | Promoted to generic milestone intelligence and milestone-aware schedule advice |
 | Coverage matrices | Miller North research reports | Partially generic | Promoted with explicit gap causes instead of treating every blank cell as absent evidence |
+| Structural inequality comparisons | Miller North access/accountability research | Reusable but method-sensitive | Promoted with explicit denominators, comparator alignment, confounders, evidence strength and a private-by-default public gate |
 | Cross-lane relevance | Samwise/Farm | Already generic | Retained as reviewed secondary relevance |
 | Institutional aliases/history | Samwise | Already generic | Reused |
 | Owner review | Farm private interface | Partially generic | Promoted with durable decisions and an append-preserving audit record |
@@ -36,6 +37,7 @@ registered source → listener → document fingerprint → event identity
                                              ↓
 evidence role → recommendation chain → milestone/watch → coverage matrix
              ↘ claim + provenance → reviewed claim relationship → claim timeline
+             ↘ structural indicator → comparator/mechanism → response/implementation/outcome
                                              ↓
 cross-domain relevance → institution map → owner review → consumer candidate
 ```

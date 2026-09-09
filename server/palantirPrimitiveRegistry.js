@@ -6,6 +6,7 @@ export const PALANTIR_PRIMITIVES = Object.freeze([
   { primitive_id: "recommendation_intelligence", module: "palantirRecommendationIntelligence", origin: "child/youth, corrections and fatality ledgers", status: "promoted" },
   { primitive_id: "milestone_intelligence", module: "palantirMilestoneIntelligence", origin: "Watching and Saskatchewan milestone listeners", status: "promoted" },
   { primitive_id: "coverage_gap_intelligence", module: "palantirCoverageGapIntelligence", origin: "Miller North coverage matrices", status: "promoted" },
+  { primitive_id: "structural_inequality_intelligence", module: "palantirStructuralInequality", origin: "Miller North access, workforce and accountability research", status: "promoted" },
   { primitive_id: "cross_domain_relevance", module: "samwisePublicRecordsIntelligence", origin: "Farm cross-lane routing", status: "already_generic" },
   { primitive_id: "institutional_mapping", module: "samwiseEntityResolution", origin: "Samwise institutional map", status: "already_generic" },
   { primitive_id: "owner_review", module: "palantirOwnerReview", origin: "private Farm owner review", status: "promoted" },
