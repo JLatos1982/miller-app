@@ -10,8 +10,11 @@ import {
   assessStructuralComparator,
   assessStructuralPublicGate,
   buildStructuralMechanismChain,
+  buildStructuralDataAvailabilityMatrix,
+  buildStructuralAccessChain,
   buildStructuralInequalityLedger,
   buildStructuralSourceYield,
+  assessStructuralTravelBurden,
   classifyStructuralMissingData,
   classifyStructuralTimeSeries,
   normalizeStructuralRate,
@@ -242,4 +245,40 @@ test("records retain quantitative provenance and reviewed claim relationships", 
   }))
   assert.match(normalized.methodology, /surveillance/i)
   assert.equal(normalized.claim_relationships[0].relationship, "supersedes")
+})
+
+test("data availability distinguishes missing public data from evidence that a measure is not collected", () => {
+  const matrix = buildStructuralDataAvailabilityMatrix([
+    { indicator: "Primary-care attachment", availability: "collected_public", indigenous_specific: true, comparator_available: false, longitudinal: false, public: true, methodology_quality: "moderate", source_url: "https://www150.statcan.gc.ca/table", next_action: "Seek an aligned non-First Nations comparator." },
+    { indicator: "Medical-travel trips", availability: "likely_collected_not_public", indigenous_specific: true, comparator_available: false, longitudinal: false, public: false, methodology_quality: "weak", source_url: "https://www.sac-isc.gc.ca/report", institutional_evidence: "Trip-log reporting forms and a legacy operational system are documented.", next_action: "Request aggregate trip measures." },
+  ], { jurisdiction: "Saskatchewan", generatedAt: "2026-09-09T12:00:00.000Z" })
+  assert.equal(matrix.counts.total, 2)
+  assert.equal(matrix.counts.equity_question_answerable, 0)
+  assert.equal(matrix.indicators[0].equity_question_answerable, false)
+  assert.equal(matrix.absence_is_discrimination_evidence, false)
+  assert.throws(() => buildStructuralDataAvailabilityMatrix([{ indicator: "Wait times", availability: "apparently_not_collected", public: false, source_url: "https://example.gc.ca/a", next_action: "Recheck." }], { jurisdiction: "Saskatchewan" }), /not_collected_requires_institutional_evidence/)
+})
+
+test("structural access chains expose every missing link instead of implying a complete causal path", () => {
+  const chain = buildStructuralAccessChain({
+    chain_id: "sk:first-nations-access-v4",
+    jurisdiction: "Saskatchewan",
+    links: [
+      { stage: "remoteness", support_state: "suggestive", statement: "A public remoteness index exists, but it is not an identity measure.", source_url: "https://www150.statcan.gc.ca/remoteness", period: "2016", limitations: ["Remoteness cannot identify First Nations residents."] },
+      { stage: "primary_care_continuity", support_state: "supported", statement: "Lower continuity predicts higher ACSC hospitalization in the Saskatchewan population studied.", source_url: "https://secure.cihi.ca/report", comparator: "low versus high continuity", denominator: "patients with at least two family-physician visits", period: "2007-2013" },
+      { stage: "outcome", support_state: "supported", statement: "First Nations opioid-toxicity mortality exceeded the non-First Nations rate.", source_url: "https://www.nitha.com/report", indigenous_specific: true, comparator: "non-First Nations", denominator: "population rate", period: "2023" },
+    ],
+  })
+  assert.equal(chain.chain_state, "partial")
+  assert.equal(chain.missing_links, 2)
+  assert.equal(chain.indigenous_specific_chain, false)
+  assert.equal(chain.causal_conclusion_supported, false)
+})
+
+test("travel spending without trips, denominator or comparator is burden context rather than disparity", () => {
+  const travel = assessStructuralTravelBurden({ jurisdiction: "Saskatchewan", period: "2023-24", indigenous_specific: true, expenditure: 115_915_000, source_url: "https://www.sac-isc.gc.ca/annual-report", limitations: ["No public trips, kilometres or destination series was reported."] })
+  assert.equal(travel.usable_as_burden_description, true)
+  assert.equal(travel.usable_as_disparity_measure, false)
+  assert.equal(travel.missing_denominator, true)
+  assert.equal(travel.missing_comparator, true)
 })

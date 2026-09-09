@@ -65,6 +65,14 @@ Structural records belong to private Palantír and Miller North review. They nev
 
 An `Access & Equity` projection is not automatically created. The default assessment requires at least eight owner-approved, public-safe findings spanning at least three jurisdictions. The threshold is necessary but not sufficient: the owner remains the publication authority, and a thin or misleading page stays private.
 
+## Data availability and incomplete chains
+
+`buildStructuralDataAvailabilityMatrix` records whether an indicator is public, insufficiently disaggregated, likely held but not public, not located, apparently not collected, or methodologically unclear. The strongest negative label requires affirmative institutional evidence. A failed search is therefore preserved without silently becoming a claim that a government does not collect the measure.
+
+`buildStructuralAccessChain` represents the proposed path from remoteness through service availability or travel, primary-care continuity, ACSC or preventable hospitalization, and an outcome. Every stage is explicitly `supported`, `suggestive`, or `missing`. Missing stages remain visible, and no partial chain can become a causal conclusion.
+
+Travel evidence is assessed separately. Expenditure can describe system burden, but it is not a population disparity without trips or another meaningful operational measure, a denominator, and a fair comparator. Remoteness is never treated as a proxy for Indigenous identity.
+
 ## Operational use
 
 Recommended source handling is source-level and low-noise:

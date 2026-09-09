@@ -10,6 +10,10 @@ const GAP_TYPES = new Set(["data_gap", "measurement_gap", "reporting_gap"])
 const TREND_STATES = new Set(["improving", "worsening", "stable", "discontinuity", "methodology_changed", "data_discontinued", "insufficient_series"])
 const COMPARABILITY_STATES = new Set(["high", "moderate", "poor", "not_comparable"])
 const CLAIM_RELATIONSHIPS = new Set(["supports", "corroborates", "contradicts", "narrows", "supersedes"])
+const DATA_AVAILABILITY_STATES = new Set(["collected_public", "collected_insufficiently_disaggregated", "likely_collected_not_public", "not_located", "apparently_not_collected", "methodology_unclear"])
+const METHODOLOGY_QUALITY_STATES = new Set(["high", "moderate", "weak", "unusable", "unknown"])
+const STRUCTURAL_CHAIN_STAGES = new Set(["remoteness", "service_availability_or_travel", "primary_care_continuity", "acsc_or_preventable_hospitalization", "outcome"])
+const STRUCTURAL_LINK_STATES = new Set(["supported", "suggestive", "missing"])
 
 const clean = (value, limit = 600) => String(value ?? "").normalize("NFKC").replace(/\s+/g, " ").trim().slice(0, limit)
 const list = (value, limit = 240) => [...new Set((Array.isArray(value) ? value : value ? [value] : []).map(item => clean(item, limit)).filter(Boolean))]
@@ -87,6 +91,140 @@ export function classifyStructuralMissingData(input = {}) {
   const sourceUrl = httpsUrl(input.source_url)
   if (!clean(input.indicator, 240) || !sourceUrl || !clean(input.scope, 180)) throw new Error("palantir_structural_gap_required_fields_missing")
   return Object.freeze({ schema_version: "palantir-structural-gap-v1", gap_type: gapType, indicator: clean(input.indicator, 240), scope: clean(input.scope, 180), source_url: sourceUrl, source_checked_at: isoDate(input.source_checked_at), expected_measure: clean(input.expected_measure, 300) || null, why_missing: clean(input.why_missing, 400) || "Public source did not provide a usable measure.", accountability_relevance: input.repeated_equity_commitment_unmeasurable === true, discrimination_evidence: false, owner_review_required: input.repeated_equity_commitment_unmeasurable === true })
+}
+
+export function buildStructuralDataAvailabilityMatrix(rows = [], { jurisdiction, generatedAt = new Date().toISOString() } = {}) {
+  const normalizedJurisdiction = clean(jurisdiction, 120)
+  if (!normalizedJurisdiction || !Array.isArray(rows) || rows.length === 0) throw new Error("palantir_structural_data_matrix_required_fields_missing")
+  const indicators = rows.map(row => {
+    const indicator = clean(row.indicator, 240)
+    const availability = DATA_AVAILABILITY_STATES.has(row.availability) ? row.availability : null
+    const sourceUrl = httpsUrl(row.source_url)
+    const methodologyQuality = METHODOLOGY_QUALITY_STATES.has(row.methodology_quality) ? row.methodology_quality : "unknown"
+    if (!indicator || !availability || !sourceUrl || !clean(row.next_action, 400)) throw new Error("palantir_structural_data_matrix_row_invalid")
+    if (availability === "apparently_not_collected" && !clean(row.institutional_evidence, 500)) throw new Error("palantir_structural_not_collected_requires_institutional_evidence")
+    const indigenousSpecific = row.indigenous_specific === true
+    const comparatorAvailable = row.comparator_available === true
+    const publicData = row.public === true
+    return Object.freeze({
+      indicator,
+      availability,
+      indigenous_specific: indigenousSpecific,
+      comparator_available: comparatorAvailable,
+      longitudinal: row.longitudinal === true,
+      public: publicData,
+      methodology_quality: methodologyQuality,
+      source_url: sourceUrl,
+      source_locator: clean(row.source_locator, 220) || null,
+      institutional_evidence: clean(row.institutional_evidence, 500) || null,
+      limitations: list(row.limitations, 320),
+      next_action: clean(row.next_action, 400),
+      equity_question_answerable: publicData && indigenousSpecific && comparatorAvailable && ["high", "moderate"].includes(methodologyQuality),
+      absence_proves_discrimination: false,
+    })
+  })
+  if (new Set(indicators.map(row => row.indicator)).size !== indicators.length) throw new Error("palantir_structural_data_matrix_duplicate_indicator")
+  return Object.freeze({
+    schema_version: "palantir-structural-data-availability-matrix-v1",
+    jurisdiction: normalizedJurisdiction,
+    generated_at: new Date(generatedAt).toISOString(),
+    indicators: Object.freeze(indicators),
+    counts: Object.freeze({
+      total: indicators.length,
+      collected_public: indicators.filter(row => row.availability === "collected_public").length,
+      insufficiently_disaggregated: indicators.filter(row => row.availability === "collected_insufficiently_disaggregated").length,
+      likely_collected_not_public: indicators.filter(row => row.availability === "likely_collected_not_public").length,
+      not_located: indicators.filter(row => row.availability === "not_located").length,
+      apparently_not_collected: indicators.filter(row => row.availability === "apparently_not_collected").length,
+      methodology_unclear: indicators.filter(row => row.availability === "methodology_unclear").length,
+      equity_question_answerable: indicators.filter(row => row.equity_question_answerable).length,
+    }),
+    absence_is_discrimination_evidence: false,
+    publication_authority: false,
+  })
+}
+
+export function buildStructuralAccessChain(input = {}) {
+  const chainId = clean(input.chain_id, 180)
+  const jurisdiction = clean(input.jurisdiction, 120)
+  if (!chainId || !jurisdiction) throw new Error("palantir_structural_access_chain_required_fields_missing")
+  const links = (Array.isArray(input.links) ? input.links : []).map(link => {
+    const stage = STRUCTURAL_CHAIN_STAGES.has(link.stage) ? link.stage : null
+    const supportState = STRUCTURAL_LINK_STATES.has(link.support_state) ? link.support_state : null
+    const sourceUrl = httpsUrl(link.source_url)
+    if (!stage || !supportState || !clean(link.statement, 500)) throw new Error("palantir_structural_access_chain_link_invalid")
+    if (supportState === "supported" && !sourceUrl) throw new Error("palantir_structural_supported_link_requires_source")
+    return Object.freeze({
+      stage,
+      support_state: supportState,
+      statement: clean(link.statement, 500),
+      indigenous_specific: link.indigenous_specific === true,
+      comparator: clean(link.comparator, 260) || null,
+      denominator: clean(link.denominator, 260) || null,
+      period: clean(link.period, 120) || null,
+      source_url: sourceUrl,
+      source_locator: clean(link.source_locator, 220) || null,
+      limitations: list(link.limitations, 320),
+    })
+  })
+  if (new Set(links.map(link => link.stage)).size !== links.length) throw new Error("palantir_structural_access_chain_duplicate_stage")
+  const byStage = new Map(links.map(link => [link.stage, link]))
+  const ordered = [...STRUCTURAL_CHAIN_STAGES].map(stage => byStage.get(stage) || Object.freeze({ stage, support_state: "missing", statement: "No usable public link located.", indigenous_specific: false, comparator: null, denominator: null, period: null, source_url: null, source_locator: null, limitations: [] }))
+  const supported = ordered.filter(link => link.support_state === "supported")
+  const missing = ordered.filter(link => link.support_state === "missing")
+  const state = missing.length === 0 && supported.length === ordered.length ? "complete_supported" : supported.length > 0 ? "partial" : "insufficient"
+  return Object.freeze({
+    schema_version: "palantir-structural-access-chain-v1",
+    chain_id: chainId,
+    jurisdiction,
+    links: Object.freeze(ordered),
+    chain_state: state,
+    supported_links: supported.length,
+    suggestive_links: ordered.filter(link => link.support_state === "suggestive").length,
+    missing_links: missing.length,
+    indigenous_specific_chain: supported.length === ordered.length && supported.every(link => link.indigenous_specific),
+    causal_conclusion_supported: false,
+    disparity_is_discrimination: false,
+    owner_review_required: true,
+  })
+}
+
+export function assessStructuralTravelBurden(input = {}) {
+  const sourceUrl = httpsUrl(input.source_url)
+  if (!clean(input.jurisdiction, 120) || !sourceUrl) throw new Error("palantir_structural_travel_burden_required_fields_missing")
+  const metrics = Object.freeze({
+    trips: numberOrNull(input.trips),
+    kilometres: numberOrNull(input.kilometres),
+    travel_time: clean(input.travel_time, 160) || null,
+    overnight_stays: numberOrNull(input.overnight_stays),
+    escorts: numberOrNull(input.escorts),
+    cancellations: numberOrNull(input.cancellations),
+    missed_care: numberOrNull(input.missed_care),
+    delays: clean(input.delays, 200) || null,
+    expenditure: numberOrNull(input.expenditure),
+  })
+  const observedOperationalMetrics = Object.entries(metrics).filter(([, value]) => value !== null).map(([key]) => key)
+  const normalized = Boolean(clean(input.population_denominator, 220))
+  const comparatorAvailable = Boolean(clean(input.comparator, 260))
+  const indigenousSpecific = input.indigenous_specific === true
+  return Object.freeze({
+    schema_version: "palantir-structural-travel-burden-assessment-v1",
+    jurisdiction: clean(input.jurisdiction, 120),
+    period: clean(input.period, 120) || null,
+    indigenous_specific: indigenousSpecific,
+    population_denominator: clean(input.population_denominator, 220) || null,
+    comparator: clean(input.comparator, 260) || null,
+    metrics,
+    observed_operational_metrics: Object.freeze(observedOperationalMetrics),
+    source_url: sourceUrl,
+    source_locator: clean(input.source_locator, 220) || null,
+    limitations: list(input.limitations, 320),
+    usable_as_burden_description: observedOperationalMetrics.length > 0,
+    usable_as_disparity_measure: observedOperationalMetrics.length > 0 && indigenousSpecific && normalized && comparatorAvailable,
+    missing_denominator: !normalized,
+    missing_comparator: !comparatorAvailable,
+    absence_proves_discrimination: false,
+  })
 }
 
 function isoDate(value) {
