@@ -3,7 +3,7 @@ import test from "node:test"
 import { readFileSync } from "node:fs"
 
 import comparison from "../src/data/miller-north-accountability-comparison-public-v1.json" with { type: "json" }
-import emerging from "../src/data/miller-north-emerging-cases-public-v1.json" with { type: "json" }
+import recent from "../src/data/miller-north-recently-changed-public-v1.json" with { type: "json" }
 import northSupports from "../src/data/miller-north-first-nations-supports-public-v1.json" with { type: "json" }
 import { toMillerNorthSupportEmailResult } from "../src/millerNorthPublicSupportEmail.js"
 import { isEmailResultEligible } from "../src/emailResultsApi.js"
@@ -24,14 +24,15 @@ test("Accountability Snapshot uses the validated public comparison and preserves
   assert.doesNotMatch(page, /best province|worst province|grade/i)
 })
 
-test("North home recent changes come only from the reviewed Watching Now projection", () => {
+test("North home recent changes come only from the reviewed public material-change projection", () => {
   const home = read("../src/site/IndigenousHealthcareEvidence.jsx")
-  const recent = read("../src/site/MillerNorthRecentlyChanged.jsx")
+  const recentView = read("../src/site/MillerNorthRecentlyChanged.jsx")
   assert.match(home, /MillerNorthRecentlyChanged/)
-  assert.match(recent, /miller-north-emerging-cases-public-v1\.json/)
-  assert.match(recent, /last_material_change_at/)
-  assert.doesNotMatch(recent, /owner_review|private_note|candidate_id|internal_id/)
-  assert.ok(emerging.items.every(item => item.last_material_change_at && item.display_state))
+  assert.match(recentView, /miller-north-recently-changed-public-v1\.json/)
+  assert.match(recentView, /What changed/)
+  assert.match(recentView, /routine checks, formatting or site updates/)
+  assert.doesNotMatch(recentView, /owner_review|private_note|candidate_id|internal_id/)
+  assert.equal(recent.items.length, 4)
 })
 
 test("related practical help uses explicit reviewed record links without random matching", () => {

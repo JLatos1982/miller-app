@@ -1,0 +1,70 @@
+{
+  "schema_version": "miller-north-recently-changed-public-v1",
+  "publication_scope": "approved_public_material_changes",
+  "items": [
+    {
+      "change_id": "mnc_bc_primary_care_attachment",
+      "public_record_id": "bc-first-nations-primary-care-attachment-2017-18",
+      "material_change_type": "new_evidence",
+      "title": "First Nations primary-care attachment in B.C.",
+      "province": "British Columbia",
+      "material_change_date": "2026-09-09",
+      "what_changed": "Added a reviewed historical measure of primary-care non-attachment with a clear comparator and period.",
+      "record_href": "/indigenous-healthcare-evidence/access-equity#bc-first-nations-primary-care-attachment-2017-18",
+      "source": {
+        "organization": "Government of British Columbia",
+        "title": "In Plain Sight: Data Report",
+        "period": "2017/18 measure; report published 2020",
+        "url": "https://engage.gov.bc.ca/app/uploads/sites/613/2021/02/In-Plain-Sight-Data-Report_Dec2020.pdf1_.pdf"
+      }
+    },
+    {
+      "change_id": "mnc_bc_fnpcc_implementation",
+      "public_record_id": "bc-first-nations-led-primary-care-implementation-2025",
+      "material_change_type": "implementation_update",
+      "title": "First Nations-led primary-care implementation in B.C.",
+      "province": "British Columbia",
+      "material_change_date": "2026-09-09",
+      "what_changed": "Added B.C.'s reported December 2025 centre visits, net-new attachments and recruited workforce outputs, with an explicit effectiveness caveat.",
+      "record_href": "/indigenous-healthcare-evidence/access-equity#bc-first-nations-led-primary-care-implementation-2025",
+      "source": {
+        "organization": "Government of British Columbia",
+        "title": "Declaration Act Action 4.10",
+        "period": "December 2025 reporting",
+        "url": "https://declaration.gov.bc.ca/actions/4-10/"
+      }
+    },
+    {
+      "change_id": "mnc_ab_primary_care_barriers",
+      "public_record_id": "alberta-documented-indigenous-primary-care-barriers",
+      "material_change_type": "new_evidence",
+      "title": "Documented Indigenous primary-care barriers in Alberta",
+      "province": "Alberta",
+      "material_change_date": "2026-09-09",
+      "what_changed": "Added the advisory panel's source-backed account of access, jurisdiction, transportation, infrastructure, workforce and cultural-safety barriers.",
+      "record_href": "/indigenous-healthcare-evidence/access-equity#alberta-documented-indigenous-primary-care-barriers",
+      "source": {
+        "organization": "Government of Alberta",
+        "title": "Honouring Our Roots: Indigenous Primary Health Care Advisory Panel final report",
+        "period": "2024",
+        "url": "https://open.alberta.ca/dataset/68717edd-5861-406e-b4ea-dd0e9051dadc/resource/da7c9aae-9cc1-48f4-bce5-6e71bd02a9c8/download/hlth-maps-indigenous-primary-health-care-advisory-panel-final-report.pdf"
+      }
+    },
+    {
+      "change_id": "mnc_ab_primary_care_response",
+      "public_record_id": "alberta-indigenous-primary-care-navigation-response",
+      "material_change_type": "institutional_response",
+      "title": "Alberta primary-care and navigation response",
+      "province": "Alberta",
+      "material_change_date": "2026-09-09",
+      "what_changed": "Added the documented Indigenous primary-care and patient-navigation funding response, while keeping outcome effectiveness unresolved.",
+      "record_href": "/indigenous-healthcare-evidence/access-equity#alberta-indigenous-primary-care-navigation-response",
+      "source": {
+        "organization": "Government of Alberta",
+        "title": "Indigenous primary health care funding – Innovation Fund",
+        "period": "2024–2025 reporting",
+        "url": "https://www.alberta.ca/indigenous-primary-health-care-funding-innovation-fund"
+      }
+    }
+  ]
+}
