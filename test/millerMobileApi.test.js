@@ -135,6 +135,16 @@ test("mobile scope fields distinguish physical, regional, province-wide, virtual
   assert.ok(response.results.every(resource => Object.hasOwn(resource, "scope_note")))
 })
 
+test("mixed in-person and virtual parent pathways are not labelled virtual-only", () => {
+  const response = buildMillerMobileSearchResponse({ query: "Halton RAAM", province: "Ontario", limit: 8 }, millerMobileCatalog, { now: fixedNow })
+  const raam = response.results.find(resource => resource.canonical_id === "miller_on_halton_mississauga_raam")
+  assert.ok(raam)
+  assert.equal(raam.virtual, true)
+  assert.equal(raam.location_relationship, "regional_service")
+  assert.match(raam.location_label, /Regional service: Halton, Mississauga, Toronto/)
+  assert.doesNotMatch(raam.location_label, /^Virtual service$/)
+})
+
 test("a sparse local OAT search leads with the local access pathway before distant clinics", () => {
   const response = buildMillerMobileSearchResponse({ query: "Someone in La Loche needs OAT", limit: 8 }, millerMobileCatalog, { now: fixedNow })
   assert.equal(response.search_scope.no_verified_local_facility, true)

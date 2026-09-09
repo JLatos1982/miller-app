@@ -2,16 +2,16 @@
   "schema_version": "miller-navigator-eastern-foundation-benchmark-v1",
   "generated_at": "2026-09-08T12:00:00.000Z",
   "inventory": {
-    "total": 552,
+    "total": 562,
     "by_province": {
-      "British Columbia": 401,
-      "Alberta": 32,
-      "Saskatchewan": 37,
-      "Manitoba": 7,
-      "Ontario": 14,
+      "British Columbia": 403,
+      "Alberta": 33,
+      "Saskatchewan": 38,
+      "Manitoba": 8,
+      "Ontario": 18,
       "Quebec": 11,
       "New Brunswick": 6,
-      "Nova Scotia": 4,
+      "Nova Scotia": 5,
       "Prince Edward Island": 6,
       "Newfoundland and Labrador": 9,
       "Yukon": 2,
@@ -36,10 +36,10 @@
       "Canada-wide": "foundation"
     },
     "readiness": {
-      "total": 552,
-      "mobile_ready": 274,
+      "total": 562,
+      "mobile_ready": 284,
       "not_mobile_ready": 278,
-      "readiness_rate": 0.496,
+      "readiness_rate": 0.505,
       "reason_counts": {
         "current_public_source": 278,
         "no_duplicate_conflict": 2,
@@ -54,38 +54,38 @@
     "query_count": 15,
     "passing_queries": 15,
     "weak_queries": [],
-    "average_latency_ms": 98.54,
-    "p95_latency_ms": 136.38,
-    "average_payload_bytes": 22425,
+    "average_latency_ms": 113.15,
+    "p95_latency_ms": 154.24,
+    "average_payload_bytes": 22848,
     "rows": [
       {
         "id": "detox_toronto",
         "query": "detox in Toronto",
-        "result_count": 18,
+        "result_count": 22,
         "returned_count": 8,
-        "top_result": "ConnexOntario Addiction and Mental Health Navigation",
+        "top_result": "Rapid Access Addiction Medicine (RAAM) Clinic — Michael Garron Hospital",
         "top_result_relevant": true,
         "province_accuracy": 1,
-        "location_accuracy": 0.375,
+        "location_accuracy": 0.875,
         "phone_availability": 0.875,
         "website_availability": 1,
         "access_information": 1,
         "funding_or_navigation_available": null,
         "shareability": 1,
         "mobile_ready_results": 8,
-        "geography_mode": "regional_pathway",
-        "physical_location_matches": 0,
+        "geography_mode": "local_first",
+        "physical_location_matches": 1,
         "service_area_matches": 1,
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 115.26,
-        "payload_bytes": 24465
+        "latency_ms": 149.67,
+        "payload_bytes": 23054
       },
       {
         "id": "raam_london",
         "query": "RAAM in London",
-        "result_count": 18,
+        "result_count": 22,
         "returned_count": 8,
         "top_result": "Rapid Access Addiction Medicine Clinic - London",
         "top_result_relevant": true,
@@ -103,13 +103,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 66.1,
-        "payload_bytes": 22365
+        "latency_ms": 154.24,
+        "payload_bytes": 22502
       },
       {
         "id": "oat_ottawa",
         "query": "OAT in Ottawa",
-        "result_count": 18,
+        "result_count": 22,
         "returned_count": 8,
         "top_result": "AccessMHA Coordinated Mental Health and Substance Use Access",
         "top_result_relevant": true,
@@ -127,13 +127,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 99.9,
-        "payload_bytes": 23394
+        "latency_ms": 106.66,
+        "payload_bytes": 23273
       },
       {
         "id": "treatment_thunder_bay_east",
         "query": "treatment in Thunder Bay",
-        "result_count": 18,
+        "result_count": 22,
         "returned_count": 8,
         "top_result": "Ontario Indigenous Mental Health and Addiction Treatment and Healing Centres",
         "top_result_relevant": true,
@@ -151,13 +151,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 100.93,
-        "payload_bytes": 26744
+        "latency_ms": 111.5,
+        "payload_bytes": 27346
       },
       {
         "id": "indigenous_sioux_lookout_east",
         "query": "Indigenous treatment from Sioux Lookout",
-        "result_count": 18,
+        "result_count": 22,
         "returned_count": 8,
         "top_result": "Ontario Indigenous Mental Health and Addiction Treatment and Healing Centres",
         "top_result_relevant": true,
@@ -175,13 +175,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 114.12,
-        "payload_bytes": 26119
+        "latency_ms": 128.5,
+        "payload_bytes": 26721
       },
       {
         "id": "housing_hamilton",
         "query": "housing after treatment in Hamilton",
-        "result_count": 18,
+        "result_count": 22,
         "returned_count": 8,
         "top_result": "ConnexOntario Addiction and Mental Health Navigation",
         "top_result_relevant": true,
@@ -199,8 +199,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 136.38,
-        "payload_bytes": 25651
+        "latency_ms": 149.33,
+        "payload_bytes": 26436
       },
       {
         "id": "addiction_montreal_east",
@@ -223,8 +223,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 92.3,
-        "payload_bytes": 22475
+        "latency_ms": 99.78,
+        "payload_bytes": 22907
       },
       {
         "id": "withdrawal_quebec_city",
@@ -247,18 +247,18 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 94.27,
-        "payload_bytes": 22290
+        "latency_ms": 101.14,
+        "payload_bytes": 22795
       },
       {
         "id": "addiction_halifax_east",
         "query": "addiction help in Halifax",
-        "result_count": 10,
+        "result_count": 11,
         "returned_count": 8,
         "top_result": "Mental Health and Addictions Provincial Intake Service",
         "top_result_relevant": true,
         "province_accuracy": 1,
-        "location_accuracy": 0.5,
+        "location_accuracy": 0.625,
         "phone_availability": 0.75,
         "website_availability": 1,
         "access_information": 1,
@@ -267,22 +267,22 @@
         "mobile_ready_results": 8,
         "geography_mode": "regional_pathway",
         "physical_location_matches": 0,
-        "service_area_matches": 4,
+        "service_area_matches": 5,
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 92.32,
-        "payload_bytes": 20570
+        "latency_ms": 97.55,
+        "payload_bytes": 22019
       },
       {
         "id": "treatment_cape_breton",
         "query": "treatment in Cape Breton",
-        "result_count": 10,
+        "result_count": 11,
         "returned_count": 8,
         "top_result": "Nova Scotia Inpatient Withdrawal Management",
         "top_result_relevant": true,
         "province_accuracy": 1,
-        "location_accuracy": 0.5,
+        "location_accuracy": 0.625,
         "phone_availability": 0.75,
         "website_availability": 1,
         "access_information": 1,
@@ -291,12 +291,12 @@
         "mobile_ready_results": 8,
         "geography_mode": "regional_pathway",
         "physical_location_matches": 0,
-        "service_area_matches": 4,
+        "service_area_matches": 5,
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 97.8,
-        "payload_bytes": 21361
+        "latency_ms": 103.34,
+        "payload_bytes": 22801
       },
       {
         "id": "addiction_moncton_east",
@@ -319,8 +319,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 97.41,
-        "payload_bytes": 20226
+        "latency_ms": 103.78,
+        "payload_bytes": 20658
       },
       {
         "id": "francophone_nb",
@@ -343,8 +343,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 103.62,
-        "payload_bytes": 20331
+        "latency_ms": 107.75,
+        "payload_bytes": 20810
       },
       {
         "id": "withdrawal_pei",
@@ -367,8 +367,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 76.32,
-        "payload_bytes": 7411
+        "latency_ms": 83.4,
+        "payload_bytes": 7519
       },
       {
         "id": "treatment_corner_brook",
@@ -391,8 +391,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 99.46,
-        "payload_bytes": 25536
+        "latency_ms": 107.4,
+        "payload_bytes": 26022
       },
       {
         "id": "addiction_labrador_east",
@@ -415,8 +415,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 91.91,
-        "payload_bytes": 27430
+        "latency_ms": 93.15,
+        "payload_bytes": 27862
       }
     ]
   },
@@ -494,20 +494,20 @@
     "query_count": 15,
     "passing_queries": 15,
     "weak_queries": [],
-    "average_latency_ms": 99.33,
-    "p95_latency_ms": 137.13,
-    "average_payload_bytes": 24345,
+    "average_latency_ms": 103.29,
+    "p95_latency_ms": 144.36,
+    "average_payload_bytes": 24849,
     "rows": [
       {
         "id": "detox_winnipeg",
         "query": "detox in Winnipeg",
-        "result_count": 13,
+        "result_count": 14,
         "returned_count": 8,
         "top_result": "Manitoba Mental Health & Addictions Connect",
         "top_result_relevant": true,
         "province_accuracy": 1,
-        "location_accuracy": 0.125,
-        "phone_availability": 0.875,
+        "location_accuracy": 0.25,
+        "phone_availability": 1,
         "website_availability": 1,
         "access_information": 1,
         "funding_or_navigation_available": null,
@@ -519,19 +519,19 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 81.9,
-        "payload_bytes": 26011
+        "latency_ms": 85.67,
+        "payload_bytes": 27364
       },
       {
         "id": "oat_brandon",
         "query": "OAT in Brandon",
-        "result_count": 13,
+        "result_count": 14,
         "returned_count": 8,
         "top_result": "Rapid Access to Addictions Medicine Clinic - Brandon",
         "top_result_relevant": true,
         "province_accuracy": 1,
-        "location_accuracy": 0.25,
-        "phone_availability": 0.875,
+        "location_accuracy": 0.375,
+        "phone_availability": 1,
         "website_availability": 1,
         "access_information": 1,
         "funding_or_navigation_available": null,
@@ -543,13 +543,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 91.8,
-        "payload_bytes": 25606
+        "latency_ms": 95.05,
+        "payload_bytes": 26957
       },
       {
         "id": "treatment_thunder_bay",
         "query": "addiction treatment in Thunder Bay",
-        "result_count": 18,
+        "result_count": 22,
         "returned_count": 8,
         "top_result": "Ontario Indigenous Mental Health and Addiction Treatment and Healing Centres",
         "top_result_relevant": true,
@@ -567,19 +567,19 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 107.19,
-        "payload_bytes": 26718
+        "latency_ms": 109.06,
+        "payload_bytes": 26788
       },
       {
         "id": "housing_toronto",
         "query": "housing after treatment in Toronto",
-        "result_count": 18,
+        "result_count": 22,
         "returned_count": 8,
         "top_result": "ConnexOntario Addiction and Mental Health Navigation",
         "top_result_relevant": true,
         "province_accuracy": 1,
-        "location_accuracy": 0.375,
-        "phone_availability": 0.75,
+        "location_accuracy": 0.875,
+        "phone_availability": 0.875,
         "website_availability": 1,
         "access_information": 1,
         "funding_or_navigation_available": null,
@@ -587,17 +587,17 @@
         "mobile_ready_results": 8,
         "geography_mode": "regional_pathway",
         "physical_location_matches": 0,
-        "service_area_matches": 3,
+        "service_area_matches": 5,
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 132.28,
-        "payload_bytes": 25302
+        "latency_ms": 137.45,
+        "payload_bytes": 24406
       },
       {
         "id": "counselling_sudbury",
         "query": "counselling in Sudbury",
-        "result_count": 19,
+        "result_count": 23,
         "returned_count": 8,
         "top_result": "NAN HOPE Mental Health and Addictions Support",
         "top_result_relevant": true,
@@ -615,13 +615,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 79.54,
-        "payload_bytes": 27052
+        "latency_ms": 83.3,
+        "payload_bytes": 27654
       },
       {
         "id": "treatment_ottawa",
         "query": "treatment help in Ottawa",
-        "result_count": 18,
+        "result_count": 22,
         "returned_count": 8,
         "top_result": "Ontario Indigenous Mental Health and Addiction Treatment and Healing Centres",
         "top_result_relevant": true,
@@ -639,8 +639,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 89.89,
-        "payload_bytes": 24666
+        "latency_ms": 95.01,
+        "payload_bytes": 24918
       },
       {
         "id": "addiction_montreal",
@@ -663,18 +663,18 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 90.24,
-        "payload_bytes": 22475
+        "latency_ms": 93.74,
+        "payload_bytes": 22907
       },
       {
         "id": "withdrawal_halifax",
         "query": "withdrawal help in Halifax",
-        "result_count": 10,
+        "result_count": 11,
         "returned_count": 8,
         "top_result": "Nova Scotia Inpatient Withdrawal Management",
         "top_result_relevant": true,
         "province_accuracy": 1,
-        "location_accuracy": 0.5,
+        "location_accuracy": 0.625,
         "phone_availability": 0.75,
         "website_availability": 1,
         "access_information": 1,
@@ -683,12 +683,12 @@
         "mobile_ready_results": 8,
         "geography_mode": "regional_pathway",
         "physical_location_matches": 0,
-        "service_area_matches": 3,
+        "service_area_matches": 4,
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 81.62,
-        "payload_bytes": 21250
+        "latency_ms": 84.83,
+        "payload_bytes": 22570
       },
       {
         "id": "addiction_moncton",
@@ -711,8 +711,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 95.43,
-        "payload_bytes": 20226
+        "latency_ms": 98.8,
+        "payload_bytes": 20658
       },
       {
         "id": "treatment_st_johns",
@@ -735,8 +735,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 90.25,
-        "payload_bytes": 25732
+        "latency_ms": 94.02,
+        "payload_bytes": 26218
       },
       {
         "id": "addiction_whitehorse",
@@ -759,8 +759,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 88.65,
-        "payload_bytes": 17704
+        "latency_ms": 91.18,
+        "payload_bytes": 18136
       },
       {
         "id": "treatment_yellowknife",
@@ -783,8 +783,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 94.49,
-        "payload_bytes": 18637
+        "latency_ms": 98.41,
+        "payload_bytes": 19069
       },
       {
         "id": "mental_health_nunavut",
@@ -807,13 +807,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 113.55,
-        "payload_bytes": 29434
+        "latency_ms": 116.87,
+        "payload_bytes": 29866
       },
       {
         "id": "indigenous_northern_ontario",
         "query": "Indigenous treatment support in northern Ontario",
-        "result_count": 18,
+        "result_count": 22,
         "returned_count": 8,
         "top_result": "Ontario Indigenous Mental Health and Addiction Treatment and Healing Centres",
         "top_result_relevant": true,
@@ -831,13 +831,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 115.96,
-        "payload_bytes": 26717
+        "latency_ms": 121.62,
+        "payload_bytes": 27150
       },
       {
         "id": "remote_transport",
         "query": "transportation to treatment from a remote community",
-        "result_count": 241,
+        "result_count": 249,
         "returned_count": 8,
         "top_result": "Northern Patient Transportation Program",
         "top_result_relevant": true,
@@ -855,8 +855,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 137.13,
-        "payload_bytes": 27639
+        "latency_ms": 144.36,
+        "payload_bytes": 28071
       }
     ]
   },
@@ -866,14 +866,14 @@
     "query_count": 25,
     "passing_queries": 25,
     "weak_queries": [],
-    "average_latency_ms": 107.7,
-    "p95_latency_ms": 148.3,
-    "average_payload_bytes": 20549,
+    "average_latency_ms": 111.88,
+    "p95_latency_ms": 154.79,
+    "average_payload_bytes": 21092,
     "rows": [
       {
         "id": "detox_surrey",
         "query": "detox in Surrey",
-        "result_count": 73,
+        "result_count": 75,
         "returned_count": 8,
         "top_result": "Creekside Withdrawal Management Centre",
         "top_result_relevant": true,
@@ -891,13 +891,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 88.2,
-        "payload_bytes": 19042
+        "latency_ms": 92.78,
+        "payload_bytes": 19474
       },
       {
         "id": "detox_burnaby",
         "query": "detox in Burnaby",
-        "result_count": 73,
+        "result_count": 75,
         "returned_count": 8,
         "top_result": "Creekside Withdrawal Management Centre",
         "top_result_relevant": true,
@@ -915,13 +915,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 88.28,
-        "payload_bytes": 20526
+        "latency_ms": 91.35,
+        "payload_bytes": 20958
       },
       {
         "id": "housing_after_treatment_vancouver",
         "query": "housing after treatment in Vancouver",
-        "result_count": 91,
+        "result_count": 93,
         "returned_count": 8,
         "top_result": "RainCity Housing First ACT Team",
         "top_result_relevant": true,
@@ -939,13 +939,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 148.3,
-        "payload_bytes": 21002
+        "latency_ms": 154.79,
+        "payload_bytes": 21434
       },
       {
         "id": "oat_edmonton",
         "query": "OAT in Edmonton",
-        "result_count": 25,
+        "result_count": 26,
         "returned_count": 8,
         "top_result": "Opioid Dependency Program - Edmonton 106th Street Clinic",
         "top_result_relevant": true,
@@ -963,13 +963,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 97.15,
-        "payload_bytes": 19298
+        "latency_ms": 99.21,
+        "payload_bytes": 19730
       },
       {
         "id": "counselling_calgary",
         "query": "counselling in Calgary",
-        "result_count": 25,
+        "result_count": 26,
         "returned_count": 8,
         "top_result": "Adult Addiction Services - Calgary",
         "top_result_relevant": true,
@@ -987,13 +987,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 83.23,
-        "payload_bytes": 20685
+        "latency_ms": 85.2,
+        "payload_bytes": 21118
       },
       {
         "id": "mental_health_housing_saskatoon",
         "query": "mental health and housing in Saskatoon",
-        "result_count": 28,
+        "result_count": 29,
         "returned_count": 8,
         "top_result": "Adults Reintegrating in Community",
         "top_result_relevant": true,
@@ -1011,13 +1011,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 127.55,
-        "payload_bytes": 19395
+        "latency_ms": 132.53,
+        "payload_bytes": 19827
       },
       {
         "id": "funding_treatment",
         "query": "funding for treatment",
-        "result_count": 260,
+        "result_count": 268,
         "returned_count": 8,
         "top_result": "Transportation to residential alcohol and drug treatment",
         "top_result_relevant": true,
@@ -1035,13 +1035,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 116.99,
-        "payload_bytes": 27934
+        "latency_ms": 121.97,
+        "payload_bytes": 28366
       },
       {
         "id": "transport_treatment",
         "query": "transportation to treatment",
-        "result_count": 241,
+        "result_count": 249,
         "returned_count": 8,
         "top_result": "Transportation to residential alcohol and drug treatment",
         "top_result_relevant": true,
@@ -1059,13 +1059,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 116.98,
-        "payload_bytes": 24338
+        "latency_ms": 121.67,
+        "payload_bytes": 24770
       },
       {
         "id": "indigenous_treatment",
         "query": "Indigenous-specific treatment support",
-        "result_count": 222,
+        "result_count": 230,
         "returned_count": 8,
         "top_result": "Ontario Indigenous Mental Health and Addiction Treatment and Healing Centres",
         "top_result_relevant": true,
@@ -1083,8 +1083,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 115.43,
-        "payload_bytes": 21552
+        "latency_ms": 122.22,
+        "payload_bytes": 21984
       },
       {
         "id": "legal_housing",
@@ -1107,8 +1107,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 124.17,
-        "payload_bytes": 19328
+        "latency_ms": 145.38,
+        "payload_bytes": 19760
       },
       {
         "id": "recovery_housing",
@@ -1131,13 +1131,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 95.43,
-        "payload_bytes": 18923
+        "latency_ms": 99.03,
+        "payload_bytes": 19355
       },
       {
         "id": "family_after_treatment",
         "query": "family support after treatment",
-        "result_count": 222,
+        "result_count": 230,
         "returned_count": 8,
         "top_result": "First Nations and Inuit Substance Use Treatment Program Directory",
         "top_result_relevant": true,
@@ -1155,8 +1155,8 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 115.3,
-        "payload_bytes": 22140
+        "latency_ms": 121.48,
+        "payload_bytes": 22821
       },
       {
         "id": "corrections_reentry",
@@ -1179,13 +1179,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 116.77,
-        "payload_bytes": 17032
+        "latency_ms": 120.86,
+        "payload_bytes": 17436
       },
       {
         "id": "detox_yorkton",
         "query": "detox in Yorkton",
-        "result_count": 24,
+        "result_count": 25,
         "returned_count": 8,
         "top_result": "Bruno's Place Brief Detox",
         "top_result_relevant": true,
@@ -1203,13 +1203,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 80.97,
-        "payload_bytes": 19893
+        "latency_ms": 84.44,
+        "payload_bytes": 20325
       },
       {
         "id": "withdrawal_la_ronge",
         "query": "withdrawal help in La Ronge",
-        "result_count": 24,
+        "result_count": 25,
         "returned_count": 8,
         "top_result": "Medically Supported Withdrawal Management - La Ronge",
         "top_result_relevant": true,
@@ -1227,19 +1227,19 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 83.29,
-        "payload_bytes": 20673
+        "latency_ms": 85.07,
+        "payload_bytes": 21105
       },
       {
         "id": "addiction_swift_current",
         "query": "addiction help in Swift Current",
-        "result_count": 25,
+        "result_count": 26,
         "returned_count": 8,
         "top_result": "Mental Health and Addiction Community Health Services - Swift Current",
         "top_result_relevant": true,
         "province_accuracy": 1,
         "location_accuracy": 0.625,
-        "phone_availability": 0.75,
+        "phone_availability": 0.625,
         "website_availability": 1,
         "access_information": 1,
         "funding_or_navigation_available": null,
@@ -1251,13 +1251,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 97.86,
-        "payload_bytes": 19618
+        "latency_ms": 100.57,
+        "payload_bytes": 20490
       },
       {
         "id": "oat_bonnyville",
         "query": "OAT in Bonnyville",
-        "result_count": 25,
+        "result_count": 26,
         "returned_count": 8,
         "top_result": "Opioid Dependency Program - Bonnyville",
         "top_result_relevant": true,
@@ -1275,42 +1275,18 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 91.29,
-        "payload_bytes": 19496
+        "latency_ms": 94.68,
+        "payload_bytes": 19928
       },
       {
         "id": "counselling_high_river",
         "query": "counselling in High River",
-        "result_count": 25,
+        "result_count": 26,
         "returned_count": 8,
         "top_result": "Community Addiction and Mental Health Services - High River",
         "top_result_relevant": true,
         "province_accuracy": 1,
-        "location_accuracy": 0.375,
-        "phone_availability": 1,
-        "website_availability": 1,
-        "access_information": 1,
-        "funding_or_navigation_available": null,
-        "shareability": 1,
-        "mobile_ready_results": 8,
-        "geography_mode": "local_first",
-        "physical_location_matches": 1,
-        "service_area_matches": 1,
-        "incorrect_local_facility_claims": 0,
-        "weak": false,
-        "weak_reasons": [],
-        "latency_ms": 86.69,
-        "payload_bytes": 19785
-      },
-      {
-        "id": "addiction_canmore",
-        "query": "addiction help in Canmore",
-        "result_count": 25,
-        "returned_count": 8,
-        "top_result": "Community Addiction and Mental Health Services - Canmore",
-        "top_result_relevant": true,
-        "province_accuracy": 1,
-        "location_accuracy": 0.375,
+        "location_accuracy": 0.5,
         "phone_availability": 0.875,
         "website_availability": 1,
         "access_information": 1,
@@ -1319,17 +1295,41 @@
         "mobile_ready_results": 8,
         "geography_mode": "local_first",
         "physical_location_matches": 1,
-        "service_area_matches": 1,
+        "service_area_matches": 2,
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 102.46,
-        "payload_bytes": 19138
+        "latency_ms": 89.39,
+        "payload_bytes": 20337
+      },
+      {
+        "id": "addiction_canmore",
+        "query": "addiction help in Canmore",
+        "result_count": 26,
+        "returned_count": 8,
+        "top_result": "Community Addiction and Mental Health Services - Canmore",
+        "top_result_relevant": true,
+        "province_accuracy": 1,
+        "location_accuracy": 0.5,
+        "phone_availability": 0.875,
+        "website_availability": 1,
+        "access_information": 1,
+        "funding_or_navigation_available": null,
+        "shareability": 1,
+        "mobile_ready_results": 8,
+        "geography_mode": "local_first",
+        "physical_location_matches": 1,
+        "service_area_matches": 2,
+        "incorrect_local_facility_claims": 0,
+        "weak": false,
+        "weak_reasons": [],
+        "latency_ms": 92.36,
+        "payload_bytes": 20279
       },
       {
         "id": "mental_health_port_hardy",
         "query": "mental health support in Port Hardy",
-        "result_count": 73,
+        "result_count": 75,
         "returned_count": 8,
         "top_result": "Northern Vancouver Island Mental Health and Substance Use - Port Hardy",
         "top_result_relevant": true,
@@ -1347,13 +1347,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 120.42,
-        "payload_bytes": 21182
+        "latency_ms": 123.79,
+        "payload_bytes": 21614
       },
       {
         "id": "treatment_terrace",
         "query": "treatment help in Terrace",
-        "result_count": 76,
+        "result_count": 78,
         "returned_count": 8,
         "top_result": "Mental Health and Substance Use Services - Terrace",
         "top_result_relevant": true,
@@ -1371,13 +1371,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 95.52,
-        "payload_bytes": 20318
+        "latency_ms": 99.88,
+        "payload_bytes": 20750
       },
       {
         "id": "addiction_cranbrook",
         "query": "addiction support in Cranbrook",
-        "result_count": 76,
+        "result_count": 78,
         "returned_count": 8,
         "top_result": "Substance Use Counselling and Treatment - Cranbrook",
         "top_result_relevant": true,
@@ -1395,13 +1395,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 103.13,
-        "payload_bytes": 19489
+        "latency_ms": 107.76,
+        "payload_bytes": 19921
       },
       {
         "id": "housing_prince_george",
         "query": "housing after treatment in Prince George",
-        "result_count": 76,
+        "result_count": 78,
         "returned_count": 8,
         "top_result": "Homeless Prevention Program Outreach - Prince George",
         "top_result_relevant": true,
@@ -1419,13 +1419,13 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 153.72,
-        "payload_bytes": 21058
+        "latency_ms": 159.28,
+        "payload_bytes": 21490
       },
       {
         "id": "rural_transport",
         "query": "transportation to treatment from rural British Columbia",
-        "result_count": 145,
+        "result_count": 146,
         "returned_count": 8,
         "top_result": "Transportation to residential alcohol and drug treatment",
         "top_result_relevant": true,
@@ -1443,19 +1443,19 @@
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 127.49,
-        "payload_bytes": 22411
+        "latency_ms": 131.47,
+        "payload_bytes": 23106
       },
       {
         "id": "indigenous_northern_sk",
         "query": "Indigenous treatment support in northern Saskatchewan",
-        "result_count": 24,
+        "result_count": 25,
         "returned_count": 8,
-        "top_result": "Saskatchewan Medically Supported Withdrawal Management",
+        "top_result": "Saskatchewan Rapid Access to Addiction Medicine (RAAM) Clinics",
         "top_result_relevant": true,
         "province_accuracy": 1,
         "location_accuracy": 1,
-        "phone_availability": 0.875,
+        "phone_availability": 0.75,
         "website_availability": 1,
         "access_information": 1,
         "funding_or_navigation_available": null,
@@ -1463,12 +1463,12 @@
         "mobile_ready_results": 8,
         "geography_mode": "regional_pathway",
         "physical_location_matches": 0,
-        "service_area_matches": 2,
+        "service_area_matches": 3,
         "incorrect_local_facility_claims": 0,
         "weak": false,
         "weak_reasons": [],
-        "latency_ms": 115.96,
-        "payload_bytes": 19479
+        "latency_ms": 119.96,
+        "payload_bytes": 20918
       }
     ]
   },

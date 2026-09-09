@@ -1,6 +1,6 @@
 {
   "schema_version": "miller-shared-resource-registry-v1",
-  "generated_at": "2026-09-08",
+  "generated_at": "2026-09-09",
   "publication_boundary": "Public-source records only. Project-specific projections remain distinct.",
   "taxonomy": {
     "healthcare": [
@@ -2064,6 +2064,93 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_on_anishnawbe_health_toronto_mh_substance_supports",
+      "record_type": "service",
+      "organization": "Anishnawbe Health Toronto",
+      "program_name": "Anishnawbe Health Toronto — Mental Health and Substance Abuse Supports",
+      "categories": [
+        "family_community",
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "counselling",
+        "cultural support",
+        "family support",
+        "indigenous navigation",
+        "mental health",
+        "substance use"
+      ],
+      "description": "Indigenous community health support offering a client-intake route for mental-health and substance-abuse supports within a holistic model that includes Western and Traditional care.",
+      "population_served": "First Nations, Inuit or Métis people, status or non-status, and their families.",
+      "indigenous_scope": "broader_indigenous",
+      "governance_type": "indigenous_community_health_organization",
+      "geography": "Toronto",
+      "province": "Ontario",
+      "city_community": "Toronto",
+      "address": "425 Cherry Street",
+      "service_area": "Toronto",
+      "service_scope": {
+        "physical_location": {
+          "community": "Toronto",
+          "address": "425 Cherry Street",
+          "province": "Ontario"
+        },
+        "local_service_area": [
+          "Toronto"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": true,
+        "travel_required": false,
+        "scope_note": "A practical Indigenous-specific support, shared with Miller North Supports & Funding only; it is not an accountability or evidence record.",
+        "search_locations": [
+          "Toronto",
+          "Downtown Toronto",
+          "Cherry Street"
+        ],
+        "service_area": "Toronto"
+      },
+      "delivery_modes": [
+        "in person",
+        "intake",
+        "self-referral"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "New clients can self-refer for mental-health and substance-abuse intake. Call reception at 416-360-0486 to arrange intake; an appointment is required. The operator says an Ontario health card and status card may be brought but are not necessary for intake.",
+      "phone": "416-360-0486",
+      "email": "",
+      "website": "https://aht.ca/how-to-become-a-client/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": null,
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "How to Become a Client",
+        "authority": "Anishnawbe Health Toronto",
+        "url": "https://aht.ca/how-to-become-a-client/"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "miller_on_anishnawbe_health_toronto_mh_substance_supports"
+      ]
+    },
+    {
       "canonical_resource_id": "curated:11bjp0",
       "record_type": "service",
       "organization": "Vancouver Coastal Health",
@@ -4036,6 +4123,102 @@
       ],
       "source_record_ids": [
         "miller_ab_high_river_amh"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_ab_rural_community_addiction_mental_health",
+      "record_type": "service",
+      "organization": "Alberta Health Services",
+      "program_name": "Community Addiction and Mental Health Services — Rural Alberta",
+      "categories": [
+        "healthcare",
+        "family_community",
+        "practical_support"
+      ],
+      "subcategories": [
+        "mental health",
+        "substance use",
+        "counselling",
+        "family support",
+        "treatment navigation",
+        "rural remote access"
+      ],
+      "description": "Assessment, treatment and follow-up for moderate to severe addiction and mental-health concerns, with short-term goal-focused counselling and selected outreach or urgent walk-in options.",
+      "population_served": "People across the lifespan experiencing moderate to severe mental-health symptoms or wanting to change their relationship with substance use; service details vary by site.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Listed rural Alberta communities; access and urgent walk-in availability vary by site",
+      "province": "Alberta",
+      "city_community": "",
+      "address": "",
+      "service_area": "Listed rural Alberta communities; access and urgent walk-in availability vary by site",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [
+          "Airdrie",
+          "Banff",
+          "Canmore",
+          "Cochrane",
+          "Chestermere",
+          "Claresholm",
+          "Didsbury",
+          "High River",
+          "Okotoks",
+          "Vulcan"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "travel_required": false,
+        "scope_note": "Selected urgent walk-in mental-health care is listed for Airdrie, Banff, Canmore, Cochrane and Okotoks; hours vary. This record does not imply that every service is offered at every listed location.",
+        "search_locations": [
+          "rural Alberta",
+          "Airdrie",
+          "Banff",
+          "Canmore",
+          "Cochrane",
+          "High River",
+          "Okotoks",
+          "Vulcan"
+        ],
+        "service_area": "Listed rural Alberta communities; access and urgent walk-in availability vary by site"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone",
+        "outreach"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Open the official service page, choose the relevant location, and confirm current access. For individual counselling or therapy, the source directs people to the applicable Access Mental Health pathway.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.albertahealthservices.ca/findhealth/Service.aspx?id=1015555",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": null,
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Community Addiction and Mental Health Services — Rural",
+        "authority": "Alberta Health Services",
+        "url": "https://www.albertahealthservices.ca/findhealth/Service.aspx?id=1015555"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_ab_rural_community_addiction_mental_health"
       ]
     },
     {
@@ -6490,6 +6673,95 @@
       ],
       "source_record_ids": [
         "miller_nl_gander_odt"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_on_halton_mississauga_raam",
+      "record_type": "service",
+      "organization": "Halton & Mississauga RAAM Clinic",
+      "program_name": "Halton & Mississauga Rapid Access Addiction Medicine (RAAM)",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction medicine",
+        "oat",
+        "counselling",
+        "treatment navigation",
+        "substance use"
+      ],
+      "description": "Regional outpatient addiction-medicine pathway offering assessment, brief counselling, medication-assisted treatment, rapid opioid-treatment access and connections with other supports.",
+      "population_served": "People seeking help for substance use in the Halton, Mississauga and listed Toronto service network; OHIP coverage is stated by the operator.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Halton, Mississauga and listed Toronto locations",
+      "province": "Ontario",
+      "city_community": "",
+      "address": "",
+      "service_area": "Halton, Mississauga and listed Toronto locations",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [
+          "Halton",
+          "Mississauga",
+          "Toronto"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "travel_required": false,
+        "scope_note": "One centralized, multi-site access pathway. Individual locations and hours vary; this parent record must not be read as a clinic at every listed community.",
+        "search_locations": [
+          "Halton",
+          "Mississauga",
+          "Oakville",
+          "Milton",
+          "Burlington",
+          "Georgetown",
+          "Acton",
+          "Toronto"
+        ],
+        "service_area": "Halton, Mississauga and listed Toronto locations"
+      },
+      "delivery_modes": [
+        "in person",
+        "walk-in",
+        "telephone",
+        "virtual",
+        "referral"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call centralized reception at 1-888-388-7226 to book. Walk-ins are welcome during local clinic hours, and referrals are accepted from any source. Confirm the closest current site and same-day availability before travel.",
+      "phone": "1-888-388-7226",
+      "email": "",
+      "website": "https://hmraam.ca/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": null,
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Halton & Mississauga Rapid Access Addiction Medicine Clinic",
+        "authority": "Halton & Mississauga RAAM Clinic",
+        "url": "https://hmraam.ca/"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_on_halton_mississauga_raam"
       ]
     },
     {
@@ -9430,6 +9702,180 @@
       ],
       "source_record_ids": [
         "miller_bc_interior_access_central"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_bc_interior_indigenous_patient_navigators",
+      "record_type": "service",
+      "organization": "Interior Health",
+      "program_name": "Interior Health Indigenous Patient Navigators — Mental Health and Substance Use",
+      "categories": [
+        "family_community",
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "cultural support",
+        "family support",
+        "indigenous navigation",
+        "mental health",
+        "substance use",
+        "withdrawal management"
+      ],
+      "description": "Indigenous Patient Navigators in Interior Health mental-health and substance-use settings help Indigenous people and families connect with counselling, substance-use services, withdrawal management and requested cultural resources.",
+      "population_served": "Indigenous people and families accessing Interior Health care, including visitors from elsewhere in B.C.; availability outside listed sites should be confirmed.",
+      "indigenous_scope": "broader_indigenous",
+      "governance_type": "provincial_health_authority_indigenous_support_role",
+      "geography": "Listed Interior Health mental-health and substance-use locations; the operator notes other-area availability may be possible",
+      "province": "British Columbia",
+      "city_community": "",
+      "address": "",
+      "service_area": "Listed Interior Health mental-health and substance-use locations; the operator notes other-area availability may be possible",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [
+          "Kamloops",
+          "Merritt",
+          "Williams Lake",
+          "Creston"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": true,
+        "travel_required": false,
+        "scope_note": "A patient-navigation support, not evidence or an accountability record. It is routed as a practical support in both Miller and Miller North Supports & Funding.",
+        "search_locations": [
+          "Interior B.C.",
+          "Kamloops",
+          "Merritt",
+          "Williams Lake",
+          "Creston"
+        ],
+        "service_area": "Listed Interior Health mental-health and substance-use locations; the operator notes other-area availability may be possible"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone",
+        "regional"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Use the official page to contact an Indigenous Patient Navigator or ask an Interior Health care team whether support is available at the current site.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.interiorhealth.ca/services/indigenous-patient-navigator",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": null,
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Indigenous Patient Navigator",
+        "authority": "Interior Health",
+        "url": "https://www.interiorhealth.ca/services/indigenous-patient-navigator"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller",
+        "miller_north"
+      ],
+      "source_record_ids": [
+        "miller_bc_interior_indigenous_patient_navigators"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_bc_interior_outpatient_withdrawal",
+      "record_type": "service",
+      "organization": "Interior Health",
+      "program_name": "Interior Health Outpatient Withdrawal Management",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "withdrawal management",
+        "addiction medicine",
+        "oat",
+        "treatment navigation",
+        "virtual support"
+      ],
+      "description": "Planned withdrawal and substance-stabilization support delivered at home, in the community, outpatient or virtually for people who meet the service's clinical criteria; it can also support OAT stabilization when referred by a local OAT provider.",
+      "population_served": "Adults seeking planned alcohol withdrawal or substance stabilization in the listed Interior B.C. communities; clinical suitability and safe-support requirements apply.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Kamloops, Kelowna, Penticton and Vernon areas",
+      "province": "British Columbia",
+      "city_community": "",
+      "address": "",
+      "service_area": "Kamloops, Kelowna, Penticton and Vernon areas",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [
+          "Kamloops",
+          "Kelowna",
+          "Penticton",
+          "Vernon"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "travel_required": false,
+        "scope_note": "For people requiring 24-hour medical care or with conditions outside outpatient criteria, the service says it will connect them to live-in withdrawal-management options rather than treating this pathway as a substitute.",
+        "search_locations": [
+          "Interior B.C.",
+          "Kamloops",
+          "Kelowna",
+          "Penticton",
+          "Vernon"
+        ],
+        "service_area": "Kamloops, Kelowna, Penticton and Vernon areas"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone",
+        "virtual",
+        "home/community"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 310-MHSU (6478) to connect with an Interior Health Mental Health and Substance Use team member and confirm suitability, location and current intake.",
+      "phone": "310-MHSU (6478)",
+      "email": "",
+      "website": "https://www.interiorhealth.ca/sites/default/files/PDFS/outpatient-withdrawal-management-services-flyer.pdf",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": null,
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Outpatient Withdrawal Management (Detox) Services",
+        "authority": "Interior Health",
+        "url": "https://www.interiorhealth.ca/sites/default/files/PDFS/outpatient-withdrawal-management-services-flyer.pdf"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_bc_interior_outpatient_withdrawal"
       ]
     },
     {
@@ -16001,29 +16447,34 @@
         "practical_support"
       ],
       "subcategories": [
-        "oat",
         "addiction medicine",
         "counselling",
+        "oat",
         "recovery support",
         "treatment navigation"
       ],
-      "description": "Zone-based opioid-use treatment program offering medication, counselling and recovery support through locations across Nova Scotia.",
-      "population_served": "People seeking the listed practical service",
+      "description": "Provincial opioid-use treatment program offering opioid agonist therapy, assessment, treatment planning, relapse-prevention planning and supportive counselling through zone-based locations.",
+      "population_served": "Adults with moderate to severe opioid use disorder; local availability and care planning are determined through intake or a listed clinic.",
       "indigenous_scope": "not_stated",
       "governance_type": "not_stated",
-      "geography": "Nova Scotia",
+      "geography": "Nova Scotia Health zones with local clinics listed by the operator",
       "province": "Nova Scotia",
       "city_community": "",
       "address": "",
-      "service_area": "Nova Scotia",
+      "service_area": "Nova Scotia Health zones with local clinics listed by the operator",
       "service_scope": {
         "physical_location": null,
         "local_service_area": [],
-        "regional_service_area": [],
+        "regional_service_area": [
+          "Central Zone",
+          "Eastern Zone",
+          "Northern Zone",
+          "Western Zone"
+        ],
         "province_wide": true,
         "canada_wide": false,
         "virtual": false,
-        "navigation_only": false,
+        "navigation_only": true,
         "travel_required": false,
         "scope_note": "One provincial program with multiple listed sites; city eligibility is not represented as a physical clinic without a listed address.",
         "search_locations": [
@@ -16035,20 +16486,23 @@
           "New Glasgow",
           "Amherst",
           "Yarmouth",
-          "Middleton"
+          "Middleton",
+          "Glace Bay",
+          "Eskasoni"
         ],
-        "service_area": "Nova Scotia"
+        "service_area": "Nova Scotia Health zones with local clinics listed by the operator"
       },
       "delivery_modes": [
         "in person",
-        "telephone"
+        "telephone",
+        "referral"
       ],
       "eligibility": "",
       "access_requirements": [],
       "required_documents": [],
       "cost": "",
       "referral_requirement": "Call provincial intake, contact a listed location, or ask a provider to refer. Confirm the nearest current location and intake method.",
-      "access": "Call provincial intake, contact a listed location, or ask a provider to refer. Confirm the nearest current location and intake method.",
+      "access": "Call Nova Scotia Mental Health and Addictions Intake at 1-855-922-1122 or a listed clinic directly. A doctor, other health professional or community agency may also request a referral. Confirm the nearest current location and intake method.",
       "phone": "1-855-922-1122",
       "email": "",
       "website": "https://mha.nshealth.ca/en/opioid-recovery-program",
@@ -16061,11 +16515,11 @@
       "workflow_relevance": [],
       "languages": [],
       "source": {
-        "title": "Nova Scotia Opioid Recovery Program",
+        "title": "Opioid Recovery Program (ORP)",
         "authority": "Nova Scotia Health",
         "url": "https://mha.nshealth.ca/en/opioid-recovery-program"
       },
-      "last_verified": "2026-09-08",
+      "last_verified": "2026-09-09",
       "verification_status": "verified_active",
       "project_visibility": [
         "miller"
@@ -17917,6 +18371,92 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_ns_outpatient_withdrawal_management",
+      "record_type": "service",
+      "organization": "Nova Scotia Health",
+      "program_name": "Outpatient Withdrawal Management",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "withdrawal management",
+        "treatment navigation",
+        "substance use",
+        "recovery support"
+      ],
+      "description": "Outpatient withdrawal management and structured relapse-prevention support that matches intensity and duration to an individual care plan.",
+      "population_served": "Adults seeking support for alcohol or drug use; suitability and local availability are determined through intake or the relevant unit.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Nova Scotia Health zones with local units listed by the operator",
+      "province": "Nova Scotia",
+      "city_community": "",
+      "address": "",
+      "service_area": "Nova Scotia Health zones with local units listed by the operator",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [
+          "Central Zone",
+          "Eastern Zone",
+          "Northern Zone",
+          "Western Zone"
+        ],
+        "province_wide": true,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": true,
+        "travel_required": false,
+        "scope_note": "A province-wide parent access pathway with local units. It does not assert that outpatient withdrawal management is physically available in every Nova Scotia community.",
+        "search_locations": [
+          "Halifax",
+          "Cape Breton",
+          "Sydney",
+          "Truro",
+          "Lunenburg",
+          "Middleton",
+          "northern Nova Scotia"
+        ],
+        "service_area": "Nova Scotia Health zones with local units listed by the operator"
+      },
+      "delivery_modes": [
+        "outpatient",
+        "telephone",
+        "referral"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call Nova Scotia Mental Health and Addictions Intake at 1-855-922-1122 or contact a listed unit directly. A doctor, other health professional or community agency may also request a referral. Confirm the closest current unit and suitability before travel.",
+      "phone": "1-855-922-1122",
+      "email": "",
+      "website": "https://mha.nshealth.ca/en/services/outpatient-withdrawal-management",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": null,
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Outpatient Withdrawal Management",
+        "authority": "Nova Scotia Health",
+        "url": "https://mha.nshealth.ca/en/services/outpatient-withdrawal-management"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_ns_outpatient_withdrawal_management"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_ab_oxford_house_recovery_housing",
       "record_type": "service",
       "organization": "Oxford House Foundation of Canada",
@@ -19256,6 +19796,93 @@
       ]
     },
     {
+      "canonical_resource_id": "miller_mb_raam_digital_front_door",
+      "record_type": "service",
+      "organization": "Shared Health Manitoba",
+      "program_name": "RAAM Digital Front Door Virtual Drop-in Clinics",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction medicine",
+        "treatment navigation",
+        "substance use",
+        "virtual support"
+      ],
+      "description": "Nurse-led virtual drop-in access to participating Manitoba RAAM clinics, with follow-up by a physician, nurse practitioner or physician assistant arranged when needed.",
+      "population_served": "People seeking RAAM support in Manitoba; access depends on clinic hours, demand and resource availability.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Province-wide virtual access through participating Manitoba RAAM clinics",
+      "province": "Manitoba",
+      "city_community": "",
+      "address": "",
+      "service_area": "Province-wide virtual access through participating Manitoba RAAM clinics",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [
+          "Winnipeg",
+          "Brandon",
+          "Selkirk",
+          "Thompson",
+          "Portage la Prairie"
+        ],
+        "province_wide": true,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": true,
+        "travel_required": false,
+        "scope_note": "A virtual access layer, not a claim that a physical RAAM clinic exists in every Manitoba community. The service advises people to connect with the participating clinic closest to them.",
+        "search_locations": [
+          "Manitoba",
+          "Winnipeg",
+          "Brandon",
+          "Selkirk",
+          "Thompson",
+          "Portage la Prairie",
+          "northern Manitoba"
+        ],
+        "service_area": "Province-wide virtual access through participating Manitoba RAAM clinics"
+      },
+      "delivery_modes": [
+        "virtual",
+        "telephone",
+        "drop-in"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Choose an open participating clinic and use its official Digital Front Door link to check in. For connection help or the RAAM toll-free directory, call 1-877-541-7646. Confirm current clinic hours before starting.",
+      "phone": "1-877-541-7646",
+      "email": "",
+      "website": "https://sharedhealthmb.ca/services/mental-health/mha-services/raam-clinic/raam-digital-front-door-dfd-virtual-drop-in-clinics/",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": null,
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "RAAM Digital Front Door (DFD) Virtual Drop-in Clinics",
+        "authority": "Shared Health Manitoba",
+        "url": "https://sharedhealthmb.ca/services/mental-health/mha-services/raam-clinic/raam-digital-front-door-dfd-virtual-drop-in-clinics/"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_mb_raam_digital_front_door"
+      ]
+    },
+    {
       "canonical_resource_id": "miller_bc_victoria_raac",
       "record_type": "service",
       "organization": "Island Health",
@@ -19326,6 +19953,171 @@
       ],
       "source_record_ids": [
         "miller_bc_victoria_raac"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_on_tehn_mgh_raam",
+      "record_type": "service",
+      "organization": "Toronto East Health Network / Michael Garron Hospital",
+      "program_name": "Rapid Access Addiction Medicine (RAAM) Clinic — Michael Garron Hospital",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction medicine",
+        "counselling",
+        "treatment navigation",
+        "substance use",
+        "withdrawal management"
+      ],
+      "description": "Rapid-access addiction support with assessment, counselling, medications that may reduce cravings or withdrawal symptoms, and referral to connected outpatient and withdrawal-management services.",
+      "population_served": "People seeking support for substance-use concerns; same-day drop-in spaces for new patients are limited.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Michael Garron Hospital and East Toronto care network",
+      "province": "Ontario",
+      "city_community": "Toronto",
+      "address": "825 Coxwell Avenue, H5",
+      "service_area": "Michael Garron Hospital and East Toronto care network",
+      "service_scope": {
+        "physical_location": {
+          "community": "Toronto",
+          "address": "825 Coxwell Avenue, H5",
+          "province": "Ontario"
+        },
+        "local_service_area": [
+          "East Toronto",
+          "Toronto"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "travel_required": false,
+        "scope_note": "A Michael Garron Hospital site-level pathway; it is not represented as a clinic in other Toronto neighbourhoods.",
+        "search_locations": [
+          "East Toronto",
+          "Toronto",
+          "Danforth",
+          "Coxwell"
+        ],
+        "service_area": "Michael Garron Hospital and East Toronto care network"
+      },
+      "delivery_modes": [
+        "in person",
+        "referral"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Call 416-469-6580 ext. 2517 for an appointment or ask a health-care provider to refer. Drop-in times are listed on the official page; new patients register at Patient Registration on the first floor and are seen first-come, first-served while spaces last.",
+      "phone": "416-469-6580 ext. 2517",
+      "email": "",
+      "website": "https://www.tehn.ca/programs-services/mental-health-addiction/addiction-services/rapid-access-addiction-medicine-raam",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": null,
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Rapid Access Addiction Medicine (RAAM) Clinic",
+        "authority": "Toronto East Health Network / Michael Garron Hospital",
+        "url": "https://www.tehn.ca/programs-services/mental-health-addiction/addiction-services/rapid-access-addiction-medicine-raam"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_on_tehn_mgh_raam"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_on_uhn_toronto_western_raam",
+      "record_type": "service",
+      "organization": "University Health Network",
+      "program_name": "Rapid Access Addiction Medicine (RAAM) Clinic — Toronto Western",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction medicine",
+        "oat",
+        "counselling",
+        "treatment navigation",
+        "substance use"
+      ],
+      "description": "Low-barrier addiction-medicine clinic providing brief counselling, medications including buprenorphine/naloxone where appropriate, and connection with community treatment programs.",
+      "population_served": "People seeking help for a substance-use disorder; bring a health card or government-issued photo ID where available.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Toronto Western Hospital pathway",
+      "province": "Ontario",
+      "city_community": "",
+      "address": "",
+      "service_area": "Toronto Western Hospital pathway",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [
+          "Toronto"
+        ],
+        "regional_service_area": [],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": true,
+        "navigation_only": false,
+        "travel_required": false,
+        "scope_note": "A Toronto Western Hospital clinic pathway. The public source did not expose a current street address in a form suitable for this registry, so this record does not supply one.",
+        "search_locations": [
+          "Toronto",
+          "Toronto Western",
+          "Downtown Toronto"
+        ],
+        "service_area": "Toronto Western Hospital pathway"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone",
+        "video"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "New and returning patients may use the clinic's drop-in pathway. Call 416-726-5052 or email RAAM@uhn.ca to confirm current hours, arrival instructions and whether telephone or video is available.",
+      "phone": "416-726-5052",
+      "email": "RAAM@uhn.ca",
+      "website": "https://www.uhn.ca/MentalHealth/Clinics/Rapid_Access_Addiction_Medicine",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": null,
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Rapid Access Addiction Medicine (RAAM) Clinic",
+        "authority": "University Health Network",
+        "url": "https://www.uhn.ca/MentalHealth/Clinics/Rapid_Access_Addiction_Medicine"
+      },
+      "last_verified": "2026-09-09",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_on_uhn_toronto_western_raam"
       ]
     },
     {
@@ -21106,6 +21898,90 @@
       ],
       "source_record_ids": [
         "miller_sk_covered_addiction_services"
+      ]
+    },
+    {
+      "canonical_resource_id": "miller_sk_raam_network",
+      "record_type": "service",
+      "organization": "Saskatchewan Health Authority",
+      "program_name": "Saskatchewan Rapid Access to Addiction Medicine (RAAM) Clinics",
+      "categories": [
+        "healthcare",
+        "practical_support"
+      ],
+      "subcategories": [
+        "addiction medicine",
+        "oat",
+        "harm reduction",
+        "treatment navigation",
+        "substance use"
+      ],
+      "description": "Low-barrier, short-term addiction-medicine clinics that assess substance-use concerns, support stabilization and connect people to ongoing community care.",
+      "population_served": "People seeking support for substance use; confirm clinic-specific current eligibility and hours before travel.",
+      "indigenous_scope": "not_stated",
+      "governance_type": "not_stated",
+      "geography": "Four Saskatchewan Health Authority RAAM clinic communities and their linked care networks",
+      "province": "Saskatchewan",
+      "city_community": "",
+      "address": "",
+      "service_area": "Four Saskatchewan Health Authority RAAM clinic communities and their linked care networks",
+      "service_scope": {
+        "physical_location": null,
+        "local_service_area": [],
+        "regional_service_area": [
+          "Regina",
+          "Saskatoon",
+          "Prince Albert",
+          "North Battleford"
+        ],
+        "province_wide": false,
+        "canada_wide": false,
+        "virtual": false,
+        "navigation_only": false,
+        "travel_required": false,
+        "scope_note": "This is a regional clinic network, not a claim that a clinic is physically located in every Saskatchewan community.",
+        "search_locations": [
+          "Regina",
+          "Saskatoon",
+          "Prince Albert",
+          "North Battleford",
+          "northern Saskatchewan"
+        ],
+        "service_area": "Four Saskatchewan Health Authority RAAM clinic communities and their linked care networks"
+      },
+      "delivery_modes": [
+        "in person",
+        "telephone"
+      ],
+      "eligibility": "",
+      "access_requirements": [],
+      "required_documents": [],
+      "cost": "",
+      "referral_requirement": "",
+      "access": "Contact the listed RAAM clinic to confirm same-day access, hours and the most appropriate local or regional pathway. Regina: 306-766-6350; Saskatoon: 306-655-5754; Prince Albert: 306-765-8703; North Battleford: 306-937-4070.",
+      "phone": "",
+      "email": "",
+      "website": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/mental-health-and-addictions/addiction-and-substance-use/rapid-access-addiction-medicine-raam",
+      "funding": null,
+      "housing": null,
+      "legal_support": null,
+      "transportation": null,
+      "navigation_pathway": null,
+      "resource_layer": "core",
+      "workflow_relevance": [],
+      "languages": [],
+      "source": {
+        "title": "Rapid Access to Addiction Medicine (RAAM)",
+        "authority": "Saskatchewan Health Authority",
+        "url": "https://www.saskhealthauthority.ca/your-health/conditions-illnesses-services-wellness/mental-health-and-addictions/addiction-and-substance-use/rapid-access-addiction-medicine-raam"
+      },
+      "last_verified": "2026-09-08",
+      "verification_status": "verified_active",
+      "project_visibility": [
+        "miller"
+      ],
+      "source_record_ids": [
+        "miller_sk_raam_network"
       ]
     },
     {

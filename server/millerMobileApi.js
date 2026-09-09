@@ -244,6 +244,8 @@ function locationRelationship(resource, location) {
   if (scope.canada_wide) return { code: "canada_wide", label: "Canada-wide service" }
   if (scope.navigation_only && scope.province_wide) return { code: "province_navigation", label: "Province-wide navigation" }
   if (scope.province_wide) return { code: "province_wide", label: "Province-wide service" }
+  if (scope.virtual && scope.local_service_area.length) return { code: "local_pathway", label: `Local pathway in ${scope.local_service_area.join(", ")}` }
+  if (scope.virtual && scope.regional_service_area.length) return { code: "regional_service", label: `Regional service: ${scope.regional_service_area.join(", ")}` }
   if (scope.virtual) return { code: "virtual", label: "Virtual service" }
   return { code: "location_not_established", label: clean(scope.scope_note) }
 }
