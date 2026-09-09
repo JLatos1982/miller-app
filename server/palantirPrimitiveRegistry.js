@@ -13,6 +13,7 @@ export const PALANTIR_PRIMITIVES = Object.freeze([
   { primitive_id: "owner_review", module: "palantirOwnerReview", origin: "private Farm owner review", status: "promoted" },
   { primitive_id: "resource_routing", module: "palantirResourceRouting", origin: "shared resource discovery", status: "promoted" },
   { primitive_id: "change_intelligence", module: "palantirChangeIntelligence", origin: "Watch and resource diffing", status: "promoted" },
+  { primitive_id: "question_resolution_intelligence", module: "palantirQuestionResolution", origin: "Research questions, outcomes and question-driven watching", status: "promoted" },
   { primitive_id: "claim_provenance_intelligence", module: "palantirClaimProvenance", origin: "legal, audit, recommendation and accountability claim tracking", status: "promoted" },
   { primitive_id: "source_yield", module: "samwisePublicRecordsIntelligence", origin: "Farm source-yield dashboard", status: "already_generic" },
   { primitive_id: "igor_orchestration", module: "farmIgorWorker", origin: "Farm worker v1", status: "already_generic" },

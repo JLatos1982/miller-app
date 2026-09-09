@@ -136,3 +136,17 @@ earlier official claim
 An announced grant, newly created office or completed process recommendation is an intervention or implementation fact. It is not evidence that attachment, travel burden, safety, service access or health outcomes improved. Where public aggregate outcome reporting is absent, Palantír records a reporting or measurement gap and may prepare a bounded owner-review information-request candidate.
 
 The primitive has no mutation or publication authority and has no dependency on Miller or Miller North UI code.
+
+## Question and resolution intelligence
+
+`research_question` is the private coordinating object for Palantír's longitudinal work. It composes—rather than replaces—event identity, claim provenance, recommendations, institutions, funding/interventions, milestones, structural findings and missing-evidence acquisition. Every question records the bounded question, the evidence threshold that would answer it, known and missing evidence, governance/privacy conditions, related canonical records, expected documents and a targeted watch purpose.
+
+Questions move only with source-backed evidence: `open`, `researching`, `watching`, `partially_answered`, `answered`, `contradicted`, `superseded`, `blocked_by_missing_data`, `blocked_by_governance` and `no_longer_priority`. A document that merely mentions a subject cannot answer a question. `evaluatePalantirQuestionEvidence` requires the threshold to be explicitly met before a proposed `answers` effect can transition to `answered`; otherwise it remains `partially_answered`.
+
+Question watches are purpose-bound: question → expected source or milestone → what would change the answer → cadence rationale. They are private candidates and never create a Farm schedule or public card automatically. When a question is answered, superseded or retired, its proposed watch is retired rather than kept alive indefinitely. An approved public Suggested Follow-up may link to this private question, but the private evidence strategy, acquisition options and notes never cross the public gate.
+
+Material change is shared infrastructure, not a second feed. `explainPalantirMaterialChange` recognizes only source-backed findings, responses, implementation evidence, outcomes, corrections, supersession, genuine contradiction, funding/service changes or a question that materially advanced. Reindexing, formatting, ordinary watcher checks, fingerprints, deployment and duplicate processing are excluded. A public projection can use a reviewed explanation later; the primitive itself cannot publish.
+
+Institution dossiers preserve a sourced history rather than a score: historical/successor identity, findings, incidents, recommendations, responses, funding, implementation, measured outcomes, unresolved questions and a chronological timeline. Recommendation and funding chains retain response, independent implementation and outcome as separate links. Funding announcement is not spending; spending is not service delivery; service activity is not effectiveness.
+
+Claim reconciliation first tests scope, period, denominator and methodology. It classifies compatible, temporal difference, methodological difference, revised value, supersedes, genuine conflict or unresolved. Earlier official claims remain historical when later surveillance revisions supersede them. The FNHA toxic-drug series is therefore a regression fixture for revision handling, not an accusation of error.

@@ -17,6 +17,8 @@ import { adaptFarmRecommendationLedgerToPalantir, buildPalantirRecommendationCha
 import { buildRecommendationLedger } from "../server/farmRecommendationLedger.js"
 import { normalizePalantirResourceOpportunity, routePalantirResourceOpportunity } from "../server/palantirResourceRouting.js"
 import { buildSamwisePublicRecordsStatus, samwisePublicRecordsConversationalQueries } from "../server/samwiseConversationalPublicRecords.js"
+import { applyPalantirQuestionEvidence, assessPalantirRecommendationOutcome, buildPalantirCrossDomainQuestionPilot, buildPalantirFundingServiceOutcomeChain, buildPalantirInstitutionDossier, buildPalantirQuestionBrief, buildPalantirQuestionWatch, buildPalantirResearchQuestionLedger, classifyPalantirClaimReconciliation, evaluatePalantirQuestionEvidence, explainPalantirMaterialChange, linkPalantirQuestionToPublicFollowUp, normalizePalantirResearchQuestion, reconcilePalantirResearchQuestion } from "../server/palantirQuestionResolution.js"
+import { buildSuggestedFollowUpRecord } from "../server/palantirStructuralInequality.js"
 import { assertSamwiseCannotBypassMiller } from "../server/samwiseConsumerAdapters.js"
 import { palantirHarvestLessons } from "./fixtures/palantirHarvestLessons.js"
 
@@ -33,10 +35,77 @@ const baseRecommendation = {
 
 test("harvest registry exposes independent read-only Palantír primitives", () => {
   const result = validatePalantirPrimitiveRegistry()
-  assert.equal(result.primitives, 18)
+  assert.equal(result.primitives, 19)
   assert.equal(result.mutation_authority, false)
   const moduleSources = Object.fromEntries(PALANTIR_PRIMITIVES.map(item => [item.module, readFileSync(new URL(`../server/${item.module}.js`, import.meta.url), "utf8")]))
   assert.deepEqual(palantirPrimitiveIndependence({ moduleSources }).product_ui_dependencies, [])
+})
+
+const question = overrides => normalizePalantirResearchQuestion({
+  title: "Did a primary-care intervention improve attachment?",
+  question: "Did the intervention improve sustained attachment in its intended population?",
+  domain: "primary_care",
+  jurisdiction: "British Columbia",
+  subject: "First Nations-led primary-care centres",
+  why_it_matters: "Implementation outputs do not establish population-level effectiveness.",
+  evidence_needed: ["A governed baseline-aligned attachment or continuity outcome series for intended populations."],
+  missing_evidence: ["Catchment-defined pre/post outcome measures."],
+  likely_sources: ["FNHA evaluation reporting"],
+  watch_strategy: { watch_question: "Is a governed outcome report released?", what_would_change_the_answer: "A baseline-aligned attachment or continuity series.", expected_source: "FNHA reporting", cadence_rationale: "Check only around report releases.", strategy: "report_release" },
+  ...overrides,
+})
+
+test("research questions are threshold-bound, deduplicated, private and question-driven", () => {
+  const item = question()
+  const ledger = buildPalantirResearchQuestionLedger([item])
+  assert.equal(ledger.counts.open, 1)
+  assert.equal(item.public_state, "private_research")
+  const duplicate = reconcilePalantirResearchQuestion(question(), [item])
+  assert.equal(duplicate.disposition, "existing_question")
+  const weak = evaluatePalantirQuestionEvidence(item, { effect: "answers", threshold_met: false, evidence: { summary: "A report mentions centre activity.", source_url: "https://example.org/activity" } })
+  assert.equal(weak.effect, "partially_answers")
+  assert.equal(weak.answer_claim_blocked, true)
+  const advanced = applyPalantirQuestionEvidence(item, weak, { reviewedAt: "2026-09-09T00:00:00Z" })
+  assert.equal(advanced.resolution_state, "partially_answered")
+  const watch = buildPalantirQuestionWatch(item)
+  assert.equal(watch.state, "private_watch_candidate")
+  assert.equal(watch.automatic_schedule, false)
+  const publicFollowUp = buildSuggestedFollowUpRecord({ follow_up_id: "follow-up:bc-attachment", title: "Did the centres improve attachment?", jurisdiction: "British Columbia", research_question: "Did the centres improve attachment?", why_it_matters: "Implementation is not effectiveness.", what_we_currently_know: "Centres are operating.", what_is_missing: "Baseline-aligned outcome measures.", evidence_needed: "Governed outcome evaluation.", governance_considerations: "First Nations/FNHA governance applies.", source_urls: ["https://example.org/source"], owner_review_state: "approved", publication_state: "approved_public", public_projection_requested: true })
+  const linked = linkPalantirQuestionToPublicFollowUp(item, publicFollowUp)
+  assert.equal(linked.linked_public_follow_up_id, "follow-up:bc-attachment")
+  assert.equal(linked.public_state, "private_research")
+})
+
+test("question resolution, changes and briefs require evidence and remain owner-gated", () => {
+  const item = question({ owner_priority: "high" })
+  const assessment = evaluatePalantirQuestionEvidence(item, { effect: "answers", threshold_met: true, evidence: { summary: "A governed evaluation reports a baseline-aligned attachment series.", source_url: "https://example.org/evaluation" } })
+  const answered = applyPalantirQuestionEvidence(item, assessment, { reviewedAt: "2026-09-09T00:00:00Z" })
+  assert.equal(answered.resolution_state, "answered")
+  const change = explainPalantirMaterialChange({ change_type: "question_resolved", source_url: "https://example.org/evaluation" })
+  const brief = buildPalantirQuestionBrief(buildPalantirResearchQuestionLedger([answered]), { changes: [change] })
+  assert.deepEqual(brief.answered, [item.question_id])
+  assert.equal(change.automatic_publication, false)
+})
+
+test("institution, recommendation and funding chains preserve outcome boundaries", () => {
+  const dossier = buildPalantirInstitutionDossier({ institution_id: "institution:health", name: "Current Health Authority", historical_names: ["Former Health Authority"], successor_institution_ids: ["institution:successor"], unresolved_questions: ["question:one"], timeline: [{ date: "2025-01-01", stage: "response", summary: "A public response was issued.", source_url: "https://example.org/response" }] })
+  assert.equal(dossier.reputation_score, null)
+  assert.equal(dossier.timeline.length, 1)
+  const outcome = assessPalantirRecommendationOutcome({ ...baseRecommendation, responses: [{ responder_organization: "Public Ministry", source_url: "https://example.org/response" }] })
+  assert.equal(outcome.resolution_state, "acknowledged")
+  const funding = buildPalantirFundingServiceOutcomeChain({ documented_problem: "Access barrier documented.", funding_source_url: "https://example.org/funding", recipient: "Public recipient", service_or_intervention: "Navigation service", implementation_output: { summary: "Service opened.", source_url: "https://example.org/service" }, intended_outcome: "Improved continuity" })
+  assert.equal(funding.current_state, "implementation_observed_outcome_unknown")
+  assert.equal(funding.service_is_outcome, false)
+})
+
+test("claim reconciliation distinguishes revisions from conflict and the model generalizes privately", () => {
+  const revised = classifyPalantirClaimReconciliation({ same_subject: true, same_scope: true, same_period: true, same_denominator: true, same_methodology: true, later_official_revision: true, material_difference: true })
+  assert.equal(revised.classification, "revised_value")
+  const changedMethod = classifyPalantirClaimReconciliation({ same_subject: true, same_scope: true, same_period: true, same_denominator: true, same_methodology: false, material_difference: true })
+  assert.equal(changedMethod.classification, "methodological_difference")
+  const pilot = buildPalantirCrossDomainQuestionPilot(Array.from({ length: 5 }, (_, index) => question({ title: `Workplace question ${index}`, question: `Did workplace recommendation ${index} produce a measured safety outcome?`, domain: "workplace_safety", jurisdiction: "Alberta", subject: `workplace-program-${index}` })))
+  assert.equal(pilot.questions.length, 5)
+  assert.equal(pilot.publication_authority, false)
 })
 
 test("Miller North-derived structural lessons remain reviewed regression fixtures", () => {
@@ -166,8 +235,9 @@ test("private conversational status summarizes recommendations, milestones and c
   const milestone = normalizePalantirMilestone({ milestone_type: "audit_follow_up", expected_date: "2026-12-01", monitoring_source: "https://example.org/audit", expected_document: "follow-up" })
   const matrix = buildPalantirCoverageMatrix({ matrixId: "coverage:benefits", domain: "government_services", dimensions: ["jurisdiction"], cells: [{ coordinates: { jurisdiction: "Saskatchewan" }, acquisition_failures: 1, review_started: true, source_coverage: true }] })
   const status = buildSamwisePublicRecordsStatus({ recommendationLedgers: [recommendation], milestones: [milestone], coverageMatrices: [matrix] })
-  assert.deepEqual(status.intelligence_primitives, { claims: 0, claim_relationships: 0, claim_contradictions: 0, unresolved_claim_conflicts: 0, unresolved_claim_gaps: 0, institutional_claims_without_independent_evidence: 0, recommendations: 1, recommendation_changes: 0, milestones: 1, upcoming_milestones: 1, coverage_matrices: 1, coverage_gaps: 1, acquisition_failures: 1 })
+  assert.deepEqual(status.intelligence_primitives, { claims: 0, claim_relationships: 0, claim_contradictions: 0, unresolved_claim_conflicts: 0, unresolved_claim_gaps: 0, institutional_claims_without_independent_evidence: 0, recommendations: 1, recommendation_changes: 0, milestones: 1, upcoming_milestones: 1, coverage_matrices: 1, coverage_gaps: 1, acquisition_failures: 1, research_questions: 0, questions_open: 0, questions_partially_answered: 0, questions_answered: 0, question_material_changes: 0 })
   assert.ok(samwisePublicRecordsConversationalQueries.includes("What recommendations changed?"))
+  assert.ok(samwisePublicRecordsConversationalQueries.includes("What are our highest-priority unanswered questions?"))
   assert.equal(status.mutation_authority, false)
 })
 

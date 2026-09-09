@@ -21,7 +21,7 @@ export function samwiseListenerOperationalState(listener = {}) {
   return "scheduled"
 }
 
-export function buildSamwisePublicRecordsStatus({ listeners = [], history = [], reviewItems = [], researchMemories = [], researchExecutions = [], learningLedger = null, recommendationLedgers = [], claimLedgers = [], milestones = [], coverageMatrices = [], primitiveChanges = [], now = new Date() } = {}) {
+export function buildSamwisePublicRecordsStatus({ listeners = [], history = [], reviewItems = [], researchMemories = [], researchExecutions = [], learningLedger = null, recommendationLedgers = [], claimLedgers = [], milestones = [], coverageMatrices = [], primitiveChanges = [], questionLedgers = [], questionChanges = [], now = new Date() } = {}) {
   const generatedAt = new Date(now).toISOString()
   const recentCutoff = new Date(generatedAt).getTime() - 7 * 86_400_000
   const recent = history.filter(item => new Date(item.completed_at || item.timestamp || 0).getTime() >= recentCutoff)
@@ -91,6 +91,11 @@ export function buildSamwisePublicRecordsStatus({ listeners = [], history = [], 
       coverage_matrices: coverageMatrices.length,
       coverage_gaps: coverageMatrices.reduce((total, matrix) => total + (matrix.cells || []).filter(cell => cell.gap_type !== "evidence_present").length, 0),
       acquisition_failures: coverageMatrices.reduce((total, matrix) => total + Number(matrix.counts?.source_acquisition_failure || 0), 0),
+      research_questions: questionLedgers.reduce((total, ledger) => total + Number(ledger?.questions?.length || 0), 0),
+      questions_open: questionLedgers.reduce((total, ledger) => total + (ledger?.questions || []).filter(question => ["open", "researching", "watching", "blocked_by_missing_data", "blocked_by_governance"].includes(question.resolution_state)).length, 0),
+      questions_partially_answered: questionLedgers.reduce((total, ledger) => total + (ledger?.questions || []).filter(question => question.resolution_state === "partially_answered").length, 0),
+      questions_answered: questionLedgers.reduce((total, ledger) => total + (ledger?.questions || []).filter(question => question.resolution_state === "answered").length, 0),
+      question_material_changes: questionChanges.filter(item => item?.schema_version === "palantir-question-evidence-assessment-v1" && item.material).length,
     },
     next_scheduled: next ? { listener_id: clean(next.listener_id, 120), at: clean(next.next_run_at, 40), worker: clean(next.execution_target, 30) } : null,
     private_owner_interface: true,
@@ -164,4 +169,12 @@ export const samwisePublicRecordsConversationalQueries = Object.freeze([
   "Which claims contradict or qualify each other?",
   "Which institutional claims remain unverified?",
   "What claim and provenance changes need my review?",
+  "What are our highest-priority unanswered questions?",
+  "What changed this week?",
+  "Which recommendations still lack outcomes?",
+  "Which institutions have unresolved follow-ups?",
+  "What funding has no measured outcome?",
+  "What watches are closest to resolution?",
+  "Which questions became answered?",
+  "Where are the biggest measurement gaps?",
 ])
