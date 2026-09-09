@@ -10,6 +10,15 @@ test("Access & Equity is a public methodology surface with no private-record imp
   assert.match(page, /A measurable disparity does not by itself establish discrimination or its cause/)
   assert.match(page, /Suggested follow-up/)
   assert.match(page, /None are displayed until that review is complete/)
+  assert.match(page, /ACCESS_EQUITY_PUBLIC_PROJECTION/)
+  assert.match(page, /What this does not establish/)
   assert.doesNotMatch(page, /artifacts\/samwise|saskatchewan-governance-outreach|request_draft|private_record/i)
   assert.match(app, /indigenous-healthcare-evidence\/access-equity/)
+})
+
+test("Access & Equity public projection starts empty and cannot carry private review records", () => {
+  const projection = readFileSync(new URL("../src/site/accessEquityPublicProjection.js", import.meta.url), "utf8")
+  assert.match(projection, /findings: Object\.freeze\(\[\]\)/)
+  assert.match(projection, /suggested_follow_ups: Object\.freeze\(\[\]\)/)
+  assert.doesNotMatch(projection, /owner_review|private_research|artifacts\/samwise|request_draft/i)
 })
