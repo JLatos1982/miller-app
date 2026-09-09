@@ -28,6 +28,10 @@ A structural indicator requires an explicit observed measure and denominator. Pu
 
 Raw dollar totals, unmatched time periods, urban-versus-remote comparisons without context, and small-cell data cannot pass the public gate. A missing measure may instead be classified as `data_gap`, `reporting_gap` or `measurement_gap`; missing data is not evidence of discrimination.
 
+The v2 analysis helpers make those constraints reusable. Rate normalization retains the numerator, denominator, scale and formula. Comparator review checks jurisdiction, period, denominator, remoteness and need/population adjustment. Time-series observations remain append-only; a methodology change produces `methodology_changed`, not an invented trend. Matched-community pairs are private, limitation-bearing descriptive pilots and never automatically support an Indigenous-inequality inference.
+
+Source-yield memory records the usable finding count, Indigenous and geographic resolution, historical depth, update cadence, data cleanliness, parse difficulty and comparator quality. Only repeatedly productive, stable sources are candidates for a recurring adapter; thin or irregular sources stay citation-led or owner-triggered.
+
 ## Accountability chain
 
 The record keeps the following facts separate:

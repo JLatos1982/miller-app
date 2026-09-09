@@ -3,8 +3,14 @@ import test from "node:test"
 
 import {
   assessAccessEquityPage,
+  assessMatchedCommunityPair,
+  assessStructuralComparator,
   assessStructuralPublicGate,
   buildStructuralInequalityLedger,
+  buildStructuralSourceYield,
+  classifyStructuralMissingData,
+  classifyStructuralTimeSeries,
+  normalizeStructuralRate,
   normalizeStructuralInequalityRecord,
 } from "../server/palantirStructuralInequality.js"
 
@@ -99,4 +105,46 @@ test("response, implementation claim, independent evidence and outcome remain se
   assert.notEqual(normalized.response_summary, normalized.implementation_claim)
   assert.notEqual(normalized.implementation_claim, normalized.independent_implementation_evidence)
   assert.match(normalized.measured_outcome, /No measured outcome/i)
+})
+
+test("rate normalization exposes its formula and rejects absent denominators", () => {
+  assert.deepEqual(normalizeStructuralRate({ numerator: 78, denominator: 10_000, scale: 10_000, unit: "per 10,000" }), { value: 78, numerator: 78, denominator: 10_000, scale: 10_000, unit: "per 10,000", transparent_formula: "(numerator / denominator) * 10000" })
+  assert.throws(() => normalizeStructuralRate({ numerator: 5, denominator: 0 }), /rate_inputs_invalid/)
+})
+
+test("time series preserve history and stop trend claims across methodology changes", () => {
+  const worsening = classifyStructuralTimeSeries([{ period: "2013", value: 34, methodology: "stable" }, { period: "2017", value: 39, methodology: "stable" }], { lowerIsBetter: true })
+  assert.equal(worsening.state, "worsening")
+  const changed = classifyStructuralTimeSeries([{ period: "2023", value: 312, methodology: "2011 standard" }, { period: "2024", value: 325, methodology: "2021 standard" }], { lowerIsBetter: true })
+  assert.equal(changed.state, "methodology_changed")
+  assert.equal(changed.change, null)
+})
+
+test("comparator design rejects unmatched remoteness, periods and denominators", () => {
+  const fair = assessStructuralComparator({ same_jurisdiction: true, observed_period: "2024", comparator_period: "2024", observed_denominator: "per 100,000", comparator_denominator: "per 100,000", denominators_comparable: true, remoteness_relevant: true, remoteness_matched: true, adjustment_required: false, limitations: ["Administrative identification excludes some Indigenous people."] })
+  assert.equal(fair.quality, "meaningful")
+  assert.equal(fair.use_for_public_claim, true)
+  const unfair = assessStructuralComparator({ same_jurisdiction: true, observed_period: "2024", comparator_period: "2019", observed_denominator: "people", comparator_denominator: "visits", denominators_comparable: false, remoteness_relevant: true, remoteness_matched: false, limitations: ["Urban versus remote."] })
+  assert.equal(unfair.quality, "misleading")
+  assert.equal(unfair.use_for_public_claim, false)
+})
+
+test("missing measurement is an accountability gap, not discrimination evidence", () => {
+  const gap = classifyStructuralMissingData({ gap_type: "measurement_gap", indicator: "Indigenous wait-time difference", scope: "Saskatchewan", source_url: "https://example.gc.ca/report", source_checked_at: "2026-09-09", repeated_equity_commitment_unmeasurable: true })
+  assert.equal(gap.accountability_relevance, true)
+  assert.equal(gap.discrimination_evidence, false)
+  assert.equal(gap.owner_review_required, true)
+})
+
+test("matched communities remain descriptive and cannot auto-prove Indigenous inequality", () => {
+  const pair = assessMatchedCommunityPair({ pair_id: "sk:la-ronge:meadow-lake", left: { name: "La Ronge", province: "SK", population: 2521, remoteness: "northern-road", road_access: "all-season-road", regional_context: "northern-service-hub", source_url: "https://www.saskatchewan.ca/a" }, right: { name: "Meadow Lake", province: "SK", population: 5322, remoteness: "northern-road", road_access: "all-season-road", regional_context: "northern-service-hub", source_url: "https://www.saskatchewan.ca/b" }, limitations: ["Both communities serve substantial Indigenous populations and do not form an Indigenous/non-Indigenous contrast."] })
+  assert.equal(pair.indigenous_inequality_inference_usable, false)
+  assert.equal(pair.owner_review_required, true)
+})
+
+test("source yield recommends recurring adapters only for repeated clean high-quality output", () => {
+  const strong = buildStructuralSourceYield({ source_id: "fnha-phwa", documents_checked: 2, usable_structural_findings: 7, comparator_quality: "high", update_cadence: "multi-year", indigenous_specific_resolution: "First Nations", geographic_resolution: "province and health authority" })
+  assert.equal(strong.recommendation, "recurring_adapter")
+  const thin = buildStructuralSourceYield({ source_id: "generic-search", documents_checked: 12, usable_structural_findings: 0 })
+  assert.equal(thin.recommendation, "owner_triggered_or_low_yield")
 })
