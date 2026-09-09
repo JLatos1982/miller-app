@@ -2,6 +2,7 @@ export const MILLER_NORTH_PUBLIC_SECTIONS = Object.freeze([
   Object.freeze({ id: "evidence", label: "Evidence", href: "/indigenous-healthcare-evidence" }),
   Object.freeze({ id: "incidents", label: "Incidents", href: "/indigenous-healthcare-evidence/serious-harm" }),
   Object.freeze({ id: "accountability", label: "Accountability", href: "/indigenous-healthcare-evidence/accountability-watch" }),
+  Object.freeze({ id: "access_equity", label: "Access & Equity", href: "/indigenous-healthcare-evidence/access-equity" }),
   Object.freeze({ id: "watching", label: "Watching", href: "/indigenous-healthcare-evidence/watching-now" }),
   Object.freeze({ id: "supports", label: "Supports & Funding", href: "/indigenous-healthcare-evidence/first-nations-supports" }),
 ])
@@ -13,6 +14,7 @@ export const MILLER_NORTH_PUBLIC_SECTION_ALIASES = Object.freeze({
   incidents: "incidents",
   research: "accountability",
   accountability: "accountability",
+  access_equity: "access_equity",
   emerging: "watching",
   listening: "watching",
   watching: "watching",
@@ -32,6 +34,10 @@ export const MILLER_NORTH_PUBLIC_PLACEMENT_RULES = Object.freeze({
   accountability: Object.freeze({
     primary_home: "concerns with recommendations, commitments, responses, implementation, or outcomes worth tracking",
     includes: Object.freeze(["accountability_chain", "implementation_record", "recommendation_tracker"]),
+  }),
+  access_equity: Object.freeze({
+    primary_home: "owner-approved, aggregate structural-healthcare findings and a public explanation of measurement limits",
+    includes: Object.freeze(["approved_structural_indicator", "approved_measurement_gap"]),
   }),
   watching: Object.freeze({
     primary_home: "incomplete public processes with a concrete future question or milestone",
