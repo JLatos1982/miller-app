@@ -87,6 +87,8 @@ An optional draft is accepted only when it is explicitly aggregate-only, time-bo
 
 Structural records use explicit public-projection states: `private_research`, `owner_review`, `approved_public`, `rejected_public`, and `needs_more_research`. A record is publishable only if its evidence and privacy checks pass, the owner-review decision is approved, the projection is requested, **and** its state is `approved_public`. Owner approval alone never promotes a record. A public Access & Equity page may explain method and gaps while the approved finding count remains zero; private dossiers, acquisition plans and holder responses are never page or search inputs.
 
+`buildSuggestedFollowUpRecord` provides a separate, public-safe record for an unanswered structural question. It requires a question, rationale, current public evidence, missing evidence, evidence needed, sources and governance language where the question concerns First Nations, Métis, Inuit or Indigenous data. The stored public projection deliberately excludes contact details, private analyst notes, request/FOI wording, unpublished evidence and outreach strategy. `assessSuggestedFollowUpPublicGate` requires those public-safety checks **plus** owner approval, `approved_public`, and an explicit projection request. A proposed question is not searchable or displayed merely because it is useful.
+
 ## Operational use
 
 Recommended source handling is source-level and low-noise:

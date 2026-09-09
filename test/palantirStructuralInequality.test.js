@@ -5,6 +5,7 @@ import {
   assessAccessEquityPage,
   assessNeedToResourceFit,
   assessServiceReliability,
+  assessSuggestedFollowUpPublicGate,
   assessCrossProvinceStructuralComparability,
   assessStructuralAccessIndexExperiment,
   assessMatchedCommunityPair,
@@ -24,6 +25,7 @@ import {
   buildTreatmentAccessCascade,
   buildPolicyOutcomeLagChain,
   buildMeasurementInequalityMatrix,
+  buildSuggestedFollowUpRecord,
   assessStructuralTravelBurden,
   classifyStructuralMissingData,
   classifyStructuralTimeSeries,
@@ -463,4 +465,31 @@ test("measurement inequality matrix preserves different provincial capabilities 
   })
   assert.equal(matrix.rows[0].cells.Saskatchewan.state, "collected_but_unpublished")
   assert.equal(matrix.cross_province_rankings_prohibited, true)
+})
+
+test("suggested follow-ups are source-backed questions behind their own public gate", () => {
+  const followUp = buildSuggestedFollowUpRecord({
+    follow_up_id: "sk:continuity-acsc",
+    title: "Can Saskatchewan measure primary-care continuity and preventable hospitalization?",
+    jurisdiction: "Saskatchewan",
+    research_question: "Can a governed aggregate analysis compare Registered First Nations residents with a consistently defined comparison population?",
+    why_it_matters: "Aligned measures would help determine whether access and potentially preventable hospitalization can be assessed together.",
+    what_we_currently_know: "Administrative components and a public ACSC definition are documented, but no aligned public comparator was located.",
+    what_is_missing: "An age-standardized, privacy-suppressed series with a stated population definition and method.",
+    evidence_needed: "A governed methodology or public aggregate measure with numerator, denominator and suppression rules.",
+    likely_data_holder_or_source_family: "Saskatchewan health administrative reporting and First Nations governance partners",
+    governance_considerations: "Administrative Registered Indian identification is not equivalent to all Indigenous people; Métis and Inuit require distinct approaches.",
+    source_urls: ["https://www.cihi.ca/en/indicators/ambulatory-care-sensitive-conditions-hospitalizations"],
+    priority: "high",
+    status: "suggested",
+    owner_review_state: "pending",
+    publication_state: "owner_review",
+    public_projection_requested: true,
+  })
+  const pending = assessSuggestedFollowUpPublicGate(followUp)
+  assert.equal(pending.publicly_eligible, true)
+  assert.equal(pending.publishable, false)
+  const approved = assessSuggestedFollowUpPublicGate({ ...followUp, owner_review_state: "approved", publication_state: "approved_public" })
+  assert.equal(approved.publishable, true)
+  assert.throws(() => buildSuggestedFollowUpRecord({ ...followUp, title: "Draft FOI language" }), /private_strategy_prohibited/)
 })

@@ -23,6 +23,7 @@ const POLICY_OUTCOME_STAGES = new Set(["problem_identified", "recommendation", "
 const POLICY_OUTCOME_LINK_STATES = new Set(["supported", "suggestive", "missing", "contradicted", "not_measurable"])
 const MEASUREMENT_INEQUALITY_STATES = new Set(["measurable", "partially_measurable", "insufficiently_disaggregated", "collected_but_unpublished", "unknown", "apparently_not_collected"])
 const TREATMENT_CASCADE_STAGES = new Set(["documented_need", "assessment", "withdrawal_or_oat", "treatment", "transportation", "housing", "aftercare", "return_home_continuity", "outcome"])
+const SUGGESTED_FOLLOW_UP_STATUSES = new Set(["suggested", "watching_for_public_update", "resolved", "no_longer_priority"])
 
 const clean = (value, limit = 600) => String(value ?? "").normalize("NFKC").replace(/\s+/g, " ").trim().slice(0, limit)
 const list = (value, limit = 240) => [...new Set((Array.isArray(value) ? value : value ? [value] : []).map(item => clean(item, limit)).filter(Boolean))]
@@ -914,4 +915,71 @@ export function buildMeasurementInequalityMatrix(input = {}) {
   })
   if (rows.some(row => !row.indicator) || new Set(rows.map(row => row.indicator)).size !== rows.length) throw new Error("palantir_measurement_inequality_row_invalid")
   return Object.freeze({ schema_version: "palantir-measurement-inequality-matrix-v1", provinces: Object.freeze(provinces), rows: Object.freeze(rows), cross_province_rankings_prohibited: true, absence_is_wrongdoing_evidence: false, private_by_default: true, owner_review_required: true })
+}
+
+// A public-safe question card deliberately contains no outreach plan, contact
+// information, request wording or private analyst notes. It can be displayed
+// only through its separate owner/public gate.
+export function buildSuggestedFollowUpRecord(input = {}) {
+  const sourceUrls = list(input.source_urls, 700).map(httpsUrl).filter(Boolean)
+  const title = clean(input.title, 180)
+  const jurisdiction = clean(input.jurisdiction, 120)
+  const researchQuestion = clean(input.research_question, 600)
+  const whyItMatters = clean(input.why_it_matters, 900)
+  const currentlyKnow = clean(input.what_we_currently_know, 1200)
+  const missing = clean(input.what_is_missing, 900)
+  const evidenceNeeded = clean(input.evidence_needed, 900)
+  const governance = clean(input.governance_considerations, 700)
+  const prohibited = /\b(foi|atip|email|phone|contact details|request draft|private analyst|internal note)\b/i
+  const publicFields = [title, jurisdiction, researchQuestion, whyItMatters, currentlyKnow, missing, evidenceNeeded, governance]
+  if (!title || !jurisdiction || !researchQuestion || !whyItMatters || !currentlyKnow || !missing || !evidenceNeeded || sourceUrls.length === 0) throw new Error("palantir_suggested_follow_up_required_fields_missing")
+  if (publicFields.some(value => prohibited.test(value))) throw new Error("palantir_suggested_follow_up_private_strategy_prohibited")
+  const reviewState = REVIEW_STATES.has(input.owner_review_state) ? input.owner_review_state : "pending"
+  const publicationState = PUBLICATION_STATES.has(input.publication_state) ? input.publication_state : "private_research"
+  return Object.freeze({
+    schema_version: "palantir-suggested-follow-up-v1",
+    follow_up_id: clean(input.follow_up_id, 180) || null,
+    title,
+    jurisdiction,
+    research_question: researchQuestion,
+    why_it_matters: whyItMatters,
+    what_we_currently_know: currentlyKnow,
+    what_is_missing: missing,
+    evidence_needed: evidenceNeeded,
+    likely_data_holder_or_source_family: clean(input.likely_data_holder_or_source_family, 360) || "Relevant public reporting or an appropriately governed data source",
+    governance_considerations: governance || null,
+    related_findings: list(input.related_findings, 180),
+    related_accountability_chain: list(input.related_accountability_chain, 180),
+    priority: ["high", "medium", "low"].includes(input.priority) ? input.priority : "medium",
+    status: SUGGESTED_FOLLOW_UP_STATUSES.has(input.status) ? input.status : "suggested",
+    source_urls: Object.freeze(sourceUrls),
+    last_reviewed: isoDate(input.last_reviewed),
+    owner_review_state: reviewState,
+    publication_state: publicationState,
+    public_projection_requested: input.public_projection_requested === true,
+    private_outreach_strategy_included: false,
+    publication_authority: false,
+  })
+}
+
+export function assessSuggestedFollowUpPublicGate(input = {}) {
+  const record = input.schema_version === "palantir-suggested-follow-up-v1" ? input : buildSuggestedFollowUpRecord(input)
+  const checks = Object.freeze({
+    complete_public_rationale: Boolean(record.title && record.research_question && record.why_it_matters && record.what_we_currently_know && record.what_is_missing && record.evidence_needed),
+    source_backed: record.source_urls.length > 0,
+    governance_stated_when_needed: record.governance_considerations !== null || !/first nations|indigenous|metis|inuit/i.test(`${record.title} ${record.research_question}`),
+    no_private_strategy: record.private_outreach_strategy_included === false,
+    owner_approved: record.owner_review_state === "approved",
+    approved_public_state: record.publication_state === "approved_public",
+  })
+  const publicSafe = ["complete_public_rationale", "source_backed", "governance_stated_when_needed", "no_private_strategy"].every(key => checks[key])
+  return Object.freeze({
+    schema_version: "palantir-suggested-follow-up-public-gate-v1",
+    follow_up_id: record.follow_up_id,
+    checks,
+    publicly_eligible: publicSafe,
+    publishable: publicSafe && checks.owner_approved && checks.approved_public_state && record.public_projection_requested,
+    owner_review_required: publicSafe && !checks.owner_approved,
+    automatic_publication: false,
+  })
 }
