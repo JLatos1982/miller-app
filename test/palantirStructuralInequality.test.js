@@ -3,19 +3,27 @@ import test from "node:test"
 
 import {
   assessAccessEquityPage,
+  assessNeedToResourceFit,
+  assessServiceReliability,
   assessCrossProvinceStructuralComparability,
+  assessStructuralAccessIndexExperiment,
   assessMatchedCommunityPair,
   assessRemotenessAccessComparison,
   assessStructuralClaimRelationship,
   assessStructuralComparator,
   assessStructuralPublicGate,
   buildStructuralMechanismChain,
+  buildStructuralAccessProfile,
+  buildStructuralAccessSignal,
   buildStructuralDataAvailabilityMatrix,
   buildStructuralAccessChain,
   buildStructuralInequalityLedger,
   buildMissingEvidenceAcquisition,
   ingestMissingEvidenceAcquisitionResponse,
   buildStructuralSourceYield,
+  buildTreatmentAccessCascade,
+  buildPolicyOutcomeLagChain,
+  buildMeasurementInequalityMatrix,
   assessStructuralTravelBurden,
   classifyStructuralMissingData,
   classifyStructuralTimeSeries,
@@ -352,4 +360,107 @@ test("travel spending without trips, denominator or comparator is burden context
   assert.equal(travel.usable_as_disparity_measure, false)
   assert.equal(travel.missing_denominator, true)
   assert.equal(travel.missing_comparator, true)
+})
+
+test("structural access profiles preserve dimensions and unknowns without a community rank", () => {
+  const profile = buildStructuralAccessProfile({
+    profile_id: "bc:primary-care:v8",
+    jurisdiction: "British Columbia",
+    dimensions: [
+      { dimension: "primary_care_access", state: "supported", summary: "A baseline First Nations comparator is published.", source_url: "https://www.fnha.ca/a", population_definition: "Source-defined First Nations population", governance: ["FNHA context"] },
+      { dimension: "continuity", state: "missing", summary: "No comparable outcome series located." },
+    ],
+  })
+  assert.equal(profile.supported_dimensions, 1)
+  assert.equal(profile.unknown_or_missing_dimensions, 1)
+  assert.equal(profile.community_ranking_prohibited, true)
+  assert.equal(profile.discrimination_conclusion, "not_established")
+})
+
+test("signals are research priorities, never discrimination findings", () => {
+  const signal = buildStructuralAccessSignal({
+    signal_id: "ab:outcome-gap",
+    jurisdiction: "Alberta",
+    signal_type: "outcome_measurement_missing",
+    observed_pattern: "Public implementation is documented without a common outcome series.",
+    research_question: "Do recipient annual reports contain a privacy-safe outcome schema?",
+    source_url: "https://www.alberta.ca/program",
+  })
+  assert.equal(signal.priority_only, true)
+  assert.equal(signal.discrimination_finding, false)
+})
+
+test("the index experiment withholds an arbitrary composite", () => {
+  const withheld = assessStructuralAccessIndexExperiment({
+    dimensions: [{ dimension: "continuity", normalized_value: 0.7, normalization_method: "z score", source_url: "https://example.ca/a" }],
+  })
+  assert.equal(withheld.composite_status, "dimensions_retained_no_composite")
+  assert.equal(withheld.composite_value, null)
+  const experimental = assessStructuralAccessIndexExperiment({
+    pre_specified_weighting: true,
+    weighting_method: "Equal weights pre-specified for a sensitivity test.",
+    dimensions: [
+      { dimension: "continuity", normalized_value: 0.7, normalization_method: "min-max", source_url: "https://example.ca/a", weight: 0.5 },
+      { dimension: "service_stability", normalized_value: 0.3, normalization_method: "min-max", source_url: "https://example.ca/b", weight: 0.5 },
+    ],
+  })
+  assert.equal(experimental.composite_status, "private_experimental_composite")
+  assert.equal(experimental.public_use_prohibited, true)
+})
+
+test("need-to-resource inference requires aligned geography, period and denominators", () => {
+  const incomplete = assessNeedToResourceFit({
+    jurisdiction: "Alberta",
+    need: { label: "ACSC", value: 12, denominator: "per 100,000", geography: "Alberta", period: "2024", source_url: "https://example.ca/need" },
+    resource: { label: "Primary care", value: 3, denominator: "per 10,000", geography: "Alberta", period: "2023", source_url: "https://example.ca/resource" },
+  })
+  assert.equal(incomplete.analytical_state, "insufficient_for_need_resource_inference")
+  assert.equal(incomplete.mismatch_is_discrimination_evidence, false)
+})
+
+test("service reliability refuses to invent a denominator", () => {
+  const unmeasured = assessServiceReliability({ jurisdiction: "Saskatchewan", service_type: "Emergency department", source_url: "https://www.saskatchewan.ca/disruptions" })
+  assert.equal(unmeasured.measurement_state, "not_measured")
+  assert.equal(unmeasured.availability_rate, null)
+  const measured = assessServiceReliability({ jurisdiction: "Test", service_type: "Clinic", scheduled_hours: 100, available_hours: 90, source_url: "https://example.ca/hours" })
+  assert.equal(measured.availability_rate, 0.9)
+})
+
+test("treatment cascades and policy chains keep implementation separate from outcomes", () => {
+  const cascade = buildTreatmentAccessCascade({
+    jurisdiction: "Saskatchewan",
+    stages: [
+      { stage: "documented_need", state: "supported", summary: "Need is documented.", source_url: "https://example.ca/need" },
+      { stage: "transportation", state: "suggestive", summary: "Program activity is public, but normalized burden is not." },
+    ],
+  })
+  assert.equal(cascade.implementation_is_outcome, false)
+  assert.ok(cascade.missing_or_unmeasurable_stages > 0)
+  const chain = buildPolicyOutcomeLagChain({
+    chain_id: "ab:navigator:v8",
+    jurisdiction: "Alberta",
+    links: [
+      { stage: "problem_identified", state: "supported", statement: "Panel documented barriers.", source_url: "https://example.ca/panel", date: "2023-01-01" },
+      { stage: "program", state: "supported", statement: "Navigator program created.", source_url: "https://example.ca/program", date: "2024-01-01" },
+      { stage: "later_outcome", state: "not_measurable", statement: "No public outcome series located." },
+    ],
+  })
+  assert.equal(chain.outcome_measured, false)
+  assert.equal(chain.intervention_is_effectiveness_evidence, false)
+})
+
+test("measurement inequality matrix preserves different provincial capabilities without ranking them", () => {
+  const matrix = buildMeasurementInequalityMatrix({
+    provinces: ["British Columbia", "Alberta", "Saskatchewan"],
+    rows: [{
+      indicator: "Primary-care attachment or continuity",
+      cells: {
+        "British Columbia": { state: "partially_measurable", indigenous_specific: true, comparator_available: true, longitudinal: false, age_standardized: false, public: true, governed: true, methodology_quality: "moderate", latest_year: "2017/18", source_url: "https://www.fnha.ca/report" },
+        Alberta: { state: "insufficiently_disaggregated", indigenous_specific: false, comparator_available: false, longitudinal: false, age_standardized: false, public: true, governed: false, methodology_quality: "weak", latest_year: "2024", source_url: "https://www.alberta.ca/dashboard" },
+        Saskatchewan: { state: "collected_but_unpublished", indigenous_specific: false, comparator_available: false, longitudinal: false, age_standardized: false, public: false, governed: true, methodology_quality: "unknown", source_url: "https://www.saskhealthquality.ca/report" },
+      },
+    }],
+  })
+  assert.equal(matrix.rows[0].cells.Saskatchewan.state, "collected_but_unpublished")
+  assert.equal(matrix.cross_province_rankings_prohibited, true)
 })

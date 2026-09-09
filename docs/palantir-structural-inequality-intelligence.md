@@ -97,6 +97,18 @@ Recommended source handling is source-level and low-noise:
 - record source yield, comparator quality, Indigenous-specific resolution and time-series continuity;
 - send ambiguous mechanisms, comparisons and apparent contradictions to owner review.
 
+## Structural access intelligence
+
+The private structural-access model is a set of dimensions, not a public index: primary care, continuity, workforce, facility/service availability, reliability, emergency and maternity access, mental-health and addiction pathways, OAT/withdrawal/treatment, diagnostics, travel, referral and return-home burden, funding/resources, outcomes and measurement availability. `buildStructuralAccessProfile` records each dimension as `supported`, `suggestive`, `missing`, `contradicted` or `not_measurable`, preserving the population definition, Indigenous-identification method and governance conditions when they exist.
+
+`buildStructuralAccessSignal` turns a source-backed pattern into a narrow research question. Signals are explicitly research priorities, not findings about institutional intent, discrimination or community rank. `assessNeedToResourceFit` refuses to infer a mismatch unless need and resource observations have aligned geography, period, denominators, units and source-backed values. A possible mismatch is never evidence of discrimination or causation.
+
+`assessStructuralAccessIndexExperiment` defaults to retaining dimensions separately. It emits a private experimental composite only where all inputs have a transparent normalization and source, missingness is recorded, and a pre-specified non-arbitrary weighting method sums to one. Its use in public content, community league tables and institutional rankings is prohibited.
+
+`assessServiceReliability` only calculates `available / scheduled` service hours or `available / expected` service days where both numerator and denominator are available; it will not derive historical reliability from closure notices. `buildTreatmentAccessCascade` preserves the stages from documented need through assessment, treatment, transportation, housing, aftercare and outcomes without equating service activity to effectiveness.
+
+`buildPolicyOutcomeLagChain` preserves the distinct links from identified problem through recommendation, funding, program, implementation, measurable indicator and later outcome. It always records implementation separately from outcome and never makes a causal claim from sequence alone. `buildMeasurementInequalityMatrix` stores province-specific capability in a private matrix, including Indigenous-specific resolution, comparators, longitudinal coverage, standardization, public/governed status and limitations. It prohibits cross-province rankings and treating a measurement gap as wrongdoing.
+
 ## Cross-province and remoteness analysis
 
 Cross-province tables are a research aid, not a league table. Direct numeric comparison is allowed only when the indicator definition, unit, denominator, period, methodology and Indigenous-identification method are aligned. Moderate comparisons may support contextual discussion with explicit limitations; poor and non-comparable measures must not be ranked.

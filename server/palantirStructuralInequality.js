@@ -17,6 +17,12 @@ const STRUCTURAL_LINK_STATES = new Set(["supported", "suggestive", "missing"])
 const MISSING_EVIDENCE_EXISTENCE_STATES = new Set(["A_public_dataset_located", "B_public_aggregate_indicator_located", "C_collected_not_public", "D_likely_held_required_fields", "E_collection_uncertain", "F_not_available_for_question"])
 const REQUEST_ROUTES = new Set(["published_data_inquiry", "open_data_request", "research_data_inquiry", "cihi_custom_data", "statistics_canada_custom_tabulation", "indigenous_health_partnership", "annual_report_clarification", "formal_foi_fallback", "formal_atip_fallback", "no_request"])
 const MISSING_EVIDENCE_RESPONSE_TYPES = new Set(["clarification", "methodology_document", "aggregate_table", "denial", "partial_response", "referral", "governance_concern", "data_does_not_exist"])
+const STRUCTURAL_ACCESS_DIMENSIONS = new Set(["primary_care_access", "continuity", "healthcare_workforce", "facility_service_availability", "service_stability", "emergency_access", "maternity_access", "mental_health_access", "addiction_access", "oat_access", "withdrawal_access", "treatment_access", "diagnostic_access", "transportation_medical_travel", "referral_burden", "aftercare_return_home_continuity", "funding_resources", "health_outcomes", "measurement_data_availability"])
+const ACCESS_SIGNAL_TYPES = new Set(["long_travel_burden", "low_service_availability", "repeated_closures", "persistent_vacancies", "locum_dependence", "low_primary_care_attachment", "high_acsc_hospitalization", "high_ed_dependence", "poor_continuity", "high_need_low_capacity", "outcome_measurement_missing"])
+const POLICY_OUTCOME_STAGES = new Set(["problem_identified", "recommendation", "funding", "program", "implementation", "measurable_indicator", "later_outcome"])
+const POLICY_OUTCOME_LINK_STATES = new Set(["supported", "suggestive", "missing", "contradicted", "not_measurable"])
+const MEASUREMENT_INEQUALITY_STATES = new Set(["measurable", "partially_measurable", "insufficiently_disaggregated", "collected_but_unpublished", "unknown", "apparently_not_collected"])
+const TREATMENT_CASCADE_STAGES = new Set(["documented_need", "assessment", "withdrawal_or_oat", "treatment", "transportation", "housing", "aftercare", "return_home_continuity", "outcome"])
 
 const clean = (value, limit = 600) => String(value ?? "").normalize("NFKC").replace(/\s+/g, " ").trim().slice(0, limit)
 const list = (value, limit = 240) => [...new Set((Array.isArray(value) ? value : value ? [value] : []).map(item => clean(item, limit)).filter(Boolean))]
@@ -687,4 +693,225 @@ export function assessAccessEquityPage(ledger, { minimumFindings = 8, minimumJur
     thin_page_prohibited: true,
     automatic_publication: false,
   })
+}
+
+// Structural access is deliberately a profile, not a score. Each dimension is
+// source-backed where possible and unknowns remain explicit research work.
+export function buildStructuralAccessProfile(input = {}) {
+  const profileId = clean(input.profile_id, 180)
+  const jurisdiction = clean(input.jurisdiction, 120)
+  if (!profileId || !jurisdiction) throw new Error("palantir_structural_access_profile_required_fields_missing")
+  const dimensions = (Array.isArray(input.dimensions) ? input.dimensions : []).map(item => {
+    const dimension = STRUCTURAL_ACCESS_DIMENSIONS.has(item.dimension) ? item.dimension : null
+    const state = POLICY_OUTCOME_LINK_STATES.has(item.state) ? item.state : null
+    const sourceUrl = httpsUrl(item.source_url)
+    if (!dimension || !state || !clean(item.summary, 500)) throw new Error("palantir_structural_access_dimension_invalid")
+    if (["supported", "contradicted"].includes(state) && !sourceUrl) throw new Error("palantir_structural_access_dimension_source_required")
+    return Object.freeze({
+      dimension,
+      state,
+      summary: clean(item.summary, 500),
+      source_url: sourceUrl,
+      source_locator: clean(item.source_locator, 220) || null,
+      period: clean(item.period, 120) || null,
+      population_definition: clean(item.population_definition, 320) || null,
+      indigenous_identification_method: clean(item.indigenous_identification_method, 360) || null,
+      governance: list(item.governance, 260),
+      limitations: list(item.limitations, 320),
+    })
+  })
+  if (new Set(dimensions.map(item => item.dimension)).size !== dimensions.length) throw new Error("palantir_structural_access_duplicate_dimension")
+  return Object.freeze({
+    schema_version: "palantir-structural-access-profile-v1",
+    profile_id: profileId,
+    jurisdiction,
+    geography: clean(input.geography, 180) || null,
+    dimensions: Object.freeze(dimensions),
+    supported_dimensions: dimensions.filter(item => item.state === "supported").length,
+    unknown_or_missing_dimensions: dimensions.filter(item => ["missing", "not_measurable"].includes(item.state)).length,
+    indigenous_identity_inferred_from_geography: false,
+    community_ranking_prohibited: true,
+    discrimination_conclusion: "not_established",
+    private_by_default: true,
+    owner_review_required: true,
+  })
+}
+
+// A signal identifies a bounded next research question. It is never a finding
+// about discrimination, institutional intent, or a community's rank.
+export function buildStructuralAccessSignal(input = {}) {
+  const signalType = ACCESS_SIGNAL_TYPES.has(input.signal_type) ? input.signal_type : null
+  const sourceUrl = httpsUrl(input.source_url)
+  if (!signalType || !clean(input.research_question, 500) || !sourceUrl) throw new Error("palantir_structural_access_signal_required_fields_missing")
+  return Object.freeze({
+    schema_version: "palantir-structural-access-signal-v1",
+    signal_id: clean(input.signal_id, 180) || null,
+    jurisdiction: clean(input.jurisdiction, 120) || null,
+    geography: clean(input.geography, 180) || null,
+    signal_type: signalType,
+    observed_pattern: clean(input.observed_pattern, 500) || null,
+    research_question: clean(input.research_question, 500),
+    source_url: sourceUrl,
+    source_locator: clean(input.source_locator, 220) || null,
+    evidence_quality: clean(input.evidence_quality, 100) || "unknown",
+    limitations: list(input.limitations, 320),
+    priority_only: true,
+    discrimination_finding: false,
+    community_ranking: false,
+    owner_review_required: true,
+  })
+}
+
+// The composite is intentionally withheld unless every contributing dimension
+// has a transparent scale, source and pre-specified non-arbitrary weighting.
+export function assessStructuralAccessIndexExperiment(input = {}) {
+  const dimensions = (Array.isArray(input.dimensions) ? input.dimensions : []).map(item => Object.freeze({
+    dimension: STRUCTURAL_ACCESS_DIMENSIONS.has(item.dimension) ? item.dimension : null,
+    normalized_value: numberOrNull(item.normalized_value),
+    normalization_method: clean(item.normalization_method, 240) || null,
+    source_url: httpsUrl(item.source_url),
+    weight: numberOrNull(item.weight),
+    missingness: clean(item.missingness, 180) || null,
+  }))
+  if (dimensions.some(item => !item.dimension)) throw new Error("palantir_structural_access_index_dimension_invalid")
+  const method = clean(input.weighting_method, 500)
+  const complete = dimensions.length >= 2 && dimensions.every(item => item.normalized_value !== null && item.normalization_method && item.source_url && item.weight !== null && item.weight >= 0)
+  const weightTotal = dimensions.reduce((sum, item) => sum + (item.weight ?? 0), 0)
+  const useComposite = input.pre_specified_weighting === true && Boolean(method) && complete && Math.abs(weightTotal - 1) < 0.0001
+  const composite = useComposite ? Number(dimensions.reduce((sum, item) => sum + item.normalized_value * item.weight, 0).toFixed(4)) : null
+  return Object.freeze({
+    schema_version: "palantir-structural-access-index-experiment-v1",
+    index_id: clean(input.index_id, 180) || null,
+    dimensions: Object.freeze(dimensions),
+    weighting_method: method || null,
+    pre_specified_weighting: input.pre_specified_weighting === true,
+    composite_status: useComposite ? "private_experimental_composite" : "dimensions_retained_no_composite",
+    composite_value: composite,
+    withheld_reason: useComposite ? null : "No composite is emitted without complete, source-backed dimensions and a pre-specified non-arbitrary weighting method.",
+    sensitivity_analysis_required: useComposite,
+    public_use_prohibited: true,
+    community_league_table_prohibited: true,
+  })
+}
+
+export function assessNeedToResourceFit(input = {}) {
+  const need = input.need || {}
+  const resource = input.resource || {}
+  const needValue = numberOrNull(need.value)
+  const resourceValue = numberOrNull(resource.value)
+  const checks = Object.freeze({
+    need_source: Boolean(httpsUrl(need.source_url)),
+    resource_source: Boolean(httpsUrl(resource.source_url)),
+    same_geography: Boolean(clean(need.geography, 180) && clean(need.geography, 180) === clean(resource.geography, 180)),
+    aligned_period: Boolean(clean(need.period, 120) && clean(need.period, 120) === clean(resource.period, 120)),
+    stated_need_denominator: Boolean(clean(need.denominator, 260)),
+    stated_resource_denominator: Boolean(clean(resource.denominator, 260)),
+    comparable_units: input.units_comparable === true,
+    known_values: needValue !== null && resourceValue !== null,
+  })
+  const usable = Object.values(checks).every(Boolean)
+  return Object.freeze({
+    schema_version: "palantir-need-resource-fit-v1",
+    jurisdiction: clean(input.jurisdiction, 120) || null,
+    need: Object.freeze({ label: clean(need.label, 240) || null, value: needValue, denominator: clean(need.denominator, 260) || null, geography: clean(need.geography, 180) || null, period: clean(need.period, 120) || null, source_url: httpsUrl(need.source_url) }),
+    resource: Object.freeze({ label: clean(resource.label, 240) || null, value: resourceValue, denominator: clean(resource.denominator, 260) || null, geography: clean(resource.geography, 180) || null, period: clean(resource.period, 120) || null, source_url: httpsUrl(resource.source_url) }),
+    checks,
+    analytical_state: usable ? "research_question_ready" : "insufficient_for_need_resource_inference",
+    possible_mismatch: usable && input.predefined_mismatch_rule === true ? input.possible_mismatch === true : null,
+    mismatch_is_discrimination_evidence: false,
+    causal_conclusion_supported: false,
+    owner_review_required: true,
+  })
+}
+
+export function assessServiceReliability(input = {}) {
+  const scheduled = numberOrNull(input.scheduled_hours)
+  const available = numberOrNull(input.available_hours)
+  const daysExpected = numberOrNull(input.expected_days)
+  const daysAvailable = numberOrNull(input.available_days)
+  if ((scheduled !== null || available !== null) && (scheduled === null || available === null || scheduled <= 0 || available < 0 || available > scheduled)) throw new Error("palantir_service_reliability_hours_invalid")
+  if ((daysExpected !== null || daysAvailable !== null) && (daysExpected === null || daysAvailable === null || daysExpected <= 0 || daysAvailable < 0 || daysAvailable > daysExpected)) throw new Error("palantir_service_reliability_days_invalid")
+  const sourceUrl = httpsUrl(input.source_url)
+  const measure = scheduled !== null ? { numerator: available, denominator: scheduled, unit: "hours" } : daysExpected !== null ? { numerator: daysAvailable, denominator: daysExpected, unit: "days" } : null
+  return Object.freeze({
+    schema_version: "palantir-service-reliability-v1",
+    jurisdiction: clean(input.jurisdiction, 120) || null,
+    service_type: clean(input.service_type, 160) || null,
+    period: clean(input.period, 120) || null,
+    measure,
+    availability_rate: measure ? Number((measure.numerator / measure.denominator).toFixed(4)) : null,
+    source_url: sourceUrl,
+    measurement_state: measure && sourceUrl ? "measured" : "not_measured",
+    limits: list(input.limits, 320),
+    historical_availability_fabricated: false,
+    identity_inference_used: false,
+  })
+}
+
+export function buildTreatmentAccessCascade(input = {}) {
+  const stages = (Array.isArray(input.stages) ? input.stages : []).map(item => {
+    const stage = TREATMENT_CASCADE_STAGES.has(item.stage) ? item.stage : null
+    const state = POLICY_OUTCOME_LINK_STATES.has(item.state) ? item.state : null
+    const sourceUrl = httpsUrl(item.source_url)
+    if (!stage || !state || !clean(item.summary, 500)) throw new Error("palantir_treatment_cascade_stage_invalid")
+    if (state === "supported" && !sourceUrl) throw new Error("palantir_treatment_cascade_source_required")
+    return Object.freeze({ stage, state, summary: clean(item.summary, 500), source_url: sourceUrl, limitations: list(item.limitations, 320) })
+  })
+  if (new Set(stages.map(item => item.stage)).size !== stages.length) throw new Error("palantir_treatment_cascade_duplicate_stage")
+  const byStage = new Map(stages.map(item => [item.stage, item]))
+  const ordered = [...TREATMENT_CASCADE_STAGES].map(stage => byStage.get(stage) || Object.freeze({ stage, state: "missing", summary: "No usable evidence located.", source_url: null, limitations: [] }))
+  return Object.freeze({
+    schema_version: "palantir-treatment-access-cascade-v1",
+    jurisdiction: clean(input.jurisdiction, 120),
+    stages: Object.freeze(ordered),
+    measurable_stages: ordered.filter(item => item.state === "supported").length,
+    missing_or_unmeasurable_stages: ordered.filter(item => ["missing", "not_measurable"].includes(item.state)).length,
+    implementation_is_outcome: false,
+    causal_conclusion_supported: false,
+    private_by_default: true,
+  })
+}
+
+export function buildPolicyOutcomeLagChain(input = {}) {
+  const chainId = clean(input.chain_id, 180)
+  if (!chainId || !clean(input.jurisdiction, 120)) throw new Error("palantir_policy_outcome_chain_required_fields_missing")
+  const links = (Array.isArray(input.links) ? input.links : []).map(item => {
+    const stage = POLICY_OUTCOME_STAGES.has(item.stage) ? item.stage : null
+    const state = POLICY_OUTCOME_LINK_STATES.has(item.state) ? item.state : null
+    const sourceUrl = httpsUrl(item.source_url)
+    if (!stage || !state || !clean(item.statement, 500)) throw new Error("palantir_policy_outcome_chain_link_invalid")
+    if (["supported", "contradicted"].includes(state) && !sourceUrl) throw new Error("palantir_policy_outcome_chain_source_required")
+    return Object.freeze({ stage, state, statement: clean(item.statement, 500), date: isoDate(item.date), source_url: sourceUrl, source_locator: clean(item.source_locator, 220) || null, limitations: list(item.limitations, 320) })
+  })
+  if (new Set(links.map(item => item.stage)).size !== links.length) throw new Error("palantir_policy_outcome_chain_duplicate_stage")
+  const byStage = new Map(links.map(item => [item.stage, item]))
+  const ordered = [...POLICY_OUTCOME_STAGES].map(stage => byStage.get(stage) || Object.freeze({ stage, state: "missing", statement: "No usable evidence located.", date: null, source_url: null, source_locator: null, limitations: [] }))
+  return Object.freeze({
+    schema_version: "palantir-policy-outcome-lag-chain-v1",
+    chain_id: chainId,
+    jurisdiction: clean(input.jurisdiction, 120),
+    links: Object.freeze(ordered),
+    supported_links: ordered.filter(item => item.state === "supported").length,
+    outcome_measured: ordered.find(item => item.stage === "later_outcome")?.state === "supported",
+    intervention_is_effectiveness_evidence: false,
+    causal_conclusion_supported: false,
+    owner_review_required: true,
+  })
+}
+
+export function buildMeasurementInequalityMatrix(input = {}) {
+  const provinces = list(input.provinces, 120)
+  if (provinces.length < 2 || !Array.isArray(input.rows) || input.rows.length === 0) throw new Error("palantir_measurement_inequality_matrix_required_fields_missing")
+  const rows = input.rows.map(row => {
+    const cells = {}
+    for (const province of provinces) {
+      const cell = row.cells?.[province] || {}
+      const state = MEASUREMENT_INEQUALITY_STATES.has(cell.state) ? cell.state : null
+      if (!state || !httpsUrl(cell.source_url)) throw new Error("palantir_measurement_inequality_cell_invalid")
+      cells[province] = Object.freeze({ state, indigenous_specific: cell.indigenous_specific === true, comparator_available: cell.comparator_available === true, longitudinal: cell.longitudinal === true, age_standardized: cell.age_standardized === true, public: cell.public === true, governed: cell.governed === true, methodology_quality: METHODOLOGY_QUALITY_STATES.has(cell.methodology_quality) ? cell.methodology_quality : "unknown", latest_year: clean(cell.latest_year, 60) || null, next_expected_update: clean(cell.next_expected_update, 120) || null, source_url: httpsUrl(cell.source_url), limitations: list(cell.limitations, 300) })
+    }
+    return Object.freeze({ indicator: clean(row.indicator, 240), cells: Object.freeze(cells) })
+  })
+  if (rows.some(row => !row.indicator) || new Set(rows.map(row => row.indicator)).size !== rows.length) throw new Error("palantir_measurement_inequality_row_invalid")
+  return Object.freeze({ schema_version: "palantir-measurement-inequality-matrix-v1", provinces: Object.freeze(provinces), rows: Object.freeze(rows), cross_province_rankings_prohibited: true, absence_is_wrongdoing_evidence: false, private_by_default: true, owner_review_required: true })
 }

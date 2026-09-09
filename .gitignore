@@ -41,6 +41,10 @@ artifacts/samwise/*governance-outreach*.json
 artifacts/samwise/*collaborator-handoff*.md
 artifacts/samwise/*intervention-outcomes*.md
 artifacts/samwise/*intervention-outcomes*.json
+artifacts/samwise/*structural-access-intelligence*.md
+artifacts/samwise/*structural-access-intelligence*.json
+artifacts/samwise/*measurement-inequality*.json
+artifacts/samwise/*manitoba-validation*.md
 reports/farm-legal-corpus-mining-v[3-9]-*.md
 reports/miller-north-*.md
 reports/miller-shared-resource-foundation-*.md
