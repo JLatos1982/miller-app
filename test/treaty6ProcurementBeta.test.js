@@ -88,6 +88,7 @@ test("v2 assistant enrichment remains source-linked, public-only and explicit ab
   assert.ok(model.sections.business_watchlists.every(item => item.public_summary && item.watch_categories.length && item.official_links.every(link => link.url.startsWith("https://"))))
   assert.ok(model.sections.buyer_intelligence.every(item => item.source_url.startsWith("https://") && /infer|confirm/i.test(item.indigenous_signal)))
   assert.equal(model.sections.weekly_digest[0].event_type, "MARKET_PASS_COMPLETED")
+  assert.ok(model.sections.contract_pathways.every(item => item.source_url.startsWith("https://") && ["PUBLIC_LINK_ONLY", "ACCOUNT_REQUIRED", "MEMBERSHIP_REQUIRED"].includes(item.access)))
   assert.doesNotMatch(JSON.stringify(model), /business_id|profile_checksum|match_id|win_probability|qualification_state|internal_notes/i)
 })
 
@@ -134,6 +135,7 @@ test("route, navigation, metadata, accessibility and mobile layout are wired", (
   assert.match(page, /Business watchlists/)
   assert.match(page, /Buyer pathways/)
   assert.match(page, /How Samwise decides what is worth reviewing/)
+  assert.match(page, /Ways businesses can find opportunities/)
   assert.match(css, /@media\(max-width:560px\)/)
   assert.match(nav, /label: "Procurement"/)
 })
