@@ -5,6 +5,7 @@ export const MILLER_NORTH_PUBLIC_SECTIONS = Object.freeze([
   Object.freeze({ id: "access_equity", label: "Access & Equity", href: "/indigenous-healthcare-evidence/access-equity" }),
   Object.freeze({ id: "watching", label: "Watching", href: "/indigenous-healthcare-evidence/watching-now" }),
   Object.freeze({ id: "supports", label: "Supports & Funding", href: "/indigenous-healthcare-evidence/first-nations-supports" }),
+  Object.freeze({ id: "procurement", label: "Procurement", href: "/north/procurement" }),
 ])
 
 export const MILLER_NORTH_PUBLIC_SECTION_ALIASES = Object.freeze({
@@ -20,6 +21,7 @@ export const MILLER_NORTH_PUBLIC_SECTION_ALIASES = Object.freeze({
   watching: "watching",
   supports: "supports",
   funding: "supports",
+  procurement: "procurement",
 })
 
 export const MILLER_NORTH_PUBLIC_PLACEMENT_RULES = Object.freeze({
@@ -46,6 +48,10 @@ export const MILLER_NORTH_PUBLIC_PLACEMENT_RULES = Object.freeze({
   supports: Object.freeze({
     primary_home: "publication-safe practical supports, benefits, and funding",
     includes: Object.freeze(["support_service", "benefit", "funding_program"]),
+  }),
+  procurement: Object.freeze({
+    primary_home: "publication-safe public procurement opportunities, supplier pathways, planning signals, and practical market intelligence",
+    includes: Object.freeze(["procurement_opportunity", "supplier_registration", "planning_signal", "buyer_watch", "procurement_support"]),
   }),
 })
 

@@ -79,6 +79,7 @@ import { buildMillerSpecializedSearchResources, buildSharedCanonicalMillerResour
 import { publicCounsellingPractitioners } from "./data/privateCounsellingPractitioners.js"
 import { buildMillerPracticalIntelligence } from "./millerPracticalIntelligence.js"
 import { conciseResourceDescription } from "./millerResultPresentation.js"
+import Treaty6ProcurementPreview from "./site/Treaty6ProcurementPreview.jsx"
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -1765,6 +1766,10 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
 
   if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence/funding-assistance") {
     return <MillerNorthFirstNationsSupports />
+  }
+
+  if (typeof window !== "undefined" && window.location.pathname === "/north/procurement") {
+    return <Treaty6ProcurementPreview />
   }
 
   if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence") {

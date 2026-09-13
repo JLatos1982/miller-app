@@ -41,7 +41,8 @@
     "samwise:workflow-memory": "node scripts/samwise-workflow-memory.mjs",
     "samwise:advisories": "node scripts/samwise-advisories.mjs",
     "samwise:owner-brief": "node scripts/samwise-owner-brief.mjs",
-    "samwise:steward": "node scripts/samwise-steward.mjs"
+    "samwise:steward": "node scripts/samwise-steward.mjs",
+    "samwise:treaty6:build-beta": "node scripts/build-treaty6-procurement-beta-v1.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.102.1",

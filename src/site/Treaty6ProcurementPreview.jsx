@@ -1,43 +1,115 @@
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
+import model from "../data/treaty6-procurement-beta-public-v1.json"
+import { safeHttpUrl } from "../safeLinks.js"
+import MillerNorthPublicNav, { MillerNorthHomeLink } from "./MillerNorthPublicNav.jsx"
+import { filterAndSortTreaty6Beta } from "./treaty6ProcurementBetaFilters.js"
 import "./Treaty6ProcurementPreview.css"
 
-const actionabilityLabels = Object.freeze({
-  OPEN_BID_READY: "Open bid",
-  OPEN_REGISTRATION: "Supplier registration",
-  PREQUALIFICATION: "Prequalification",
-  RFI_ONLY: "Planning / RFI",
-  UPCOMING_PLANNING: "Upcoming / planning",
-  MONITOR: "Monitor",
+const EMPTY = Object.freeze([])
+const fitLabels = Object.freeze({
+  SOLO_FRIENDLY: "May suit smaller suppliers",
+  MICRO_BUSINESS_FRIENDLY: "May suit smaller suppliers",
+  SMALL_TEAM_FRIENDLY: "May suit smaller suppliers",
+  CREDENTIAL_HEAVY: "Likely requires specialized capability",
+  EQUIPMENT_HEAVY: "Likely requires specialized capability",
+  CAPITAL_HEAVY: "Large / complex procurement",
+  MEDIUM_BUSINESS: "Large / complex procurement",
+  INSUFFICIENT_INFORMATION: "Requirements still being verified",
 })
-const EMPTY_OPPORTUNITIES = Object.freeze([])
+const pretty = value => String(value || "").replaceAll("_", " ").toLocaleLowerCase("en-CA").replace(/\b\w/g, letter => letter.toUpperCase())
+const formatDate = value => value ? new Date(value).toLocaleDateString("en-CA", { dateStyle: "medium" }) : null
 
-function OpportunityCard({ item }) {
-  return <article className="t6p-card">
-    <div className="t6p-card-tags"><span>{actionabilityLabels[item.actionability] || item.actionability}</span><span>{item.province}</span>{item.small_business_fit ? <span>{item.small_business_fit.replaceAll("_", " ").toLowerCase()}</span> : null}</div>
+function OfficialLink({ href, children = "Open official source" }) {
+  const safe = safeHttpUrl(href)
+  return safe ? <a className="t6p-source-button" href={safe} target="_blank" rel="noreferrer">{children}<span aria-hidden="true"> ↗</span></a> : null
+}
+
+function OpportunityCard({ item, watched = false }) {
+  const planning = ["RFI_ONLY", "UPCOMING_PLANNING"].includes(item.actionability)
+  return <article className={`t6p-card t6p-opportunity-card${watched ? " is-watched" : ""}`}>
+    <div className="t6p-card-tags"><span className={planning ? "is-planning" : "is-open"}>{item.action_label}</span><span>{item.province}</span><span>{item.indigenous_label}</span></div>
     <h3>{item.title}</h3><p className="t6p-buyer">{item.buyer}</p>
-    {item.close_date ? <p><strong>Closes:</strong> {new Date(item.close_date).toLocaleDateString("en-CA", { dateStyle: "medium" })}</p> : <p><strong>Timing:</strong> Check the official source.</p>}
-    <p><strong>Why it appears here:</strong> {item.treaty6_relevance.replaceAll("_", " ").toLowerCase()}.</p>
-    {item.possible_fit_for?.length ? <p><strong>Who might care:</strong> {item.possible_fit_for.join(", ")}.</p> : null}
-    <a href={item.source_url} target="_blank" rel="noreferrer">Check the official opportunity</a>
+    <dl className="t6p-facts">
+      <div><dt>{planning ? "Response / notice date" : "Closing date"}</dt><dd>{formatDate(item.close_date) || "Check the official source"}</dd></div>
+      <div><dt>Region</dt><dd>{item.community_region || pretty(item.treaty6_relevance)}</dd></div>
+      <div><dt>Category</dt><dd>{item.categories?.map(pretty).join(", ") || "Not specified"}</dd></div>
+      <div><dt>Supplier scale</dt><dd>{fitLabels[item.small_business_fit] || "Requirements still being verified"}</dd></div>
+    </dl>
+    <p>{item.plain_language_summary}</p>
+    <p className="t6p-why"><strong>Why it may be worth watching</strong>{item.why_watch}</p>
+    {item.key_requirements?.length ? <div className="t6p-requirements"><strong>Key verified requirements</strong><ul>{item.key_requirements.map(requirement => <li key={`${requirement.type}-${requirement.value}`}>{pretty(requirement.type)}: {requirement.value}</li>)}</ul></div> : <p className="t6p-requirements-note">{item.requirements_note || "See the official tender for full requirements."}</p>}
+    <footer><OfficialLink href={item.source_url}>{planning ? "Read the official planning notice" : "Check the official opportunity"}</OfficialLink><small>Last verified {formatDate(item.verified_at)}</small></footer>
   </article>
 }
 
-export default function Treaty6ProcurementPreview({ model }) {
+function SupportCard({ item, linkText = "Visit official source" }) {
+  return <article className="t6p-card t6p-support-card"><span className="t6p-mini-label">{pretty(item.support_type || item.jurisdiction)}</span><h3>{item.title}</h3><p>{item.summary || item.description}</p>{item.registration_or_alerts ? <p><strong>Alerts or registration:</strong> {item.registration_or_alerts}</p> : null}{item.full_documents_may_require_account ? <p className="t6p-caveat">An account may be needed for complete documents.</p> : null}<OfficialLink href={item.source_url}>{linkText}</OfficialLink></article>
+}
+
+function EmptyState({ children }) {
+  return <div className="t6p-empty"><strong>No verified open bids are displayed right now.</strong><p>{children}</p></div>
+}
+
+export default function Treaty6ProcurementPreview() {
   const [province, setProvince] = useState("ALL")
+  const [action, setAction] = useState("OPEN_BID_READY")
   const [category, setCategory] = useState("ALL")
+  const [relevance, setRelevance] = useState("ALL")
+  const [buyer, setBuyer] = useState("ALL")
+  const [closingSoon, setClosingSoon] = useState(false)
   const [sort, setSort] = useState("CLOSING_SOON")
-  const opportunities = model?.sections?.open_opportunities || EMPTY_OPPORTUNITIES
-  const categories = useMemo(() => [...new Set(opportunities.flatMap(item => item.categories || []))].sort(), [opportunities])
-  const visible = useMemo(() => [...opportunities].filter(item => province === "ALL" || item.province === province).filter(item => category === "ALL" || item.categories?.includes(category)).sort((a, b) => sort === "NEWEST" ? Date.parse(b.posted_date || 0) - Date.parse(a.posted_date || 0) : Date.parse(a.close_date || "9999-12-31") - Date.parse(b.close_date || "9999-12-31")), [opportunities, province, category, sort])
-  if (!model) return null
-  return <main className="t6p-page">
-    <header className="t6p-hero"><p className="t6p-eyebrow">Miller North · practical economic opportunity</p><h1>{model.title}</h1><p>{model.subtitle}</p><div className="t6p-notice">{model.disclosures.map(item => <p key={item}>{item}</p>)}</div></header>
-    <section aria-labelledby="t6p-open"><div className="t6p-section-head"><div><p className="t6p-kicker">Act on public information</p><h2 id="t6p-open">Open opportunities</h2></div><div className="t6p-filters"><label>Province<select value={province} onChange={event => setProvince(event.target.value)}><option value="ALL">All</option><option value="Alberta">Alberta</option><option value="Saskatchewan">Saskatchewan</option><option value="Federal / Alberta / Saskatchewan">Federal</option></select></label><label>Category<select value={category} onChange={event => setCategory(event.target.value)}><option value="ALL">All</option>{categories.map(item => <option key={item} value={item}>{item.replaceAll("_", " ")}</option>)}</select></label><label>Sort<select value={sort} onChange={event => setSort(event.target.value)}><option value="CLOSING_SOON">Closing soon</option><option value="NEWEST">Newest</option></select></label></div></div>
-      {visible.length ? <div className="t6p-grid">{visible.map(item => <OpportunityCard key={item.opportunity_id} item={item}/>)}</div> : <p className="t6p-empty">No validated open opportunities match these filters. Check back after the next monitored update.</p>}
+  const allOpportunities = useMemo(() => [...(model.sections.current_opportunities || EMPTY), ...(model.sections.watching || EMPTY), ...(model.sections.registration_prequalification || EMPTY)], [])
+  const categories = useMemo(() => [...new Set(allOpportunities.flatMap(item => item.categories || []))].sort(), [allOpportunities])
+  const buyers = useMemo(() => [...new Set(allOpportunities.map(item => item.buyer))].sort(), [allOpportunities])
+  const relevanceOptions = useMemo(() => [...new Set(allOpportunities.map(item => item.indigenous_relevance_class))].sort(), [allOpportunities])
+  const visible = useMemo(() => {
+    return filterAndSortTreaty6Beta(allOpportunities, { province, action, category, relevance, buyer, closing_soon: closingSoon }, sort)
+  }, [allOpportunities, province, action, category, relevance, buyer, closingSoon, sort])
+
+  useEffect(() => {
+    const previousTitle = document.title
+    const description = document.querySelector('meta[name="description"]')
+    const previousDescription = description?.getAttribute("content")
+    document.title = "Treaty 6 Procurement Opportunities | Miller North"
+    if (description) description.setAttribute("content", model.description)
+    return () => {
+      document.title = previousTitle
+      if (description && previousDescription !== null) description.setAttribute("content", previousDescription)
+    }
+  }, [])
+
+  const registration = model.sections.supports.filter(item => item.support_type !== "INDIGENOUS_PROGRAM")
+  const supports = model.sections.supports.filter(item => item.support_type === "INDIGENOUS_PROGRAM")
+
+  return <main className="mn-public-page t6p-page">
+    <header className="mn-public-header"><MillerNorthHomeLink/><MillerNorthPublicNav current="procurement" /></header>
+    <section className="t6p-hero"><div><p className="mn-public-eyebrow">Miller North · practical economic opportunity</p><span className="t6p-beta-badge">Beta · data still being refined</span><h1>{model.title}</h1><p>{model.subtitle}</p></div><aside className="t6p-beta-note"><strong>{model.disclosures[0]}</strong>{model.disclosures.slice(1).map(item => <p key={item}>{item}</p>)}</aside></section>
+
+    <section className="t6p-section" aria-labelledby="t6p-current">
+      <div className="t6p-section-heading"><div><p className="t6p-kicker">Official sources control</p><h2 id="t6p-current">Current opportunities</h2><p>Start with open bids, or switch the action filter to see verified planning notices.</p></div><span aria-live="polite">{visible.length} shown</span></div>
+      <div className="t6p-filters" aria-label="Procurement opportunity filters">
+        <label>Province<select value={province} onChange={event => setProvince(event.target.value)}><option value="ALL">All</option><option value="Alberta">Alberta</option><option value="Saskatchewan">Saskatchewan</option><option value="Federal">Federal</option></select></label>
+        <label>Action<select value={action} onChange={event => setAction(event.target.value)}><option value="OPEN_BID_READY">Open bids</option><option value="RFI_ONLY">Planning / RFI</option><option value="OPEN_REGISTRATION">Registration</option><option value="PREQUALIFICATION">Prequalification</option><option value="ALL">All monitored</option></select></label>
+        <label>Category<select value={category} onChange={event => setCategory(event.target.value)}><option value="ALL">All categories</option>{categories.map(item => <option key={item} value={item}>{pretty(item)}</option>)}</select></label>
+        <label>Indigenous relevance<select value={relevance} onChange={event => setRelevance(event.target.value)}><option value="ALL">All relevance</option>{relevanceOptions.map(item => <option key={item} value={item}>{pretty(item)}</option>)}</select></label>
+        <label>Buyer<select value={buyer} onChange={event => setBuyer(event.target.value)}><option value="ALL">All buyers</option>{buyers.map(item => <option key={item}>{item}</option>)}</select></label>
+        <label>Sort<select value={sort} onChange={event => setSort(event.target.value)}><option value="CLOSING_SOON">Closing soon</option><option value="NEWEST">Newest</option><option value="RECENTLY_CHANGED">Recently changed</option><option value="INDIGENOUS_SPECIFIC">Indigenous-specific</option><option value="BUYER">Buyer</option></select></label>
+        <label className="t6p-check"><input type="checkbox" checked={closingSoon} onChange={event => setClosingSoon(event.target.checked)}/> Closing within 7 days</label>
+      </div>
+      {visible.length ? <div className="t6p-grid">{visible.map(item => <OpportunityCard key={item.opportunity_id} item={item}/>)}</div> : <EmptyState>We’re monitoring public sources and add opportunities only after validation. Try “Planning / RFI,” review the official portals below, or check back after the next monitored update.</EmptyState>}
     </section>
-    <section aria-labelledby="t6p-specific"><p className="t6p-kicker">Explicit source language only</p><h2 id="t6p-specific">Indigenous-specific and participation opportunities</h2>{model.sections.indigenous_specific_participation?.length ? <div className="t6p-grid">{model.sections.indigenous_specific_participation.map(item => <OpportunityCard key={`specific-${item.opportunity_id}`} item={item}/>)}</div> : <p className="t6p-empty">No current record passed this evidence gate.</p>}</section>
-    <section aria-labelledby="t6p-supports"><p className="t6p-kicker">Prepare and register</p><h2 id="t6p-supports">Supplier registration and procurement supports</h2><div className="t6p-grid">{model.sections.procurement_supports?.map(item => <article className="t6p-card" key={item.support_id}><h3>{item.title}</h3><p>{item.summary}</p><a href={item.source_url} target="_blank" rel="noreferrer">Official program</a></article>)}</div></section>
-    <section aria-labelledby="t6p-changes"><p className="t6p-kicker">Source-backed history</p><h2 id="t6p-changes">Recurring buyers and what changed</h2>{model.sections.recurring_buyers_categories?.length ? <ul>{model.sections.recurring_buyers_categories.map(item => <li key={item.signal_id}><strong>{item.label.replaceAll("_", " ")}</strong>: {item.reason}</li>)}</ul> : <p className="t6p-empty">The monitor has not yet accumulated enough public history for a recurring-buyer signal.</p>}</section>
+
+    <section className="t6p-section t6p-watch-section" aria-labelledby="t6p-watch"><p className="t6p-kicker">Early public signals</p><h2 id="t6p-watch">Opportunities we’re watching</h2><p>These are not yet open contract bids. They may help suppliers see future needs, consultations or market planning earlier.</p>{model.sections.watching.length ? <div className="t6p-grid">{model.sections.watching.map(item => <OpportunityCard key={`watch-${item.opportunity_id}`} item={item} watched/>)}</div> : <p className="t6p-empty">No source-supported planning signal currently passes the beta publication gate.</p>}</section>
+    <section className="t6p-section" aria-labelledby="t6p-radar"><p className="t6p-kicker">Registering is not winning</p><h2 id="t6p-radar">Get on the radar</h2><p>These official paths can help a supplier find notices, register or follow opportunities. Registration does not establish qualification or guarantee a contract.</p><div className="t6p-grid">{registration.map(item => <SupportCard key={item.support_id} item={item} linkText="Review registration path"/>)}</div></section>
+    <section className="t6p-section" aria-labelledby="t6p-portals"><p className="t6p-kicker">Go to the source</p><h2 id="t6p-portals">Where to find more opportunities</h2><div className="t6p-grid">{model.sections.portals.map(item => <SupportCard key={item.portal_id} item={item} linkText="Open official portal"/>)}</div></section>
+    <section className="t6p-section" aria-labelledby="t6p-buyers"><p className="t6p-kicker">Public purchasing pathways</p><h2 id="t6p-buyers">Buyers to watch</h2><p>Inclusion means Samwise monitors an official buyer or portal pathway. It does not imply an Indigenous preference.</p><div className="t6p-buyer-grid">{model.sections.buyers.map(item => <article className="t6p-buyer-card" key={item.buyer_id}><span>{item.province}</span><h3>{item.name}</h3><p>{item.why_watch}</p><OfficialLink href={item.source_url}>Official procurement source</OfficialLink></article>)}</div></section>
+    <section className="t6p-section" aria-labelledby="t6p-categories"><p className="t6p-kicker">Current monitored sample</p><h2 id="t6p-categories">Common procurement categories</h2><div className="t6p-category-list">{model.sections.categories.map(item => <span key={item.category}>{item.label}<small>{item.history_status === "REPEATED_IN_CURRENT_SAMPLE" ? "Repeated in sample" : "Currently observed"}</small></span>)}</div><p className="t6p-muted">Longer-term recurring-category signals will appear only after the monitor accumulates enough source-backed history.</p></section>
+    <section className="t6p-section" aria-labelledby="t6p-changes"><p className="t6p-kicker">Meaningful updates only</p><h2 id="t6p-changes">What changed</h2>{model.sections.recently_changed.length ? <ul className="t6p-change-list">{model.sections.recently_changed.map(item => <li key={item.event_id}><strong>{pretty(item.event_type)}</strong> — {item.title} · {formatDate(item.observed_at)} <OfficialLink href={item.source_url}>Check source</OfficialLink></li>)}</ul> : <p className="t6p-empty">No verified material change has been recorded since the monitor baseline. Cosmetic page changes are not shown.</p>}</section>
+    <section className="t6p-section" aria-labelledby="t6p-supports"><p className="t6p-kicker">Prepare to compete</p><h2 id="t6p-supports">Supports for businesses</h2><div className="t6p-grid">{supports.map(item => <SupportCard key={item.support_id} item={item} linkText="Review official program"/>)}</div></section>
+    <section className="t6p-context" aria-labelledby="t6p-context"><div><p className="t6p-kicker">Treaty 6 context</p><h2 id="t6p-context">Regional relevance, not an eligibility shortcut</h2><p>{model.sections.treaty6_context.summary}</p><p>{model.sections.treaty6_context.boundary_caveat}</p><div className="t6p-context-links">{model.sections.treaty6_context.references.map(item => <OfficialLink key={item.source_url} href={item.source_url}>{item.title}</OfficialLink>)}</div></div><div><p className="t6p-kicker">Who this may help</p><ul className="t6p-who-list">{model.who_this_may_help.map(item => <li key={item}>{item}</li>)}</ul></div></section>
+    <aside className="t6p-accountability-boundary"><strong>Practical opportunities stay separate from accountability research.</strong><p>{model.accountability_boundary}</p></aside>
+    <section className="t6p-feedback" aria-labelledby="t6p-feedback"><p className="t6p-kicker">Early beta</p><h2 id="t6p-feedback">{model.feedback.heading}</h2><p>{model.feedback.prompt}</p><p><strong>No form is collecting business or personal information in this beta.</strong></p></section>
+    <footer className="mn-public-footer">Coverage is not comprehensive. Listings may change, and the official procurement source controls. Last beta projection: {formatDate(model.generated_at)}.</footer>
   </main>
 }

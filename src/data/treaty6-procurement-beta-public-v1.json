@@ -1,0 +1,380 @@
+{
+  "schema_version": "treaty6-procurement-beta-public-v1",
+  "publication_policy": "TREATY6_PROCUREMENT_BETA_PUBLICATION_POLICY_V1",
+  "route": "/north/procurement",
+  "title": "Treaty 6 Procurement & Business Opportunities",
+  "subtitle": "Public procurement opportunities, supplier programs and market signals relevant to Treaty 6 businesses and organizations.",
+  "description": "Public procurement opportunities, supplier programs and procurement signals relevant to Treaty 6 businesses and organizations in Alberta and Saskatchewan.",
+  "generated_at": "2026-09-13T16:42:58.958Z",
+  "beta": true,
+  "owner_approval_required": true,
+  "comprehensive_coverage_claimed": false,
+  "disclosures": [
+    "Beta — this data is still being refined.",
+    "Samwise monitors authoritative public procurement sources, but listings can change.",
+    "Not every opportunity is Indigenous-specific. Eligibility and requirements must be confirmed with the official source.",
+    "Planning and RFI notices are labelled separately from open bids.",
+    "Please check back — this page is actively improving."
+  ],
+  "sections": {
+    "current_opportunities": [],
+    "watching": [
+      {
+        "opportunity_id": "PSPC-WR-001",
+        "buyer": "Public Services and Procurement Canada",
+        "title": "Western Region Indigenous Professional Design Services RFI",
+        "province": "Federal / Alberta / Saskatchewan",
+        "community_region": "Alberta, Saskatchewan, Manitoba and northern regions",
+        "treaty6_relevance": "INDIGENOUS_SPECIFIC",
+        "categories": [
+          "PROFESSIONAL_SERVICES"
+        ],
+        "posted_date": "2026-05-22T00:00:00.000Z",
+        "close_date": "2027-03-31T20:00:00.000Z",
+        "status": "OPEN",
+        "indigenous_relevance_class": "INDIGENOUS_PARTICIPATION_ENCOURAGED",
+        "actionability": "RFI_ONLY",
+        "small_business_fit": "INSUFFICIENT_INFORMATION",
+        "possible_fit_for": [
+          "consultants"
+        ],
+        "source_url": "https://canadabuys.canada.ca/en/tender-opportunities/tender-notice/cb-888-99132841",
+        "verified_at": "2026-09-13T14:44:45.903Z",
+        "last_changed_at": "2026-09-13T15:06:00.071Z",
+        "disclaimer": "Confirm eligibility, requirements, status and deadlines in the official tender. The official source controls.",
+        "eligibility": null,
+        "participation_requirements": null,
+        "set_aside_status": null,
+        "community_benefit_requirement": null,
+        "action_label": "RFI / PLANNING",
+        "indigenous_label": "INDIGENOUS PARTICIPATION ENCOURAGED",
+        "plain_language_summary": "This is a public planning or market-information notice, not an open contract bid.",
+        "why_watch": "The planning-only RFI explicitly asks Indigenous Businesses for capacity information and states that no contract will result directly.",
+        "key_requirements": [],
+        "requirements_note": "See the official tender for full requirements.",
+        "personal_business_recommendation": false,
+        "business_qualification_claim": false
+      }
+    ],
+    "registration_prequalification": [],
+    "portals": [
+      {
+        "portal_id": "FED-CANADABUYS-NOTICES",
+        "title": "Tender, award, and contract-history notices",
+        "jurisdiction": "Federal",
+        "source_url": "https://canadabuys.canada.ca/en/tender-opportunities",
+        "description": "Federal tender notices, awards and procurement history. Search and notice-following tools are available.",
+        "registration_or_alerts": "Follow-this-search and follow-this-notice are publicly documented.",
+        "full_documents_may_require_account": false,
+        "reuse_class": "PUBLIC_REUSE_CLEAR"
+      },
+      {
+        "portal_id": "AB-APC",
+        "title": "Find and compete for government contracts / APC",
+        "jurisdiction": "Alberta",
+        "source_url": "https://www.alberta.ca/find-and-compete-for-government-contracts",
+        "description": "Alberta public-sector opportunities. A supplier account can support saved filters and notifications.",
+        "registration_or_alerts": "Saved filters, posting notifications, and addendum updates are available to supplier accounts.",
+        "full_documents_may_require_account": true,
+        "reuse_class": "PUBLIC_LINK_ONLY"
+      },
+      {
+        "portal_id": "SK-SASKTENDERS",
+        "title": "SaskTenders public-sector purchasing",
+        "jurisdiction": "Saskatchewan",
+        "source_url": "https://www.saskatchewan.ca/business/transportation-and-road-construction/contracting-with-highways",
+        "description": "Saskatchewan public-sector procurement notices and notification guidance.",
+        "registration_or_alerts": "Public notification setup guidance exists.",
+        "full_documents_may_require_account": false,
+        "reuse_class": "PUBLIC_LINK_ONLY"
+      },
+      {
+        "portal_id": "SK-ASPEN",
+        "title": "Aspen Power Station commitments and work opportunities",
+        "jurisdiction": "Saskatchewan",
+        "source_url": "https://www.saskpower.com/our-power-future/infrastructure-projects/construction-projects/planning-and-construction-projects/aspen-power-station/our-commitment-and-work-opportunities",
+        "description": "A SaskPower project page with public work-opportunity and awarded-contract pathways.",
+        "registration_or_alerts": "Project page links to procurement opportunities and awarded contracts.",
+        "full_documents_may_require_account": false,
+        "reuse_class": "PUBLIC_LINK_ONLY"
+      }
+    ],
+    "supports": [
+      {
+        "support_id": "FED-PSIB",
+        "support_type": "INDIGENOUS_PROGRAM",
+        "title": "Procurement Strategy for Indigenous Business",
+        "summary": "Official federal set-aside rules and buyer guidance. Suppliers must confirm current eligibility and registration requirements at the source.",
+        "source_url": "https://canadabuys.canada.ca/en/buyer-s-portal/legislation-and-policies/socioeconomics/indigenous-considerations/procurement-strategy-indigenous-business",
+        "reuse_class": "PUBLIC_REUSE_CLEAR"
+      },
+      {
+        "support_id": "FED-CANADABUYS-ALERTS",
+        "support_type": "SUPPLIER_REGISTRATION",
+        "title": "CanadaBuys opportunity search and alerts",
+        "summary": "Search public tender notices and use the official notification tools to follow relevant searches or notices.",
+        "source_url": "https://canadabuys.canada.ca/en/tender-opportunities",
+        "reuse_class": "PUBLIC_REUSE_CLEAR"
+      },
+      {
+        "support_id": "AB-APC-SUPPLIER",
+        "support_type": "SUPPLIER_REGISTRATION",
+        "title": "Alberta Purchasing Connection supplier account",
+        "summary": "Official Alberta guidance documents saved filters, posting notifications, document access and expressions of interest.",
+        "source_url": "https://www.alberta.ca/find-and-compete-for-government-contracts",
+        "reuse_class": "PUBLIC_LINK_ONLY"
+      },
+      {
+        "support_id": "SK-SASKTENDERS",
+        "support_type": "SUPPLIER_REGISTRATION",
+        "title": "SaskTenders public procurement discovery",
+        "summary": "Official provincial route to Saskatchewan public-sector tender information; individual requirements remain controlled by each notice.",
+        "source_url": "https://www.saskatchewan.ca/business/transportation-and-road-construction/contracting-with-highways",
+        "reuse_class": "PUBLIC_LINK_ONLY"
+      }
+    ],
+    "buyers": [
+      {
+        "buyer_id": "PSPC",
+        "name": "Public Services and Procurement Canada",
+        "province": "Federal",
+        "buyer_type": "FEDERAL_DEPARTMENT",
+        "healthcare_lane": false,
+        "categories": [
+          "PROFESSIONAL_SERVICES"
+        ],
+        "why_watch": "The current monitored sample includes professional services activity from this buyer.",
+        "source_url": "https://canadabuys.canada.ca/en/tender-opportunities",
+        "indigenous_preference_claimed": false
+      },
+      {
+        "buyer_id": "ISC",
+        "name": "Indigenous Services Canada",
+        "province": "Federal",
+        "buyer_type": "FEDERAL_DEPARTMENT",
+        "healthcare_lane": false,
+        "categories": [
+          "DATA_RESEARCH",
+          "PROFESSIONAL_SERVICES"
+        ],
+        "why_watch": "The current monitored sample includes data research, professional services activity from this buyer.",
+        "source_url": "https://canadabuys.canada.ca/en/tender-opportunities",
+        "indigenous_preference_claimed": false
+      },
+      {
+        "buyer_id": "CSC",
+        "name": "Correctional Service Canada",
+        "province": "Federal",
+        "buyer_type": "FEDERAL_DEPARTMENT",
+        "healthcare_lane": false,
+        "categories": [
+          "EMPLOYMENT_COMMUNITY_SERVICES"
+        ],
+        "why_watch": "The current monitored sample includes employment community services activity from this buyer.",
+        "source_url": "https://canadabuys.canada.ca/en/tender-opportunities",
+        "indigenous_preference_claimed": false
+      },
+      {
+        "buyer_id": "AB-GOV",
+        "name": "Government of Alberta ministries and agencies",
+        "province": "Alberta",
+        "buyer_type": "PROVINCIAL_PUBLIC_SECTOR",
+        "healthcare_lane": false,
+        "categories": [],
+        "why_watch": "This public buyer or procurement pathway is in the Treaty 6 monitoring registry; category history is still developing.",
+        "source_url": "https://www.alberta.ca/find-and-compete-for-government-contracts",
+        "indigenous_preference_claimed": false
+      },
+      {
+        "buyer_id": "AB-INFRA",
+        "name": "Alberta Infrastructure",
+        "province": "Alberta",
+        "buyer_type": "INFRASTRUCTURE",
+        "healthcare_lane": false,
+        "categories": [],
+        "why_watch": "This public buyer or procurement pathway is in the Treaty 6 monitoring registry; category history is still developing.",
+        "source_url": "https://www.alberta.ca/tendering-contracting-infrastructure-vendor-opportunities",
+        "indigenous_preference_claimed": false
+      },
+      {
+        "buyer_id": "AB-WCB",
+        "name": "Workers' Compensation Board of Alberta",
+        "province": "Alberta",
+        "buyer_type": "PUBLIC_AGENCY",
+        "healthcare_lane": true,
+        "categories": [
+          "HEALTHCARE",
+          "MEDICAL_SUPPLIES"
+        ],
+        "why_watch": "The current monitored sample includes healthcare, medical supplies activity from this buyer.",
+        "source_url": "https://purchasing.alberta.ca/",
+        "indigenous_preference_claimed": false
+      },
+      {
+        "buyer_id": "AB-ALA",
+        "name": "Assisted Living Alberta",
+        "province": "Alberta",
+        "buyer_type": "HEALTH_AGENCY",
+        "healthcare_lane": true,
+        "categories": [],
+        "why_watch": "This public buyer or procurement pathway is in the Treaty 6 monitoring registry; category history is still developing.",
+        "source_url": "https://www.alberta.ca/become-a-continuing-care-provider-or-operator",
+        "indigenous_preference_claimed": false
+      },
+      {
+        "buyer_id": "SK-GOV",
+        "name": "Saskatchewan ministries and public agencies",
+        "province": "Saskatchewan",
+        "buyer_type": "PROVINCIAL_PUBLIC_SECTOR",
+        "healthcare_lane": false,
+        "categories": [],
+        "why_watch": "This public buyer or procurement pathway is in the Treaty 6 monitoring registry; category history is still developing.",
+        "source_url": "https://www.saskatchewan.ca/business/transportation-and-road-construction/contracting-with-highways",
+        "indigenous_preference_claimed": false
+      },
+      {
+        "buyer_id": "SK-SHA",
+        "name": "Saskatchewan Health Authority",
+        "province": "Saskatchewan",
+        "buyer_type": "HEALTH_AUTHORITY",
+        "healthcare_lane": true,
+        "categories": [],
+        "why_watch": "This public buyer or procurement pathway is in the Treaty 6 monitoring registry; category history is still developing.",
+        "source_url": "https://www.saskatchewan.ca/business/transportation-and-road-construction/contracting-with-highways",
+        "indigenous_preference_claimed": false
+      },
+      {
+        "buyer_id": "SK-POWER",
+        "name": "SaskPower",
+        "province": "Saskatchewan",
+        "buyer_type": "CROWN_UTILITY",
+        "healthcare_lane": false,
+        "categories": [],
+        "why_watch": "This public buyer or procurement pathway is in the Treaty 6 monitoring registry; category history is still developing.",
+        "source_url": "https://www.saskpower.com/our-power-future/infrastructure-projects/construction-projects/planning-and-construction-projects/aspen-power-station/our-commitment-and-work-opportunities",
+        "indigenous_preference_claimed": false
+      },
+      {
+        "buyer_id": "SK-ENERGY",
+        "name": "SaskEnergy",
+        "province": "Saskatchewan",
+        "buyer_type": "CROWN_UTILITY",
+        "healthcare_lane": false,
+        "categories": [],
+        "why_watch": "This public buyer or procurement pathway is in the Treaty 6 monitoring registry; category history is still developing.",
+        "source_url": "https://www.saskenergy.com/about-us/newsroom/delivering-customers-communities-and-saskatchewan-saskenergy-2024-25-annual",
+        "indigenous_preference_claimed": false
+      }
+    ],
+    "categories": [
+      {
+        "category": "PROFESSIONAL_SERVICES",
+        "label": "Professional Services",
+        "observed_records": 2,
+        "history_status": "REPEATED_IN_CURRENT_SAMPLE"
+      },
+      {
+        "category": "DATA_RESEARCH",
+        "label": "Data Research",
+        "observed_records": 1,
+        "history_status": "CURRENTLY_OBSERVED"
+      },
+      {
+        "category": "EMPLOYMENT_COMMUNITY_SERVICES",
+        "label": "Employment Community Services",
+        "observed_records": 1,
+        "history_status": "CURRENTLY_OBSERVED"
+      },
+      {
+        "category": "ENERGY_UTILITIES",
+        "label": "Energy Utilities",
+        "observed_records": 1,
+        "history_status": "CURRENTLY_OBSERVED"
+      },
+      {
+        "category": "HEALTHCARE",
+        "label": "Healthcare",
+        "observed_records": 1,
+        "history_status": "CURRENTLY_OBSERVED"
+      },
+      {
+        "category": "MEDICAL_SUPPLIES",
+        "label": "Medical Supplies",
+        "observed_records": 1,
+        "history_status": "CURRENTLY_OBSERVED"
+      }
+    ],
+    "recently_changed": [],
+    "treaty6_context": {
+      "summary": "This page focuses on public procurement relevant to Treaty 6 territory and Treaty 6 businesses and organizations across Alberta and Saskatchewan.",
+      "boundary_caveat": "These references support regional context; this webpage does not define legal Treaty boundaries or supplier eligibility.",
+      "references": [
+        {
+          "title": "Treaty Texts: Treaty No. 6",
+          "source_url": "https://www.rcaanc-cirnac.gc.ca/eng/1100100028710/1581292569426",
+          "limitation": "Treaty text is authoritative history but is not a procurement-eligibility map."
+        },
+        {
+          "title": "Treaty Boundary open dataset",
+          "source_url": "https://open.canada.ca/data/en/dataset/8755f172-71ad-4445-8bae-7f19635daaf4",
+          "limitation": "Boundaries are approximate historical representations and must not determine supplier identity or eligibility."
+        },
+        {
+          "title": "Treaty boundaries, First Nations and treaty sites in Saskatchewan",
+          "source_url": "https://www.otc.ca/ckfinder/userfiles/files/treatymap_large.pdf",
+          "limitation": "Map variations are documented; location tagging remains source-backed rather than a legal boundary determination."
+        },
+        {
+          "title": "The Treaties in Saskatchewan",
+          "source_url": "https://otc.ca/treaties/",
+          "limitation": "Not a supplier-eligibility source."
+        }
+      ]
+    }
+  },
+  "who_this_may_help": [
+    "Nation-owned businesses",
+    "Economic-development corporations",
+    "Indigenous entrepreneurs",
+    "Construction and trades firms",
+    "Transport and logistics providers",
+    "Medical suppliers",
+    "IT and data firms",
+    "Consultants",
+    "Environmental firms",
+    "Facility-service companies",
+    "Training and community-service organizations"
+  ],
+  "feedback": {
+    "heading": "Help shape this beta",
+    "prompt": "Know a Treaty 6 business, buyer or procurement source we should be watching? What would be most useful here: current tenders, supplier registration, upcoming opportunities, prior awards or renewal signals?",
+    "collection_enabled": false
+  },
+  "accountability_boundary": "This practical page does not assess procurement equity or discrimination. Low award share does not by itself establish discrimination.",
+  "metrics": {
+    "open_bid_ready_count": 0,
+    "indigenous_specific_count": 1,
+    "planning_watch_count": 1,
+    "supplier_prequalification_count": 3,
+    "source_family_count": 9,
+    "buyer_count": 11,
+    "category_count": 6
+  },
+  "thin_sections": [
+    "CURRENT_OPPORTUNITIES",
+    "WHAT_CHANGED",
+    "LIVE_PREQUALIFICATION",
+    "RECURRING_BUYER_HISTORY"
+  ],
+  "refresh": {
+    "source": "INDIGENOUS_PROCUREMENT_OPPORTUNITY_MONITOR_30D_V1",
+    "pipeline": [
+      "MONITOR",
+      "TEMPORAL_EVENT",
+      "PUBLICATION_SAFE_PROJECTION",
+      "PAGE_DATA"
+    ],
+    "duplicate_scraper": false,
+    "automatic_production_publication": false
+  }
+}

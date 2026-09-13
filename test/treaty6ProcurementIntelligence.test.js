@@ -84,7 +84,8 @@ test("page simulation, filters, sorts and private route activation remain determ
   assert.equal(page.sections.indigenous_specific_participation.length, 1)
   assert.equal(filterAndSortTreaty6Opportunities([projected], { province: projected.province }, "NEWEST", now).length, 1)
   const app = fs.readFileSync(new URL("../src/App.jsx", import.meta.url), "utf8")
-  assert.doesNotMatch(app, /Treaty6ProcurementPreview/)
+  assert.match(app, /Treaty6ProcurementPreview/)
+  assert.match(app, /window\.location\.pathname === "\/north\/procurement"/)
 })
 
 test("monitor binding reuses the active campaign and does not create publication authority", () => {
