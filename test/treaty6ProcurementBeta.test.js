@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs"
 import test from "node:test"
 
 import publicBeta from "../src/data/treaty6-procurement-beta-public-v1.json" with { type: "json" }
+import { treaty6ProcurementAssistantV2 } from "../src/data/treaty6-procurement-assistant-v2-public.js"
 import {
   buildTreaty6ProcurementBeta,
   evaluateTreaty6BetaPublicationPolicy,
@@ -81,6 +82,15 @@ test("public business watchlists recover only the six retained public profiles a
   assert.doesNotMatch(JSON.stringify(publicBeta.sections.business_watchlists), /business_id|profile_checksum|match_id|win_probability|source_refs/i)
 })
 
+test("v2 assistant enrichment remains source-linked, public-only and explicit about qualification", () => {
+  const model = treaty6ProcurementAssistantV2
+  assert.equal(model.sections.business_watchlists.length, 6)
+  assert.ok(model.sections.business_watchlists.every(item => item.public_summary && item.watch_categories.length && item.official_links.every(link => link.url.startsWith("https://"))))
+  assert.ok(model.sections.buyer_intelligence.every(item => item.source_url.startsWith("https://") && /infer|confirm/i.test(item.indigenous_signal)))
+  assert.equal(model.sections.weekly_digest[0].event_type, "MARKET_PASS_COMPLETED")
+  assert.doesNotMatch(JSON.stringify(model), /business_id|profile_checksum|match_id|win_probability|qualification_state|internal_notes/i)
+})
+
 test("public business watchlists reject orphaned or stale opportunity references", () => {
   const invalid = structuredClone(publicBeta)
   invalid.sections.business_watchlists[0].watchlist[0].opportunity_id = "not-a-published-opportunity"
@@ -122,6 +132,8 @@ test("route, navigation, metadata, accessibility and mobile layout are wired", (
   assert.match(page, /Treaty 6 Procurement Opportunities \| Miller North/)
   assert.match(page, /No form is collecting business or personal information/)
   assert.match(page, /Business watchlists/)
+  assert.match(page, /Buyer pathways/)
+  assert.match(page, /How Samwise decides what is worth reviewing/)
   assert.match(css, /@media\(max-width:560px\)/)
   assert.match(nav, /label: "Procurement"/)
 })
