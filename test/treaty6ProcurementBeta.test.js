@@ -136,7 +136,7 @@ test("route, navigation, metadata, accessibility and mobile layout are wired", (
   assert.match(page, /Best opportunities to review now/)
   assert.doesNotMatch(page, /<h2 id="t6p-week">Market digest<\/h2>/)
   assert.match(page, /How Samwise decides what is worth reviewing/)
-  assert.match(page, /Ways businesses can find opportunities/)
+  assert.match(page, /Ways to find work/)
   assert.match(css, /@media\(max-width:560px\)/)
   assert.match(nav, /label: "Procurement"/)
 })
