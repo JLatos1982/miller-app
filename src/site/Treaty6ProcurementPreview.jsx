@@ -47,6 +47,19 @@ function SupportCard({ item, linkText = "Visit official source" }) {
   return <article className="t6p-card t6p-support-card"><span className="t6p-mini-label">{pretty(item.support_type || item.jurisdiction)}</span><h3>{item.title}</h3><p>{item.summary || item.description}</p>{item.registration_or_alerts ? <p><strong>Alerts or registration:</strong> {item.registration_or_alerts}</p> : null}{item.full_documents_may_require_account ? <p className="t6p-caveat">An account may be needed for complete documents.</p> : null}<OfficialLink href={item.source_url}>{linkText}</OfficialLink></article>
 }
 
+function BusinessWatchlistCard({ business }) {
+  return <article className="t6p-card t6p-business-card">
+    <div className="t6p-card-tags"><span>{business.province}</span><span>{business.current_opportunity_count} current {business.current_opportunity_count === 1 ? "watch" : "watches"}</span></div>
+    <h3>{business.canonical_name}</h3>
+    <p className="t6p-buyer">{business.public_affiliation}</p>
+    <p className="t6p-muted">{business.region || business.province}</p>
+    <div className="t6p-capability-tags">{business.capabilities.map(item => <span key={item}>{pretty(item)}</span>)}</div>
+    {business.watchlist.length ? <div className="t6p-business-watch-items">{business.watchlist.map(item => <div key={item.opportunity_id}><span className="t6p-mini-label">{item.relevance_label}</span><h4>{item.title}</h4><p><strong>{item.buyer}</strong> · {item.action_label}</p><p>{item.why_watch}</p><p className="t6p-requirements-note">{item.requirements_note}</p><OfficialLink href={item.source_url}>Read official notice</OfficialLink></div>)}</div> : <p className="t6p-empty">{business.no_current_match_note}</p>}
+    <p className="t6p-business-disclaimer">{business.qualification_disclaimer}</p>
+    <footer><OfficialLink href={business.website}>Business source</OfficialLink><OfficialLink href={business.source_url}>Affiliation source</OfficialLink></footer>
+  </article>
+}
+
 function EmptyState({ children }) {
   return <div className="t6p-empty"><strong>No verified open bids are displayed right now.</strong><p>{children}</p></div>
 }
@@ -101,6 +114,7 @@ export default function Treaty6ProcurementPreview() {
     </section>
 
     <section className="t6p-section t6p-watch-section" aria-labelledby="t6p-watch"><p className="t6p-kicker">Early public signals</p><h2 id="t6p-watch">Opportunities we’re watching</h2><p>These are not yet open contract bids. They may help suppliers see future needs, consultations or market planning earlier.</p>{model.sections.watching.length ? <div className="t6p-grid">{model.sections.watching.map(item => <OpportunityCard key={`watch-${item.opportunity_id}`} item={item} watched/>)}</div> : <p className="t6p-empty">No source-supported planning signal currently passes the beta publication gate.</p>}</section>
+    <section className="t6p-section" aria-labelledby="t6p-businesses"><p className="t6p-kicker">Public capability overlap only</p><h2 id="t6p-businesses">Business watchlists</h2><p>These six public profiles come from the existing Treaty 6 research record. A watch is a category signal, not a qualification assessment or bid recommendation.</p><div className="t6p-grid">{model.sections.business_watchlists.map(item => <BusinessWatchlistCard key={item.canonical_name} business={item}/>)}</div></section>
     <section className="t6p-section" aria-labelledby="t6p-radar"><p className="t6p-kicker">Registering is not winning</p><h2 id="t6p-radar">Get on the radar</h2><p>These official paths can help a supplier find notices, register or follow opportunities. Registration does not establish qualification or guarantee a contract.</p><div className="t6p-grid">{registration.map(item => <SupportCard key={item.support_id} item={item} linkText="Review registration path"/>)}</div></section>
     <section className="t6p-section" aria-labelledby="t6p-portals"><p className="t6p-kicker">Go to the source</p><h2 id="t6p-portals">Where to find more opportunities</h2><div className="t6p-grid">{model.sections.portals.map(item => <SupportCard key={item.portal_id} item={item} linkText="Open official portal"/>)}</div></section>
     <section className="t6p-section" aria-labelledby="t6p-buyers"><p className="t6p-kicker">Public purchasing pathways</p><h2 id="t6p-buyers">Buyers to watch</h2><p>Inclusion means Samwise monitors an official buyer or portal pathway. It does not imply an Indigenous preference.</p><div className="t6p-buyer-grid">{model.sections.buyers.map(item => <article className="t6p-buyer-card" key={item.buyer_id}><span>{item.province}</span><h3>{item.name}</h3><p>{item.why_watch}</p><OfficialLink href={item.source_url}>Official procurement source</OfficialLink></article>)}</div></section>

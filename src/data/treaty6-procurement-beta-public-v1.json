@@ -5,7 +5,7 @@
   "title": "Treaty 6 Procurement & Business Opportunities",
   "subtitle": "Public procurement opportunities, supplier programs and market signals relevant to Treaty 6 businesses and organizations.",
   "description": "Public procurement opportunities, supplier programs and procurement signals relevant to Treaty 6 businesses and organizations in Alberta and Saskatchewan.",
-  "generated_at": "2026-09-13T16:42:58.958Z",
+  "generated_at": "2026-09-13T21:03:04.735Z",
   "beta": true,
   "owner_approval_required": true,
   "comprehensive_coverage_claimed": false,
@@ -305,6 +305,158 @@
       }
     ],
     "recently_changed": [],
+    "business_watchlists": [
+      {
+        "canonical_name": "Kitsaki Management Limited Partnership",
+        "public_affiliation": "Economic development organization of Lac La Ronge Indian Band",
+        "province": "Saskatchewan",
+        "region": "Saskatchewan, Canada",
+        "website": "https://kitsaki.com/",
+        "capabilities": [
+          "PROFESSIONAL_SERVICES",
+          "ENVIRONMENTAL",
+          "TRANSPORTATION",
+          "LOGISTICS",
+          "IT_DIGITAL",
+          "ENGINEERING",
+          "MINING_SERVICES"
+        ],
+        "source_url": "https://kitsaki.com/",
+        "last_verified_at": "2026-09-13T15:31:07.432Z",
+        "current_opportunity_count": 1,
+        "watchlist": [
+          {
+            "opportunity_id": "PSPC-WR-001",
+            "title": "Western Region Indigenous Professional Design Services RFI",
+            "buyer": "Public Services and Procurement Canada",
+            "province": "Federal / Alberta / Saskatchewan",
+            "close_date": "2027-03-31T20:00:00.000Z",
+            "actionability": "RFI_ONLY",
+            "action_label": "RFI / PLANNING",
+            "indigenous_label": "INDIGENOUS PARTICIPATION ENCOURAGED",
+            "source_url": "https://canadabuys.canada.ca/en/tender-opportunities/tender-notice/cb-888-99132841",
+            "verified_at": "2026-09-13T14:44:45.903Z",
+            "relevance_label": "EARLY SIGNAL",
+            "why_watch": "Publicly documented professional services capability overlaps the public notice category.",
+            "requirements_note": "See the official tender for full requirements."
+          }
+        ],
+        "no_current_match_note": null,
+        "qualification_disclaimer": "This appears here only where Samwise found overlap with publicly documented capabilities. It does not establish qualification or suggest that a business should bid. Confirm insurance, bonding, staffing, experience, certifications and all tender requirements directly with the official source."
+      },
+      {
+        "canonical_name": "Canada North Environmental Services",
+        "public_affiliation": "100% owned by Kitsaki Management, the business arm of Lac La Ronge Indian Band",
+        "province": "Saskatchewan",
+        "region": "Saskatchewan, Canada",
+        "website": "https://kitsaki.com/companies/cannorth-environmental-services-cannorth/",
+        "capabilities": [
+          "ENVIRONMENTAL",
+          "DATA_RESEARCH",
+          "PROFESSIONAL_SERVICES"
+        ],
+        "source_url": "https://kitsaki.com/companies/cannorth-environmental-services-cannorth/",
+        "last_verified_at": "2026-09-13T15:31:07.432Z",
+        "current_opportunity_count": 0,
+        "watchlist": [],
+        "no_current_match_note": "No current monitored opportunity has passed the public watchlist gate for this business. Check the official portals for new notices.",
+        "qualification_disclaimer": "This appears here only where Samwise found overlap with publicly documented capabilities. It does not establish qualification or suggest that a business should bid. Confirm insurance, bonding, staffing, experience, certifications and all tender requirements directly with the official source."
+      },
+      {
+        "canonical_name": "Kitsaki Vegetation Services",
+        "public_affiliation": "Kitsaki group company benefiting Lac La Ronge Indian Band",
+        "province": "Saskatchewan",
+        "region": "Saskatchewan",
+        "website": "https://kitsaki.com/companies/kitsaki-vegetation-services-kvs/",
+        "capabilities": [
+          "ENVIRONMENTAL",
+          "MAINTENANCE",
+          "ENERGY_UTILITIES"
+        ],
+        "source_url": "https://kitsaki.com/companies/kitsaki-vegetation-services-kvs/",
+        "last_verified_at": "2026-09-13T15:31:07.432Z",
+        "current_opportunity_count": 0,
+        "watchlist": [],
+        "no_current_match_note": "No current monitored opportunity has passed the public watchlist gate for this business. Check the official portals for new notices.",
+        "qualification_disclaimer": "This appears here only where Samwise found overlap with publicly documented capabilities. It does not establish qualification or suggest that a business should bid. Confirm insurance, bonding, staffing, experience, certifications and all tender requirements directly with the official source."
+      },
+      {
+        "canonical_name": "R8dius",
+        "public_affiliation": "Indigenous majority-owned venture with Kitsaki as founding investor and partner",
+        "province": "Saskatchewan",
+        "region": "Canada",
+        "website": "https://kitsaki.com/demo-post-2/",
+        "capabilities": [
+          "IT_DIGITAL",
+          "DATA_RESEARCH",
+          "PROFESSIONAL_SERVICES"
+        ],
+        "source_url": "https://kitsaki.com/demo-post-2/",
+        "last_verified_at": "2026-09-13T15:31:07.432Z",
+        "current_opportunity_count": 0,
+        "watchlist": [],
+        "no_current_match_note": "No current monitored opportunity has passed the public watchlist gate for this business. Check the official portals for new notices.",
+        "qualification_disclaimer": "This appears here only where Samwise found overlap with publicly documented capabilities. It does not establish qualification or suggest that a business should bid. Confirm insurance, bonding, staffing, experience, certifications and all tender requirements directly with the official source."
+      },
+      {
+        "canonical_name": "A2SKI Industrial",
+        "public_affiliation": "100% Indigenous owned and listed in the PBGOC portfolio",
+        "province": "Saskatchewan",
+        "region": "Saskatchewan",
+        "website": "https://pbgoc.com/pbg-investments/a2ski-industrial/",
+        "capabilities": [
+          "CONSTRUCTION",
+          "CIVIL_WORKS",
+          "MAINTENANCE",
+          "ENGINEERING",
+          "ENERGY_UTILITIES",
+          "MINING_SERVICES",
+          "PROFESSIONAL_SERVICES"
+        ],
+        "source_url": "https://pbgoc.com/pbg-investments/a2ski-industrial/",
+        "last_verified_at": "2026-09-13T15:31:07.432Z",
+        "current_opportunity_count": 1,
+        "watchlist": [
+          {
+            "opportunity_id": "PSPC-WR-001",
+            "title": "Western Region Indigenous Professional Design Services RFI",
+            "buyer": "Public Services and Procurement Canada",
+            "province": "Federal / Alberta / Saskatchewan",
+            "close_date": "2027-03-31T20:00:00.000Z",
+            "actionability": "RFI_ONLY",
+            "action_label": "RFI / PLANNING",
+            "indigenous_label": "INDIGENOUS PARTICIPATION ENCOURAGED",
+            "source_url": "https://canadabuys.canada.ca/en/tender-opportunities/tender-notice/cb-888-99132841",
+            "verified_at": "2026-09-13T14:44:45.903Z",
+            "relevance_label": "EARLY SIGNAL",
+            "why_watch": "Publicly documented professional services capability overlaps the public notice category.",
+            "requirements_note": "See the official tender for full requirements."
+          }
+        ],
+        "no_current_match_note": null,
+        "qualification_disclaimer": "This appears here only where Samwise found overlap with publicly documented capabilities. It does not establish qualification or suggest that a business should bid. Confirm insurance, bonding, staffing, experience, certifications and all tender requirements directly with the official source."
+      },
+      {
+        "canonical_name": "Young Spirit Supplies",
+        "public_affiliation": "Official Frog Lake source identifies the business as 100% First Nations owned and operated",
+        "province": "Alberta",
+        "region": "Alberta",
+        "website": "https://www.froglake.ca/departments",
+        "capabilities": [
+          "JANITORIAL",
+          "FACILITY_SERVICES",
+          "MEDICAL_SUPPLIES",
+          "OFFICE_SUPPLIES",
+          "EQUIPMENT_SUPPLY"
+        ],
+        "source_url": "https://www.froglake.ca/departments",
+        "last_verified_at": "2026-09-13T15:31:07.432Z",
+        "current_opportunity_count": 0,
+        "watchlist": [],
+        "no_current_match_note": "No current monitored opportunity has passed the public watchlist gate for this business. Check the official portals for new notices.",
+        "qualification_disclaimer": "This appears here only where Samwise found overlap with publicly documented capabilities. It does not establish qualification or suggest that a business should bid. Confirm insurance, bonding, staffing, experience, certifications and all tender requirements directly with the official source."
+      }
+    ],
     "treaty6_context": {
       "summary": "This page focuses on public procurement relevant to Treaty 6 territory and Treaty 6 businesses and organizations across Alberta and Saskatchewan.",
       "boundary_caveat": "These references support regional context; this webpage does not define legal Treaty boundaries or supplier eligibility.",
@@ -358,7 +510,8 @@
     "supplier_prequalification_count": 3,
     "source_family_count": 9,
     "buyer_count": 11,
-    "category_count": 6
+    "category_count": 6,
+    "business_watchlist_count": 6
   },
   "thin_sections": [
     "CURRENT_OPPORTUNITIES",

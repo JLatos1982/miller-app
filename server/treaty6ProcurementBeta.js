@@ -33,7 +33,7 @@ const EXPLICIT_INDIGENOUS = new Set(Object.keys(TREATY6_BETA_INDIGENOUS_LABELS).
 const SAFE_LICENSES = new Set(["PUBLIC_REUSE_CLEAR", "PUBLIC_LINK_ONLY"])
 const ALLOWED_BUYER_STATES = new Set(["OBSERVED_BUYER", "PORTAL_ROUTED"])
 const PORTAL_SOURCE_IDS = new Set(["FED-CANADABUYS-NOTICES", "AB-APC", "SK-SASKTENDERS", "SK-ASPEN"])
-const BANNED_PUBLIC_KEYS = /private_business|business_profile|company_profile|company_match|qualification_state|internal_notes|restricted_material|confidence_components|campaign_state|evidence_completion/i
+const BANNED_PUBLIC_KEYS = /private_business|business_profile|company_profile|company_match|qualification_state|internal_notes|restricted_material|confidence_components|campaign_state|evidence_completion|business_id|profile_checksum|match_id|win_probability|source_refs/i
 
 const clean = (value, limit = 2_000) => String(value ?? "").normalize("NFKC").replace(/[\r\n\t]+/g, " ").replace(/\s+/g, " ").trim().slice(0, limit)
 const iso = value => Number.isFinite(Date.parse(value)) ? new Date(value).toISOString() : null
@@ -144,6 +144,53 @@ function categorySummary(records) {
   })).sort((a, b) => b.observed_records - a.observed_records || a.label.localeCompare(b.label))
 }
 
+function publicBusinessWatchlists(profiles, matches, opportunities, generatedAt) {
+  const visibleById = new Map(opportunities.map(item => [item.opportunity_id, item]))
+  const retained = new Map()
+  for (const match of matches || []) {
+    if (!visibleById.has(match?.opportunity_id) || !new Set(["STRONG_PLAUSIBLE_MATCH", "REASONABLE_MATCH", "WATCH"]).has(match?.classification)) continue
+    retained.set(match.business_id, [...(retained.get(match.business_id) || []), match])
+  }
+  return Object.freeze((profiles || []).map(profile => {
+    const entries = retained.get(profile.business_id) || []
+    const watchlist = entries.map(match => {
+      const opportunity = visibleById.get(match.opportunity_id)
+      const overlap = (profile.capabilities || []).filter(capability => (opportunity.categories || []).includes(capability))
+      return Object.freeze({
+        opportunity_id: opportunity.opportunity_id,
+        title: opportunity.title,
+        buyer: opportunity.buyer,
+        province: opportunity.province,
+        close_date: opportunity.close_date,
+        actionability: opportunity.actionability,
+        action_label: opportunity.action_label,
+        indigenous_label: opportunity.indigenous_label,
+        source_url: opportunity.source_url,
+        verified_at: opportunity.verified_at,
+        relevance_label: match.classification === "STRONG_PLAUSIBLE_MATCH" ? "STRONG CATEGORY RELEVANCE" : match.classification === "REASONABLE_MATCH" ? "REASONABLE CATEGORY RELEVANCE" : "EARLY SIGNAL",
+        why_watch: overlap.length ? `Publicly documented ${overlap.map(words).join(" and ")} capability overlaps the public notice category.` : "The public notice topic overlaps a documented capability; the official tender controls all requirements.",
+        requirements_note: opportunity.requirements_note || "See the official tender for full requirements.",
+      })
+    })
+    const source = profile.source_refs?.find(item => item?.source_url?.startsWith("https://"))
+    if (!source) throw new Error("treaty6_beta_business_source_missing")
+    return Object.freeze({
+      canonical_name: clean(profile.business_name, 200),
+      public_affiliation: clean(profile.public_affiliation, 500),
+      province: clean(profile.province, 80),
+      region: unique(profile.geographic_delivery_area || []).join(", "),
+      website: clean(profile.website, 1_000),
+      capabilities: Object.freeze(unique(profile.capabilities || [])),
+      source_url: clean(source.source_url, 1_000),
+      last_verified_at: iso(profile.verified_at || generatedAt),
+      current_opportunity_count: watchlist.length,
+      watchlist: Object.freeze(watchlist),
+      no_current_match_note: watchlist.length ? null : "No current monitored opportunity has passed the public watchlist gate for this business. Check the official portals for new notices.",
+      qualification_disclaimer: "This appears here only where Samwise found overlap with publicly documented capabilities. It does not establish qualification or suggest that a business should bid. Confirm insurance, bonding, staffing, experience, certifications and all tender requirements directly with the official source.",
+    })
+  }))
+}
+
 function changeProjection(changeFeed, opportunities) {
   const known = new Map(opportunities.map(item => [item.opportunity_id, item]))
   return Object.freeze((changeFeed?.events || []).filter(event => known.has(event.opportunity_id)).map(event => Object.freeze({
@@ -175,10 +222,18 @@ export function validateTreaty6ProcurementBetaPublic(model, { now = new Date() }
     if (record.actionability === "RFI_ONLY" && record.action_label === "OPEN FOR BIDS") errors.push(`rfi_mislabelled:${record.opportunity_id}`)
     if (EXPLICIT_INDIGENOUS.has(record.indigenous_relevance_class) && !record.why_watch) errors.push(`indigenous_evidence_missing:${record.opportunity_id}`)
   }
+  const knownOpportunities = new Set([...(model?.sections?.current_opportunities || []), ...(model?.sections?.watching || []), ...(model?.sections?.registration_prequalification || [])].map(item => item.opportunity_id))
+  for (const business of model?.sections?.business_watchlists || []) {
+    const name = clean(business.canonical_name, 80) || "unknown"
+    if (!clean(business.canonical_name) || !business.website?.startsWith("https://") || !business.source_url?.startsWith("https://") || !iso(business.last_verified_at)) errors.push(`business_profile_invalid:${name}`)
+    if (!(business.capabilities || []).length) errors.push(`business_capabilities_missing:${name}`)
+    if (!/does not establish qualification|does not establish/i.test(business.qualification_disclaimer || "")) errors.push(`business_disclaimer_missing:${name}`)
+    for (const item of business.watchlist || []) if (!knownOpportunities.has(item.opportunity_id) || !item.source_url?.startsWith("https://")) errors.push(`business_watch_invalid:${name}`)
+  }
   return Object.freeze({ valid: errors.length === 0, errors: Object.freeze(errors) })
 }
 
-export function buildTreaty6ProcurementBeta({ dataset, monitor_snapshot, source_registry, buyer_registry, geography_model, change_feed, generated_at = new Date() } = {}) {
+export function buildTreaty6ProcurementBeta({ dataset, monitor_snapshot, source_registry, buyer_registry, geography_model, change_feed, business_profiles = [], business_matches = [], generated_at = new Date() } = {}) {
   if (dataset?.schema_version !== "treaty6-procurement-private-dataset-v1" || !Array.isArray(monitor_snapshot?.records)) throw new Error("treaty6_beta_private_inputs_invalid")
   const monitored = new Map(monitor_snapshot.records.map(record => [record.opportunity_id, record]))
   const decisions = dataset.records.map(record => ({ record, monitor: monitored.get(record.opportunity_id) || {}, decision: evaluateTreaty6BetaPublicationPolicy(record, monitored.get(record.opportunity_id), { now: generated_at }) }))
@@ -199,6 +254,7 @@ export function buildTreaty6ProcurementBeta({ dataset, monitor_snapshot, source_
   const buyers = buyer_registry.filter(buyer => ALLOWED_BUYER_STATES.has(buyer.registry_status)).map(buyer => publicBuyer(buyer, relevantRecords))
   const categories = categorySummary(relevantRecords)
   const changes = changeProjection(change_feed, opportunities)
+  const businessWatchlists = publicBusinessWatchlists(business_profiles, business_matches, opportunities, generated_at)
   const sourceFamilies = unique(source_registry.map(source => source.organization))
   const contextReferences = geography_model.references.map(reference => Object.freeze({ title: reference.title, source_url: reference.source_url, limitation: reference.limitations }))
   const metrics = Object.freeze({
@@ -209,6 +265,7 @@ export function buildTreaty6ProcurementBeta({ dataset, monitor_snapshot, source_
     source_family_count: sourceFamilies.length,
     buyer_count: buyers.length,
     category_count: categories.length,
+    business_watchlist_count: businessWatchlists.length,
   })
   const thinSections = [
     current.length === 0 ? "CURRENT_OPPORTUNITIES" : null,
@@ -243,6 +300,7 @@ export function buildTreaty6ProcurementBeta({ dataset, monitor_snapshot, source_
       buyers: Object.freeze(buyers),
       categories: Object.freeze(categories),
       recently_changed: changes,
+      business_watchlists: businessWatchlists,
       treaty6_context: Object.freeze({
         summary: "This page focuses on public procurement relevant to Treaty 6 territory and Treaty 6 businesses and organizations across Alberta and Saskatchewan.",
         boundary_caveat: "These references support regional context; this webpage does not define legal Treaty boundaries or supplier eligibility.",

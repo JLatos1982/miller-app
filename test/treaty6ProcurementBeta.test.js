@@ -61,9 +61,32 @@ test("public beta keeps planning separate from open bids and retains tender cave
 test("public projection contains no personalized business profiles or private matching state", () => {
   const serialized = JSON.stringify(publicBeta)
   assert.equal(validateTreaty6ProcurementBetaPublic(publicBeta, { now }).valid, true)
-  assert.doesNotMatch(serialized, /Young Spirit|CanNorth|R8dius|Kitsaki|A2SKI|company_profile|qualification_state|private_notes/i)
+  assert.doesNotMatch(serialized, /business_id|profile_checksum|match_id|win_probability|company_profile|qualification_state|private_notes/i)
   assert.match(publicBeta.accountability_boundary, /Low award share does not by itself establish discrimination/i)
   assert.equal(publicBeta.feedback.collection_enabled, false)
+})
+
+test("public business watchlists recover only the six retained public profiles and never expose match internals", () => {
+  const names = publicBeta.sections.business_watchlists.map(item => item.canonical_name)
+  assert.deepEqual(names, [
+    "Kitsaki Management Limited Partnership",
+    "Canada North Environmental Services",
+    "Kitsaki Vegetation Services",
+    "R8dius",
+    "A2SKI Industrial",
+    "Young Spirit Supplies",
+  ])
+  assert.ok(publicBeta.sections.business_watchlists.every(item => item.website.startsWith("https://") && item.source_url.startsWith("https://") && item.capabilities.length && /does not establish qualification/i.test(item.qualification_disclaimer)))
+  assert.equal(publicBeta.sections.business_watchlists.flatMap(item => item.watchlist).length, 2)
+  assert.doesNotMatch(JSON.stringify(publicBeta.sections.business_watchlists), /business_id|profile_checksum|match_id|win_probability|source_refs/i)
+})
+
+test("public business watchlists reject orphaned or stale opportunity references", () => {
+  const invalid = structuredClone(publicBeta)
+  invalid.sections.business_watchlists[0].watchlist[0].opportunity_id = "not-a-published-opportunity"
+  const result = validateTreaty6ProcurementBetaPublic(invalid, { now })
+  assert.equal(result.valid, false)
+  assert.ok(result.errors.some(error => error.startsWith("business_watch_invalid:")))
 })
 
 test("filters and transparent sorts handle action, relevance, closing soon and buyer", () => {
@@ -98,6 +121,7 @@ test("route, navigation, metadata, accessibility and mobile layout are wired", (
   assert.match(page, /aria-label="Procurement opportunity filters"/)
   assert.match(page, /Treaty 6 Procurement Opportunities \| Miller North/)
   assert.match(page, /No form is collecting business or personal information/)
+  assert.match(page, /Business watchlists/)
   assert.match(css, /@media\(max-width:560px\)/)
   assert.match(nav, /label: "Procurement"/)
 })

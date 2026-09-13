@@ -13,6 +13,8 @@ const references = Object.freeze({
   buyer_registry: "artifacts/samwise/data-foundry/treaty6-procurement-intelligence-v1/buyer-registry-private.json",
   geography_model: "artifacts/samwise/data-foundry/treaty6-procurement-intelligence-v1/geographic-model-private.json",
   change_feed: "artifacts/samwise/data-foundry/indigenous-procurement-opportunity-monitor-30d-v1/daily-change-feed-private.json",
+  business_profiles: "artifacts/samwise/data-foundry/treaty6-business-procurement-matching-v1/business-capability-profiles-private.json",
+  business_matches: "artifacts/samwise/data-foundry/treaty6-business-procurement-matching-v1/opportunity-matches-private.json",
 })
 const outputDirectory = path.join(root, "artifacts", "samwise", "data-foundry", "treaty6-procurement-beta-v1")
 const publicOutput = path.join(root, "src", "data", "treaty6-procurement-beta-public-v1.json")
@@ -26,6 +28,12 @@ const atomic = (file, value) => {
   renameSync(temporary, file)
 }
 
+const businessProfiles = read(references.business_profiles)
+const businessMatches = read(references.business_matches).retained_positive_matches || []
+const selectedBusinessIds = [...new Set(businessMatches.map(item => item.business_id))]
+const selectedBusinessProfiles = businessProfiles.filter(item => selectedBusinessIds.includes(item.business_id))
+if (selectedBusinessIds.length !== 6 || selectedBusinessProfiles.length !== 6) throw new Error("treaty6_beta_canonical_business_selection_invalid")
+
 const built = buildTreaty6ProcurementBeta({
   dataset: read(references.dataset),
   monitor_snapshot: read(references.monitor_snapshot),
@@ -33,6 +41,8 @@ const built = buildTreaty6ProcurementBeta({
   buyer_registry: read(references.buyer_registry),
   geography_model: read(references.geography_model),
   change_feed: read(references.change_feed),
+  business_profiles: selectedBusinessProfiles,
+  business_matches: businessMatches,
   generated_at: generatedAt,
 })
 
@@ -96,6 +106,7 @@ const report = `# Treaty 6 Procurement Beta v1
 - Source families: ${built.model.metrics.source_family_count}
 - Buyers: ${built.model.metrics.buyer_count}
 - Categories: ${built.model.metrics.category_count}
+- Public business watchlists: ${built.model.metrics.business_watchlist_count}
 - Thin sections: ${built.model.thin_sections.join(", ") || "none"}
 - Validation: ${built.validation.valid ? "PASSED" : "FAILED"}
 - Deployment: not performed
@@ -107,5 +118,36 @@ ${built.readiness}
 The page is an owner-gated beta. It contains no personalized Treaty 6 business matches, no qualification claims and no procurement-equity or discrimination conclusions. Official sources control eligibility, deadlines and requirements.
 `
 atomic(path.join(outputDirectory, "TREATY6_PROCUREMENT_BETA_V1-private.md"), report)
+
+const marketPass = `# Treaty 6 Current Market Pass v1
+
+Generated: ${generatedAt}
+
+## Scope and boundary
+
+This private report reuses the existing Treaty 6 business registry and the active Indigenous Procurement Opportunity Monitor. It does not create a second registry, make qualification findings, or retain tender-document text in the public projection.
+
+## Canonical business selection
+
+Six business profiles were selected because they are the exact unique businesses represented by retained source-supported capability matches in the existing matching output:
+
+${selectedBusinessProfiles.map(item => `- ${item.business_name} — ${item.capabilities.join(", ")}`).join("\n")}
+
+## Current monitored market
+
+- Opportunities screened from the existing current monitor: ${read(references.dataset).records.length}
+- Publicly publishable open bids: ${built.model.metrics.open_bid_ready_count}
+- Public planning/RFI signals: ${built.model.metrics.planning_watch_count}
+- Indigenous-specific public signals: ${built.model.metrics.indigenous_specific_count}
+- Public business watchlists: ${built.model.metrics.business_watchlist_count}
+- Source families: ${built.model.metrics.source_family_count}
+- Buyers: ${built.model.metrics.buyer_count}
+- Categories: ${built.model.metrics.category_count}
+
+## Current limitation
+
+Only source-current, licensing-safe records pass the public beta gate. Businesses with no retained public watch entry remain visible with an explicit no-current-match state rather than a fabricated or stale recommendation. Official tender sources remain controlling.
+`
+atomic(path.join(outputDirectory, "TREATY6_CURRENT_MARKET_PASS_V1-private.md"), marketPass)
 
 process.stdout.write(`${JSON.stringify({ result: built.readiness, route: built.model.route, metrics: built.model.metrics, thin_sections: built.model.thin_sections, validation: built.validation, recovery: snapshotId, public_projection: path.relative(root, publicOutput), report: path.relative(root, path.join(outputDirectory, "TREATY6_PROCUREMENT_BETA_V1-private.md")) }, null, 2)}\n`)
