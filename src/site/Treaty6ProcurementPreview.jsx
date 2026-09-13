@@ -70,7 +70,7 @@ function EmptyState({ children }) {
 
 export default function Treaty6ProcurementPreview() {
   const [province, setProvince] = useState("ALL")
-  const [action, setAction] = useState("OPEN_BID_READY")
+  const [action, setAction] = useState("ALL")
   const [category, setCategory] = useState("ALL")
   const [relevance, setRelevance] = useState("ALL")
   const [buyer, setBuyer] = useState("ALL")
@@ -104,20 +104,18 @@ export default function Treaty6ProcurementPreview() {
     <section className="t6p-hero"><div><p className="mn-public-eyebrow">Miller North · practical economic opportunity</p><span className="t6p-beta-badge">Beta · data still being refined</span><h1>{model.title}</h1><p>{model.subtitle}</p></div><aside className="t6p-beta-note"><strong>{model.disclosures[0]}</strong>{model.disclosures.slice(1).map(item => <p key={item}>{item}</p>)}</aside></section>
 
     <section className="t6p-section" aria-labelledby="t6p-current">
-      <div className="t6p-section-heading"><div><p className="t6p-kicker">Official sources control</p><h2 id="t6p-current">Current opportunities</h2><p>Start with open bids, or switch the action filter to see verified planning notices.</p></div><span aria-live="polite">{visible.length} shown</span></div>
+      <div className="t6p-section-heading"><div><p className="t6p-kicker">Official sources control</p><h2 id="t6p-current">Best opportunities to review now</h2><p>Only source-verified items with a clear public category overlap appear here. Planning and RFI notices remain visibly distinct from open bids.</p></div><span aria-live="polite">{visible.length} shown</span></div>
       <div className="t6p-filters" aria-label="Procurement opportunity filters">
         <label>Province<select value={province} onChange={event => setProvince(event.target.value)}><option value="ALL">All</option><option value="Alberta">Alberta</option><option value="Saskatchewan">Saskatchewan</option><option value="Federal">Federal</option></select></label>
-        <label>Action<select value={action} onChange={event => setAction(event.target.value)}><option value="OPEN_BID_READY">Open bids</option><option value="RFI_ONLY">Planning / RFI</option><option value="OPEN_REGISTRATION">Registration</option><option value="PREQUALIFICATION">Prequalification</option><option value="ALL">All monitored</option></select></label>
+        <label>Action<select value={action} onChange={event => setAction(event.target.value)}><option value="ALL">Best verified items</option><option value="OPEN_BID_READY">Open bids</option><option value="RFI_ONLY">Planning / RFI</option><option value="OPEN_REGISTRATION">Registration</option><option value="PREQUALIFICATION">Prequalification</option></select></label>
         <label>Category<select value={category} onChange={event => setCategory(event.target.value)}><option value="ALL">All categories</option>{categories.map(item => <option key={item} value={item}>{pretty(item)}</option>)}</select></label>
         <label>Indigenous relevance<select value={relevance} onChange={event => setRelevance(event.target.value)}><option value="ALL">All relevance</option>{relevanceOptions.map(item => <option key={item} value={item}>{pretty(item)}</option>)}</select></label>
         <label>Buyer<select value={buyer} onChange={event => setBuyer(event.target.value)}><option value="ALL">All buyers</option>{buyers.map(item => <option key={item}>{item}</option>)}</select></label>
         <label>Sort<select value={sort} onChange={event => setSort(event.target.value)}><option value="CLOSING_SOON">Closing soon</option><option value="NEWEST">Newest</option><option value="RECENTLY_CHANGED">Recently changed</option><option value="INDIGENOUS_SPECIFIC">Indigenous-specific</option><option value="BUYER">Buyer</option></select></label>
         <label className="t6p-check"><input type="checkbox" checked={closingSoon} onChange={event => setClosingSoon(event.target.checked)}/> Closing within 7 days</label>
       </div>
-      {visible.length ? <div className="t6p-grid">{visible.map(item => <OpportunityCard key={item.opportunity_id} item={item}/>)}</div> : <EmptyState>We’re monitoring public sources and add opportunities only after validation. Try “Planning / RFI,” review the official portals below, or check back after the next monitored update.</EmptyState>}
+      {visible.length ? <div className="t6p-grid">{visible.map(item => <OpportunityCard key={item.opportunity_id} item={item}/>)}</div> : <p className="t6p-empty">No source-verified item currently matches these filters. Review the supplier pathways below or check the official source.</p>}
     </section>
-
-    <section className="t6p-section" aria-labelledby="t6p-week"><p className="t6p-kicker">This week</p><h2 id="t6p-week">Market digest</h2><div className="t6p-grid">{model.sections.weekly_digest.map(item => <article className="t6p-card" key={item.event_type}><span className="t6p-mini-label">{pretty(item.event_type)}</span><h3>{item.title}</h3><p>{item.summary}</p><OfficialLink href={item.source_url}>Check official market source</OfficialLink></article>)}</div></section>
 
     <section className="t6p-section t6p-watch-section" aria-labelledby="t6p-watch"><p className="t6p-kicker">Early public signals</p><h2 id="t6p-watch">Opportunities we’re watching</h2><p>These are not yet open contract bids. They may help suppliers see future needs, consultations or market planning earlier.</p>{model.sections.watching.length ? <div className="t6p-grid">{model.sections.watching.map(item => <OpportunityCard key={`watch-${item.opportunity_id}`} item={item} watched/>)}</div> : <p className="t6p-empty">No source-supported planning signal currently passes the beta publication gate.</p>}</section>
     <section className="t6p-section" aria-labelledby="t6p-businesses"><p className="t6p-kicker">Public capability overlap only</p><h2 id="t6p-businesses">Business watchlists</h2><p>These six public profiles come from the existing Treaty 6 research record. A watch is a category signal, not a qualification assessment or bid recommendation.</p><div className="t6p-grid">{model.sections.business_watchlists.map(item => <BusinessWatchlistCard key={item.canonical_name} business={item}/>)}</div></section>
