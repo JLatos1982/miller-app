@@ -5,6 +5,8 @@ import { spawnSync } from "node:child_process"
 // services, or Samwise automation state.
 const productionTests = [
   "test/publicCounselling.test.js",
+  "test/companionScene.test.js",
+  "test/millerHandoutCleanup.test.js",
   "test/millerMobileApi.test.js",
   "test/millerProfessionalWorkflow.test.js",
   "test/sharedResourceRegistry.test.js",

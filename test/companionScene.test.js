@@ -185,10 +185,9 @@ test('bubble geometry opens reading space only when it would collide with Miller
 
 test('Classic reading movement uses approved step assets rather than a standing-image slide', () => {
   const css = fs.readFileSync(new URL('../src/App.css', import.meta.url), 'utf8')
-  const poseSpec = fs.readFileSync(new URL('../docs/CLASSIC_MILLER_INTERACTION_POSE_SPEC.md', import.meta.url), 'utf8')
   assert.match(css, /miller-reading-walking/)
-  assert.match(poseSpec, /stepLeft01/)
-  assert.match(poseSpec, /stepLeft02/)
+  assert.equal(CLASSIC_WALK_POSE_SLOTS.stepLeft01.asset.endsWith('classic-miller-step-left-01.png'), true)
+  assert.equal(CLASSIC_WALK_POSE_SLOTS.stepLeft02.asset.endsWith('classic-miller-step-left-02.png'), true)
   assert.equal(MILLER_CLASSIC_READING_WALK_DURATION, 920)
   assert.equal(MILLER_CLASSIC_READING_WALK.steps.reduce((total, step) => total + step.duration, 0), 920)
   assert.equal(millerClassicWalkStep(0).pose, 'stepLeft01')
