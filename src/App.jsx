@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
+import { lazy, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
 import "./App.css"
 import rawResources from "./vancouver_resources_merged_updated.json"
 import { supabase } from "./supabaseClient"
@@ -8,11 +8,6 @@ import millerViolet from "./assets/miller_violet.png"
 import millerRose from "./assets/miller_rose.png"
 import millerNorth from "./assets/miller_north.png"
 
-import titleClassic from "./assets/title.png"
-import titleJade from "./assets/title_jade.png"
-import titleViolet from "./assets/title_violet.png"
-import titleRose from "./assets/title_rose.png"
-import titleNorth from "./assets/title_north.png"
 
 import arrowLeft from "./assets/arrow_left.png";
 import arrowRight from "./assets/arrow_right.png";
@@ -26,10 +21,8 @@ import justinPortrait from "./assets/Justin.png"
 import { MILLER_COPY } from "./interfaceCopy.js"
 import { adminFetch, getAdminAccessState } from "./adminApi.js"
 import { clearAuthCallbackFromUrl, hasAuthCallbackParams, requestAdminMagicLink } from "./adminAuthFlow.js"
-import PendingLocationReview from "./admin/AdminIntelligenceReview.jsx"
 import { safeEmailAddress, safeHttpUrl } from "./safeLinks.js"
 import { submitResource, trackEvent } from "./publicApi.js"
-import ServiceMap from "./map/ServiceMap.jsx"
 import { stableCuratedResourceId } from "./map/mapChat.js"
 import { normalizedResourceRows } from "./resourceData.js"
 import {
@@ -37,34 +30,13 @@ import {
   MILLER_THEME_NAME_STORAGE_KEY,
   resolveMillerThemeIndex,
 } from "./millerThemePreference.js"
-import { askMiller, buildMillerRequest } from "./millerApi.js"
-import ShelterCandidateReview from "./admin/ShelterCandidateReview.jsx"
-import CuratedListManager from "./admin/CuratedListManager.jsx"
-import PdfDocumentManager from "./admin/PdfDocumentManager.jsx"
-import ResearchPlanner from "./admin/ResearchPlanner.jsx"
-import SystemHealth from "./admin/SystemHealth.jsx"
-import MillerNorthIncidentReview from "./admin/MillerNorthIncidentReview.jsx"
-import PreMadeLists from "./lists/PreMadeLists.jsx"
+import { askMiller, askMillerMatchPresentation, buildMillerRequest } from "./millerApi.js"
 import GetTherePanel from "./navigation/GetTherePanel.jsx"
 import { eligiblePublicLocation } from "./navigation/navigation.js"
 import { buildNavigationPacket, deterministicRelevance } from "./navigation/searchContext.js"
 import AccessibleModal from "./site/AccessibleModal.jsx"
 import ResourceAttachmentPicker from "./site/ResourceAttachmentPicker.jsx"
 import MillerSheepdog from "./companion/MillerSheepdog.jsx"
-import DirectoryHealthAuditBackPage from "./owner/DirectoryHealthAuditBackPage.jsx"
-import IndigenousHealthcareEvidence from "./site/IndigenousHealthcareEvidence.jsx"
-import MillerNorthLiveListening from "./site/MillerNorthLiveListening.jsx"
-import MillerNorthEmergingCases from "./site/MillerNorthEmergingCases.jsx"
-import MillerNorthMethodology from "./site/MillerNorthMethodology.jsx"
-import MillerNorthResearchPolicy from "./site/MillerNorthResearchPolicy.jsx"
-import MillerNorthAccountabilitySnapshot from "./site/MillerNorthAccountabilitySnapshot.jsx"
-import MillerNorthAccountabilityWatch from "./site/MillerNorthAccountabilityWatch.jsx"
-import MillerNorthSeriousHarm from "./site/MillerNorthSeriousHarm.jsx"
-import MillerNorthFirstNationsSupports from "./site/MillerNorthFirstNationsSupports.jsx"
-import MillerNorthAccessEquity from "./site/MillerNorthAccessEquity.jsx"
-import EmailResultsDialog from "./site/EmailResultsDialog.jsx"
-import MillerPracticalSupports from "./site/MillerPracticalSupports.jsx"
-import MillerFundingAssistance from "./site/MillerFundingAssistance.jsx"
 import { isEmailResultEligible } from "./emailResultsApi.js"
 import { isMeaningfulCompanionInput, MILLER_PRESENTATION_INTENTS, presentationIntent } from "./companion/millerCompanionLifecycle.js"
 import { bubbleNeedsMillerReadingPosition, readingStageHeight, resolveMillerReadingOffset } from "./companion/millerSceneLayout.js"
@@ -75,11 +47,37 @@ import { journeyKeyframes, journeyPointInHost, mayAnimateResultsJourney, MILLER_
 import practicalSupports from "./data/miller-practical-supports-public-v1.json"
 import millerFunding from "./data/miller-funding-assistance-public-v1.json"
 import sharedResourceRegistry from "./data/miller-shared-resource-registry-v1.json"
-import { buildMillerSpecializedSearchResources, buildSharedCanonicalMillerResources, mergeMillerSearchResources, millerResourceSearchText } from "./millerPublicSearchResources.js"
+import { buildMillerPublicationSafeResourceCorpus, millerResourceSearchText } from "./millerPublicSearchResources.js"
 import { publicCounsellingPractitioners } from "./data/privateCounsellingPractitioners.js"
 import { buildMillerPracticalIntelligence } from "./millerPracticalIntelligence.js"
 import { conciseResourceDescription } from "./millerResultPresentation.js"
-import Treaty6ProcurementPreview from "./site/Treaty6ProcurementPreview.jsx"
+import { accessLocationHeading, publicAccessLocation } from "./navigatorPresentation.js"
+
+const PendingLocationReview = lazy(() => import("./admin/AdminIntelligenceReview.jsx"))
+const ShelterCandidateReview = lazy(() => import("./admin/ShelterCandidateReview.jsx"))
+const CuratedListManager = lazy(() => import("./admin/CuratedListManager.jsx"))
+const PdfDocumentManager = lazy(() => import("./admin/PdfDocumentManager.jsx"))
+const ResearchPlanner = lazy(() => import("./admin/ResearchPlanner.jsx"))
+const SystemHealth = lazy(() => import("./admin/SystemHealth.jsx"))
+const MillerNorthIncidentReview = lazy(() => import("./admin/MillerNorthIncidentReview.jsx"))
+const PreMadeLists = lazy(() => import("./lists/PreMadeLists.jsx"))
+const ServiceMap = lazy(() => import("./map/ServiceMap.jsx"))
+const DirectoryHealthAuditBackPage = lazy(() => import("./owner/DirectoryHealthAuditBackPage.jsx"))
+const IndigenousHealthcareEvidence = lazy(() => import("./site/IndigenousHealthcareEvidence.jsx"))
+const MillerNorthLiveListening = lazy(() => import("./site/MillerNorthLiveListening.jsx"))
+const MillerNorthEmergingCases = lazy(() => import("./site/MillerNorthEmergingCases.jsx"))
+const MillerNorthMethodology = lazy(() => import("./site/MillerNorthMethodology.jsx"))
+const MillerNorthResearchPolicy = lazy(() => import("./site/MillerNorthResearchPolicy.jsx"))
+const MillerNorthAccountabilitySnapshot = lazy(() => import("./site/MillerNorthAccountabilitySnapshot.jsx"))
+const MillerNorthAccountabilityWatch = lazy(() => import("./site/MillerNorthAccountabilityWatch.jsx"))
+const MillerNorthSeriousHarm = lazy(() => import("./site/MillerNorthSeriousHarm.jsx"))
+const MillerNorthFirstNationsSupports = lazy(() => import("./site/MillerNorthFirstNationsSupports.jsx"))
+const MillerNorthAccessEquity = lazy(() => import("./site/MillerNorthAccessEquity.jsx"))
+const EmailResultsDialog = lazy(() => import("./site/EmailResultsDialog.jsx"))
+const MillerPracticalSupports = lazy(() => import("./site/MillerPracticalSupports.jsx"))
+const MillerFundingAssistance = lazy(() => import("./site/MillerFundingAssistance.jsx"))
+const MillerNavigatorLanding = lazy(() => import("./site/MillerNavigatorLanding.jsx"))
+const Treaty6ProcurementPreview = lazy(() => import("./site/Treaty6ProcurementPreview.jsx"))
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -215,35 +213,30 @@ const MILLER_THEMES = [
   {
     name: "Classic",
     avatar: millerClassic,
-    title: titleClassic,
     background: backgroundClassic,
     accent: "#6bbcff",
   },
   {
     name: "Jade",
     avatar: millerJade,
-    title: titleJade,
     background: backgroundJade,
     accent: "#71c99a",
   },
   {
     name: "Violet",
     avatar: millerViolet,
-    title: titleViolet,
     background: backgroundViolet,
     accent: "#ae8cff",
   },
   {
     name: "Rose",
     avatar: millerRose,
-    title: titleRose,
     background: backgroundRose,
     accent: "#ef91a8",
   },
   {
     name: "North",
     avatar: millerNorth,
-    title: titleNorth,
     background: backgroundNorth,
     accent: "#315e79",
   },
@@ -697,18 +690,112 @@ function renderMessageWithLinks(text) {
   })
 }
 
+function webInterpretationNeeds(presentation) {
+  return Array.isArray(presentation?.workflow?.needs)
+    ? presentation.workflow.needs.filter((need) => need?.need_id && need?.label)
+    : []
+}
+
+function isComplexWebInterpretation(presentation) {
+  const needs = webInterpretationNeeds(presentation)
+  return needs.length > 1
+}
+
+function publicServiceArea(resource) {
+  const scope = String(resource?.scopeNote || "").trim()
+  if (!scope) return ""
+  return /^service area:/i.test(scope) ? scope : `Service area: ${scope}`
+}
+
+function WebInterpretationConfirmation({ presentation, excludedIntents, ignoreDetectedLocation, onRemoveNeed, onRemoveLocation, onFindResources, onEditRequest }) {
+  const needs = webInterpretationNeeds(presentation).filter((need) => !excludedIntents.includes(need.need_id))
+  const location = ignoreDetectedLocation ? "" : String(presentation?.interpreted?.location || "").trim()
+  const canSearch = needs.length > 0
+
+  return <section className="web-interpretation-card" aria-labelledby="web-interpretation-title">
+    <p className="eyebrow">Before searching</p>
+    <h2 id="web-interpretation-title">Here’s what Miller understood</h2>
+    <p>Check this before reviewing resources. Remove anything that does not belong, or edit the request.</p>
+    {needs.length ? <div className="web-interpretation-group"><strong>Looking for</strong><div className="web-interpretation-chips">{needs.map((need) => <button key={need.need_id} type="button" className="web-interpretation-chip" onClick={() => onRemoveNeed(need.need_id)} aria-label={`Remove ${need.label}`}><span aria-hidden="true">×</span>{need.label}</button>)}</div></div> : <p className="web-interpretation-empty">Add a support need before searching.</p>}
+    {location ? <div className="web-interpretation-group"><strong>Location</strong><div className="web-interpretation-chips"><button type="button" className="web-interpretation-chip" onClick={onRemoveLocation} aria-label={`Remove location ${location}`}><span aria-hidden="true">×</span>{location}</button></div></div> : null}
+    <div className="web-interpretation-actions"><button type="button" className="primary-button" disabled={!canSearch} onClick={onFindResources}>Find resources</button><button type="button" className="ghost-button" onClick={onEditRequest}>Edit request</button></div>
+    <p className="web-interpretation-safeguard">Miller only shows what was in the request and its structured search interpretation. It does not infer personal characteristics.</p>
+  </section>
+}
+
+function WebShowResources({ resources, onClose }) {
+  return <div className="web-show-resources-backdrop" role="presentation">
+    <section className="web-show-resources" role="dialog" aria-modal="true" aria-labelledby="web-show-resources-title">
+      <div className="web-show-resources-head"><div><p className="eyebrow">Selected public resources</p><h2 id="web-show-resources-title">Resources that may help</h2></div><button type="button" className="ghost-button" onClick={onClose}>Done</button></div>
+      <p className="web-show-resources-note">Please confirm current intake, eligibility, and availability directly with each service.</p>
+      <div className="web-show-resources-list">{resources.map((resource) => <article key={String(resource.id)} className="web-show-resource-card">
+        <h3>{resource.name}</h3>
+        {safeOrganization(resource) ? <p className="resource-org">{safeOrganization(resource)}</p> : null}
+        {resource.matchState === "broader_alternative" ? <p className="web-broader-label">Broader option — may still be useful</p> : null}
+        {resource.description ? <p><strong>What it offers:</strong> {conciseResourceDescription(resource.description)}</p> : null}
+        {resource.phone ? <p><strong>Phone:</strong> <a href={`tel:${resource.phone}`}>{resource.phone}</a></p> : null}
+        {safeHttpUrl(resource.website) ? <p><a className="resource-link-button" href={safeHttpUrl(resource.website)} target="_blank" rel="noreferrer">Open website</a></p> : null}
+        {resource.address ? <p><strong>Address:</strong> {resource.address}</p> : null}
+        {publicServiceArea(resource) ? <p>{publicServiceArea(resource)}</p> : null}
+        {resource.accessType ? <p><strong>Access:</strong> {resource.accessType}</p> : null}
+        {resource.referralNote ? <p><strong>Referral:</strong> {resource.referralNote}</p> : null}
+        {resource.eligibility ? <p><strong>Eligibility:</strong> {resource.eligibility}</p> : null}
+        {resource.fundingType ? <p><strong>Funding:</strong> {resource.fundingType}</p> : null}
+        {resource.transportationNote ? <p><strong>Transportation:</strong> {resource.transportationNote}</p> : null}
+        {resource.accessLocations?.length ? <div className="navigator-access-locations"><strong>{accessLocationHeading(resource.accessLocations)}:</strong><p>These are access points for this program, not separate services.</p><ul>{resource.accessLocations.map((location) => {
+          const accessPoint = publicAccessLocation(location)
+          return <li key={accessPoint.id || accessPoint.name}><strong>{accessPoint.name}</strong>{accessPoint.address ? ` — ${accessPoint.address}` : ""}<span>{accessPoint.purpose}</span></li>
+        })}</ul></div> : null}
+      </article>)}</div>
+      <div className="web-show-resources-actions"><button type="button" className="ghost-button" onClick={() => window.print()}>Print these resources</button><button type="button" className="primary-button" onClick={onClose}>Done</button></div>
+    </section>
+  </div>
+}
+
+// The match-state endpoint is the shared, publication-safe presentation
+// contract used by Navigator. Keep this small adapter here rather than
+// reimplementing search or ranking in the web client.
+function mobileCardToWebResource(card) {
+  return {
+    id: card.canonical_id,
+    name: card.name,
+    organization: card.organization,
+    category: card.category,
+    serviceType: card.service_type,
+    description: card.description,
+    province: card.province,
+    city: card.city,
+    region: card.region,
+    address: card.address,
+    phone: card.phone,
+    email: card.email,
+    website: card.website,
+    accessType: card.access_type || card.access_note,
+    referralNote: card.referral_note,
+    eligibility: card.eligibility_note,
+    scopeNote: card.scope_note,
+    fundingType: card.funding_note,
+    transportationNote: card.transportation_note,
+    collectionLinks: card.collection_links || [],
+    source: "verified_miller",
+    matchState: card.match_state,
+    matchReasons: card.match_reasons || [],
+    accessLocations: card.access_locations || [],
+  }
+}
+
 function App() {
   const isAdminRoute = typeof window !== "undefined" && window.location.pathname.startsWith("/admin")
   const isMillerNorthAdminRoute = typeof window !== "undefined" && window.location.pathname === "/admin/miller-north"
   const isOwnerRoute = typeof window !== "undefined" && window.location.pathname === "/owner/directory-health-audit"
   const isInternalRoute = isAdminRoute || isOwnerRoute
-  const normalizedResources = useMemo(() => dedupeResources(mergeMillerSearchResources(
-    mergeMillerSearchResources(
-      cleanResources(rawResources),
-      buildMillerSpecializedSearchResources(practicalSupports.records, millerFunding.records),
-    ),
-    buildSharedCanonicalMillerResources(sharedResourceRegistry.records),
-  )), [])
+  const normalizedResources = useMemo(() => dedupeResources(buildMillerPublicationSafeResourceCorpus({
+    canonicalResources: cleanResources(rawResources),
+    practicalRecords: practicalSupports.records,
+    fundingRecords: millerFunding.records,
+    sharedRecords: sharedResourceRegistry.records,
+    sharedAccessLocations: sharedResourceRegistry.access_locations || [],
+  })), [])
   const millerPracticalKnowledge = normalizedResources
 
   const defaultReply = MILLER_COPY.searchIntro
@@ -723,6 +810,11 @@ function App() {
   const [navigationTarget, setNavigationTarget] = useState(null)
   const [openInfoModal, setOpenInfoModal] = useState(null)
   const [searchContext, setSearchContext] = useState({ intent: null, location: { status: "none" } })
+  const [pendingWebInterpretation, setPendingWebInterpretation] = useState(null)
+  const [webExcludedIntents, setWebExcludedIntents] = useState([])
+  const [webIgnoreDetectedLocation, setWebIgnoreDetectedLocation] = useState(false)
+  const [selectedResourceIds, setSelectedResourceIds] = useState([])
+  const [isShowResourcesOpen, setIsShowResourcesOpen] = useState(false)
 
   useEffect(() => {
     if (!isMapOpen && !hasSearched) return
@@ -766,6 +858,7 @@ useEffect(() => {
   const [aiReply, setAiReply] = useState(defaultReply)
   const [displayedReply, setDisplayedReply] = useState("")
   const [results, setResults] = useState([])
+  const [matchPresentation, setMatchPresentation] = useState(null)
   const [adminReviewItems, setAdminReviewItems] = useState([])
   const [aiReviews, setAiReviews] = useState({})
   const [aiReviewLoading, setAiReviewLoading] = useState({})
@@ -774,6 +867,7 @@ useEffect(() => {
   const [adminReviewStatus, setAdminReviewStatus] = useState("")
   const [totalMatches, setTotalMatches] = useState(0)
   const [searchStrategy, setSearchStrategy] = useState(null)
+  const [searchNotice, setSearchNotice] = useState("")
 
   const chestRef = useRef(null)
   const searchPanelRef = useRef(null)
@@ -1141,6 +1235,11 @@ useEffect(() => {
       emitCompanionIntent(MILLER_PRESENTATION_INTENTS.INPUT_STARTED)
     }
     if (!meaningful) companionInputStartedRef.current = false
+    if (pendingWebInterpretation) {
+      setPendingWebInterpretation(null)
+      setWebExcludedIntents([])
+      setWebIgnoreDetectedLocation(false)
+    }
     setQuery(nextValue)
   }
 
@@ -1258,10 +1357,25 @@ useEffect(() => {
     }
   }, [hasSearched, isSearchBarHovered, isTyping, isChestOpen, results.length])
 
-  async function handleSearch(event) {
-    event.preventDefault()
+  async function handleSearch(event, { skipInterpretationConfirmation = false, broadenNearby = false } = {}) {
+    event?.preventDefault?.()
 
     const trimmedQuery = query.trim()
+    if (!skipInterpretationConfirmation && trimmedQuery) {
+      const presentation = await askMillerMatchPresentation({
+        query: trimmedQuery,
+        location: selectedCity,
+        excludedIntents: webExcludedIntents,
+        ignoreDetectedLocation: webIgnoreDetectedLocation,
+        broadenNearby,
+      })
+      if (isComplexWebInterpretation(presentation)) {
+        setPendingWebInterpretation(presentation)
+        return
+      }
+    }
+    setPendingWebInterpretation(null)
+    setSearchNotice("")
     const companionGeneration = ++companionSearchGenerationRef.current
     if (!shouldShowResults) captureResultJourneyOrigin(companionGeneration)
 
@@ -1306,6 +1420,7 @@ trackEvent({
       setAiReply(MILLER_COPY.searchHint)
       setSearchContext({ intent: null, location: { status: "none" } })
       setSearchStrategy(null)
+      setMatchPresentation(null)
       setCompanionSearchOutcome({ generation: companionGeneration, status: "empty" })
       emitCompanionIntent(MILLER_PRESENTATION_INTENTS.SETTLE)
       return
@@ -1328,7 +1443,25 @@ trackEvent({
     setCompanionSearchOutcome({ generation: companionGeneration, status: "pending" })
     emitCompanionIntent(MILLER_PRESENTATION_INTENTS.WORK_STARTED)
     setResults(candidatePack.candidates.slice(0, resultLimit))
+    setMatchPresentation(null)
     setTotalMatches(candidatePack.candidatePool.length)
+
+    // Retrieve the deterministic presentation independently from the
+    // conversational response. If the conversational service is unavailable,
+    // the web UI must still preserve direct/broader/no-match semantics.
+    let deterministicPresentation = null
+    try {
+      deterministicPresentation = await askMillerMatchPresentation({
+        query: trimmedQuery,
+        location: selectedCity,
+        limit: resultLimit,
+        excludedIntents: webExcludedIntents,
+        ignoreDetectedLocation: webIgnoreDetectedLocation,
+        broadenNearby,
+      })
+    } catch (presentationError) {
+      console.warn("Miller match presentation unavailable", presentationError)
+    }
 
     try {
       const data = await askMiller(buildMillerRequest({
@@ -1424,9 +1557,13 @@ const rerankedResults = sortResources(
   }
 )
 
-const finalResults = rerankedResults.slice(0, resultLimit)
+const finalResults = deterministicPresentation
+  ? [...deterministicPresentation.direct_results, ...deterministicPresentation.broader_alternatives].map(mobileCardToWebResource)
+  : rerankedResults.slice(0, resultLimit)
 
 setResults(finalResults)
+setSelectedResourceIds([])
+setMatchPresentation(deterministicPresentation)
 
 setCompanionSearchOutcome({ generation: companionGeneration, status: finalResults.length ? "success" : "empty" })
 if (!finalResults.length) emitCompanionIntent(MILLER_PRESENTATION_INTENTS.SETTLE)
@@ -1461,13 +1598,20 @@ setConversationMemory((prev) =>
         candidatePack.inferredCategories
       )
 
-      const fallbackResults = fallbackPool.slice(0, resultLimit)
+      const fallbackResults = deterministicPresentation
+        ? [...deterministicPresentation.direct_results, ...deterministicPresentation.broader_alternatives].map(mobileCardToWebResource)
+        : fallbackPool.slice(0, resultLimit)
 
       setResults(fallbackResults)
-      setTotalMatches(fallbackPool.length)
+      setSelectedResourceIds([])
+      setTotalMatches(deterministicPresentation ? fallbackResults.length : fallbackPool.length)
       setAiReply(MILLER_COPY.searchUnavailable)
       setSearchContext({ intent: null, location: { status: "none" } })
       setSearchStrategy(null)
+      setMatchPresentation(deterministicPresentation)
+      setSearchNotice(fallbackResults.length
+        ? "Miller’s guided note is temporarily unavailable. The verified resources below are still available."
+        : "Miller couldn’t connect to the search service. Check your connection and try again.")
       setCompanionSearchOutcome({ generation: companionGeneration, status: "error" })
       emitCompanionIntent(MILLER_PRESENTATION_INTENTS.SETTLE)
     } finally {
@@ -1622,6 +1766,11 @@ function renderAiReview(resource) {
     setSelectedCity("All Cities")
     setHasSearched(false)
     setResults([])
+    setSelectedResourceIds([])
+    setPendingWebInterpretation(null)
+    setWebExcludedIntents([])
+    setWebIgnoreDetectedLocation(false)
+    setIsShowResourcesOpen(false)
     setSearchContext({ intent: null, location: { status: "none" } })
     setSearchStrategy(null)
     setTotalMatches(0)
@@ -1776,12 +1925,33 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
     return <IndigenousHealthcareEvidence />
   }
 
+  const presentedResultGroups = matchPresentation
+    ? [
+        { id: "direct", title: "Recommended resources", description: "", resources: results.filter((resource) => resource.matchState !== "broader_alternative") },
+        { id: "broader", title: "Broader options that may still be useful", description: "These are verified resources, but Miller did not identify them as direct recommendations for this request.", resources: results.filter((resource) => resource.matchState === "broader_alternative") },
+      ].filter((group) => group.resources.length)
+    : [{ id: "legacy", title: "", description: "", resources: results }]
+  const emailEligibleResults = results.filter((resource) => resource.matchState !== "broader_alternative")
+  const selectedResources = results.filter((resource) => selectedResourceIds.includes(String(resource.id)))
+  const toggleSelectedResource = (resource) => {
+    const id = String(resource.id)
+    setSelectedResourceIds((current) => current.includes(id) ? current.filter((value) => value !== id) : [...current, id])
+  }
+  const removeWebInterpretationNeed = (needId) => {
+    setWebExcludedIntents((current) => [...new Set([...current, needId])])
+    setPendingWebInterpretation((current) => current ? { ...current } : current)
+  }
+
   if (typeof window !== "undefined" && window.location.pathname === "/practical-supports") {
     return <MillerPracticalSupports />
   }
 
   if (typeof window !== "undefined" && window.location.pathname === "/funding-assistance") {
     return <MillerFundingAssistance />
+  }
+
+  if (typeof window !== "undefined" && window.location.pathname === "/navigator") {
+    return <MillerNavigatorLanding />
   }
 
   if (isAdminRoute) {
@@ -1814,24 +1984,24 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
 />
       <div className="handout-toolbar">
         <div className="handout-toolbar-controls">
+          <a className="handout-indicator" href="/navigator">Miller Navigator</a>
           <a className="handout-indicator" href="/practical-supports">Practical Supports</a>
           <a className="handout-indicator" href="/funding-assistance">Funding &amp; Assistance</a>
           <button type="button" className="handout-indicator" onClick={() => { window.history.pushState({}, "", "/lists"); setIsListsOpen(true) }}><span aria-hidden="true">☷</span>Pre-made Lists</button>
           <button type="button" className="handout-indicator" onClick={() => setIsMapOpen(true)}><span aria-hidden="true">⌖</span>Service Map</button>
           <button type="button" className="handout-indicator private-counselling-nav" onClick={() => setOpenInfoModal("private-counselling")}>Private Counselling</button>
-          <button type="button" className="handout-indicator" onClick={() => setOpenInfoModal("about-site")}>About This Site</button>
+          <button type="button" className="handout-indicator" onClick={() => setOpenInfoModal("about-site")}>About Miller</button>
         </div>
       </div>
       <div className="hero-header">
-       <p className="eyebrow">Gentle help finding your next step in BC’s Lower Mainland</p>
+       <p className="eyebrow">Miller Navigator · Canadian service navigation for frontline workers</p>
 
           <div className="title-stage">
             <div className="title-frame">
-              <img
-  src={currentTheme.title}
-  alt="Addiction Resource Finder"
-  className="title-image theme-fade"
-/>
+              <div className="miller-navigator-brand">
+                <h1>Miller Navigator</h1>
+                <p>Find and share the right resources quickly.</p>
+              </div>
             </div>
           </div>
           </div>
@@ -1850,7 +2020,7 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
                 id="resource-search"
                 ref={searchInputRef}
                 className="main-search-input"
-                placeholder="e.g. detox, treatment centre, counselling, OAT, crisis, harm reduction"
+                placeholder="e.g. housing, food, treatment, benefits, legal help, counselling"
                 value={query}
                 onChange={handleSearchInputChange}
                 onFocus={() => setIsTyping(true)}
@@ -1883,7 +2053,7 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
 
             <div className="micro-options">
               <p className="ai-note">
-                Find local addiction and community supports and take the next step.
+                Find and share the right community resources quickly. Addictions and treatment remain major support areas alongside housing, food, benefits, transportation, primary care, legal help, youth and family support.
               </p>
               <p className="capability-signal">Search · nearby services · getting there</p>
               <p className="miller-service-note">This service offers volunteer resource-navigation support, not clinical counselling or therapy. I can help you find and organize trusted community resources.</p>
@@ -1892,11 +2062,29 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
 
           </div>
 
+          {pendingWebInterpretation ? <WebInterpretationConfirmation
+            presentation={pendingWebInterpretation}
+            excludedIntents={webExcludedIntents}
+            ignoreDetectedLocation={webIgnoreDetectedLocation}
+            onRemoveNeed={removeWebInterpretationNeed}
+            onRemoveLocation={() => setWebIgnoreDetectedLocation(true)}
+            onFindResources={() => handleSearch(null, { skipInterpretationConfirmation: true })}
+            onEditRequest={() => {
+              setPendingWebInterpretation(null)
+              setWebExcludedIntents([])
+              setWebIgnoreDetectedLocation(false)
+              window.requestAnimationFrame(() => searchInputRef.current?.focus())
+            }}
+          /> : null}
+
           {shouldShowResults && (
-  <div className="results-panel" ref={resultsPanelRef}>
+  <div className="results-panel" ref={resultsPanelRef} aria-busy={isLoading}>
               <div className="results-head">
-                <h2><span className="results-count">{results.length === totalMatches ? results.length : `${results.length} of ${totalMatches}`}</span> matching resource{results.length === 1 ? "" : "s"}</h2>
-                {results.some(isEmailResultEligible) ? <button type="button" className="ghost-button email-results-open" onClick={() => setIsEmailResultsOpen(true)}>Email these results</button> : null}
+                <h2 role="status" aria-live="polite"><span className="results-count">{matchPresentation ? results.length : results.length === totalMatches ? results.length : `${results.length} of ${totalMatches}`}</span> matching resource{results.length === 1 ? "" : "s"}</h2>
+                <div className="results-actions">
+                  {selectedResources.length ? <button type="button" className="ghost-button" onClick={() => setIsShowResourcesOpen(true)}>Review &amp; share selected ({selectedResources.length})</button> : null}
+                  {emailEligibleResults.some(isEmailResultEligible) ? <button type="button" className="ghost-button email-results-open" onClick={() => setIsEmailResultsOpen(true)}>Email these results</button> : null}
+                </div>
               </div>
               {searchContext.location.status !== "none" ? <p className="search-context-line">
                 {searchContext.location.status === "resolved" ? `Showing support options around ${searchContext.location.label}.` : null}
@@ -1904,15 +2092,24 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
                 {searchContext.location.status === "ambiguous" ? searchContext.location.clarification : null}
               </p> : null}
               {searchStrategy?.externalSearchNotice ? <p className="search-context-line search-strategy-note">{searchStrategy.externalSearchNotice}</p> : null}
+              {matchPresentation?.coverage_maturity?.message ? <p className="search-context-line">{matchPresentation.coverage_maturity.message}</p> : null}
+              {matchPresentation?.search_scope?.message ? <p className="search-context-line">{matchPresentation.search_scope.message}</p> : null}
+              {searchNotice ? <div className="navigator-search-notice" role="status"><p>{searchNotice}</p><button type="button" className="ghost-button" onClick={() => handleSearch(null, { skipInterpretationConfirmation: true })}>Try again</button></div> : null}
 
-              {results.length === 0 ? (
+              {matchPresentation?.match_state?.state === "no_verified_match" ? <div className="empty-card"><h3>No strong verified match found.</h3><p>{matchPresentation.match_state.message}</p><div className="empty-card-actions">{matchPresentation?.broaden_nearby?.available ? <button type="button" className="primary-button" onClick={() => handleSearch(null, { skipInterpretationConfirmation: true, broadenNearby: true })}>{matchPresentation.broaden_nearby.label || "Show regional options"}</button> : null}<button type="button" className="ghost-button" onClick={() => searchInputRef.current?.focus()}>Edit request</button><button type="button" className="ghost-button" onClick={() => { window.history.pushState({}, "", "/lists/master"); setIsListsOpen(true) }}>Browse the Master List</button></div></div> : null}
+              {results.length === 0 && matchPresentation?.match_state?.state !== "no_verified_match" ? (
                 <div className="empty-card">
                   <h3>{MILLER_COPY.noResultsTitle}</h3>
                   <p>{MILLER_COPY.noResultsBody}</p>
+                  <div className="empty-card-actions"><button type="button" className="ghost-button" onClick={() => searchInputRef.current?.focus()}>Edit request</button><button type="button" className="ghost-button" onClick={() => { window.history.pushState({}, "", "/lists/master"); setIsListsOpen(true) }}>Browse the Master List</button></div>
                 </div>
               ) : (
+                <>
+                {presentedResultGroups.map((group) => <section key={group.id} aria-label={group.title || "Search results"}>
+                  {group.title ? <h3 className="results-group-title">{group.title}</h3> : null}
+                  {group.description ? <p className="search-context-line">{group.description}</p> : null}
                 <div className="resource-list" data-layout="two-column-responsive">
-                  {results.map((resource, index) => {
+                  {group.resources.map((resource, index) => {
                     const publicLocation = eligiblePublicLocation(resource, mapResources)
                     const navigationContext = buildNavigationPacket({ resource, publicMapResources: mapResources, intent: searchContext.intent, locationContext: searchContext.location, relevance: deterministicRelevance(resource, searchContext.intent) })
                     return (
@@ -1931,7 +2128,7 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
                             <p className="resource-org">{safeOrganization(resource)}</p>
                           )}
                         </div>
-                        {resource.city && <span className="resource-city">{resource.city}</span>}
+                        <div className="resource-card-actions">{resource.city && <span className="resource-city">{resource.city}</span>}<label className="resource-select"><input type="checkbox" checked={selectedResourceIds.includes(String(resource.id))} onChange={() => toggleSelectedResource(resource)} aria-label={`${selectedResourceIds.includes(String(resource.id)) ? "Remove" : "Add"} ${resource.name} ${selectedResourceIds.includes(String(resource.id)) ? "from" : "to"} the resource pack`}/><span>{selectedResourceIds.includes(String(resource.id)) ? "Selected" : "Add to pack"}</span></label></div>
                       </div>
 
                       <div className="resource-meta">
@@ -1974,6 +2171,8 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
                       {resource.description && (
                         <p className="resource-description">{conciseResourceDescription(resource.description)}</p>
                       )}
+                      {resource.matchState === "broader_alternative" ? <p className="web-broader-label">Broader option — may still be useful</p> : null}
+                      {resource.matchState !== "broader_alternative" && resource.matchReasons?.length ? <p className="resource-context-line"><strong>Why this may fit:</strong> {resource.matchReasons.join(" · ")}</p> : null}
                       {navigationContext.explanation ? <p className="resource-context-line">{navigationContext.explanation}</p> : null}
 
                       <div className="resource-details">
@@ -2019,6 +2218,11 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
                           </p>
                         )}
                       </div>
+
+                      {resource.accessLocations?.length ? <div className="navigator-access-locations"><strong>{accessLocationHeading(resource.accessLocations)}</strong><p>These are access points for {resource.name}, not separate programs.</p><ul>{resource.accessLocations.map((location) => {
+                        const accessPoint = publicAccessLocation(location)
+                        return <li key={accessPoint.id || accessPoint.name}><strong>{accessPoint.name}</strong>{accessPoint.address ? ` — ${accessPoint.address}` : ""}<span>{accessPoint.purpose}</span></li>
+                      })}</ul></div> : null}
 
                       <div className="resource-links">
   {resource.phone ? (
@@ -2067,6 +2271,8 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
                     </article>
                   )})}
                 </div>
+                </section>)}
+                </>
               )}
             </div>
           )}
@@ -2260,7 +2466,8 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
         </aside>
       </main>
       {navigationTarget ? <GetTherePanel resource={navigationTarget.resource} location={navigationTarget.location} initialOrigin={navigationTarget.origin} onClose={() => setNavigationTarget(null)}/> : null}
-      {isEmailResultsOpen ? <EmailResultsDialog results={results} city={selectedCity} onClose={() => setIsEmailResultsOpen(false)} /> : null}
+      {isEmailResultsOpen ? <EmailResultsDialog results={emailEligibleResults} city={selectedCity} onClose={() => setIsEmailResultsOpen(false)} /> : null}
+      {isShowResourcesOpen && selectedResources.length ? <WebShowResources resources={selectedResources} onClose={() => setIsShowResourcesOpen(false)} /> : null}
       {openInfoModal === "private-counselling" ? <AccessibleModal title="Private Counselling" labelledBy="private-counselling-title" onClose={() => setOpenInfoModal(null)} className="private-counselling-modal">
         <section className="private-counselling-options" aria-labelledby="private-counselling-options-title">
           <h3 id="private-counselling-options-title">Private counselling options</h3>
@@ -2301,9 +2508,10 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
         <p className="private-counselling-closing">Helping people find their way forward, one step at a time.</p>
         <p className="private-counselling-separation">Private counselling services are separate from this community resource directory.</p>
       </AccessibleModal> : null}
-      {openInfoModal === "about-site" ? <AccessibleModal title="About This Site" labelledBy="about-site-title" onClose={() => setOpenInfoModal(null)} className="about-site-modal">
-        <section className="about-site-intro"><p className="about-site-lead">A little help finding your way.</p><p>Finding the right community service can involve a surprising amount of detective work. This site brings together information about addiction, mental health, housing, counselling, harm reduction, treatment, and other community supports to make that search a little easier.</p></section>
-        <section aria-labelledby="about-site-how-it-works"><h3 id="about-site-how-it-works">How it works</h3><dl className="about-site-tools"><div><dt>Search</dt><dd>Tell the resource finder what kind of help you’re looking for. Adding your city can help narrow the search.</dd></div><div><dt>Email Results</dt><dd>Choose useful search results and send a concise, source-linked list after reviewing it.</dd></div><div><dt>Pre-made Lists</dt><dd>Browse organized collections when you’d rather explore than search. The Master List provides a broader view of available resources.</dd></div><div><dt>Service Map</dt><dd>Explore resources geographically when location matters.</dd></div><div><dt>Suggest a Resource / Notes</dt><dd>Leave a note about a missing, changed, or useful service. You can also attach a resource flyer or document for review.</dd></div></dl></section>
+      {openInfoModal === "about-site" ? <AccessibleModal title="About Miller" labelledBy="about-site-title" onClose={() => setOpenInfoModal(null)} className="about-site-modal">
+        <section className="about-site-intro"><p className="about-site-lead">A little help finding your way.</p><p>Miller Navigator is a pocket service-navigation tool for Canadian frontline workers. It brings together public information about housing, food, addictions and treatment, mental health, benefits, transportation, primary care, legal help, employment, youth and family support, Indigenous supports, and other community services.</p></section>
+        <section aria-labelledby="about-site-products"><h3 id="about-site-products">The Miller project</h3><dl className="about-site-tools"><div><dt>Miller Navigator</dt><dd>A fast frontline workflow for understanding a practical need, reviewing verified options, and preparing a resource handoff.</dd></div><div><dt>Miller Resources</dt><dd>The publication-safe service and support corpus behind search, lists, sharing, and Navigator.</dd></div><div><dt>Miller North</dt><dd>A separate Indigenous healthcare evidence and accountability project. Its evidence records do not enter Miller’s practical-resource search.</dd></div></dl><p>Strongest coverage is currently in British Columbia. Coverage is expanding, and results should not be treated as a complete inventory of services.</p></section>
+        <section aria-labelledby="about-site-how-it-works"><h3 id="about-site-how-it-works">How it works</h3><dl className="about-site-tools"><div><dt>Search</dt><dd>Tell Miller what kind of help is needed. Adding a city can help narrow the public resources.</dd></div><div><dt>Show or share</dt><dd>Review useful results, then create a concise, source-linked list to show or share.</dd></div><div><dt>Miller Resources</dt><dd>Browse pre-made lists or the Master List for a broader view of the publication-safe corpus.</dd></div><div><dt>Service Map</dt><dd>Explore only verified, public locations geographically when location matters.</dd></div><div><dt>Suggest a Resource / Notes</dt><dd>Leave a note about a missing, changed, or useful service. You can also attach a public resource flyer or document for review.</dd></div></dl></section>
         <section><h3>A bit of detective work</h3><p>Community-resource information changes. Programs move, eligibility and phone numbers change, and services sometimes close or open.</p><p>The site helps gather and organize useful information, but it’s always a good idea to confirm important details directly with the service provider. Think of the resource finder as helping with some investigative legwork — not replacing the people and organizations providing support.</p></section>
         <section className="about-site-note"><h3>Important distinction</h3><p>This site provides community-resource navigation and information. It is not a counselling, medical, or emergency service.</p><p>Private Counselling is a separate service, available through the Private Counselling section. For immediate emergency assistance, use the appropriate local emergency service.</p></section>
       </AccessibleModal> : null}

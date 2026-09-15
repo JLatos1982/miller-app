@@ -2,9 +2,10 @@ import { buildMillerPracticalIntelligence, detectMillerPracticalIntents, isMille
 import { millerResourceSearchText } from "../src/millerPublicSearchResources.js"
 import { conciseResourceDescription } from "../src/millerResultPresentation.js"
 import { buildMobileReadinessIndex, mobileReadinessSummary } from "./millerMobileReadiness.js"
-import { MILLER_CANADIAN_LOCATION_LABELS, MILLER_CANADIAN_LOCATION_PROVINCES, MILLER_COVERAGE_MATURITY } from "./millerWesternCommunities.js"
+import { MILLER_CANADIAN_COMMUNITY_SERVICE_AREAS, MILLER_CANADIAN_LOCATION_LABELS, MILLER_CANADIAN_LOCATION_PROVINCES, MILLER_COVERAGE_MATURITY } from "./millerWesternCommunities.js"
 import { buildMillerAccessPathway, decomposeMillerProfessionalNeeds, explainMillerProfessionalResults, millerProfessionalWorkflowIntent, recommendedMillerPackIds } from "./millerProfessionalWorkflow.js"
 import { createMillerTavilySearcher } from "./millerExternalSearch.js"
+import { accessLocationHeading, accessLocationPurpose } from "../src/navigatorPresentation.js"
 
 export const MILLER_MOBILE_API_VERSION = "miller-mobile-search-v1"
 export const MILLER_MOBILE_RESULT_LIMIT = 20
@@ -50,18 +51,48 @@ const PROVINCES = Object.freeze({
 const INTENT_TERMS = Object.freeze({
   housing: ["housing", "shelter", "homeless", "supportive housing", "recovery housing"],
   detox: ["detox", "withdrawal", "withdrawal management"],
-  treatment: ["treatment", "residential", "outpatient", "rehab", "recovery program"],
+  treatment: ["treatment", "residential", "outpatient", "rehab", "recovery program", "supportive recovery", "raac", "rapid access addiction medicine"],
   oat: ["oat", "opioid agonist", "methadone", "suboxone", "sublocade", "buprenorphine"],
   counselling: ["counselling", "counseling", "therapy"],
   harm_reduction: ["harm reduction", "naloxone", "overdose prevention", "safer use"],
   meetings: ["meeting", "peer support", "smart recovery", "alcoholics anonymous", "narcotics anonymous"],
   legal: ["legal", "legal aid", "advocacy", "tenancy", "rights", "courtworker"],
-  funding: ["funding", "financial assistance", "benefit", "subsidy", "grant"],
+  recreation_support: ["recreation", "leisure", "sport", "aquatic"],
+  emergency_support: ["emergency support", "evacuation", "disaster support"],
+  dental_support: ["dental", "dentist", "oral health"],
+  vision_support: ["vision", "optical", "glasses", "eye exam"],
+  funding: ["funding", "financial assistance", "benefit", "benefits", "subsidy", "grant"],
   mental_health: ["mental health", "counselling", "psychiatric", "crisis"],
   basic_needs: ["basic needs", "food", "clothing", "identification", "income"],
   transportation: ["transportation", "transport", "medical travel", "transit", "ride"],
   reentry: ["corrections reentry", "re entry", "reentry", "reintegration", "release planning"],
+  primary_care: ["primary care", "family doctor", "nurse practitioner", "community health centre"],
+  employment: ["employment", "job training", "skills training", "work readiness", "vocational"],
+  indigenous_supports: ["indigenous support", "first nations support", "métis support", "metis support", "inuit support"],
+  family_support: ["family support", "youth support", "caregiver support", "parent support"],
+  disability: ["disability support", "accessibility support", "persons with disabilities"],
 })
+
+const INTENT_LABELS = Object.freeze({
+  housing: "Housing", detox: "Detox", treatment: "Treatment", oat: "Opioid agonist treatment",
+  counselling: "Counselling", harm_reduction: "Harm reduction", meetings: "Peer support",
+  legal: "Legal navigation", funding: "Funding support", mental_health: "Mental-health support",
+  recreation_support: "Recreation support", emergency_support: "Emergency support",
+  dental_support: "Dental support", vision_support: "Vision support",
+  basic_needs: "Basic needs", transportation: "Transportation", reentry: "Re-entry support",
+  primary_care: "Primary-care navigation", employment: "Employment or training support",
+  indigenous_supports: "Indigenous-specific support", family_support: "Family or caregiver support",
+  disability: "Disability support",
+})
+
+// These are deterministic request refinements, not a free-form client ontology.
+// They let Navigator remove an interpretation chip without continuing to use it
+// in retrieval or workflow decomposition.
+const EXCLUDABLE_INTENTS = new Set([
+  ...Object.keys(INTENT_TERMS),
+  "family_support", "continuity", "access_navigation", "hospital_discharge",
+  "primary_care", "wound_care", "infectious_disease", "pharmacy", "perinatal",
+])
 
 const clean = value => String(value ?? "").replace(/\s+/g, " ").trim()
 const normalized = value => clean(value).toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[’']/g, "'").replace(/[^a-z0-9]+/g, " ").trim()
@@ -87,6 +118,10 @@ export function validateMillerMobileSearchRequest(body = {}) {
   const categories = Array.isArray(body.categories)
     ? [...new Set(body.categories.map(value => boundedString(value, 60, "category")).filter(Boolean))].slice(0, 8)
     : []
+  const excluded_intents = Array.isArray(body.excluded_intents)
+    ? [...new Set(body.excluded_intents.map(value => boundedString(value, 60, "excluded_intent")).filter(Boolean))].slice(0, 8)
+    : []
+  if (excluded_intents.some(intent => !EXCLUDABLE_INTENTS.has(intent))) throw new Error("excluded_intent_invalid")
   const requestedLimit = Number(body.limit ?? 12)
   if (!Number.isInteger(requestedLimit) || requestedLimit < 1) throw new Error("limit_invalid")
   return Object.freeze({
@@ -94,10 +129,30 @@ export function validateMillerMobileSearchRequest(body = {}) {
     location,
     province,
     categories,
+    excluded_intents,
+    ignore_detected_location: body.ignore_detected_location === true,
     limit: Math.min(requestedLimit, MILLER_MOBILE_RESULT_LIMIT),
     broaden_nearby: body.broaden_nearby === true || body.broaden_access === true,
     search_more_broadly: body.search_more_broadly === true,
   })
+}
+
+function removeExcludedIntentTerms(query, excludedIntents = []) {
+  let result = clean(query)
+  for (const intent of excludedIntents) {
+    for (const term of INTENT_TERMS[intent] || []) {
+      const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\s+/g, "\\s+")
+      result = result.replace(new RegExp(`\\b${escaped}\\b`, "gi"), " ")
+    }
+  }
+  return clean(result.replace(/\s+(and|or|with|for)\s*(?=$|[,.])/gi, " ").replace(/\s{2,}/g, " "))
+}
+
+function removeQueryPhrase(query, phrase) {
+  const cleanedPhrase = clean(phrase)
+  if (!cleanedPhrase) return clean(query)
+  const escaped = cleanedPhrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\s+/g, "\\s+")
+  return clean(clean(query).replace(new RegExp(`\\b${escaped}\\b`, "gi"), " ").replace(/\s{2,}/g, " "))
 }
 
 function provinceFor(resource) {
@@ -131,6 +186,11 @@ function provinceForLocation(location) {
 function detectedProvince(query) {
   const haystack = normalized(query)
   for (const [alias, province] of Object.entries(PROVINCES)) {
+    // "on" is common prose and must not silently narrow a request to Ontario.
+    // Keep the abbreviation usable when it is written as the conventional
+    // uppercase province code; explicit request.province continues to accept
+    // either case through normalizeMobileProvince().
+    if (alias === "on" && !/(^|\s)ON(?=\s|$|[,.;:])/u.test(clean(query))) continue
     if (new RegExp(`(^| )${alias.replace(/ /g, " ")}( |$)`).test(haystack)) return province
   }
   return ""
@@ -223,6 +283,8 @@ function servesLocation(resource, location) {
   if (locationProvince && resourceProvince !== locationProvince) return false
   const areas = [...scope.local_service_area, ...scope.regional_service_area, ...(resource?.searchLocations || [])]
   if (areas.some(area => includesTerm(area, location))) return true
+  const serviceAreaAliases = MILLER_CANADIAN_COMMUNITY_SERVICE_AREAS[normalized(location)] || []
+  if (areas.some(area => serviceAreaAliases.some(alias => normalized(area) === normalized(alias)))) return true
   if (includesTerm(resource?.region, location)) return true
   return scope.province_wide && !scope.canada_wide && locationProvince === resourceProvince
 }
@@ -341,10 +403,73 @@ function normalizedCard(resource, readiness, location = "") {
     source_url: source.url,
     mobile_ready: Boolean(readiness?.mobile_ready),
     tags: [...new Set([resource.serviceType, resource.category, ...(resource.tags || [])].map(clean).filter(Boolean))].slice(0, 8),
+    collection_links: Array.isArray(resource.collectionLinks) ? resource.collectionLinks.map(link => ({ href: clean(link?.href), label: clean(link?.label) })).filter(link => link.href && link.label) : [],
+    access_locations: Array.isArray(resource.accessLocations) ? resource.accessLocations.map(location => ({
+      id: clean(location.id),
+      name: clean(location.name),
+      type: clean(location.type),
+      address: clean(location.address),
+      city: clean(location.city),
+      province: clean(location.province),
+      access_role: clean(location.accessRole),
+      source_url: clean(location.sourceUrl),
+      last_verified: clean(location.lastVerified),
+      map_status: clean(location.mapStatus),
+    })).filter(location => location.id && location.name && location.address) : [],
     source,
     result_origin: "verified_miller",
     external_label: "",
   }
+}
+
+function queryConceptCoverage(resource, query) {
+  const generic = new Set(["adult", "fictional", "service", "services", "support", "program", "programs", "want", "looking", "entering"])
+  const concepts = keywordTokens(query).filter(concept => !generic.has(concept))
+  if (!concepts.length) return 0
+  const text = millerResourceSearchText(resource)
+  return concepts.filter(concept => includesTerm(text, concept)).length / concepts.length
+}
+
+function deterministicMatchState({ item, query, location, intents, direct }) {
+  const resource = item.resource
+  const primaryMatched = intents.length > 0 && directlyRepresentsIntent(resource, intents[0])
+  const local = !location || isExactLocationResource(resource, location)
+  const serves = !location || servesLocation(resource, location)
+  const coverage = queryConceptCoverage(resource, query)
+  if (direct && primaryMatched && local && coverage >= 0.5) return "strong_match"
+  if (direct && primaryMatched && serves && coverage >= 0.5) return "reasonable_match"
+  return "broader_alternative"
+}
+
+// This is intentionally a short field-level explanation, not a score or an
+// eligibility conclusion. It is emitted only for a direct deterministic match.
+function directMatchReasons({ resource, query, location, intents, matchState }) {
+  if (!["strong_match", "reasonable_match"].includes(matchState)) return []
+  const reasons = []
+  const relationship = locationRelationship(resource, location)
+  if (location && relationship?.label) reasons.push(relationship.label)
+  const primaryIntent = intents[0]
+  if (primaryIntent && directlyRepresentsIntent(resource, primaryIntent)) reasons.push(`Matches ${INTENT_LABELS[primaryIntent] || primaryIntent.replaceAll("_", " ")}`)
+  const queryText = normalized(query)
+  if (scopeFor(resource).virtual && /\b(virtual|online|by phone|telephone)\b/.test(queryText)) reasons.push("Virtual service information")
+  if (primaryIntent === "transportation" && clean(resource.transportationNote)) reasons.push("Transportation information available")
+  if (primaryIntent === "funding" && clean(resource.fundingType)) reasons.push("Funding information available")
+  return [...new Set(reasons)].slice(0, 3)
+}
+
+function matchPresentation({ selectedItems, query, location, intents }) {
+  const labelled = selectedItems.map(item => ({ ...item, match_state: deterministicMatchState({ item, query, location, intents, direct: intents.length > 0 && (!location || servesLocation(item.resource, location)) }) }))
+  const direct = labelled.filter(item => item.match_state !== "broader_alternative")
+  const broader = labelled.filter(item => item.match_state === "broader_alternative")
+  const state = direct.some(item => item.match_state === "strong_match") ? "strong_match"
+    : direct.length ? "reasonable_match"
+      : "no_verified_match"
+  const message = state === "no_verified_match"
+    ? "No strong verified match was found in Miller's current public resources. Broader verified options are shown separately and may still be useful."
+    : state === "reasonable_match"
+      ? "Miller found verified options that match the need and service area, but not an exact local match."
+      : "Miller found verified options that directly match the need and location."
+  return { state, message, direct, broader }
 }
 
 function isExactLocationResource(resource, location) {
@@ -375,18 +500,25 @@ function guidancePayload(intelligence) {
 export function buildMillerMobileSearchResponse(input, catalog, { now = () => new Date() } = {}) {
   const request = validateMillerMobileSearchRequest(input)
   const resources = catalog.filter(isMillerPracticalPublicResource)
-  const location = request.location || detectedLocation(request.query, resources)
+  const detectedQueryLocation = detectedLocation(request.query, resources)
+  const withoutExcludedIntents = removeExcludedIntentTerms(request.query, request.excluded_intents)
+  const effectiveQuery = request.ignore_detected_location
+    ? removeQueryPhrase(withoutExcludedIntents, detectedQueryLocation)
+    : withoutExcludedIntents
+  const location = request.location || (request.ignore_detected_location ? "" : detectedQueryLocation)
   const locationResource = location
     ? resources.find(resource => normalized(cityFor(resource)) === normalized(location))
     : null
   const locationProvince = locationResource ? provinceFor(locationResource) : ""
-  const province = request.province || detectedProvince(request.query) || locationProvince || provinceForLocation(location)
-  const intents = detectMillerPracticalIntents(request.query)
+  const province = request.province || (request.ignore_detected_location ? "" : detectedProvince(request.query)) || locationProvince || provinceForLocation(location)
+  const rawIntents = detectMillerPracticalIntents(request.query)
+  const intents = rawIntents.filter(intent => !request.excluded_intents.includes(intent))
+  if (rawIntents.length && !intents.length) throw new Error("effective_intent_required")
   const evaluatedAt = now()
   const readiness = buildMobileReadinessIndex(resources, { now: evaluatedAt })
   const ranked = resources
-    .filter(resource => healthcareAdjacentRelevant(resource, request.query, intents))
-    .map(resource => ({ resource, score: scoreResource(resource, { ...request, location, province, intents, readiness: readiness.get(clean(resource.id)) }) }))
+    .filter(resource => healthcareAdjacentRelevant(resource, effectiveQuery, intents))
+    .map(resource => ({ resource, score: scoreResource(resource, { ...request, query: effectiveQuery, location, province, intents, readiness: readiness.get(clean(resource.id)) }) }))
     .filter(item => item.score > 10 && matchesAnyIntent(item.resource, intents))
     .sort((left, right) => right.score - left.score || clean(left.resource.name).localeCompare(clean(right.resource.name)))
   const exactLocation = ranked.filter(({ resource }) => resource?.navigationOnly !== true && isExactLocationResource(resource, location) && directlyRepresentsIntent(resource, intents[0]))
@@ -401,10 +533,10 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
     return !location && !province
   })
   const navigationFallback = resources
-    .filter(resource => healthcareAdjacentRelevant(resource, request.query, intents)
+    .filter(resource => healthcareAdjacentRelevant(resource, effectiveQuery, intents)
       && isNavigationResource(resource)
       && (!province || [province, "Canada-wide"].includes(provinceFor(resource))))
-    .map(resource => ({ resource, score: scoreResource(resource, { ...request, location, province, intents, readiness: readiness.get(clean(resource.id)) }) }))
+    .map(resource => ({ resource, score: scoreResource(resource, { ...request, query: effectiveQuery, location, province, intents, readiness: readiness.get(clean(resource.id)) }) }))
     .sort((left, right) => right.score - left.score || clean(left.resource.name).localeCompare(clean(right.resource.name)))
   const localNavigationFallback = location
     ? navigationFallback.filter(({ resource }) => servesLocation(resource, location))
@@ -417,15 +549,27 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
     ? [...directlyRelevant, ...orderedNavigationFallback.filter(item => !directlyRelevant.some(existing => existing.resource === item.resource))]
     : geographicallyRelevant
   const pool = basePool.length ? basePool : ranked.length ? ranked : orderedNavigationFallback
-  const selected = pool.slice(0, request.limit).map(item => item.resource)
+  const selectedItems = pool.slice(0, request.limit)
+  const selected = selectedItems.map(item => item.resource)
   const serviceAreaMatches = ranked.filter(({ resource }) => !isExactLocationResource(resource, location) && servesLocation(resource, location))
   const intelligence = buildMillerPracticalIntelligence({
-    query: request.query,
+    query: effectiveQuery,
     results: selected,
     resources,
   })
-  const cards = explainMillerProfessionalResults(selected.map(resource => normalizedCard(resource, readiness.get(clean(resource.id)), location)), decomposeMillerProfessionalNeeds(request.query, intents))
-  const needs = decomposeMillerProfessionalNeeds(request.query, intents)
+  const presentation = matchPresentation({ selectedItems, query: effectiveQuery, location, intents })
+  const needs = decomposeMillerProfessionalNeeds(effectiveQuery, intents, { excludedNeedIds: request.excluded_intents })
+  const cardsById = new Map(explainMillerProfessionalResults(selected.map(resource => normalizedCard(resource, readiness.get(clean(resource.id)), location)), needs).map(card => [card.canonical_id, card]))
+  const cards = selectedItems.map(item => {
+    const match_state = presentation.direct.some(candidate => candidate.resource === item.resource)
+      ? deterministicMatchState({ item, query: effectiveQuery, location, intents, direct: true })
+      : "broader_alternative"
+    return {
+      ...cardsById.get(clean(item.resource.id)),
+      match_state,
+      match_reasons: directMatchReasons({ resource: item.resource, query: effectiveQuery, location, intents, matchState: match_state }),
+    }
+  })
   const searchScope = {
     exact_location_matches: exactLocation.length,
     physical_location_matches: exactLocation.length,
@@ -461,6 +605,13 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
     },
     guidance: guidancePayload(intelligence),
     search_scope: searchScope,
+    match_state: {
+      state: presentation.state,
+      message: presentation.message,
+      direct_result_count: presentation.direct.length,
+      broader_alternative_count: presentation.broader.length,
+      rules_version: "deterministic-public-match-v1",
+    },
     coverage_maturity: {
       level: coverageLevel,
       message: coverageMessage,
@@ -482,6 +633,8 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
     result_count: pool.length,
     returned_count: selected.length,
     results: cards,
+    direct_results: cards.filter(card => card.match_state !== "broader_alternative"),
+    broader_alternatives: cards.filter(card => card.match_state === "broader_alternative"),
     privacy: {
       query_stored: false,
       client_record_created: false,
@@ -607,6 +760,12 @@ export function buildMillerMobileSharePack(response, selectedCanonicalIds = []) 
       website: clean(resource.website),
       access_note: clean(resource.referral_note || resource.access_note),
       verification_status: clean(resource.verified_status || "verified_public"),
+      access_locations: Array.isArray(resource.access_locations) ? resource.access_locations.map(location => ({
+        name: clean(location.name),
+        address: clean(location.address),
+        city: clean(location.city),
+        access_role: clean(location.access_role),
+      })).filter(location => location.name && location.address) : [],
       pathway: resource.access_pathway ? {
         local_access_point: clean(resource.access_pathway.local_access_point),
         regional_intake: clean(resource.access_pathway.regional_intake),
@@ -628,6 +787,10 @@ export function buildMillerMobileSharePack(response, selectedCanonicalIds = []) 
     if (resource.phone) lines.push(`Phone: ${resource.phone}`)
     if (resource.website) lines.push(`Website: ${resource.website}`)
     if (resource.access_note) lines.push(`Access: ${resource.access_note}`)
+    if (resource.access_locations?.length) {
+      lines.push(`${accessLocationHeading(resource.access_locations)}:`)
+      for (const location of resource.access_locations) lines.push(`- ${location.name}: ${location.address} — ${accessLocationPurpose(location)}`)
+    }
     if (resource.pathway?.regional_intake) lines.push(`Regional intake: ${resource.pathway.regional_intake}`)
     if (resource.pathway?.transportation_pathway) lines.push(`Travel support: ${resource.pathway.transportation_pathway}`)
     if (resource.pathway?.return_home_support?.length) lines.push(`After returning home: ${resource.pathway.return_home_support.join("; ")}`)

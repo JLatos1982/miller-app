@@ -37,6 +37,7 @@ import { getNearbyTransit } from "./server/transit/providers.js"
 import { buildAccessContext } from "./server/transit/accessContext.js"
 import { geocodeNavigationOrigin } from "./server/navigationOrigin.js"
 import { buildSearchIntent, resolveSearchLocation } from "./server/searchIntent.js"
+import { deterministicMillerAssistantFallback, parseMillerAssistantResponse } from "./server/millerAssistantResponse.js"
 import { nextSupportCategories } from "./server/intelligence/continuity.js"
 import { createShadowPersistence } from "./server/intelligence/shadowPersistence.js"
 import { buildPlannerDiagnostic, loadPlannerDiagnosticState } from "./server/plannerDiagnostics.js"
@@ -107,7 +108,7 @@ import publicSharedResources from "./src/data/miller-shared-resource-registry-v1
 import { toMillerNorthSharedEmailResult, toMillerNorthSupportEmailResult } from "./src/millerNorthPublicSupportEmail.js"
 import { buildSharedCanonicalMillerResources } from "./src/millerPublicSearchResources.js"
 import { millerMobileCatalog } from "./server/millerMobileCatalog.js"
-import { buildMillerMobileInventory, buildMillerHybridSearchResponse, MILLER_MOBILE_API_VERSION } from "./server/millerMobileApi.js"
+import { buildMillerMobileInventory, buildMillerMobileSearchResponse, buildMillerHybridSearchResponse, MILLER_MOBILE_API_VERSION } from "./server/millerMobileApi.js"
 import { createMillerTavilySearcher } from "./server/millerExternalSearch.js"
 
 dotenv.config()
@@ -742,19 +743,6 @@ async function retry(fn, retries = 2, delay = 1200) {
     )
 
     return retry(fn, retries - 1, delay)
-  }
-}
-
-function stripCodeFences(text) {
-  const raw = String(text || "").trim()
-  return raw.replace(/^```(?:json)?/i, "").replace(/```$/i, "").trim()
-}
-
-function safeParseJson(text) {
-  try {
-    return JSON.parse(stripCodeFences(text))
-  } catch {
-    return null
   }
 }
 
@@ -2049,6 +2037,29 @@ app.get("/api/mobile/v1/about", (_req, res) => {
   })
 })
 
+// The legacy web finder uses this deterministic, publication-safe presentation
+// contract. It never invokes external discovery or model judgment.
+app.post("/api/miller/match-state", mobileSearchRateLimit, (req, res) => {
+  try {
+    const response = buildMillerMobileSearchResponse(req.body, millerMobileCatalog)
+    res.setHeader("Cache-Control", "no-store")
+    return res.json({
+      contract: MILLER_MOBILE_API_VERSION,
+      match_state: response.match_state,
+      interpreted: response.interpreted,
+      workflow: response.workflow,
+      search_scope: response.search_scope,
+      coverage_maturity: response.coverage_maturity,
+      broaden_nearby: response.broaden_nearby,
+      direct_results: response.direct_results,
+      broader_alternatives: response.broader_alternatives,
+      source_policy: response.source_policy,
+    })
+  } catch (error) {
+    return res.status(400).json({ error: "The search request was not valid.", code: String(error?.message || "invalid_request") })
+  }
+})
+
 app.post("/api/mobile/v1/search", mobileSearchRateLimit, async (req, res) => {
   try {
     const response = await buildMillerHybridSearchResponse(req.body, millerMobileCatalog, { externalSearcher: millerMobileExternalSearcher })
@@ -2257,8 +2268,11 @@ if (shouldUseTavily && externalSearchStatus === "completed") {
   )
   .join("\n\n")
 
-      const response = await retry(() =>
-  client.responses.create({
+      let modelResponse = null
+      let modelResponseFailure = null
+      try {
+        const response = await retry(() =>
+          client.responses.create({
       model: OPENAI_MODEL,
       input: `
 ${MILLER_SYSTEM_PROMPT}
@@ -2309,9 +2323,16 @@ RESOURCE SOURCE ORDER
       `.trim() + `
 TASK
 Follow all instructions above carefully.`,
-    }))
+          })
+        )
+        modelResponse = parseMillerAssistantResponse(response.output_text)
+        if (!modelResponse.valid) modelResponseFailure = modelResponse.reason
+      } catch (error) {
+        modelResponseFailure = "provider_failure"
+        console.error("Miller model response unavailable:", String(error?.message || "Unknown error").slice(0, 200))
+      }
 
-const parsed = safeParseJson(response.output_text)
+const parsed = modelResponse?.valid ? modelResponse.value : null
     const searchIntent = buildSearchIntent(safeQuery, parsed?.searchIntent, city)
     const locationContext = isMapInterface
       ? { status: "none" }
@@ -2336,8 +2357,7 @@ const parsed = safeParseJson(response.output_text)
     }
 
     const answer =
-      parsed?.answer ||
-      "The trail went a little foggy for a moment, but I still pulled together the closest matches below."
+      parsed?.answer || deterministicMillerAssistantFallback()
 
     const formattedTavilyResults = tavilyResults.map((result) => ({
   name: result.title || "Web Result",
@@ -2388,6 +2408,7 @@ res.json({
     externalSearchNotice,
   },
   searchIntent,
+  modelResponseStatus: modelResponseFailure ? "deterministic_fallback" : "model_valid",
   locationContext,
   ...(isMapInterface ? { map: mapContract } : {}),
 })

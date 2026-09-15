@@ -4,9 +4,7 @@ import millerFunding from "../src/data/miller-funding-assistance-public-v1.json"
 import sharedResourceRegistry from "../src/data/miller-shared-resource-registry-v1.json" with { type: "json" }
 import { stableCuratedResourceId } from "../src/map/mapChat.js"
 import {
-  buildMillerSpecializedSearchResources,
-  buildSharedCanonicalMillerResources,
-  mergeMillerSearchResources,
+  buildMillerPublicationSafeResourceCorpus,
 } from "../src/millerPublicSearchResources.js"
 import { normalizedResourceRows } from "../src/resourceData.js"
 
@@ -27,15 +25,13 @@ export function buildMillerMobileCatalog() {
     id: stableCuratedResourceId(resource),
     province: resource.province || "British Columbia",
   }))
-  const specialized = buildMillerSpecializedSearchResources(
-    practicalSupports.records,
-    millerFunding.records,
-  )
-  const shared = buildSharedCanonicalMillerResources(sharedResourceRegistry.records)
-  return uniqueResources(mergeMillerSearchResources(
-    mergeMillerSearchResources(legacy, specialized),
-    shared,
-  ))
+  return uniqueResources(buildMillerPublicationSafeResourceCorpus({
+    canonicalResources: legacy,
+    practicalRecords: practicalSupports.records,
+    fundingRecords: millerFunding.records,
+    sharedRecords: sharedResourceRegistry.records,
+    sharedAccessLocations: sharedResourceRegistry.access_locations || [],
+  }))
 }
 
 export const millerMobileCatalog = Object.freeze(buildMillerMobileCatalog())

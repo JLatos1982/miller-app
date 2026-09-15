@@ -38,6 +38,16 @@ const knownPlaces = [
   "White Rock",
 ]
 
+// Explicit cross-collection aliases selected from identical public program/operator records. Do not infer new aliases from display names.
+const KNOWN_CROSS_COLLECTION_IDENTITIES = new Map([
+  ["curated:1edki99", "fnha-mental-wellness"], ["curated:1i3bwm4", "fnha-mental-wellness"],
+  ["curated:1sig1hl", "fnha-virtual-substance-use"], ["curated:245spk", "fnha-virtual-substance-use"],
+  ["curated:uync6x", "jordans-principle-navigators"], ["curated:hufn2g", "jordans-principle-navigators"],
+  ["curated:nqgim3", "kuus-crisis-response"], ["curated:y76cu", "kuus-crisis-response"],
+  ["curated:12xw7a9", "metis-crisis-line"], ["curated:cscq8y", "metis-crisis-line"],
+  ["curated:z5uvkp", "irs-survivors-crisis-line"], ["curated:i8mwff", "irs-survivors-crisis-line"],
+])
+
 function placesFromArea(area) {
   const haystack = normalized(area)
   const matches = new Set(knownPlaces.filter(place => haystack.includes(normalized(place))))
@@ -140,7 +150,46 @@ export function buildMillerSpecializedSearchResources(practicalRecords = [], fun
   ].filter(record => record.id && record.name && record.approved && !record.hidden)
 }
 
-export function sharedCanonicalMillerResource(record = {}) {
+function publicationSafeLegacyResource(record = {}) {
+  const publicRecord = {}
+  for (const [key, value] of Object.entries(record || {})) {
+    // Legacy notes and explicitly internal/research fields are never part of
+    // the public corpus even when the underlying legacy row is approved.
+    if (key === "notes" || /^(private|internal|research|unpublished)_/i.test(key)) continue
+    publicRecord[key] = value
+  }
+  return publicRecord
+}
+
+// The shared publication-safe corpus is deliberately assembled before client
+// presentation. Search, Master List, and mobile/API callers can all consume
+// this projection without copying collection-specific resources into a view.
+export function buildMillerPublicationSafeResourceCorpus({ canonicalResources = [], practicalRecords = [], fundingRecords = [], sharedRecords = [], sharedAccessLocations = [] } = {}) {
+  const legacy = canonicalResources
+    .filter(record => record?.approved === true && record?.hidden !== true)
+    .map(publicationSafeLegacyResource)
+  const specialized = buildMillerSpecializedSearchResources(practicalRecords, fundingRecords)
+  const shared = buildSharedCanonicalMillerResources(sharedRecords, sharedAccessLocations)
+  return mergeMillerSearchResources(mergeMillerSearchResources(legacy, specialized), shared)
+}
+
+function publicAccessLocation(location = {}) {
+  return {
+    id: text(location.location_id),
+    parentCanonicalId: text(location.parent_canonical_resource_id),
+    name: text(location.site_name),
+    type: text(location.location_type),
+    address: text(location.street_address),
+    city: text(location.city),
+    province: text(location.province),
+    accessRole: text(location.access_role),
+    sourceUrl: text(location.source_url),
+    lastVerified: text(location.verification_date),
+    mapStatus: text(location.map_status),
+  }
+}
+
+export function sharedCanonicalMillerResource(record = {}, accessLocations = []) {
   const visibility = Array.isArray(record.project_visibility) ? record.project_visibility : []
   if (!visibility.includes("miller") || record.verification_status !== "verified_active") return null
   const categories = Array.isArray(record.categories) ? record.categories : []
@@ -207,6 +256,15 @@ export function sharedCanonicalMillerResource(record = {}) {
       ...(Array.isArray(scope.local_service_area) ? scope.local_service_area : []),
       ...(Array.isArray(scope.regional_service_area) ? scope.regional_service_area : []),
     ].map(text).filter(Boolean))],
+    accessLocations: accessLocations
+      .filter(location => {
+        const parentIds = [
+          text(location?.parent_canonical_resource_id),
+          ...(Array.isArray(location?.related_parent_canonical_resource_ids) ? location.related_parent_canonical_resource_ids.map(text) : []),
+        ].filter(Boolean)
+        return parentIds.includes(text(record.canonical_resource_id))
+      })
+      .map(publicAccessLocation),
     source: "shared_canonical_miller_projection",
     sourceAuthority: text(record.source?.authority || record.organization),
     sourceUrl: text(record.source?.url || record.website),
@@ -221,10 +279,10 @@ export function sharedCanonicalMillerResource(record = {}) {
   }
 }
 
-export function buildSharedCanonicalMillerResources(records = []) {
+export function buildSharedCanonicalMillerResources(records = [], accessLocations = []) {
   return records
     .filter(record => Array.isArray(record?.project_visibility) && record.project_visibility.includes("miller"))
-    .map(sharedCanonicalMillerResource)
+    .map(record => sharedCanonicalMillerResource(record, accessLocations))
     .filter(Boolean)
 }
 
@@ -252,6 +310,7 @@ export function millerResourceSearchText(resource) {
     ...(resource?.workflowRelevance || []),
     ...(resource?.languages || []),
     ...(resource?.searchLocations || []),
+    ...(resource?.accessLocations || []).flatMap(location => [location.name, location.address, location.city, location.province, location.accessRole]),
     ...(resource?.collectionLinks || []).map(link => link.label),
   ].map(text).join(" ").toLowerCase().replace(/\s+/g, " ")
 }
@@ -278,6 +337,19 @@ function namesClearlyMatch(left, right) {
   return tokens.length >= 3 && tokens.every(token => longer.split(" ").includes(token))
 }
 
+function sameConservativeProgram(left, right) {
+  const leftKnownIdentity = KNOWN_CROSS_COLLECTION_IDENTITIES.get(text(left.id))
+  const rightKnownIdentity = KNOWN_CROSS_COLLECTION_IDENTITIES.get(text(right.id))
+  if (leftKnownIdentity && leftKnownIdentity === rightKnownIdentity) return true
+  const leftUrl = safeProgramUrl(left.website), rightUrl = safeProgramUrl(right.website)
+  if (leftUrl && leftUrl === rightUrl && namesClearlyMatch(left.name, right.name)) return true
+  const leftName = normalized(left.name), rightName = normalized(right.name)
+  const leftOrganization = normalized(left.organization), rightOrganization = normalized(right.organization)
+  const leftCity = normalized(left.city), rightCity = normalized(right.city)
+  // A name-only match is never enough: programs with shared operators remain distinct.
+  return Boolean(leftName && leftName === rightName && leftOrganization && leftOrganization === rightOrganization && leftCity && leftCity === rightCity)
+}
+
 function mergeRecord(base, extra) {
   const merged = {
     ...extra,
@@ -293,6 +365,7 @@ function mergeRecord(base, extra) {
     regionalServiceArea: [...new Set([...(base.regionalServiceArea || []), ...(extra.regionalServiceArea || [])])],
     workflowRelevance: [...new Set([...(base.workflowRelevance || []), ...(extra.workflowRelevance || [])])],
     languages: [...new Set([...(base.languages || []), ...(extra.languages || [])])],
+    canonicalAliases: [...new Set([base.id, ...(base.canonicalAliases || []), extra.id, ...(extra.canonicalAliases || [])].map(text).filter(Boolean))],
   }
   if (extra.verification_status === "verified_active") {
     for (const key of ["sourceAuthority", "sourceUrl", "verification_status", "location_last_verified", "referralNote", "accessRequirements", "fundingType", "transportationNote", "physicalLocation", "scopeNote"]) {
@@ -306,13 +379,11 @@ function mergeRecord(base, extra) {
 }
 
 export function mergeMillerSearchResources(canonicalResources = [], specializedResources = []) {
-  const merged = [...canonicalResources]
-  for (const candidate of specializedResources) {
-    const candidateUrl = safeProgramUrl(candidate.website)
+  const merged = []
+  for (const candidate of [...canonicalResources, ...specializedResources]) {
     const index = merged.findIndex(existing => {
       if (String(existing.id) === String(candidate.id)) return true
-      const existingUrl = safeProgramUrl(existing.website)
-      return Boolean(candidateUrl && existingUrl === candidateUrl && namesClearlyMatch(existing.name, candidate.name))
+      return sameConservativeProgram(existing, candidate)
     })
     if (index === -1) merged.push(candidate)
     else merged[index] = mergeRecord(merged[index], candidate)

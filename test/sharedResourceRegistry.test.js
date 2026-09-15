@@ -8,17 +8,58 @@ import westernPrioritySeams from "../src/data/miller-western-priority-seams-2026
 import legacyPriorityVerificationV3 from "../src/data/miller-legacy-priority-verification-v3-2026-09-08.json" with { type: "json" }
 import { toMillerNorthSharedEmailResult } from "../src/millerNorthPublicSupportEmail.js"
 import { filterMillerNorthSupports } from "../src/site/millerNorthSupportFilters.js"
-import { projectSharedResources, validateSharedResourceRegistry } from "../server/sharedResourceRegistry.js"
+import { buildMillerCountLayers, normalizeSharedResource, projectSharedResources, validateSharedResourceRegistry } from "../server/sharedResourceRegistry.js"
 
 test("shared public registry validates and preserves distinct project projections", () => {
-  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 338, miller_only: 236, miller_north_only: 38, both: 64 })
+  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 666, miller_only: 542, miller_north_only: 38, both: 86, access_locations: 125 })
   assert.equal(registry.records.filter(record => !record.province).length, 0)
   const creekside = registry.records.find(record => record.canonical_resource_id === "curated:1ldala")
   assert.equal(creekside.service_scope.physical_location.community, "Surrey")
   assert.ok(creekside.service_scope.regional_service_area.includes("Burnaby"))
   assert.equal(creekside.service_scope.navigation_only, false)
-  assert.equal(projectSharedResources(registry, "miller").length, 300)
-  assert.equal(projectSharedResources(registry, "miller_north").length, 102)
+  assert.equal(projectSharedResources(registry, "miller").length, 628)
+  assert.equal(projectSharedResources(registry, "miller_north").length, 124)
+})
+
+test("count layers remain explicit and access locations never inflate program totals", () => {
+  assert.deepEqual(buildMillerCountLayers({ registry, publicationSafeMobileCount: 815 }), {
+    canonical_programs: 666,
+    miller_shared_projection: 628,
+    miller_north_practical_projection: 124,
+    publication_safe_mobile_corpus: 815,
+    canonical_access_locations: 125,
+  })
+  assert.throws(() => buildMillerCountLayers({ registry, publicationSafeMobileCount: "unknown" }), /invalid_publication_safe_mobile_count/)
+})
+
+test("one physical access site cannot be duplicated under multiple program records", () => {
+  const [location] = registry.access_locations
+  const duplicate = { ...location, location_id: "duplicate-site", parent_canonical_resource_id: registry.records.find(record => record.canonical_resource_id !== location.parent_canonical_resource_id).canonical_resource_id }
+  assert.throws(() => validateSharedResourceRegistry({ ...registry, access_locations: [...registry.access_locations, duplicate] }), /duplicate_shared_access_location_site/)
+})
+
+test("explicitly verified funding remains active when optional cycle status is absent", () => {
+  const normalized = normalizeSharedResource({
+    canonical_resource_id: "test_bc_current_benefit",
+    record_type: "funding",
+    organization: "Government of British Columbia",
+    program_name: "Current public benefit",
+    categories: ["financial_funding"],
+    province: "British Columbia",
+    service_area: "British Columbia",
+    website: "https://www2.gov.bc.ca/example-current-benefit",
+    source: { title: "Current public benefit", authority: "Government of British Columbia", url: "https://www2.gov.bc.ca/example-current-benefit" },
+    last_verified: "2026-09-12",
+    verification_status: "verified_active",
+  }, { project: "miller", sourceKind: "funding" })
+  assert.equal(normalized.verification_status, "verified_active")
+
+  const explicitlyClosed = normalizeSharedResource({
+    ...normalized,
+    canonical_resource_id: "test_bc_closed_benefit",
+    verification_status: "expired_closed",
+  }, { project: "miller", sourceKind: "funding" })
+  assert.equal(explicitlyClosed.verification_status, "expired_closed")
 })
 
 test("high-ranking legacy refresh uses exact first-party pages and shares only qualifying Indigenous support", () => {

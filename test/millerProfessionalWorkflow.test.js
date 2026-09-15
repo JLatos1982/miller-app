@@ -23,6 +23,26 @@ test("result explanations are concise and derive from public card facts", () => 
   assert.equal(card.result_group, "start_here")
 })
 
+test("result explanations never turn an explicit non-self-referral boundary into a self-referral claim", () => {
+  const [card] = explainMillerProfessionalResults([{
+    canonical_id: "hospital-only", name: "Hospital consultation", category: "Healthcare", service_type: "Hospital addiction consultation",
+    description: "Inpatient consultation.", location_label: "Serves Edmonton",
+    access_note: "Not community self-referral, outpatient intake or walk-in care. Hospital/provider route only.", referral_note: "Not community self-referral.",
+  }], [])
+  assert.ok(!card.why_shown.includes("Self-referral stated"))
+  assert.ok(!card.why_shown.includes("Walk-in access stated"))
+})
+
+test("result explanations never turn no-referral wording into a referral-required claim", () => {
+  const [card] = explainMillerProfessionalResults([{
+    canonical_id: "walk-in-no-referral", name: "Walk-in program", category: "Healthcare", service_type: "Opioid agonist treatment",
+    description: "Walk-in program.", location_label: "Serves Morley",
+    access_note: "Walk-in; no referral required.", referral_note: "No referral required.",
+  }], [])
+  assert.ok(!card.why_shown.includes("Referral required"))
+  assert.ok(card.why_shown.includes("Walk-in access stated"))
+})
+
 test("pathway and suggested pack remain bounded and worker-controlled", () => {
   const needs = decomposeMillerProfessionalNeeds("Treatment, housing and transportation", ["treatment", "housing", "transportation"])
   const results = explainMillerProfessionalResults([

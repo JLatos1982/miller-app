@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
@@ -6,6 +6,8 @@ import AdminLogin from './AdminLogin.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {window.location.pathname === '/admin/login' ? <AdminLogin /> : <App />}
+    <Suspense fallback={<main className="route-loading" role="status" aria-live="polite">Loading Miller…</main>}>
+      {window.location.pathname === '/admin/login' ? <AdminLogin /> : <App />}
+    </Suspense>
   </StrictMode>,
 )

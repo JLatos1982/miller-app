@@ -50,27 +50,29 @@ const compactObject = value => Object.fromEntries(Object.entries(value).filter((
 }))
 
 function serviceScope(record, { province, community, address, serviceArea, deliveryModes }) {
-  const physical = record.physical_location && typeof record.physical_location === "object"
+  const sourceScope = record.service_scope && typeof record.service_scope === "object" ? record.service_scope : {}
+  const suppliedPhysical = record.physical_location || sourceScope.physical_location
+  const physical = suppliedPhysical && typeof suppliedPhysical === "object"
     ? compactObject({
-      community: clean(record.physical_location.community),
-      address: clean(record.physical_location.address),
-      province: clean(record.physical_location.province || province),
-      latitude: Number.isFinite(record.physical_location.latitude) ? record.physical_location.latitude : null,
-      longitude: Number.isFinite(record.physical_location.longitude) ? record.physical_location.longitude : null,
+      community: clean(suppliedPhysical.community),
+      address: clean(suppliedPhysical.address),
+      province: clean(suppliedPhysical.province || province),
+      latitude: Number.isFinite(suppliedPhysical.latitude) ? suppliedPhysical.latitude : null,
+      longitude: Number.isFinite(suppliedPhysical.longitude) ? suppliedPhysical.longitude : null,
     })
     : address && community ? compactObject({ community, address, province }) : null
   return {
     physical_location: physical && Object.keys(physical).length ? physical : null,
-    local_service_area: [...new Set(array(record.local_service_area).map(clean).filter(Boolean))],
-    regional_service_area: [...new Set(array(record.regional_service_area).map(clean).filter(Boolean))],
-    province_wide: record.province_wide === true,
-    canada_wide: record.canada_wide === true || province === "Canada-wide",
-    virtual: record.virtual === true || deliveryModes.some(mode => /virtual|online/i.test(clean(mode))),
-    navigation_only: record.navigation_only === true,
-    travel_required: record.travel_required === true || record.navigation_pathway?.travel_required === true,
-    scope_note: clean(record.scope_note),
-    search_locations: [...new Set(array(record.search_locations).map(clean).filter(Boolean))],
-    service_area: clean(serviceArea),
+    local_service_area: [...new Set(array(record.local_service_area || sourceScope.local_service_area).map(clean).filter(Boolean))],
+    regional_service_area: [...new Set(array(record.regional_service_area || sourceScope.regional_service_area).map(clean).filter(Boolean))],
+    province_wide: record.province_wide === true || sourceScope.province_wide === true,
+    canada_wide: record.canada_wide === true || sourceScope.canada_wide === true || province === "Canada-wide",
+    virtual: record.virtual === true || sourceScope.virtual === true || deliveryModes.some(mode => /virtual|online/i.test(clean(mode))),
+    navigation_only: record.navigation_only === true || sourceScope.navigation_only === true,
+    travel_required: record.travel_required === true || sourceScope.travel_required === true || record.navigation_pathway?.travel_required === true,
+    scope_note: clean(record.scope_note || sourceScope.scope_note),
+    search_locations: [...new Set(array(record.search_locations || sourceScope.search_locations).map(clean).filter(Boolean))],
+    service_area: clean(serviceArea || sourceScope.service_area),
   }
 }
 
@@ -100,13 +102,18 @@ function navigationPathway(record) {
 }
 
 export function normalizeSharedResource(record, { project, sourceKind }) {
-  const funding = (record.resource_kind || sourceKind) === "funding"
-  const name = clean(record.name)
+  const funding = (record.record_type || record.resource_kind || sourceKind) === "funding"
+  const suppliedVerificationStatus = clean(record.verification_status)
+  const fundingStatus = clean(record.status || record.funding?.status)
+  const name = clean(record.name || record.program_name)
   const organization = clean(record.organization || record.funder || record.administering_organization)
   const website = clean(record.website || record.application_url || record.source?.url)
   const province = clean(record.province || (record.jurisdiction === "Federal" || /canada-wide/i.test(record.service_area || record.geography) ? "Canada-wide" : record.jurisdiction))
-  const categories = funding ? topCategories([], "funding", record.purpose) : topCategories(record.categories || record.category, "service")
-  const community = clean(record.community)
+  const suppliedCategories = array(record.categories).map(clean).filter(category => TOP_LEVEL.has(category))
+  const categories = suppliedCategories.length === array(record.categories).length && suppliedCategories.length
+    ? [...new Set(suppliedCategories)]
+    : funding ? topCategories([], "funding", record.purpose || record.funding?.purpose) : topCategories(record.categories || record.category, "service")
+  const community = clean(record.community || record.city_community)
   const address = clean(record.address)
   const serviceArea = clean(record.service_area || record.area_served || record.geography)
   const deliveryModes = array(record.delivery_modes).map(clean).filter(Boolean)
@@ -116,7 +123,7 @@ export function normalizeSharedResource(record, { project, sourceKind }) {
     organization,
     program_name: name,
     categories,
-    subcategories: [...new Set(array(record.categories || record.category || record.purpose).map(normalized).filter(Boolean))],
+    subcategories: [...new Set(array(record.subcategories || record.categories || record.category || record.purpose).map(normalized).filter(Boolean))],
     description: clean(record.description || record.purpose),
     population_served: clean(record.population_served || record.who_can_apply),
     indigenous_scope: clean(record.scope || record.indigenous_scope || "not_stated"),
@@ -132,20 +139,20 @@ export function normalizeSharedResource(record, { project, sourceKind }) {
     access_requirements: array(record.access_requirements).map(clean),
     required_documents: array(record.required_documents).map(clean),
     cost: clean(record.cost),
-    referral_requirement: clean(record.referral_requirements),
+    referral_requirement: clean(record.referral_requirement || record.referral_requirements),
     access: clean(record.access_pathway || record.access || record.application_method),
     phone: clean(record.phone),
     email: clean(record.email),
     website,
     funding: funding ? {
-      purpose: clean(record.purpose),
-      funding_type: clean(record.funding_type),
-      amount: clean(record.amount),
-      status: clean(record.status),
-      opening_date: clean(record.opening_date),
-      deadline: clean(record.deadline),
-      recurring_cycle: clean(record.recurring_cycle),
-      next_check_due: clean(record.next_check_due),
+      purpose: clean(record.purpose || record.funding?.purpose),
+      funding_type: clean(record.funding_type || record.funding?.funding_type),
+      amount: clean(record.amount || record.funding?.amount),
+      status: clean(record.status || record.funding?.status),
+      opening_date: clean(record.opening_date || record.funding?.opening_date),
+      deadline: clean(record.deadline || record.funding?.deadline),
+      recurring_cycle: clean(record.recurring_cycle || record.funding?.recurring_cycle),
+      next_check_due: clean(record.next_check_due || record.funding?.next_check_due),
     } : null,
     housing: record.housing ? compactObject({
       housing_type: clean(record.housing.housing_type),
@@ -169,8 +176,18 @@ export function normalizeSharedResource(record, { project, sourceKind }) {
     workflow_relevance: [...new Set(array(record.workflow_relevance).map(clean).filter(Boolean))],
     languages: [...new Set(array(record.languages).map(clean).filter(Boolean))],
     source: { title: clean(record.source?.title || name), authority: clean(record.source?.authority || organization), url: clean(record.source?.url || website) },
-    last_verified: clean(record.last_verified_date || record.last_verified_at),
-    verification_status: funding && !ACTIVE_FUNDING.has(record.status) ? "expired_closed" : "verified_active",
+    last_verified: clean(record.last_verified_date || record.last_verified_at || record.last_verified),
+    // A missing optional funding-cycle status is not evidence that an otherwise
+    // current, source-verified public benefit has closed. Preserve explicit
+    // review/closure states and only infer expiry from a supplied inactive
+    // funding status.
+    verification_status: ["expired_closed", "needs_review"].includes(suppliedVerificationStatus)
+      ? suppliedVerificationStatus
+      : suppliedVerificationStatus === "verified_active"
+        ? "verified_active"
+        : funding && fundingStatus && !ACTIVE_FUNDING.has(fundingStatus)
+          ? "expired_closed"
+          : "verified_active",
     project_visibility: visibility([project]),
     source_record_ids: [clean(record.public_support_id || record.id || record.canonical_resource_id)].filter(Boolean),
   }
@@ -268,11 +285,38 @@ export function validateSharedResourceRegistry(registry) {
     }
     ids.add(record.canonical_resource_id)
   }
+  const locationIds = new Set()
+  const publicSiteKeys = new Set()
+  for (const location of registry.access_locations || []) {
+    if (!location.location_id || locationIds.has(location.location_id)) throw new Error("duplicate_shared_access_location_id")
+    if (!ids.has(location.parent_canonical_resource_id)) throw new Error("invalid_shared_access_location_parent")
+    if (!location.site_name || !location.city || !location.province || !location.street_address) throw new Error("invalid_shared_access_location_identity")
+    if (!/^https:\/\//.test(location.source_url) || !/^\d{4}-\d{2}-\d{2}$/.test(location.verification_date)) throw new Error("invalid_shared_access_location_source")
+    if (!["map_ready", "map_pending_geocode", "map_not_applicable", "map_confidential"].includes(location.map_status)) throw new Error("invalid_shared_access_location_map_status")
+    if (location.map_status === "map_pending_geocode" && (Number.isFinite(location.latitude) || Number.isFinite(location.longitude))) throw new Error("pending_shared_access_location_has_coordinates")
+    const publicSiteKey = [normalized(location.street_address), normalized(location.city), normalized(location.province)].join("|")
+    if (publicSiteKeys.has(publicSiteKey)) throw new Error("duplicate_shared_access_location_site")
+    publicSiteKeys.add(publicSiteKey)
+    locationIds.add(location.location_id)
+  }
   const counts = {
     total: registry.records.length,
     miller_only: registry.records.filter(record => record.project_visibility.join(",") === "miller").length,
     miller_north_only: registry.records.filter(record => record.project_visibility.join(",") === "miller_north").length,
     both: registry.records.filter(record => record.project_visibility.length === 2).length,
   }
-  return { valid: true, ...counts }
+  return { valid: true, ...counts, access_locations: locationIds.size }
+}
+
+export function buildMillerCountLayers({ registry, publicationSafeMobileCount }) {
+  const validation = validateSharedResourceRegistry(registry)
+  const mobileCount = Number(publicationSafeMobileCount)
+  if (!Number.isInteger(mobileCount) || mobileCount < 0) throw new Error("invalid_publication_safe_mobile_count")
+  return Object.freeze({
+    canonical_programs: validation.total,
+    miller_shared_projection: projectSharedResources(registry, "miller").length,
+    miller_north_practical_projection: projectSharedResources(registry, "miller_north").length,
+    publication_safe_mobile_corpus: mobileCount,
+    canonical_access_locations: validation.access_locations,
+  })
 }

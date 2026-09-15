@@ -28,3 +28,30 @@ export async function askMiller(payload, { fetchImpl = fetch, timeoutMs = 25_000
     throw new MillerApiError("Miller couldn’t connect. Please try again.", { code: "network_error" })
   } finally { clearTimeout(timer) }
 }
+
+const MATCH_STATES = new Set(["strong_match", "reasonable_match", "broader_alternative", "no_verified_match"])
+
+// The older finder falls back safely when this additive presentation contract is
+// absent or malformed. It is deterministic and has no external-search side effect.
+export async function askMillerMatchPresentation({ query, location = "", limit = 12, excludedIntents = [], ignoreDetectedLocation = false, broadenNearby = false }, { fetchImpl = fetch, timeoutMs = 8_000 } = {}) {
+  const controller = new AbortController(), timer = setTimeout(() => controller.abort(), timeoutMs)
+  try {
+    const response = await fetchImpl("/api/miller/match-state", {
+      method: "POST", credentials: "include", signal: controller.signal,
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        query: String(query || "").trim(),
+        ...(location && location !== "All Cities" ? { location } : {}),
+        ...(Array.isArray(excludedIntents) && excludedIntents.length ? { excluded_intents: excludedIntents } : {}),
+        ...(ignoreDetectedLocation ? { ignore_detected_location: true } : {}),
+        ...(broadenNearby ? { broaden_nearby: true } : {}),
+        limit,
+      }),
+    })
+    const data = await response.json().catch(() => null)
+    if (!response.ok || !data || !MATCH_STATES.has(data?.match_state?.state) || !Array.isArray(data.direct_results) || !Array.isArray(data.broader_alternatives)) return null
+    return data
+  } catch {
+    return null
+  } finally { clearTimeout(timer) }
+}

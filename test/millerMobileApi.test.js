@@ -23,6 +23,8 @@ test("mobile request contract is bounded and normalizes Canadian provinces and t
     location: "",
     province: "British Columbia",
     categories: ["detox", "housing"],
+    excluded_intents: [],
+    ignore_detected_location: false,
     limit: 20,
     broaden_nearby: false,
     search_more_broadly: false,
@@ -31,6 +33,48 @@ test("mobile request contract is bounded and normalizes Canadian provinces and t
   assert.equal(validateMillerMobileSearchRequest({ query: "help", province: "Ontario" }).province, "Ontario")
   assert.equal(validateMillerMobileSearchRequest({ query: "help", province: "NWT" }).province, "Northwest Territories")
   assert.throws(() => validateMillerMobileSearchRequest({ query: "help", province: "Atlantis" }), /province_invalid/)
+})
+
+test("structured interpretation refinements are bounded and change the effective search request", () => {
+  const request = validateMillerMobileSearchRequest({
+    query: "Need detox in Surrey and transportation help",
+    excluded_intents: ["transportation", "transportation"],
+    ignore_detected_location: true,
+  })
+  assert.deepEqual(request.excluded_intents, ["transportation"])
+  assert.equal(request.ignore_detected_location, true)
+  assert.throws(() => validateMillerMobileSearchRequest({ query: "detox", excluded_intents: ["invented_identity"] }), /excluded_intent_invalid/)
+
+  const withoutTransportation = buildMillerMobileSearchResponse({
+    query: "Need detox in Surrey and transportation help",
+    excluded_intents: ["transportation"],
+  }, millerMobileCatalog, { now: fixedNow })
+  assert.equal(withoutTransportation.workflow.needs.some(item => item.need_id === "transportation"), false)
+
+  const withoutPrimary = buildMillerMobileSearchResponse({
+    query: "Need detox in Surrey and transportation help",
+    excluded_intents: ["detox"],
+  }, millerMobileCatalog, { now: fixedNow })
+  assert.equal(withoutPrimary.workflow.needs.some(item => item.need_id === "detox"), false)
+  assert.equal(withoutPrimary.workflow.needs.some(item => item.need_id === "transportation"), true)
+
+  const withoutLocation = buildMillerMobileSearchResponse({
+    query: "Need detox in Surrey",
+    ignore_detected_location: true,
+  }, millerMobileCatalog, { now: fixedNow })
+  assert.equal(withoutLocation.interpreted.location, null)
+  assert.equal(withoutLocation.direct_results.some(item => item.match_reasons.some(reason => /Surrey/i.test(reason))), false)
+
+  const ordinaryOn = buildMillerMobileSearchResponse({
+    query: "Dental coverage while on income assistance",
+  }, millerMobileCatalog, { now: fixedNow })
+  assert.equal(ordinaryOn.interpreted.province, null)
+
+  const explicitOntarioCode = buildMillerMobileSearchResponse({
+    query: "Addiction help ON",
+  }, millerMobileCatalog, { now: fixedNow })
+  assert.equal(explicitOntarioCode.interpreted.province, "Ontario")
+  assert.throws(() => buildMillerMobileSearchResponse({ query: "Need detox", excluded_intents: ["detox"] }, millerMobileCatalog, { now: fixedNow }), /effective_intent_required/)
 })
 
 test("mobile search returns compact verified Miller resources and practical guidance", () => {
@@ -80,8 +124,28 @@ test("professional workflow decomposes multiple needs and explains results witho
   assert.ok(response.workflow.pathway.length > 0)
   assert.ok(response.workflow.recommended_pack_ids.length > 0)
   assert.ok(response.results.every(item => Array.isArray(item.why_shown) && item.why_shown.length <= 3))
+  assert.ok(response.direct_results.every(item => Array.isArray(item.match_reasons) && item.match_reasons.length > 0))
+  assert.ok(response.broader_alternatives.every(item => Array.isArray(item.match_reasons) && item.match_reasons.length === 0))
   assert.ok(response.results.every(item => !Object.hasOwn(item, "score")))
   assert.equal(/diagnos|clinically suitable|eligible|bed available/i.test(JSON.stringify(response.workflow)), false)
+})
+
+test("direct match explanations are deterministic, canonical-field based, and do not claim eligibility", () => {
+  const response = buildMillerMobileSearchResponse({ query: "detox in Surrey", limit: 8 }, millerMobileCatalog, { now: fixedNow })
+  for (const resource of response.direct_results) {
+    const canonical = millerMobileCatalog.find(record => record.id === resource.canonical_id)
+    assert.ok(canonical)
+    assert.ok(resource.match_reasons.every(reason => /Located in|serving|Matches Detox|Virtual service information|Transportation information available|Funding information available/.test(reason)))
+    assert.equal(/eligible|qualif|available bed/i.test(resource.match_reasons.join(" ")), false)
+    for (const reason of resource.match_reasons) {
+      if (/^(Located in|Regional intake serving|Province-wide navigation)/.test(reason)) assert.ok(resource.location_label.includes(reason))
+      if (reason === "Matches Detox") assert.match(`${canonical.name} ${canonical.serviceType} ${canonical.category} ${canonical.description} ${(canonical.tags || []).join(" ")}`, /detox|withdrawal/i)
+      if (reason === "Virtual service information") assert.equal(canonical.virtual_service, true)
+      if (reason === "Transportation information available") assert.ok(canonical.transportationNote)
+      if (reason === "Funding information available") assert.ok(canonical.fundingType)
+    }
+  }
+  assert.ok(response.results.every(resource => millerMobileCatalog.some(record => record.id === resource.canonical_id)))
 })
 
 test("broaden nearby is an explicit action and retains the requested province", () => {
@@ -221,7 +285,7 @@ test("mobile response records no query or client record and catalog reports West
 })
 
 test("Western demo requests surface province-appropriate verified entry points", () => {
-  const alberta = buildMillerMobileSearchResponse({ query: "Housing after treatment in Edmonton", limit: 12 }, millerMobileCatalog, { now: fixedNow })
+  const alberta = buildMillerMobileSearchResponse({ query: "Housing after treatment in Edmonton", limit: 100 }, millerMobileCatalog, { now: fixedNow })
   assert.equal(alberta.interpreted.province, "Alberta")
   assert.ok(alberta.results.some(resource => resource.name === "211 Alberta"))
   assert.ok(alberta.results.every(resource => ["Alberta", "Canada-wide"].includes(resource.province)))

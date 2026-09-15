@@ -11,6 +11,10 @@ const NEED_LABELS = Object.freeze({
   transportation: "Transportation",
   funding: "Cost or funding",
   legal: "Legal navigation",
+  recreation_support: "Recreation support",
+  emergency_support: "Emergency support",
+  dental_support: "Dental support",
+  vision_support: "Vision support",
   harm_reduction: "Harm reduction",
   meetings: "Peer support",
   basic_needs: "Basic needs",
@@ -20,6 +24,9 @@ const NEED_LABELS = Object.freeze({
   access_navigation: "Access navigation",
   hospital_discharge: "Hospital-to-community support",
   primary_care: "Primary-care navigation",
+  employment: "Employment or training support",
+  indigenous_supports: "Indigenous-specific support",
+  disability: "Disability support",
   wound_care: "Wound care",
   infectious_disease: "HIV or hepatitis navigation",
   pharmacy: "Pharmacy access",
@@ -55,9 +62,10 @@ export function millerProfessionalWorkflowIntent(query = "", needs = []) {
     : "multi_need_resource_navigation"
 }
 
-export function decomposeMillerProfessionalNeeds(query = "", intents = []) {
-  const explicit = [...new Set(intents.map(clean).filter(Boolean))]
-  const inferred = inferredNeeds(query).filter(id => !explicit.includes(id))
+export function decomposeMillerProfessionalNeeds(query = "", intents = [], { excludedNeedIds = [] } = {}) {
+  const excluded = new Set(excludedNeedIds.map(clean).filter(Boolean))
+  const explicit = [...new Set(intents.map(clean).filter(Boolean))].filter(id => !excluded.has(id))
+  const inferred = inferredNeeds(query).filter(id => !explicit.includes(id) && !excluded.has(id))
   return Object.freeze([...explicit, ...inferred].map((needId, index) => ({
     need_id: needId,
     label: NEED_LABELS[needId] || needId.replaceAll("_", " "),
@@ -80,12 +88,18 @@ const MATCH_TERMS = Object.freeze({
   counselling: ["counselling", "counseling", "therapy"], mental_health: ["mental health", "crisis", "psychiatric"],
   housing: ["housing", "shelter", "homeless"], transportation: ["transportation", "medical travel", "transit", "ride"],
   funding: ["funding", "financial", "benefit", "low cost", "free"], legal: ["legal", "tenancy", "rights", "advocacy"],
+  recreation_support: ["recreation", "leisure", "sport", "aquatic"],
+  emergency_support: ["emergency support", "evacuation", "disaster support"],
+  dental_support: ["dental", "dentist", "oral health"], vision_support: ["vision", "optical", "glasses", "eye exam"],
   harm_reduction: ["harm reduction", "naloxone", "overdose prevention"], meetings: ["peer support", "meeting", "smart recovery"],
   basic_needs: ["basic needs", "food", "income", "identification"], reentry: ["re entry", "reentry", "reintegration", "release planning"],
   family_support: ["family", "caregiver", "parent"], continuity: ["aftercare", "transition", "continuity"],
   access_navigation: ["navigation", "intake", "access line", "service finder"],
   hospital_discharge: ["hospital discharge", "discharge support", "patient navigation", "community follow up"],
   primary_care: ["primary care", "family doctor", "nurse practitioner", "health system navigation"],
+  employment: ["employment", "job training", "skills training", "work readiness", "vocational"],
+  indigenous_supports: ["indigenous", "first nations", "métis", "metis", "inuit", "cultural support"],
+  disability: ["disability", "accessibility", "persons with disabilities"],
   wound_care: ["wound care", "wound", "abscess", "skin infection"],
   infectious_disease: ["hepatitis", "hiv", "infectious disease", "stbbi"],
   pharmacy: ["pharmacy", "pharmacist", "medication"],
@@ -99,10 +113,13 @@ function matchesNeed(resource, needId) {
 
 function accessReason(resource) {
   const access = normalized(`${resource?.access_note || ""} ${resource?.referral_note || ""}`)
-  if (access.includes("self referral") || access.includes("self refer")) return "Self-referral stated"
+  const selfReferralDenied = /\b(?:not|no)\s+(?:community\s+)?self referral\b|\bself referral (?:is )?not\b|\bself referral not inferred\b/.test(access)
+  const referralDenied = /\b(?:no|not)\s+(?:provider\s+)?referral (?:is )?required\b|\bwithout (?:a )?referral\b/.test(access)
+  const walkInDenied = /\b(?:not|no)\s+(?:a\s+)?walk in\b|\bwalk in (?:is )?not\b|\bnot\s+community\s+self\s+referral\b[^.]*\bwalk in\b/.test(access)
+  if (!selfReferralDenied && (access.includes("self referral") || access.includes("self refer"))) return "Self-referral stated"
   if (access.includes("centralized intake") || access.includes("central intake")) return "Centralized intake"
-  if (access.includes("provider referral") || access.includes("referral required") || access.includes("requires referral")) return "Referral required"
-  if (access.includes("walk in")) return "Walk-in access stated"
+  if (!referralDenied && (access.includes("provider referral") || access.includes("referral required") || access.includes("requires referral"))) return "Referral required"
+  if (!walkInDenied && access.includes("walk in")) return "Walk-in access stated"
   if (access.includes("call") || access.includes("phone")) return "Phone-first access"
   return ""
 }

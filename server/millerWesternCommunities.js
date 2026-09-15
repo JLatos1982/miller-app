@@ -133,6 +133,14 @@ export const MILLER_CANADIAN_LOCATION_LABELS = Object.freeze({
   "kitikmeot": "Kitikmeot",
 })
 
+// Explicit administrative/service-area memberships used only to decide
+// whether a regional program serves a searched community. These aliases do
+// not create a physical location or a distance claim.
+export const MILLER_CANADIAN_COMMUNITY_SERVICE_AREAS = Object.freeze({
+  nelson: ["Regional District of Central Kootenay"],
+  terrace: ["Regional District of Kitimat-Stikine"],
+})
+
 export const MILLER_COVERAGE_MATURITY = Object.freeze({
   "British Columbia": "deep",
   Alberta: "developing",
