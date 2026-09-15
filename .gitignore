@@ -7,6 +7,8 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 .env
+.env.*
+!.env.example
 node_modules
 data/location-qc-review-decisions.local.json
 dist
@@ -25,6 +27,10 @@ ios/**/DerivedData/
 *.xcuserstate
 
 # Local owner-review and generated research outputs
+/artifacts/
+/data/
+/reports/
+/output/
 artifacts/farm-operations/farm-legal-event-graph-v2.json
 artifacts/farm-operations/farm-recovery-manifest-v1.json
 artifacts/miller-legal/farm-legal-corpus-mining-v[3-9]*.json

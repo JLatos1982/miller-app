@@ -103,4 +103,9 @@ npm run build
 node --check server.js
 ```
 
+`npm test` is the public production test contract and runs without private
+research artifacts or local Samwise state. See
+[RELEASE_BOUNDARY.md](./RELEASE_BOUNDARY.md) for the public/private boundary
+and the separate private-development test contract.
+
 Tests use Node's built-in test runner and mock model/network behavior. They do not contact OpenAI, Tavily, or Supabase.
