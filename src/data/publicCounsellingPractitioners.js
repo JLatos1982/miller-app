@@ -1,4 +1,6 @@
-export const privateCounsellingPractitioners = Object.freeze([
+// Reviewed public-facing profile projection. The word "private" describes the
+// practitioners' practice setting, not the visibility or handling of this data.
+export const publicCounsellingPractitionersList = Object.freeze([
   Object.freeze({
     id: "justin-latos",
     name: "Justin Latos",
@@ -62,5 +64,5 @@ export const privateCounsellingPractitioners = Object.freeze([
 ])
 
 export function publicCounsellingPractitioners() {
-  return privateCounsellingPractitioners.filter(practitioner => practitioner.name && practitioner.credentials && practitioner.practice && /^#|^https:\/\//.test(practitioner.href))
+  return publicCounsellingPractitionersList.filter(practitioner => practitioner.name && practitioner.credentials && practitioner.practice && /^#|^https:\/\//.test(practitioner.href))
 }

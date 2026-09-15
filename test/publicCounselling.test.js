@@ -2,11 +2,11 @@ import test from "node:test"
 import assert from "node:assert/strict"
 import fs from "node:fs"
 
-test("private counselling remains a secondary accessible modal with a modest verified option set", async () => {
+test("public counselling remains a secondary accessible modal with a modest verified option set", async () => {
   const app = fs.readFileSync(new URL("../src/App.jsx", import.meta.url), "utf8")
   const css = fs.readFileSync(new URL("../src/App.css", import.meta.url), "utf8")
   const modal = fs.readFileSync(new URL("../src/site/AccessibleModal.jsx", import.meta.url), "utf8")
-  const { publicCounsellingPractitioners } = await import("../src/data/privateCounsellingPractitioners.js")
+  const { publicCounsellingPractitioners } = await import("../src/data/publicCounsellingPractitioners.js")
   const practitioners = publicCounsellingPractitioners()
   assert.match(app, /Private Counselling/)
   assert.match(app, /Justin Latos, MSc, CCC/)
@@ -30,7 +30,7 @@ test("private counselling remains a secondary accessible modal with a modest ver
   assert.match(app, /src=\{justinPortrait\} alt="Portrait sketch of Justin Latos"/)
   assert.match(app, /mailto:justinlatos@protonmail\.com/)
   assert.match(app, /Search for a service or type of support/)
-  assert.match(app, /e\.g\. detox, treatment centre, counselling, OAT, crisis, harm reduction/)
+  assert.match(app, /e\.g\. housing, food, treatment, benefits, legal help, counselling/)
   assert.match(app, /This service offers volunteer resource-navigation support, not clinical counselling or therapy/)
   assert.match(app, /Private counselling services are separate from this community resource directory/)
   assert.doesNotMatch(app, /Ask Miller|Miller offers volunteer resource-navigation support|separate from Miller/)
