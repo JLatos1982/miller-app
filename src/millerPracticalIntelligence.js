@@ -160,7 +160,11 @@ function uniqueResources(resources) {
 }
 
 function relatedCollectionLinks(primaryIntent, detectedIntents) {
-  const ids = [...detectedIntents.slice(1), ...(RELATED_INTENTS[primaryIntent] || [])]
+  // Bubble links are an immediate response to what the person actually asked
+  // for. Related intents still help broaden the internal resource scan below,
+  // but should not turn every counselling or treatment search into generic
+  // Funding or Practical Supports buttons.
+  const ids = [...new Set(detectedIntents)].filter(id => id !== primaryIntent || detectedIntents.length === 1)
   const seen = new Set()
   return ids.map(id => ({ id, ...COLLECTIONS[id] })).filter(item => {
     const target = item.href || item.action

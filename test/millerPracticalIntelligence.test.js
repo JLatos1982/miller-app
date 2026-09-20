@@ -27,6 +27,17 @@ test("funding and treatment are connected from the full internal Miller knowledg
   assert.ok(intelligence.speech_resources.length > 0)
 })
 
+test("speech-bubble collection links follow explicit needs instead of generic related-category clutter", () => {
+  const counselling = buildMillerPracticalIntelligence({ query: "addiction counselling", resources: shared, results: shared })
+  assert.equal(counselling.related_collections.some(item => /Funding|Practical supports/i.test(item.label)), false)
+
+  const fundingAndTreatment = buildMillerPracticalIntelligence({ query: "help paying for treatment", resources: shared, results: shared })
+  assert.ok(fundingAndTreatment.related_collections.some(item => item.href === "/funding-assistance"))
+
+  const foodAndHousing = buildMillerPracticalIntelligence({ query: "food and housing help", resources: shared, results: shared })
+  assert.ok(foodAndHousing.related_collections.some(item => item.href === "/practical-supports"))
+})
+
 test("housing after treatment and transportation to care retain multiple practical intents", () => {
   assert.deepEqual(detectMillerPracticalIntents("housing after treatment"), ["housing", "treatment"])
   const housing = buildMillerPracticalIntelligence({ query: "housing after treatment", resources: shared, results: shared })
@@ -62,9 +73,9 @@ test("internal resources remain first and external web items retain an unverifie
   assert.ok(intelligence.speech_resources.every(item => item.source !== "tavily"))
 })
 
-test("private counselling stays inside Miller as an explicit UI action", () => {
+test("a counselling link appears only when counselling is part of the request", () => {
   const intelligence = buildMillerPracticalIntelligence({
-    query: "methadone",
+    query: "methadone and counselling",
     results: [{ id: "oat-1", name: "OAT intake", category: "OAT", description: "Opioid agonist treatment intake." }],
     resources: [],
   })

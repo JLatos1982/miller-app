@@ -72,3 +72,17 @@ test("web message and structured mobile guidance use one public-only composition
   assert.match(guidance.context, /HealthLine/)
   assert.match(guidance.next_step, /confirm current intake/i)
 })
+
+test("companion restores public-safe, need-specific safety and readiness guidance", () => {
+  const base = {
+    interpreted: { primary_intent: "harm reduction", province: "Ontario" },
+    results: [{ name: "Verified harm-reduction service", result_origin: "verified_miller" }],
+    guidance: { context: "Verified services can offer supplies, outreach, and connections to care.", next_step: "Check current access details before visiting." },
+  }
+  assert.match(buildMillerCompanionResponse({ query: "Someone is using opioids alone and needs harm reduction supplies", response: base }), /try not to use alone.*naloxone/i)
+  assert.match(buildMillerCompanionResponse({ query: "I am not ready for abstinence but want counselling", response: { ...base, interpreted: { primary_intent: "counselling" } } }), /do not have to be ready for abstinence/i)
+  assert.match(buildMillerCompanionResponse({ query: "My family member is not sure whether they need detox", response: { ...base, interpreted: { primary_intent: "detox" } } }), /safest next step/i)
+  assert.match(buildMillerCompanionResponse({ query: "My family member needs counselling", response: { ...base, interpreted: { primary_intent: "counselling" } } }), /supporting someone else/i)
+  assert.match(buildMillerCompanionResponse({ query: "Alcohol withdrawal with hallucinations", response: { ...base, interpreted: { primary_intent: "detox" } } }), /urgent medical help/i)
+  assert.match(buildMillerCompanionResponse({ query: "Someone is not breathing after opioids", response: base }), /call 911 now/i)
+})
