@@ -26,7 +26,7 @@ function isExternalResult(result = {}) {
 function describeNeed(query, primaryIntent) {
   const words = normalized(query)
   if (primaryIntent === "counselling" && /\b(addiction|substance use|substance-use)\b/.test(words)) return "addiction counselling"
-  return primaryIntent || "support"
+  return primaryIntent || "help"
 }
 
 function safetyContext(query, primaryIntent) {
@@ -34,11 +34,16 @@ function safetyContext(query, primaryIntent) {
   const mentionsOpioids = /\b(opioid|fentanyl|methadone|suboxone|buprenorphine|heroin)\b/.test(words)
   const immediateOverdose = /\b(overdose now|overdosing|unresponsive|cannot wake|cant wake|not breathing|slow breathing|blue lips|gurgling)\b/.test(words)
   const usingAlone = /\b(?:using|use).{0,18}\balone\b|\balone.{0,18}\b(?:using|use)\b/.test(words)
-  const alcoholWithdrawal = /\b(alcohol|drinking|drink)\b/.test(words) && /\b(withdrawal|detox|withdrawing)\b/.test(words)
+  const mentionsAlcohol = /\b(alcohol|drinking|drink)\b/.test(words)
+  const alcoholWithdrawal = mentionsAlcohol && /\b(withdrawal|detox|withdrawing)\b/.test(words)
+  const frequentDrinking = /\b(every day|daily|each day|most days|heavy drinking|heavily)\b/.test(words)
+  const stoppingAlcohol = /\b(?:want|wants|trying|try|plan|planning|ready)\b.{0,24}\b(?:stop|quit|cut down|reduce)\b|\b(?:stop|quit|cut down|reduce)\b.{0,24}\b(?:drinking|drink|alcohol)\b/.test(words)
+  const alcoholStoppingRisk = alcoholWithdrawal || (mentionsAlcohol && frequentDrinking && stoppingAlcohol)
   const severeWithdrawal = /\b(seizures?|hallucinations?|confusion|delirium|very unwell)\b/.test(words)
   const notReadyForAbstinence = /\b(not ready (?:for )?(?:abstinence|to stop|to quit)|not (?:ready|willing) to (?:stop|quit)|still using)\b/.test(words)
   const unsureAboutDetox = /\b(need|needs|do i need|whether i need|not sure (?:if|about)).{0,40}\b(detox|withdrawal)\b|\b(detox|withdrawal)\b.{0,40}\b(not sure|need|needs)\b/.test(words)
-  const familyMember = /\b(family member|loved one|my (?:son|daughter|partner|spouse|parent|friend))\b/.test(words)
+  const familyMember = /\b(family member|loved one)\b/.test(words)
+    || /\b(?:my|our|their)\s+(?:brother|sister|son|daughter|parent|mom|mother|dad|father|partner|spouse|friend)\b.{0,36}\b(?:is using|is drinking|needs?|wants?|looking for|struggling|detox|withdrawal|addiction|counselling|counseling|harm reduction|overdose|help|support)\b/.test(words)
 
   // This is concise public-health orientation, not a clinical assessment. Its
   // emergency and naloxone wording follows Health Canada's public overdose
@@ -46,10 +51,11 @@ function safetyContext(query, primaryIntent) {
   if (immediateOverdose) {
     return "If someone is hard to wake, has slow or no breathing, or you suspect an opioid overdose, call 911 now. Give naloxone if it is available and follow the kit and dispatcher instructions."
   }
-  if (alcoholWithdrawal && severeWithdrawal) {
+  if (alcoholStoppingRisk && severeWithdrawal) {
     return "Alcohol withdrawal can be medically risky. Seizures, hallucinations, severe confusion, or feeling very unwell are reasons to seek urgent medical help."
   }
-  if (alcoholWithdrawal) {
+  if (alcoholStoppingRisk) {
+    if (!alcoholWithdrawal) return "Drinking every day and stopping suddenly can sometimes carry withdrawal risk. A withdrawal-management or healthcare service can help assess the safest next step."
     return "Alcohol withdrawal can become medically risky for some people. A withdrawal-management or healthcare service can help work out a safer next step."
   }
   if (usingAlone || (mentionsOpioids && primaryIntent === "harm reduction")) {
@@ -78,10 +84,11 @@ export function buildMillerCompanionGuidance({ query = "", response = {} } = {})
   const location = queryLocation(response)
   const first = firstUsefulResult(response?.results)
   const focus = describeNeed(query, primaryIntent)
+  const needPhrase = focus === "help" || focus === "support" ? "help" : `${focus} support`
 
   const opening = location
-    ? `I hear you — you’re looking for ${focus} support in ${location}.`
-    : `I hear you — you’re looking for ${focus} support.`
+    ? `I hear you — you’re looking for ${needPhrase} in ${location}.`
+    : `I hear you — you’re looking for ${needPhrase}.`
   const route = isExternalResult(first)
     ? `I found ${first.name}${resultPlace(first) ? ` (${resultPlace(first)})` : ""} as a broader public lead. It is clearly marked as not yet verified by Miller, so check the source directly before relying on it.`
     : first
