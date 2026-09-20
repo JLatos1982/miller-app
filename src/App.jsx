@@ -889,11 +889,7 @@ useEffect(() => {
     const resultsPanel = resultsPanelRef.current
     const animationAvailable = [character, dog, speech, resultsPanel].every(element => typeof element?.animate === "function")
 
-    // Only Classic currently has an approved walk-pose pair. Other themes
-    // retain their established static result layout rather than pretending a
-    // neutral portrait is walking.
-    const hasApprovedWalkCycle = currentTheme.name === "Classic"
-    if (!hasApprovedWalkCycle || !mayAnimateResultsJourney({ origin, reducedMotion: prefersReducedMotion, viewportWidth: window.innerWidth, animationAvailable })) {
+    if (!mayAnimateResultsJourney({ origin, reducedMotion: prefersReducedMotion, viewportWidth: window.innerWidth, animationAvailable })) {
       setResultJourneyPhase("settled")
       setResultJourneyDogTravel(null)
       resultJourneyOriginRef.current = null
@@ -906,7 +902,14 @@ useEffect(() => {
     const dogDestination = journeyPointInHost(finalDogRect, hostRect)
     const dogOrigin = journeyPointInHost(origin.dog, hostRect)
     if (dogDestination && dogOrigin) {
-      setResultJourneyDogTravel({ generation, start: dogOrigin, duration: MILLER_RESULTS_JOURNEY.dog.duration, size: { width: finalDogRect.width, height: finalDogRect.height } })
+      setResultJourneyDogTravel({
+        generation,
+        start: dogOrigin,
+        duration: MILLER_RESULTS_JOURNEY.dog.duration,
+        pointDelay: MILLER_RESULTS_JOURNEY.dogGesture.delay,
+        pointDuration: MILLER_RESULTS_JOURNEY.dogGesture.duration,
+        size: { width: finalDogRect.width, height: finalDogRect.height },
+      })
       emitCompanionIntent(MILLER_PRESENTATION_INTENTS.DESTINATION_READY, dogDestination)
     }
     const animations = []
@@ -923,10 +926,10 @@ useEffect(() => {
       }))
     }
 
-    // Miller's only approved post-search gait is the Classic walk cycle. The
-    // dog uses its existing exclusive overlay owner, so it cannot glide as a
-    // translated scene node beside a separate walking overlay.
-    if (currentTheme.name === "Classic") animateFromOrigin(character, origin.character, MILLER_RESULTS_JOURNEY.character, { walking: true })
+    // Every public avatar follows the same measured walking path. Classic
+    // additionally changes through its approved step-art pair; the other
+    // themes receive the shared, subtle gait treatment on the image frame.
+    animateFromOrigin(character, origin.character, MILLER_RESULTS_JOURNEY.character, { walking: true })
     animateFromOrigin(switcher, origin.switcher, MILLER_RESULTS_JOURNEY.switcher)
     animateFromOrigin(speech, origin.speech, MILLER_RESULTS_JOURNEY.speech, { fadeIn: true })
     animations.push(resultsPanel.animate([
@@ -939,6 +942,9 @@ useEffect(() => {
       fill: "both",
     }))
     resultJourneyAnimationsRef.current = animations
+    const gestureTimer = window.setTimeout(() => {
+      setResultJourneyPhase("gesturing")
+    }, MILLER_RESULTS_JOURNEY.characterGesture.delay)
     resultJourneyTimerRef.current = window.setTimeout(() => {
       resultJourneyAnimationsRef.current.forEach(animation => animation?.cancel?.())
       resultJourneyAnimationsRef.current = []
@@ -949,7 +955,7 @@ useEffect(() => {
       setResultJourneyDogTravel(null)
     }, MILLER_RESULTS_JOURNEY.totalDuration)
 
-    return undefined
+    return () => window.clearTimeout(gestureTimer)
   }, [companionOverlayHost, companionSearchOutcome.generation, currentTheme.name, prefersReducedMotion, shouldShowResults])
 
   useEffect(() => {
@@ -1459,9 +1465,11 @@ function previousMiller() {
    ? millerClassicWalkStep(millerWalkIndex, { returning: millerReadingPosition === "returning" }).pose
    : "neutral"
  const activeCharacterInteraction = millerCharacterInteraction(currentTheme.name)
- const resultJourneyPose = resultJourneyPhase === "traveling" && currentTheme.name === "Classic"
-   ? (resultJourneyPoseIndex % 2 === 0 ? "stepLeft01" : "stepLeft02")
-   : null
+ const resultJourneyPose = resultJourneyPhase === "gesturing"
+   ? "noticeDog"
+   : resultJourneyPhase === "traveling" && currentTheme.name === "Classic"
+     ? (resultJourneyPoseIndex % 2 === 0 ? "stepLeft01" : "stepLeft02")
+     : null
  const activeMillerPose = resultJourneyPose || (currentTheme.name === "Classic" && millerWalkPose !== "neutral" ? millerWalkPose : millerGreetingPose)
  const millerImageSrc = millerCharacterPose(currentTheme.name, activeMillerPose, currentTheme.avatar)
 
@@ -1895,7 +1903,7 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
           <div className="miller-stage" ref={millerStageRef} style={millerStageStyle}>
             <div ref={millerFigureRef} className={`miller-figure ${currentTheme.name === "Classic" ? `miller-reading-${millerReadingPosition}` : ""}`} style={millerStyle}>
 
-  <div className="miller-image-frame">
+  <div className={`miller-image-frame ${resultJourneyPhase === "traveling" ? "is-result-walking" : ""} ${resultJourneyPhase === "gesturing" ? "is-result-gesture" : ""}`}>
     <img
       src={millerImageSrc}
       alt="Illustrated resource guide"

@@ -218,6 +218,8 @@ export default function MillerSheepdog({ themeName, scenePosition = 'home', resu
 
   const travelDuration = travel?.duration
   const travelArrived = travel?.arrived
+  const travelPointDelay = Number(travel?.pointDelay) || 280
+  const travelPointDuration = Number(travel?.pointDuration) || 850
   useEffect(() => {
     if (!travelDuration || travelArrived) return undefined
     const frame = window.requestAnimationFrame(() => setTravel(current => current ? { ...current, moving: true } : current))
@@ -231,14 +233,14 @@ export default function MillerSheepdog({ themeName, scenePosition = 'home', resu
 
   useEffect(() => {
     if (!travel?.arrived || travel.indicated) return undefined
-    const pointTimer = window.setTimeout(() => setTravel(current => current?.arrived && !current.indicated ? { ...current, pose: 'result-point', pointing: true } : current), 280)
-    const settleTimer = window.setTimeout(() => setTravel(current => current?.arrived && !current.indicated ? { ...current, pose: 'pet-reaction', pointing: false, indicated: true } : current), 1_130)
+    const pointTimer = window.setTimeout(() => setTravel(current => current?.arrived && !current.indicated ? { ...current, pose: 'result-point', pointing: true } : current), travelPointDelay)
+    const settleTimer = window.setTimeout(() => setTravel(current => current?.arrived && !current.indicated ? { ...current, pose: 'pet-reaction', pointing: false, indicated: true } : current), travelPointDelay + travelPointDuration)
     return () => { window.clearTimeout(pointTimer); window.clearTimeout(settleTimer) }
-  }, [travel?.arrived, travel?.indicated])
+  }, [travel?.arrived, travel?.indicated, travelPointDelay, travelPointDuration])
 
   const dogVisuals = dogVisualOwnership(dogOwner)
   const travelOverlay = dogVisuals.overlay && travel && overlayHost ? createPortal(
-  <div className={`miller-companion-travel ${travel.moving ? 'is-moving' : ''} ${travel.arrived ? 'is-settled' : ''}`} aria-hidden="true" data-companion="sheepdog" data-owner="overlay" data-pose={travel.pose} data-presentation="destination_arrived" style={{ '--dog-start-x': `${travel.start.x}px`, '--dog-start-y': `${travel.start.y}px`, '--dog-target-x': `${travel.target.x}px`, '--dog-target-y': `${travel.target.y}px`, '--dog-travel-duration': `${travel.duration}ms`, ...(travel.size ? { '--dog-travel-width': `${travel.size.width}px`, '--dog-travel-height': `${travel.size.height}px` } : {}) }}><DogCanvas source={DOG_POSES[travel.pose] || sheepdogSit} /></div>, overlayHost) : null
+  <div className={`miller-companion-travel ${travel.moving ? 'is-moving' : ''} ${travel.arrived ? 'is-settled' : ''}`} aria-hidden="true" data-companion="sheepdog" data-owner="overlay" data-pose={travel.pose} data-presentation={travel.pointing ? "results_direction" : "destination_arrived"} style={{ '--dog-start-x': `${travel.start.x}px`, '--dog-start-y': `${travel.start.y}px`, '--dog-target-x': `${travel.target.x}px`, '--dog-target-y': `${travel.target.y}px`, '--dog-travel-duration': `${travel.duration}ms`, ...(travel.size ? { '--dog-travel-width': `${travel.size.width}px`, '--dog-travel-height': `${travel.size.height}px` } : {}) }}><DogCanvas source={DOG_POSES[travel.pose] || sheepdogSit} /></div>, overlayHost) : null
 
   const sceneDog = dogVisuals.scene ? <div ref={actorRef} className={`miller-companion-actor ${millerDogIsTraveling(step) ? 'is-approaching' : ''} ${settled ? 'is-settled' : ''} ${sceneState === 'ready' ? 'is-ready' : ''} ${shouldFollowMiller ? 'is-following' : ''}`} aria-hidden="true" data-companion={presentation.actorId} data-owner="scene" data-pose={dogPose} data-arrival-step={step?.id || 'settled'} data-greeting-step={characterInteraction ? greetingStep?.id : 'static'} data-result-journey={resultJourneyPhase} data-reduced-motion={motionReduced} data-ground-anchor={`${MILLER_COMPANION.anchors.ground.x},${MILLER_COMPANION.anchors.ground.y}`} data-pet-head-anchor={`${MILLER_COMPANION.anchors.petHead.x},${MILLER_COMPANION.anchors.petHead.y}`}><DogCanvas source={source} /></div> : null
   return <>{sceneDog}{travelOverlay}</>

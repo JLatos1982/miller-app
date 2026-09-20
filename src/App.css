@@ -814,6 +814,32 @@ textarea {
   transform: translateX(var(--miller-interaction-offset-x, -106px));
 }
 
+/* The outer frame follows measured layout geometry; this small, shared
+   inner gait keeps every public avatar from looking like it is simply being
+   translated across the page. Classic also cycles its dedicated walk art. */
+.miller-image-frame.is-result-walking .miller-image {
+  animation: miller-result-walk-gait 400ms steps(2, end) infinite;
+  transform-origin: 50% 96%;
+}
+
+@keyframes miller-result-walk-gait {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(.45deg); }
+}
+
+/* A single brief shared acknowledgement follows arrival: Miller looks down
+   toward the dog while the dog points at the cards. It never loops. */
+.miller-image-frame.is-result-gesture .miller-image {
+  animation: miller-result-direction 560ms cubic-bezier(.22,.72,.3,1) 1 both;
+  transform-origin: 50% 96%;
+}
+
+@keyframes miller-result-direction {
+  0% { transform: translateY(0) rotate(0deg); }
+  48% { transform: translateY(7px) rotate(.8deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
 @media (max-width: 900px) {
   .miller-image.miller-scene-leanReach,
   .miller-image.miller-scene-petDog,

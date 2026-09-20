@@ -1,13 +1,15 @@
 export const MILLER_RESULTS_JOURNEY = Object.freeze({
-  // Miller and the dog leave together. Their frames are intentionally bounded
-  // to this short handoff so a fast search is never held for decoration.
-  dog: Object.freeze({ delay: 0, duration: 820 }),
-  character: Object.freeze({ delay: 0, duration: 820 }),
+  // Miller and the dog leave together. The dog arrives first and waits while
+  // Miller finishes a visible, unhurried gait into the results scene.
+  dog: Object.freeze({ delay: 0, duration: 1320 }),
+  character: Object.freeze({ delay: 80, duration: 1600 }),
   switcher: Object.freeze({ delay: 150, duration: 650 }),
   results: Object.freeze({ delay: 90, duration: 360 }),
-  speech: Object.freeze({ delay: 420, duration: 300 }),
-  walkFrameDuration: 205,
-  totalDuration: 900,
+  speech: Object.freeze({ delay: 520, duration: 300 }),
+  dogGesture: Object.freeze({ delay: 180, duration: 650 }),
+  characterGesture: Object.freeze({ delay: 1720, duration: 560 }),
+  walkFrameDuration: 200,
+  totalDuration: 2480,
   easing: 'cubic-bezier(.22,.72,.3,1)',
 })
 

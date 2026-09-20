@@ -131,7 +131,7 @@ test('jog duration is bounded and reduced-motion or mobile travel fails safely',
   assert.equal(mayTravelToResult({ target: { x: .7, y: .5 }, viewportWidth: 1280, reducedMotion: true }), false)
 })
 
-test('Miller and the dog share one bounded non-blocking journey into results', () => {
+test('Miller and the dog share a bounded walking journey into results', () => {
   const start = snapshotJourneyRect({ left: 700, top: 330, width: 300, height: 450 })
   const destination = snapshotJourneyRect({ left: 140, top: 520, width: 300, height: 450 })
   assert.deepEqual(resultJourneyTransform(start, destination), { x: 560, y: -190, scaleX: 1, scaleY: 1 })
@@ -144,10 +144,14 @@ test('Miller and the dog share one bounded non-blocking journey into results', (
   assert.equal(walking[0].offset, 0)
   assert.equal(walking.at(-1).offset, 1)
   assert.equal(walking.at(-1).transform, 'translate(0px, 0px) scale(1, 1)')
-  assert.equal(MILLER_RESULTS_JOURNEY.dog.delay, MILLER_RESULTS_JOURNEY.character.delay)
-  assert.equal(MILLER_RESULTS_JOURNEY.walkFrameDuration * 4, MILLER_RESULTS_JOURNEY.character.duration)
+  assert.ok(MILLER_RESULTS_JOURNEY.character.duration >= 1_500)
+  assert.ok(MILLER_RESULTS_JOURNEY.character.duration <= 1_700)
+  assert.ok(MILLER_RESULTS_JOURNEY.dog.delay + MILLER_RESULTS_JOURNEY.dog.duration < MILLER_RESULTS_JOURNEY.character.delay + MILLER_RESULTS_JOURNEY.character.duration)
+  assert.equal(MILLER_RESULTS_JOURNEY.walkFrameDuration * 8, MILLER_RESULTS_JOURNEY.character.duration)
+  assert.ok(MILLER_RESULTS_JOURNEY.dogGesture.delay > 0)
+  assert.ok(MILLER_RESULTS_JOURNEY.characterGesture.delay >= MILLER_RESULTS_JOURNEY.character.delay)
   assert.ok(MILLER_RESULTS_JOURNEY.results.delay < MILLER_RESULTS_JOURNEY.totalDuration)
-  assert.ok(MILLER_RESULTS_JOURNEY.totalDuration < 1_000)
+  assert.ok(MILLER_RESULTS_JOURNEY.totalDuration > MILLER_RESULTS_JOURNEY.dog.duration + MILLER_RESULTS_JOURNEY.dogGesture.delay + MILLER_RESULTS_JOURNEY.dogGesture.duration)
   assert.deepEqual(journeyPointInHost(start, { left: 100, top: 200, width: 1000, height: 1200 }), { x: .6, y: 0.10833333333333334 })
   assert.equal(mayAnimateResultsJourney({ origin: { character: start, dog: start }, viewportWidth: 1440 }), true)
   assert.equal(mayAnimateResultsJourney({ origin: { character: start, dog: start }, viewportWidth: 390 }), false)
@@ -201,12 +205,30 @@ test('Classic reading movement uses approved step assets rather than a standing-
 
 test('result-side overlay preserves its one left-rail destination through arrival, indication, and final settle', () => {
   const css = fs.readFileSync(new URL('../src/App.css', import.meta.url), 'utf8')
+  const app = fs.readFileSync(new URL('../src/App.jsx', import.meta.url), 'utf8')
   const sheepdog = fs.readFileSync(new URL('../src/companion/MillerSheepdog.jsx', import.meta.url), 'utf8')
   assert.match(css, /\.miller-companion-travel\.is-moving,\s*\.miller-companion-travel\.is-settled/)
   assert.match(css, /calc\(var\(--dog-target-x\) - var\(--dog-start-x\)\)/)
   assert.match(sheepdog, /pose: 'result-point', pointing: true/)
   assert.match(sheepdog, /pose: 'pet-reaction', pointing: false, indicated: true/)
+  assert.match(sheepdog, /travelPointDelay \+ travelPointDuration/)
+  assert.match(app, /setResultJourneyPhase\("gesturing"\)/)
+  assert.match(app, /resultJourneyPhase === "gesturing"[\s\S]*?\? "noticeDog"/)
+  assert.match(css, /miller-image-frame\.is-result-gesture/)
   assert.doesNotMatch(sheepdog, /right-side|target\.right|resultRect\.right/)
+})
+
+test('every public avatar uses the shared journey gait and direction acknowledgement', () => {
+  const app = fs.readFileSync(new URL('../src/App.jsx', import.meta.url), 'utf8')
+  const css = fs.readFileSync(new URL('../src/App.css', import.meta.url), 'utf8')
+  const poses = fs.readFileSync(new URL('../src/companion/millerCharacterInteractionThemes.js', import.meta.url), 'utf8')
+  assert.doesNotMatch(app, /hasApprovedWalkCycle/)
+  assert.match(app, /animateFromOrigin\(character, origin\.character, MILLER_RESULTS_JOURNEY\.character, \{ walking: true \}\)/)
+  assert.match(app, /is-result-walking/)
+  assert.match(css, /miller-image-frame\.is-result-walking .miller-image/)
+  for (const theme of ['Classic', 'North', 'Violet', 'Rose', 'Jade']) {
+    assert.match(poses, new RegExp(`${theme}:\\s*Object\\.freeze\\(\\{[\\s\\S]*?noticeDog:`), `${theme} direction pose`)
+  }
 })
 
 test('approved companion and neutral assets are true-alpha production cutouts', () => {
@@ -238,7 +260,7 @@ test('idle petting is sparse, enabled for every interactive theme, and unavailab
   assert.equal(mayRunMillerIdlePet({ themeName: 'Classic', dogOwner: 'scene', settled: true, greetingComplete: true, idleAllowed: true, reducedMotion: true }), false)
 })
 
-test('scene dog follows only the active Classic reading walk, while result travel retains exclusive overlay ownership', () => {
+test('scene dog follows the Classic reading walk while all result travel retains exclusive overlay ownership', () => {
   const sheepdog = fs.readFileSync(new URL('../src/companion/MillerSheepdog.jsx', import.meta.url), 'utf8')
   const app = fs.readFileSync(new URL('../src/App.jsx', import.meta.url), 'utf8')
   assert.match(sheepdog, /scenePosition = 'home'/)
@@ -251,7 +273,9 @@ test('scene dog follows only the active Classic reading walk, while result trave
   assert.match(app, /MILLER_PRESENTATION_INTENTS\.DESTINATION_READY/)
   assert.match(app, /resultJourneyTravel=\{resultJourneyDogTravel\}/)
   assert.doesNotMatch(app, /animateFromOrigin\(dog, origin\.dog/)
-  assert.match(app, /const hasApprovedWalkCycle = currentTheme\.name === "Classic"/)
+  assert.doesNotMatch(app, /hasApprovedWalkCycle/)
+  assert.match(app, /if \(!mayAnimateResultsJourney\(\{ origin, reducedMotion: prefersReducedMotion/)
+  assert.match(app, /animateFromOrigin\(character, origin\.character, MILLER_RESULTS_JOURNEY\.character, \{ walking: true \}\)/)
   assert.match(app, /function clearSearch\(\)[\s\S]*setResultJourneyDogTravel\(null\)[\s\S]*MILLER_PRESENTATION_INTENTS\.SETTLE/)
   assert.match(sheepdog, /resultJourneyTravel\?\.start/)
   assert.match(sheepdog, /data-pose=\{travel\.pose\}/)
