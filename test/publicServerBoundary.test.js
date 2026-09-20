@@ -1,7 +1,7 @@
 import assert from "node:assert/strict"
 import test from "node:test"
 
-import { app } from "../server.js"
+import { app, setPublicStaticCacheHeader } from "../server.js"
 
 async function request(path, options = {}) {
   const server = app.listen(0, "127.0.0.1")
@@ -36,4 +36,14 @@ test("public companion keeps contextual guidance alongside deterministic nationa
   assert.match(payload.message, /addiction counselling/i)
   assert.match(payload.message, /verified options/i)
   assert.doesNotMatch(payload.message, /^Sounds like you’re looking for counselling or someone to talk with\.?$/)
+})
+
+test("fingerprinted public assets cache safely while the HTML shell remains current", () => {
+  const headers = new Map()
+  const response = { setHeader: (name, value) => headers.set(name, value) }
+  setPublicStaticCacheHeader(response, "/app/dist/assets/index-CaybuGMz.js")
+  assert.equal(headers.get("Cache-Control"), "public, max-age=31536000, immutable")
+  headers.clear()
+  setPublicStaticCacheHeader(response, "/app/dist/index.html")
+  assert.equal(headers.has("Cache-Control"), false)
 })

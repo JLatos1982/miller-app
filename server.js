@@ -137,7 +137,17 @@ app.post("/api/miller", mobileSearchRateLimit, async (req, res) => {
 // runtime. Return a non-disclosing 404 before the SPA fallback can handle them.
 app.use(["/api/admin", "/api/integrations/samwise", "/api/internal", "/admin", "/owner"], (_req, res) => res.status(404).json({ error: "Not found." }))
 
-app.use(express.static(path.join(__dirname, "dist")))
+// Vite fingerprints every generated asset. They can be cached indefinitely,
+// while the HTML shell remains revalidated so it always points at the current
+// release. This avoids re-downloading the public application on repeat visits.
+export function setPublicStaticCacheHeader(res, filePath) {
+  const name = path.basename(filePath)
+  if (/-[A-Za-z0-9_-]{8,}\.[A-Za-z0-9]+$/i.test(name)) {
+    res.setHeader("Cache-Control", "public, max-age=31536000, immutable")
+  }
+}
+
+app.use(express.static(path.join(__dirname, "dist"), { setHeaders: setPublicStaticCacheHeader }))
 app.get("/{*splat}", (_req, res) => res.sendFile(path.join(__dirname, "dist", "index.html")))
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
