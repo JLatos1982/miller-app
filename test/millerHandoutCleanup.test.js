@@ -6,9 +6,9 @@ const source = relative => readFileSync(new URL(relative, import.meta.url), "utf
 
 test("obsolete custom handout UI is gone while Email Results and pre-made lists remain", () => {
   const app = source("../src/App.jsx")
-  const map = source("../src/map/ServiceMap.jsx")
+  const mapPath = new URL("../src/map/ServiceMap.jsx", import.meta.url)
   assert.doesNotMatch(app, /AddToHandoutButton|HandoutBuilder|setIsHandoutOpen|>\s*Handout\s*</)
-  assert.doesNotMatch(map, /AddToHandoutButton|dispatchHandout|getResourceKey/)
+  assert.equal(existsSync(mapPath), false)
   assert.match(app, /Email these results/)
   assert.match(app, /<PreMadeLists/)
   assert.equal(existsSync(new URL("../src/handout/HandoutBuilder.jsx", import.meta.url)), false)

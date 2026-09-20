@@ -1,4 +1,4 @@
-import { validCoordinate } from "../map/geography.js"
+import { validCoordinate } from "./geography.js"
 
 export function eligiblePublicLocation(resource, publicMapResources) {
   if (resource?.id == null || resource.virtual_service === true || resource.mobile_service === true) return null

@@ -2,7 +2,7 @@ import rawResources from "../src/vancouver_resources_merged_updated.json" with {
 import practicalSupports from "../src/data/miller-practical-supports-public-v1.json" with { type: "json" }
 import millerFunding from "../src/data/miller-funding-assistance-public-v1.json" with { type: "json" }
 import sharedResourceRegistry from "../src/data/miller-shared-resource-registry-v1.json" with { type: "json" }
-import { stableCuratedResourceId } from "../src/map/mapChat.js"
+import { stableCuratedResourceId } from "../src/stableResourceId.js"
 import {
   buildMillerPublicationSafeResourceCorpus,
 } from "../src/millerPublicSearchResources.js"

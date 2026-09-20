@@ -17,6 +17,7 @@ const gaps = [
 const roleLabels = Object.freeze({
   measured_disparity: "Measured disparity",
   documented_structural_barrier: "Documented barrier",
+  accountability_finding: "Accountability finding",
   institutional_response: "Institutional response",
   implementation: "Implementation",
   measured_outcome: "Measured outcome",
@@ -59,7 +60,7 @@ function FollowUpCard({ followUp }) {
 
 export default function MillerNorthAccessEquity() {
   const { findings, suggested_follow_ups: followUps } = ACCESS_EQUITY_PUBLIC_PROJECTION
-  const whatWeKnow = findings.filter(finding => ["measured_disparity", "documented_structural_barrier"].includes(finding.role))
+  const whatWeKnow = findings.filter(finding => ["measured_disparity", "documented_structural_barrier", "accountability_finding"].includes(finding.role))
   const institutionalResponses = findings.filter(finding => ["institutional_response", "implementation"].includes(finding.role))
   return <main className="mn-public-page mn-access-equity-page">
     <header className="mn-public-header"><MillerNorthHomeLink/><MillerNorthPublicNav current="access_equity" /></header>

@@ -51,7 +51,7 @@ const PROVINCES = Object.freeze({
 const INTENT_TERMS = Object.freeze({
   housing: ["housing", "shelter", "homeless", "supportive housing", "recovery housing"],
   detox: ["detox", "withdrawal", "withdrawal management"],
-  treatment: ["treatment", "residential", "outpatient", "rehab", "recovery program", "supportive recovery", "raac", "rapid access addiction medicine"],
+  treatment: ["treatment", "residential", "outpatient", "rehab", "recovery program", "supportive recovery", "raac", "raam", "rapid access addiction medicine"],
   oat: ["oat", "opioid agonist", "methadone", "suboxone", "sublocade", "buprenorphine"],
   counselling: ["counselling", "counseling", "therapy"],
   harm_reduction: ["harm reduction", "naloxone", "overdose prevention", "safer use"],
@@ -63,6 +63,7 @@ const INTENT_TERMS = Object.freeze({
   vision_support: ["vision", "optical", "glasses", "eye exam"],
   funding: ["funding", "financial assistance", "benefit", "benefits", "subsidy", "grant"],
   mental_health: ["mental health", "counselling", "psychiatric", "crisis"],
+  safe_beds: ["safe bed", "safe beds", "crisis stabilization"],
   basic_needs: ["basic needs", "food", "clothing", "identification", "income"],
   transportation: ["transportation", "transport", "medical travel", "transit", "ride"],
   reentry: ["corrections reentry", "re entry", "reentry", "reintegration", "release planning"],
@@ -76,7 +77,7 @@ const INTENT_TERMS = Object.freeze({
 const INTENT_LABELS = Object.freeze({
   housing: "Housing", detox: "Detox", treatment: "Treatment", oat: "Opioid agonist treatment",
   counselling: "Counselling", harm_reduction: "Harm reduction", meetings: "Peer support",
-  legal: "Legal navigation", funding: "Funding support", mental_health: "Mental-health support",
+  legal: "Legal navigation", funding: "Funding support", mental_health: "Mental-health support", safe_beds: "Safe-bed crisis stabilization",
   recreation_support: "Recreation support", emergency_support: "Emergency support",
   dental_support: "Dental support", vision_support: "Vision support",
   basic_needs: "Basic needs", transportation: "Transportation", reentry: "Re-entry support",
@@ -172,7 +173,16 @@ function cityFor(resource) {
 
 function detectedLocation(query, resources) {
   const haystack = ` ${normalized(query)} `
-  const cities = [...new Set([...resources.map(cityFor).filter(Boolean), ...Object.keys(MILLER_CANADIAN_LOCATION_PROVINCES)])]
+  // New canonical resources frequently carry their physical community through
+  // normalized access locations rather than a legacy record-level city field.
+  // Include those public, fixed-site city labels in location detection so a
+  // newly verified small-community pathway is eligible for the same local
+  // ranking as older records. This deliberately reads only public access
+  // locations; it does not turn a regional claim into a fixed site.
+  const accessLocationCities = resources.flatMap(resource => Array.isArray(resource?.accessLocations)
+    ? resource.accessLocations.map(accessLocation => clean(accessLocation?.city)).filter(Boolean)
+    : [])
+  const cities = [...new Set([...resources.map(cityFor).filter(Boolean), ...accessLocationCities, ...Object.keys(MILLER_CANADIAN_LOCATION_PROVINCES)])]
     .sort((left, right) => right.length - left.length)
   const match = cities.find(city => haystack.includes(` ${normalized(city)} `)) || ""
   if (!match || !Object.hasOwn(MILLER_CANADIAN_LOCATION_PROVINCES, normalized(match))) return match
@@ -221,6 +231,18 @@ function intentSearchText(resource) {
   ].map(clean).join(" ")
 }
 
+function directIntentSearchText(resource) {
+  // Access instructions can mention another service as a referral option.
+  // Keep that helpful prose searchable, but do not let it redefine the
+  // program's own clinical identity for an explicit specialty query.
+  return [
+    resource?.name,
+    resource?.serviceType,
+    resource?.category,
+    ...(resource?.tags || []),
+  ].map(clean).join(" ")
+}
+
 function matchesAnyIntent(resource, intents) {
   if (!intents.length) return true
   const text = intentSearchText(resource)
@@ -234,6 +256,12 @@ const HEALTHCARE_ADJACENT_QUERY_TERMS = Object.freeze([
   "medical travel", "health system navigation",
 ])
 
+function healthcareAdjacentQueryMatch(resource, query) {
+  if (resource?.resourceLayer !== "healthcare_adjacent_support") return false
+  const resourceText = intentSearchText(resource)
+  return HEALTHCARE_ADJACENT_QUERY_TERMS.some(term => includesTerm(query, term) && includesTerm(resourceText, term))
+}
+
 function healthcareAdjacentRelevant(resource, query, intents) {
   if (resource?.resourceLayer !== "healthcare_adjacent_support") return true
   const queryText = normalized(query)
@@ -245,8 +273,13 @@ function healthcareAdjacentRelevant(resource, query, intents) {
 
 function directlyRepresentsIntent(resource, intent) {
   if (!intent) return true
-  const text = [resource?.name, resource?.serviceType, resource?.category, ...(resource?.tags || [])].map(clean).join(" ")
-  return (INTENT_TERMS[intent] || []).some(term => includesTerm(text, term))
+  const text = directIntentSearchText(resource)
+  if ((INTENT_TERMS[intent] || []).some(term => includesTerm(text, term))) return true
+  // A verified local addiction/withdrawal intake can be the frontline entry
+  // pathway for an explicit OAT request even when the public facility page
+  // does not promise or name OAT itself. This only affects prioritization of
+  // a fixed local pathway; it does not label the service as OAT.
+  return intent === "oat" && /addiction|substance use|withdrawal/.test(normalized(`${resource?.description || ""} ${resource?.population || ""} ${resource?.accessType || ""} ${text}`))
 }
 
 function scopeFor(resource) {
@@ -268,10 +301,27 @@ function scopeFor(resource) {
   }
 }
 
+function isVariableOrNonfixedAccessLocation(accessLocation) {
+  const type = normalized(accessLocation?.type)
+  // A scheduled distribution can still be a fixed, useful site (for example a
+  // food bank with weekly hours). Exclude mobile/variable routes and stops,
+  // but retain a type that explicitly identifies a fixed scheduled site.
+  return /\b(mobile|variable)\b/.test(type) || (/\bscheduled\b/.test(type) && !/\bfixed\b/.test(type))
+}
+
 function physicallyLocatedIn(resource, location) {
   if (!location) return false
   const scope = scopeFor(resource)
-  return normalized(scope.physical_location?.community) === normalized(location)
+  if (normalized(scope.physical_location?.community) === normalized(location)) return true
+  // Canonical access locations are the public, normalized representation of a
+  // program's fixed client sites. Treat them as genuinely local for ranking,
+  // while leaving scheduled/mobile stops out so a variable route is never
+  // turned into a permanent local clinic.
+  if (scope.virtual || scope.navigation_only) return false
+  return (resource?.accessLocations || []).some(accessLocation => {
+    return normalized(accessLocation?.city) === normalized(location)
+      && !isVariableOrNonfixedAccessLocation(accessLocation)
+  })
 }
 
 function servesLocation(resource, location) {
@@ -338,8 +388,29 @@ function scoreResource(resource, { query, location, province, categories, intent
   if (province && resourceProvince === province) score += 28
   if (resourceProvince === "Canada-wide") score += 4
   if (readiness?.mobile_ready) score += 18
+  // A query naming a specific continuity-of-care need (for example wound
+  // care) should retain the matching supporting service when a larger
+  // verified clinical layer would otherwise crowd it out. This remains
+  // query-gated and does not promote adjacent services for ordinary
+  // addiction searches.
+  if (healthcareAdjacentQueryMatch(resource, query)) score += 300
   if (/\bfamil(?:y|ies)\b/.test(normalized(query)) && /family|caregiver|loved one/.test(normalized(intentText))) score += 42
   if (/indigenous|first nations|métis|metis|inuit/.test(normalized(query)) && /indigenous|first nations|métis|metis|inuit/.test(normalized(intentText))) score += 42
+  // When a query expressly asks for a young person, prioritize a pathway
+  // whose published population is youth. Conversely, a youth-only route
+  // should not displace a local general/adult pathway for an age-unspecified
+  // addiction request merely because both mention substance use. This is a
+  // relevance adjustment only: youth pathways remain available in results.
+  const queryText = normalized(query)
+  const youthQuery = /\b(?:youth|teen|teens|adolescent|adolescents|child|children|young person|young people)\b/.test(queryText)
+  const youthSpecific = /\b(?:youth|teen|teens|adolescent|adolescents|child|children)\b/.test(normalized(`${resource?.serviceType || ""} ${resource?.name || ""} ${(resource?.tags || []).join(" ")}`))
+  if (youthQuery && youthSpecific) score += 42
+  if (!youthQuery && youthSpecific) score -= 30
+  // A query explicitly asking for mobile outreach should favor an actually
+  // mobile pathway over a fixed program that merely offers referrals. This
+  // is a relevance adjustment only; the result card still states whether
+  // the route is variable and requires current confirmation.
+  if (/\bmobile\b/.test(normalized(query)) && /\bmobile\b/.test(normalized(intentText))) score += 30
   if (intents.length && !intentMatched) score -= 100
   else if (intents.length > 1 && !primaryIntentMatched) score -= 40
   return score
@@ -358,6 +429,20 @@ function compactSource(resource) {
 function normalizedCard(resource, readiness, location = "") {
   const source = compactSource(resource)
   const scope = scopeFor(resource)
+  // A program can be correctly modeled without a single parent street address
+  // while still having a verified normalized fixed access location. When a
+  // requested community matches one of those sites, surface that actual site
+  // on the card rather than leaving a misleading "located here" label with no
+  // physical location detail. Variable/scheduled/mobile stops remain excluded.
+  const localAccessLocation = !scope.physical_location && location && !scope.virtual && !scope.navigation_only
+    ? (resource?.accessLocations || []).find(accessLocation => normalized(accessLocation?.city) === normalized(location)
+      && !isVariableOrNonfixedAccessLocation(accessLocation))
+    : null
+  const cardPhysicalLocation = scope.physical_location || (localAccessLocation ? {
+    community: clean(localAccessLocation.city),
+    address: clean(localAccessLocation.address),
+    province: clean(localAccessLocation.province || provinceFor(resource)),
+  } : null)
   const relationship = locationRelationship(resource, location)
   return {
     canonical_id: clean(resource.id),
@@ -370,10 +455,10 @@ function normalizedCard(resource, readiness, location = "") {
     city: cityFor(resource),
     region: clean(resource.region),
     address: clean(resource.address),
-    physical_location: scope.physical_location ? {
-      community: clean(scope.physical_location.community),
-      address: clean(scope.physical_location.address),
-      province: clean(scope.physical_location.province),
+    physical_location: cardPhysicalLocation ? {
+      community: clean(cardPhysicalLocation.community),
+      address: clean(cardPhysicalLocation.address),
+      province: clean(cardPhysicalLocation.province),
     } : null,
     local_service_area: scope.local_service_area,
     regional_service_area: scope.regional_service_area,
@@ -507,23 +592,45 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
     : withoutExcludedIntents
   const location = request.location || (request.ignore_detected_location ? "" : detectedQueryLocation)
   const locationResource = location
-    ? resources.find(resource => normalized(cityFor(resource)) === normalized(location))
+    ? resources.find(resource => normalized(cityFor(resource)) === normalized(location) || physicallyLocatedIn(resource, location))
     : null
   const locationProvince = locationResource ? provinceFor(locationResource) : ""
   const province = request.province || (request.ignore_detected_location ? "" : detectedProvince(request.query)) || locationProvince || provinceForLocation(location)
   const rawIntents = detectMillerPracticalIntents(request.query)
   const intents = rawIntents.filter(intent => !request.excluded_intents.includes(intent))
+  const explicitRaamQuery = /\b(?:raam|rapid access addiction medicine)\b/i.test(effectiveQuery)
   if (rawIntents.length && !intents.length) throw new Error("effective_intent_required")
   const evaluatedAt = now()
   const readiness = buildMobileReadinessIndex(resources, { now: evaluatedAt })
   const ranked = resources
     .filter(resource => healthcareAdjacentRelevant(resource, effectiveQuery, intents))
     .map(resource => ({ resource, score: scoreResource(resource, { ...request, query: effectiveQuery, location, province, intents, readiness: readiness.get(clean(resource.id)) }) }))
-    .filter(item => item.score > 10 && matchesAnyIntent(item.resource, intents))
+    // Keep a verified fixed local addiction/withdrawal intake in contention for
+    // an explicit local OAT request even when its public wording does not name
+    // OAT. This is an access-ranking exception, not an assertion that the
+    // service itself provides OAT; the card continues to show only its
+    // source-backed description and intake instructions.
+    .filter(item => item.score > 10 && (matchesAnyIntent(item.resource, intents)
+      || healthcareAdjacentQueryMatch(item.resource, effectiveQuery)
+      || (location && isExactLocationResource(item.resource, location) && directlyRepresentsIntent(item.resource, intents[0]))))
     .sort((left, right) => right.score - left.score || clean(left.resource.name).localeCompare(clean(right.resource.name)))
-  const exactLocation = ranked.filter(({ resource }) => resource?.navigationOnly !== true && isExactLocationResource(resource, location) && directlyRepresentsIntent(resource, intents[0]))
+  const exactLocation = ranked.filter(({ resource }) => resource?.navigationOnly !== true
+    && isExactLocationResource(resource, location)
+    && directlyRepresentsIntent(resource, intents[0])
+    // A general counselling or navigation record can mention a separate RAAM
+    // in its access instructions. For an explicit RAAM query, that incidental
+    // reference must not outrank the actual local RAAM pathway.
+    && (!explicitRaamQuery || /\b(?:raam|rapid access addiction medicine)\b/i.test(normalized(directIntentSearchText(resource)))))
+  // Keep the stricter measure for the coverage message: a local
+  // addiction/withdrawal intake may be the best first referral for OAT, but
+  // it must not be presented as a verified local OAT clinic unless the
+  // service's published fields actually match the OAT intent.
+  const explicitIntentExactLocation = ranked.filter(({ resource }) => resource?.navigationOnly !== true
+    && isExactLocationResource(resource, location)
+    && matchesAnyIntent(resource, intents)
+    && (!explicitRaamQuery || /\b(?:raam|rapid access addiction medicine)\b/i.test(normalized(directIntentSearchText(resource)))))
   const directlyRelevant = ranked.filter(({ resource }) => {
-    if (isExactLocationResource(resource, location)) return true
+    if (isExactLocationResource(resource, location)) return !explicitRaamQuery || /\b(?:raam|rapid access addiction medicine)\b/i.test(normalized(directIntentSearchText(resource)))
     if (servesLocation(resource, location)) return true
     return !location && (!province || [province, "Canada-wide"].includes(provinceFor(resource)))
   })
@@ -541,15 +648,29 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
   const localNavigationFallback = location
     ? navigationFallback.filter(({ resource }) => servesLocation(resource, location))
     : []
+  // For an explicit community query, a verified fixed/local pathway that
+  // directly represents the requested service must lead broader regional or
+  // province-wide coverage. `exactLocation` is deliberately intent-gated, so
+  // this does not override age, eligibility, or service-type matching.
+  const prioritizedDirectlyRelevant = location && exactLocation.length
+    ? [...exactLocation, ...directlyRelevant.filter(item => !exactLocation.some(exact => exact.resource === item.resource))]
+    : directlyRelevant
   const orderedNavigationFallback = [
     ...localNavigationFallback,
     ...navigationFallback.filter(item => !localNavigationFallback.some(existing => existing.resource === item.resource)),
   ]
   const basePool = location && !request.broaden_nearby
-    ? [...directlyRelevant, ...orderedNavigationFallback.filter(item => !directlyRelevant.some(existing => existing.resource === item.resource))]
+    ? [...prioritizedDirectlyRelevant, ...orderedNavigationFallback.filter(item => !prioritizedDirectlyRelevant.some(existing => existing.resource === item.resource))]
     : geographicallyRelevant
   const pool = basePool.length ? basePool : ranked.length ? ranked : orderedNavigationFallback
-  const selectedItems = pool.slice(0, request.limit)
+  // Preserve a directly matching healthcare-adjacent route in the finite
+  // result window for an explicitly related query. The normal addiction
+  // search has no such match, so it remains focused on core services.
+  const matchingAdjacent = pool.filter(item => healthcareAdjacentQueryMatch(item.resource, effectiveQuery))
+  const presentationPool = matchingAdjacent.length
+    ? [...matchingAdjacent, ...pool.filter(item => !matchingAdjacent.includes(item))]
+    : pool
+  const selectedItems = presentationPool.slice(0, request.limit)
   const selected = selectedItems.map(item => item.resource)
   const serviceAreaMatches = ranked.filter(({ resource }) => !isExactLocationResource(resource, location) && servesLocation(resource, location))
   const intelligence = buildMillerPracticalIntelligence({
@@ -572,16 +693,16 @@ export function buildMillerMobileSearchResponse(input, catalog, { now = () => ne
   })
   const searchScope = {
     exact_location_matches: exactLocation.length,
-    physical_location_matches: exactLocation.length,
+    physical_location_matches: explicitIntentExactLocation.length,
     service_area_matches: serviceAreaMatches.length,
-    no_verified_local_facility: Boolean(location && exactLocation.length === 0),
+    no_verified_local_facility: Boolean(location && explicitIntentExactLocation.length === 0),
     geography_broadened: request.broaden_nearby,
     mode: !location
       ? province ? "province" : "canadian_foundation"
       : request.broaden_nearby ? "broadened_nearby"
         : exactLocation.length ? "local_first"
           : serviceAreaMatches.length ? "regional_pathway" : "navigation_only",
-    message: location && exactLocation.length === 0
+    message: location && explicitIntentExactLocation.length === 0
       ? `I didn't find a verified ${clean(intelligence.primary_intent || "service").replaceAll("_", " ")} facility physically located in ${location} in Miller's current data. ${serviceAreaMatches.length ? "The regional services and intake options below serve the community or can help identify the appropriate option." : `Verified ${province || "provincial"} navigation options are included instead.`}`
       : request.broaden_nearby
         ? `Results were broadened beyond ${location} using verified service areas and other ${province || "provincial"} options.`

@@ -1,7 +1,7 @@
 import { lazy, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
 import "./App.css"
 import rawResources from "./vancouver_resources_merged_updated.json"
-import { supabase } from "./supabaseClient"
+import { supabase } from "./publicAuthDisabled.js"
 import millerClassic from "./assets/miller_classic.png"
 import millerJade from "./assets/miller_jade.png"
 import millerViolet from "./assets/miller_violet.png"
@@ -19,11 +19,9 @@ import backgroundRose from "./assets/background_rose.png"
 import backgroundNorth from "./assets/background_north.png"
 import justinPortrait from "./assets/Justin.png"
 import { MILLER_COPY } from "./interfaceCopy.js"
-import { adminFetch, getAdminAccessState } from "./adminApi.js"
-import { clearAuthCallbackFromUrl, hasAuthCallbackParams, requestAdminMagicLink } from "./adminAuthFlow.js"
 import { safeEmailAddress, safeHttpUrl } from "./safeLinks.js"
 import { submitResource, trackEvent } from "./publicApi.js"
-import { stableCuratedResourceId } from "./map/mapChat.js"
+import { stableCuratedResourceId } from "./stableResourceId.js"
 import { normalizedResourceRows } from "./resourceData.js"
 import {
   MILLER_THEME_LEGACY_INDEX_STORAGE_KEY,
@@ -53,16 +51,25 @@ import { buildMillerPracticalIntelligence } from "./millerPracticalIntelligence.
 import { conciseResourceDescription } from "./millerResultPresentation.js"
 import { accessLocationHeading, publicAccessLocation } from "./navigatorPresentation.js"
 
-const PendingLocationReview = lazy(() => import("./admin/AdminIntelligenceReview.jsx"))
-const ShelterCandidateReview = lazy(() => import("./admin/ShelterCandidateReview.jsx"))
-const CuratedListManager = lazy(() => import("./admin/CuratedListManager.jsx"))
-const PdfDocumentManager = lazy(() => import("./admin/PdfDocumentManager.jsx"))
-const ResearchPlanner = lazy(() => import("./admin/ResearchPlanner.jsx"))
-const SystemHealth = lazy(() => import("./admin/SystemHealth.jsx"))
-const MillerNorthIncidentReview = lazy(() => import("./admin/MillerNorthIncidentReview.jsx"))
+// The public build deliberately has no owner or administrator entry point.
+// These inert placeholders retain the shared presentation component's shape
+// while the route guards below make the operational views unreachable.
+const PrivateSurface = () => null
+const getAdminAccessState = async () => null
+const clearAuthCallbackFromUrl = () => {}
+const hasAuthCallbackParams = () => false
+const requestAdminMagicLink = async () => ({ error: new Error("Administrator access is not available in the public build.") })
+const adminFetch = async () => ({ ok: false, json: async () => ({ error: "Administrator access is not available in the public build." }) })
+const PendingLocationReview = PrivateSurface
+const ShelterCandidateReview = PrivateSurface
+const CuratedListManager = PrivateSurface
+const PdfDocumentManager = PrivateSurface
+const ResearchPlanner = PrivateSurface
+const SystemHealth = PrivateSurface
+const MillerNorthIncidentReview = PrivateSurface
 const PreMadeLists = lazy(() => import("./lists/PreMadeLists.jsx"))
-const ServiceMap = lazy(() => import("./map/ServiceMap.jsx"))
-const DirectoryHealthAuditBackPage = lazy(() => import("./owner/DirectoryHealthAuditBackPage.jsx"))
+const ServiceMap = PrivateSurface
+const DirectoryHealthAuditBackPage = PrivateSurface
 const IndigenousHealthcareEvidence = lazy(() => import("./site/IndigenousHealthcareEvidence.jsx"))
 const MillerNorthLiveListening = lazy(() => import("./site/MillerNorthLiveListening.jsx"))
 const MillerNorthEmergingCases = lazy(() => import("./site/MillerNorthEmergingCases.jsx"))
@@ -785,9 +792,9 @@ function mobileCardToWebResource(card) {
 }
 
 function App() {
-  const isAdminRoute = typeof window !== "undefined" && window.location.pathname.startsWith("/admin")
-  const isMillerNorthAdminRoute = typeof window !== "undefined" && window.location.pathname === "/admin/miller-north"
-  const isOwnerRoute = typeof window !== "undefined" && window.location.pathname === "/owner/directory-health-audit"
+  const isAdminRoute = false
+  const isMillerNorthAdminRoute = false
+  const isOwnerRoute = false
   const isInternalRoute = isAdminRoute || isOwnerRoute
   const normalizedResources = useMemo(() => dedupeResources(buildMillerPublicationSafeResourceCorpus({
     canonicalResources: cleanResources(rawResources),

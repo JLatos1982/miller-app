@@ -102,7 +102,7 @@ export default function IndigenousHealthcareEvidence() {
   }
 
   return <main className="ihe-page" aria-labelledby="ihe-title">
-    <header className="ihe-header"><MillerNorthHomeLink className="ihe-back"/><MillerNorthPublicNav current="evidence"/><p className="ihe-eyebrow">Search &amp; Evidence · reviewed public records</p><h1 id="ihe-title">First Nations Healthcare Evidence</h1><p className="ihe-lede">Search reviewed reports, research, policy documents, incidents and accountability work about racism, discrimination, and related harmful or inequitable First Nations healthcare experiences.</p></header>
+    <header className="ihe-header"><MillerNorthHomeLink className="ihe-back"/><MillerNorthPublicNav current="evidence"/><p className="ihe-eyebrow">Search &amp; Evidence · reviewed public records</p><h1 id="ihe-title">First Nations Healthcare Evidence</h1><p className="ihe-lede">Miller North is an independent, public-source library. Search reviewed reports, research, policy documents, incidents and accountability work about racism, discrimination, and related harmful or inequitable First Nations healthcare experiences. It separates what sources establish from questions that remain unresolved, and includes practical Supports &amp; Funding.</p></header>
     <MillerNorthStartHere />
     <aside className="mn-public-note"><strong>Accountability Snapshot</strong><p>Compare how selected complaint and review routes are publicly described in B.C., Alberta and Saskatchewan—including what their public reporting still does not show.</p><a href="/indigenous-healthcare-evidence/accountability-snapshot">Open the three-province snapshot →</a></aside>
     <MillerNorthRecentlyChanged />

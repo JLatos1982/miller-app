@@ -202,6 +202,9 @@ export function sharedCanonicalMillerResource(record = {}, accessLocations = [])
     ? [record.transportation.delivery, record.transportation.eligible_trip_types, record.transportation.travel_modes].map(text).filter(Boolean).join(" · ")
     : ""
   const scope = record.service_scope && typeof record.service_scope === "object" ? record.service_scope : {}
+  const languageVariants = record.language_variants && typeof record.language_variants === "object"
+    ? record.language_variants
+    : {}
   return {
     id: text(record.canonical_resource_id),
     kind: text(record.record_type) || "service",
@@ -251,6 +254,7 @@ export function sharedCanonicalMillerResource(record = {}, accessLocations = [])
     resourceLayer: text(record.resource_layer || "core"),
     workflowRelevance: Array.isArray(record.workflow_relevance) ? record.workflow_relevance.map(text).filter(Boolean) : [],
     languages: Array.isArray(record.languages) ? record.languages.map(text).filter(Boolean) : [],
+    languageVariants,
     searchLocations: [...new Set([
       ...(Array.isArray(scope.search_locations) ? scope.search_locations : []),
       ...(Array.isArray(scope.local_service_area) ? scope.local_service_area : []),
@@ -287,6 +291,8 @@ export function buildSharedCanonicalMillerResources(records = [], accessLocation
 }
 
 export function millerResourceSearchText(resource) {
+  const languageVariantText = Object.values(resource?.languageVariants || {})
+    .flatMap(variant => variant && typeof variant === "object" ? Object.values(variant) : [variant])
   return [
     resource?.name,
     resource?.organization,
@@ -309,6 +315,7 @@ export function millerResourceSearchText(resource) {
     ...(resource?.tags || []),
     ...(resource?.workflowRelevance || []),
     ...(resource?.languages || []),
+    ...languageVariantText,
     ...(resource?.searchLocations || []),
     ...(resource?.accessLocations || []).flatMap(location => [location.name, location.address, location.city, location.province, location.accessRole]),
     ...(resource?.collectionLinks || []).map(link => link.label),

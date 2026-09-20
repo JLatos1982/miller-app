@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "test": "node scripts/run-production-tests.mjs",
     "preview": "vite preview",
-    "samwise:treaty6:build-beta": "node scripts/build-treaty6-procurement-beta-v1.mjs"
+    "check:server": "node --check server.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.102.1",

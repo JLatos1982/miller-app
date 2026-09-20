@@ -11,23 +11,23 @@ import { filterMillerNorthSupports } from "../src/site/millerNorthSupportFilters
 import { buildMillerCountLayers, normalizeSharedResource, projectSharedResources, validateSharedResourceRegistry } from "../server/sharedResourceRegistry.js"
 
 test("shared public registry validates and preserves distinct project projections", () => {
-  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 666, miller_only: 542, miller_north_only: 38, both: 86, access_locations: 125 })
+  assert.deepEqual(validateSharedResourceRegistry(registry), { valid: true, total: 1361, miller_only: 1237, miller_north_only: 38, both: 86, access_locations: 612 })
   assert.equal(registry.records.filter(record => !record.province).length, 0)
   const creekside = registry.records.find(record => record.canonical_resource_id === "curated:1ldala")
   assert.equal(creekside.service_scope.physical_location.community, "Surrey")
   assert.ok(creekside.service_scope.regional_service_area.includes("Burnaby"))
   assert.equal(creekside.service_scope.navigation_only, false)
-  assert.equal(projectSharedResources(registry, "miller").length, 628)
+  assert.equal(projectSharedResources(registry, "miller").length, 1323)
   assert.equal(projectSharedResources(registry, "miller_north").length, 124)
 })
 
 test("count layers remain explicit and access locations never inflate program totals", () => {
   assert.deepEqual(buildMillerCountLayers({ registry, publicationSafeMobileCount: 815 }), {
-    canonical_programs: 666,
-    miller_shared_projection: 628,
+    canonical_programs: 1361,
+    miller_shared_projection: 1323,
     miller_north_practical_projection: 124,
     publication_safe_mobile_corpus: 815,
-    canonical_access_locations: 125,
+    canonical_access_locations: 612,
   })
   assert.throws(() => buildMillerCountLayers({ registry, publicationSafeMobileCount: "unknown" }), /invalid_publication_safe_mobile_count/)
 })

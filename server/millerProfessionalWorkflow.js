@@ -7,6 +7,7 @@ const NEED_LABELS = Object.freeze({
   oat: "Opioid agonist treatment",
   counselling: "Counselling",
   mental_health: "Mental-health support",
+  safe_beds: "Safe-bed crisis stabilization",
   housing: "Housing",
   transportation: "Transportation",
   funding: "Cost or funding",
@@ -85,7 +86,7 @@ function resourceText(resource) {
 const MATCH_TERMS = Object.freeze({
   detox: ["detox", "withdrawal"], treatment: ["treatment", "residential", "outpatient"],
   oat: ["oat", "opioid agonist", "methadone", "suboxone", "buprenorphine"],
-  counselling: ["counselling", "counseling", "therapy"], mental_health: ["mental health", "crisis", "psychiatric"],
+  counselling: ["counselling", "counseling", "therapy"], mental_health: ["mental health", "crisis", "psychiatric"], safe_beds: ["safe bed", "safe beds", "crisis stabilization"],
   housing: ["housing", "shelter", "homeless"], transportation: ["transportation", "medical travel", "transit", "ride"],
   funding: ["funding", "financial", "benefit", "low cost", "free"], legal: ["legal", "tenancy", "rights", "advocacy"],
   recreation_support: ["recreation", "leisure", "sport", "aquatic"],

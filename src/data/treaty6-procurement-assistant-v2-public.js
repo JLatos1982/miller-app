@@ -57,7 +57,7 @@ export const treaty6ProcurementAssistantV2 = Object.freeze({
   generated_at: verifiedAt,
   disclosures: [
     "Beta — this data is still being refined.",
-    "Samwise monitors public procurement sources, buyer activity and supplier pathways. A watch entry reflects public capability overlap, not confirmed qualification or bid advice.",
+    "Miller presents public procurement sources, buyer activity and supplier pathways. A watch entry reflects public capability overlap, not confirmed qualification or bid advice.",
     "Always confirm deadlines, eligibility and full requirements with the official procurement source.",
   ],
   sections: {

@@ -11,8 +11,8 @@ const productionTests = [
   "test/millerProfessionalWorkflow.test.js",
   "test/sharedResourceRegistry.test.js",
   "test/masterList.test.js",
-  "test/treaty6ProcurementBeta.test.js",
-  "test/treaty6ProcurementChangeMonitor.test.js",
+  "test/publicReleaseIntegrity.test.js",
+  "test/publicServerBoundary.test.js",
 ]
 
 const result = spawnSync(process.execPath, ["--test", ...productionTests], {

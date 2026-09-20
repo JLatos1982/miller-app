@@ -1,4 +1,7 @@
-import { isOriginalMillerPublicResource } from "./farmPublicationRouting.js"
+// Public projection rule retained locally so the registry has no operational
+// routing dependency. A resource is public only when it is explicitly visible
+// to Miller and has passed active verification.
+const isOriginalMillerPublicResource = record => record?.project_visibility?.includes("miller") && record?.verification_status === "verified_active"
 
 const PRIVATE_FIELD = /^(?:owner|private|internal|candidate|review_note|patient|complainant|confidence)/i
 const ACTIVE_FUNDING = new Set(["open", "recurring", "upcoming", "contact_to_confirm", "intake_unknown", "verify_before_applying", "paused"])

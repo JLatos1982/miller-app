@@ -5,7 +5,7 @@ import rawResources from "../src/vancouver_resources_merged_updated.json" with {
 import practicalSupports from "../src/data/miller-practical-supports-public-v1.json" with { type: "json" }
 import funding from "../src/data/miller-funding-assistance-public-v1.json" with { type: "json" }
 import sharedRegistry from "../src/data/miller-shared-resource-registry-v1.json" with { type: "json" }
-import { stableCuratedResourceId } from "../src/map/mapChat.js"
+import { stableCuratedResourceId } from "../src/stableResourceId.js"
 import { normalizedResourceRows } from "../src/resourceData.js"
 import { buildMillerPublicationSafeResourceCorpus } from "../src/millerPublicSearchResources.js"
 
@@ -27,7 +27,8 @@ test("Master List consumes the shared publication-safe corpus, including practic
   assert.equal(bladeRunners.collectionLinks[0].href, "/practical-supports")
   assert.ok(bladeRunners.id)
   assert.ok(!Object.hasOwn(bladeRunners, "private_notes"))
-  assert.equal(resources.length, 897)
+  // The Canada-wide registry release deliberately increases the public corpus.
+  assert.equal(resources.length, 1584)
   assert.equal(new Set(resources.map(resource => resource.id)).size, resources.length)
   assert.match(fs.readFileSync(new URL("../src/lists/PreMadeLists.jsx", import.meta.url), "utf8"), /Master List/)
   assert.match(fs.readFileSync(new URL("../src/lists/PreMadeLists.jsx", import.meta.url), "utf8"), /slug === "master-list"/)

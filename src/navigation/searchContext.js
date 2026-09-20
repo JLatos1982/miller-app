@@ -1,4 +1,4 @@
-import { distanceKm } from "../map/geography.js"
+import { distanceKm } from "./geography.js"
 import { eligiblePublicLocation } from "./navigation.js"
 const SUPPORT_TERMS = { counselling: ["counselling", "counseling", "therapy"], "substance use support": ["substance use", "addiction"], "withdrawal management": ["withdrawal", "detox"], "harm reduction": ["harm reduction", "naloxone"] }
 export function deterministicRelevance(resource, intent) {
