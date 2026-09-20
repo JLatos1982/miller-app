@@ -22,3 +22,18 @@ test("public server exposes deterministic health/search and no private routes", 
   assert.ok(searchPayload.direct_results.length + searchPayload.broader_alternatives.length > 0)
   for (const path of ["/api/admin/session", "/api/integrations/samwise/status", "/api/internal/maintenance-scheduler/tick", "/admin/login", "/owner/directory-health-audit"]) assert.equal((await request(path)).status, 404, path)
 })
+
+test("public companion keeps contextual guidance alongside deterministic national cards", async () => {
+  const search = await request("/api/miller", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ interface: "main", query: "I’m looking for addiction counselling in Newfoundland", city: "All Cities" }),
+  })
+  assert.equal(search.status, 200)
+  const payload = await search.json()
+  assert.ok(payload.results.length > 0)
+  assert.match(payload.message, /Newfoundland and Labrador/i)
+  assert.match(payload.message, /addiction counselling/i)
+  assert.match(payload.message, /verified options/i)
+  assert.doesNotMatch(payload.message, /^Sounds like you’re looking for counselling or someone to talk with\.?$/)
+})

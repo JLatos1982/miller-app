@@ -10,6 +10,7 @@ import {
   buildMillerMobileSearchResponse,
 } from "./server/millerMobileApi.js"
 import { millerMobileCatalog } from "./server/millerMobileCatalog.js"
+import { buildMillerCompanionResponse } from "./server/millerCompanionResponse.js"
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const app = express()
@@ -118,7 +119,7 @@ app.post("/api/miller", mobileSearchRateLimit, (req, res) => {
     const response = buildMillerMobileSearchResponse({ query: req.body?.query, location: req.body?.city === "All Cities" ? "" : req.body?.city, limit: 20 }, millerMobileCatalog)
     return res.json({
       contractVersion: "1.0", mode: req.body?.interface || "main",
-      message: response.guidance?.interpretation || "Here are verified Miller resources that may help.",
+      message: buildMillerCompanionResponse({ query: req.body?.query, response }),
       results: response.results, searchIntent: response.interpreted?.primary_intent || null,
       locationContext: { status: response.interpreted?.location ? "community" : "none", label: response.interpreted?.location || "" },
       searchStrategy: { deterministic: true, externalSearchNotice: "" }, tavilyResults: [], searchHints: {},
