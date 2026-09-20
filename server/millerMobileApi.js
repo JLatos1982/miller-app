@@ -5,6 +5,7 @@ import { buildMobileReadinessIndex, mobileReadinessSummary } from "./millerMobil
 import { MILLER_CANADIAN_COMMUNITY_SERVICE_AREAS, MILLER_CANADIAN_LOCATION_LABELS, MILLER_CANADIAN_LOCATION_PROVINCES, MILLER_COVERAGE_MATURITY } from "./millerWesternCommunities.js"
 import { buildMillerAccessPathway, decomposeMillerProfessionalNeeds, explainMillerProfessionalResults, millerProfessionalWorkflowIntent, recommendedMillerPackIds } from "./millerProfessionalWorkflow.js"
 import { createMillerTavilySearcher } from "./millerExternalSearch.js"
+import { buildMillerCompanionGuidance } from "./millerCompanionResponse.js"
 import { accessLocationHeading, accessLocationPurpose } from "../src/navigatorPresentation.js"
 
 export const MILLER_MOBILE_API_VERSION = "miller-mobile-search-v1"
@@ -814,7 +815,7 @@ export async function buildMillerHybridSearchResponse(input, catalog, {
     : { attempted: false, status: "not_needed", cache_status: "not_used", latency_ms: 0, results: [], estimated_cost_usd: 0, cost_status: "not_incurred" }
   const verifiedResults = internal.results.map(resource => ({ ...resource, result_origin: "verified_miller", external_label: "" }))
   const results = [...verifiedResults, ...(external.results || [])]
-  return Object.freeze({
+  const hybrid = {
     ...internal,
     result_count: results.length,
     returned_count: results.length,
@@ -847,6 +848,21 @@ export async function buildMillerHybridSearchResponse(input, catalog, {
     source_policy: external.attempted
       ? "verified_miller_resources_plus_clearly_labeled_external_discovery"
       : "verified_original_miller_practical_resources_only",
+  }
+  const composedGuidance = buildMillerCompanionGuidance({ query: request.query, response: hybrid })
+  const guidance = {
+    title: composedGuidance.title,
+    interpretation: composedGuidance.interpretation,
+    context: composedGuidance.context,
+    next_step: composedGuidance.next_step,
+    access_note: composedGuidance.access_note,
+    navigation_note: composedGuidance.navigation_note,
+    related_collections: composedGuidance.related_collections,
+    safeguards: composedGuidance.safeguards,
+  }
+  return Object.freeze({
+    ...hybrid,
+    guidance,
   })
 }
 

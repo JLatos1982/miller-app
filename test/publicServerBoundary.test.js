@@ -10,6 +10,14 @@ async function request(path, options = {}) {
   try { return await fetch(`http://127.0.0.1:${port}${path}`, options) } finally { await new Promise(resolve => server.close(resolve)) }
 }
 
+const guidanceText = guidance => [
+  guidance?.interpretation,
+  guidance?.context,
+  guidance?.next_step,
+  guidance?.access_note,
+  guidance?.navigation_note,
+].filter(Boolean).join(" ")
+
 test("public server exposes deterministic health/search and no private routes", async () => {
   const health = await request("/api/health")
   assert.equal(health.status, 200)
@@ -36,6 +44,36 @@ test("public companion keeps contextual guidance alongside deterministic nationa
   assert.match(payload.message, /addiction counselling/i)
   assert.match(payload.message, /verified options/i)
   assert.doesNotMatch(payload.message, /^Sounds like you’re looking for counselling or someone to talk with\.?$/)
+})
+
+test("web and mobile compose equivalent public companion guidance for Canada-wide requests", async () => {
+  const cases = [
+    { query: "I’m looking for addiction counselling in Newfoundland", expected: /Newfoundland and Labrador/i },
+    { query: "dépendance à Montréal", expected: /Montréal/i },
+    { query: "addiction counselling in Montréal", expected: /Montréal/i },
+  ]
+  for (const { query, expected } of cases) {
+    const web = await request("/api/miller", {
+      method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({ interface: "main", query, city: "All Cities" }),
+    })
+    const mobile = await request("/api/mobile/v1/search", {
+      method: "POST", headers: { "content-type": "application/json" },
+      body: JSON.stringify({ query, limit: 20 }),
+    })
+    assert.equal(web.status, 200, query)
+    assert.equal(mobile.status, 200, query)
+    const webPayload = await web.json()
+    const mobilePayload = await mobile.json()
+    assert.equal(mobilePayload.contract, "miller-mobile-search-v1")
+    assert.equal(webPayload.message, guidanceText(mobilePayload.guidance), query)
+    assert.match(mobilePayload.guidance.interpretation, expected, query)
+    assert.deepEqual(
+      webPayload.results.filter(result => result.result_origin === "verified_miller").map(result => result.canonical_id),
+      mobilePayload.results.filter(result => result.result_origin === "verified_miller").map(result => result.canonical_id),
+      query,
+    )
+  }
 })
 
 test("fingerprinted public assets cache safely while the HTML shell remains current", () => {

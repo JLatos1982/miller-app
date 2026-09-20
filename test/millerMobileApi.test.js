@@ -5,10 +5,12 @@ import { millerMobileCatalog } from "../server/millerMobileCatalog.js"
 import {
   buildMillerMobileInventory,
   buildMillerMobileSharePack,
+  buildMillerHybridSearchResponse,
   buildMillerMobileSearchResponse,
   MILLER_MOBILE_API_VERSION,
   validateMillerMobileSearchRequest,
 } from "../server/millerMobileApi.js"
+import { buildMillerCompanionResponse } from "../server/millerCompanionResponse.js"
 
 const fixedNow = () => new Date("2026-09-08T12:00:00.000Z")
 
@@ -91,6 +93,35 @@ test("mobile search returns compact verified Miller resources and practical guid
   assert.ok(response.results.every(resource => Object.hasOwn(resource, "mobile_ready")))
   assert.match(response.guidance.interpretation, /detox|withdrawal/i)
   assert.equal(response.source_policy, "verified_original_miller_practical_resources_only")
+})
+
+test("sparse external fallback uses the same public companion composition without changing its mobile contract", async () => {
+  const externalResult = {
+    canonical_id: "external:public-sparse-lead",
+    name: "Official sparse-community counselling page",
+    province: "Nunavut",
+    city: "",
+    region: "Nunavut",
+    result_origin: "external",
+    verified_status: "external_unverified",
+    external_label: "External result — not yet verified by Miller",
+    access_note: "Check the source directly for current access information.",
+  }
+  const response = await buildMillerHybridSearchResponse(
+    { query: "counselling in a sparse community", search_more_broadly: true, limit: 5 },
+    [],
+    {
+      now: fixedNow,
+      externalSearcher: { search: async () => ({ attempted: true, status: "completed", cache_status: "miss", latency_ms: 1, results: [externalResult], estimated_cost_usd: 0, cost_status: "not_incurred" }) },
+    },
+  )
+  const guidanceText = [response.guidance.interpretation, response.guidance.context, response.guidance.next_step, response.guidance.access_note, response.guidance.navigation_note].filter(Boolean).join(" ")
+  assert.equal(response.contract, MILLER_MOBILE_API_VERSION)
+  assert.equal(response.results[0].result_origin, "external")
+  assert.equal(response.results[0].verified_status, "external_unverified")
+  assert.match(response.guidance.context, /broader public lead/i)
+  assert.match(response.guidance.context, /not yet verified by Miller/i)
+  assert.equal(buildMillerCompanionResponse({ query: "counselling in a sparse community", response }), guidanceText)
 })
 
 test("mobile city detection does not depend on an existing city record and OAT matching is token bounded", () => {

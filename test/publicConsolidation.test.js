@@ -7,7 +7,7 @@ import {
   isCanonicalPracticalResource,
   millerCanonicalPublicResources,
 } from "../src/millerCanonicalPublicCatalog.js"
-import { buildMillerCompanionResponse } from "../server/millerCompanionResponse.js"
+import { buildMillerCompanionGuidance, buildMillerCompanionResponse } from "../server/millerCompanionResponse.js"
 
 const source = path => readFileSync(new URL(path, import.meta.url), "utf8")
 
@@ -48,10 +48,27 @@ test("companion keeps external fallback findings visibly unverified", () => {
     query: "housing in a small community",
     response: {
       interpreted: { primary_intent: "housing", province: "Ontario" },
-      results: [{ name: "Official community page", result_origin: "external_discovery", location_label: "Ontario" }],
+      results: [{ name: "Official community page", result_origin: "external", location_label: "Ontario", verified_status: "external_unverified" }],
       guidance: { next_step: "Check the source directly for current access information." },
     },
   })
   assert.match(message, /broader public lead/i)
   assert.match(message, /not yet verified by Miller/i)
+})
+
+test("web message and structured mobile guidance use one public-only composition", () => {
+  const input = {
+    query: "I’m looking for addiction counselling in Newfoundland",
+    response: {
+      interpreted: { primary_intent: "counselling", province: "Newfoundland and Labrador" },
+      results: [{ name: "Newfoundland and Labrador HealthLine", province: "Newfoundland and Labrador", result_origin: "verified_miller" }],
+      guidance: { title: "Miller’s guide", access_note: "Call first to confirm current intake.", safeguards: ["Confirm current access."] },
+    },
+  }
+  const guidance = buildMillerCompanionGuidance(input)
+  assert.equal(buildMillerCompanionResponse(input), guidance.message)
+  assert.match(guidance.interpretation, /Newfoundland and Labrador/i)
+  assert.match(guidance.interpretation, /addiction counselling/i)
+  assert.match(guidance.context, /HealthLine/)
+  assert.match(guidance.next_step, /confirm current intake/i)
 })
