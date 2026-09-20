@@ -1,6 +1,5 @@
 import { lazy, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
 import "./App.css"
-import rawResources from "./vancouver_resources_merged_updated.json"
 import { supabase } from "./publicAuthDisabled.js"
 import millerClassic from "./assets/miller_classic.png"
 import millerJade from "./assets/miller_jade.png"
@@ -21,8 +20,6 @@ import justinPortrait from "./assets/Justin.png"
 import { MILLER_COPY } from "./interfaceCopy.js"
 import { safeEmailAddress, safeHttpUrl } from "./safeLinks.js"
 import { submitResource, trackEvent } from "./publicApi.js"
-import { stableCuratedResourceId } from "./stableResourceId.js"
-import { normalizedResourceRows } from "./resourceData.js"
 import {
   MILLER_THEME_LEGACY_INDEX_STORAGE_KEY,
   MILLER_THEME_NAME_STORAGE_KEY,
@@ -42,10 +39,6 @@ import { MILLER_CLASSIC_READING_WALK_DURATION, millerClassicWalkStep, nextMiller
 import { millerCharacterInteraction } from "./companion/millerCompanionAdapter.js"
 import { millerCharacterPose } from "./companion/millerCharacterInteractionThemes.js"
 import { journeyKeyframes, journeyPointInHost, mayAnimateResultsJourney, MILLER_RESULTS_JOURNEY, resultSceneMinimumHeight, snapshotJourneyRect, walkingJourneyKeyframes } from "./companion/millerResultsJourney.js"
-import practicalSupports from "./data/miller-practical-supports-public-v1.json"
-import millerFunding from "./data/miller-funding-assistance-public-v1.json"
-import sharedResourceRegistry from "./data/miller-shared-resource-registry-v1.json"
-import { buildMillerPublicationSafeResourceCorpus, millerResourceSearchText } from "./millerPublicSearchResources.js"
 import { publicCounsellingPractitioners } from "./data/publicCounsellingPractitioners.js"
 import { buildMillerPracticalIntelligence } from "./millerPracticalIntelligence.js"
 import { conciseResourceDescription } from "./millerResultPresentation.js"
@@ -55,6 +48,7 @@ import { accessLocationHeading, publicAccessLocation } from "./navigatorPresenta
 // These inert placeholders retain the shared presentation component's shape
 // while the route guards below make the operational views unreachable.
 const PrivateSurface = () => null
+const EMPTY_PUBLIC_RESOURCES = Object.freeze([])
 const getAdminAccessState = async () => null
 const clearAuthCallbackFromUrl = () => {}
 const hasAuthCallbackParams = () => false
@@ -312,73 +306,6 @@ function safeNotes() {
   return ""
 }
 
-function getField(resource, keys) {
-  for (const key of keys) {
-    const value = resource[key]
-    if (value !== undefined && value !== null && String(value).trim() !== "") {
-      return String(value).trim()
-    }
-  }
-  return ""
-}
-
-function cleanResources(rows) {
-  return normalizedResourceRows(rows).map((row) => {
-    const cleaned = {}
-
-    for (const [key, value] of Object.entries(row)) {
-      const cleanKey = String(key).replace(/^\uFEFF/, "").trim()
-      cleaned[cleanKey] = value
-    }
-
-    const normalized = {
-      name: getField(cleaned, ["Resource Name", "Name", "name"]) || "Unnamed Resource",
-      organization: getField(cleaned, ["Organization", "organization"]),
-      serviceType: getField(cleaned, ["Service Type", "serviceType"]),
-      category: getField(cleaned, ["Program Category", "category"]),
-      population: getField(cleaned, ["Population", "population"]),
-      eligibility: getField(cleaned, ["Age / Eligibility", "eligibility"]),
-      description: getField(cleaned, ["Description", "description"]),
-      accessType: getField(cleaned, ["Access Type", "accessType"]),
-      hours: getField(cleaned, ["Hours", "hours"]),
-      phone: getField(cleaned, ["Phone", "phone"]),
-      altPhone: getField(cleaned, ["Alt Phone", "altPhone"]),
-      email: getField(cleaned, ["Email", "email"]),
-      website: getField(cleaned, ["Website", "website"]),
-      address: getField(cleaned, ["Address", "address"]),
-      city: getField(cleaned, ["City", "city"]),
-      region: getField(cleaned, ["Region", "region"]),
-      notes: getField(cleaned, ["Notes", "notes"]),
-      fundingType: getField(cleaned, ["Funding Type", "funding_type"]),
-      source: getField(cleaned, ["source"]) || "curated",
-      approved: getField(cleaned, ["approved"]) === "false" ? false : true,
-      latitude: getField(cleaned, ["latitude"]),
-      longitude: getField(cleaned, ["longitude"]),
-      virtual_service: getField(cleaned, ["virtual_service"]) === "true",
-      mobile_service: getField(cleaned, ["mobile_service"]) === "true",
-      public_map: getField(cleaned, ["public_map"]) !== "false",
-      verification_status: getField(cleaned, ["verification_status", "geocode_status"]),
-      location_last_verified: getField(cleaned, ["location_last_verified"]),
-    }
-    return { ...normalized, id: getField(cleaned, ["id"]) || stableCuratedResourceId(normalized) }
-  })
-}
-
-function buildSearchText(resource) {
-  return `${millerResourceSearchText(resource)} ${resource.altPhone || ""} ${resource.email || ""} ${resource.notes || ""}`.toLowerCase().replace(/\s+/g, " ")
-}
-
-function dedupeResources(resources) {
-  const seen = new Set()
-
-  return resources.filter((resource) => {
-    const key = `${resource.name}|${resource.city}|${resource.organization}`.toLowerCase()
-    if (seen.has(key)) return false
-    seen.add(key)
-    return true
-  })
-}
-
 function inferCategoriesFromQuery(query) {
   const search = normalizeText(query)
   if (!search) return []
@@ -420,171 +347,11 @@ function isTreatmentSearch(query, inferredCategories = []) {
   )
 }
 
-function shouldHideFromDetoxResults(resource, query, inferredCategories = []) {
-  if (!isDetoxSearch(query, inferredCategories)) return false
-
-  const name = normalizeText(resource.name)
-  const category = normalizeText(resource.category)
-  const serviceType = normalizeText(resource.serviceType)
-  const description = normalizeText(resource.description)
-
-  const isSusat =
-    name.includes("susat") ||
-    name.includes("substance use services access team")
-
-  const isTreatmentOnly =
-    category.includes("treatment") ||
-    category.includes("recovery home") ||
-    category.includes("fnha treatment centre") ||
-    serviceType.includes("residential treatment") ||
-    serviceType.includes("recovery home") ||
-    serviceType.includes("supportive recovery")
-
-  const onlyMentionsDetoxSupport =
-    description.includes("detox support") &&
-    !category.includes("detox") &&
-    !serviceType.includes("withdrawal")
-
-  return isSusat || isTreatmentOnly || onlyMentionsDetoxSupport
-}
-
-function applySearchSafetyFilters(resources, query, inferredCategories = []) {
-  return resources.filter(
-    (resource) => !shouldHideFromDetoxResults(resource, query, inferredCategories)
-  )
-}
-
 function getResultLimit(query, inferredCategories = []) {
   if (isTreatmentSearch(query, inferredCategories)) return 40
   if (isDetoxSearch(query, inferredCategories)) return 24
   if (inferredCategories.length > 0) return 20
   return 16
-}
-
-function extractKeywordTokens(query) {
-  return uniqueStrings(
-    normalizeText(query)
-      .split(/\s+/)
-      .filter((token) => token && token.length > 2 && !STOP_WORDS.has(token))
-  )
-}
-
-function expandTerms(query, categories = [], aiHints = null) {
-  const terms = [...extractKeywordTokens(query)]
-
-  for (const category of categories) {
-    const aliases = CATEGORY_ALIASES[category] || []
-    terms.push(...aliases.map((item) => normalizeText(item)))
-    terms.push(normalizeText(category))
-  }
-
-  if (aiHints?.keywords?.length) {
-    terms.push(...aiHints.keywords.map((item) => normalizeText(item)))
-  }
-
-  return uniqueStrings(terms).filter(Boolean)
-}
-
-function cityMatches(resource, selectedCity) {
-  if (selectedCity === "All Cities") return true
-  if (normalizeText(resource.city) === normalizeText(selectedCity)) return true
-  if ((resource.searchLocations || []).some(location => normalizeText(location) === normalizeText(selectedCity))) return true
-  return resource.provinceWide === true
-}
-
-function scoreResource(resource, query, selectedCity, options = {}) {
-  const search = normalizeText(query)
-  const text = buildSearchText(resource)
-  const name = normalizeText(resource.name)
-  const organization = normalizeText(resource.organization)
-  const serviceType = normalizeText(resource.serviceType)
-  const category = normalizeText(resource.category)
-  const city = normalizeText(resource.city)
-
-  const inferredCategories = options.inferredCategories || []
-  const aiHints = options.aiHints || null
-  const terms = expandTerms(query, inferredCategories, aiHints)
-
-  let score = 0
-
-  if (selectedCity !== "All Cities" && city === normalizeText(selectedCity)) {
-    score += 40
-  }
-
-  if (!search) {
-    if (selectedCity === "All Cities") return 1
-    return city === normalizeText(selectedCity) ? 50 : 0
-  }
-
-  if (text.includes(search)) score += 100
-  if (name.includes(search)) score += 150
-  if (organization.includes(search)) score += 50
-  if (serviceType.includes(search)) score += 45
-  if (category.includes(search)) score += 60
-  if (city.includes(search)) score += 30
-
-  for (const term of terms) {
-    if (!term) continue
-    if (text.includes(term)) score += 12
-    if (name.includes(term)) score += 26
-    if (organization.includes(term)) score += 12
-    if (serviceType.includes(term)) score += 18
-    if (category.includes(term)) score += 20
-  }
-
-  if (inferredCategories.length > 0) {
-    for (const inferred of inferredCategories) {
-      const normalizedCategory = normalizeText(inferred)
-      if (category === normalizedCategory) score += 110
-      else if (category.includes(normalizedCategory)) score += 70
-      else if (serviceType.includes(normalizedCategory)) score += 40
-    }
-  }
-
-  if (aiHints) {
-    const suggestedCategories = (aiHints.categories || []).map((item) => normalizeText(item))
-    const suggestedNames = (aiHints.recommendedResourceNames || []).map((item) =>
-      normalizeText(item)
-    )
-    const suggestedKeywords = (aiHints.keywords || []).map((item) => normalizeText(item))
-
-    if (suggestedNames.includes(name)) score += 250
-
-    for (const suggestedCategory of suggestedCategories) {
-      if (category === suggestedCategory) score += 130
-      else if (category.includes(suggestedCategory)) score += 75
-    }
-
-    for (const keyword of suggestedKeywords) {
-      if (!keyword) continue
-      if (text.includes(keyword)) score += 18
-      if (name.includes(keyword)) score += 22
-    }
-  }
-
-if (resource.source === "tavily") {
-  score += 25
-}
-
-if (resource.approved) {
-  score += 140
-}
-
-  return score
-}
-
-function sortResources(resources, query, selectedCity, options = {}) {
-  return [...resources].sort((a, b) => {
-    const scoreA = scoreResource(a, query, selectedCity, options)
-    const scoreB = scoreResource(b, query, selectedCity, options)
-
-    if (scoreB !== scoreA) return scoreB - scoreA
-
-    const cityCompare = (a.city || "").localeCompare(b.city || "")
-    if (cityCompare !== 0) return cityCompare
-
-    return (a.name || "").localeCompare(b.name || "")
-  })
 }
 
 function uniqueResourceObjects(resources) {
@@ -625,44 +392,6 @@ function uniqueResourceObjects(resources) {
     seen.add(key)
     return true
   })
-}
-
-function buildCandidatePack(resources, query, selectedCity) {
-  const inferredCategories = inferCategoriesFromQuery(query)
-
-  const cityPool = resources.filter((resource) => cityMatches(resource, selectedCity))
-
-  let scored = sortResources(cityPool, query, selectedCity, {
-    inferredCategories,
-  }).filter((resource) => scoreResource(resource, query, selectedCity, { inferredCategories }) > 0)
-
-  scored = applySearchSafetyFilters(scored, query, inferredCategories)
-
-  if (scored.length < 12 && inferredCategories.length > 0) {
-    const categoryFallback = cityPool.filter((resource) =>
-      inferredCategories.some(
-        (category) =>
-          normalizeText(resource.category) === normalizeText(category) ||
-          normalizeText(resource.category).includes(normalizeText(category))
-      )
-    )
-
-    scored = uniqueResourceObjects([...scored, ...categoryFallback])
-    scored = applySearchSafetyFilters(scored, query, inferredCategories)
-    scored = sortResources(scored, query, selectedCity, { inferredCategories })
-  }
-
-  if (scored.length === 0 && !query.trim()) {
-    scored = sortResources(cityPool, query, selectedCity, { inferredCategories })
-  }
-
-  const candidates = scored.slice(0, 24)
-
-  return {
-    inferredCategories,
-    candidates,
-    candidatePool: scored,
-  }
 }
 
 function shortenTitle(text, max = 60) {
@@ -784,7 +513,7 @@ function mobileCardToWebResource(card) {
     fundingType: card.funding_note,
     transportationNote: card.transportation_note,
     collectionLinks: card.collection_links || [],
-    source: "verified_miller",
+    source: card.result_origin === "external_discovery" ? "tavily" : "verified_miller",
     matchState: card.match_state,
     matchReasons: card.match_reasons || [],
     accessLocations: card.access_locations || [],
@@ -796,14 +525,11 @@ function App() {
   const isMillerNorthAdminRoute = false
   const isOwnerRoute = false
   const isInternalRoute = isAdminRoute || isOwnerRoute
-  const normalizedResources = useMemo(() => dedupeResources(buildMillerPublicationSafeResourceCorpus({
-    canonicalResources: cleanResources(rawResources),
-    practicalRecords: practicalSupports.records,
-    fundingRecords: millerFunding.records,
-    sharedRecords: sharedResourceRegistry.records,
-    sharedAccessLocations: sharedResourceRegistry.access_locations || [],
-  })), [])
-  const millerPracticalKnowledge = normalizedResources
+  // Search is server-backed against the public canonical registry. Keeping the
+  // 5 MB registry out of this initial route avoids a client-side merge and
+  // ensures the cards, companion, and API all read one ranked catalog.
+  const normalizedResources = EMPTY_PUBLIC_RESOURCES
+  const millerPracticalKnowledge = EMPTY_PUBLIC_RESOURCES
 
   const defaultReply = MILLER_COPY.searchIntro
 
@@ -1250,19 +976,6 @@ useEffect(() => {
     setQuery(nextValue)
   }
 
-  const cities = useMemo(() => {
-    const uniqueCities = Array.from(
-      new Set(
-        normalizedResources
-          .map((resource) => resource.city)
-          .filter(Boolean)
-          .map((city) => city.trim())
-      )
-    ).sort((a, b) => a.localeCompare(b))
-
-    return ["All Cities", ...uniqueCities]
-  }, [normalizedResources])
-
   function distanceToRef(event, ref) {
     if (!ref.current) return Infinity
 
@@ -1416,14 +1129,9 @@ trackEvent({
 })
 
     if (!trimmedQuery) {
-      const cityPool = normalizedResources.filter((resource) =>
-        cityMatches(resource, selectedCity)
-      )
-      const firstResults = sortResources(cityPool, "", selectedCity).slice(0, 24)
-
       setHasSearched(true)
-      setResults(firstResults)
-      setTotalMatches(cityPool.length)
+      setResults([])
+      setTotalMatches(0)
       setAiReply(MILLER_COPY.searchHint)
       setSearchContext({ intent: null, location: { status: "none" } })
       setSearchStrategy(null)
@@ -1433,25 +1141,16 @@ trackEvent({
       return
     }
 
-    const candidatePack = buildCandidatePack(normalizedResources, trimmedQuery, selectedCity)
-    const speechIntelligence = buildMillerPracticalIntelligence({
-      query: trimmedQuery,
-      results: candidatePack.candidatePool,
-      resources: millerPracticalKnowledge,
-    })
-    const speechMatches = uniqueResourceObjects([
-      ...candidatePack.candidatePool.slice(0, 14),
-      ...speechIntelligence.speech_resources,
-    ]).slice(0, 30)
-    const resultLimit = getResultLimit(trimmedQuery, candidatePack.inferredCategories)
+    const inferredCategories = inferCategoriesFromQuery(trimmedQuery)
+    const resultLimit = getResultLimit(trimmedQuery, inferredCategories)
 
     setHasSearched(true)
     setIsLoading(true)
     setCompanionSearchOutcome({ generation: companionGeneration, status: "pending" })
     emitCompanionIntent(MILLER_PRESENTATION_INTENTS.WORK_STARTED)
-    setResults(candidatePack.candidates.slice(0, resultLimit))
+    setResults([])
     setMatchPresentation(null)
-    setTotalMatches(candidatePack.candidatePool.length)
+    setTotalMatches(0)
 
     // Retrieve the deterministic presentation independently from the
     // conversational response. If the conversational service is unavailable,
@@ -1477,96 +1176,18 @@ trackEvent({
           conversationMemory: updatedMemory,
           conversationSummary,
           city: selectedCity,
-          inferredCategories: candidatePack.inferredCategories,
-          matches: speechMatches,
+          inferredCategories,
+          matches: [],
           sessionId,
         }))
-      const aiHints = data.searchHints || {}
       setSearchContext({ intent: data.searchIntent || null, location: data.locationContext || { status: "none" } })
       setSearchStrategy(data.searchStrategy || null)
 
-      const { data: approvedMemory = [] } =
-  await supabase
-    .from("tavily_resources")
-    .select("*")
-    .eq("approved", true)
-    .eq("hidden", false)
-    .limit(200)
-
-      const tavilyResults = data.tavilyResults || []
-
-      const filteredTavilyResults = tavilyResults.filter((resource) => {
-  const description = String(resource.description || "").trim()
-
-  const hasGoodDescription =
-    description.length >= 60
-
-  const hasPhone =
-    Boolean(resource.phone)
-
-  const hasWebsite =
-    Boolean(resource.website)
-
-  const looksUseful =
-    hasGoodDescription ||
-    hasPhone ||
-    hasWebsite
-
-  return looksUseful
-})
-
-      let rankedPool = sortResources(
-        candidatePack.candidatePool.length ? candidatePack.candidatePool : candidatePack.candidates,
-        trimmedQuery,
-        selectedCity,
-        {
-          inferredCategories: candidatePack.inferredCategories,
-          aiHints,
-        }
-      )
-
-      rankedPool = applySearchSafetyFilters(
-        rankedPool,
-        trimmedQuery,
-        candidatePack.inferredCategories
-      )
-
-      const localNames = new Set(
-  rankedPool.map((resource) =>
-    normalizeText(resource.name)
-  )
-)
-
-const preferredTavilyResults =
-  filteredTavilyResults.filter((resource) => {
-    const tavilyName =
-      normalizeText(resource.name)
-
-    return !Array.from(localNames).some((localName) =>
-      localName.includes(tavilyName) ||
-      tavilyName.includes(localName)
-    )
-  })
-
-const mergedResults = uniqueResourceObjects([
-  ...rankedPool,
-  ...approvedMemory,
-  ...preferredTavilyResults,
-])
-
-const rerankedResults = sortResources(
-  mergedResults,
-  trimmedQuery,
-  selectedCity,
-  {
-    inferredCategories: candidatePack.inferredCategories,
-    aiHints,
-  }
-)
-
-const finalResults = deterministicPresentation
+const verifiedResults = deterministicPresentation
   ? [...deterministicPresentation.direct_results, ...deterministicPresentation.broader_alternatives].map(mobileCardToWebResource)
-  : rerankedResults.slice(0, resultLimit)
+  : (data.results || []).filter(resource => resource.result_origin !== "external_discovery").map(mobileCardToWebResource)
+const externalResults = (data.tavilyResults || []).map(mobileCardToWebResource)
+const finalResults = uniqueResourceObjects([...verifiedResults, ...externalResults])
 
 setResults(finalResults)
 setSelectedResourceIds([])
@@ -1575,7 +1196,7 @@ setMatchPresentation(deterministicPresentation)
 setCompanionSearchOutcome({ generation: companionGeneration, status: finalResults.length ? "success" : "empty" })
 if (!finalResults.length) emitCompanionIntent(MILLER_PRESENTATION_INTENTS.SETTLE)
 
-setTotalMatches(rankedPool.length)
+setTotalMatches(finalResults.length)
 
 setAiReply(
   data.message ||
@@ -1595,23 +1216,13 @@ setConversationMemory((prev) =>
     } catch (error) {
       console.error(error)
 
-      let fallbackPool = sortResources(candidatePack.candidatePool, trimmedQuery, selectedCity, {
-        inferredCategories: candidatePack.inferredCategories,
-      })
-
-      fallbackPool = applySearchSafetyFilters(
-        fallbackPool,
-        trimmedQuery,
-        candidatePack.inferredCategories
-      )
-
       const fallbackResults = deterministicPresentation
         ? [...deterministicPresentation.direct_results, ...deterministicPresentation.broader_alternatives].map(mobileCardToWebResource)
-        : fallbackPool.slice(0, resultLimit)
+        : []
 
       setResults(fallbackResults)
       setSelectedResourceIds([])
-      setTotalMatches(deterministicPresentation ? fallbackResults.length : fallbackPool.length)
+      setTotalMatches(fallbackResults.length)
       setAiReply(MILLER_COPY.searchUnavailable)
       setSearchContext({ intent: null, location: { status: "none" } })
       setSearchStrategy(null)
@@ -2036,18 +1647,13 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
             </div>
 
             <div className="controls-row" ref={controlsRowRef}>
-              <select
+              <input
                 className="city-select"
-                aria-label="Filter resources by city"
-                value={selectedCity}
-                onChange={(event) => setSelectedCity(event.target.value)}
-              >
-                {cities.map((city) => (
-                  <option key={city} value={city}>
-                    {city}
-                  </option>
-                ))}
-              </select>
+                aria-label="Filter resources by city or province"
+                value={selectedCity === "All Cities" ? "" : selectedCity}
+                onChange={(event) => setSelectedCity(event.target.value || "All Cities")}
+                placeholder="City or province (optional)"
+              />
 
               <button type="submit" className="primary-button">
                 Search

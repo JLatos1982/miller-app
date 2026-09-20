@@ -111,18 +111,24 @@ app.post("/api/mobile/v1/search", mobileSearchRateLimit, async (req, res) => {
   } catch (error) { return invalidSearch(res, error) }
 })
 
-// The legacy web client already builds its local candidate pack. This compact
-// deterministic adapter preserves its public response contract without model,
-// database, admin, or operational dependencies.
-app.post("/api/miller", mobileSearchRateLimit, (req, res) => {
+// The web route uses the same canonical-first, bounded-external contract as
+// Navigator. It never relies on a browser-side registry or private state.
+app.post("/api/miller", mobileSearchRateLimit, async (req, res) => {
   try {
-    const response = buildMillerMobileSearchResponse({ query: req.body?.query, location: req.body?.city === "All Cities" ? "" : req.body?.city, limit: 20 }, millerMobileCatalog)
+    const response = await buildMillerHybridSearchResponse({
+      query: req.body?.query,
+      location: req.body?.city === "All Cities" ? "" : req.body?.city,
+      limit: 20,
+    }, millerMobileCatalog)
+    const externalResults = response.results.filter(resource => resource.result_origin === "external_discovery")
     return res.json({
       contractVersion: "1.0", mode: req.body?.interface || "main",
       message: buildMillerCompanionResponse({ query: req.body?.query, response }),
       results: response.results, searchIntent: response.interpreted?.primary_intent || null,
       locationContext: { status: response.interpreted?.location ? "community" : "none", label: response.interpreted?.location || "" },
-      searchStrategy: { deterministic: true, externalSearchNotice: "" }, tavilyResults: [], searchHints: {},
+      searchStrategy: response.search_strategy,
+      tavilyResults: externalResults,
+      searchHints: {},
     })
   } catch (error) { return invalidSearch(res, error) }
 })

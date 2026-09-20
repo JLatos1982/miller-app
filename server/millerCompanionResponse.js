@@ -32,8 +32,10 @@ export function buildMillerCompanionResponse({ query = "", response = {} } = {})
   const opening = location
     ? `I hear you — you’re looking for ${focus} support in ${location}.`
     : `I hear you — you’re looking for ${focus} support.`
-  const route = first
-    ? `I’ve put ${first.name}${resultPlace(first) ? ` (${resultPlace(first)})` : ""} at the front of the verified options to help you get oriented.`
+  const route = first?.result_origin === "external_discovery"
+    ? `I found ${first.name}${resultPlace(first) ? ` (${resultPlace(first)})` : ""} as a broader public lead. It is clearly marked as not yet verified by Miller, so check the source directly before relying on it.`
+    : first
+      ? `I’ve put ${first.name}${resultPlace(first) ? ` (${resultPlace(first)})` : ""} at the front of the verified options to help you get oriented.`
     : "I’ve kept the closest verified Miller options together below."
   const access = clean(guidance.access_note)
   const nextStep = clean(guidance.next_step)

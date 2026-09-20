@@ -11,6 +11,8 @@ const productionTests = [
   "test/millerProfessionalWorkflow.test.js",
   "test/sharedResourceRegistry.test.js",
   "test/masterList.test.js",
+  "test/publicConsolidation.test.js",
+  "test/millerHybridSearch.test.js",
   "test/publicReleaseIntegrity.test.js",
   "test/publicServerBoundary.test.js",
 ]
