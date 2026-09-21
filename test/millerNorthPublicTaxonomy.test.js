@@ -8,8 +8,8 @@ import {
   resolveMillerNorthPublicSection,
 } from "../src/site/millerNorthPublicTaxonomy.js"
 
-test("Miller North public navigation includes a distinct practical procurement section", () => {
-  assert.deepEqual(MILLER_NORTH_PUBLIC_SECTIONS.map(section => section.label), ["Evidence", "Incidents", "Accountability", "Access & Equity", "Watching", "Supports & Funding", "Procurement"])
+test("Miller North public navigation includes a distinct Treaty 6 business directory", () => {
+  assert.deepEqual(MILLER_NORTH_PUBLIC_SECTIONS.map(section => section.label), ["Evidence", "Incidents", "Accountability", "Access & Equity", "Watching", "Supports & Funding", "Treaty 6 Businesses"])
   assert.equal(new Set(MILLER_NORTH_PUBLIC_SECTIONS.map(section => section.href)).size, 7)
   assert.deepEqual(MILLER_NORTH_PUBLIC_SECTIONS.map(section => section.id), Object.keys(MILLER_NORTH_PUBLIC_PLACEMENT_RULES))
 })
@@ -21,7 +21,7 @@ test("legacy and supporting routes resolve to a stable public navigation context
   assert.equal(resolveMillerNorthPublicSection("access_equity"), "access_equity")
   assert.equal(resolveMillerNorthPublicSection("listening"), "watching")
   assert.equal(resolveMillerNorthPublicSection("funding"), "supports")
-  assert.equal(resolveMillerNorthPublicSection("procurement"), "procurement")
+  assert.equal(resolveMillerNorthPublicSection("procurement"), "treaty6_businesses")
 })
 
 test("public placement rules keep one primary home while search can span every type", () => {
@@ -31,7 +31,7 @@ test("public placement rules keep one primary home while search can span every t
   assert.equal(MILLER_NORTH_PUBLIC_PLACEMENT_RULES.access_equity.includes.includes("approved_structural_indicator"), true)
   assert.equal(MILLER_NORTH_PUBLIC_PLACEMENT_RULES.watching.includes.includes("pending_verdict"), true)
   assert.equal(MILLER_NORTH_PUBLIC_PLACEMENT_RULES.supports.includes.includes("funding_program"), true)
-  assert.equal(MILLER_NORTH_PUBLIC_PLACEMENT_RULES.procurement.includes.includes("procurement_opportunity"), true)
+  assert.equal(MILLER_NORTH_PUBLIC_PLACEMENT_RULES.treaty6_businesses.includes.includes("business_directory_entry"), true)
 
   const nav = readFileSync(new URL("../src/site/MillerNorthPublicNav.jsx", import.meta.url), "utf8")
   assert.doesNotMatch(nav, /Live Listening|Evidence Library|Research & Policy|Official records/)

@@ -1,0 +1,24 @@
+.treaty6-directory-page { --t6d-ink: #19363b; --t6d-accent: #316b5c; --t6d-paper: #f7f5ef; color: var(--t6d-ink); }
+.t6d-hero, .t6d-directory, .t6d-opportunities, .t6d-boundary { max-width: 1180px; margin: 0 auto; padding: 2.5rem 1.25rem; }
+.t6d-hero { padding-top: 4rem; background: linear-gradient(135deg, #e9f0e8, #f7f5ef); max-width: none; padding-left: max(1.25rem, calc((100% - 1180px) / 2)); padding-right: max(1.25rem, calc((100% - 1180px) / 2)); }
+.t6d-hero h1 { font-size: clamp(2.1rem, 5vw, 4rem); margin: .35rem 0 .8rem; }
+.t6d-hero p { max-width: 760px; font-size: 1.08rem; line-height: 1.65; }
+.t6d-kicker, .t6d-region { color: var(--t6d-accent); font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.t6d-heading { display: flex; align-items: end; justify-content: space-between; gap: 1rem; }
+.t6d-heading h2, .t6d-opportunities h2 { margin: .2rem 0 .35rem; }
+.t6d-filters { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+.t6d-filters label { display: grid; gap: .35rem; font-weight: 650; }
+.t6d-filters input, .t6d-filters select { box-sizing: border-box; width: 100%; border: 1px solid #99aaa5; border-radius: .35rem; padding: .65rem; background: #fff; color: inherit; }
+.t6d-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+.t6d-card { display: flex; flex-direction: column; gap: .7rem; padding: 1.15rem; background: #fff; border: 1px solid #d5ddd8; border-radius: .6rem; box-shadow: 0 1px 2px rgba(20, 47, 43, .06); }
+.t6d-card h3, .t6d-card p { margin: 0; }
+.t6d-nation { font-weight: 650; line-height: 1.45; }
+.t6d-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+.t6d-tags span { background: #e5eee9; border-radius: 999px; padding: .25rem .55rem; font-size: .82rem; }
+.t6d-card footer { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: auto; padding-top: .3rem; }
+.t6d-card a { color: #165748; font-weight: 700; }
+.t6d-opportunities { border-top: 1px solid #d5ddd8; }
+.t6d-empty { padding: 1rem; background: var(--t6d-paper); border-left: 4px solid var(--t6d-accent); line-height: 1.5; }
+.t6d-note { max-width: 760px; color: #425551; line-height: 1.55; }
+.t6d-boundary { border-top: 1px solid #d5ddd8; line-height: 1.55; }
+@media (max-width: 700px) { .t6d-hero, .t6d-directory, .t6d-opportunities, .t6d-boundary { padding: 1.75rem 1rem; } .t6d-filters { grid-template-columns: 1fr; } .t6d-heading { align-items: start; flex-direction: column; } }

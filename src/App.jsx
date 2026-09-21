@@ -78,7 +78,7 @@ const EmailResultsDialog = lazy(() => import("./site/EmailResultsDialog.jsx"))
 const MillerPracticalSupports = lazy(() => import("./site/MillerPracticalSupports.jsx"))
 const MillerFundingAssistance = lazy(() => import("./site/MillerFundingAssistance.jsx"))
 const MillerNavigatorLanding = lazy(() => import("./site/MillerNavigatorLanding.jsx"))
-const Treaty6ProcurementPreview = lazy(() => import("./site/Treaty6ProcurementPreview.jsx"))
+const Treaty6Businesses = lazy(() => import("./site/Treaty6Businesses.jsx"))
 
 const CATEGORY_ALIASES = {
   "Detox / Withdrawal": [
@@ -1543,8 +1543,8 @@ const millerImageStyle = activeCharacterInteraction?.poseOffsets?.[activeMillerP
     return <MillerNorthFirstNationsSupports />
   }
 
-  if (typeof window !== "undefined" && window.location.pathname === "/north/procurement") {
-    return <Treaty6ProcurementPreview />
+  if (typeof window !== "undefined" && ["/north/treaty6-businesses", "/north/procurement"].includes(window.location.pathname)) {
+    return <Treaty6Businesses />
   }
 
   if (typeof window !== "undefined" && window.location.pathname === "/indigenous-healthcare-evidence") {
